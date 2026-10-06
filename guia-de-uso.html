@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia de uso · The VOID</title>
+<meta name="description" content="Guia de uso da marca The VOID Tattoo Academy (sistema Sala Escura v1): 36 pedidos prontos por público, cada um com o que pedir, o que sai, a seção do manual que manda e o arquivo a abrir.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<!-- THE VOID · GUIA DE USO · sistema Sala Escura v1 · 06/10/2026
+     Pedidos prontos por público. Nenhuma regra nova mora aqui: cada pedido aponta para a
+     seção do manual que manda e para o arquivo que produz a peça. -->
+<style>
+/* ---------- guia de uso (prefixo g-) ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--sala);min-height:100vh;overflow-wrap:break-word}
+body.grao::after{position:fixed;z-index:0}
+h1,h2,h3,p,ul,ol,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+img{display:block}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em;color:var(--tela);overflow-wrap:anywhere}
+b,strong{font-weight:600;color:var(--tela)}
+a{color:var(--estacao-destaque);text-decoration:none;border-bottom:1px solid currentColor;transition:color var(--t-micro) var(--curva-cena)}
+a:hover{color:var(--tela)}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.ic-16{width:16px;height:16px}
+.pular{position:fixed;left:16px;top:8px;z-index:60;padding:12px 16px;background:var(--tela);color:var(--sala);border:0;transform:translateY(-200%)}
+.pular:focus{transform:none}
+.g-topo{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:var(--e-5);min-height:64px;padding:0 var(--e-5);background:var(--sala);border-bottom:1px solid var(--fio)}
+.g-topo-marca{display:flex;align-items:center;border:0;min-height:var(--alvo-toque)}
+.g-topo-marca img{height:24px;width:auto}
+.g-topo-nome{padding-left:var(--e-4);border-left:1px solid var(--fio);color:var(--tela)}
+.g-topo-links{display:flex;gap:var(--e-2);margin-left:auto}
+.g-topo-links a{display:inline-flex;align-items:center;gap:var(--e-2);min-height:var(--alvo-toque);padding:0 var(--e-4);border:1px solid var(--fio);color:var(--cal);font:700 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em;text-transform:uppercase}
+.g-topo-links a:hover{background:var(--bastidor);border-color:var(--fumaca);color:var(--tela)}
+main{position:relative;z-index:1}
+.g-wrap{max-width:calc(var(--conteudo) + 2 * var(--e-8));margin:0 auto;padding:0 var(--e-8)}
+.g-abertura{padding:var(--e-10) 0 var(--e-9);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.g-abertura .credito{margin-bottom:var(--e-5)}
+.g-abertura h1{max-width:14ch}
+.g-abertura-apoio{max-width:var(--coluna-leitura);margin-top:var(--e-6);font:400 var(--fs-chamada)/1.5 var(--font-texto);color:var(--cal)}
+.g-passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5);margin-top:var(--e-8);counter-reset:passo}
+.g-passos li{padding:var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-destaque);font:400 var(--fs-apoio)/1.5 var(--font-texto);color:var(--cal)}
+.g-passos b{display:block;margin-bottom:var(--e-2);font:600 var(--fs-inter)/1.15 var(--font-letreiro);color:var(--tela)}
+.g-passos li::before{counter-increment:passo;content:"0" counter(passo);display:block;margin-bottom:var(--e-3);font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;letter-spacing:.04em;color:var(--estacao-destaque)}
+.g-indice-sec{padding:var(--e-9) 0;border-top:1px solid var(--fio)}
+.g-indice-sec h2{margin-bottom:var(--e-6)}
+.g-indice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 var(--e-6);border-top:1px solid var(--fio)}
+.g-indice a{display:grid;grid-template-columns:40px minmax(0,1fr);gap:2px var(--e-3);padding:var(--e-4) 0;min-height:var(--alvo-toque);border:0;border-bottom:1px solid var(--fio);color:var(--cal)}
+.g-indice a:hover{background:var(--bastidor)}
+.g-indice b{font:600 19px/1.3 var(--font-letreiro);color:var(--tela)}
+.g-indice-r{grid-column:2;font:400 var(--fs-apoio)/1.4 var(--font-texto);color:var(--po)}
+.g-n{font:700 13px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;letter-spacing:.04em;color:var(--estacao-destaque)}
+.g-indice .g-n{grid-row:span 2;padding-top:4px}
+.g-sec{padding:var(--e-9) 0;border-top:1px solid var(--fio);background:radial-gradient(90% 520px at 8% 0%,rgb(248 249 244 / .05) 0%,rgb(248 249 244 / 0) 70%)}
+.folio{display:flex;justify-content:space-between;gap:var(--e-4);padding-bottom:var(--e-3);margin-bottom:var(--e-7);border-bottom:1px solid var(--fio);font-size:11px}
+.folio b{color:var(--estacao-destaque);font-weight:700}
+.g-sec-cabeca{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--e-6);align-items:start;margin-bottom:var(--e-7)}
+.g-sec-num{font-size:clamp(72px,9vw,128px);line-height:.78;color:var(--penumbra);user-select:none}
+.g-sec-sobre{margin-bottom:var(--e-3)}
+.g-sec-apoio{max-width:var(--coluna-leitura);margin-top:var(--e-4);font:400 var(--fs-chamada)/1.5 var(--font-texto);color:var(--cal)}
+.g-pedidos{display:grid;gap:var(--e-5)}
+.g-pedido{background:var(--bastidor);border:1px solid var(--fio)}
+.g-pedido-cabeca{display:flex;align-items:baseline;gap:var(--e-4);padding:var(--e-5) var(--e-6) 0}
+.g-pedido-n{flex:none;color:var(--estacao-destaque)}
+.g-pedido-t{font-size:var(--fs-inter);color:var(--tela)}
+.g-pedido-corpo{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--e-6);padding:var(--e-5) var(--e-6) var(--e-6)}
+.g-rot{display:flex;align-items:center;gap:var(--e-2);margin-bottom:var(--e-2);font-size:11px}
+.g-peca{display:flex;flex-direction:column;align-items:flex-start}
+.g-texto{width:100%;padding:var(--e-4) var(--e-5);background:var(--coxia);border-left:2px solid var(--estacao-destaque);font:400 17px/1.6 var(--font-texto);color:var(--tela)}
+.g-copiar{display:inline-flex;align-items:center;gap:var(--e-2);min-height:var(--alvo-toque);margin-top:var(--e-3);padding:0 var(--e-4);background:transparent;border:1px solid var(--fumaca);border-radius:0;cursor:pointer;font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.06em;text-transform:uppercase;color:var(--tela);transition:background var(--t-micro) var(--curva-cena)}
+.g-copiar:hover{background:var(--coxia)}
+.g-copiar:focus-visible,.g-topo-links a:focus-visible,a:focus-visible{outline:2px solid var(--areia);outline-offset:3px}
+.g-copiar[data-ok]{border-color:var(--sucesso);color:var(--sucesso)}
+.g-meta{display:grid;gap:var(--e-4);align-content:start}
+.g-meta dd{font:400 var(--fs-apoio)/1.55 var(--font-texto);color:var(--cal)}
+.g-links{display:grid;gap:6px}
+.g-links a{display:inline;border-bottom-color:rgb(219 197 163 / .4)}
+.g-links .g-n{margin-right:.6em}
+.g-arquivos a{color:var(--tela);border-bottom-color:var(--fumaca)}
+.g-pend{display:flex;gap:var(--e-2);align-items:flex-start;margin:0 var(--e-6) var(--e-5);padding-top:var(--e-3);border-top:1px solid var(--fio);font:400 14px/1.5 var(--font-texto);color:var(--po)}
+.g-pend .ic{margin-top:3px;color:var(--areia)}
+.g-fecho{padding:var(--e-9) 0 var(--e-7);border-top:1px solid var(--fio)}
+.g-fecho-grade{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--e-6);margin-top:var(--e-6)}
+.g-fecho-grade p{font:400 var(--fs-corpo)/1.65 var(--font-texto);color:var(--cal)}
+.g-fecho-grade .botao{margin-top:var(--e-5)}
+.g-creditos{margin-top:var(--e-9);padding-top:var(--e-5);border-top:1px solid var(--fio);text-align:center;line-height:2}
+.g-creditos span{white-space:nowrap}
+.g-creditos .sep{margin:0 .9em}
+.g-creditos b{color:var(--tela);font-weight:700}
+@media (max-width:900px){
+  .g-wrap{padding:0 var(--e-5)}
+  .g-passos{grid-template-columns:1fr}
+  .g-indice{grid-template-columns:1fr}
+  .g-pedido-corpo{grid-template-columns:1fr}
+  .g-fecho-grade{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .g-wrap{padding:0 var(--e-4)}
+  .g-topo{padding:0 var(--e-4);gap:var(--e-3)}
+  .g-topo-nome{display:none}
+  .folio span:first-child{display:none}
+  .g-topo-links a{padding:0 var(--e-3)}
+  .g-topo-links .g-esconde{display:none}
+  .g-abertura{padding:var(--e-9) 0 var(--e-8)}
+  .g-sec,.g-indice-sec{padding:var(--e-8) 0}
+  .g-sec-cabeca{grid-template-columns:1fr;gap:var(--e-3)}
+  .g-sec-num{font-size:64px}
+  .g-pedido-cabeca{flex-direction:column;gap:var(--e-2);padding:var(--e-4) var(--e-4) 0}
+  .g-pedido-corpo{padding:var(--e-4)}
+  .g-pend{margin:0 var(--e-4) var(--e-4)}
+  .g-copiar{width:100%;justify-content:center}
+  .g-creditos .sep-quebra{display:block;height:0;overflow:hidden}
+  .g-creditos .sep-pos{display:none}
+}
+@media (max-width:430px){.g-sec-apoio,.g-abertura-apoio{font-size:19px}.g-sec .titulo-secao,.g-indice-sec .titulo-secao,.g-fecho .titulo-secao{font-variation-settings:"wdth" 85}}
+/* regra de largura (4.3): primeiro estreita a letra, só depois reduz */
+@media (max-width:360px){.g-sec .titulo-secao{font-size:30px}}
+@media print{
+  .g-topo,.pular,.g-copiar{display:none}
+  :root{--grao-img:url(assets/textura/grao-240.webp)}
+  body{background:var(--sala);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .g-pedido{break-inside:avoid}
+  .g-sec{break-before:page}
+}
+</style>
+</head>
+<body class="grao">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="g-topo">
+  <a class="g-topo-marca" href="index.html" aria-label="The VOID Tattoo Academy, página de entrada do sistema"><img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt="The VOID Tattoo Academy"></a>
+  <p class="credito g-topo-nome">Guia de uso</p>
+  <nav class="g-topo-links" aria-label="Outros arquivos">
+    <a href="brand-book.html"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Manual</span></a>
+    <a href="index.html" class="g-esconde"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg><span>Arquivos</span></a>
+  </nav>
+</header>
+<main id="conteudo">
+  <section class="g-abertura" aria-labelledby="g-titulo">
+    <div class="g-wrap">
+      <p class="credito">Guia de uso · 36 pedidos em 10 públicos</p>
+      <h1 class="titulo-filme" id="g-titulo">Um pedido, <em class="off">uma peça</em></h1>
+      <p class="g-abertura-apoio">Cada pedido diz o que pedir, o que sai, a seção do manual que manda e o arquivo a abrir. As regras moram no manual; aqui só existe o atalho até elas.</p>
+      <ol class="g-passos">
+        <li><b>Ache o seu público</b>Social media, tráfego, design, comercial, atendimento, professores, vídeo, gráfica, desenvolvimento ou agentes de IA.</li>
+        <li><b>Copie e preencha</b>Troque o que está entre chaves pelo seu caso. Dado que a escola ainda não confirmou fica como <code>{{A_CONFIRMAR}}</code>.</li>
+        <li><b>Confira antes de sair</b>Abra a seção indicada e passe a peça pelo <a href="brand-book.html#s07-1">checklist de aprovação</a>.</li>
+      </ol>
+    </div>
+  </section>
+  <section class="g-indice-sec" aria-labelledby="g-indice-t">
+    <div class="g-wrap">
+      <p class="credito" style="margin-bottom:16px">Por público</p>
+      <h2 class="titulo-secao" id="g-indice-t">Quem pede <em class="off">o quê</em></h2>
+      <ol class="g-indice"><li><a href="#g01"><span class="g-n">01</span><b>Social media</b><span class="g-indice-r">Feed, carrossel, story e marco de aluno.</span></a></li><li><a href="#g02"><span class="g-n">02</span><b>Tráfego pago</b><span class="g-indice-r">Anúncio, landing page, teste e prova.</span></a></li><li><a href="#g03"><span class="g-n">03</span><b>Design</b><span class="g-indice-r">Logotipo, selo, campo de produto e contraste.</span></a></li><li><a href="#g04"><span class="g-n">04</span><b>Comercial e WhatsApp</b><span class="g-indice-r">Mensagem por etapa, turma, proposta e objeção.</span></a></li><li><a href="#g05"><span class="g-n">05</span><b>Atendimento</b><span class="g-indice-r">Boas-vindas, primeiro dia e dados da escola.</span></a></li><li><a href="#g06"><span class="g-n">06</span><b>Professores</b><span class="g-indice-r">Feedback, marcos e certificado.</span></a></li><li><a href="#g07"><span class="g-n">07</span><b>Vídeo</b><span class="g-indice-r">VSL, legenda, lower third e Reels.</span></a></li><li><a href="#g08"><span class="g-n">08</span><b>Gráfica e impresso</b><span class="g-indice-r">Arquivo de marca, cor e tratamento de foto.</span></a></li><li><a href="#g09"><span class="g-n">09</span><b>Desenvolvimento</b><span class="g-indice-r">Página, dados estruturados, artigo e gráfico.</span></a></li><li><a href="#g10"><span class="g-n">10</span><b>Agentes de IA</b><span class="g-indice-r">Contexto, copy e revisão.</span></a></li></ol>
+    </div>
+  </section>
+    <section class="g-sec" id="g01" aria-labelledby="g01-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>01</b> · Social media</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">01</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 01 a 04</p>
+            <h2 class="titulo-secao" id="g01-t">Social media</h2>
+            <p class="g-sec-apoio">Quem publica no Instagram e no TikTok da escola. Feed, carrossel, story e marco de aluno.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p01" aria-labelledby="p01-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 01</p>
+          <h3 class="fala g-pedido-t" id="p01-t">Post de topo para o feed (Cartaz)</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p01-texto">Monte um Cartaz (R1) em 4:5 para {formação}. Persona: {Gabriel, Camila ou Bruno}. Crença que a peça ataca: &quot;{crença}&quot;. Título de até 6 palavras com uma Palavra Sensível. Foto real da escola, com autorização para orgânico: {arquivo}. Sem número, a não ser que tenha Crédito de Prova completo.</p>
+            <button class="g-copiar" type="button" data-copiar="p01-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma peça de 1080 por 1350 exportada pelo editor, com nome no padrão do arquivo, véu conferido no pior pixel e Créditos Finais no pé.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-2"><span class="g-n">35.2</span>Os 13 modelos de rede</a></li><li><a href="brand-book.html#s06-4"><span class="g-n">6.4</span>A luz e o letreiro: L5 e L6</a></li><li><a href="brand-book.html#s22-1"><span class="g-n">22.1</span>Véu de Leitura, conferido no pior pixel</a></li><li><a href="brand-book.html#s29-1"><span class="g-n">29.1</span>As dez exigências</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, modelo R1</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p02" aria-labelledby="p02-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 02</p>
+          <h3 class="fala g-pedido-t" id="p02-t">Carrossel educativo (Roteiro)</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p02-texto">Crie um carrossel Roteiro (R7) de até 10 cartões sobre &quot;{pergunta do aluno}&quot; para {formação}. Capa no modelo Cartaz, cartões com Marcador de Capítulo alternando cartela e foto, uma definição de uma frase por termo técnico e um único pedido no último cartão.</p>
+            <button class="g-copiar" type="button" data-copiar="p02-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Os cartões numerados (01 / 10 até 10 / 10), cada um com até 6 palavras no título, e a sequência conferida contra três telas iguais seguidas.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-2"><span class="g-n">35.2</span>Os 13 modelos de rede</a></li><li><a href="brand-book.html#s06-5"><span class="g-n">6.5</span>A forma e o ritmo: L7 e L8</a></li><li><a href="brand-book.html#s24-1"><span class="g-n">24.1</span>Marcador de Estação e Marcador de Capítulo</a></li><li><a href="brand-book.html#s22-4"><span class="g-n">22.4</span>Cartela</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, modelo R7</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p03" aria-labelledby="p03-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 03</p>
+          <h3 class="fala g-pedido-t" id="p03-t">Story de bastidor</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p03-texto">Prepare um story Bastidor (R10) da aula de {tema} com Marcador de Estação de {formação} no topo, legenda queimada e área de figurinha livre.</p>
+            <button class="g-copiar" type="button" data-copiar="p03-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma tela 1080 por 1920 com o conteúdo dentro da área segura e a legenda em duas linhas no máximo.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-1"><span class="g-n">35.1</span>Formatos e áreas seguras</a></li><li><a href="brand-book.html#s35-2"><span class="g-n">35.2</span>Os 13 modelos de rede</a></li><li><a href="brand-book.html#s24-1"><span class="g-n">24.1</span>Marcador de Estação e Marcador de Capítulo</a></li><li><a href="brand-book.html#s30-3"><span class="g-n">30.3</span>Legenda sempre</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, modelo R10</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p04" aria-labelledby="p04-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 04</p>
+          <h3 class="fala g-pedido-t" id="p04-t">Post de marco do aluno</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p04-texto">Monte um Marco do Aluno (R13) do rito {Ritual do Traço, Primeira Pele, Workshop do Estilo ou Formatura com Pele} de {aluno}. Foto oficial do rito pelo protocolo, consentimento do aluno e de quem foi tatuado, frase do rito na voz em off e selo da formação.</p>
+            <button class="g-copiar" type="button" data-copiar="p04-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma peça de feed ou story que só sai com as duas autorizações registradas.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s29-4"><span class="g-n">29.4</span>Protocolo dos ritos</a></li><li><a href="brand-book.html#s32-4"><span class="g-n">32.4</span>Os ritos na régua</a></li><li><a href="brand-book.html#s33-5"><span class="g-n">33.5</span>Imagem, menores, saúde e dados</a></li><li><a href="brand-book.html#s24-2"><span class="g-n">24.2</span>Selo como Carimbo e Palavra de Produto</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, modelo R13</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 6]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g02" aria-labelledby="g02-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>02</b> · Tráfego pago</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">02</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 05 a 08</p>
+            <h2 class="titulo-secao" id="g02-t">Tráfego pago</h2>
+            <p class="g-sec-apoio">Quem cria e roda anúncio em Meta, Google e TikTok. Anúncio, landing page, teste e prova.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p05" aria-labelledby="p05-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 05</p>
+          <h3 class="fala g-pedido-t" id="p05-t">Anúncio de topo em 9:16</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p05-texto">Escreva o Gancho do Vazio para M1, persona {persona}, crença &quot;{crença}&quot;, destino {LP da aula ou conversa no WhatsApp}. Gancho nos 2 segundos iniciais, sem promessa de renda, sem antes e depois. Um único pedido, escolhido pelo destino: se o anúncio leva à LP da aula experimental, &quot;GARANTIR MINHA VAGA NA AULA&quot;; se abre a conversa no WhatsApp, &quot;Responder: o que te trouxe até aqui?&quot;, com a mensagem pré-preenchida. Na LP, o rótulo se repete igual do anúncio ao botão.</p>
+            <button class="g-copiar" type="button" data-copiar="p05-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O texto da tela de abertura, a legenda do anúncio e o rótulo do botão, conferidos contra o território de palavras e os claims vetados.</dd></div>
+            <div><dt class="credito g-rot">Qual pedido</dt><dd>Decide o destino, nunca a oferta. Anúncio para a LP da aula experimental: <code>GARANTIR MINHA VAGA NA AULA</code>, igual no botão e na Barra Fixa da página. Anúncio de conversa (clique para o WhatsApp): <code>Responder: o que te trouxe até aqui?</code> na legenda, botão da plataforma <code>Enviar mensagem</code> e a mensagem pré-preenchida carregando a origem. Um anúncio de topo nunca leva rótulo de formação; <code>QUERO CONVERSAR SOBRE MINHA TURMA</code> fica para a LP do Start e os anúncios M2 do Start.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s32-3"><span class="g-n">32.3</span>A ficha de cada etapa</a></li><li><a href="brand-book.html#s31-6"><span class="g-n">31.6</span>Tom por canal</a></li><li><a href="brand-book.html#s33-3"><span class="g-n">33.3</span>Claims vetados e o que dizer no lugar</a></li><li><a href="brand-book.html#s34-5"><span class="g-n">34.5</span>Biblioteca de rótulos</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html#m1-anuncio">Comunicação M1 a M8, anúncio de conversa M1</a></li><li><a href="lp-template.html?variante=aula">Modelo de LP, variante Aula experimental</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p06" aria-labelledby="p06-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 06</p>
+          <h3 class="fala g-pedido-t" id="p06-t">Landing page de uma formação</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p06-texto">Monte a LP de {start, master, pro, aula ou talks} a partir do modelo. Uma persona, uma crença, um destino de botão com o mesmo rótulo do começo ao fim. Preço, vagas e datas só com dado confirmado.</p>
+            <button class="g-copiar" type="button" data-copiar="p06-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A página no modelo com a ordem de seções da variante, Barra de Turma ligada à data real, JSON-LD gerado do mesmo objeto e o painel de conferência.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s34-1"><span class="g-n">34.1</span>A primeira dobra</a></li><li><a href="brand-book.html#s34-3"><span class="g-n">34.3</span>A ordem do Start e as variantes</a></li><li><a href="brand-book.html#s34-6"><span class="g-n">34.6</span>Barra de Turma e Barra Fixa</a></li><li><a href="brand-book.html#s34-5"><span class="g-n">34.5</span>Biblioteca de rótulos</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lp-template.html?variante=master">Modelo de LP, variante Master</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 15]</a>, <a href="brand-book.html#s36-5">[P 8]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p07" aria-labelledby="p07-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 07</p>
+          <h3 class="fala g-pedido-t" id="p07-t">Teste A/B</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p07-texto">Prepare o teste {número da lista} da LP do Start: hipótese, métrica e as duas versões. Um teste por vez.</p>
+            <button class="g-copiar" type="button" data-copiar="p07-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>As duas versões da mesma página, com os eventos de medição padronizados e a hipótese escrita antes de ligar o tráfego.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s34-7"><span class="g-n">34.7</span>Testes A/B previstos</a></li><li><a href="brand-book.html#s34-1"><span class="g-n">34.1</span>A primeira dobra</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lp-template.html">Modelo de LP</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>O teste 10 decide o botão <a href="brand-book.html#s36-5">[P 9]</a>. O teste 6 só entra no ar com o investimento confirmado <a href="brand-book.html#s36-5">[P 15]</a>, e o teste 5, com depoimento coberto por termo de imagem <a href="brand-book.html#s36-5">[P 20]</a>.</span></p>
+      </article>
+      <article class="g-pedido" id="p08" aria-labelledby="p08-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 08</p>
+          <h3 class="fala g-pedido-t" id="p08-t">Prova com número</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p08-texto">Coloque a prova &quot;{o que mede}&quot; na peça com Crédito de Prova completo: o que mede, recorte, data, fonte e marca de origem.</p>
+            <button class="g-copiar" type="button" data-copiar="p08-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O numeral com a régua inteira; sem uma das cinco partes, o número sai da peça.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s25-1"><span class="g-n">25.1</span>Crédito de Prova</a></li><li><a href="brand-book.html#s33-2"><span class="g-n">33.2</span>A anatomia de uma prova</a></li><li><a href="brand-book.html#s28-1"><span class="g-n">28.1</span>A régua de prova do gráfico</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lockup.html#t-prova-medido">Trechos da marca, Crédito de Prova</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 15]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g03" aria-labelledby="g03-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>03</b> · Design</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">03</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 09 a 12</p>
+            <h2 class="titulo-secao" id="g03-t">Design</h2>
+            <p class="g-sec-apoio">Quem desenha peça, apresentação e material da escola. Logotipo, selo, campo de produto e contraste.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p09" aria-labelledby="p09-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 09</p>
+          <h3 class="fala g-pedido-t" id="p09-t">Logotipo e selo no tamanho certo</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p09-texto">Use o logotipo {horizontal, vertical ou de produto} em {cor do fundo}, no tamanho {altura em px ou mm}, com a área de proteção. Selo de {formação} acima do mínimo.</p>
+            <button class="g-copiar" type="button" data-copiar="p09-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O arquivo oficial certo (SVG ou PNG), sem redigitar, conferido contra o mínimo e o fundo permitido.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s08-1"><span class="g-n">8.1</span>Os desenhos oficiais</a></li><li><a href="brand-book.html#s09-1"><span class="g-n">9.1</span>Área de proteção</a></li><li><a href="brand-book.html#s09-2"><span class="g-n">9.2</span>Tamanhos mínimos, em tamanho real</a></li><li><a href="brand-book.html#s09-3"><span class="g-n">9.3</span>Fundos permitidos</a></li><li><a href="brand-book.html#s11-3"><span class="g-n">11.3</span>Posição e mínimos</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lockup.html#l02">Trechos da marca, logotipos</a></li><li><a href="assets/brand/svg/void-horizontal-branco.svg">Arquivos da marca</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 11]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p10" aria-labelledby="p10-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 10</p>
+          <h3 class="fala g-pedido-t" id="p10-t">Peça de produto no campo da formação</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p10-texto">Monte uma peça Campo de Produto (R8) de {start ou master} em 4:5: campo da formação, logotipo de produto branco, selo e Palavra de Produto a 8%.</p>
+            <button class="g-copiar" type="button" data-copiar="p10-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma peça no campo do produto, contada na cota de uma a cada seis peças do feed.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s15-2"><span class="g-n">15.2</span>O teto de cor numa peça</a></li><li><a href="brand-book.html#s15-3"><span class="g-n">15.3</span>A regra por produto</a></li><li><a href="brand-book.html#s24-2"><span class="g-n">24.2</span>Selo como Carimbo e Palavra de Produto</a></li><li><a href="brand-book.html#s12-2"><span class="g-n">12.2</span>O campo de cada formação</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, modelo R8</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 4]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p11" aria-labelledby="p11-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 11</p>
+          <h3 class="fala g-pedido-t" id="p11-t">Texto sobre foto</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p11-texto">Coloque o título &quot;{título}&quot; sobre a foto {arquivo} com véu calculado no pixel mais claro sob o texto.</p>
+            <button class="g-copiar" type="button" data-copiar="p11-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A razão de contraste medida na hora pelo amostrador do editor, comparada com a tabela de pares.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s14-5"><span class="g-n">14.5</span>O véu sobre a foto mais clara possível</a></li><li><a href="brand-book.html#s22-1"><span class="g-n">22.1</span>Véu de Leitura, conferido no pior pixel</a></li><li><a href="brand-book.html#s14-2"><span class="g-n">14.2</span>Liberados para qualquer texto</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="kit-social.html">Kit social, amostrador do pior pixel</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p12" aria-labelledby="p12-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 12</p>
+          <h3 class="fala g-pedido-t" id="p12-t">Co-assinatura de evento</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p12-texto">Monte a assinatura de {The VOID Talks, Convenção ou VOIDERS} com o logotipo oficial, fio vertical e o nome em Archivo, sem montar o descritor à mão.</p>
+            <button class="g-copiar" type="button" data-copiar="p12-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O trecho pronto de co-assinatura, medido pela altura do VOID.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s12-3"><span class="g-n">12.3</span>Co-assinatura, medida</a></li><li><a href="brand-book.html#s12-1"><span class="g-n">12.1</span>Os níveis da marca</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lockup.html#t-co-talks">Trechos da marca, co-assinatura Talks</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g04" aria-labelledby="g04-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>04</b> · Comercial e WhatsApp</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">04</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 13 a 16</p>
+            <h2 class="titulo-secao" id="g04-t">Comercial e WhatsApp</h2>
+            <p class="g-sec-apoio">Quem conversa com o interessado até a matrícula. Mensagem por etapa, turma, proposta e objeção.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p13" aria-labelledby="p13-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 13</p>
+          <h3 class="fala g-pedido-t" id="p13-t">Mensagem da etapa certa</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p13-texto">Escreva a mensagem de WhatsApp da etapa {M1 a M8} para {persona}. Uma ideia, &quot;você&quot; direto, sem caixa alta, o pedido ou o link sozinho na última linha, assinatura &quot;{nome}, The VOID&quot;.</p>
+            <button class="g-copiar" type="button" data-copiar="p13-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A mensagem do modelo da etapa, com um único pedido e o botão de copiar.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s32-3"><span class="g-n">32.3</span>A ficha de cada etapa</a></li><li><a href="brand-book.html#s35-3"><span class="g-n">35.3</span>WhatsApp e Cartões de Conversa</a></li><li><a href="brand-book.html#s31-6"><span class="g-n">31.6</span>Tom por canal</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html?etapa=m4">Comunicação M1 a M8, etapa M4</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p14" aria-labelledby="p14-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 14</p>
+          <h3 class="fala g-pedido-t" id="p14-t">Cartão de Turma</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p14-texto">Gere o Cartão de Turma de {formação} com início, dias, horário e vagas reais, no mesmo dado da Barra de Turma.</p>
+            <button class="g-copiar" type="button" data-copiar="p14-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Um cartão de 1080 por 1350 em Sala com selo, título de até 5 palavras e até 4 linhas de dado.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-3"><span class="g-n">35.3</span>WhatsApp e Cartões de Conversa</a></li><li><a href="brand-book.html#s34-6"><span class="g-n">34.6</span>Barra de Turma e Barra Fixa</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html#cartoes">Comunicação M1 a M8, Cartões de Conversa</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 15]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p15" aria-labelledby="p15-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 15</p>
+          <h3 class="fala g-pedido-t" id="p15-t">Proposta de uma página</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p15-texto">Monte a proposta de uma página da formação {formação} para {nome do interessado}: o que inclui, formato, turma, investimento com valor total e parcelas, frase de arrependimento.</p>
+            <button class="g-copiar" type="button" data-copiar="p15-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Um slide Documento em Modo Leitura com o selo da formação escolhida.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-5"><span class="g-n">35.5</span>Deck: os oito tipos de slide</a></li><li><a href="brand-book.html#s33-4"><span class="g-n">33.4</span>Frases-modelo, prontas para copiar</a></li><li><a href="brand-book.html#s16-1"><span class="g-n">16.1</span>Por que existe</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="deck-template.html#slide-8">Modelo de apresentação, slide Documento</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 15]</a>, <a href="brand-book.html#s36-5">[P 20]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p16" aria-labelledby="p16-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 16</p>
+          <h3 class="fala g-pedido-t" id="p16-t">Resposta à objeção de preço</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p16-texto">Responda &quot;{objeção}&quot; de {persona} com o modelo da etapa M4, sem desconto inventado e sem urgência falsa.</p>
+            <button class="g-copiar" type="button" data-copiar="p16-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A resposta curta de WhatsApp do modelo, coerente com a objeção mapeada da persona.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s04-5"><span class="g-n">4.5</span>Objeções: o que responder e o que nunca dizer</a></li><li><a href="brand-book.html#s32-3"><span class="g-n">32.3</span>A ficha de cada etapa</a></li><li><a href="brand-book.html#s33-1"><span class="g-n">33.1</span>As doze regras de prova</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html#m4-wa-valor">Comunicação M1 a M8, objeção de valor</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g05" aria-labelledby="g05-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>05</b> · Atendimento</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">05</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 17 a 19</p>
+            <h2 class="titulo-secao" id="g05-t">Atendimento</h2>
+            <p class="g-sec-apoio">Quem recebe o aluno depois da matrícula. Boas-vindas, primeiro dia e dados da escola.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p17" aria-labelledby="p17-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 17</p>
+          <h3 class="fala g-pedido-t" id="p17-t">E-mail de boas-vindas</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p17-texto">Gere o e-mail de boas-vindas M5 da formação {formação} para {nome}, assinado por {pessoa e cargo}.</p>
+            <button class="g-copiar" type="button" data-copiar="p17-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O HTML do e-mail em tabela de 600 px, pronto para colar no programa de envio, com a conferência automática aprovada.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s35-4"><span class="g-n">35.4</span>A anatomia do e-mail</a></li><li><a href="brand-book.html#s32-3"><span class="g-n">32.3</span>A ficha de cada etapa</a></li><li><a href="brand-book.html#s31-9"><span class="g-n">31.9</span>A regra da tagline</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="email-template.html">Modelo de e-mail</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 2]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p18" aria-labelledby="p18-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 18</p>
+          <h3 class="fala g-pedido-t" id="p18-t">Véspera do primeiro dia</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p18-texto">Mande a mensagem da véspera do primeiro dia: data, horário, endereço, quem recebe e o que levar.</p>
+            <button class="g-copiar" type="button" data-copiar="p18-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A mensagem de WhatsApp da véspera com o endereço copiado do bloco canônico.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s32-3"><span class="g-n">32.3</span>A ficha de cada etapa</a></li><li><a href="brand-book.html#s36-3"><span class="g-n">36.3</span>Entidade, NAP e arquitetura do site</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html#m5-wa-vespera">Comunicação M1 a M8, véspera</a></li><li><a href="lockup.html#t-nap-texto">Trechos da marca, endereço</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 15]</a> (calendário e horário da turma) e <a href="brand-book.html#s36-5">[P 13]</a> (nome de quem recebe). Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p19" aria-labelledby="p19-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 19</p>
+          <h3 class="fala g-pedido-t" id="p19-t">Endereço e telefone da escola</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p19-texto">Copie o bloco de endereço e telefone da escola sem redigitar, para {rodapé, contato, Google ou e-mail}.</p>
+            <button class="g-copiar" type="button" data-copiar="p19-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O bloco NAP (nome, endereço e telefone) idêntico em todo canal.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s36-3"><span class="g-n">36.3</span>Entidade, NAP e arquitetura do site</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="lockup.html#t-nap-texto">Trechos da marca, endereço</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 8]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g06" aria-labelledby="g06-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>06</b> · Professores</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">06</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 20 a 22</p>
+            <h2 class="titulo-secao" id="g06-t">Professores</h2>
+            <p class="g-sec-apoio">Quem acompanha o aluno na área de membros. Feedback, marcos e certificado.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p20" aria-labelledby="p20-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 20</p>
+          <h3 class="fala g-pedido-t" id="p20-t">Feedback de prática</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p20-texto">Responda a prática de {aluno} com um ponto forte e um ajuste, em frases curtas, visível só para o aluno.</p>
+            <button class="g-copiar" type="button" data-copiar="p20-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O cartão Prática com Feedback em par, com o Fio de Produto da formação.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s36-1"><span class="g-n">36.1</span>A área de membros</a></li><li><a href="brand-book.html#s31-6"><span class="g-n">31.6</span>Tom por canal</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="membros-ui.html#feedback">UI kit da área de membros, Prática com Feedback</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p21" aria-labelledby="p21-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 21</p>
+          <h3 class="fala g-pedido-t" id="p21-t">Validar um marco</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p21-texto">Valide o marco {rito} de {aluno} no sistema; o ponto do Anel só enche depois da validação.</p>
+            <button class="g-copiar" type="button" data-copiar="p21-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O Anel de Preenchimento atualizado e o cartão do marco com a Revelação.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s25-4"><span class="g-n">25.4</span>Anel de Preenchimento</a></li><li><a href="brand-book.html#s36-1"><span class="g-n">36.1</span>A área de membros</a></li><li><a href="brand-book.html#s32-4"><span class="g-n">32.4</span>Os ritos na régua</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="membros-ui.html#marcos">UI kit da área de membros, Marcos</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p22" aria-labelledby="p22-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 22</p>
+          <h3 class="fala g-pedido-t" id="p22-t">Certificado de Passagem</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p22-texto">Gere o Certificado de Passagem de {aluno}: Mapa da Trilha com a formação cheia, trabalho final, selo, assinatura dos professores, frase de curso livre e código de turma.</p>
+            <button class="g-copiar" type="button" data-copiar="p22-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma folha A4 em Modo Leitura, impressa em uma página, com a turma identificada pelo código (nunca por número de aluno) e a frase de curso livre ao pé da folha, como no modelo do UI kit.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s36-1"><span class="g-n">36.1</span>A área de membros</a></li><li><a href="brand-book.html#s23-3"><span class="g-n">23.3</span>Mapa da Trilha</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="membros-ui.html#certificado">UI kit da área de membros, Certificado</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 17]</a>, <a href="brand-book.html#s36-5">[P 20]</a>, <a href="brand-book.html#s36-5">[P 13]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g07" aria-labelledby="g07-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>07</b> · Vídeo</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">07</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 23 a 25</p>
+            <h2 class="titulo-secao" id="g07-t">Vídeo</h2>
+            <p class="g-sec-apoio">Quem roteiriza, grava e edita. VSL, legenda, lower third e Reels.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p23" aria-labelledby="p23-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 23</p>
+          <h3 class="fala g-pedido-t" id="p23-t">VSL de uma formação</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p23-texto">Roteirize a VSL de {formação} nos 9 blocos com minutagem, persona {persona} e um único pedido falado e escrito.</p>
+            <button class="g-copiar" type="button" data-copiar="p23-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O roteiro em blocos, as cinco cartelas, a capa em três formatos e o checklist de publicação.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s34-8"><span class="g-n">34.8</span>VSL: o roteiro em 9 blocos</a></li><li><a href="brand-book.html#s34-9"><span class="g-n">34.9</span>Capa, cartelas e quadro de fala</a></li><li><a href="brand-book.html#s30-2"><span class="g-n">30.2</span>Montagem com respiro</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="vsl-kit.html#k07">Kit de VSL, roteiro</a></li><li><a href="vsl-kit.html#k03">Kit de VSL, cartelas</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p24" aria-labelledby="p24-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 24</p>
+          <h3 class="fala g-pedido-t" id="p24-t">Legenda e lower third</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p24-texto">Gere a legenda queimada e o lower third de {nome}, {função}, para o vídeo {título}.</p>
+            <button class="g-copiar" type="button" data-copiar="p24-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Legenda em no máximo duas linhas, arquivo .srt revisado e lower third sem selo.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s30-3"><span class="g-n">30.3</span>Legenda sempre</a></li><li><a href="brand-book.html#s30-4"><span class="g-n">30.4</span>Lower third, o nome de quem fala</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="vsl-kit.html#k04">Kit de VSL, legenda</a></li><li><a href="vsl-kit.html#k05">Kit de VSL, lower third</a></li><li><a href="assets/vsl/exemplo.srt">Legenda de exemplo (.srt)</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p25" aria-labelledby="p25-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 25</p>
+          <h3 class="fala g-pedido-t" id="p25-t">Reels de topo</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p25-texto">Edite um Reels de topo sobre &quot;{crença}&quot;: começa no gancho, 9 por 16 cheio, sem vinheta, legenda sempre.</p>
+            <button class="g-copiar" type="button" data-copiar="p25-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Um vídeo com planos de 2 a 4 segundos nos primeiros 30 segundos e o fecho com a assinatura sonora.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s30-8"><span class="g-n">30.8</span>Formatos de rede</a></li><li><a href="brand-book.html#s30-2"><span class="g-n">30.2</span>Montagem com respiro</a></li><li><a href="brand-book.html#s30-6"><span class="g-n">30.6</span>Som e assinatura sonora</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html#m1-reels-gabriel">Comunicação M1 a M8, Reels da etapa M1</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g08" aria-labelledby="g08-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>08</b> · Gráfica e impresso</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">08</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 26 a 28</p>
+            <h2 class="titulo-secao" id="g08-t">Gráfica e impresso</h2>
+            <p class="g-sec-apoio">Quem produz banner, cartaz, adesivo e material de aula. Arquivo de marca, cor e tratamento de foto.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p26" aria-labelledby="p26-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 26</p>
+          <h3 class="fala g-pedido-t" id="p26-t">Impresso com o logotipo</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p26-texto">Imprima {peça} em {medida} com o logotipo oficial em vetor, acima do mínimo em milímetros e sobre fundo permitido.</p>
+            <button class="g-copiar" type="button" data-copiar="p26-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O SVG oficial e as cores do sistema em HEX, com o fundo conferido.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s09-2"><span class="g-n">9.2</span>Tamanhos mínimos, em tamanho real</a></li><li><a href="brand-book.html#s09-3"><span class="g-n">9.3</span>Fundos permitidos</a></li><li><a href="brand-book.html#s13-2"><span class="g-n">13.2</span>Neutros: a sala e a luz</a></li><li><a href="brand-book.html#s08-4"><span class="g-n">8.4</span>Preto e branco, e mais nada</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="assets/brand/svg/void-vertical-branco.svg">Arquivos da marca</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 11]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p27" aria-labelledby="p27-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 27</p>
+          <h3 class="fala g-pedido-t" id="p27-t">Foto tratada no padrão da casa</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p27-texto">Trate as fotos {lista} no preset {Ritual, Vazio ou Terra} e aplique o grão depois.</p>
+            <button class="g-copiar" type="button" data-copiar="p27-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>As fotos no regime certo, com nome de arquivo e texto alternativo no padrão.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s29-3"><span class="g-n">29.3</span>Tratamento: dois P&amp;B, três regimes de cor</a></li><li><a href="brand-book.html#s29-7"><span class="g-n">29.7</span>Presets e LUTs para baixar</a></li><li><a href="brand-book.html#s29-8"><span class="g-n">29.8</span>Nome, texto alternativo e metadados</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="assets/foto/receitas.md">Receitas de tratamento</a></li><li><a href="assets/foto/void-ritual.cube">LUT Ritual</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 22]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p28" aria-labelledby="p28-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 28</p>
+          <h3 class="fala g-pedido-t" id="p28-t">Manual em PDF</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p28-texto">Exporte o manual em PDF A4 para a gráfica ou para o arquivo da escola.</p>
+            <button class="g-copiar" type="button" data-copiar="p28-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O PDF com todas as seções, gerado por python3 exportar_pdf.py.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s01-5"><span class="g-n">1.5</span>Versão, data e como mudar uma regra</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="dist/brand-book.pdf">Manual em PDF</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g09" aria-labelledby="g09-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>09</b> · Desenvolvimento</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">09</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 29 a 33</p>
+            <h2 class="titulo-secao" id="g09-t">Desenvolvimento</h2>
+            <p class="g-sec-apoio">Quem constrói site, LP e área de membros. Página, dados estruturados, artigo e gráfico.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p29" aria-labelledby="p29-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 29</p>
+          <h3 class="fala g-pedido-t" id="p29-t">Página nova no site</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p29-texto">Crie a página {nome} com tokens.css, o link de fontes da especificação, a grade de 12 colunas e o botão Letreiro Aceso.</p>
+            <button class="g-copiar" type="button" data-copiar="p29-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Uma página com fundo Sala explícito, um h1, foco visível e sem rolagem horizontal de 320 a 1440 px.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s17-2"><span class="g-n">17.2</span>O link exato e a pilha de fontes</a></li><li><a href="brand-book.html#s26-1"><span class="g-n">26.1</span>A grade de cada superfície</a></li><li><a href="brand-book.html#s34-4"><span class="g-n">34.4</span>O botão Letreiro Aceso</a></li><li><a href="brand-book.html#s13-1"><span class="g-n">13.1</span>O campo e a luz</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="tokens.css">Tokens do sistema</a></li><li><a href="lockup.html#t-base">Trechos da marca, base da página</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p30" aria-labelledby="p30-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 30</p>
+          <h3 class="fala g-pedido-t" id="p30-t">Dados estruturados</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p30-texto">Publique o JSON-LD da escola e da formação {formação} a partir dos modelos, sem campo pendente no ar.</p>
+            <button class="g-copiar" type="button" data-copiar="p30-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Os arquivos JSON-LD preenchidos e a arquitetura de URLs da trilha.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s36-3"><span class="g-n">36.3</span>Entidade, NAP e arquitetura do site</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="assets/seo/json-ld/organizacao.json">Modelo de organização (JSON-LD)</a></li><li><a href="assets/seo/json-ld/curso-start.json">Modelo de curso Start (JSON-LD)</a></li></ul></dd></div>
+          </dl>
+        </div><p class="g-pend"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span>Depende de <a href="brand-book.html#s36-5">[P 8]</a>, <a href="brand-book.html#s36-5">[P 18]</a>. Até a resposta, o dado sai como <code>{{A_CONFIRMAR}}</code>.</span></p>
+      </article>
+      <article class="g-pedido" id="p31" aria-labelledby="p31-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 31</p>
+          <h3 class="fala g-pedido-t" id="p31-t">Artigo do guia</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p31-texto">Escreva o artigo &quot;{pergunta}&quot; no modelo: Resposta Direta de 40 a 60 palavras, H2 em forma de pergunta, FAQ visível igual ao JSON-LD.</p>
+            <button class="g-copiar" type="button" data-copiar="p31-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O artigo no modelo com a caixa &quot;Onde isso fica na trilha&quot; e o painel de conferência.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s36-2"><span class="g-n">36.2</span>O artigo SEO, GEO e AEO</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="artigo-template.html">Modelo de artigo</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p32" aria-labelledby="p32-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 32</p>
+          <h3 class="fala g-pedido-t" id="p32-t">Gráfico com régua de prova</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p32-texto">Desenhe o gráfico &quot;{título-afirmação}&quot; com o motor vviz.js: o que mede, período, base, fonte e origem.</p>
+            <button class="g-copiar" type="button" data-copiar="p32-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Um gráfico SVG com tabela de dados acessível; em validação, a exportação fica bloqueada.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s28-6"><span class="g-n">28.6</span>Como pedir um gráfico ao motor</a></li><li><a href="brand-book.html#s28-1"><span class="g-n">28.1</span>A régua de prova do gráfico</a></li><li><a href="brand-book.html#s28-4"><span class="g-n">28.4</span>Exemplo bloqueado em validação</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="vviz.js">Motor de gráficos</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p33" aria-labelledby="p33-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 33</p>
+          <h3 class="fala g-pedido-t" id="p33-t">Conferência antes de publicar</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p33-texto">Rode python3 tools/verificar.py e corrija o que falhar antes de publicar qualquer HTML do repositório.</p>
+            <button class="g-copiar" type="button" data-copiar="p33-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O relatório do gate com os itens 1 a 10 aprovados.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s07-1"><span class="g-n">7.1</span>Conferir uma peça</a></li><li><a href="brand-book.html#s07-2"><span class="g-n">7.2</span>O que trava na hora</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="tools/verificar.py">Gate de aceite</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+    <section class="g-sec" id="g10" aria-labelledby="g10-t">
+      <div class="g-wrap">
+        <p class="folio credito"><span>Guia de uso</span><span><b>10</b> · Agentes de IA</span></p>
+        <header class="g-sec-cabeca">
+          <span class="g-sec-num numeral-prova" aria-hidden="true">10</span>
+          <div>
+            <p class="credito g-sec-sobre">Pedidos 34 a 36</p>
+            <h2 class="titulo-secao" id="g10-t">Agentes de IA</h2>
+            <p class="g-sec-apoio">Quem pede peça, texto ou revisão a um agente. Contexto, copy e revisão.</p>
+          </div>
+        </header>
+        <div class="g-pedidos">
+      <article class="g-pedido" id="p34" aria-labelledby="p34-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 34</p>
+          <h3 class="fala g-pedido-t" id="p34-t">Contexto para o agente</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p34-texto">Leia o manual da The VOID (brand-book.html) e os tokens (tokens.json). Antes de produzir, responda: de quem é a peça, para qual etapa (M1 a M8) e qual persona.</p>
+            <button class="g-copiar" type="button" data-copiar="p34-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>O agente trabalha com os valores do sistema e declara persona, crença e etapa antes de escrever.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s01-1"><span class="g-n">1.1</span>Para quem é este manual</a></li><li><a href="brand-book.html#s04-6"><span class="g-n">4.6</span>Como declarar a persona numa peça</a></li><li><a href="brand-book.html#s32-2"><span class="g-n">32.2</span>A matriz completa</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="brand-book.html">Manual de marca</a></li><li><a href="tokens.json">Tokens em JSON</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p35" aria-labelledby="p35-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 35</p>
+          <h3 class="fala g-pedido-t" id="p35-t">Copy pública</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p35-texto">Escreva {peça} em português do Brasil, no território de palavras, com uma ideia e um pedido, sem travessão e sem claim vetado.</p>
+            <button class="g-copiar" type="button" data-copiar="p35-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>Um texto que passa no território, no tom do canal e na lista de claims.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s31-5"><span class="g-n">31.5</span>Território de palavras</a></li><li><a href="brand-book.html#s31-10"><span class="g-n">31.10</span>Oito regras para quem escreve</a></li><li><a href="brand-book.html#s33-3"><span class="g-n">33.3</span>Claims vetados e o que dizer no lugar</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="comunicacao-m1-m8.html">Comunicação M1 a M8</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="g-pedido" id="p36" aria-labelledby="p36-t">
+        <header class="g-pedido-cabeca">
+          <p class="credito g-pedido-n">Pedido 36</p>
+          <h3 class="fala g-pedido-t" id="p36-t">Revisão de uma peça</h3>
+        </header>
+        <div class="g-pedido-corpo">
+          <div class="g-peca">
+            <p class="credito g-rot">Peça assim</p>
+            <p class="g-texto" id="p36-texto">Revise {peça} pelo checklist de aprovação e diga o que trava, item por item.</p>
+            <button class="g-copiar" type="button" data-copiar="p36-texto"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="14" height="14"/><path d="M4 16V4h12"/></svg><span>Copiar pedido</span></button>
+          </div>
+          <dl class="g-meta">
+            <div><dt class="credito g-rot">O que sai</dt><dd>A lista do que passa e do que volta, com a seção do manual de cada item.</dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Quem manda</dt><dd><ul class="g-links"><li><a href="brand-book.html#s07-1"><span class="g-n">7.1</span>Conferir uma peça</a></li><li><a href="brand-book.html#s07-2"><span class="g-n">7.2</span>O que trava na hora</a></li><li><a href="brand-book.html#s33-6"><span class="g-n">33.6</span>O que trava uma peça</a></li></ul></dd></div>
+            <div><dt class="credito g-rot"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Abra</dt><dd><ul class="g-links g-arquivos"><li><a href="brand-book.html#s07">Manual, checklist de aprovação</a></li></ul></dd></div>
+          </dl>
+        </div>
+      </article>
+        </div>
+      </div>
+    </section>
+  <section class="g-fecho" aria-labelledby="g-fecho-t">
+    <div class="g-wrap">
+      <p class="credito">Antes de publicar</p>
+      <h2 class="titulo-secao" id="g-fecho-t">Na dúvida, <em class="off">o manual</em></h2>
+      <div class="g-fecho-grade">
+        <div><p>Se o pedido não está aqui, a resposta está no manual: o sumário tem 36 seções em 9 partes e a busca encontra por palavra. Quando duas leis brigam, vence a de número menor.</p>
+          <a class="botao" href="brand-book.html#s06-1">Abrir as oito leis<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+        <div><p>O que depende da escola (preço, vagas, datas, professores, telefone oficial, validação de advogado) está na lista de pendências. Enquanto não houver resposta, o dado não vai ao ar.</p>
+          <p style="margin-top:16px"><a href="brand-book.html#s36-5">Ver as 22 pendências com a escola</a></p></div>
+      </div>
+      <p class="credito g-creditos"><span>TATTOO ACADEMY</span><span class="sep" aria-hidden="true">·</span><span>® 2025</span><span class="sep" aria-hidden="true">·</span><span>SÃO PAULO</span><span class="sep" aria-hidden="true">·</span><span>BRAZIL</span><span class="sep-quebra" aria-hidden="true"></span><span class="sep sep-pos" aria-hidden="true">·</span><span><b>PREENCHA O VAZIO</b></span></p>
+    </div>
+  </section>
+</main>
+<script>
+(function () {
+  'use strict';
+  function copiar(texto) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+    return new Promise(function (ok, erro) {
+      var t = document.createElement('textarea');
+      t.value = texto; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy') ? ok() : erro(); } catch (e) { erro(e); }
+      document.body.removeChild(t);
+    });
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('[data-copiar]');
+    if (!b) return;
+    var alvo = document.getElementById(b.getAttribute('data-copiar'));
+    var rotulo = b.querySelector('span');
+    copiar(alvo.textContent.trim()).then(function () {
+      b.setAttribute('data-ok', ''); rotulo.textContent = 'Pedido copiado';
+      setTimeout(function () { b.removeAttribute('data-ok'); rotulo.textContent = 'Copiar pedido'; }, 2000);
+    }, function () { rotulo.textContent = 'Selecione e copie'; });
+  });
+})();
+</script>
+</body>
+</html>

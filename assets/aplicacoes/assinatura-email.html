@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Assinatura de e-mail · The VOID</title>
+<link rel="icon" href="../brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<!--
+  THE VOID · ASSINATURA DE E-MAIL · sistema Sala Escura v1 · 06/10/2026
+  Fonte: spec 12.5 (assinatura de pessoa real com cargo), 13.2 (bloco NAP) e 6.15 (Créditos Finais).
+  Mesmo texto do trecho "Assinatura de e-mail" do lockup.html, grupo 09.
+
+  Como instalar no Gmail, Outlook ou Apple Mail:
+  1. Troque {{nome}} e {{cargo}} pelo nome e pelo cargo de quem assina (pessoa real; nunca a equipe).
+  2. Publique a pasta assets/ e troque o caminho da imagem pelo endereço público completo
+     (programas de e-mail não abrem caminho local nem data URI).
+  3. Abra este arquivo no navegador, selecione só a assinatura escolhida, copie e cole no campo
+     de assinatura do programa.
+  A versão em Modo Leitura só vale depois da aprovação do Modo Leitura [P 2].
+-->
+<style>
+html,body{margin:0;background:#181818}
+body{color:#DCDDD8;font:400 16px/1.6 'Nunito Sans',Arial,sans-serif;padding:48px 16px 64px}
+main{max-width:600px;margin:0 auto}
+h1{margin:0 0 12px;color:#F8F9F4;font:700 28px/1.05 'Archivo','Helvetica Neue',Arial,sans-serif;font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em}
+h2{margin:48px 0 8px;color:#B4B5B0;font:500 12px/1.4 'Archivo','Helvetica Neue',Arial,sans-serif;font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+p.ajuda{margin:0 0 16px;color:#B4B5B0;font-size:15px;line-height:1.55}
+ol{margin:0;padding:0 0 0 20px;color:#DCDDD8;font-size:15px}
+ol li{margin:0 0 6px}
+ol li::marker{color:#DBC5A3}
+.amostra{border:1px solid #363636}
+.amostra img{max-width:100%}
+a{color:#DBC5A3}
+</style>
+</head>
+<body>
+<main>
+  <h1>Assinatura de e-mail</h1>
+  <p class="ajuda">Para o e-mail do dia a dia de quem fala com aluno e com quem quer ser aluno. Assina sempre uma pessoa real com cargo.</p>
+  <ol>
+    <li>Troque {{nome}} e {{cargo}}.</li>
+    <li>Troque o caminho do logotipo pelo endereço público da imagem.</li>
+    <li>Selecione só a assinatura, copie e cole no campo de assinatura do programa.</li>
+  </ol>
+
+  <h2>Padrão · Sala</h2>
+  <p class="ajuda">Vale hoje, enquanto o Modo Leitura não é aprovado [P 2].</p>
+  <div class="amostra">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#181818" style="width:100%;max-width:600px;border-collapse:collapse;background:#181818">
+<tr><td style="padding:24px">
+<p style="margin:0;color:#F8F9F4;font:600 16px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">{{nome}}</p>
+<p style="margin:4px 0 0;color:#B4B5B0;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">{{cargo}} · The VOID Tattoo Academy</p>
+<img src="../brand/png/web/void-horizontal-branco.png" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;margin:20px 0 0;border:0;color:#F8F9F4;font:600 14px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">
+<p style="margin:16px 0 0;color:#B4B5B0;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040<br><a href="tel:+5511924818712" style="color:#DBC5A3">+55 11 92481-8712</a></p>
+<p style="margin:16px 0 0;color:#B4B5B0;font:500 11px/1.6 'Archivo','Helvetica Neue',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b style="font-weight:700;color:#F8F9F4">PREENCHA O VAZIO</b></p>
+</td></tr>
+</table>
+  </div>
+
+  <h2>Modo Leitura · depende de [P 2]</h2>
+  <p class="ajuda">Para quando o corpo dos e-mails sair em Tela. Logotipo preto, texto Sala, apoio Ardósia, link Terracota Funda.</p>
+  <div class="amostra">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9F4" style="width:100%;max-width:600px;border-collapse:collapse;background:#F8F9F4">
+<tr><td style="padding:24px;border-top:1px solid #898989">
+<p style="margin:0;color:#181818;font:600 16px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">{{nome}}</p>
+<p style="margin:4px 0 0;color:#3F4E4F;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">{{cargo}} · The VOID Tattoo Academy</p>
+<img src="../brand/png/web/void-horizontal-preto.png" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;margin:20px 0 0;border:0;color:#181818;font:600 14px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">
+<p style="margin:16px 0 0;color:#3F4E4F;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040<br><a href="tel:+5511924818712" style="color:#8C4529">+55 11 92481-8712</a></p>
+</td></tr>
+</table>
+  </div>
+  <p class="ajuda" style="margin-top:32px">Telefone do bloco NAP canônico; telefone principal a confirmar com a The VOID [P 8]. Modelo completo de mensagem em <a href="../../email-template.html">email-template.html</a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modelo de e-mail · The VOID</title>
+<meta name="description" content="Modelo de e-mail da The VOID Tattoo Academy (sistema Sala Escura v1): quatro mensagens da régua em tabela com estilos em linha, 600 px, prontas para copiar ou baixar, com conferência automática.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<script src="vforms.js" defer></script>
+
+<!-- =====================================================================
+     THE VOID · MODELO DE E-MAIL · sistema Sala Escura v1 · 06/10/2026
+     Fonte normativa: spec do sistema, seção 12.5 (e 3.6, 4.6, 5.2, 5.6, 6.6, 6.15, 9.6, 10, 11).
+
+     COMO USAR
+     1. Escolha a mensagem, a formação e o corpo no painel. A prévia mostra o e-mail exato
+        que o botão copia ou baixa: tabelas, estilos em linha, 600 px, color-scheme light.
+     2. Antes de colar no programa de e-mail ou no CRM, preencha "Endereço público das
+        imagens" com a pasta publicada do repositório. Sem isso, o arquivo baixado sai com
+        {{URL_PUBLICA_IMAGENS}} no lugar, de propósito.
+     3. Campos entre chaves simples ({nome}, {data_turma}) são variáveis de envio. Campos entre
+        chaves duplas ({{A_CONFIRMAR}}) são dados que a The VOID ainda precisa confirmar: com
+        eles a conferência reprova, o download fica desligado e a cópia sai marcada como
+        arquivo de trabalho.
+     4. A copy mora só no objeto MENSAGENS. Para mudar texto, mude lá.
+     5. As imagens do cabeçalho e dos selos saem de tools/gerar_email_assets.py.
+     ===================================================================== -->
+
+<style>
+/* ---------- página (prefixo em-) ---------- */
+html{background:var(--sala)}
+body{background:var(--sala);min-height:100vh}
+.em-pular{position:absolute;left:16px;top:-80px;z-index:20;background:var(--tela);color:var(--sala);padding:12px 16px;font:700 14px/1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.em-pular:focus{top:16px}
+.em-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 64px;box-sizing:border-box}
+.em-topo{position:relative;z-index:2;border-bottom:1px solid var(--fio)}
+.em-topo .em-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.em-topo a.em-logo{display:inline-flex;align-items:center;min-height:44px}
+.em-topo a.em-logo img{display:block;height:24px;width:auto}
+.em-topo nav{display:flex;gap:8px;flex-wrap:wrap}
+.em-topo nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;color:var(--po);text-decoration:none}
+.em-topo nav a:hover{color:var(--tela)}
+.em-abertura{position:relative;z-index:2;padding:96px 0 64px}
+.em-abertura .em-wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:end}
+.em-marcador{display:flex;align-items:center;gap:10px;margin:0 0 24px}
+.em-abertura h1{margin:0;max-width:14ch}
+.em-nq{white-space:nowrap}
+.em-apoio{margin:24px 0 0;max-width:620px;font-size:20px;line-height:1.5;color:var(--cal)}
+.em-ficha-topo{margin:0;padding:0;list-style:none;border-top:1px solid var(--fio)}
+.em-ficha-topo li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--fio);font-size:15px;line-height:1.5}
+.em-ficha-topo li > span:first-child{font:500 12px/1.5 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po);padding-top:2px}
+.em-ficha-topo li > span:last-child{color:var(--tela)}
+
+.em-sec{position:relative;z-index:2;padding:64px 0;border-top:1px solid var(--fio)}
+.em-sec-head{display:grid;grid-template-columns:96px minmax(0,1fr);gap:24px;margin:0 0 40px}
+.em-sec-n{font:700 56px/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--fumaca);font-variant-numeric:lining-nums tabular-nums}
+.em-sec-head h2{margin:0}
+.em-sec-head p{margin:16px 0 0;max-width:680px;color:var(--cal)}
+.titulo-secao.em-t{font-size:clamp(30px,4vw,44px)}
+
+/* régua de mensagens */
+.em-regua{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio);margin:0;padding:0;list-style:none}
+.em-regua li{display:flex}
+.em-carta{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;width:100%;padding:24px;background:var(--sala);cursor:pointer;min-height:44px;transition:background var(--t-ui) var(--curva-cena)}
+.em-carta:hover{background:var(--bastidor)}
+.em-carta:focus-visible{outline:var(--foco);outline-offset:-2px}
+.em-carta[aria-pressed="true"]{background:var(--coxia);box-shadow:inset 0 2px 0 var(--areia)}
+.em-carta .credito{color:var(--po)}
+.em-carta b{font:700 22px/1.1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.005em;color:var(--tela)}
+.em-carta span.em-carta-a{font-size:15px;line-height:1.5;color:var(--cal)}
+.em-carta span.em-carta-cta{margin-top:auto;font:700 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;color:var(--areia)}
+
+/* estúdio */
+.em-estudio{display:grid;grid-template-columns:360px minmax(0,1fr);gap:32px;align-items:start}
+.em-painel{display:flex;flex-direction:column;gap:24px}
+.em-grupo{margin:0;padding:0;border:0;min-width:0}
+.em-grupo legend,.em-rotulo{display:block;margin:0 0 10px;padding:0;font:500 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.em-seg{display:flex;flex-wrap:wrap;gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.em-seg button{all:unset;box-sizing:border-box;flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 14px;background:var(--sala);color:var(--cal);font:600 14px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;cursor:pointer;text-align:center}
+.em-seg button:hover{background:var(--bastidor);color:var(--tela)}
+.em-seg button[aria-pressed="true"]{background:var(--tela);color:var(--sala)}
+.em-seg button:focus-visible{outline:var(--foco);outline-offset:2px;position:relative;z-index:1}
+.em-seg button[disabled]{cursor:not-allowed;color:var(--fumaca);background:var(--sala)}
+.em-seg svg,.em-acoes svg,.em-check svg,.em-nota svg,.em-pend svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.em-dica{margin:8px 0 0;font-size:13px;line-height:1.5;color:var(--po)}
+.em-campo{display:block;width:100%;box-sizing:border-box;min-height:44px;padding:10px 12px;border:1px solid var(--fumaca);border-radius:0;background:var(--coxia);color:var(--tela);font:400 15px/1.4 var(--font-texto)}
+.em-campo::placeholder{color:var(--fumaca)}
+.em-dados{margin:0;padding:0;border-top:1px solid var(--fio)}
+.em-dados div{padding:12px 0;border-bottom:1px solid var(--fio)}
+.em-dados dt{display:flex;justify-content:space-between;gap:12px;font:500 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.em-dados dt span{letter-spacing:.06em;color:var(--fumaca)}
+.em-dados dd{margin:6px 0 0;color:var(--tela);font-size:16px;line-height:1.45;overflow-wrap:anywhere}
+.em-acoes{display:flex;flex-direction:column;gap:12px}
+.em-acoes .botao{width:100%}
+.em-acoes .em-vazado{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 20px;border:1px solid var(--fumaca);background:transparent;color:var(--tela);font:700 15px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:0}
+.em-acoes .em-vazado:hover{border-color:var(--tela)}
+.em-status{min-height:22px;margin:0;font-size:14px;color:var(--sucesso)}
+.em-status[data-tipo="atencao"]{color:var(--atencao)}
+.em-acoes .em-vazado[disabled]{cursor:not-allowed;color:var(--fumaca);border-color:var(--fio)}
+.em-trava{margin:0;padding:10px 12px;border-left:2px solid var(--atencao);background:var(--sala);font-size:14px;line-height:1.45;color:var(--cal)}
+.em-trava[hidden]{display:none}
+
+.em-mesa{min-width:0;background:var(--bastidor);border:1px solid var(--fio)}
+.em-mesa-barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--fio)}
+.em-mesa-barra p{margin:0}
+.em-caixa{padding:12px 16px;border-bottom:1px solid var(--fio);background:var(--coxia)}
+.em-caixa p{margin:0;font-size:14px;line-height:1.45;color:var(--cal);overflow-wrap:anywhere}
+.em-caixa p + p{margin-top:2px;color:var(--po)}
+.em-caixa b{color:var(--tela);font-weight:600}
+.em-palco{display:flex;justify-content:center;padding:24px;overflow-x:auto}
+.em-palco iframe{display:block;width:600px;max-width:100%;border:0;background:#181818;height:900px}
+.em-palco[data-largura="cel"] iframe{width:375px}
+
+.em-checks{margin:0;padding:0;list-style:none;border-top:1px solid var(--fio)}
+.em-check{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--fio);font-size:14px;line-height:1.45;color:var(--cal)}
+.em-check[data-ok="sim"] svg{color:var(--sucesso)}
+.em-check[data-ok="nao"] svg{color:var(--erro)}
+.em-check b{display:block;color:var(--tela);font-weight:600}
+.em-check small{display:block;font-size:13px;color:var(--po)}
+
+/* anatomia e tabelas */
+.tabela-wrap{width:100%;overflow-x:auto;border:1px solid var(--fio)}
+.em-tab{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5}
+.em-tab caption{text-align:left;padding:0 0 12px;color:var(--po);font-size:13px}
+.em-tab th,.em-tab td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--fio)}
+.em-tab thead th{background:var(--bastidor);font:500 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.em-tab tbody th{font:600 15px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);width:200px}
+.em-tab td{color:var(--cal)}
+.em-tab code,.em-sec code{font:400 14px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--areia);overflow-wrap:anywhere}
+.em-tab tr:last-child > *{border-bottom:0}
+
+.em-duas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.em-bloco h3{margin:0 0 12px;font:600 22px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.em-bloco p,.em-bloco li{color:var(--cal)}
+.em-bloco ul{margin:0;padding:0 0 0 20px}
+.em-bloco li{margin:0 0 8px}
+.em-bloco li::marker{color:var(--areia)}
+.em-nota{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;margin:24px 0 0;padding:16px;border-left:2px solid var(--areia);background:var(--bastidor);font-size:15px;line-height:1.55;color:var(--cal)}
+.em-nota svg{color:var(--areia);margin-top:2px}
+.em-pends{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.em-pend{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;padding:20px;background:var(--sala);font-size:15px;line-height:1.55;color:var(--cal)}
+.em-pend svg{color:var(--atencao);margin-top:2px}
+.em-pend b{color:var(--tela)}
+
+.em-rodape{position:relative;z-index:2;padding:48px 0 64px;border-top:1px solid var(--fio)}
+.em-rodape nav{display:flex;flex-wrap:wrap;gap:8px 24px;margin:24px 0}
+.em-rodape nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--areia)}
+.em-fontes{margin:0;max-width:820px;color:var(--po);text-transform:none;letter-spacing:.02em;line-height:1.6}
+.em-fontes b{display:block;margin-bottom:4px;letter-spacing:.18em;text-transform:uppercase;color:var(--tela);font-weight:500}
+
+[hidden]{display:none!important}
+
+@media (max-width:1100px){
+  .em-estudio{grid-template-columns:minmax(0,1fr)}
+  .em-painel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .em-abertura .em-wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:900px){
+  .em-wrap{padding:0 32px}
+  .em-regua{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .em-duas,.em-pends{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .em-painel{grid-template-columns:minmax(0,1fr)}
+  .em-sec-head{grid-template-columns:minmax(0,1fr);gap:8px}
+  .em-sec-n{font-size:40px}
+  .em-palco{padding:16px 0}
+  .em-palco iframe,.em-palco[data-largura="cel"] iframe{width:100%}
+}
+@media (max-width:430px){
+  .em-wrap{padding:0 16px}
+  .em-topo nav a.em-nav-extra{display:none}
+  .em-abertura{padding:64px 0 48px}
+  .em-apoio{font-size:18px}
+  .em-regua{grid-template-columns:minmax(0,1fr)}
+  .em-sec{padding:48px 0}
+  .em-ficha-topo li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .em-mesa{margin:0 -16px;border-left:0;border-right:0}
+  /* tabela de 3 colunas vira blocos rótulo e valor */
+  .em-tab.em-blocos thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .em-tab.em-blocos tr{display:block;padding:14px 16px;border-bottom:1px solid var(--fio)}
+  .em-tab.em-blocos tr:last-child{border-bottom:0}
+  .em-tab.em-blocos th,.em-tab.em-blocos td{display:block;width:auto;padding:0;border:0}
+  .em-tab.em-blocos td{margin-top:8px}
+  .em-tab.em-blocos td::before{content:attr(data-rotulo);display:block;margin-bottom:2px;font:500 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+}
+@media print{
+  .em-painel,.em-topo nav,.em-regua{display:none}
+  .em-estudio{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="grao">
+<a class="em-pular" href="#estudio">Pular para o modelo</a>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="i-image-off" viewBox="0 0 24 24"><path d="M2 2l20 20"/><path d="M10.41 10.41a2 2 0 1 1-2.83-2.83"/><path d="M13.5 13.5 6 21"/><path d="m18 12 3 3"/><path d="M3.59 3.59A1.99 1.99 0 0 0 3 5v14a2 2 0 0 0 2 2h14c.55 0 1.052-.22 1.41-.59"/><path d="M21 15V5a2 2 0 0 0-2-2H9"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-circle-dashed" viewBox="0 0 24 24"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></symbol>
+  </defs>
+</svg>
+
+<header class="em-topo">
+  <div class="em-wrap">
+    <a class="em-logo" href="index.html" aria-label="The VOID Tattoo Academy, voltar para a lista de arquivos"><img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt=""></a>
+    <nav aria-label="Arquivos relacionados">
+      <a href="brand-book.html#s35">Manual, seção 35</a>
+      <a class="em-nav-extra" href="lockup.html#l09">Trechos de e-mail</a>
+      <a class="em-nav-extra" href="index.html">Todos os arquivos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+<section class="em-abertura janela-luz" aria-labelledby="em-titulo">
+  <div class="em-wrap">
+    <div>
+      <p class="em-marcador credito"><span data-vforms="marcador-estacao"></span>E-mail · modelo de canal</p>
+      <h1 id="em-titulo" class="titulo-filme">Um <span class="em-nq">e-mail</span> que chega <em class="off">inteiro</em></h1>
+      <p class="em-apoio">Quatro mensagens da régua da The VOID, montadas em tabela com estilos em linha, 600 px de largura e esquema de cor claro declarado. A prévia é o próprio arquivo que você copia: nada nela herda o estilo desta página.</p>
+    </div>
+    <ul class="em-ficha-topo" aria-label="Medidas do modelo">
+      <li><span>Largura</span><span>600 px, uma coluna, 24 px de margem</span></li>
+      <li><span>Cabeçalho</span><span>Faixa Sala de 64 px, logotipo a 200 px</span></li>
+      <li><span>Corpo</span><span>Sala com texto Cal até a aprovação do Modo Leitura [P&nbsp;2]</span></li>
+      <li><span>Botão</span><span>Reto, 48 px, um destino por <span class="em-nq">e-mail</span></span></li>
+      <li><span>Assina</span><span>Pessoa real com cargo, nunca a equipe</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="em-sec" id="regua" aria-labelledby="regua-t">
+  <div class="em-wrap">
+    <header class="em-sec-head">
+      <span class="em-sec-n" aria-hidden="true">01</span>
+      <div>
+        <h2 id="regua-t" class="titulo-secao em-t">A régua em <em class="off">quatro</em> cartas</h2>
+        <p>Cada mensagem atende a uma etapa do acompanhamento da pessoa, tem uma crença a desfazer e pede uma única ação. Escolha uma para abrir no modelo.</p>
+      </div>
+    </header>
+    <ul class="em-regua" id="em-regua"></ul>
+  </div>
+</section>
+
+<section class="em-sec" id="estudio" aria-labelledby="estudio-t">
+  <div class="em-wrap">
+    <header class="em-sec-head">
+      <span class="em-sec-n" aria-hidden="true">02</span>
+      <div>
+        <h2 id="estudio-t" class="titulo-secao em-t">O modelo, <em class="off">ao vivo</em></h2>
+        <p>Troque mensagem, formação e corpo. A conferência à esquerda roda sobre o HTML gerado a cada troca; o botão de baixar só libera o arquivo quando tudo passa.</p>
+      </div>
+    </header>
+
+    <div class="em-estudio">
+      <div class="em-painel">
+        <fieldset class="em-grupo">
+          <legend>Mensagem</legend>
+          <div class="em-seg" data-controle="variante" role="group" aria-label="Mensagem"></div>
+        </fieldset>
+        <fieldset class="em-grupo" id="em-grupo-marco">
+          <legend>Marco</legend>
+          <div class="em-seg" data-controle="marco" role="group" aria-label="Marco">
+            <button type="button" data-v="primeira-pele">Primeira Pele</button>
+            <button type="button" data-v="formatura">Formatura com Pele</button>
+          </div>
+        </fieldset>
+        <fieldset class="em-grupo" id="em-grupo-produto">
+          <legend>Formação</legend>
+          <div class="em-seg" data-controle="produto" role="group" aria-label="Formação">
+            <button type="button" data-v="start">Start</button>
+            <button type="button" data-v="master">Master</button>
+            <button type="button" data-v="pro">Pro</button>
+          </div>
+          <p class="em-dica" id="em-dica-produto"></p>
+        </fieldset>
+        <fieldset class="em-grupo">
+          <legend>Corpo</legend>
+          <div class="em-seg" data-controle="corpo" role="group" aria-label="Corpo do e-mail">
+            <button type="button" data-v="sala">Sala, vale hoje</button>
+            <button type="button" data-v="leitura">Modo Leitura</button>
+          </div>
+          <p class="em-dica">O corpo em Tela é a exceção do Modo Leitura e depende de aprovação [P 2]. Até lá, use Sala.</p>
+        </fieldset>
+        <fieldset class="em-grupo">
+          <legend>Prévia</legend>
+          <div class="em-seg" data-controle="largura" role="group" aria-label="Largura da prévia">
+            <button type="button" data-v="pc"><svg aria-hidden="true"><use href="#i-monitor"/></svg>600 px</button>
+            <button type="button" data-v="cel"><svg aria-hidden="true"><use href="#i-smartphone"/></svg>Celular</button>
+          </div>
+          <div class="em-seg" data-controle="imagens" role="group" aria-label="Imagens na prévia" style="margin-top:8px">
+            <button type="button" data-v="sim"><svg aria-hidden="true"><use href="#i-image"/></svg>Imagens</button>
+            <button type="button" data-v="nao"><svg aria-hidden="true"><use href="#i-image-off"/></svg>Bloqueadas</button>
+          </div>
+        </fieldset>
+        <div>
+          <label class="em-rotulo" for="em-base">Endereço público das imagens</label>
+          <input class="em-campo" id="em-base" type="url" inputmode="url" placeholder="https://.../branding-the-void/" autocomplete="off" spellcheck="false">
+          <p class="em-dica">Vale para o arquivo copiado ou baixado. Vazio, o arquivo sai com {{URL_PUBLICA_IMAGENS}} para você não enviar imagem quebrada.</p>
+        </div>
+        <div class="em-acoes">
+          <button type="button" class="botao" id="em-copiar"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copiar o HTML</button>
+          <button type="button" class="em-vazado" id="em-baixar"><svg aria-hidden="true"><use href="#i-download"/></svg>Baixar o arquivo</button>
+          <p class="em-trava" id="em-trava" hidden></p>
+          <p class="em-status" id="em-status" role="status" aria-live="polite"></p>
+        </div>
+        <div>
+          <p class="em-rotulo" id="em-checks-t">Conferência automática</p>
+          <ul class="em-checks" id="em-checks" aria-labelledby="em-checks-t"></ul>
+        </div>
+      </div>
+
+      <div class="em-mesa">
+        <div class="em-mesa-barra">
+          <p class="credito" id="em-marcador-mesa">Prévia</p>
+          <p class="credito" id="em-medida">600 px</p>
+        </div>
+        <div class="em-caixa" aria-label="Como aparece na caixa de entrada">
+          <p><b id="em-assunto"></b></p>
+          <p id="em-pre"></p>
+        </div>
+        <dl class="em-dados" style="padding:0 16px;border-top:0">
+          <div><dt>Etapa</dt><dd id="em-etapa"></dd></div>
+          <div><dt>Assina</dt><dd id="em-assina"></dd></div>
+        </dl>
+        <div class="em-palco" id="em-palco" data-largura="pc">
+          <iframe id="em-quadro" title="Prévia do e-mail" sandbox="allow-same-origin"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="em-sec" id="anatomia" aria-labelledby="anatomia-t">
+  <div class="em-wrap">
+    <header class="em-sec-head">
+      <span class="em-sec-n" aria-hidden="true">03</span>
+      <div>
+        <h2 id="anatomia-t" class="titulo-secao em-t">Anatomia, de <em class="off">cima a baixo</em></h2>
+        <p>A ordem dos blocos é fixa. O que muda entre as quatro mensagens é o cabeçalho (logotipo, selo ou co-assinatura), a peça de abertura e o pedido.</p>
+      </div>
+    </header>
+    <div class="tabela-wrap" tabindex="0" role="region" aria-labelledby="anatomia-t">
+      <table class="em-tab em-blocos">
+        <thead><tr><th scope="col">Bloco</th><th scope="col">Regra</th><th scope="col">Por quê</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Assunto e pré-cabeçalho</th><td data-rotulo="Regra">Assunto até 45 caracteres, pré-cabeçalho até 80, contados com o nome mais longo provável. Sem caixa alta inteira, sem travessão, sem emoji no lugar de palavra.</td><td data-rotulo="Por quê">O celular corta o assunto perto dos 45 caracteres; o pré-cabeçalho completa a frase em vez de repetir.</td></tr>
+          <tr><th scope="row">Técnica</th><td data-rotulo="Regra"><code>color-scheme</code> e <code>supported-color-schemes</code> em light; toda célula com <code>bgcolor</code> explícito; tabela de 600 px com <code>role="presentation"</code>; estilos em linha.</td><td data-rotulo="Por quê">Programas de e-mail apagam estilos de página e invertem cores por conta própria. Fundo declarado em cada célula resiste aos dois.</td></tr>
+          <tr><th scope="row">Cabeçalho</th><td data-rotulo="Regra">Placa Sala de 600 por 64 px com Janela de Luz e o logotipo branco a 200 px (imagem em 2x). No celular, o logotipo oficial a 200 px. No marco, o selo da formação no lugar do logotipo; no Talks, a co-assinatura.</td><td data-rotulo="Por quê">O logotipo nunca fica abaixo do mínimo de 158 px de largura e aparece uma vez só.</td></tr>
+          <tr><th scope="row">Marcador</th><td data-rotulo="Regra">Nome do produto ou do rito em Crédito, em texto, logo abaixo do cabeçalho.</td><td data-rotulo="Por quê">Diz em um segundo de que parte da trilha a mensagem fala.</td></tr>
+          <tr><th scope="row">Abertura</th><td data-rotulo="Regra">Título em Archivo, até 6 palavras, com uma linha na voz em off em itálico Georgia. No marco, a Faixa Cinemascope com a foto do rito.</td><td data-rotulo="Por quê">A voz em off nunca vira imagem: cai para Georgia e continua texto.</td></tr>
+          <tr><th scope="row">Corpo</th><td data-rotulo="Regra">"Oi, {nome}." e a ideia numa frase; até três parágrafos; 17 px com entrelinha 1,6; no máximo uma prova, sempre com Crédito de Prova.</td><td data-rotulo="Por quê">Uma ideia por e-mail. Prova sem crédito não sai.</td></tr>
+          <tr><th scope="row">Botão</th><td data-rotulo="Regra">Reto, 48 px de altura, rótulo da biblioteca em caixa alta. O mesmo endereço em texto logo abaixo.</td><td data-rotulo="Por quê">Com imagens bloqueadas ou botão quebrado, o link em texto ainda funciona.</td></tr>
+          <tr><th scope="row">Assinatura</th><td data-rotulo="Regra">Nome e cargo de uma pessoa real, em texto. Sem logotipo (já está no cabeçalho).</td><td data-rotulo="Por quê">O e-mail aceita resposta e alguém lê.</td></tr>
+          <tr><th scope="row">Tagline</th><td data-rotulo="Regra">Só na boas-vindas da matrícula e na Formatura com Pele, uma vez.</td><td data-rotulo="Por quê">É frase de peso; repetida em toda mensagem, perde o peso.</td></tr>
+          <tr><th scope="row">Rodapé</th><td data-rotulo="Regra">Sala, Créditos Finais, bloco NAP, motivo do recebimento, descadastro e privacidade.</td><td data-rotulo="Por quê">Lei Geral de Proteção de Dados: a pessoa sabe por que recebe e sai quando quiser.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="em-nota"><svg aria-hidden="true"><use href="#i-info"/></svg><span><b>Para saber.</b> A spec pede, no marco, "a frase do rito na voz em off em imagem" e, na regra da voz em off, que ela "nunca vira imagem" no e-mail. O modelo resolve assim: a foto é a imagem; a frase fica em texto vivo na faixa escura acima dela, com Georgia itálico. Nada se perde com imagens bloqueadas.</span></p>
+  </div>
+</section>
+
+<section class="em-sec" id="variaveis" aria-labelledby="variaveis-t">
+  <div class="em-wrap">
+    <header class="em-sec-head">
+      <span class="em-sec-n" aria-hidden="true">04</span>
+      <div>
+        <h2 id="variaveis-t" class="titulo-secao em-t">Variáveis e <em class="off">envio</em></h2>
+        <p>Chaves simples são campos que o programa de envio preenche por pessoa. Chaves duplas são dados da escola ainda não confirmados: enquanto houver um, a conferência reprova, o botão de baixar fica desligado e a cópia serve só como arquivo de trabalho.</p>
+      </div>
+    </header>
+    <div class="tabela-wrap" tabindex="0" role="region" aria-labelledby="variaveis-t">
+      <table class="em-tab em-blocos">
+        <thead><tr><th scope="col">Campo</th><th scope="col">O que entra</th><th scope="col">No programa de e-mail</th></tr></thead>
+        <tbody id="em-variaveis"></tbody>
+      </table>
+    </div>
+    <div class="em-duas" style="margin-top:48px">
+      <div class="em-bloco">
+        <h3>Quem assina cada mensagem</h3>
+        <ul>
+          <li>Boas-vindas da matrícula: a pessoa do comercial que acompanhou a matrícula.</li>
+          <li>Véspera do primeiro dia: a coordenação pedagógica.</li>
+          <li>Marco: o professor que validou o marco ou que acompanha a turma.</li>
+          <li>Convite do The VOID Talks: quem cuida da comunidade VOIDERS.</li>
+          <li>Nunca "Equipe The VOID" sozinha, nunca "não responda este e-mail".</li>
+        </ul>
+      </div>
+      <div class="em-bloco">
+        <h3>Ritmo de envio (proposta)</h3>
+        <ul>
+          <li>Até dois e-mails por semana enquanto a pessoa decide a matrícula.</li>
+          <li>Um por semana durante a formação, mais os de marco.</li>
+          <li>Um ou dois por mês para ex-alunos.</li>
+          <li>Uma ideia e um pedido por e-mail, sempre.</li>
+        </ul>
+        <p class="em-dica">Ritmo proposto pela GrowAI no estudo de comunicação por etapa, out/2026. A The VOID decide o calendário final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="em-sec" id="pendencias" aria-labelledby="pendencias-t">
+  <div class="em-wrap">
+    <header class="em-sec-head">
+      <span class="em-sec-n" aria-hidden="true">05</span>
+      <div>
+        <h2 id="pendencias-t" class="titulo-secao em-t">O que ainda <em class="off">depende</em> da escola</h2>
+        <p>Nada aqui foi decidido pela GrowAI no lugar da The VOID. Enquanto a resposta não vem, o modelo sai no padrão seguro descrito em cada item.</p>
+      </div>
+    </header>
+    <ul class="em-pends">
+      <li class="em-pend pendencia" data-p="2"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>[P 2] Modo Leitura no e-mail.</b> Corpo em Tela com texto Sala é a recomendação (texto claro longo sobre preto cansa e sofre inversão de cor em alguns programas). Até a aprovação, o corpo sai em Sala com texto Cal.</span></li>
+      <li class="em-pend pendencia" data-p="8"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>[P 8] Telefone e dados legais.</b> O rodapé usa o bloco NAP canônico. Confirmar com a The VOID o telefone principal, a razão social e o CNPJ.</span></li>
+      <li class="em-pend pendencia" data-p="11"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>[P 11] Mínimos do logotipo.</b> A placa do cabeçalho segue o mínimo proposto de 158 px. Programas que não leem a regra de celular reduzem a placa inteira junto com a tela; nesses, o logotipo pode ficar abaixo do mínimo.</span></li>
+      <li class="em-pend pendencia" data-p="6"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>[P 6] Ritos e Talks.</b> O mural do Ritual do Traço e a frequência do The VOID Talks não estão confirmados. Os textos não citam o mural nem dizem "todo mês".</span></li>
+      <li class="em-pend pendencia" data-p="22"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>[P 22] Foto do rito.</b> O marco pede a foto oficial do rito, real e autorizada por escrito para e-mail. Sem ela, o espaço fica rotulado e o e-mail não vai.</span></li>
+      <li class="em-pend pendencia" data-p="15"><svg aria-hidden="true"><use href="#i-circle-dashed"/></svg><span><b>Dados da turma.</b> O que levar no primeiro dia, número de convidados da formatura e quem recebe o aluno saem como {{A_CONFIRMAR}} até a coordenação confirmar.</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="em-rodape">
+  <div class="em-wrap">
+    <div data-vforms="rodape"></div>
+    <nav aria-label="Arquivos do repositório">
+      <a href="index.html">Todos os arquivos</a>
+      <a href="brand-book.html#s35">Manual: redes, WhatsApp, e-mail e deck</a>
+      <a href="assets/aplicacoes/assinatura-email.html">Assinatura de e-mail</a>
+      <a href="comunicacao-m1-m8.html">Comunicação M1 a M8</a>
+    </nav>
+    <p class="em-fontes credito"><b>Fontes desta página</b>Especificação Sala Escura v1, 06/10/2026, seções 3.6, 4.6, 5.2, 5.6, 6.6, 6.15, 9.6, 10, 11 e 12.5; Brand DNA da The VOID, set/2026; Plataforma de Branding, aureadesign, 2025 (frases dos ritos e do The VOID Talks); site oficial, consultado em 06/10/2026 (endereço e telefone). Proposta GrowAI, aguarda aprovação da The VOID.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------- valores da spec (HEX iguais a tokens.json) ---------------- */
+  var C = {
+    nanquim: '#000000', sala: '#181818', bastidor: '#212121', coxia: '#2B2B2B', fio: '#363636',
+    fumaca: '#898989', po: '#B4B5B0', cal: '#DCDDD8', cinza100: '#ECEDE7', tela: '#F8F9F4',
+    ardosia: '#3F4E4F', terracotaFunda: '#8C4529', terracotaLuz: '#DE8C66', areia: '#DBC5A3', nevoa: '#C9D0D8'
+  };
+  var F = {
+    letreiro: "'Archivo','Helvetica Neue',Arial,sans-serif",
+    off: "'Newsreader',Georgia,serif",
+    texto: "'Nunito Sans',Arial,sans-serif"
+  };
+  /* destaque de texto no escuro por produto (spec 3.5) */
+  var DESTAQUE = { chamado: C.areia, start: C.areia, master: C.terracotaLuz, pro: C.nevoa, voiders: C.areia };
+  var PRODUTO = {
+    start: { nome: 'Start', marca: 'THE VOID START', texto: 'formação Start', na: 'na formação Start', a: 'a formação Start', sensivel: 'o primeiro traço' },
+    master: { nome: 'Master', marca: 'THE VOID MASTER', texto: 'formação Master', na: 'na formação Master', a: 'a formação Master', sensivel: 'a sua identidade' },
+    pro: { nome: 'Pro', marca: 'THE VOID PRO', texto: 'programa Pro', na: 'no programa Pro', a: 'o programa Pro', sensivel: 'o seu plano' }
+  };
+  var NAP = ['The VOID Tattoo Academy', 'Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040', '+55 11 92481-8712'];
+  /* tamanho provável dos campos, para contar o assunto e o pré-cabeçalho */
+  var TAMANHO_CAMPO = { nome: 12, data_turma: 10, horario: 5, data_talk: 10, data_formatura: 10, convidado: 22, data_marco: 10 };
+  var LIMITE = { assunto: 45, pre: 80 };
+
+  /* ---------------- a copy (única fonte de texto do modelo) ---------------- */
+  var MENSAGENS = {
+    'boas-vindas': {
+      rotulo: 'Boas-vindas', etapa: 'M5 · matrícula confirmada', crenca: 'Será que escolhi certo?',
+      resumo: 'Confirma a escolha e marca o primeiro passo concreto.',
+      estacao: 'produto', cabecalho: 'placa', selo: true, tagline: true,
+      assunto: 'Matrícula confirmada, {nome}',
+      pre: 'Seu primeiro dia e o próximo passo, tudo por escrito.',
+      marcador: function (p) { return p.marca; },
+      titulo: function (p) { return ['ESTÁ FEITO. AGORA,', p.sensivel + '.']; },
+      corpo: function (p) { return [
+        'Sua matrícula ' + p.na + ' está confirmada. A partir de agora, a gente cuida do primeiro passo junto com você.',
+        'Seu primeiro dia é {data_turma}, às {horario}, na escola. Na véspera, chega outro e-mail com o endereço, quem vai receber você e o que levar.',
+        'Confirme a sua presença para a gente preparar o seu lugar na turma.'
+      ]; },
+      cta: 'Confirmar presença no primeiro dia', link: '{link_confirmacao}',
+      assina: ['{nome_remetente}', 'Comercial · The VOID Tattoo Academy'], quem: 'A pessoa do comercial que acompanhou a matrícula',
+      motivo: function (p) { return 'Você recebe este e-mail porque fez a matrícula ' + p.na + '.'; }
+    },
+    'primeiro-dia': {
+      rotulo: 'Primeiro dia', etapa: 'M5 para M6 · véspera do primeiro dia', crenca: 'Minhas mãos não vão obedecer.',
+      resumo: 'Tudo o que a pessoa precisa para chegar, numa ficha só.',
+      estacao: 'produto', cabecalho: 'placa', selo: false, tagline: false,
+      assunto: 'Amanhã é o seu primeiro dia na Void',
+      pre: 'Horário, endereço, quem recebe você e o que levar.',
+      marcador: function (p) { return p.nome.toUpperCase() + ' · RITUAL DO TRAÇO'; },
+      titulo: function () { return ['TUDO PRONTO PARA', 'amanhã.']; },
+      corpo: function (p) { return [
+        'Amanhã é o seu primeiro dia ' + p.na + '. Está tudo aqui embaixo, para você só se preocupar em chegar.',
+        '[ficha]',
+        'No primeiro dia acontece o Ritual do Traço. Se as mãos tremerem, tudo bem: todo mundo começa com um traço.'
+      ]; },
+      ficha: [
+        ['Dia', '{data_turma}'], ['Horário', '{horario}'], ['Onde', NAP[1]],
+        ['Quem recebe', '{nome_de_quem_recebe}'], ['O que levar', '{{A_CONFIRMAR}}']
+      ],
+      cta: 'Ver como chegar', link: '{link_mapa}',
+      assina: ['{nome_remetente}', 'Coordenação pedagógica · The VOID Tattoo Academy'], quem: 'A coordenação pedagógica',
+      motivo: function (p) { return 'Você recebe este e-mail porque fez a matrícula ' + p.na + '.'; }
+    },
+    'marco': {
+      rotulo: 'Marco', etapa: 'M6 e M7 · rito da formação', crenca: 'Todo mundo evolui mais rápido que eu.',
+      resumo: 'Celebra o rito com a foto oficial e devolve a pessoa à trilha.',
+      estacao: 'produto', cabecalho: 'selo', selo: false
+    },
+    'talks': {
+      rotulo: 'Convite Talks', etapa: 'M8 · comunidade e ex-alunos', crenca: 'Já aprendi o que precisava.',
+      resumo: 'Convida para o encontro com quem vive de tatuagem, sem oferta de formação.',
+      estacao: 'chamado', cabecalho: 'co-assinatura', coAssinatura: 'TALKS', selo: false, tagline: false,
+      assunto: 'Convite para o The VOID Talks',
+      pre: 'Com {convidado}, em {data_talk}. Da sala pra cena.',
+      marcador: function () { return 'THE VOID TALKS'; },
+      titulo: function () { return ['DA SALA', 'pra cena.']; },
+      corpo: function () { return [
+        'O próximo The VOID Talks é com {convidado}, em {data_talk}, às {horario}, na escola.',
+        'O tema é {tema_do_talk}: uma conversa com quem vive de tatuagem, para você chegar com as suas perguntas.',
+        'Confirme a sua presença para a gente preparar a sala. A Void conecta você com quem vive disso.'
+      ]; },
+      cta: 'Confirmar presença', link: '{link_confirmacao}',
+      assina: ['{nome_remetente}', 'Comunidade VOIDERS · The VOID Tattoo Academy'], quem: 'Quem cuida da comunidade VOIDERS',
+      motivo: function () { return 'Você recebe este e-mail porque faz parte da comunidade da The VOID.'; }
+    }
+  };
+  var MARCOS = {
+    'primeira-pele': {
+      tagline: false,
+      assunto: 'Sua primeira pele, {nome}',
+      pre: 'O seu professor validou o marco. Ele já está na sua trilha.',
+      marcador: function (p) { return p.nome.toUpperCase() + ' · PRIMEIRA PELE'; },
+      faixa: ['VOCÊ NUNCA ESQUECE SUA PRIMEIRA PELE.', 'Aqui, ela é celebrada.'],
+      legendaFoto: 'FOTO OFICIAL DO RITO · {data_marco}',
+      corpo: function () { return [
+        'Hoje você fez a sua primeira pele, e o seu professor validou esse marco na sua trilha.',
+        'Um ponto forte de hoje: {ponto_forte}. Um ponto para a próxima: {ponto_ajuste}.',
+        'A foto oficial fica guardada só para você na área do aluno. Ela só é publicada com a sua autorização e a de quem você tatuou.'
+      ]; },
+      cta: 'Ver meu marco na trilha', link: '{link_marco}',
+      assina: ['{nome_remetente}', 'Professor da formação · The VOID Tattoo Academy'], quem: 'O professor que validou o marco',
+      motivo: function (p) { return 'Você recebe este e-mail porque faz ' + p.a + ' na The VOID.'; },
+      foto: 'Foto real da Primeira Pele deste aluno, com autorização dele e de quem foi tatuado'
+    },
+    'formatura': {
+      tagline: true,
+      assunto: 'Sua Formatura com Pele',
+      pre: '{data_formatura}, às {horario}. Confirme a sua presença.',
+      marcador: function (p) { return p.nome.toUpperCase() + ' · FORMATURA COM PELE'; },
+      faixa: ['SUA FORMATURA COM PELE.', 'Um novo capítulo na pele.'],
+      legendaFoto: 'FORMATURA COM PELE · TURMA ANTERIOR',
+      corpo: function () { return [
+        'Sua Formatura com Pele é em {data_formatura}, às {horario}, na escola. Você pode levar {{A_CONFIRMAR}} convidados.',
+        'É o dia de mostrar o trabalho que você construiu, receber o certificado de conclusão da escola e fechar este capítulo com a turma.',
+        'Você não sai apenas com um certificado. Sai com um novo capítulo na pele.'
+      ]; },
+      cta: 'Confirmar presença na formatura', link: '{link_confirmacao}',
+      assina: ['{nome_remetente}', 'Coordenação pedagógica · The VOID Tattoo Academy'], quem: 'A coordenação pedagógica',
+      motivo: function (p) { return 'Você recebe este e-mail porque faz ' + p.a + ' na The VOID.'; },
+      foto: 'Foto real de uma Formatura com Pele anterior, com autorização de quem aparece'
+    }
+  };
+  var VARIAVEIS = [
+    ['{nome}', 'Primeiro nome da pessoa', 'campo de primeiro nome do contato'],
+    ['{data_turma} · {horario}', 'Data e hora do primeiro dia, do calendário da turma', 'campo da turma na oportunidade'],
+    ['{link_confirmacao}', 'Página ou formulário que registra a presença', 'link do formulário ou do calendário'],
+    ['{link_mapa}', 'Rota até a Rua Jericó, 217', 'link fixo do mapa'],
+    ['{link_marco}', 'O marco validado na área do aluno', 'link da área de membros'],
+    ['{nome_de_quem_recebe}', 'Quem recebe a turma no primeiro dia', 'campo da turma'],
+    ['{ponto_forte} · {ponto_ajuste}', 'O par de retorno do professor, um ponto forte e um ajuste', 'preenchido pelo professor no marco'],
+    ['{data_marco} · {data_formatura}', 'Datas do rito, do calendário da turma', 'campo da turma'],
+    ['{convidado} · {data_talk} · {tema_do_talk}', 'Dados do próximo The VOID Talks', 'campos do evento'],
+    ['{nome_remetente}', 'Pessoa real que assina', 'nome do usuário da conta que envia'],
+    ['{link_descadastro} · {link_privacidade}', 'Sair da lista e política de privacidade', 'link de descadastro do programa e link fixo'],
+    ['{{A_CONFIRMAR}}', 'Dado da escola ainda sem confirmação', 'reprova a conferência e desliga o download; a cópia sai como arquivo de trabalho'],
+    ['{{URL_PUBLICA_IMAGENS}}', 'Pasta publicada do repositório, para as imagens', 'trocado pelo campo do painel']
+  ];
+  var VETADOS = [/incr[ií]vel/i, /maravilhos/i, /\bf[aá]cil\b/i, /simples assim/i, /jornada/i, /\bn[ií]vel\b/i, /\bXP\b/, /desbloque/i, /ranking/i,
+    /curso r[aá]pido/i, /\bmaior\b/i, /#\s?1\b/, /\bn[ºo°]\s?1\b/i, /\bmelhor\b/i, /\bMEC\b/, /\b[uú]nic[ao]\b/i, /l[ií]der/i, new RegExp('TAT' + 'OO'),
+    /garantid/i, /sonho realizado/i, /empoder/i, /revolucion/i, /disruptiv/i, /n[aã]o responda/i, /[\u2014\u2013]/];
+
+  /* ---------------- utilitários ---------------- */
+  function pl(n, um, varios) { return n + ' ' + (n === 1 ? um : varios); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function maiusc(s) { return String(s).toLocaleUpperCase('pt-BR'); }
+  function contar(s) {
+    return String(s).replace(/\{\{[^}]+\}\}|\{([a-z_]+)\}/g, function (m, k) {
+      return new Array((k && TAMANHO_CAMPO[k] ? TAMANHO_CAMPO[k] : 10) + 1).join('x');
+    }).length;
+  }
+  function config(estado) {
+    var base = MENSAGENS[estado.variante];
+    var m = {};
+    for (var k in base) m[k] = base[k];
+    if (estado.variante === 'marco') {
+      var mk = MARCOS[estado.marco];
+      for (var j in mk) m[j] = mk[j];
+    }
+    m.produto = PRODUTO[estado.produto];
+    m.estacao = m.estacao === 'produto' ? estado.produto : m.estacao;
+    return m;
+  }
+
+  /* ---------------- o e-mail ---------------- */
+  function montar(estado, opcoes) {
+    opcoes = opcoes || {};
+    var m = config(estado);
+    var p = m.produto;
+    var leitura = estado.corpo === 'leitura';
+    var base = opcoes.base == null ? '' : opcoes.base;
+    var bloqueadas = !!opcoes.imagensBloqueadas;
+    var destaque = DESTAQUE[m.estacao];
+    var c = leitura
+      ? { fundo: C.tela, texto: C.sala, forte: C.sala, apoio: C.ardosia, link: C.terracotaFunda, linha: C.fumaca, botaoF: C.sala, botaoT: C.tela, cartao: C.cinza100, rot: C.ardosia }
+      : { fundo: C.sala, texto: C.cal, forte: C.tela, apoio: C.po, link: destaque, linha: C.fio, botaoF: C.tela, botaoT: C.sala, cartao: C.bastidor, rot: C.po };
+    function src(caminho) { return bloqueadas ? '' : base + caminho; }
+    function off(t, tam) {
+      return '<em style="font-family:' + F.off + ';font-style:italic;font-weight:300;font-size:' + tam + ';letter-spacing:0;text-transform:none;color:' + destaque + '">' + esc(t) + '</em>';
+    }
+    function linhaTexto(t) {
+      return esc(t).replace(/\{\{A_CONFIRMAR\}\}/g, '<b style="font-weight:600">{{A_CONFIRMAR}}</b>');
+    }
+    var L = [];
+    var assunto = m.assunto;
+
+    L.push('<!DOCTYPE html>');
+    L.push('<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">');
+    L.push('<head>');
+    L.push('<meta charset="utf-8">');
+    L.push('<meta name="viewport" content="width=device-width, initial-scale=1">');
+    L.push('<meta http-equiv="X-UA-Compatible" content="IE=edge">');
+    L.push('<meta name="x-apple-disable-message-reformatting">');
+    L.push('<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">');
+    L.push('<meta name="color-scheme" content="light">');
+    L.push('<meta name="supported-color-schemes" content="light">');
+    L.push('<title>' + esc(assunto) + '</title>');
+    L.push('<!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->');
+    L.push('<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Newsreader:ital,opsz,wght@1,6..72,300&amp;family=Nunito+Sans:wght@400;600&amp;display=swap" rel="stylesheet">');
+    L.push('<style>');
+    L.push(':root{color-scheme:light;supported-color-schemes:light}');
+    L.push('body{margin:0;padding:0;width:100%!important;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}');
+    L.push('table{border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt}');
+    L.push('img{border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic}');
+    L.push('a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}');
+    L.push('@media only screen and (max-width:599px){');
+    L.push('.vd-casca{width:100%!important}');
+    L.push('.vd-pad{padding-left:20px!important;padding-right:20px!important}');
+    L.push('.vd-placa{display:none!important}');
+    L.push('.vd-placa-cel{display:block!important;max-height:none!important;overflow:visible!important}');
+    L.push('.vd-titulo{font-size:30px!important}');
+    L.push('.vd-faixa-t{font-size:24px!important}');
+    L.push('.vd-col{display:block!important;width:100%!important}');
+    L.push('.vd-selo{padding:0 0 16px!important}');
+    L.push('.vd-botao,.vd-botao td,.vd-botao a{display:block!important;width:100%!important;box-sizing:border-box;text-align:center!important}');
+    L.push('.vd-botao td{height:auto!important}');
+    L.push('.vd-ficha th,.vd-ficha td{display:block!important;width:auto!important}');
+    L.push('.vd-ficha td{padding-top:0!important;border-top:0!important}');
+    L.push('}');
+    L.push('</style>');
+    L.push('</head>');
+    L.push('<body bgcolor="' + C.sala + '" style="margin:0;padding:0;background:' + C.sala + '">');
+    /* pré-cabeçalho escondido */
+    L.push('<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:' + C.sala + ';opacity:0">' + esc(m.pre) + new Array(40).join('&#8199;&#847;') + '</div>');
+    L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' + C.sala + '" style="width:100%;background:' + C.sala + '">');
+    L.push('<tr><td align="center" bgcolor="' + C.sala + '" style="padding:0;background:' + C.sala + '">');
+    L.push('<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td><![endif]-->');
+    L.push('<table role="presentation" class="vd-casca" width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="' + C.sala + '" style="width:600px;max-width:600px;background:' + C.sala + '">');
+
+    /* ---- cabeçalho ---- */
+    var altImg = 'color:' + C.tela + ';font:600 16px/1.3 ' + F.letreiro + ';background:' + C.sala;
+    if (m.cabecalho === 'placa') {
+      L.push('<tr><td bgcolor="' + C.sala + '" style="padding:0;background:' + C.sala + '">');
+      L.push('<img class="vd-placa" src="' + src('assets/aplicacoes/placa-email-600.png') + '" width="600" height="64" alt="The VOID Tattoo Academy" style="display:block;width:100%;max-width:600px;height:auto;border:0;' + altImg + '">');
+      L.push('<!--[if !mso]><!--><div class="vd-placa-cel" style="display:none;max-height:0;overflow:hidden;mso-hide:all">');
+      L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' + C.sala + '"><tr><td bgcolor="' + C.sala + '" style="padding:17px 20px;background:' + C.sala + '">');
+      L.push('<img src="' + src('assets/brand/png/web/void-horizontal-branco.png') + '" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;border:0;' + altImg + '">');
+      L.push('</td></tr></table></div><!--<![endif]-->');
+      L.push('</td></tr>');
+    } else if (m.cabecalho === 'selo') {
+      var sl = estado.produto === 'pro' ? 104 : 96;
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:16px 24px;background:' + C.sala + '">');
+      L.push('<img src="' + src('assets/aplicacoes/selo-email-' + estado.produto + '.png') + '" width="' + sl + '" height="' + sl + '" alt="Selo The VOID ' + p.nome + '" style="display:block;width:' + sl + 'px;height:' + sl + 'px;border:0;' + altImg + '">');
+      L.push('</td></tr>');
+    } else {
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:17px 24px;background:' + C.sala + '">');
+      L.push('<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>');
+      L.push('<td valign="middle" style="padding:0"><img src="' + src('assets/brand/png/web/void-horizontal-branco.png') + '" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;border:0;' + altImg + '"></td>');
+      L.push('<td valign="middle" style="padding:0 10px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="1" height="29" bgcolor="' + C.tela + '" style="width:1px;height:29px;background:' + C.tela + ';font-size:0;line-height:0">&nbsp;</td></tr></table></td>');
+      L.push('<td valign="middle" style="padding:0;color:' + C.tela + ';font:700 14px/1 ' + F.letreiro + ';letter-spacing:.04em;text-transform:uppercase">' + esc(m.coAssinatura) + '</td>');
+      L.push('</tr></table>');
+      L.push('</td></tr>');
+    }
+
+    /* ---- marcador ---- */
+    L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:' + (m.cabecalho === 'selo' ? '0' : '20px') + ' 24px 0;background:' + C.sala + ';color:' + C.po + ';font:500 12px/1.5 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">' + esc(m.marcador(p)) + '</td></tr>');
+
+    /* ---- abertura ---- */
+    if (estado.variante === 'marco') {
+      L.push('<tr><td bgcolor="' + C.sala + '" style="padding:20px 0 0;background:' + C.sala + '">');
+      L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' + C.nanquim + '" style="background:' + C.nanquim + '">');
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.nanquim + '" style="padding:28px 24px 20px;background:' + C.nanquim + '">');
+      L.push('<h1 class="vd-faixa-t" style="margin:0;color:' + C.tela + ';font:800 28px/1 ' + F.letreiro + ';letter-spacing:-.02em;text-transform:uppercase">' + esc(m.faixa[0]) + '</h1>');
+      L.push('<p style="margin:10px 0 0;line-height:1.1">' + off(m.faixa[1], '28px') + '</p>');
+      L.push('</td></tr>');
+      L.push('<!-- Foto do rito em 2,39 por 1 (1200 por 502 px). Troque esta célula por: <img src="{url_foto_do_rito}" width="600" height="251" alt="{texto_alternativo_da_foto}" style="display:block;width:100%;max-width:600px;height:auto;border:0"> -->');
+      L.push('<tr><td align="center" valign="middle" height="251" bgcolor="' + C.coxia + '" style="height:251px;padding:24px;background:' + C.coxia + ';color:' + C.po + ';font:500 12px/1.6 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">FOTO REAL DA ESCOLA, COM AUTORIZAÇÃO<br><span style="font:400 13px/1.5 ' + F.texto + ';letter-spacing:0;text-transform:none;color:' + C.po + '">' + esc(m.foto) + '. 1200 por 502 px.</span></td></tr>');
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.nanquim + '" style="padding:14px 24px 18px;background:' + C.nanquim + ';color:' + C.po + ';font:500 12px/1.5 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">' + esc(m.legendaFoto) + '</td></tr>');
+      L.push('</table>');
+      L.push('</td></tr>');
+    } else {
+      var t = m.titulo(p);
+      var tituloHTML = '<h1 class="vd-titulo" style="margin:0;color:' + C.tela + ';font:800 36px/1 ' + F.letreiro + ';letter-spacing:-.02em;text-transform:uppercase">' + esc(t[0]) + '<br>' + off(t[1], '1.2em') + '</h1>';
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:16px 24px 40px;background:' + C.sala + '">');
+      if (m.selo) {
+        var s2 = estado.produto === 'pro' ? 104 : 96;
+        L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" dir="rtl"><tr>');
+        L.push('<td class="vd-col vd-selo" align="left" valign="top" width="' + (s2 + 24) + '" dir="ltr" style="padding:0 0 0 24px;text-align:left">');
+        L.push('<img src="' + src('assets/aplicacoes/selo-email-' + estado.produto + '.png') + '" width="' + s2 + '" height="' + s2 + '" alt="Selo The VOID ' + p.nome + '" style="display:block;width:' + s2 + 'px;height:' + s2 + 'px;border:0;' + altImg + '">');
+        L.push('</td>');
+        L.push('<td class="vd-col" valign="top" dir="ltr" style="padding:0;text-align:left">' + tituloHTML + '</td>');
+        L.push('</tr></table>');
+      } else {
+        L.push(tituloHTML);
+      }
+      L.push('</td></tr>');
+    }
+
+    /* ---- corpo ---- */
+    var ptxt = 'margin:0 0 16px;color:' + c.texto + ';font:400 17px/1.6 ' + F.texto;
+    L.push('<tr><td class="vd-pad" bgcolor="' + c.fundo + '" style="padding:' + (leitura ? '40px' : '8px') + ' 24px 8px;background:' + c.fundo + '">');
+    L.push('<p style="' + ptxt + ';color:' + c.forte + ';font-weight:600">Oi, {nome}.</p>');
+    m.corpo(p).forEach(function (par) {
+      if (par === '[ficha]') {
+        L.push('<table role="presentation" class="vd-ficha" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="' + c.cartao + '" style="width:100%;margin:8px 0 24px;background:' + c.cartao + '">');
+        m.ficha.forEach(function (r, i) {
+          var borda = i ? 'border-top:1px solid ' + c.linha + ';' : '';
+          L.push('<tr><th scope="row" align="left" valign="top" width="132" style="' + borda + 'padding:14px 16px;width:132px;text-align:left;font:500 12px/1.5 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase;color:' + c.rot + '">' + esc(maiusc(r[0])) + '</th>' +
+            '<td valign="top" style="' + borda + 'padding:12px 16px;color:' + c.forte + ';font:400 16px/1.5 ' + F.texto + '">' + linhaTexto(r[1]) + '</td></tr>');
+        });
+        L.push('</table>');
+      } else {
+        L.push('<p style="' + ptxt + '">' + linhaTexto(par) + '</p>');
+      }
+    });
+    /* botão: tabela, reto, 48 px */
+    L.push('<table role="presentation" class="vd-botao" cellpadding="0" cellspacing="0" border="0" style="margin:16px 0 0">');
+    L.push('<tr><td align="center" height="48" bgcolor="' + c.botaoF + '" style="height:48px;padding:0;background:' + c.botaoF + '">');
+    L.push('<a href="' + esc(m.link) + '" style="display:inline-block;padding:14px 28px;color:' + c.botaoT + ';font:700 15px/20px ' + F.letreiro + ';letter-spacing:.06em;text-transform:uppercase;text-decoration:none">' + esc(maiusc(m.cta)) + '</a>');
+    L.push('</td></tr></table>');
+    L.push('<p style="margin:12px 0 0;color:' + c.apoio + ';font:400 15px/1.5 ' + F.texto + '">Se o botão não abrir, use este endereço: <a href="' + esc(m.link) + '" style="color:' + c.link + ';text-decoration:underline">' + esc(m.link) + '</a></p>');
+    /* assinatura */
+    L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:32px 0 0"><tr><td style="padding:20px 0 24px;border-top:1px solid ' + c.linha + '">');
+    L.push('<p style="margin:0;color:' + c.forte + ';font:600 16px/1.3 ' + F.letreiro + '">' + esc(m.assina[0]) + '</p>');
+    L.push('<p style="margin:4px 0 0;color:' + c.apoio + ';font:400 15px/1.5 ' + F.texto + '">' + esc(m.assina[1]) + '</p>');
+    L.push('</td></tr></table>');
+    L.push('</td></tr>');
+
+    /* ---- tagline (só boas-vindas M5 e Formatura com Pele) ---- */
+    if (m.tagline) {
+      var tg = 'margin:0;color:' + C.tela + ';font:800 24px/1.15 ' + F.letreiro + ';letter-spacing:-.01em;text-transform:uppercase';
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:48px 24px 8px;background:' + C.sala + '">');
+      L.push('<p style="' + tg + '">' + off('A arte', '1.2em') + ' QUE PREENCHE</p>');
+      L.push('<p style="' + tg + '">' + off('A carreira', '1.2em') + ' QUE LIBERTA</p>');
+      L.push('</td></tr>');
+    }
+
+    /* ---- rodapé ---- */
+    var sep = '<span style="color:' + C.po + '">&nbsp;· </span>';
+    L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:40px 24px 48px;background:' + C.sala + '">');
+    L.push('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:24px 0 0;border-top:1px solid ' + C.fio + '">');
+    L.push('<p style="margin:0;color:' + C.po + ';font:500 12px/1.8 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">TATTOO&nbsp;ACADEMY' + sep + '®&nbsp;2025' + sep + 'SÃO&nbsp;PAULO' + sep + 'BRAZIL<br><b style="font-weight:700;color:' + C.tela + '">PREENCHA&nbsp;O&nbsp;VAZIO</b></p>');
+    L.push('<p style="margin:20px 0 0;color:' + C.po + ';font:400 13px/1.6 ' + F.texto + '"><b style="font-weight:600;color:' + C.cal + '">' + esc(NAP[0]) + '</b><br>' + NAP[1].split(' · ').map(function (x) { return '<span style="white-space:nowrap">' + esc(x) + '</span>'; }).join(' · ') + '<br>' + esc(NAP[2]) + '</p>');
+    L.push('<p style="margin:16px 0 0;color:' + C.po + ';font:400 13px/1.6 ' + F.texto + '">' + esc(m.motivo(p)) + '<br><a href="{link_descadastro}" style="color:' + C.po + ';text-decoration:underline">Não quero mais receber</a>' + sep + '<a href="{link_privacidade}" style="color:' + C.po + ';text-decoration:underline">Política de Privacidade</a></p>');
+    L.push('</td></tr></table>');
+    L.push('</td></tr>');
+
+    L.push('</table>');
+    L.push('<!--[if mso]></td></tr></table><![endif]-->');
+    L.push('</td></tr></table>');
+    L.push('</body>');
+    L.push('</html>');
+    return { html: L.join('\n'), assunto: assunto, pre: m.pre, m: m };
+  }
+
+  /* ---------------- conferência ---------------- */
+  function conferir(r) {
+    var html = r.html, m = r.m;
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var out = [];
+    function add(ok, titulo, detalhe) { out.push({ ok: !!ok, titulo: titulo, detalhe: detalhe }); }
+    var casca = doc.querySelector('table.vd-casca');
+    add(casca && casca.getAttribute('width') === '600' && /max-width:600px/.test(casca.getAttribute('style')), 'Largura de 600 px', 'Tabela principal com width="600" e max-width de 600 px.');
+    var metas = doc.querySelector('meta[name="color-scheme"][content="light"]') && doc.querySelector('meta[name="supported-color-schemes"][content="light"]');
+    add(metas, 'Esquema de cor claro declarado', 'As duas metas de color-scheme em light.');
+    var tabelas = Array.prototype.slice.call(doc.querySelectorAll('table'));
+    var tabOk = tabelas.every(function (t) { return t.getAttribute('role') === 'presentation' && t.getAttribute('cellpadding') === '0' && t.getAttribute('cellspacing') === '0' && t.getAttribute('border') === '0'; });
+    var divs = doc.querySelectorAll('body div').length;
+    add(tabOk && divs <= 2, 'Estrutura só em tabelas', pl(tabelas.length, 'tabela', 'tabelas') + ' com role="presentation"; ' + pl(divs, 'div', 'divs') + ' (pré-cabeçalho e cabeçalho do celular).');
+    var semFundo = Array.prototype.slice.call(doc.querySelectorAll('table.vd-casca > tbody > tr > td')).filter(function (td) { return !td.getAttribute('bgcolor'); }).length;
+    add(semFundo === 0 && doc.body.getAttribute('bgcolor'), 'Fundo explícito em cada faixa', semFundo ? pl(semFundo, 'faixa', 'faixas') + ' sem bgcolor.' : 'Corpo e todas as faixas com bgcolor.');
+    var destinos = {};
+    Array.prototype.slice.call(doc.querySelectorAll('a[href]')).forEach(function (a) {
+      var h = a.getAttribute('href');
+      if (h !== '{link_descadastro}' && h !== '{link_privacidade}') destinos[h] = 1;
+    });
+    var nd = Object.keys(destinos).length;
+    add(nd === 1, 'Um destino só', pl(nd, 'destino', 'destinos') + ' fora de descadastro e privacidade: ' + Object.keys(destinos).join(', ') + '.');
+    var ca = contar(r.assunto), cp = contar(r.pre);
+    add(ca <= LIMITE.assunto, 'Assunto até 45 caracteres', ca + ' caracteres, contando o nome com 12 letras.');
+    add(cp <= LIMITE.pre, 'Pré-cabeçalho até 80', cp + ' caracteres.');
+    var ems = Array.prototype.slice.call(doc.querySelectorAll('em'));
+    add(ems.length && ems.every(function (e) { return /Georgia/.test(e.getAttribute('style')); }), 'Voz em off cai para Georgia', pl(ems.length, 'trecho', 'trechos') + ' em itálico, todos com Georgia na pilha, nenhum em imagem.');
+    var imgs = Array.prototype.slice.call(doc.querySelectorAll('img'));
+    add(imgs.every(function (i) { return i.getAttribute('alt') && i.getAttribute('width') && /color:/.test(i.getAttribute('style') || ''); }), 'Imagens com texto alternativo', pl(imgs.length, 'imagem', 'imagens') + ' com alt, largura e cor para o texto alternativo.');
+    var texto = (doc.title + ' ' + r.pre + ' ' + doc.body.textContent);
+    var achados = VETADOS.filter(function (re) { return re.test(texto); }).map(function (re) { return String(re); });
+    add(!/[\u2014\u2013]/.test(html), 'Zero travessão', 'Nenhum travessão no HTML, no assunto, no alt ou nos comentários.');
+    add(!achados.length, 'Território de palavras', achados.length ? 'Encontrado: ' + achados.join(' ') : 'Nenhum termo vetado nem claim proibido.');
+    var pend = (html.match(/\{\{A_CONFIRMAR\}\}/g) || []).length;
+    add(!pend, pend ? pl(pend, 'dado a confirmar', 'dados a confirmar') : 'Sem dado a confirmar', pend ? 'Troque cada {{A_CONFIRMAR}} pelo dado que a escola confirmar. Até lá o arquivo não baixa e a cópia é só de trabalho.' : 'Nenhum dado pendente da escola.');
+    out.pendentes = pend;
+    return out;
+  }
+
+  /* ---------------- interface ---------------- */
+  var estado = { variante: 'boas-vindas', marco: 'primeira-pele', produto: 'start', corpo: 'sala', largura: 'pc', imagens: 'sim' };
+  var $ = function (s) { return document.querySelector(s); };
+  var ultimo = null;
+
+  function svg(id) { return '<svg aria-hidden="true"><use href="#i-' + id + '"/></svg>'; }
+
+  function montarRegua() {
+    var ul = $('#em-regua');
+    var seg = document.querySelector('[data-controle="variante"]');
+    Object.keys(MENSAGENS).forEach(function (k) {
+      var m = MENSAGENS[k];
+      var cta = k === 'marco' ? MARCOS['primeira-pele'].cta : m.cta;
+      var li = document.createElement('li');
+      li.innerHTML = '<button type="button" class="em-carta" data-variante="' + k + '"><span class="credito">' + esc(m.etapa) + '</span><b>' + esc(m.rotulo) + '</b><span class="em-carta-a">' + esc(m.resumo) + ' Crença: "' + esc(m.crenca) + '"</span><span class="em-carta-cta">' + esc(maiusc(cta)) + '</span></button>';
+      ul.appendChild(li);
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('data-v', k); b.textContent = m.rotulo;
+      seg.appendChild(b);
+    });
+    ul.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-variante]');
+      if (!b) return;
+      estado.variante = b.getAttribute('data-variante');
+      atualizar();
+      document.getElementById('estudio').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+  }
+
+  function montarVariaveis() {
+    $('#em-variaveis').innerHTML = VARIAVEIS.map(function (v) {
+      return '<tr><th scope="row"><code>' + esc(v[0]) + '</code></th><td data-rotulo="O que entra">' + esc(v[1]) + '</td><td data-rotulo="No programa de e-mail">' + esc(v[2]) + '</td></tr>';
+    }).join('');
+  }
+
+  function baseExport() {
+    var v = $('#em-base').value.trim();
+    if (!v) return '{{URL_PUBLICA_IMAGENS}}/';
+    return v.charAt(v.length - 1) === '/' ? v : v + '/';
+  }
+
+  function ajustarAltura() {
+    var f = $('#em-quadro');
+    try {
+      var d = f.contentDocument;
+      if (!d || !d.documentElement) return;
+      f.style.height = Math.max(400, d.documentElement.scrollHeight) + 'px';
+    } catch (e) { /* sem acesso: mantém a altura padrão */ }
+  }
+
+  function atualizar() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-controle]'), function (g) {
+      var k = g.getAttribute('data-controle');
+      Array.prototype.forEach.call(g.querySelectorAll('button'), function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-v') === estado[k]));
+      });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.em-carta'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-variante') === estado.variante));
+    });
+    var talks = estado.variante === 'talks';
+    $('#em-grupo-marco').hidden = estado.variante !== 'marco';
+    var soStart = estado.variante === 'marco' && estado.marco === 'primeira-pele';
+    if (soStart) estado.produto = 'start';
+    Array.prototype.forEach.call(document.querySelectorAll('[data-controle="produto"] button'), function (b) {
+      b.disabled = talks || (soStart && b.getAttribute('data-v') !== 'start');
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-v') === estado.produto));
+    });
+    $('#em-dica-produto').textContent = talks ? 'O convite do Talks é institucional: sem formação, sem cor de produto e sem oferta.' :
+      (soStart ? 'A Primeira Pele é marco do Start (a primeira tatuagem do aluno). Os marcos do Master e do Pro ainda não estão nas fontes.' : 'A formação troca selo, nome e cor de destaque. O logotipo continua branco.');
+
+    var r = montar(estado, { base: '', imagensBloqueadas: estado.imagens === 'nao' });
+    ultimo = r;
+    $('#em-assunto').textContent = r.assunto;
+    $('#em-pre').textContent = r.pre;
+    $('#em-etapa').textContent = r.m.etapa + '. Crença: "' + r.m.crenca + '"';
+    $('#em-assina').textContent = r.m.quem;
+    $('#em-marcador-mesa').textContent = r.m.marcador(r.m.produto);
+    $('#em-medida').textContent = estado.largura === 'pc' ? '600 px' : '375 px';
+    $('#em-palco').setAttribute('data-largura', estado.largura);
+    var f = $('#em-quadro');
+    f.onload = function () { ajustarAltura(); setTimeout(ajustarAltura, 400); setTimeout(ajustarAltura, 1500); };
+    f.srcdoc = r.html;
+
+    var res = conferir(r);
+    var falhas = res.filter(function (x) { return x.ok === false; }).length;
+    $('#em-checks').innerHTML = res.map(function (x) {
+      var ok = x.ok === null ? 'info' : (x.ok ? 'sim' : 'nao');
+      var icone = x.ok === null ? 'info' : (x.ok ? 'circle-check' : 'circle-x');
+      var palavra = x.ok === null ? 'Para saber' : (x.ok ? 'Passa' : 'Falha');
+      return '<li class="em-check" data-ok="' + ok + '">' + svg(icone) + '<span><b>' + palavra + ' · ' + esc(x.titulo) + '</b><small>' + esc(x.detalhe) + '</small></span></li>';
+    }).join('');
+    $('#em-baixar').disabled = falhas > 0;
+    $('#em-baixar').title = falhas ? 'A conferência encontrou ' + pl(falhas, 'falha', 'falhas') + '. Corrija antes de baixar.' : '';
+    $('#em-trava').hidden = !falhas;
+    $('#em-trava').textContent = !falhas ? '' : (res.pendentes ?
+      'Download desligado: esta mensagem tem ' + pl(res.pendentes, 'dado a confirmar', 'dados a confirmar') + ' pela escola. A cópia continua liberada como arquivo de trabalho.' :
+      'Download desligado: a conferência encontrou ' + pl(falhas, 'falha', 'falhas') + '.');
+    window.__emailConferencia = res;
+  }
+
+  function exportar() {
+    return montar(estado, { base: baseExport(), imagensBloqueadas: false });
+  }
+
+  var avisoTempo = null;
+  function aviso(t, tipo) {
+    var el = $('#em-status');
+    el.textContent = t; el.setAttribute('data-tipo', tipo || 'ok');
+    clearTimeout(avisoTempo);
+    avisoTempo = setTimeout(function () { el.textContent = ''; }, tipo ? 8000 : 4000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    montarRegua();
+    montarVariaveis();
+    Array.prototype.forEach.call(document.querySelectorAll('[data-controle]'), function (g) {
+      g.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-v]');
+        if (!b || b.disabled) return;
+        estado[g.getAttribute('data-controle')] = b.getAttribute('data-v');
+        atualizar();
+      });
+    });
+    $('#em-copiar').addEventListener('click', function () {
+      var h = exportar().html;
+      var pend = ultimo && ultimo.html ? (ultimo.html.match(/\{\{A_CONFIRMAR\}\}/g) || []).length : 0;
+      var feito = function () {
+        if (pend) aviso('Arquivo de trabalho copiado, ainda com ' + pl(pend, 'dado a confirmar', 'dados a confirmar') + '. Não envie antes de trocar.', 'atencao');
+        else aviso('HTML copiado. Confira as imagens no programa de envio.');
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(h).then(feito, function () { copiaManual(h); feito(); });
+      } else { copiaManual(h); feito(); }
+    });
+    $('#em-baixar').addEventListener('click', function () {
+      var r = exportar();
+      var nome = 'thevoid_email_' + estado.variante + (estado.variante === 'marco' ? '-' + estado.marco : '') + (estado.variante === 'talks' ? '' : '_' + estado.produto) + '_' + estado.corpo + '.html';
+      var url = URL.createObjectURL(new Blob([r.html], { type: 'text/html;charset=utf-8' }));
+      var a = document.createElement('a');
+      a.href = url; a.download = nome; document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 0);
+      aviso('Arquivo ' + nome + ' baixado.');
+    });
+    window.addEventListener('resize', ajustarAltura);
+    atualizar();
+  });
+
+  function copiaManual(t) {
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'absolute'; ta.style.left = '-9999px';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); } catch (e) { /* sem cópia automática */ }
+    ta.remove();
+  }
+
+  window.VoidEmail = { montar: montar, conferir: conferir, mensagens: MENSAGENS, marcos: MARCOS, estado: estado, atualizar: atualizar, contar: contar };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1070 @@
+<!-- F1 · Fundamento · Parte I (s01 a s05). Estrutura e classes da casca; CSS próprio só abaixo, classes f01-. -->
+<style data-fragmento="f01">
+.f01-capa{position:relative;overflow:hidden;display:grid;align-content:space-between;gap:var(--e-8);min-height:min(88vh,840px);padding:var(--e-7);margin-bottom:var(--e-10);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f01-capa > :not(.eco){position:relative;z-index:1}
+.f01-capa .eco{width:min(1200px,96%)}
+.f01-capa-topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--e-3) var(--e-6);color:var(--po)}
+.f01-capa-logo{width:clamp(200px,30vw,420px);height:auto}
+.f01-capa-tag{display:grid;gap:.08em;font:700 clamp(26px,3.4vw,50px)/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela)}
+.f01-capa-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--fio)}
+.f01-capa-meta div{padding:var(--e-4) var(--e-4) 0 0;min-width:0}
+.f01-capa-meta dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
+.f01-capa-meta dd{margin:6px 0 0;font:600 16px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:var(--e-5)}
+.f01-cartao{display:flex;flex-direction:column;gap:var(--e-3);min-width:0;padding:var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f01-cartao > .ic{color:var(--estacao-destaque)}
+.f01-cartao h4{font:700 20px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-cartao p{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f01-cartao .f01-cita{font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.f01-links{list-style:none;display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:auto;padding-top:var(--e-2)}
+.f01-links a{display:inline-flex;align-items:center;min-height:var(--alvo-toque);padding:0 var(--e-3);border:1px solid var(--fio);font:600 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}
+.f01-links a:hover{border-color:var(--fumaca);color:var(--tela)}
+.f01-links b{margin-right:6px;color:var(--estacao-destaque);font-weight:700}
+.bloco > ol.f01-anatomia{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-6) var(--e-5);max-width:none;padding-left:0;counter-reset:f01a}
+.f01-anatomia li{position:relative;padding:var(--e-5) 0 0;border-top:1px solid var(--fio);counter-increment:f01a;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f01-anatomia li::before{content:counter(f01a,decimal-leading-zero);display:block;margin-bottom:var(--e-2);font:700 32px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}
+.f01-anatomia b{display:block;margin-bottom:4px;font:600 17px/1.25 var(--font-letreiro);color:var(--tela)}
+.f01-partes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.f01-parte{display:flex;flex-direction:column;gap:var(--e-2);min-height:184px;padding:var(--e-5);background:var(--sala);border:0;color:var(--cal)}
+.f01-parte:hover{background:var(--bastidor);color:var(--tela)}
+.f01-parte-n{font:700 44px/.85 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--fumaca)}
+.f01-parte:hover .f01-parte-n{color:var(--estacao-destaque)}
+.f01-parte strong{font:700 17px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:.02em}
+.f01-parte span:last-child{margin-top:auto;font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f01-frase{max-width:22ch;margin:var(--e-3) 0 var(--e-4);font:600 clamp(30px,3.6vw,48px)/1.12 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.008em;color:var(--tela);text-wrap:balance}
+.f01-quatro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-5)}
+.f01-dois{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f01-palavra{display:block;font:800 clamp(24px,2.9vw,44px)/1 var(--font-letreiro);font-variation-settings:"wdth" 85;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela);overflow-wrap:normal}
+.f01-manifesto{display:grid;gap:0;padding:var(--e-8) var(--e-7);background:radial-gradient(110% 60% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f01-ato{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--e-6);padding:var(--e-7) 0;border-top:1px solid var(--fio)}
+.f01-ato:first-child{border-top:0;padding-top:0}
+.f01-ato > .credito{color:var(--estacao-destaque);font-weight:700;padding-top:6px}
+.f01-ato > .credito span{display:block;margin-top:6px;color:var(--po);font-weight:500}
+.f01-estrofes{display:grid;gap:var(--e-5);max-width:640px}
+.f01-estrofes p{font:400 20px/1.6 var(--font-texto);color:var(--cal)}
+.f01-estrofes strong{display:block;margin-top:var(--e-3);font:600 clamp(24px,2.4vw,32px)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-estrofes p > strong:first-child{margin-top:0}
+.f01-estrofes .f01-fecho{font:800 clamp(30px,3.6vw,52px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.015em;color:var(--tela)}
+.f01-assina{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--e-4) var(--e-6)}
+.f01-assina img{width:clamp(200px,24vw,300px);height:auto}
+.f01-assina p{font:700 18px/1.1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.02em;color:var(--tela)}
+.f01-assina .off{white-space:nowrap}
+.f01-cartela{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--u)*72);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f01-cartela-topo{font:500 calc(var(--u)*26)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f01-titulo{font:800 calc(var(--u)*100)/.92 var(--font-letreiro);font-variation-settings:"wdth" 92;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)}
+.f01-titulo .off{color:var(--estacao-destaque)}
+.f01-titulo-off{margin-top:calc(var(--u)*24);font:300 italic calc(var(--u)*112)/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
+.f01-faixa{font:500 calc(var(--u)*62)/1.08 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.01em;text-transform:uppercase;color:var(--cal)}
+.f01-faixa .off{color:var(--estacao-destaque)}
+.f01-pe{display:grid;gap:calc(var(--u)*40)}
+.f01-pe img{width:calc(var(--u)*300);height:auto}
+.f01-rodape{font:500 calc(var(--u)*26)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f01-rodape b{color:var(--tela);font-weight:700}
+.f01-tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5)}
+.f01-tres > figure{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f01-quadro{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;overflow:hidden;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f01-quadro [data-vforms="esfera"]{width:76%;aspect-ratio:1}
+.f01-quadro .f01-mapa{width:88%}
+.f01-luz{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f01-tres > figure > figcaption{padding:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f01-tres > figure > figcaption b{display:block;font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--estacao-destaque)}
+.f01-guia{display:grid;gap:.1em;font:300 italic clamp(30px,4vw,56px)/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}
+.bloco > ul.f01-papeis{list-style:none;display:grid;gap:0;max-width:none;padding-left:0;border-top:1px solid var(--fio)}
+.f01-papeis li{display:grid;grid-template-columns:184px minmax(0,220px) minmax(0,1fr);gap:var(--e-5);align-items:center;padding:var(--e-4) 0;border-bottom:1px solid var(--fio)}
+.f01-papeis b{font:700 18px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-papeis b code{display:block;margin-top:4px;font-weight:400;color:var(--po)}
+.f01-papeis p{font:400 16px/1.5 var(--font-texto);color:var(--cal)}
+.f01-sw{display:flex;align-items:center;justify-content:center;gap:6px;height:72px;background:var(--c,var(--sala));outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}
+.f01-sw i{display:block;flex:1;align-self:stretch;background:var(--c)}
+.f01-sw-letreiro{font:800 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;color:var(--tela)}
+.f01-sw-off{font:300 italic 30px/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}
+.f01-sw-grao{background:var(--sala) url("assets/textura/grao-240.webp") 0 0/120px}
+.f01-persona{display:flex;flex-direction:column;gap:var(--e-4);min-width:0;padding:var(--e-6) var(--e-5) var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f01-p-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--e-4)}
+.f01-p-topo > div{flex:none}
+.f01-p-nome{font:700 clamp(30px,2.8vw,40px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela)}
+.f01-p-epiteto{display:block;margin-top:6px;text-transform:none;letter-spacing:0;font:300 italic 26px/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
+.f01-p-frase{padding-left:var(--e-4);border-left:2px solid var(--estacao-grafismo);font:600 18px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-p-dados{display:grid;gap:var(--e-3)}
+.f01-p-dados dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
+.f01-p-dados dd{margin:2px 0 0;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f01-p-dados .f01-hero{font:700 17px/1.15 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}
+.f01-p-dados .f01-hero .off{color:var(--estacao-destaque)}
+.f01-dispositivos{list-style:none;display:grid;gap:var(--e-3)}
+.f01-nunca{display:flex;gap:var(--e-2);align-items:flex-start;color:var(--erro)}
+.f01-nunca .ic{margin-top:2px;width:16px;height:16px}
+.f01-dispositivos li{display:flex;gap:var(--e-3);align-items:flex-start;font:400 16px/1.5 var(--font-texto);color:var(--cal)}
+.f01-dispositivos .ic{margin-top:3px;color:var(--estacao-destaque)}
+.f01-set{font:800 clamp(22px,2vw,30px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela);text-align:center}
+.f01-set small{display:block;margin-bottom:var(--e-3);font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;color:var(--po)}
+.f01-demo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--e-6);align-items:center}
+.f01-demo .voz-off{margin:var(--e-2) 0 var(--e-4)}
+.f01-amplia{width:min(540px,calc(100vw - 32px),calc((100vh - 120px) * .8));max-width:none;max-height:none;margin:auto;padding:0;overflow:visible;background:var(--sala);border:1px solid var(--fio);color:var(--tela)}
+.f01-amplia::backdrop{background:rgb(24 24 24 / .9)}
+.f01-amplia-topo{display:flex;justify-content:space-between;align-items:center;gap:var(--e-3);padding:var(--e-2) var(--e-2) var(--e-2) var(--e-4);font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.16em;color:var(--po)}
+.f01-amplia .f01-amplia-peca{--peca-max:100%;display:block;max-width:100%}
+.f01-corresp thead th{white-space:normal;overflow-wrap:normal;word-break:normal;hyphens:manual}
+@media (max-width:599px){.f01-ampliar{display:none}}
+@media (min-width:900px){.tabela-wrap.f01-corresp table{min-width:0}.f01-corresp th:nth-child(5){width:34%}}
+@media (max-width:1180px){.f01-quatro{grid-template-columns:repeat(2,minmax(0,1fr))}.bloco > ol.f01-anatomia{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){.f01-capa{padding:var(--e-6) var(--e-5);gap:var(--e-7);min-height:0}.f01-capa-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.f01-ato{grid-template-columns:minmax(0,1fr);gap:var(--e-4)}.f01-manifesto{padding:var(--e-7) var(--e-5)}.f01-tres{grid-template-columns:minmax(0,1fr)}.f01-papeis li{grid-template-columns:120px minmax(0,1fr)}.f01-papeis li p{grid-column:1 / -1}.f01-demo{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.bloco > ol.f01-anatomia,.f01-quatro,.f01-dois,.f01-partes{grid-template-columns:minmax(0,1fr)}.f01-parte{min-height:0}.f01-estrofes p{font-size:18px}}
+@media (max-width:430px){.f01-capa{padding:var(--e-5) var(--e-4)}.f01-capa-meta{grid-template-columns:minmax(0,1fr)}.f01-papeis li{grid-template-columns:minmax(0,1fr);gap:var(--e-3)}.f01-sw{height:56px}.f01-p-topo{flex-direction:column-reverse}}
+</style>
+
+<!-- ============================== s01 · Capa e como usar ============================== -->
+<section class="sec" id="s01" data-parte="I" data-nome="Capa e como usar este manual" aria-labelledby="s01-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>01</b> · Capa e como usar este manual</span></p>
+
+    <div class="f01-capa">
+      <img class="eco" src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="3804" height="579">
+      <div class="f01-capa-topo">
+        <p class="credito">The VOID Tattoo Academy · São Paulo · Brazil</p>
+        <p class="credito">Manual de marca · Versão 1</p>
+      </div>
+      <img class="f01-capa-logo" src="assets/brand/svg/void-vertical-branco.svg" alt="The VOID Tattoo Academy" width="1937" height="1057">
+      <p class="f01-capa-tag"><span><em class="off">A arte</em> que preenche</span><span><em class="off">A carreira</em> que liberta</span></p>
+      <dl class="f01-capa-meta">
+        <div><dt>Sistema</dt><dd>Sala Escura, versão 1</dd></div>
+        <div><dt>Edição</dt><dd>Outubro de 2026</dd></div>
+        <div><dt>Conteúdo</dt><dd>36 seções em 9 partes</dd></div>
+        <div><dt>Situação</dt><dd>Aguarda aprovação da The VOID</dd></div>
+      </dl>
+    </div>
+
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">01</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Como usar</p>
+        <h2 id="s01-t" class="titulo-secao">Como usar este <em class="off">manual</em></h2>
+        <p class="sec-apoio">Este manual é a fonte única da marca: tudo o que vai para uma peça, uma página ou uma mensagem da The VOID sai daqui ou dos arquivos que ele aponta, nunca da memória de quem produz.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>É o sistema Sala Escura inteiro: marca, cor, tipografia, recursos, imagem, voz, conformidade e modelos de canal, em 36 seções e 9 partes.</li>
+        <li>O que está decidido vale como regra. O que depende da The VOID aparece com o número da pendência, como [P 5], e tem um caminho provisório escrito ao lado.</li>
+        <li>Quando duas regras brigam, vence a lei de número menor (seção 06).</li>
+        <li>Nenhum valor sai da memória: cor, tamanho e texto fixo são copiados do manual, de <code>tokens.css</code> ou dos arquivos em <code>assets/</code>.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s01-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">01.1</p>
+        <h3 class="fala">Para quem é este manual</h3>
+        <p class="bloco-apoio">Seis frentes produzem para a marca todos os dias. Cada uma tem um caminho curto de leitura antes de começar; o resto do manual é consulta.</p>
+      </div>
+      <div class="f01-cartoes">
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <h4>Social media e conteúdo</h4>
+          <p>Posts, Reels, carrosséis, stories e legendas. Antes de abrir o editor, saiba para qual persona e qual crença a peça fala.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s06"><b>06</b>As oito leis</a></li><li><a href="#s31"><b>31</b>Voz</a></li><li><a href="#s35"><b>35</b>Redes</a></li>
+          </ul>
+        </article>
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2" rx="2"/></svg>
+          <h4>Design e direção de arte</h4>
+          <p>Peças, páginas, capas e materiais impressos. O logotipo é sempre arquivo; a cor e a letra saem dos tokens.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s08"><b>08</b>Logotipo</a></li><li><a href="#s13"><b>13</b>Paleta</a></li><li><a href="#s18"><b>18</b>Archivo</a></li><li><a href="#s21"><b>21</b>Recursos</a></li>
+          </ul>
+        </article>
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          <h4>Foto e vídeo</h4>
+          <p>Ritos, bastidor, depoimentos, VSL e Reels. Imagem real e autorizada, com uma luz e as mãos como personagem.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s29"><b>29</b>Fotografia</a></li><li><a href="#s30"><b>30</b>Vídeo e som</a></li><li><a href="#s25"><b>25</b>Duotom</a></li>
+          </ul>
+        </article>
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+          <h4>Comercial, atendimento e WhatsApp</h4>
+          <p>Conversa, visita, proposta e boas-vindas. Uma ideia por mensagem e um pedido por etapa.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s04"><b>04</b>Personas</a></li><li><a href="#s32"><b>32</b>M1 a M8</a></li><li><a href="#s33"><b>33</b>Conformidade</a></li>
+          </ul>
+        </article>
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          <h4>Professores e coordenação</h4>
+          <p>Aulas, ritos, feedback, certificado e área de membros. O progresso avança só com marco validado por vocês.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s03"><b>03</b>Manifesto</a></li><li><a href="#s29"><b>29</b>Ritos</a></li><li><a href="#s36"><b>36</b>Membros</a></li>
+          </ul>
+        </article>
+        <article class="f01-cartao">
+          <svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <h4>Desenvolvimento e agentes de IA</h4>
+          <p>Site, LP, e-mail, dados estruturados e agentes. Valores vêm de <code>tokens.json</code>; a skill <code>branding-the-void</code> repete este manual sem regra nova.</p>
+          <ul class="f01-links" aria-label="Comece por">
+            <li><a href="#s07"><b>07</b>Checklist</a></li><li><a href="#s14"><b>14</b>Contraste</a></li><li><a href="#s36"><b>36</b>Entidade</a></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="bloco" id="s01-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">01.2</p>
+        <h3 class="fala">Como ler uma seção</h3>
+        <p class="bloco-apoio">As 36 seções têm a mesma anatomia. Quem conhece a ordem acha qualquer regra em segundos.</p>
+      </div>
+      <ol class="f01-anatomia">
+        <li><b>Folio e número</b>O número grande e o folio no topo dizem onde você está. O sumário e a busca (tecla barra) levam a qualquer seção.</li>
+        <li><b>Marcador e título</b>O mini Mapa da Trilha com o nome da parte, e o título em letreiro com uma palavra na voz em off.</li>
+        <li><b>A frase que decide</b>Logo abaixo do título, uma frase com o que a seção decide. Se só tiver tempo para uma linha, leia esta.</li>
+        <li><b>Em um minuto</b>De dois a quatro pontos com o essencial. Basta para revisar uma peça.</li>
+        <li><b>Blocos numerados</b>Cada bloco (por exemplo, 13.2) traz a regra, a amostra viva, o código para copiar e o par "Assim" e "Assim não".</li>
+        <li><b>Fontes desta seção</b>O fim de toda seção diz de onde a regra veio, com nomes legíveis, para qualquer pessoa conferir.</li>
+      </ol>
+      <p class="nota">O seletor <b>Tema</b>, no topo (no celular, dentro do sumário), mostra o manual com a regra de cor de cada produto: Institucional, Start, Master, Pro e VOIDERS. É a mesma troca que um único atributo faz numa página real (seção 15).</p>
+    </div>
+
+    <div class="bloco" id="s01-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">01.3</p>
+        <h3 class="fala">O mapa do manual</h3>
+        <p class="bloco-apoio">Nove partes, na ordem em que uma peça é pensada: quem somos, as leis, a marca, a cor, a letra, os recursos, a imagem, a voz e os canais.</p>
+      </div>
+      <nav class="f01-partes" aria-label="As nove partes do manual">
+        <a class="f01-parte" href="#s01"><span class="f01-parte-n">I</span><strong>O que a The VOID é</strong><span>01 a 05 · plataforma, manifesto, personas e a ideia do sistema.</span></a>
+        <a class="f01-parte" href="#s06"><span class="f01-parte-n">II</span><strong>As leis</strong><span>06 e 07 · as oito leis e o checklist de aprovação.</span></a>
+        <a class="f01-parte" href="#s08"><span class="f01-parte-n">III</span><strong>Marca</strong><span>08 a 12 · logotipo, proteção, usos proibidos, selos e arquitetura.</span></a>
+        <a class="f01-parte" href="#s13"><span class="f01-parte-n">IV</span><strong>Cor</strong><span>13 a 16 · paleta, contraste calculado, regra por produto e Modo Leitura.</span></a>
+        <a class="f01-parte" href="#s17"><span class="f01-parte-n">V</span><strong>Tipografia</strong><span>17 a 20 · as três vozes, os registros do Archivo e as escalas.</span></a>
+        <a class="f01-parte" href="#s21"><span class="f01-parte-n">VI</span><strong>Recursos e sistema</strong><span>21 a 28 · os recursos assinatura, grade, movimento, ícones e gráficos.</span></a>
+        <a class="f01-parte" href="#s29"><span class="f01-parte-n">VII</span><strong>Imagem</strong><span>29 e 30 · fotografia, vídeo e som.</span></a>
+        <a class="f01-parte" href="#s31"><span class="f01-parte-n">VIII</span><strong>Voz e conformidade</strong><span>31 a 33 · voz, comunicação M1 a M8, prova e lei.</span></a>
+        <a class="f01-parte" href="#s34"><span class="f01-parte-n">IX</span><strong>Canais</strong><span>34 a 36 · LP, VSL, redes, e-mail, deck, membros, artigo e pendências.</span></a>
+      </nav>
+    </div>
+
+    <div class="bloco" id="s01-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">01.4</p>
+        <h3 class="fala">Legenda de status e marcas de trabalho</h3>
+        <p class="bloco-apoio">Toda marca de status tem ícone e palavra, nunca só cor. Elas dizem o que pode ir ao ar hoje e o que ainda espera a The VOID.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Como ler as marcas do manual</caption>
+          <thead><tr><th scope="col">Marca</th><th scope="col">O que significa</th><th scope="col">O que fazer</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="status" data-status="decidido">Decidido</span></th><td>Regra fechada pela direção de criação da GrowAI, com fonte citada.</td><td>Aplique como está, em toda peça.</td></tr>
+            <tr><th scope="row"><span class="status" data-status="proposta">Proposta</span></th><td>Leitura ou medida da GrowAI que ainda precisa da validação da The VOID ou da aureadesign.co.</td><td>Use como padrão até a validação; a pendência indicada diz quem decide.</td></tr>
+            <tr><th scope="row"><span class="status" data-status="pendente">Pendente</span></th><td>Depende de decisão ou dado da The VOID. O número remete à lista de 22 pendências (seção 36).</td><td>Não publique o item; siga o caminho provisório escrito ao lado.</td></tr>
+            <tr><th scope="row"><code>[P n]</code></th><td>Número da pendência no texto, por exemplo [P 15] para preços e dados de oferta.</td><td>Consulte a seção 36 antes de usar o item.</td></tr>
+            <tr><th scope="row"><code>{{A_CONFIRMAR}}</code></th><td>Campo de modelo que só existe preenchido com dado validado.</td><td>Nunca publique com as chaves; sem dado, o trecho sai da peça.</td></tr>
+            <tr><th scope="row">Assim não</th><td>Exemplo errado, mostrado para ensinar. Fica marcado no código como exemplo proibido.</td><td>Nunca copie para uma peça.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pendencia" data-p="5">[P 5] Ano de fundação. Até a decisão da The VOID, nenhuma peça usa "EST", "desde" ou contagem de anos de escola.</p>
+    </div>
+
+    <div class="bloco" id="s01-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">01.5</p>
+        <h3 class="fala">Versão, data e como mudar uma regra</h3>
+        <p class="bloco-apoio">O manual tem versão e data. Regra muda no sistema, nunca dentro de uma peça.</p>
+      </div>
+      <div class="grade-2">
+        <div class="tabela-wrap" tabindex="0">
+          <table>
+            <caption>Registro desta edição</caption>
+            <tbody>
+              <tr><th scope="row">Versão</th><td>1 · sistema Sala Escura</td></tr>
+              <tr><th scope="row">Especificação</th><td>06/10/2026</td></tr>
+              <tr><th scope="row">Edição do manual</th><td>out/2026</td></tr>
+              <tr><th scope="row">Situação</th><td><span class="status" data-status="proposta">Em aprovação</span></td></tr>
+              <tr><th scope="row">Base da marca</th><td>Plataforma de Branding, aureadesign.co, 2025 · Brand DNA da The VOID, set/2026 · Personas, set/2026</td></tr>
+              <tr><th scope="row">Sistema e manual</th><td>GrowAI</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 class="intertitulo">Para mudar uma regra</h4>
+          <ol class="lista">
+            <li>Escreva o motivo e a peça que pediu a mudança.</li>
+            <li>A direção de arte altera a especificação do sistema; cor e medida mudam também em <code>tokens.css</code> e <code>tokens.json</code>.</li>
+            <li>A verificação automática roda de novo (contraste, travessão, termos vetados, largura no celular).</li>
+            <li>O manual sai com nova versão e data. Só então a peça usa a regra nova.</li>
+          </ol>
+          <p class="nota">Exceção pontual não existe: peça que precisa fugir da regra volta para a direção de arte com o motivo escrito.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2, 9.6, 12.8 e 17); plano de construção do manual, 06/10/2026; Brand DNA da The VOID, set/2026 (regra R08); Plataforma de Branding, aureadesign.co, 2025 (slides 14 e 23).</p>
+  </div>
+</section>
+
+<!-- ============================== s02 · A plataforma ============================== -->
+<section class="sec" id="s02" data-parte="I" data-nome="A plataforma" aria-labelledby="s02-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>02</b> · A plataforma</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">02</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>O que a The VOID é</p>
+        <h2 id="s02-t" class="titulo-secao">A plataforma da <em class="off">marca</em></h2>
+        <p class="sec-apoio">Propósito, arquétipo, atributos, valores e diretrizes, como a aureadesign.co definiu na Plataforma de Branding. É o que a marca é antes de qualquer peça; a voz e as leis transformam isso em comunicação.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Propósito: transformar talentos em uma carreira de sucesso.</li>
+        <li>Arquétipo Herói. Na leitura deste manual, o herói é quem estuda; a The VOID é a mentora que já atravessou o caminho e caminha junto.</li>
+        <li>Quatro atributos (acolhedora, transformadora, profissional, inspiradora) e quatro valores, cada um com frase própria.</li>
+        <li>A plataforma não é copy. Ela vira peça pela voz (seção 31) e pelas leis (seção 06).</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s02-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">02.1</p>
+        <h3 class="fala">Propósito e arquétipo</h3>
+        <p class="bloco-apoio">O propósito é atemporal e não muda por campanha. O arquétipo orienta o papel de cada personagem na história.</p>
+      </div>
+      <figure>
+        <p class="rotulo">Propósito</p>
+        <blockquote class="f01-frase">Transformar talentos em uma carreira de sucesso.</blockquote>
+        <figcaption class="legenda">Plataforma de Branding, aureadesign.co, 2025, e One Page Comunicação.</figcaption>
+      </figure>
+      <div class="f01-cartoes">
+        <article class="f01-cartao">
+          <p class="rotulo">Arquétipo</p>
+          <h4>Herói</h4>
+          <p>Quem vence a própria dúvida é o aluno. A The VOID é "um artista que virou professor", que "atua como guia, não como guru" e "caminha junto". Na imagem, o protagonista é a mão de quem aprende; a escola entra como luz, método e comunidade.</p>
+          <p><span class="status" data-status="proposta">Leitura da GrowAI</span></p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Comportamento</p>
+          <h4>Ousada. Profunda. Intencional.</h4>
+          <p>"Sempre em movimento, nunca com pressa. Age com firmeza sem perder a sensibilidade. Acolhe como família, ensina como mentora, celebra como comunidade."</p>
+          <p class="f01-cita">Brand DNA da The VOID, set/2026, e Plataforma de Branding.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">A marca como pessoa</p>
+          <h4>Inspira sem intimidar</h4>
+          <p>"Ensina sem condescendência, acolhe sem perder a firmeza." Alguém que duvidou das próprias mãos, encontrou o caminho e hoje dedica a vida a provar que outros também podem.</p>
+          <p class="f01-cita">Brand DNA da The VOID, set/2026.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="bloco" id="s02-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">02.2</p>
+        <h3 class="fala">A marca é: quatro atributos</h3>
+        <p class="bloco-apoio">Os atributos dizem o que a marca é. Não confundir com os atributos de voz (corajosa, inspiradora, técnica, próxima), que dizem como ela fala (seção 31).</p>
+      </div>
+      <div class="f01-dois">
+        <article class="f01-cartao"><span class="f01-palavra">Acolhedora</span><p>"A marca acolhe como uma família."</p><p class="f01-cita">Comportamento, Plataforma de Branding.</p></article>
+        <article class="f01-cartao"><span class="f01-palavra">Transformadora</span><p>"Da escolha das palavras ao ambiente físico da escola, tudo comunica transformação."</p><p class="f01-cita">Comportamento, Plataforma de Branding.</p></article>
+        <article class="f01-cartao"><span class="f01-palavra">Profissional</span><p>"Toda grade curricular precisa exercer uma função prática em sua base, seja ela artística ou empreendedora."</p><p class="f01-cita">Negócio faz, Plataforma de Branding.</p></article>
+        <article class="f01-cartao"><span class="f01-palavra">Inspiradora</span><p>"Inspiramos com os pés no chão."</p><p class="f01-cita">Tom de voz, Plataforma de Branding.</p></article>
+      </div>
+    </div>
+
+    <div class="bloco" id="s02-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">02.3</p>
+        <h3 class="fala">Os quatro valores</h3>
+        <p class="bloco-apoio">Cada valor tem um rótulo e uma frase da Plataforma de Branding. A linha "onde aparece" é a ponte para o sistema.</p>
+      </div>
+      <div class="f01-dois">
+        <article class="f01-cartao">
+          <p class="rotulo">Acolhimento e inclusão</p>
+          <h4>"Celebramos as pessoas por trás das máquinas."</h4>
+          <p>Onde aparece: boas-vindas da matrícula (M5), estados vazios da área de membros, fotografia de pessoas reais com autorização.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Comunidade e pertencimento</p>
+          <h4>"Aqui não existem estranhos, apenas família que ainda não se conheceu."</h4>
+          <p>Onde aparece: VOIDERS, The VOID Talks, Formatura com Pele e a etapa M8.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Excelência e profissionalismo</p>
+          <h4>"Onde sonhos encontram propósito e talentos se tornam carreira."</h4>
+          <p>Onde aparece: Crédito de Prova em todo número, roteiro de módulos, biossegurança visível na foto.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Liberdade e autonomia</p>
+          <h4>"Uma vida vivida nos seus próprios termos."</h4>
+          <p>Onde aparece: o pilar Arte como liberdade, o programa Pro e o fecho do manifesto.</p>
+        </article>
+      </div>
+      <p class="nota"><span class="status" data-status="decidido">Regra</span> Inclusão é valor, não argumento de venda. Frase sobre públicos atendidos só entra em peça com casos reais e programa existente (conflito C23); até lá, fica no material interno.</p>
+    </div>
+
+    <div class="bloco" id="s02-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">02.4</p>
+        <h3 class="fala">O negócio faz, a comunicação fala</h3>
+        <p class="bloco-apoio">O que a escola entrega e como ela diz isso. Os nomes em inglês da fonte ficam como rótulo interno; a copy pública é sempre em português.</p>
+      </div>
+      <div class="grade-2">
+        <div>
+          <h4 class="intertitulo">O negócio faz</h4>
+          <div class="regras">
+            <div class="f01-cartao"><p class="rotulo">Hub de aprendizado</p><p>"Um hub de aprendizado onde talentos se tornam carreiras em um ecossistema que prioriza a metamorfose pessoal e profissional."</p></div>
+            <div class="f01-cartao"><p class="rotulo">O aluno no centro</p><p>"Produtos educacionais flexíveis com o aluno no centro, acompanhando seu processo de evolução e demanda."</p></div>
+            <div class="f01-cartao"><p class="rotulo">Sempre na prática</p><p>"Toda grade curricular precisa exercer uma função prática em sua base, seja ela artística ou empreendedora."</p></div>
+          </div>
+        </div>
+        <div>
+          <h4 class="intertitulo">A comunicação fala</h4>
+          <div class="palco">
+            <p class="texto">"Existe um vazio dentro de você. Uma inquietação que não se acalma entre trabalhos convencionais e rotinas extremamente comuns. Esse vazio não é fraqueza. É um chamado. Um chamado para transformar sua arte em libertação, seu traço em futuro. Não importa de onde você vem ou o que disseram sobre seu sonho. O que importa é a coragem de começar. Venha como você é. Com seus medos, suas dúvidas, suas mãos trêmulas. Aqui, elas se tornarão firmes."</p>
+            <p class="legenda">Trecho inicial do "Comunicação fala", Plataforma de Branding. O travessão do original virou ponto, a única intervenção permitida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s02-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">02.5</p>
+        <h3 class="fala">Diretrizes estratégicas e diferenciais</h3>
+        <p class="bloco-apoio">As cinco diretrizes dizem para onde a marca cresce; a terceira coluna mostra a parte do sistema que responde a cada uma.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Diretrizes estratégicas, jul/2025</caption>
+          <thead><tr><th scope="col">Diretriz</th><th scope="col">O que pede</th><th scope="col">Onde o sistema responde</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1 · Expandir para ser acessível</th><td>Novos formatos e ofertas complementares que não dependam de uma formação presencial robusta, como workshops online e comunidades.</td><td>Arquitetura de marca (seção 12). "Acessível" nunca vira argumento de preço (seção 31).</td></tr>
+            <tr><th scope="row">2 · Enriquecer o ecossistema de aprendizado</th><td>Desenho, especialidades técnicas e gestão de carreira, com o aluno guiado a cada passo.</td><td>Mapa da Trilha (seção 23) e Método ARTE (seção 12).</td></tr>
+            <tr><th scope="row">3 · Fortalecer a cultura interna</th><td>Processos de comunicação, feedback e desenvolvimento da equipe que reflitam os valores da marca.</td><td>Este manual e o checklist de aprovação (seção 07).</td></tr>
+            <tr><th scope="row">4 · Humanizar e tangibilizar a comunicação</th><td>Histórias reais de transformação, além do aspecto técnico.</td><td>Fotografia real e autorizada (seção 29) e Crédito de Prova (seção 25).</td></tr>
+            <tr><th scope="row">5 · Transformar comunidade em diferencial</th><td>Estruturar, fortalecer e nomear a comunidade como ecossistema contínuo de apoio e trocas.</td><td>VOIDERS (seção 12) e a etapa M8 (seção 32).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">Os quatro diferenciais</h4>
+      <div class="f01-quatro">
+        <article class="f01-cartao"><span class="rotulo">01</span><h4>Formação progressiva e estruturada em 3 pilares</h4><p>Resolve a falta de estrutura e o despreparo técnico do mercado.</p></article>
+        <article class="f01-cartao"><span class="rotulo">02</span><h4>Comunidade que acolhe e impulsiona</h4><p>Resolve o medo, a insegurança e a solidão de quem está recomeçando ou mudando de vida.</p></article>
+        <article class="f01-cartao"><span class="rotulo">03</span><h4>Metodologia prática com mentoria real</h4><p>Resolve a saturação de cursos genéricos e impessoais.</p></article>
+        <article class="f01-cartao"><span class="rotulo">04</span><h4>Visão de carreira, marca pessoal e mercado</h4><p>Resolve a falta de visão de futuro e a leitura da tatuagem como "bico".</p></article>
+      </div>
+      <p class="nota">Diferencial é argumento de conversa, nunca superlativo: nada de "a única" ou "a melhor" (seção 33).</p>
+    </div>
+
+    <p class="fontes credito">Plataforma de Branding, aureadesign.co, 2025 (Plataforma de Branding, diretrizes estratégicas, diferenciais, comportamento e One Page Comunicação); Brand DNA da The VOID, set/2026 (seção 1); especificação do sistema Sala Escura, 06/10/2026 (seções 9.1, 11.1 e 16).</p>
+  </div>
+</section>
+
+<!-- ============================== s03 · O manifesto ============================== -->
+<section class="sec" id="s03" data-parte="I" data-nome="O manifesto" aria-labelledby="s03-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>03</b> · O manifesto</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">03</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>O que a The VOID é</p>
+        <h2 id="s03-t" class="titulo-secao">Esse vazio é um <em class="off">chamado</em></h2>
+        <p class="sec-apoio">O manifesto na íntegra, como está na versão atualizada da Plataforma de Branding, e as regras para recortá-lo em peças sem mudar uma palavra.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>O texto é literal. A única intervenção permitida é trocar travessão por ponto ou vírgula.</li>
+        <li>Ele se lê em três atos: o vazio, o encontro e a metamorfose, a mesma narrativa da falsa convicção do Brand DNA.</li>
+        <li>Em peça, entra um trecho por vez: Cartela com até 14 palavras, Faixa de Manifesto com até 40.</li>
+        <li>A assinatura do manifesto é sempre o logotipo em arquivo, nunca o nome digitado.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s03-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">03.1</p>
+        <h3 class="fala">O manifesto na íntegra</h3>
+        <p class="bloco-apoio">Manifesto Completo Atualizado (slide 10 da Plataforma de Branding). A divisão em três atos é leitura deste manual, para orientar os recortes. O original fecha com a linha "THE VOID TATTOO." sobre a assinatura; aqui, como em toda peça, essa linha é o logotipo em arquivo (seção 08).</p>
+      </div>
+      <article class="f01-manifesto" aria-label="Manifesto da The VOID">
+        <div class="f01-ato">
+          <p class="credito">Ato 1<span>O vazio</span></p>
+          <div class="f01-estrofes">
+            <p><strong>Existe um vazio dentro de você.</strong></p>
+            <p>Um espaço sem nome, uma inquietação que não se acalma entre as paredes dos trabalhos convencionais e rotinas extremamente comuns.</p>
+            <p>Esse vazio não é uma fraqueza. É um chamado.</p>
+          </div>
+        </div>
+        <div class="f01-ato">
+          <p class="credito">Ato 2<span>O encontro</span></p>
+          <div class="f01-estrofes">
+            <p>O chamado para uma jornada que transforma quem ousa dar o primeiro passo. Uma jornada onde sua arte não é apenas expressão, mas libertação.</p>
+            <p>Onde suas mãos não apenas desenham, mas constroem o futuro que você merece.</p>
+            <p>Não importa de onde você vem. Não importa se você nunca tocou em uma máquina. Não importa se o mundo disse que seu sonho era pequeno demais para ser perseguido.</p>
+            <p>O que importa é a coragem de começar.</p>
+            <p>Venha como você é. Com seus medos, suas inseguranças, suas mãos trêmulas. Nós as transformaremos em mãos firmes que desenham caminhos para a liberdade financeira, para o orgulho profissional, para uma vida onde trabalho e paixão são a mesma coisa.</p>
+            <p><strong>Mas você não estará só.</strong></p>
+            <p>Na Void, você encontra uma comunidade que caminha com você. Pessoas que acreditam nas mesmas verdades invisíveis. Que te inspiram, te acolhem, te desafiam. <strong>Aqui não existem estranhos, apenas família que ainda não se conheceu.</strong></p>
+            <p>Acreditamos que a verdadeira transformação da tatuagem não está nas máquinas, mas nas mãos que as seguram. E nas histórias que se cruzam durante o processo.</p>
+            <p>Investimos nas pessoas por trás da arte, revelando e lapidando talentos únicos, para que cada traço na pele conte não apenas a história de quem a recebe, mas também de quem a cria.</p>
+            <p>Ao valorizar o artista além da técnica, elevamos uma profissão a um movimento cultural que humaniza uma arte muitas vezes reduzida ao seu aspecto mecânico.</p>
+          </div>
+        </div>
+        <div class="f01-ato">
+          <p class="credito">Ato 3<span>A metamorfose</span></p>
+          <div class="f01-estrofes">
+            <p>A cada linha que você traça na pele, você reescreve sua própria história. A cada cliente transformado por sua arte, você preenche não apenas o vazio da tela em branco, mas o vazio dentro de si mesmo.</p>
+            <p>A tatuagem não é apenas uma profissão. É um ato de rebeldia contra o comum, contra o medíocre, contra o "contentar-se com menos".</p>
+            <p class="f01-fecho">Preencha o vazio. Pertença. Cresça. Conquiste sua liberdade.</p>
+            <div class="f01-assina">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo" width="300" height="46">
+              <p><em class="off">A arte</em> que preenche. <em class="off">A carreira</em> que liberta.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="bloco" id="s03-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">03.2</p>
+        <h3 class="fala">Trechos prontos para peça</h3>
+        <p class="bloco-apoio">Três recortes no tamanho do feed. A regra serve para qualquer outro trecho: frase literal, uma única palavra na voz em off e Créditos Finais no pé.</p>
+      </div>
+      <div class="pecas f01-ampliavel">
+        <div class="peca" data-formato="1080x1350" data-nome="Cartela de manifesto, feed">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">Manifesto</p>
+              <div>
+                <p class="f01-titulo">Esse vazio não é uma fraqueza.</p>
+                <p class="f01-titulo-off">É um chamado.</p>
+              </div>
+              <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Faixa de Manifesto, feed">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">Manifesto</p>
+              <p class="f01-faixa">Venha como você é. Com seus medos, suas dúvidas, suas mãos trêmulas. Aqui, elas se tornarão <em class="off">firmes</em>.</p>
+              <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Cartela VOIDERS, feed" data-estacao="voiders">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">VOIDERS</p>
+              <p class="f01-titulo">Aqui não existem <em class="off">estranhos</em>.</p>
+              <div class="f01-pe">
+                <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo" width="300" height="46">
+                <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <p class="nota">A Faixa de Manifesto usa a versão curta da frase, da Plataforma de Branding ("suas dúvidas", "Aqui, elas se tornarão firmes"); a versão longa do manifesto ("suas inseguranças") também vale, desde que inteira.</p>
+    </div>
+
+    <div class="bloco" id="s03-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">03.3</p>
+        <h3 class="fala">Como recortar o manifesto</h3>
+        <p class="bloco-apoio">O manifesto é cena, não argumento de venda. Ele abre e fecha conversas; a oferta e a prova vêm em outra tela.</p>
+      </div>
+      <div class="grade-2">
+        <ul class="f01-dispositivos">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Um trecho por peça, literal.</b> Corte no fim de uma frase, nunca no meio. Nada muda além da pontuação do travessão.</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Cartela:</b> até 14 palavras, título em até 6 palavras e 3 linhas, uma linha na voz em off. <b>Faixa de Manifesto:</b> até 40 palavras, Archivo 500 em caixa alta, uma Palavra Sensível.</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Onde entra:</b> capa de manifesto (com a Esfera do Vazio), Reels de manifesto, Faixa de Manifesto da LP (só trechos sem promessa de renda), página <code>/sobre/</code> e e-mail de marco.</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>O texto completo</b> vive na página <code>/sobre/</code>; numa peça estática, nunca inteiro.</span></li>
+        </ul>
+        <div>
+          <p class="nota"><span class="status" data-status="proposta">Proposta</span> Os trechos com "liberdade financeira" (Ato 2 do manifesto acima) e com "financeiramente independente" (fecho da versão curta do manifesto no Brand DNA e do key visual do Start, slide 32) ficam fora de anúncio e de qualquer página que receba tráfego pago, como a LP e a aula experimental. A regra é não prometer renda (seção 31), e a plataforma de anúncios lê também a página de destino. Esses trechos entram inteiros só na página <code>/sobre/</code> e no orgânico.</p>
+        </div>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">Esse vazio não é uma fraqueza. <em class="off">É um chamado.</em></p></div>
+          <figcaption>Frase literal do manifesto, uma linha na voz em off, ponto final. Sem oferta na mesma tela.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao">Seu vazio acaba hoje! Matricule-se já</p></div>
+          <figcaption>Reescrever o manifesto, colar urgência e trocar o ponto final por exclamação tira a voz da marca e vira promessa.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s03-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">03.4</p>
+        <h3 class="fala">A narrativa em três atos</h3>
+        <p class="bloco-apoio">Toda mensagem parte do que a pessoa acredita, erradamente, sobre si. O manifesto, o carrossel e a VSL contam a mesma história em três atos.</p>
+      </div>
+      <div class="f01-cartoes">
+        <article class="f01-cartao">
+          <p class="rotulo">Ato 1</p>
+          <h4>O vazio</h4>
+          <p>A pessoa sonha, mas não acredita. A peça nomeia a crença falsa com precisão, sem condescendência.</p>
+          <p class="f01-cita">Em imagem: a primeira linha. Recurso que lidera: Esfera do Vazio e Palavra Sensível.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Ato 2</p>
+          <h4>O encontro</h4>
+          <p>O vazio ganha nome e solução: a The VOID é o ambiente para se tornar quem a pessoa já quer ser.</p>
+          <p class="f01-cita">Em imagem: a mão que guia a mão. Recurso que lidera: Mapa da Trilha.</p>
+        </article>
+        <article class="f01-cartao">
+          <p class="rotulo">Ato 3</p>
+          <h4>A metamorfose</h4>
+          <p>Com método e comunidade, a pessoa cruza a linha. A prova é real, datada e autorizada.</p>
+          <p class="f01-cita">Em imagem: o traço firme. Recurso que lidera: Marco do Aluno e Anel de Preenchimento.</p>
+        </article>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>A falsa convicção e a verdade que a marca revela</caption>
+          <thead><tr><th scope="col">Público</th><th scope="col">Falsa convicção</th><th scope="col">A verdade que a marca revela</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Iniciante (Start)</th><td>"Eu não sou capaz de viver da minha arte."</td><td>Talento é consequência de treino estruturado. O que falta não é talento: é estrutura, método e comunidade.</td></tr>
+            <tr><th scope="row">Avançado (Master e Pro)</th><td>"Preciso ser melhor tecnicamente antes de cobrar o que mereço."</td><td>Técnica sem posicionamento é invisível.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">O inimigo comum nunca é um concorrente: é o sistema que desvaloriza a arte, a mentalidade de que "arte não paga conta" (Brand DNA, regra R05). O fantasma é a versão de si que nunca tentou, o vazio que dá nome à marca.</p>
+    </div>
+
+    <p class="fontes credito">Plataforma de Branding, aureadesign.co, 2025 (Manifesto Completo Atualizado, slide 10; Comunicação fala, slide 8; frases do território, slide 46); Brand DNA da The VOID, set/2026 (seções 4 e 6); especificação do sistema Sala Escura, 06/10/2026 (seções 6.8, 9.3, 12.1 LP21, 12.3 R4 e 13.3).</p>
+  </div>
+</section>
+
+<!-- ============================== s04 · Para quem falamos ============================== -->
+<section class="sec" id="s04" data-parte="I" data-nome="Para quem falamos" aria-labelledby="s04-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>04</b> · Para quem falamos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">04</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>O que a The VOID é</p>
+        <h2 id="s04-t" class="titulo-secao">Uma pessoa, uma <em class="off">crença</em></h2>
+        <p class="sec-apoio">Toda peça declara para quem fala e qual crença falsa ataca. As três personas do cliente são a base; as quatro personas da agência entram como subperfis.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Três personas canônicas: Gabriel (Start), Camila (Start, depois Master) e Bruno (Master e Pro).</li>
+        <li>Cada uma tem falsa convicção, inimigo, desejo essencial e tom de conversão. A peça ataca uma crença por vez (lei L1).</li>
+        <li>Joana, Lucas, Rafael e Sylvia, da Plataforma de Branding, viram subperfis; Sylvia cobre o programa Pro.</li>
+        <li>Persona não tem rosto: nunca ilustrar com foto de banco ou imagem gerada.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s04-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.1</p>
+        <h3 class="fala">As três personas</h3>
+        <p class="bloco-apoio">Resumo operacional do documento de personas. Faixa de renda e região são dado interno e não entram em peça nem em segmentação descrita em público.</p>
+      </div>
+      <div class="f01-cartoes">
+        <article class="f01-persona" data-estacao="start">
+          <div class="f01-p-topo">
+            <h4 class="f01-p-nome">Gabriel<span class="f01-p-epiteto">o jovem sonhador</span></h4>
+            <div data-vforms='{"forma":"selo","produto":"start","tamanho":96,"tipo":"simples"}'></div>
+          </div>
+          <p class="rotulo">Formação Start</p>
+          <p class="f01-p-frase">"Eu quero, mas e se eu não for bom o suficiente?"</p>
+          <dl class="f01-p-dados">
+            <div><dt>Idade</dt><dd>18 a 25 anos; a ficha do Start considera 18 a 27 [P 21].</dd></div>
+            <div><dt>Falsa convicção</dt><dd>"Eu não tenho talento suficiente para viver de tatuagem."</dd></div>
+            <div><dt>Inimigo</dt><dd>A narrativa de que arte não sustenta.</dd></div>
+            <div><dt>Desejo essencial</dt><dd>Provar para si que é capaz de construir uma vida com a própria arte.</dd></div>
+            <div><dt>Tom de conversão</dt><dd>Coragem e prova social de iniciantes.</dd></div>
+            <div><dt>Hero para teste</dt><dd class="f01-hero">Talento é consequência de <em class="off">treino</em>.</dd></div>
+          </dl>
+        </article>
+        <article class="f01-persona" data-estacao="start">
+          <div class="f01-p-topo">
+            <h4 class="f01-p-nome">Camila<span class="f01-p-epiteto">a profissional em transição</span></h4>
+            <div data-vforms='{"forma":"selo","produto":"start","tamanho":96,"tipo":"simples"}'></div>
+          </div>
+          <p class="rotulo">Start, depois Master</p>
+          <p class="f01-p-frase">"Será que ainda dá tempo de recomeçar?"</p>
+          <dl class="f01-p-dados">
+            <div><dt>Idade</dt><dd>26 a 35 anos; a ficha do Start considera 28 a 40 [P 21].</dd></div>
+            <div><dt>Falsa convicção</dt><dd>"Já passei da hora. Quem começa do zero na tatuagem precisa ter começado mais jovem."</dd></div>
+            <div><dt>Inimigo</dt><dd>A narrativa da responsabilidade adulta: "seja prático", "não é hora de sonhar".</dd></div>
+            <div><dt>Desejo essencial</dt><dd>Ser autora da própria vida: independente, criativa, realizada.</dd></div>
+            <div><dt>Tom de conversão</dt><dd>Recomeço e depoimentos de adultos em transição. Ela precisa ver a lógica antes de sentir permissão.</dd></div>
+            <div><dt>Hero para teste</dt><dd class="f01-hero">Sua experiência é um <em class="off">diferencial</em>, não um atraso.</dd></div>
+          </dl>
+        </article>
+        <article class="f01-persona" data-estacao="master">
+          <div class="f01-p-topo">
+            <h4 class="f01-p-nome">Bruno<span class="f01-p-epiteto">o tatuador em evolução</span></h4>
+            <div data-vforms='{"forma":"selo","produto":"master","tamanho":96,"tipo":"simples"}'></div>
+          </div>
+          <p class="rotulo">Master e Pro</p>
+          <p class="f01-p-frase">"Sei que sou bom. Por que ainda não consigo escalar?"</p>
+          <dl class="f01-p-dados">
+            <div><dt>Perfil</dt><dd>24 a 32 anos, de 2 a 6 anos tatuando, portfólio sólido e crescimento parado.</dd></div>
+            <div><dt>Falsa convicção</dt><dd>"Preciso ser ainda melhor tecnicamente antes de cobrar mais." e "Preciso de mais seguidores para ter reconhecimento e agenda cheia."</dd></div>
+            <div><dt>Inimigo</dt><dd>O algoritmo e o mercado que não valorizam qualidade.</dd></div>
+            <div><dt>Desejo essencial</dt><dd>Marca pessoal forte o bastante para não depender de plataforma, algoritmo ou estúdio de terceiros.</dd></div>
+            <div><dt>Tom de conversão</dt><dd>Posicionamento e casos de crescimento.</dd></div>
+            <div><dt>Hero para teste</dt><dd class="f01-hero">Técnica sem posicionamento é <em class="off">invisível</em>.</dd></div>
+          </dl>
+        </article>
+      </div>
+      <p class="nota">O que une as três: existe uma versão de si que elas querem ser, e uma crença falsa impede de agir. A The VOID não vende um curso; vende a permissão de se tornar quem a pessoa já quer ser (Personas, set/2026).</p>
+    </div>
+
+    <div class="bloco" id="s04-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.2</p>
+        <h3 class="fala">Os heros por persona, em peça</h3>
+        <p class="bloco-apoio">Os três títulos prontos para teste A/B, no campo de cada produto. A persona nunca aparece escrita na peça: ela está na crença que o título derruba.</p>
+      </div>
+      <div class="pecas f01-ampliavel">
+        <div class="peca" data-formato="1080x1350" data-nome="Para Gabriel · crença: não tenho talento" data-estacao="start">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">The VOID Start</p>
+              <p class="f01-titulo">Talento é consequência de <em class="off">treino</em>.</p>
+              <div class="f01-pe">
+                <img src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48">
+                <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Para Camila · crença: já passei da hora" data-estacao="start">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">The VOID Start</p>
+              <p class="f01-titulo">Sua experiência é um <em class="off">diferencial</em>, não um atraso.</p>
+              <div class="f01-pe">
+                <img src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48">
+                <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Para Bruno · crença: preciso de mais técnica" data-estacao="master">
+          <div class="peca-tela grao">
+            <div class="f01-cartela">
+              <p class="f01-cartela-topo">The VOID Master</p>
+              <p class="f01-titulo">Técnica sem posicionamento é <em class="off">invisível</em>.</p>
+              <div class="f01-pe">
+                <img src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="300" height="45">
+                <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">Talento é consequência de <em class="off">treino</em>.</p></div>
+          <figcaption>Derruba a crença sem diminuir a pessoa: o problema é a falta de método, não ela.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao">Você não precisa de talento para começar</p></div>
+          <figcaption>Variante vetada: fica perto do tom condescendente que o Brand DNA proíbe ("mesmo sem talento você consegue").</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      /* f01: ampliar as cartelas de feed (03.2 e 04.2) para conferir o microtexto de 26 u */
+      var SVG='<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">';
+      var AMPLIAR=SVG+'<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg>';
+      var FECHAR=SVG+'<path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>';
+      function montar(){
+        var grupos=document.querySelectorAll(".f01-ampliavel");
+        if(!grupos.length||typeof HTMLDialogElement!=="function")return;
+        var dlg=document.createElement("dialog");
+        dlg.className="f01-amplia";dlg.setAttribute("aria-labelledby","f01-amplia-t");
+        dlg.innerHTML='<div class="f01-amplia-topo"><span id="f01-amplia-t"></span><button type="button" class="peca-alternar">'+FECHAR+'Fechar</button></div><div class="peca f01-amplia-peca" data-formato="1080x1350"></div>';
+        document.body.appendChild(dlg);
+        var alvo=dlg.querySelector(".f01-amplia-peca"),titulo=dlg.querySelector("#f01-amplia-t"),origem=null;
+        dlg.querySelector("button").addEventListener("click",function(){dlg.close();});
+        dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close();});
+        dlg.addEventListener("close",function(){alvo.innerHTML="";if(origem)origem.focus();});
+        Array.prototype.forEach.call(grupos,function(g){
+          Array.prototype.forEach.call(g.querySelectorAll(".peca"),function(p){
+            var leg=p.querySelector(".peca-legenda"),tela=p.querySelector(".peca-tela");
+            if(!leg||!tela||leg.querySelector(".f01-ampliar"))return;
+            var nome=p.getAttribute("data-nome")||"Peça";
+            var b=document.createElement("button");
+            b.type="button";b.className="peca-alternar f01-ampliar";b.setAttribute("aria-haspopup","dialog");
+            b.setAttribute("aria-label","Ampliar: "+nome);b.innerHTML=AMPLIAR+"Ampliar";
+            b.addEventListener("click",function(){
+              origem=b;alvo.innerHTML="";
+              var copia=tela.cloneNode(true),camada=copia.querySelector(".area-segura");
+              if(camada)camada.parentNode.removeChild(camada);
+              alvo.appendChild(copia);
+              var est=p.getAttribute("data-estacao");
+              if(est)alvo.setAttribute("data-estacao",est);else alvo.removeAttribute("data-estacao");
+              dlg.showModal();
+              var larg=Math.round(alvo.getBoundingClientRect().width);
+              titulo.textContent=nome+" · "+larg+" de 1080 px ("+Math.round(larg/10.8)+"%)";
+            });
+            leg.appendChild(b);
+          });
+        });
+      }
+      if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",function(){setTimeout(montar,0);});
+      else setTimeout(montar,0);
+    })();
+    </script>
+
+    <div class="bloco" id="s04-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.3</p>
+        <h3 class="fala">Subperfis da agência</h3>
+        <p class="bloco-apoio">As quatro personas da Plataforma de Branding ajudam a afinar a mensagem dentro de cada persona canônica. Os retratos dos slides de persona não são de alunos e saem do sistema.</p>
+      </div>
+      <div class="tabela-wrap f01-corresp" tabindex="0">
+        <table>
+          <caption>Correspondência entre personas, grupos de público e produto</caption>
+          <thead><tr><th scope="col">Subperfil</th><th scope="col">Persona canônica</th><th scope="col">Grupo de público</th><th scope="col">Produto</th><th scope="col">Crença que a comunicação ataca</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Sem equivalente</th><td>Gabriel</td><td>Jovens em busca de futuro</td><td>Start</td><td>"Eu não tenho talento suficiente para viver de tatuagem."</td></tr>
+            <tr><th scope="row">Joana, a Determinada</th><td>Camila</td><td>Reiniciantes com propósito</td><td>Start</td><td>A vergonha de recomeçar "tarde demais".</td></tr>
+            <tr><th scope="row">Lucas, o Persistente</th><td>Bruno, em parte</td><td>Tatuadores iniciantes ou estagnados</td><td>Master</td><td>"Preciso ser ainda melhor tecnicamente antes de cobrar mais."</td></tr>
+            <tr><th scope="row">Rafael, o Buscador</th><td>Bruno</td><td>Tatuadores iniciantes ou estagnados</td><td>Master e Pro</td><td>"Meu trabalho fala por si." (crença do avançado, Brand DNA)</td></tr>
+            <tr><th scope="row">Sylvia, a Visionária</th><td>Sem equivalente; cobre o Pro</td><td>Artistas autorais e empreendedores</td><td>Pro</td><td>"Para crescer, preciso tatuar ainda mais." <span class="status" data-status="proposta">Proposta</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Idade, profissão e história dos subperfis servem para entender a pessoa. Nunca viram personagem, nome ou rosto em peça pública.</p>
+    </div>
+
+    <div class="bloco" id="s04-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.4</p>
+        <h3 class="fala">Os quatro grupos de público</h3>
+        <p class="bloco-apoio">Os grupos (clusters) da Plataforma de Branding, jul/2025, com o produto de entrada mais provável.</p>
+      </div>
+      <div class="f01-quatro">
+        <article class="f01-cartao" data-estacao="start"><p class="rotulo">Start</p><h4>Reiniciantes com propósito</h4><p>"Qualquer profissional com mais de 25 anos em busca de uma transição de carreira, liberdade e propósito na arte."</p></article>
+        <article class="f01-cartao" data-estacao="start"><p class="rotulo">Start</p><h4>Jovens em busca de futuro</h4><p>"Jovens talentosos, criativos e ambiciosos que encontram na tatuagem desde muito cedo uma carreira a ser seguida."</p></article>
+        <article class="f01-cartao" data-estacao="master"><p class="rotulo">Master</p><h4>Tatuadores iniciantes ou estagnados</h4><p>"Buscam estrutura, posicionamento e segurança para evoluir na carreira."</p></article>
+        <article class="f01-cartao" data-estacao="pro"><p class="rotulo">Pro</p><h4>Artistas autorais e empreendedores</h4><p>"Tatuadores experientes que querem crescer como marca e negócio, ou empreendedores de outros ramos que buscam uma nova fonte de renda para viver de arte."</p></article>
+      </div>
+    </div>
+
+    <div class="bloco" id="s04-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.5</p>
+        <h3 class="fala">Objeções: o que responder e o que nunca dizer</h3>
+        <p class="bloco-apoio">As quatro objeções das personas, com o caminho de resposta que cabe na lei. As mensagens prontas por etapa estão na seção 32.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Objeções das personas</caption>
+          <thead><tr><th scope="col">Objeção</th><th scope="col">Caminho da resposta</th><th scope="col">Nunca dizer</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">"É muito caro para mim."</th><td>Valor total, parcelas e condições iguais ao checkout [P 15]. A formação como investimento de carreira, sem número de retorno.</td><td data-exemplo="proibido"><span class="f01-nunca"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Promessa de retorno com número ou prazo ("o curso se paga em [N] meses").</span></span></td></tr>
+            <tr><th scope="row">"Não sei se tenho talento."</th><td>Talento é consequência de treino estruturado. Depoimento real e autorizado de quem começou do zero, com Crédito de Prova.</td><td data-exemplo="proibido"><span class="f01-nunca"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>"Mesmo sem talento você consegue."</span></span></td></tr>
+            <tr><th scope="row">"E se não tiver mercado?"</th><td>Ex-alunos trabalhando, com autorização e Crédito de Prova. Dado de mercado só com fonte publicada.</td><td data-exemplo="proibido"><span class="f01-nunca"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Superlativo de mercado sem fonte publicada ("o maior mercado do [país ou região]").</span></span></td></tr>
+            <tr><th scope="row">"Vou pensar."</th><td>Turma com data e vagas reais (Barra de Turma) e um próximo passo concreto: visita ou conversa.</td><td data-exemplo="proibido"><span class="f01-nunca"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>"Últimas vagas!" sem número, ou contador que reinicia.</span></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s04-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">04.6</p>
+        <h3 class="fala">Como declarar a persona numa peça</h3>
+        <p class="bloco-apoio">Cole este cabeçalho no briefing de toda peça, antes de escrever. Peça sem as sete linhas preenchidas não entra em produção (regra R03 do Brand DNA).</p>
+      </div>
+      <pre class="codigo" data-rotulo="Briefing"><code>Peça: [formato e canal]
+Persona: Gabriel | Camila | Bruno (subperfil, se houver)
+Crença atacada: "[a falsa convicção, numa linha]"
+Etapa: M1 a M8
+Produto (data-estacao): chamado | start | master | pro | voiders
+Ação única: [rótulo da biblioteca de CTA, seção 34]
+Prova usada: [número com Crédito de Prova, ou nenhuma]</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+    </div>
+
+    <p class="fontes credito">Personas, set/2026; Brand DNA da The VOID, set/2026 (seções 3, 6 e 8); Plataforma de Branding, aureadesign.co, 2025 (personas, grupos de público e One Page de Experiência); especificação do sistema Sala Escura, 06/10/2026 (seções 9.5, 11.1 e 16, conflitos C9 e C21).</p>
+  </div>
+</section>
+
+<!-- ============================== s05 · A ideia: Sala Escura ============================== -->
+<section class="sec" id="s05" data-parte="I" data-nome="A ideia: Sala Escura" aria-labelledby="s05-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>05</b> · A ideia: Sala Escura</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">05</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>O que a The VOID é</p>
+        <h2 id="s05-t" class="titulo-secao">No escuro, uma <em class="off">luz</em></h2>
+        <p class="sec-apoio">O conceito que organiza o sistema: o preto da The VOID é a sala escura do cinema e do laboratório de revelação, o lugar onde a imagem ainda vai aparecer.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Sala Escura é nome de trabalho. Nunca aparece em peça pública.</li>
+        <li>Cada peça é uma cena: uma única luz entra no escuro e revela uma mão que fica firme.</li>
+        <li>A metáfora gera regras, não decoração: nada de claquete, rolo de filme ou palavras de set.</li>
+        <li>No máximo um dispositivo de cinema por peça estática.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s05-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">05.1</p>
+        <h3 class="fala">A ideia em três quadros</h3>
+        <p class="bloco-apoio">"Esse vazio não é uma fraqueza, é um chamado." O preto não é ausência: é onde a imagem ainda vai aparecer. A escola existe para revelar e lapidar talentos, e o processo como ritual é a fotografia oficial.</p>
+      </div>
+      <div class="f01-tres">
+        <figure>
+          <div class="f01-quadro"><div data-vforms="esfera"></div></div>
+          <figcaption><b>No escuro · o vazio</b>A Esfera do Vazio, a única ilustração da marca: o ponto de partida.</figcaption>
+        </figure>
+        <figure>
+          <div class="f01-quadro f01-luz"><p class="f01-set"><small>Janela de Luz</small>Uma luz</p></div>
+          <figcaption><b>Uma luz · a cena</b>Uma única fonte, do canto superior esquerdo. Na luz, uma mão; na mão, um traço.</figcaption>
+        </figure>
+        <figure>
+          <div class="f01-quadro"><div class="f01-mapa" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","decorativo":true}'></div></div>
+          <figcaption><b>O caminho · a trilha</b>Start, Master e Pro, três círculos tangentes: o caminho que preenche o vazio.</figcaption>
+        </figure>
+      </div>
+      <div class="palco">
+        <p class="rotulo">Frase-guia interna · não é copy</p>
+        <p class="f01-guia"><span>No escuro, uma luz.</span><span>Na luz, uma mão.</span><span>Na mão, um traço.</span></p>
+      </div>
+    </div>
+
+    <div class="bloco" id="s05-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">05.2</p>
+        <h3 class="fala">O papel de cada elemento</h3>
+        <p class="bloco-apoio">Sete elementos e o papel de cada um na sala. Cada um tem seção própria: cor (13), tipografia (17) e recursos (21 e 23).</p>
+      </div>
+      <ul class="f01-papeis">
+        <li><span class="f01-sw" style="--c:var(--sala)"></span><b>Sala<code>#181818</code></b><p>O campo da marca, onde tudo acontece.</p></li>
+        <li><span class="f01-sw" style="--c:var(--tela)"></span><b>Tela<code>#F8F9F4</code></b><p>A luz projetada: texto e botão no escuro, e a página de leitura no Modo Leitura.</p></li>
+        <li><span class="f01-sw"><i style="--c:var(--terracota)"></i><i style="--c:var(--areia)"></i><i style="--c:var(--ouro-velho)"></i><i style="--c:var(--campo-master)"></i></span><b>Terracota e terras<code>#B25A32 e família</code></b><p>A luz quente que dirige o olho; a cor que a pessoa conquista ao entrar numa formação.</p></li>
+        <li><span class="f01-sw"><span class="f01-sw-letreiro">LETREIRO</span></span><b>Archivo</b><p>O letreiro: título, botão, crédito.</p></li>
+        <li><span class="f01-sw"><span class="f01-sw-off">a voz em off</span></span><b>Alga ou Newsreader</b><p>A voz em off: a palavra que sente. Enquanto a licença da Alga não chega [P 3], todo material público usa Newsreader Italic 300.</p></li>
+        <li><span class="f01-sw f01-sw-grao"></span><b>Grão</b><p>A película: o preto vira matéria. Amostra ampliada para ver a textura; na peça, ele fica a 6% no escuro e 4% no claro.</p></li>
+        <li><span class="f01-sw"><span data-vforms='{"forma":"marcador-estacao","tamanho":56}'></span></span><b>Os três círculos</b><p>O caminho para preencher o vazio: Start, Master e Pro, como a aureadesign.co desenhou.</p></li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s05-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">05.3</p>
+        <h3 class="fala">A cor se conquista</h3>
+        <p class="bloco-apoio">Topo de funil e aula experimental são monocromáticos. A cor de produto só acende quando a pessoa entra numa formação. Troque o produto para ver o círculo e a palavra de cada um.</p>
+      </div>
+      <div class="demo-estacao" data-estacao="chamado">
+        <div class="f01-demo">
+          <div>
+            <p class="rotulo">Palavra Sensível de assinatura</p>
+            <p class="voz-off" style="color:var(--estacao-destaque)"><span data-so="chamado">o primeiro passo</span><span data-so="start">o primeiro traço</span><span data-so="master">a sua identidade</span><span data-so="pro">o seu plano</span><span data-so="voiders">família</span></p>
+            <p class="nota"><span data-so="chamado">Institucional, aula experimental, Talks e Convenção: Sala, Tela e grão. Nenhum círculo aceso, nenhum campo de cor.</span><span data-so="start">Start: o menor círculo acende em Ouro Velho; o campo de produto é o Campo Start, com texto em Sala.</span><span data-so="master">Master: o círculo médio acende em Terracota; o campo de produto é o Campo Master, com texto em Tela.</span><span data-so="pro">Pro: o maior círculo acende em Névoa. O Pro é monocromático, com faixa Ardósia ou Chumbo.</span><span data-so="voiders">VOIDERS: acendem os círculos que a pessoa concluiu. Sem campo de cor.</span></p>
+          </div>
+          <div>
+            <div data-so="chamado" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","estacao":"chamado"}'></div>
+            <div data-so="start" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","estacao":"start","ativa":"start"}'></div>
+            <div data-so="master" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","estacao":"master","ativa":"master"}'></div>
+            <div data-so="pro" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","estacao":"pro","ativa":"pro"}'></div>
+            <div data-so="voiders" data-vforms='{"forma":"mapa-trilha","frases":false,"orientacao":"horizontal","estacao":"voiders","concluidas":["start"]}'></div>
+          </div>
+        </div>
+      </div>
+      <p class="pendencia" data-p="14">[P 14] A aula experimental continua assinando com o logotipo Start, como está no ar, com o selo Start como próxima etapa e sem campo de cor. Passar a aula para o institucional é decisão da The VOID.</p>
+    </div>
+
+    <div class="bloco" id="s05-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">05.4</p>
+        <h3 class="fala">Contenção do tema</h3>
+        <p class="bloco-apoio">A metáfora do cinema gera regras; ela nunca vira fantasia de cinema. Só quatro recursos nomeados são dispositivos de cinema, e nunca dois na mesma peça estática.</p>
+      </div>
+      <div class="grade-2">
+        <div>
+          <h4 class="intertitulo">Proibido em peça pública</h4>
+          <ul class="f01-dispositivos" data-exemplo="proibido">
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Claquete desenhada, rolo de filme ilustrado, contagem regressiva de cinema.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>As palavras "CENA", "TAKE", "AÇÃO!" e "CORTA!".</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Créditos de filme inventados (diretor, elenco) e tipografia de cartaz de cinema antigo.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="intertitulo">Os únicos dispositivos de cinema</h4>
+          <ul class="f01-dispositivos">
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><a href="#s22">Faixa Cinemascope</a>: foto em 2,39 por 1 entre faixas pretas.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><a href="#s24">Marcador de Capítulo</a>: só na VSL e no carrossel.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><a href="#s22">Corte do Logo</a>: o logotipo gigante sangrando pela borda.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><a href="#s25">Revelação</a>: a imagem que surge do grão.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="f01-set"><small>02 / 07 · A virada</small>Talento é consequência de treino</p></div>
+          <figcaption>Um dispositivo só: o Marcador de Capítulo no carrossel. O resto é letreiro sobre a Sala.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="f01-set"><small>Cena 01 · Take 3</small>Ação! Sua carreira começa</p></div>
+          <figcaption>Palavras de set e cartaz de filme transformam a ideia em fantasia temática.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s05-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">05.5</p>
+        <h3 class="fala">Da ideia às leis</h3>
+        <p class="bloco-apoio">Cada imagem da Sala Escura virou uma regra com teste. É por isso que o sistema se explica sozinho.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>A imagem da ideia e a regra que ela gera</caption>
+          <thead><tr><th scope="col">Imagem da ideia</th><th scope="col">Vira regra</th><th scope="col">Onde</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">O preto é a sala</th><td>Campo escuro em pelo menos 60% da área de toda peça de marca (lei L4).</td><td><a href="#s06">Seção 06</a></td></tr>
+            <tr><th scope="row">Uma única luz</th><td>Um ponto de ênfase e uma cor de acento; o botão é a superfície mais clara da dobra (lei L5).</td><td><a href="#s06">Seção 06</a></td></tr>
+            <tr><th scope="row">O letreiro</th><td>Título em Archivo caixa alta, até 6 palavras (lei L6).</td><td><a href="#s18">Seção 18</a></td></tr>
+            <tr><th scope="row">A montagem</th><td>Cena, cartela e documento se alternam; nunca três do mesmo tipo seguidos (lei L8).</td><td><a href="#s06">Seção 06</a></td></tr>
+            <tr><th scope="row">A película</th><td>Grão do Vazio sobre todo campo escuro.</td><td><a href="#s21">Seção 21</a></td></tr>
+            <tr><th scope="row">O laboratório de revelação</th><td>Revelação: a foto surge do grão, uma vez por imagem.</td><td><a href="#s25">Seção 25</a></td></tr>
+            <tr><th scope="row">Os três círculos</th><td>Mapa da Trilha e Marcador de Estação, com o produto aceso.</td><td><a href="#s23">Seção 23</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 1, 2, 3.5, 6 e 17); Plataforma de Branding, aureadesign.co, 2025 (manifesto, slide 10; Esfera, slide 16; Mapa da Trilha, slide 30); Brand DNA da The VOID, set/2026 (seção 9).</p>
+  </div>
+</section>

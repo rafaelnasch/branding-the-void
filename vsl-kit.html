@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="start">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit de VSL · The VOID</title>
+<meta name="description" content="Kit de VSL (vídeo de vendas) da The VOID Tattoo Academy: capa em três formatos, cinco cartelas, legenda queimada com arquivo .srt, lower third animado e em sequência PNG, fecho, roteiro em 9 blocos com minutagem e checklist de publicação.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* =====================================================================
+   THE VOID · KIT DE VSL · sistema de marca v1 · 06/10/2026
+   Valores: tokens.css (nenhum HEX solto). Regras: spec 12.2, 4.4, 6.8,
+   6.12, 6.15, 6.16, 7.1, 7.4 e 8.4. As peças são desenhadas em canvas no
+   tamanho real: o que se vê é o que se exporta.
+   ===================================================================== */
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--sala);min-height:100vh;overflow-wrap:break-word}
+body.grao::after{position:fixed;z-index:0}
+::selection{background:var(--areia);color:var(--sala)}
+h1,h2,h3,h4,p,figure,ul,ol,dl,dd,blockquote,pre{margin:0}
+ul,ol{padding:0}
+img{display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+strong,b{font-weight:600;color:var(--tela)}
+a{color:var(--estacao-destaque);text-decoration:none;border-bottom:1px solid currentColor}
+a:hover{color:var(--tela)}
+.modo-leitura a{border-bottom:0}
+.modo-leitura strong,.modo-leitura b{color:var(--sala)}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em;overflow-wrap:anywhere}
+.so-leitor{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+.pular{position:fixed;left:16px;top:-120px;z-index:60;padding:12px 16px;background:var(--tela);color:var(--sala);border:0}
+.pular:focus{top:8px}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+.ic-16{width:16px;height:16px}
+.ic-24{width:24px;height:24px}
+
+/* ---------- cabeçalho ---------- */
+.topo{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:16px;min-height:64px;padding:8px 24px;background:var(--sala);border-bottom:1px solid var(--fio)}
+.topo-marca{display:flex;align-items:center;border:0;min-height:44px;flex:none}
+.topo-marca img{height:24px;width:auto}
+.topo-titulo{display:flex;align-items:center;padding-left:16px;border-left:1px solid var(--fio);height:24px;white-space:nowrap}
+.topo-produto{display:flex;align-items:center;gap:8px;margin-left:auto}
+.seletor{display:flex;gap:4px}
+.seletor button{min-height:44px;padding:0 12px;background:transparent;border:1px solid var(--fio);border-radius:0;cursor:pointer;font:600 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em;text-transform:uppercase;color:var(--po);transition:background var(--t-micro) var(--curva-cena),color var(--t-micro) var(--curva-cena)}
+.seletor button:hover{color:var(--tela);border-color:var(--fumaca)}
+.seletor button[aria-pressed="true"]{background:var(--tela);border-color:var(--tela);color:var(--sala)}
+.seletor-curto{display:none}
+.topo-produto label.credito{white-space:nowrap}
+@media (max-width:900px){.topo-titulo{display:none}}
+@media (max-width:640px){
+  .topo{padding:8px 16px;gap:12px}
+  .seletor{display:none}
+  .seletor-curto{display:block}
+  .topo-produto label.credito{display:none}
+}
+
+/* ---------- campos de formulário (LP18: Coxia, borda Fumaça) ---------- */
+.campo{display:grid;gap:8px}
+.campo > label,.campo > .rotulo{font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
+.campo input[type=text],.campo input[type=number],.campo select,.campo textarea,.seletor-curto select{width:100%;min-height:44px;padding:10px 12px;background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 16px/1.4 var(--font-texto);-webkit-appearance:none;appearance:none}
+.campo textarea{min-height:120px;resize:vertical}
+.campo select,.seletor-curto select{padding-right:36px;background-image:linear-gradient(45deg,transparent 50%,var(--po) 50%),linear-gradient(135deg,var(--po) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.modo-leitura .campo > label{color:var(--ardosia)}
+.modo-leitura .campo input[type=range]{accent-color:var(--terracota-funda)}
+.campo .dica{font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.campo input[type=range]{width:100%;min-height:44px;accent-color:var(--areia)}
+.arquivo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.arquivo #capa-foto-nome{font:400 14px/1.4 var(--font-texto);color:var(--po);min-width:0;overflow-wrap:anywhere}
+.arquivo input:focus-visible + label{outline:var(--foco);outline-offset:var(--foco-afastamento)}
+.marcar{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:10px 0;cursor:pointer;font:400 15px/1.45 var(--font-texto);color:var(--cal)}
+.marcar input{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--areia)}
+.marcar:has(input:disabled){cursor:not-allowed}.marcar input:disabled+span{color:var(--po)}
+.dupla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:430px){.dupla{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- botões ---------- */
+.acoes{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.botao[disabled]{background:var(--fio);color:var(--po);cursor:not-allowed}
+.botao[disabled] svg{stroke:var(--po)}
+.botao .ic{stroke:var(--estacao-seta);width:20px;height:20px}
+.acao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 16px;background:transparent;border:1px solid var(--fumaca);border-radius:0;cursor:pointer;color:var(--tela);font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;transition:background var(--t-micro) var(--curva-cena)}
+.acao:hover{background:var(--bastidor)}
+.acao[aria-pressed="true"]{background:var(--tela);color:var(--sala);border-color:var(--tela)}
+.acao[disabled]{color:var(--po);border-color:var(--fio);cursor:not-allowed;background:transparent}
+.modo-leitura .acao{color:var(--sala);border-color:var(--sala)}
+.modo-leitura .acao:hover{background:var(--cinza-100)}
+@media (max-width:430px){.acoes .botao,.acoes .acao{width:100%}}
+
+/* ---------- estados (ícone e palavra, nunca só cor) ---------- */
+.estado{display:grid;gap:8px;font:400 15px/1.45 var(--font-texto)}
+.estado:empty{display:none}
+.estado p{display:flex;gap:10px;align-items:flex-start}
+.estado p .ic{margin-top:2px}
+.estado b{font-weight:700}
+.estado .ok{color:var(--sucesso)}
+.estado .erro{color:var(--erro)}
+.estado .atencao{color:var(--atencao)}
+.estado .info{color:var(--info)}
+.estado p b{color:inherit}
+.estado .ok span,.estado .erro span,.estado .atencao span,.estado .info span{color:var(--cal)}
+.modo-leitura .estado .ok{color:var(--sucesso-claro)}
+.modo-leitura .estado .erro{color:var(--erro-claro)}
+.modo-leitura .estado .atencao{color:var(--atencao-claro)}
+.modo-leitura .estado span{color:var(--sala)}
+
+/* ---------- abertura ---------- */
+.livro{position:relative;z-index:1}
+.wrap{max-width:calc(var(--conteudo) + 128px);margin:0 auto;padding:0 64px}
+@media (max-width:900px){.wrap{padding:0 32px}}
+@media (max-width:430px){.wrap{padding:0 16px}}
+.abertura{position:relative;padding:128px 0 96px;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%)}
+.abertura .credito{display:flex;flex-wrap:wrap;gap:6px 18px}
+.abertura .credito b{color:var(--estacao-destaque);font-weight:700}
+.abertura h1{margin-top:32px;max-width:12ch}
+.abertura .apoio{margin-top:32px;max-width:var(--coluna-leitura);font:400 var(--fs-chamada)/1.5 var(--font-texto);color:var(--cal)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:32px}
+.meta span{display:inline-flex;align-items:center;gap:8px}
+@media (max-width:430px){.abertura{padding:64px 0 48px}.abertura .apoio{font-size:19px}}
+.indice{margin-top:64px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--fio);border-left:1px solid var(--fio)}
+.indice a{display:grid;grid-template-columns:36px 1fr;gap:8px;align-items:baseline;min-height:64px;padding:16px;border:0;border-right:1px solid var(--fio);border-bottom:1px solid var(--fio);color:var(--cal);font:400 16px/1.35 var(--font-texto)}
+.indice a:hover{background:var(--bastidor);color:var(--tela)}
+.indice .n{font:700 14px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--estacao-destaque)}
+@media (max-width:1100px){.indice{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:430px){.indice{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- seção ---------- */
+.sec{position:relative;padding:128px 0;border-top:1px solid var(--fio);background:radial-gradient(90% 520px at 8% 0%,rgb(248 249 244 / .05) 0%,rgb(248 249 244 / 0) 70%)}
+.sec.modo-leitura{background:var(--tela);color:var(--sala);border-top-color:var(--cinza-100)}
+.sec.modo-leitura::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.04;mix-blend-mode:multiply;background-image:var(--grao-img)}
+.sec.modo-leitura > *{position:relative;z-index:1}
+@media (max-width:430px){.sec{padding:96px 0}}
+.folio{display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;margin-bottom:64px;border-bottom:1px solid var(--fio);font-size:11px}
+.folio b{color:var(--estacao-destaque);font-weight:700}
+.modo-leitura .folio{border-bottom-color:var(--fumaca);color:var(--ardosia)}
+.modo-leitura .folio b{color:var(--terracota-funda)}
+@media (max-width:430px){.folio span:first-child{display:none}}
+.sec-head{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:32px;align-items:start;margin-bottom:48px}
+.sec-num{font:700 clamp(88px,11vw,168px)/.78 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:var(--penumbra);user-select:none}
+.modo-leitura .sec-num{color:var(--cinza-100)}
+@media (max-width:640px){.sec-head{grid-template-columns:minmax(0,1fr);gap:16px}.sec-num{font-size:72px}}
+.marcador{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.marcador [data-vforms]{display:inline-flex;flex:none}
+.modo-leitura .marcador,.modo-leitura .credito{color:var(--ardosia)}
+.titulo-secao{max-width:18ch}
+.titulo-secao .off,.titulo-filme .off{color:var(--estacao-destaque)}
+@media (min-width:431px){.titulo-secao .off,.titulo-filme .off{white-space:nowrap}}
+.modo-leitura .titulo-secao{color:var(--sala)}
+.modo-leitura .titulo-secao .off{color:var(--terracota-funda)}
+.sec-apoio{margin-top:24px;max-width:var(--coluna-leitura);font:400 var(--fs-chamada)/1.5 var(--font-texto);color:var(--cal)}
+.modo-leitura .sec-apoio{color:var(--ardosia)}
+@media (max-width:430px){.sec-apoio{font-size:19px}}
+.resumo{display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding:32px;margin-bottom:96px;background:var(--bastidor);border-left:2px solid var(--estacao-destaque)}
+.resumo > .credito{color:var(--estacao-destaque);font-weight:700;padding-top:4px}
+.resumo ul{list-style:none;display:grid;gap:12px}
+.resumo li{position:relative;padding-left:22px;font:400 17px/1.5 var(--font-texto);color:var(--cal)}
+.resumo li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--estacao-destaque)}
+.modo-leitura .resumo{background:var(--cinza-100);border-left-color:var(--terracota-funda)}
+.modo-leitura .resumo > .credito{color:var(--terracota-funda)}
+.modo-leitura .resumo li{color:var(--sala)}
+.modo-leitura .resumo li::before{background:var(--terracota-funda)}
+@media (max-width:640px){.resumo{grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 20px}}
+.bloco{margin-top:96px}
+.resumo + .bloco{margin-top:0}
+.bloco-head{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:24px;row-gap:12px;padding-top:24px;margin-bottom:32px;border-top:1px solid var(--fio)}
+.bloco-n{grid-row:span 2;padding-top:10px;color:var(--estacao-destaque);font-weight:700}
+.bloco-head h3.fala{color:var(--tela);font-size:clamp(24px,2.4vw,32px);text-wrap:balance}
+.bloco-apoio{grid-column:2;max-width:var(--coluna-leitura);font:400 var(--fs-apoio)/1.5 var(--font-texto);color:var(--po)}
+.modo-leitura .bloco-head{border-top-color:var(--fumaca)}
+.modo-leitura .bloco-n{color:var(--terracota-funda)}
+.modo-leitura .bloco-head h3.fala{color:var(--sala)}
+.modo-leitura .bloco-apoio{color:var(--ardosia)}
+@media (max-width:640px){.bloco-head{grid-template-columns:minmax(0,1fr)}.bloco-n{grid-row:auto;padding-top:0}.bloco-apoio{grid-column:1}}
+.texto{max-width:var(--coluna-leitura)}
+.texto p + p{margin-top:16px}
+.fontes{margin-top:96px;padding-top:16px;border-top:1px solid var(--fio);max-width:var(--coluna-leitura);text-transform:none;letter-spacing:0;font:400 13px/1.5 var(--font-texto);color:var(--po)}
+.fontes b{display:block;margin-bottom:6px;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
+.modo-leitura .fontes{border-top-color:var(--fumaca);color:var(--penumbra)}
+.modo-leitura .fontes b{color:var(--ardosia)}
+.nota{max-width:var(--coluna-leitura);font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.modo-leitura .nota{color:var(--ardosia)}
+.pendencia{display:flex;gap:10px;align-items:flex-start;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.pendencia .ic{color:var(--atencao);margin-top:2px}
+.pendencia b{color:var(--atencao);font-weight:700;white-space:nowrap}
+.modo-leitura .pendencia{color:var(--sala)}
+.modo-leitura .pendencia .ic,.modo-leitura .pendencia b{color:var(--atencao-claro)}
+
+/* ---------- editor: painel de texto + vitrine das peças ---------- */
+.editor{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:48px;align-items:start}
+@media (max-width:1100px){.editor{grid-template-columns:minmax(0,1fr);gap:32px}}
+.painel{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-content:start;min-width:0}
+.vitrine{display:grid;gap:24px;min-width:0}
+.peca-fig{display:grid;gap:12px;min-width:0}
+.peca-fig canvas{display:block;width:100%;height:auto;border:1px solid var(--fio);background:var(--nanquim)}
+.peca-fig figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;align-items:center}
+.vitrine-par{display:grid;grid-template-columns:minmax(0,.5625fr) minmax(0,.8fr);gap:24px;align-items:start}
+@media (max-width:430px){.vitrine-par{grid-template-columns:minmax(0,1fr)}.vitrine-par .peca-fig{max-width:300px}}
+.abas{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--fio);width:fit-content;max-width:100%}
+.abas button{min-height:44px;padding:0 14px;background:transparent;border:0;border-right:1px solid var(--fio);border-radius:0;cursor:pointer;font:600 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em;text-transform:uppercase;color:var(--po)}
+.abas button:last-child{border-right:0}
+.abas button:hover{color:var(--tela)}
+.abas button[aria-selected="true"],.abas button[aria-pressed="true"]{background:var(--tela);color:var(--sala)}
+.tira{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.tira button{display:grid;gap:8px;padding:0;background:transparent;border:0;cursor:pointer;text-align:left;color:var(--po)}
+.tira canvas{display:block;width:100%;height:auto;border:1px solid var(--fio)}
+.tira button[aria-pressed="true"] canvas{outline:2px solid var(--areia);outline-offset:3px}
+.tira .rotulo{display:flex;gap:6px;align-items:center}
+.tira .rotulo .ic{width:16px;height:16px}
+.tira .ok{color:var(--sucesso)}
+.tira .bloq{color:var(--atencao)}
+@media (max-width:640px){.tira{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:360px){.tira{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vertical-limite{max-width:420px}
+.so-prova,.so-oferta{display:none}
+[data-cartela="prova"] .so-prova,[data-cartela="oferta"] .so-oferta{display:grid}
+[data-cartela="prova"] .nao-prova,[data-cartela="oferta"] .nao-oferta{display:none}
+
+/* ---------- exemplo proibido ---------- */
+.faca-nao{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:760px){.faca-nao{grid-template-columns:minmax(0,1fr)}}
+.faca-nao figure{display:grid;gap:12px;align-content:start}
+.faca-nao canvas{display:block;width:100%;height:auto;border:1px solid var(--fio)}
+.faca-nao .selo-uso{display:flex;gap:8px;align-items:center;font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase}
+.faca-nao .assim{color:var(--sucesso)}
+.faca-nao .assim-nao{color:var(--erro)}
+.faca-nao figcaption{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+
+/* ---------- legenda ---------- */
+.cues{list-style:none;display:grid;gap:8px;max-height:360px;overflow:auto;padding:4px;border:1px solid var(--fio)}
+.cues li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 12px;background:transparent;border:1px solid transparent;cursor:pointer}
+.cues li[aria-current="true"]{border-color:var(--areia);background:var(--bastidor)}
+.cues li .n{font:700 14px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--po)}
+.cues li .linhas{font:600 15px/1.4 var(--font-letreiro);color:var(--cal);white-space:pre-line}
+.cues li .linhas mark{background:none;color:var(--areia)}
+.cues li .med{font:400 13px/1.4 var(--font-texto);color:var(--po);text-align:right;white-space:nowrap}
+@media (max-width:430px){.cues li{grid-template-columns:32px minmax(0,1fr)}.cues li .med{grid-column:2;text-align:left}}
+
+/* ---------- lower third animado (HTML e CSS, 1 u = 1 px do quadro de 1920) ---------- */
+.lt-palco{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;border:1px solid var(--fio);background:var(--bastidor)}
+.lt-palco[data-formato="v"]{aspect-ratio:9/16;max-width:360px}
+.lt-palco{--u:calc(100cqw / 1920)}
+.lt-palco[data-formato="v"]{--u:calc(100cqw / 1080)}
+.lt-quadro{position:absolute;inset:calc(var(--u) * 24);border:1px dashed var(--fumaca);display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+.lt-quadro span{font:500 calc(var(--u) * 26)/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po);transform:translateY(-120%)}
+.lt{position:absolute;left:calc(var(--u) * 120);bottom:calc(var(--u) * 140);display:flex;align-items:stretch;gap:calc(var(--u) * 24);padding:calc(var(--u) * 20) calc(var(--u) * 28) calc(var(--u) * 20) calc(var(--u) * 24);background:rgb(24 24 24 / .70)}
+.lt-palco[data-formato="v"] .lt{left:calc(var(--u) * 72);bottom:calc(var(--u) * 420)}
+.lt[data-veu="nao"]{background:transparent}
+.lt-fio{width:calc(var(--u) * 2);flex:none;background:var(--estacao-grafismo);transform-origin:50% 100%}
+.lt-nome{font:600 calc(var(--u) * 40)/1.1 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase;letter-spacing:.08em;color:var(--tela);white-space:nowrap}
+.lt-funcao{margin-top:calc(var(--u) * 8);font:300 calc(var(--u) * 34)/1.1 var(--font-off);font-style:italic;font-variation-settings:"opsz" 72;color:var(--tela);white-space:nowrap}
+.lt.anima .lt-fio{animation:lt-fio 333ms linear both}
+.lt.anima .lt-nome{animation:lt-entra var(--t-entrada) var(--curva-cena) 250ms both}
+.lt.anima .lt-funcao{animation:lt-entra var(--t-entrada) var(--curva-cena) 370ms both}
+.lt.anima{animation:lt-veu var(--t-entrada) var(--curva-cena) 200ms both,lt-sai var(--t-saida) var(--curva-saida) var(--lt-saida,3300ms) forwards}
+@keyframes lt-fio{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes lt-entra{from{opacity:0;transform:translateY(calc(var(--u) * 16))}to{opacity:1;transform:none}}
+@keyframes lt-veu{from{background-color:rgb(24 24 24 / 0)}to{background-color:rgb(24 24 24 / .70)}}
+@keyframes lt-sai{to{opacity:0}}
+.lt[data-veu="nao"].anima{animation:lt-sai var(--t-saida) var(--curva-saida) var(--lt-saida,3300ms) forwards}
+.lt-linha{display:flex;align-items:center;gap:12px;margin-top:12px}
+.lt-linha progress{flex:1;height:4px;-webkit-appearance:none;appearance:none;border:0;background:var(--fio);accent-color:var(--areia)}
+.lt-linha progress::-webkit-progress-bar{background:var(--fio)}
+.lt-linha progress::-webkit-progress-value{background:var(--areia)}
+.lt-linha progress::-moz-progress-bar{background:var(--areia)}
+.tempos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--fio)}
+.tempos div{padding:12px 14px;border-right:1px solid var(--fio)}
+.tempos div:last-child{border-right:0}
+.tempos b{display:block;font:700 22px/1.1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--tela)}
+.tempos span{font:400 13px/1.4 var(--font-texto);color:var(--po)}
+@media (max-width:640px){.tempos{grid-template-columns:repeat(2,minmax(0,1fr))}.tempos div:nth-child(2){border-right:0}.tempos div:nth-child(-n+2){border-bottom:1px solid var(--fio)}}
+
+/* ---------- abertura Esfera e fecho ---------- */
+.esfera-palco{position:relative;aspect-ratio:16/9;background:var(--sala);border:1px solid var(--fio);overflow:hidden;display:grid;place-items:center}
+.esfera-palco [data-vforms]{width:56%;aspect-ratio:1;margin:auto}
+.esfera-palco.anima [data-vforms]{animation:abre-esfera var(--t-abertura) var(--curva-cena) both}
+@keyframes abre-esfera{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:none}}
+.fecho-fig.anima canvas{animation:abre-fecho 480ms var(--curva-cena) both}
+@keyframes abre-fecho{from{opacity:0}to{opacity:1}}
+
+/* ---------- roteiro (Modo Leitura) ---------- */
+.linha-tempo{position:relative;display:flex;height:56px;border:1px solid var(--sala);background:var(--tela)}
+.linha-tempo span{position:relative;display:flex;align-items:flex-end;padding:0 0 6px 6px;border-right:1px solid var(--sala);font:700 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--sala);overflow:hidden;white-space:nowrap;min-width:2px}
+.linha-tempo span:last-child{border-right:0}
+@media (max-width:430px){.linha-tempo span{font-size:0;padding:0}}
+.linha-tempo span[data-tipo="cena"]{background:var(--tela)}
+.linha-tempo span[data-tipo="cartela"]{background:var(--sala);color:var(--tela)}
+.linha-tempo span[data-tipo="documento"]{background:var(--cinza-100)}
+.linha-tempo i{position:absolute;top:-10px;width:2px;height:10px;background:var(--terracota-funda)}
+.legenda-tempo{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px;font:400 13px/1.4 var(--font-texto);color:var(--ardosia)}
+.legenda-tempo span{display:inline-flex;align-items:center;gap:8px}
+.legenda-tempo i{display:inline-block;width:14px;height:14px;border:1px solid var(--sala)}
+.legenda-tempo .t-cena{background:var(--tela)}
+.legenda-tempo .t-cartela{background:var(--sala)}
+.legenda-tempo .t-documento{background:var(--cinza-100)}
+.legenda-tempo .t-respiro{width:2px;border:0;background:var(--terracota-funda)}
+.blocos{list-style:none;display:grid;gap:0;border-top:1px solid var(--fumaca);counter-reset:b}
+.blocos > li{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,280px);gap:24px;padding:24px 0;border-bottom:1px solid var(--fumaca)}
+.blocos .quando b{display:block;font:300 28px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;font-variant-numeric:tabular-nums;color:var(--sala)}
+.blocos .quando span{display:block;margin-top:6px;font:400 13px/1.4 var(--font-texto);color:var(--penumbra)}
+.blocos h4{font:600 22px/1.2 var(--font-letreiro);color:var(--sala)}
+.blocos h4 small{display:block;margin-bottom:6px;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--ardosia)}
+.blocos p{margin-top:8px;font:400 17px/1.6 var(--font-texto);color:var(--sala)}
+.blocos .na-tela{font:400 15px/1.5 var(--font-texto);color:var(--ardosia)}
+.blocos .na-tela b{display:block;margin-bottom:4px;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--sala)}
+.blocos .tag{display:inline-block;margin-top:10px;padding:4px 8px;border:1px solid var(--sala);font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--sala)}
+.blocos q{quotes:"“" "”"}
+@media (max-width:900px){.blocos > li{grid-template-columns:96px minmax(0,1fr)}.blocos .na-tela{grid-column:2}}
+@media (max-width:430px){.blocos > li{grid-template-columns:minmax(0,1fr);gap:12px}.blocos .na-tela{grid-column:1}}
+.l8{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font:400 15px/1.5 var(--font-texto);color:var(--sala)}
+.l8 .ic{color:var(--sucesso-claro);margin-top:2px}
+.l8.falha .ic{color:var(--erro-claro)}
+.tabela-wrap{max-width:100%;overflow-x:auto}
+.tabela{width:100%;border-collapse:collapse;font:400 16px/1.5 var(--font-texto)}
+.tabela th,.tabela td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--fumaca)}
+.tabela thead th{background:var(--cinza-100);color:var(--sala);font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+.tabela tbody th{font-weight:600;color:var(--sala);white-space:nowrap}
+.tabela td{color:var(--sala)}
+@media (max-width:430px){
+  .tabela thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tabela,.tabela tbody,.tabela tr,.tabela th,.tabela td{display:block;width:100%}
+  .tabela tr{padding:12px 0;border-bottom:1px solid var(--fumaca)}
+  .tabela th,.tabela td{padding:4px 0;border:0}
+  .tabela td::before{content:attr(data-r);display:block;font:500 11px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--ardosia)}
+}
+
+/* ---------- checklist ---------- */
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+@media (max-width:900px){.checklist{grid-template-columns:minmax(0,1fr)}}
+.checklist fieldset{margin:0 0 32px;padding:0;border:0;min-width:0}
+.checklist legend{padding:0 0 12px;margin-bottom:4px;width:100%;border-bottom:1px solid var(--fio)}
+.checklist .marcar{border-bottom:1px solid var(--fio)}
+.checklist .marcar small{display:block;color:var(--po);font-size:13px}
+.contagem{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;padding:24px;margin-bottom:32px;background:var(--bastidor);border-left:2px solid var(--estacao-destaque)}
+.contagem b{font:700 40px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--tela)}
+.contagem span{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.resumo-copia{width:100%;min-height:160px;padding:12px;background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 14px/1.5 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+
+/* ---------- rodapé ---------- */
+.rodape-pagina{position:relative;z-index:1;padding:64px 0 96px;border-top:1px solid var(--fio)}
+.rodape-pagina .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.rodape-pagina [data-vforms="rodape"]{min-height:20px}
+
+@media (prefers-reduced-motion:reduce){
+  .lt.anima,.lt.anima .lt-fio,.lt.anima .lt-nome,.lt.anima .lt-funcao,.esfera-palco.anima [data-vforms],.fecho-fig.anima canvas{animation:none!important}
+  html{scroll-behavior:auto}
+}
+@media print{.topo,.acoes,.seletor,.indice{display:none}}
+</style>
+</head>
+<body class="grao">
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo" role="banner">
+  <a class="topo-marca" href="#k00" aria-label="The VOID Tattoo Academy, início do kit"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="158" height="24"></a>
+  <p class="topo-titulo credito">Kit de VSL</p>
+  <div class="topo-produto">
+    <label class="credito" for="produto-curto">Peça de</label>
+    <div class="seletor" role="group" aria-label="Produto das peças">
+      <button type="button" data-produto="start" aria-pressed="true">Start</button>
+      <button type="button" data-produto="master" aria-pressed="false">Master</button>
+      <button type="button" data-produto="pro" aria-pressed="false">Pro</button>
+      <button type="button" data-produto="aula" aria-pressed="false">Aula experimental</button>
+    </div>
+    <div class="seletor-curto"><select id="produto-curto" aria-label="Produto das peças"><option value="start">Start</option><option value="master">Master</option><option value="pro">Pro</option><option value="aula">Aula experimental</option></select></div>
+  </div>
+</header>
+
+<main class="livro" id="conteudo">
+
+<section class="abertura" id="k00" aria-labelledby="k00-t">
+  <div class="wrap">
+    <p class="credito"><span>The VOID · Manual de marca</span><span>Modelo de canal</span><span><b>34</b> VSL</span></p>
+    <h1 id="k00-t" class="titulo-filme">Kit de vídeo <em class="off">de vendas</em></h1>
+    <p class="apoio">Tudo o que a VSL (o vídeo de vendas da página) precisa, no tamanho exato: capa, cinco cartelas, legenda queimada com arquivo <code>.srt</code>, lower third (o crédito de quem fala), fecho, roteiro em 9 blocos e checklist. Escolha o produto no alto: cores, textos de partida, duração e rótulo do botão mudam juntos.</p>
+    <div class="meta">
+      <span class="credito">Versão 1 · 06/10/2026</span>
+      <span class="credito">Status: proposta GrowAI, aguarda aprovação da The VOID</span>
+    </div>
+    <nav class="indice" aria-label="Peças do kit">
+      <a href="#k01"><span class="n">01</span>Como usar</a>
+      <a href="#k02"><span class="n">02</span>Capa</a>
+      <a href="#k03"><span class="n">03</span>Cartelas</a>
+      <a href="#k04"><span class="n">04</span>Legenda queimada</a>
+      <a href="#k05"><span class="n">05</span>Lower third</a>
+      <a href="#k06"><span class="n">06</span>Abertura e fecho</a>
+      <a href="#k07"><span class="n">07</span>Roteiro em 9 blocos</a>
+      <a href="#k08"><span class="n">08</span>Checklist de publicação</a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============================ 01 COMO USAR ============================ -->
+<section class="sec" id="k01" aria-labelledby="k01-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>01</b> · Como usar</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">01</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k01-t" class="titulo-secao">Uma luz, <em class="off">um pedido</em></h2>
+        <p class="sec-apoio">A VSL é montagem: cena, cartela e documento se revezam, e o fim é sempre um único pedido, igual ao botão sob o player.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Escolha o produto no alto. A peça muda de cor, de texto de partida e de rótulo do botão.</li>
+      <li>Edite o texto à esquerda de cada peça. A peça é desenhada no tamanho real e só exporta quando passa nas regras (prova com crédito, nada de valor em reais na capa, zero travessão).</li>
+      <li>O que ainda depende da escola aparece entre chaves, como <code>{{A_CONFIRMAR}}</code>, ou com o número da pendência, como [P 15]. Peça com pendência não exporta.</li>
+      <li>Fotos de banco ou geradas por IA não entram. Onde vai imagem, o kit desenha o espaço da foto real, com autorização.</li>
+    </ul></div>
+    <div class="bloco" id="k01-1">
+      <div class="bloco-head"><p class="bloco-n credito">01.1</p><h3 class="fala">O fluxo de uma VSL</h3><p class="bloco-apoio">Do roteiro à publicação, nesta ordem.</p></div>
+      <div class="texto">
+        <p><b>1. Roteiro.</b> Defina a duração e leia os 9 blocos (seção 07). Cada bloco diz o que aparece na tela e qual peça deste kit entra.</p>
+        <p><b>2. Peças.</b> Gere a capa, as cartelas, o lower third e o fecho. Quem edita o vídeo recebe PNG no tamanho exato e a sequência de quadros do lower third.</p>
+        <p><b>3. Legenda.</b> Cole o texto falado na seção 04. O kit quebra em blocos de no máximo duas linhas e baixa o arquivo <code>.srt</code>. A legenda vai queimada no vídeo vertical e em arquivo em todo vídeo público.</p>
+        <p><b>4. Publicação.</b> Passe pelo checklist (seção 08) e copie o resumo para quem aprova.</p>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 06 (leis L1, L6 e L8) e 34 (VSL); relatório de conversão GrowAI para LP e VSL, out/2026.</p>
+  </div>
+</section>
+
+<!-- ============================ 02 CAPA ============================ -->
+<section class="sec" id="k02" aria-labelledby="k02-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>02</b> · Capa</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">02</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k02-t" class="titulo-secao">A capa <em class="off">que para</em> o polegar</h2>
+        <p class="sec-apoio">Painel Sala à esquerda, frase de 3 a 6 palavras com uma palavra em destaque, rosto ou mãos nos dois terços da direita e o canto inferior direito livre para a duração do player.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Três tamanhos: 1280 por 720 (player e YouTube), 1080 por 1920 (Stories e Reels) e 1080 por 1350 (feed).</li>
+      <li>Marque a palavra de destaque entre asteriscos: <code>TALENTO É CONSEQUÊNCIA DE *TREINO*</code>.</li>
+      <li>Nenhum valor em reais na capa: o kit recusa a exportação.</li>
+      <li>Com foto real, o kit passa a imagem para o preto e branco Ritual e confere o pixel mais claro sob o título.</li>
+      <li>Sem foto real e sem a autorização de imagem marcada, a capa não exporta. Banco de imagem e imagem gerada não entram.</li>
+    </ul></div>
+
+    <div class="bloco" id="k02-1">
+      <div class="bloco-head"><p class="bloco-n credito">02.1</p><h3 class="fala">Montar e exportar</h3><p class="bloco-apoio">As três prévias são os arquivos. A exportação sai no tamanho exato, sem as guias.</p></div>
+      <div class="editor">
+        <form class="painel" id="capa-form" aria-label="Texto e foto da capa" onsubmit="return false">
+          <div class="campo">
+            <label for="capa-texto">Frase da capa</label>
+            <input type="text" id="capa-texto" autocomplete="off" spellcheck="true">
+            <p class="dica" id="capa-texto-dica">De 3 a 6 palavras. Uma palavra entre asteriscos fica no destaque.</p>
+          </div>
+          <div class="campo">
+            <span class="rotulo" id="capa-foto-r">Foto real da escola</span>
+            <div class="arquivo"><input type="file" id="capa-foto" accept="image/*" class="so-leitor" aria-labelledby="capa-foto-r capa-foto-nome"><label for="capa-foto" class="acao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Escolher foto</label><span id="capa-foto-nome">Nenhuma foto escolhida</span><button type="button" class="acao" id="capa-foto-tirar" hidden>Tirar foto</button></div>
+            <p class="dica">Rosto ou mãos, com autorização de imagem para este canal. A foto fica só no seu navegador. Sem foto, a prévia mostra o espaço reservado e a exportação fica travada: o espaço reservado nunca sai no arquivo.</p>
+          </div>
+          <label class="marcar"><input type="checkbox" id="capa-aut" disabled><span>Tenho a autorização de imagem por escrito de quem aparece, cobrindo este canal e esta finalidade (orgânico ou anúncio)</span></label>
+          <label class="marcar"><input type="checkbox" id="capa-selo"><span>Usar o selo do produto no lugar do logotipo de produto</span></label>
+          <label class="marcar"><input type="checkbox" id="capa-guias" checked><span>Mostrar guias na prévia (área livre da duração e área de leitura); a exportação nunca leva as guias</span></label>
+          <div class="estado" id="capa-estado" aria-live="polite"></div>
+          <div class="acoes">
+            <button type="button" class="botao" data-exportar="capa-h">Baixar 1280 por 720<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
+            <button type="button" class="acao" data-exportar="capa-v">Baixar 1080 por 1920</button>
+            <button type="button" class="acao" data-exportar="capa-f">Baixar 1080 por 1350</button>
+          </div>
+        </form>
+        <div class="vitrine">
+          <figure class="peca-fig"><canvas id="cv-capa-h" width="1280" height="720" role="img" aria-label="Capa 1280 por 720"></canvas><figcaption><span class="credito">1280 por 720 · player e YouTube</span></figcaption></figure>
+          <div class="vitrine-par">
+            <figure class="peca-fig"><canvas id="cv-capa-v" width="1080" height="1920" role="img" aria-label="Capa 1080 por 1920"></canvas><figcaption><span class="credito">1080 por 1920 · Stories e Reels</span></figcaption></figure>
+            <figure class="peca-fig"><canvas id="cv-capa-f" width="1080" height="1350" role="img" aria-label="Capa 1080 por 1350"></canvas><figcaption><span class="credito">1080 por 1350 · feed</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="k02-2">
+      <div class="bloco-head"><p class="bloco-n credito">02.2</p><h3 class="fala">Assim e assim não</h3><p class="bloco-apoio">A capa nomeia uma crença e promete o porquê de assistir. Ela nunca promete renda.</p></div>
+      <div class="faca-nao">
+        <figure>
+          <p class="selo-uso assim"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Assim</p>
+          <canvas id="cv-capa-assim" width="1280" height="720" role="img" aria-label="Capa correta com a frase do produto"></canvas>
+          <figcaption>Uma crença, uma palavra de destaque, nenhum número. O canto da duração fica livre.</figcaption>
+        </figure>
+        <figure data-exemplo="proibido">
+          <p class="selo-uso assim-nao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Assim não</p>
+          <canvas id="cv-capa-nao" width="1280" height="720" role="img" aria-label="Exemplo proibido: capa com promessa de renda em reais"></canvas>
+          <figcaption>Exemplo proibido, só para ensinar: promessa de renda com valor e prazo. O kit bloqueia a exportação e diz por quê.</figcaption>
+          <div class="estado" id="capa-nao-estado"></div>
+        </figure>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 34 (capa da VSL), 14 (pares de véu), 22 (Véu de Leitura), 26 (áreas seguras), 29 (preset Ritual e autorização de imagem) e 33 (regras de prova); miniaturas atuais da LP do Start, pasta Nova IDV da The VOID.</p>
+  </div>
+</section>
+
+<!-- ============================ 03 CARTELAS ============================ -->
+<section class="sec" id="k03" aria-labelledby="k03-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>03</b> · Cartelas</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">03</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k03-t" class="titulo-secao">Cinco <em class="off">cartelas</em></h2>
+        <p class="sec-apoio">Vazio, Virada, Prova, Oferta e Ação. Todas em Sala com grão e Janela de Luz, até 6 palavras no título e o Marcador de Capítulo; a Oferta é a única tela clara do vídeo.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Título de até 6 palavras; a voz em off (o itálico) entra uma vez por tela, dentro do título ou numa linha abaixo.</li>
+      <li>A Prova só exporta com a régua completa: o que mede, período, base, fonte e marca de origem. Sem isso, a tela diz "dado em validação" e fica bloqueada.</li>
+      <li>A Oferta mostra um item por tela em Modo Leitura. Preço, parcelas e turma dependem da escola [P 15].</li>
+      <li>Formato 16:9 para a VSL; 9:16 para os cortes de 15, 30 e 60 segundos.</li>
+    </ul></div>
+
+    <div class="bloco" id="k03-1">
+      <div class="bloco-head"><p class="bloco-n credito">03.1</p><h3 class="fala">A tira das cinco</h3><p class="bloco-apoio">Escolha uma cartela para editar. O ícone diz se ela já pode ser exportada.</p></div>
+      <div class="acoes" style="margin-bottom:24px">
+        <div class="abas" role="group" aria-label="Formato das cartelas"><button type="button" data-formato-cartela="h" aria-pressed="true">16:9 · 1920 por 1080</button><button type="button" data-formato-cartela="v" aria-pressed="false">9:16 · 1080 por 1920</button></div>
+      </div>
+      <div class="tira" id="tira" role="group" aria-label="Cartelas"></div>
+    </div>
+
+    <div class="bloco" id="k03-2">
+      <div class="bloco-head"><p class="bloco-n credito">03.2</p><h3 class="fala" id="cartela-titulo">Cartela Vazio</h3><p class="bloco-apoio" id="cartela-apoio">A crença, nas palavras de quem assiste.</p></div>
+      <div class="editor" id="cartela-editor" data-cartela="vazio">
+        <form class="painel" aria-label="Texto da cartela" onsubmit="return false">
+          <div class="campo nao-prova nao-oferta">
+            <label for="ct-titulo">Título</label>
+            <input type="text" id="ct-titulo" autocomplete="off">
+            <p class="dica">Até 6 palavras. Uma palavra entre asteriscos vira voz em off dentro do título.</p>
+          </div>
+          <div class="campo nao-prova nao-oferta">
+            <label for="ct-off">Linha em voz em off</label>
+            <input type="text" id="ct-off" autocomplete="off">
+            <p class="dica">Uma linha, até 7 palavras. Deixe vazia se o título já tem a palavra em itálico.</p>
+          </div>
+          <div class="campo so-prova">
+            <label for="pv-valor">Número validado</label>
+            <input type="text" id="pv-valor" autocomplete="off" inputmode="decimal" placeholder="dado em validação">
+            <p class="dica">Só com prova arquivada [P 15]. Sem número, a tela fica bloqueada; nunca escreva zero no lugar.</p>
+          </div>
+          <div class="campo so-prova"><label for="pv-mede">O que o número mede</label><input type="text" id="pv-mede" autocomplete="off"></div>
+          <div class="dupla so-prova">
+            <div class="campo"><label for="pv-periodo">Período</label><input type="text" id="pv-periodo" autocomplete="off" placeholder="ex.: turmas até out/2026"></div>
+            <div class="campo"><label for="pv-base">Base</label><input type="text" id="pv-base" autocomplete="off" placeholder="ex.: formação Start"></div>
+          </div>
+          <div class="campo so-prova"><label for="pv-fonte">Fonte</label><input type="text" id="pv-fonte" autocomplete="off" placeholder="ex.: registro da secretaria"></div>
+          <div class="campo so-prova">
+            <label for="pv-origem">Marca de origem</label>
+            <select id="pv-origem">
+              <option value="em-validacao">Em validação (bloqueia)</option>
+              <option value="medido">Medido: registro da escola, arquivado</option>
+              <option value="terceiro">Declarado por terceiro (pede link e captura)</option>
+              <option value="mercado">Mercado: estudo externo (pede link)</option>
+            </select>
+          </div>
+          <div class="dupla so-prova">
+            <div class="campo"><label for="pv-link">Link</label><input type="text" id="pv-link" autocomplete="off"></div>
+            <div class="campo"><label for="pv-captura">Data da captura</label><input type="text" id="pv-captura" autocomplete="off" placeholder="dd/mm/aaaa"></div>
+          </div>
+          <div class="campo so-oferta">
+            <label for="of-item">Item da oferta (um por tela)</label>
+            <select id="of-item"></select>
+          </div>
+          <div class="campo so-oferta"><label for="of-valor">Texto principal</label><input type="text" id="of-valor" autocomplete="off"></div>
+          <div class="campo so-oferta"><label for="of-cond">Condição, em texto corrido</label><textarea id="of-cond" rows="4"></textarea><p class="dica">Valor total, parcelas e condições iguais às do checkout. Preço nunca em voz em off.</p></div>
+          <div class="estado" id="ct-estado" aria-live="polite"></div>
+          <div class="acoes">
+            <button type="button" class="botao" data-exportar="cartela">Baixar esta cartela<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
+            <button type="button" class="acao" id="baixar-cartelas">Baixar as liberadas (ZIP)</button>
+          </div>
+        </form>
+        <div class="vitrine">
+          <figure class="peca-fig" id="cartela-fig"><canvas id="cv-cartela" width="1920" height="1080" role="img" aria-label="Cartela"></canvas><figcaption><span class="credito" id="cartela-legenda">1920 por 1080</span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 22 (Cartela), 24 (Marcador de Capítulo), 25 (Crédito de Prova), 16 (Modo Leitura), 19 (escala de vídeo) e 33 (frases-modelo); crenças das personas: Personas, set/2026, e Brand DNA da The VOID, set/2026; "Tatuar não é desenhar. É uma técnica nova.": site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<!-- ============================ 04 LEGENDA ============================ -->
+<section class="sec" id="k04" aria-labelledby="k04-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>04</b> · Legenda queimada</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">04</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k04-t" class="titulo-secao">Duas linhas, <em class="off">nunca três</em></h2>
+        <p class="sec-apoio">Archivo 600 em Tela sobre caixa Sala a 75%, uma palavra de destaque em Areia, base a 110 px da borda no horizontal. O kit calcula a quebra e o arquivo .srt.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Horizontal: 50 px, até 42 caracteres por linha. Vertical: 64 px, até 28 caracteres por linha, acima da área da interface.</li>
+      <li>Cada bloco tem no máximo duas linhas; frase longa vira outro bloco. A quebra mede a largura real do texto, não só os caracteres.</li>
+      <li>Marque uma palavra de destaque por bloco entre asteriscos.</li>
+      <li>Tela sobre a caixa dá 7,39:1; Areia sobre a caixa, 4,66:1.</li>
+    </ul></div>
+    <div class="bloco" id="k04-1">
+      <div class="bloco-head"><p class="bloco-n credito">04.1</p><h3 class="fala">Texto falado para legenda</h3><p class="bloco-apoio">Cole a fala. O tempo de cada bloco é estimado a 15 caracteres por segundo; ajuste no editor de vídeo depois de sincronizar.</p></div>
+      <div class="editor">
+        <form class="painel" aria-label="Texto da legenda" onsubmit="return false">
+          <div class="campo">
+            <label for="lg-texto">Fala</label>
+            <textarea id="lg-texto" rows="7"></textarea>
+          </div>
+          <div class="abas" role="group" aria-label="Formato da legenda"><button type="button" data-formato-legenda="h" aria-pressed="true">16:9</button><button type="button" data-formato-legenda="v" aria-pressed="false">9:16</button></div>
+          <div class="estado" id="lg-estado" aria-live="polite"></div>
+          <div class="acoes">
+            <button type="button" class="botao" id="lg-srt">Baixar .srt<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
+            <button type="button" class="acao" id="lg-png">Baixar bloco em PNG transparente</button>
+            <a class="acao" href="assets/vsl/exemplo.srt" download>Arquivo .srt de exemplo</a>
+          </div>
+        </form>
+        <div class="vitrine">
+          <figure class="peca-fig" id="lg-fig"><canvas id="cv-legenda" width="1920" height="1080" role="img" aria-label="Legenda queimada sobre o quadro do vídeo"></canvas><figcaption><span class="credito" id="lg-legenda">Bloco 1</span></figcaption></figure>
+          <ol class="cues" id="lg-cues" aria-label="Blocos de legenda"></ol>
+        </div>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 34 (legenda da VSL), 19 (escala de vídeo), 14 (véu de 75%) e 30 (legenda sempre); texto de exemplo: Brand DNA da The VOID, set/2026 (gancho de Reels e manifesto, com o travessão trocado por vírgula).</p>
+  </div>
+</section>
+
+<!-- ============================ 05 LOWER THIRD ============================ -->
+<section class="sec" id="k05" aria-labelledby="k05-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>05</b> · Lower third</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">05</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k05-t" class="titulo-secao">Quem fala, <em class="off">sem selo</em></h2>
+        <p class="sec-apoio">Fio vertical de 2 px na cor do grafismo que cresce em 8 quadros, nome em Archivo 600 largura 112 com 40 px, função na voz em off com 34 px, de 3 a 4 segundos, a 120 px da lateral e 140 px da base.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>O selo não entra: a 72 px ele fica abaixo do mínimo de 96 px.</li>
+      <li>A prévia é animada em CSS; a exportação sai em quadros PNG transparentes a 24 por segundo, num arquivo ZIP, para qualquer editor.</li>
+      <li>Nome e função só de pessoa real, com autorização de nome e imagem [P 13].</li>
+      <li>Com movimento reduzido, a prévia aparece direto, sem animação.</li>
+    </ul></div>
+    <div class="bloco" id="k05-1">
+      <div class="bloco-head"><p class="bloco-n credito">05.1</p><h3 class="fala">Montar, ver e exportar</h3><p class="bloco-apoio">A sequência repete a mesma conta da prévia: o que você vê é o que sai.</p></div>
+      <div class="editor">
+        <form class="painel" aria-label="Texto do lower third" onsubmit="return false">
+          <div class="campo"><label for="lt-nome">Nome</label><input type="text" id="lt-nome" autocomplete="off"></div>
+          <div class="campo"><label for="lt-funcao">Função ou ponto de partida</label><input type="text" id="lt-funcao" autocomplete="off"><p class="dica">A única linha em itálico do quadro. Ano da turma só com a confirmação do aluno.</p></div>
+          <div class="campo"><label for="lt-dur">Duração na tela: <span id="lt-dur-v">3,5 s</span></label><input type="range" id="lt-dur" min="3" max="4" step="0.5" value="3.5"></div>
+          <div class="abas" role="group" aria-label="Formato do lower third"><button type="button" data-formato-lt="h" aria-pressed="true">16:9 · 1920 por 1080</button><button type="button" data-formato-lt="v" aria-pressed="false">9:16 · 1080 por 1920</button></div>
+          <label class="marcar"><input type="checkbox" id="lt-veu" checked><span>Véu de leitura de 70% atrás do crédito (use sempre que o fundo do vídeo for claro ou movimentado)</span></label>
+          <div class="estado" id="lt-estado" aria-live="polite"></div>
+          <div class="acoes">
+            <button type="button" class="acao" id="lt-play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Ver de novo</button>
+            <button type="button" class="botao" id="lt-seq">Baixar quadros PNG (ZIP)<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
+          </div>
+          <div class="lt-linha" hidden id="lt-progresso-l"><progress id="lt-progresso" max="1" value="0"></progress><span class="credito" id="lt-progresso-t">0%</span></div>
+        </form>
+        <div class="vitrine">
+          <div class="lt-palco" id="lt-palco" data-formato="h">
+            <div class="lt-quadro" aria-hidden="true"><span>Quadro do vídeo · foto real da escola, com autorização</span></div>
+            <div class="lt anima" id="lt-demo"><span class="lt-fio" aria-hidden="true"></span><div><p class="lt-nome" id="lt-demo-nome"></p><p class="lt-funcao" id="lt-demo-funcao"></p></div></div>
+          </div>
+          <div class="tempos" aria-label="Tempos do lower third a 24 quadros por segundo">
+            <div><b>8 q</b><span>fio cresce (333 ms)</span></div>
+            <div><b>480 ms</b><span>nome entra, 16 px de subida</span></div>
+            <div><b id="lt-tempo-tela">3,5 s</b><span>na tela</span></div>
+            <div><b>200 ms</b><span>saída, mais rápida</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 30 (lower third), 19 (escala de vídeo), 26 (movimento) e 09 (mínimo do selo); exemplo de função "Aluna do Start, turma de [ano]" da seção 30.</p>
+  </div>
+</section>
+
+<!-- ============================ 06 ABERTURA E FECHO ============================ -->
+<section class="sec" id="k06" aria-labelledby="k06-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>06</b> · Abertura e fecho</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">06</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k06-t" class="titulo-secao">Abre no gancho, <em class="off">fecha no vazio</em></h2>
+        <p class="sec-apoio">Nada de vinheta antes do gancho. Na VSL longa, depois do gancho, 1,2 s de Esfera. No fim, de 1,5 a 2 s de fecho com os Créditos Finais e o zumbido da máquina.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Abertura: a Esfera do Vazio surge do escuro em 1.200 ms, só na VSL longa (Start, Master e Pro).</li>
+      <li>Fecho institucional: Sala, Eco do VOID, logotipo branco e Créditos Finais.</li>
+      <li>Fecho de produto: Campo de Produto com logotipo e selo, sem Eco.</li>
+      <li>Assinatura sonora: zumbido curto da máquina gravado na escola, 0,8 s, e silêncio.</li>
+    </ul></div>
+    <div class="bloco" id="k06-1">
+      <div class="bloco-head"><p class="bloco-n credito">06.1</p><h3 class="fala">Abertura com a Esfera</h3><p class="bloco-apoio">A única ilustração da marca. Nunca junto com o Eco do VOID.</p></div>
+      <div class="editor">
+        <div class="painel">
+          <p class="nota">Entra logo depois do gancho, nunca antes dele. Duração de 1,2 s com a curva Cena; sem som de vinheta, só o ambiente da sala. Em Reels e anúncio 9:16 não há abertura: o vídeo começa no gancho.</p>
+          <div class="acoes"><button type="button" class="acao" id="esfera-play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Ver a abertura</button></div>
+        </div>
+        <div class="vitrine"><div class="esfera-palco grao anima" id="esfera-palco"><div data-vforms="esfera"></div></div></div>
+      </div>
+    </div>
+    <div class="bloco" id="k06-2">
+      <div class="bloco-head"><p class="bloco-n credito">06.2</p><h3 class="fala">Fecho</h3><p class="bloco-apoio">O último quadro antes de a página assumir o pedido.</p></div>
+      <div class="editor">
+        <form class="painel" aria-label="Variante do fecho" onsubmit="return false">
+          <div class="abas" role="group" aria-label="Variante do fecho"><button type="button" data-fecho="institucional" aria-pressed="false">Institucional</button><button type="button" data-fecho="produto" aria-pressed="true">De produto</button></div>
+          <p class="nota" id="fecho-nota"></p>
+          <div class="estado" id="fecho-estado" aria-live="polite"></div>
+          <div class="acoes">
+            <button type="button" class="botao" data-exportar="fecho">Baixar 1920 por 1080<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
+            <button type="button" class="acao" id="fecho-play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Ver a entrada</button>
+          </div>
+        </form>
+        <div class="vitrine"><figure class="peca-fig fecho-fig" id="fecho-fig"><canvas id="cv-fecho" width="1920" height="1080" role="img" aria-label="Fecho da VSL"></canvas><figcaption><span class="credito">1920 por 1080 · de 1,5 a 2 s</span></figcaption></figure></div>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 34 (abertura e fecho da VSL), 21 (Esfera e Eco do VOID), 24 (Créditos Finais), 11 (selos) e 30 (assinatura sonora).</p>
+  </div>
+</section>
+
+<!-- ============================ 07 ROTEIRO (Modo Leitura) ============================ -->
+<section class="sec modo-leitura" id="k07" aria-labelledby="k07-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>07</b> · Roteiro em 9 blocos</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">07</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k07-t" class="titulo-secao">Nove blocos, <em class="off">um pedido</em></h2>
+        <p class="sec-apoio">Gancho, o vazio, história real autorizada, virada de crença, método, prova, oferta, objeções e o pedido único, falado e escrito. A minutagem se ajusta à duração escolhida.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Durações: Start de 12 a 18 min; Master de 8 a 12; Pro de 6 a 10; aula experimental de 60 a 120 s.</li>
+      <li>O gancho ocupa os 15 s iniciais e nomeia a crença falsa nos 2 s iniciais. Os outros blocos se dividem na proporção da VSL do Start.</li>
+      <li>A cada 90 a 120 s, um respiro: som da máquina, silêncio e uma cartela.</li>
+      <li>Planos de 2 a 4 s nos 30 s iniciais; de 4 a 8 s no miolo.</li>
+    </ul></div>
+    <div class="bloco" id="k07-1">
+      <div class="bloco-head"><p class="bloco-n credito">07.1</p><h3 class="fala">Duração e linha do tempo</h3><p class="bloco-apoio">Cena, cartela e documento nunca aparecem três vezes seguidas (L8).</p></div>
+      <div class="campo" style="max-width:520px"><label for="rt-dur">Duração da VSL: <span id="rt-dur-v"></span></label><input type="range" id="rt-dur"></div>
+      <div style="margin-top:32px">
+        <div class="linha-tempo" id="rt-linha" aria-hidden="true"></div>
+        <div class="legenda-tempo"><span><i class="t-cena"></i>cena</span><span><i class="t-cartela"></i>cartela</span><span><i class="t-documento"></i>documento</span><span><i class="t-respiro"></i>respiro</span></div>
+        <p class="l8" id="rt-l8"></p>
+      </div>
+    </div>
+    <div class="bloco" id="k07-2">
+      <div class="bloco-head"><p class="bloco-n credito">07.2</p><h3 class="fala">Os 9 blocos</h3><p class="bloco-apoio" id="rt-persona"></p></div>
+      <ol class="blocos" id="rt-blocos"></ol>
+      <div class="acoes" style="margin-top:32px"><button type="button" class="acao" id="rt-copiar"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8"/><path d="M4 16V4h12"/></svg>Copiar roteiro com minutagem</button><span class="estado" id="rt-estado" aria-live="polite"></span></div>
+    </div>
+    <div class="bloco" id="k07-3">
+      <div class="bloco-head"><p class="bloco-n credito">07.3</p><h3 class="fala">Cortes para anúncio em 9:16</h3><p class="bloco-apoio">Começam no gancho, sem vinheta, sem abertura e sem Créditos Finais (a área da interface cobre o rodapé).</p></div>
+      <div class="tabela-wrap"><table class="tabela">
+        <thead><tr><th scope="col">Corte</th><th scope="col">O que leva</th><th scope="col">Regra</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">15 s</th><td data-r="O que leva">Gancho, cartela Virada e o rótulo do botão escrito na tela</td><td data-r="Regra">Legenda queimada palavra por palavra; planos de 2 a 4 s</td></tr>
+          <tr><th scope="row">30 s</th><td data-r="O que leva">Gancho, o vazio, cartela Virada e o pedido</td><td data-r="Regra">Mesma promessa da página de destino; nenhum número sem Crédito de Prova</td></tr>
+          <tr><th scope="row">60 s</th><td data-r="O que leva">Gancho, o vazio, trecho da história autorizada, virada e o pedido</td><td data-r="Regra">Sem antes e depois lado a lado; sem promessa de renda; público de 18 anos ou mais</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 34 (roteiro, capítulos e respiro da VSL), 30 (montagem) e 06 (lei L8); estrutura e proporções da VSL do Start: relatório de conversão GrowAI para LP e VSL, out/2026; crenças e objeções: Personas, set/2026, e Brand DNA da The VOID, set/2026.</p>
+  </div>
+</section>
+
+<!-- ============================ 08 CHECKLIST ============================ -->
+<section class="sec" id="k08" aria-labelledby="k08-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Kit de VSL</span><span><b>08</b> · Checklist de publicação</span></p>
+    <header class="sec-head">
+      <span class="sec-num" aria-hidden="true">08</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span class="rotulo-produto">The VOID Start</span></p>
+        <h2 id="k08-t" class="titulo-secao">Antes de <em class="off">ir ao ar</em></h2>
+        <p class="sec-apoio">Marque cada item. O resumo sai pronto para colar na aprovação; as marcas ficam salvas só neste navegador.</p>
+      </div>
+    </header>
+    <div class="resumo"><p class="credito">Em um minuto</p><ul>
+      <li>Item sem marca é item que volta.</li>
+      <li>Nenhum número sem prova, nenhuma promessa de renda, nenhum rosto sem autorização para este canal.</li>
+      <li>O pedido falado no vídeo é igual ao botão sob o player.</li>
+    </ul></div>
+    <div class="contagem" aria-live="polite"><b id="ck-n">0 de 0</b><span id="ck-msg">itens conferidos</span></div>
+    <form class="checklist" id="checklist" aria-label="Checklist de VSL" onsubmit="return false"></form>
+    <div class="campo" style="margin-top:16px">
+      <label for="ck-resumo">Resumo para a aprovação</label>
+      <textarea class="resumo-copia" id="ck-resumo" readonly></textarea>
+    </div>
+    <div class="acoes" style="margin-top:16px"><button type="button" class="acao" id="ck-copiar"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8"/><path d="M4 16V4h12"/></svg>Copiar resumo</button><button type="button" class="acao" id="ck-limpar">Limpar marcas</button></div>
+
+    <div class="bloco" id="k08-1">
+      <div class="bloco-head"><p class="bloco-n credito">08.1</p><h3 class="fala">O que depende da escola</h3><p class="bloco-apoio">Enquanto estes itens estiverem abertos, as telas que dependem deles não exportam.</p></div>
+      <div class="texto" style="display:grid;gap:12px">
+        <p class="pendencia" data-p="15"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 15]</b> Números e dados de oferta: alunos formados com método de contagem e data, preços, parcelamento, carga horária, vagas e calendário de turmas. Alimentam as cartelas Prova e Oferta.</span></p>
+        <p class="pendencia" data-p="22"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 22]</b> Acervo de fotografia e vídeo real com autorização de imagem por finalidade. Alimenta a capa, a história e os depoimentos.</span></p>
+        <p class="pendencia" data-p="13"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 13]</b> Quadro de professores e autorização de nome e imagem. Alimenta o lower third.</span></p>
+        <p class="pendencia" data-p="16"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 16]</b> Roteiro e duração da aula experimental. Define a VSL de 60 a 120 s da aula.</span></p>
+        <p class="pendencia" data-p="3"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 3]</b> Licença da Alga para vídeo. Até lá, a voz em off das peças sai em Newsreader Italic 300.</span></p>
+      </div>
+    </div>
+    <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 33 (conformidade e prova), 07 (checklist de aprovação), 34 (VSL), 30 (vídeo) e 36 (pendências); checklist de VSL do relatório de conversão GrowAI para LP e VSL, out/2026.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="rodape-pagina" role="contentinfo">
+  <div class="wrap">
+    <div data-vforms="rodape"></div>
+    <p class="nota">Kit de VSL da The VOID Tattoo Academy, versão 1 de 06/10/2026. Proposta GrowAI, aguarda aprovação da The VOID. As peças exportadas não levam dados de aluno; fotos carregadas aqui ficam só no seu navegador.</p>
+  </div>
+</footer>
+
+<script src="vforms.js"></script>
+<script src="vviz.js"></script>
+<script>
+/* =====================================================================
+   KIT DE VSL · motor das peças (canvas no tamanho real)
+   Cores: VForms.tokens (iguais a tokens.json). Logotipo e selo: sempre os
+   arquivos de assets/brand/svg. Nada de Math.random sem semente: o grão é
+   gerado por uma sequência fixa, a mesma peça sai igual em toda exportação.
+   ===================================================================== */
+(function () {
+  'use strict';
+  var T = window.VForms.tokens;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var KIT = window.VSLKit = {};
+
+  /* ---------- produtos (spec 3.5, 9.5, 12.1, 12.2) ---------- */
+  var PROD = {
+    start: {
+      nome: 'Start', estacao: 'start', logo: 'void-start', selo: 'start', rotulo: 'QUERO CONVERSAR SOBRE MINHA TURMA', label: 'The VOID Start',
+      destaque: T.areia, grafismo: T.ouroVelho, campo: T.campoStart, campoTexto: T.sala,
+      dur: { min: 12, max: 18, padrao: 15, passo: 1, un: 'min' },
+      persona: 'Gabriel (formação Start)', crenca: 'Eu não tenho talento suficiente para viver de tatuagem.', crencaFonte: 'Personas, set/2026',
+      capa: 'TALENTO É CONSEQUÊNCIA DE *TREINO*',
+      vazio: { t: 'EU NÃO TENHO TALENTO SUFICIENTE', o: 'para viver de tatuagem.' },
+      virada: { t: 'TALENTO É CONSEQUÊNCIA DE *treino.*', o: '' },
+      gancho: 'Você já pensou que talvez a tatuagem não seja um sonho, seja um chamado?', ganchoFonte: 'Brand DNA da The VOID, set/2026',
+      verdade: 'O que falta não é talento. É estrutura, método e comunidade.',
+      funcao: 'Aluna do Start, turma de {{ANO}}', mede: 'alunos concluíram a formação Start'
+    },
+    master: {
+      nome: 'Master', estacao: 'master', logo: 'void-master', selo: 'master', rotulo: 'QUERO FALAR SOBRE O MASTER', label: 'The VOID Master',
+      destaque: T.terracotaViva, grafismo: T.terracota, campo: T.campoMaster, campoTexto: T.tela,
+      dur: { min: 8, max: 12, padrao: 10, passo: 1, un: 'min' },
+      persona: 'Bruno (formação Master)', crenca: 'Preciso ser melhor tecnicamente antes de cobrar o que mereço.', crencaFonte: 'Brand DNA da The VOID, set/2026',
+      capa: 'TÉCNICA SEM POSICIONAMENTO É *INVISÍVEL*',
+      vazio: { t: 'PRECISO DE MAIS TÉCNICA', o: 'antes de cobrar o que mereço.' },
+      virada: { t: 'TÉCNICA SEM POSICIONAMENTO É *invisível.*', o: '' },
+      gancho: 'Técnica sem posicionamento é invisível.', ganchoFonte: 'hero de persona do Manual de marca, seção 04',
+      verdade: 'Técnica sem posicionamento é invisível; os maiores não são os mais talentosos, são os mais estratégicos.',
+      funcao: 'Aluno do Master, turma de {{ANO}}', mede: 'alunos concluíram a formação Master'
+    },
+    pro: {
+      nome: 'Pro', estacao: 'pro', logo: 'void-pro', selo: 'pro', rotulo: 'AGENDAR MEU DIAGNÓSTICO', label: 'The VOID Pro',
+      destaque: T.nevoa, grafismo: T.nevoa, campo: T.sala, campoTexto: T.tela,
+      dur: { min: 6, max: 10, padrao: 8, passo: 1, un: 'min' },
+      persona: 'Bruno (programa Pro)', crenca: 'Preciso ser melhor tecnicamente antes de cobrar o que mereço.', crencaFonte: 'Brand DNA da The VOID, set/2026',
+      capa: 'TÉCNICA SEM POSICIONAMENTO É *INVISÍVEL*',
+      vazio: { t: 'PRECISO DE MAIS TÉCNICA', o: 'antes de cobrar o que mereço.' },
+      virada: { t: 'TÉCNICA SEM POSICIONAMENTO É *invisível.*', o: '' },
+      gancho: 'Técnica sem posicionamento é invisível.', ganchoFonte: 'hero de persona do Manual de marca, seção 04',
+      verdade: 'A arte é sua. O plano é nosso.',
+      funcao: 'Aluno do Pro, turma de {{ANO}}', mede: 'alunos concluíram o programa Pro'
+    },
+    aula: {
+      nome: 'Aula experimental', estacao: 'chamado', logo: 'void-start', selo: null, rotulo: 'GARANTIR MINHA VAGA NA AULA', label: 'Aula experimental',
+      destaque: T.areia, grafismo: null, campo: null, campoTexto: T.tela,
+      dur: { min: 60, max: 120, padrao: 90, passo: 10, un: 's' },
+      persona: 'quem chega pela primeira vez (etapa M1)', crenca: 'Isso não é para mim.', crencaFonte: 'Manual de marca, seção 32 (M1)',
+      capa: 'TATUAR NÃO É *DESENHAR*',
+      vazio: { t: 'ISSO NÃO É PARA MIM', o: '' },
+      virada: { t: 'TATUAR NÃO É DESENHAR.', o: 'É uma técnica nova.' },
+      gancho: 'Tatuar não é desenhar. É uma técnica nova.', ganchoFonte: 'site oficial, consultado em 06/10/2026',
+      verdade: 'Tatuar não é desenhar. É uma técnica nova.',
+      funcao: 'Aluna do Start, turma de {{ANO}}', mede: 'pessoas participaram da aula experimental'
+    }
+  };
+  var estado = {
+    produto: 'start', capa: { texto: '', selo: false, guias: true, foto: null, aut: false },
+    formatoCartela: 'h', cartela: 'vazio', cartelas: {},
+    legenda: { texto: '', formato: 'h', atual: 0 },
+    lt: { nome: '', funcao: '', dur: 3.5, formato: 'h', veu: true },
+    fecho: 'produto', duracao: 15
+  };
+
+  /* ---------- ícones Lucide (copiados; traço 1,5, pontas retas) ---------- */
+  var IC = {
+    'circle-check': '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    'circle-x': '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',
+    'triangle-alert': '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+    'info': '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+    'lock': '<rect width="18" height="11" x="3" y="11"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+  };
+  function ic(n, cls) { return '<svg class="ic ' + (cls || '') + '" viewBox="0 0 24 24" aria-hidden="true">' + IC[n] + '</svg>'; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function linha(tipo, palavra, texto) {
+    var icone = { ok: 'circle-check', erro: 'circle-x', atencao: 'triangle-alert', info: 'info' }[tipo];
+    return '<p class="' + tipo + '">' + ic(icone) + '<span><b>' + palavra + '.</b> ' + esc(texto.charAt(0).toUpperCase() + texto.slice(1)) + '</span></p>';
+  }
+  function mostraEstado(el, r, okTexto) {
+    var h = '';
+    r.faltas.forEach(function (f) { h += linha('erro', 'Não exporta', f); });
+    r.avisos.forEach(function (a) { h += linha('atencao', 'Atenção', a); });
+    if (!r.faltas.length && okTexto) h = linha('ok', 'Validado', okTexto) + h;
+    el.innerHTML = h;
+  }
+
+  /* ---------- conferência de texto (spec 9.2, 11.1, 4.7) ---------- */
+  var VETADOS = [
+    [/maior\s+(escola|do\s+brasil|da\s+am[eé]rica|mercado)/i, 'superlativo sem prova'],
+    [/am[eé]rica\s+latina/i, 'superlativo de mercado sem prova'],
+    [/#\s?1\b/, 'superlativo sem prova'], [/\bn[ºo°]\s?1\b/i, 'superlativo sem prova'],
+    [/\b(a|o)\s+melhor\b/i, 'superlativo sem prova'], [/\b[uú]nica\s+escola\b/i, 'superlativo sem prova'],
+    [/l[ií]der\s+no\s+segmento/i, 'superlativo sem prova'],
+    [/\bM[E]C\b/, 'menção a órgão de ensino exige advogado'], [/\bdiploma\b|curso\s+t[eé]cnico/i, 'claim vetado sem advogado'],
+    [/\btat[o]o\b/i, 'a grafia é TATTOO'],
+    [/\b(ganh\w*|fatur\w*|cobr\w*|lucr\w*)\b[^.]*\d/i, 'promessa de renda com número'],
+    [/\b(renda\s+(extra|garantida)|fique\s+rico|dinheiro\s+f[aá]cil)\b/i, 'promessa de renda'],
+    [/\b(incr[ií]vel|maravilhos\w*|revolucion[aá]ri\w*|disruptiv\w*|empoderar)\b/i, 'palavra fora do território da marca'],
+    [/\b(saiba\s+mais|clique\s+aqui|compre\s+agora|learn\s+more)\b/i, 'rótulo de botão proibido']
+  ];
+  var PENDENTE = /\{\{[^}]*\}\}|\[(?:P\s?\d+|N|ANO|M[EÊ]S|DATA|NOME|VALOR|m[eê]s\/ano)[^\]]*\]/i;
+  function confere(textos, o) {
+    o = o || {};
+    var faltas = [], avisos = [];
+    textos.filter(Boolean).forEach(function (t) {
+      if (/[\u2014\u2013]/.test(t)) faltas.push('há travessão no texto; troque por ponto, vírgula ou dois pontos');
+      VETADOS.forEach(function (v) { if (v[0].test(t)) faltas.push(v[1] + ': "' + t.replace(/\*/g, '') + '"'); });
+      if (PENDENTE.test(t)) faltas.push('há valor pendente (' + t.match(PENDENTE)[0] + '); valores entre chaves ou colchetes nunca vão ao ar');
+    });
+    return { faltas: unicos(faltas), avisos: avisos };
+  }
+  function unicos(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
+  function palavras(t) { return String(t || '').replace(/\*/g, ' ').trim().split(/\s+/).filter(function (w) { return /[\wÀ-ú]/.test(w); }); }
+  var REAIS = /R\s?\$|\breais?\b|\bBRL\b|\$\s?\d|\d[\d.,]*\s*(mil|k)\b/i;
+  KIT.confere = confere; KIT.REAIS = REAIS;
+
+  /* ---------- carregamento de imagem e fonte ---------- */
+  var cacheImg = {};
+  function img(src) {
+    if (!cacheImg[src]) cacheImg[src] = new Promise(function (ok, erro) {
+      var i = new Image(); i.decoding = 'async';
+      i.onload = function () { ok(i); }; i.onerror = function () { erro(new Error('não carregou ' + src)); };
+      i.src = src;
+    });
+    return cacheImg[src];
+  }
+  function svgDe(nome) { return 'assets/brand/svg/' + nome + '.svg'; }
+  var fontesProntas = null;
+  function fontes() {
+    if (!fontesProntas) {
+      var lista = ['800 semi-expanded 100px Archivo', '700 normal 100px Archivo', '700 condensed 100px Archivo', '600 normal 100px Archivo', '600 semi-expanded 100px Archivo', '500 expanded 100px Archivo', '400 normal 100px Archivo', '300 expanded 100px Archivo', 'italic 300 100px Newsreader'];
+      fontesProntas = document.fonts && document.fonts.load ? Promise.all(lista.map(function (f) { return document.fonts.load(f, 'AÁÇ aé'); })).catch(function () { return null; }).then(function () { return document.fonts.ready; }) : Promise.resolve();
+    }
+    return fontesProntas;
+  }
+
+  /* ---------- tipografia no canvas (registros da spec 4.2) ---------- */
+  var LARGURA = { 75: 'condensed', 85: 'semi-condensed', 92: 'semi-condensed', 100: 'normal', 106: 'normal', 112: 'semi-expanded', 125: 'expanded' };
+  function fonte(ctx, f) {
+    if (f.off) { ctx.font = 'italic 300 ' + f.tam + 'px Alga, Newsreader, Georgia, serif'; ctx.fontStretch = 'normal'; }
+    else { ctx.font = (f.peso || 700) + ' ' + f.tam + 'px Archivo, "Arial Narrow", Arial, sans-serif'; ctx.fontStretch = LARGURA[f.wdth || 100] || 'normal'; }
+    if ('letterSpacing' in ctx) ctx.letterSpacing = ((f.ls || 0) * f.tam).toFixed(2) + 'px';
+  }
+  function texto(ctx, s, x, y, f, cor, alinha) {
+    fonte(ctx, f); ctx.fillStyle = cor; ctx.textAlign = alinha || 'left'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText(s, x, y);
+    return ctx.measureText(s).width;
+  }
+  function mede(ctx, s, f) { fonte(ctx, f); return ctx.measureText(s).width; }
+
+  /* tokens de texto: *palavra* marca destaque (capa, legenda) ou voz em off (cartela) */
+  function fichas(t) {
+    var out = [], re = /\*([^*]+)\*(\S*)|(\S+)/g, m;
+    while ((m = re.exec(String(t || '')))) {
+      if (m[1]) {
+        m[1].trim().split(/\s+/).forEach(function (w) { out.push({ t: w, d: true }); });
+        /* pontuação colada depois do asterisco fica na mesma palavra (sem espaço antes) */
+        if (m[2]) out[out.length - 1].t += m[2];
+      } else out.push({ t: m[3], d: false });
+    }
+    return out;
+  }
+  /* quebra gulosa por largura medida */
+  function quebra(ctx, toks, maxW, est) {
+    var linhas = [], atual = [], larg = 0, excede = false;
+    toks.forEach(function (k) {
+      var f = est(k), w = mede(ctx, k.t, f), esp = mede(ctx, ' ', f);
+      k.w = w; k.esp = esp;
+      if (w > maxW) excede = true;
+      if (atual.length && larg + esp + w > maxW) { linhas.push(atual); atual = [k]; larg = w; }
+      else { larg += (atual.length ? esp : 0) + w; atual.push(k); }
+    });
+    if (atual.length) linhas.push(atual);
+    linhas.excede = excede;
+    return linhas;
+  }
+  /* equilíbrio das linhas (como text-wrap:balance) */
+  function equilibra(ctx, toks, maxW, est) {
+    var g = quebra(ctx, toks, maxW, est);
+    if (g.length < 2 || g.excede) return g;
+    var lo = maxW * 0.35, hi = maxW, melhor = g;
+    for (var i = 0; i < 16; i++) {
+      var meio = (lo + hi) / 2, q = quebra(ctx, toks, meio, est);
+      if (q.length <= g.length && !q.excede) { hi = meio; melhor = q; } else lo = meio;
+    }
+    return melhor;
+  }
+  function largLinha(l) { return l.reduce(function (s, k, i) { return s + k.w + (i ? l[i - 1].esp : 0); }, 0); }
+  function desenhaLinhas(ctx, linhas, x, yBase, lh, est, cor, alinha) {
+    linhas.forEach(function (l, i) {
+      var y = yBase + i * lh, cx = x;
+      if (alinha === 'center') cx = x - largLinha(l) / 2;
+      l.forEach(function (k, j) {
+        var f = est(k);
+        fonte(ctx, f); ctx.fillStyle = cor(k); ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+        ctx.fillText(k.t, cx, y);
+        cx += k.w + (j < l.length - 1 ? k.esp : 0);
+      });
+    });
+  }
+  /* título: estreitar antes de reduzir (spec 4.3): 112, 100, 92; depois o tamanho até o piso */
+  function ajustaTitulo(ctx, toks, maxW, tamMax, tamMin, maxLinhas, offEscala) {
+    var larguras = [112, 100, 92], ult;
+    function est(w, tam) { return function (k) { return k.d && offEscala ? { off: true, tam: tam * offEscala } : { peso: 800, tam: tam, wdth: w, ls: -0.02 }; }; }
+    for (var i = 0; i < larguras.length; i++) {
+      ult = { linhas: equilibra(ctx, toks, maxW, est(larguras[i], tamMax)), tam: tamMax, wdth: larguras[i], est: est(larguras[i], tamMax) };
+      if (ult.linhas.length <= maxLinhas && !ult.linhas.excede) return ult;
+    }
+    for (var t = tamMax - 4; t >= tamMin; t -= 4) {
+      ult = { linhas: equilibra(ctx, toks, maxW, est(92, t)), tam: t, wdth: 92, est: est(92, t) };
+      if (ult.linhas.length <= maxLinhas && !ult.linhas.excede) return ult;
+    }
+    ult.erro = 'o título não cabe em ' + maxLinhas + ' linhas nem estreitando a letra: reescreva com menos palavras (L6)';
+    return ult;
+  }
+
+  /* ---------- recursos desenhados (spec 6.1, 6.3, 6.4, 6.5) ---------- */
+  var ladrilhos = {};
+  function ladrilho(claro) {
+    var k = claro ? 'c' : 'e';
+    if (ladrilhos[k]) return ladrilhos[k];
+    var c = document.createElement('canvas'); c.width = c.height = 240;
+    var x = c.getContext('2d'), d = x.createImageData(240, 240), s = 7;
+    function rnd() { s = (s + 0x6D2B79F5) | 0; var t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
+    for (var i = 0; i < 240 * 240; i++) {
+      var v = Math.pow(rnd(), 3); if (claro) v = 1 - v;
+      var g = Math.round(v * 255); d.data[i * 4] = d.data[i * 4 + 1] = d.data[i * 4 + 2] = g; d.data[i * 4 + 3] = 255;
+    }
+    x.putImageData(d, 0, 0);
+    return (ladrilhos[k] = c);
+  }
+  function grao(ctx, w, h, claro) {
+    ctx.save(); ctx.globalCompositeOperation = claro ? 'multiply' : 'screen'; ctx.globalAlpha = claro ? 0.04 : 0.06;
+    ctx.fillStyle = ctx.createPattern(ladrilho(claro), 'repeat'); ctx.fillRect(0, 0, w, h); ctx.restore();
+  }
+  function janela(ctx, w, h) {
+    ctx.save();
+    var sy = (0.75 * h) / (1.1 * w);
+    ctx.translate(0.12 * w, 0); ctx.scale(1, sy);
+    var g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1.1 * w);
+    g.addColorStop(0, 'rgba(248,249,244,0.09)'); g.addColorStop(0.62, 'rgba(248,249,244,0)');
+    ctx.fillStyle = g; ctx.fillRect(-0.12 * w, 0, w, h / sy); ctx.restore();
+  }
+  function campo(ctx, w, h, cor) { ctx.fillStyle = cor; ctx.fillRect(0, 0, w, h); }
+  function rgbaSala(a) { return 'rgba(24,24,24,' + a + ')'; }
+  /* espaço da foto real: nunca banco nem IA */
+  function espacoFoto(ctx, x, y, w, h, u, linhas2, pos) {
+    ctx.fillStyle = T.bastidor; ctx.fillRect(x, y, w, h);
+    ctx.save(); ctx.strokeStyle = T.fumaca; ctx.lineWidth = Math.max(1, 1.5 * u); ctx.setLineDash([8 * u, 8 * u]);
+    ctx.strokeRect(x + 16 * u, y + 16 * u, w - 32 * u, h - 32 * u); ctx.restore();
+    pos = pos || [0.5, 0.5];
+    var tam = 22 * u, cx = x + w * pos[0], cy = y + h * pos[1];
+    texto(ctx, 'FOTO REAL DA ESCOLA, COM AUTORIZAÇÃO', cx, cy, { peso: 500, tam: tam, wdth: 125, ls: 0.18 }, T.po, 'center');
+    if (linhas2) texto(ctx, linhas2, cx, cy + tam * 1.8, { peso: 500, tam: tam * 0.86, wdth: 125, ls: 0.18 }, T.po, 'center');
+  }
+  function cobre(ctx, fonteImg, x, y, w, h) {
+    var iw = fonteImg.width, ih = fonteImg.height, e = Math.max(w / iw, h / ih), sw = w / e, sh = h / e;
+    ctx.drawImage(fonteImg, (iw - sw) / 2, (ih - sh) / 2, sw, sh, x, y, w, h);
+  }
+  /* P&B Ritual (spec 8.3): 0,36 R + 0,50 G + 0,14 B e curva monótona pelos cinco pontos */
+  function curvaMonotona(xs, ys) {
+    var n = xs.length, d = [], m = [], i;
+    for (i = 0; i < n - 1; i++) d[i] = (ys[i + 1] - ys[i]) / (xs[i + 1] - xs[i]);
+    m[0] = d[0]; m[n - 1] = d[n - 2];
+    for (i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+    for (i = 0; i < n - 1; i++) { if (!d[i]) { m[i] = m[i + 1] = 0; continue; } var a = m[i] / d[i], b = m[i + 1] / d[i], s2 = a * a + b * b; if (s2 > 9) { var tau = 3 / Math.sqrt(s2); m[i] = tau * a * d[i]; m[i + 1] = tau * b * d[i]; } }
+    return function (x) {
+      var k = 0; while (k < n - 2 && x > xs[k + 1]) k++;
+      var h = xs[k + 1] - xs[k], t = (x - xs[k]) / h, t2 = t * t, t3 = t2 * t;
+      return (2 * t3 - 3 * t2 + 1) * ys[k] + (t3 - 2 * t2 + t) * h * m[k] + (-2 * t3 + 3 * t2) * ys[k + 1] + (t3 - t2) * h * m[k + 1];
+    };
+  }
+  var RITUAL = (function () { var f = curvaMonotona([0, 0.15, 0.5, 0.8, 1], [0.03, 0.10, 0.5, 0.85, 0.96]), lut = new Uint8ClampedArray(256); for (var i = 0; i < 256; i++) lut[i] = Math.round(255 * Math.min(1, Math.max(0, f(i / 255)))); return lut; })();
+  function ritual(imgEl) {
+    var max = 2400, e = Math.min(1, max / Math.max(imgEl.naturalWidth, imgEl.naturalHeight));
+    var c = document.createElement('canvas'); c.width = Math.round(imgEl.naturalWidth * e); c.height = Math.round(imgEl.naturalHeight * e);
+    var x = c.getContext('2d'); x.drawImage(imgEl, 0, 0, c.width, c.height);
+    var d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+    for (var i = 0; i < p.length; i += 4) { var l = Math.round(0.36 * p[i] + 0.50 * p[i + 1] + 0.14 * p[i + 2]); p[i] = p[i + 1] = p[i + 2] = RITUAL[l]; }
+    x.putImageData(d, 0, 0); return c;
+  }
+  /* contraste WCAG 2 */
+  function lum(r, g, b) { function c(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); } return 0.2126 * c(r) + 0.7152 * c(g) + 0.0722 * c(b); }
+  function lumHex(h) { return lum(parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)); }
+  function razao(a, b) { var x = Math.max(a, b), y = Math.min(a, b); return (x + 0.05) / (y + 0.05); }
+  function br(n, c) { return n.toFixed(c == null ? 2 : c).replace('.', ','); }
+  KIT.razao = function (h1, h2) { return razao(lumHex(h1), lumHex(h2)); };
+
+  /* Eco do VOID (6.3): desfoque por redução, igual em todo navegador */
+  function eco(ctx, logoImg, w, h, opacidade) {
+    var lw = 1.6 * w, lh = lw * 579 / 3804, x = w / 2 + 0.288 * w - lw / 2, y = h / 2 - lh / 2;
+    var red = 24, c = document.createElement('canvas'); c.width = Math.ceil(lw / red); c.height = Math.ceil(lh / red);
+    var cx = c.getContext('2d'); cx.imageSmoothingEnabled = true; cx.drawImage(logoImg, 0, 0, c.width, c.height);
+    ctx.save(); ctx.globalAlpha = opacidade; ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(c, x, y, lw, lh); ctx.restore();
+  }
+  /* Marcador de Capítulo (6.12) */
+  function marcadorCapitulo(ctx, x, y, u, num, nome, cor) {
+    var tam = 28 * u;
+    ctx.fillStyle = cor; ctx.fillRect(x, y - tam * 0.36 - u, 48 * u, 2 * u);
+    texto(ctx, 'CAPÍTULO ' + (num < 10 ? '0' : '') + num + ' · ' + nome.toUpperCase(), x + 72 * u, y, { peso: 500, tam: tam, wdth: 125, ls: 0.18 }, cor);
+  }
+  /* Créditos Finais (6.15): texto literal único */
+  var RODAPE = ['TATTOO ACADEMY', '® 2025', 'SÃO PAULO', 'BRAZIL', 'PREENCHA O VAZIO'];
+  function creditosFinais(ctx, cx, y, tam, corBase, corFim) {
+    var f = { peso: 500, tam: tam, wdth: 125, ls: 0.18 }, ff = { peso: 700, tam: tam, wdth: 125, ls: 0.18 }, gap = 0.9 * tam;
+    var total = 0;
+    RODAPE.forEach(function (p, i) { total += mede(ctx, p, i === RODAPE.length - 1 ? ff : f) + (i ? 2 * gap + mede(ctx, '·', f) : 0); });
+    var x = cx - total / 2;
+    RODAPE.forEach(function (p, i) {
+      if (i) { x += gap; x += texto(ctx, '·', x, y, f, corBase); x += gap; }
+      x += texto(ctx, p, x, y, i === RODAPE.length - 1 ? ff : f, i === RODAPE.length - 1 ? corFim : corBase);
+    });
+  }
+  /* seta para baixo (Lucide arrow-down), traço proporcional */
+  function setaBaixo(ctx, x, y, tam, cor) {
+    ctx.save(); ctx.translate(x, y); ctx.scale(tam / 24, tam / 24);
+    ctx.strokeStyle = cor; ctx.lineWidth = 2; ctx.lineCap = 'square'; ctx.lineJoin = 'miter';
+    ctx.stroke(new Path2D('M12 5v14')); ctx.stroke(new Path2D('m19 12-7 7-7-7')); ctx.restore();
+  }
+  function tracejado(ctx, x, y, w, h, u, cor) { ctx.save(); ctx.strokeStyle = cor; ctx.lineWidth = 2 * u; ctx.setLineDash([12 * u, 10 * u]); ctx.strokeRect(x, y, w, h); ctx.restore(); }
+
+  /* ============================== CAPA ============================== */
+  var FORMATOS_CAPA = { h: [1280, 720], v: [1080, 1920], f: [1080, 1350] };
+  function validaCapa(t) {
+    var r = confere([t]);
+    var n = palavras(t).length, d = fichas(t).filter(function (k) { return k.d; }).length;
+    if (n < 3 || n > 6) r.faltas.push('a frase da capa tem ' + n + ' palavra' + (n === 1 ? '' : 's') + '; use de 3 a 6');
+    if (REAIS.test(t)) r.faltas.unshift('nenhum valor em reais na capa (regra da VSL e da prova)');
+    if (/\d/.test(t) && !REAIS.test(t)) r.avisos.push('número na capa só com Crédito de Prova na mesma peça; prefira a crença');
+    if (d === 0) r.avisos.push('marque uma palavra de destaque entre asteriscos');
+    if (d > 1) r.faltas.push('destaque em ' + d + ' palavras; a capa acende uma só (L5)');
+    return r;
+  }
+  KIT.validaCapa = validaCapa;
+  /* foto real com autorização (spec 8.1): sem as duas, nada exporta */
+  function confereFotoCapa(c) {
+    if (!c.foto) return ['falta a foto real da escola, rosto ou mãos; banco de imagem e imagem gerada não entram, e o espaço reservado nunca sai no arquivo [P 22]'];
+    if (!c.aut) return ['confirme a autorização de imagem por escrito de quem aparece, para este canal e esta finalidade [P 22]'];
+    return [];
+  }
+  KIT.confereFotoCapa = confereFotoCapa;
+  function desenhaCapa(cv, fmt, t, opts) {
+    opts = opts || {};
+    var P = PROD[opts.produto || estado.produto];
+    var W = FORMATOS_CAPA[fmt][0], H = FORMATOS_CAPA[fmt][1];
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d');
+    var u = fmt === 'h' ? 1280 / 1920 : 1;
+    var usaSelo = opts.selo && P.selo;
+    var logoSrc = svgDe(P.logo + '-branco');
+    var seloSrc = P.selo ? svgDe('selo-simples-' + P.selo) : null;
+    return Promise.all([fontes(), img(logoSrc), usaSelo ? img(seloSrc) : null]).then(function (r) {
+      var logo = r[1], selo = r[2];
+      campo(ctx, W, H, T.sala);
+      var foto = opts.foto;
+      if (opts.exportar && !foto) throw new Error('a capa só exporta com foto real autorizada; o espaço reservado nunca sai no arquivo');
+      var toks = fichas(t).map(function (k) { return { t: k.t.toLocaleUpperCase('pt-BR'), d: k.d }; });
+      var res, x0, yTopo, area;
+      if (fmt === 'h') {
+        var m = 120 * u, fx = Math.round(W / 3);
+        if (foto) cobre(ctx, foto, fx, 0, W - fx, H); else espacoFoto(ctx, fx, 0, W - fx, H, u * 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.6, 0.2]);
+        res = ajustaTitulo(ctx, toks, 0.6 * W - m, 96, 56, 3, 0);
+        var lh = res.tam * 0.92, alt = lh * (res.linhas.length - 1) + res.tam * 0.74;
+        yTopo = Math.round(H / 2 - alt / 2 + 24 * u);
+        area = { x: m, y: yTopo - 24, w: 0.6 * W - m + 24, h: alt + 48 };
+        /* véu localizado: Sala 78% no painel até o fim do texto, cai a 0 longe dele (6.5) */
+        var fimTexto = m + Math.max.apply(null, res.linhas.map(largLinha));
+        var g = ctx.createLinearGradient(fx, 0, W, 0), w2 = W - fx;
+        var p70 = Math.min(0.95, Math.max(0.05, (fimTexto + 40 - fx) / w2));
+        g.addColorStop(0, rgbaSala(0.78)); g.addColorStop(p70, rgbaSala(0.70)); g.addColorStop(Math.min(1, p70 + 0.35), rgbaSala(0));
+        ctx.fillStyle = g; ctx.fillRect(fx, 0, w2, H);
+        janela(ctx, W, H);
+        grao(ctx, W, H, false);
+        x0 = m;
+        if (usaSelo) { desenhaSelo(ctx, selo, P, m, 72 * u * 1.2, 120); }
+        else ctx.drawImage(logo, m, 96 * u, 36 * logo.width / logo.height, 36);
+      } else {
+        var mg = 72, topoSeguro = fmt === 'v' ? 270 : 72, baseSegura = fmt === 'v' ? 1500 : H - 120, maxW = W - mg - (fmt === 'v' ? 120 : mg);
+        res = ajustaTitulo(ctx, toks, maxW, 120, 72, 3, 0);
+        var lh2 = res.tam * 0.92, alt2 = lh2 * (res.linhas.length - 1) + res.tam * 0.74;
+        yTopo = baseSegura - alt2;
+        area = { x: mg, y: yTopo - 24, w: maxW, h: alt2 + 48 };
+        if (foto) cobre(ctx, foto, 0, 0, W, H); else espacoFoto(ctx, 0, 0, W, H, 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.5, fmt === 'v' ? 0.4 : 0.36]);
+        /* véu de base: 78% embaixo, 70% até 48 px acima do título, some 360 px acima (6.5) */
+        var yv = Math.max(0, yTopo - 72), gb = ctx.createLinearGradient(0, H, 0, 0);
+        gb.addColorStop(0, rgbaSala(0.78)); gb.addColorStop(Math.min(0.98, (H - yv) / H), rgbaSala(0.70)); gb.addColorStop(Math.min(1, (H - yv + 360) / H), rgbaSala(0));
+        ctx.fillStyle = gb; ctx.fillRect(0, 0, W, H);
+        grao(ctx, W, H, false);
+        x0 = mg;
+        if (usaSelo) desenhaSelo(ctx, selo, P, mg, topoSeguro, 144);
+        else { var lw = 300, lhg = lw * logo.height / logo.width; ctx.drawImage(logo, mg, topoSeguro, lw, lhg); }
+      }
+      /* pior pixel sob o título, antes de escrever (spec 3.4, 6.5) */
+      var amostra = null;
+      if (foto) {
+        try {
+          var d = ctx.getImageData(Math.round(area.x), Math.round(area.y), Math.round(area.w), Math.round(area.h)).data, max = 0, hx = null;
+          for (var i = 0; i < d.length; i += 4) { var L = lum(d[i], d[i + 1], d[i + 2]); if (L > max) { max = L; hx = [d[i], d[i + 1], d[i + 2]]; } }
+          amostra = { tela: razao(lumHex(T.tela), max), destaque: razao(lumHex(T.areia), max), rgb: hx };
+        } catch (e) { amostra = null; }
+      }
+      var baseY = yTopo + res.tam * 0.74;
+      desenhaLinhas(ctx, res.linhas, x0, baseY, res.tam * 0.92, res.est, function (k) { return k.d ? T.areia : T.tela; });
+      if (opts.guias) {
+        ctx.save(); ctx.strokeStyle = T.areia; ctx.lineWidth = 2; ctx.setLineDash([10, 8]);
+        if (fmt === 'h') { ctx.strokeRect(W - 240 * u * 1.5, H - 110 * u * 1.5, 240 * u * 1.5 - 24, 110 * u * 1.5 - 24); texto(ctx, 'DURAÇÃO', W - 240 * u * 1.5 + 16, H - 110 * u * 1.5 + 40, { peso: 500, tam: 18, wdth: 125, ls: 0.18 }, T.areia); }
+        else if (fmt === 'v') { ctx.strokeRect(0, 270, W, 1230); ctx.strokeRect(W - 120, 0, 120, H); texto(ctx, 'ÁREA SEGURA', W - 140, 258, { peso: 500, tam: 24, wdth: 125, ls: 0.18 }, T.areia, 'right'); }
+        else { ctx.strokeRect(33.75, 0, W - 67.5, H); texto(ctx, 'MIOLO 3:4 DO PERFIL', 52, 40, { peso: 500, tam: 24, wdth: 125, ls: 0.18 }, T.areia); }
+        ctx.restore();
+      }
+      return { res: res, amostra: amostra };
+    });
+  }
+  function desenhaSelo(ctx, selo, P, x, y, d) {
+    if (P.selo === 'pro') { ctx.fillStyle = T.coxia; ctx.beginPath(); ctx.arc(x + d / 2, y + d / 2, d / 2 + 0.04 * d, 0, Math.PI * 2); ctx.fill(); }
+    ctx.drawImage(selo, x, y, d, d);
+  }
+
+  /* ============================== CARTELAS ============================== */
+  var CARTELAS = [
+    { id: 'vazio', nome: 'Vazio', cap: [1, 'O vazio'], apoio: 'A crença, nas palavras de quem assiste. Sem foto, sem ícone.' },
+    { id: 'virada', nome: 'Virada', cap: [2, 'O método'], apoio: 'A verdade que troca a crença, com a Palavra Sensível.' },
+    { id: 'prova', nome: 'Prova', cap: [3, 'Quem já fez'], apoio: 'Numeral de Prova com o Crédito na mesma tela, nunca depois.' },
+    { id: 'oferta', nome: 'Oferta', cap: [4, 'A turma'], apoio: 'Modo Leitura em tela cheia: a única tela clara. Um item por tela.' },
+    { id: 'acao', nome: 'Ação', cap: [5, 'Como entrar'], apoio: 'O rótulo do botão, dito e escrito, com a seta apontando o botão sob o player.' }
+  ];
+  function itensOferta(P) {
+    return [
+      { rotulo: 'Investimento', valor: 'R$ {{VALOR TOTAL}}', cond: 'ou {{N}}x de R$ {{PARCELA}}, nas mesmas condições do checkout [P 15].' },
+      { rotulo: 'Turma', valor: 'TURMA DE {{MÊS}}', cond: 'Começa em {{DATA}}. Inscrições até {{DATA}} [P 15].' },
+      { rotulo: 'Formato', valor: '{{FORMATO E CARGA HORÁRIA}}', cond: 'Na Rua Jericó, 217, Vila Madalena, São Paulo [P 15].' },
+      { rotulo: 'Direito de arrependimento', valor: 'SETE DIAS PARA DESISTIR', cond: 'Matrícula feita pela internet, telefone ou WhatsApp pode ser cancelada em até 7 dias a partir da contratação, com devolução integral do valor pago, conforme o artigo 49 do Código de Defesa do Consumidor.' }
+    ];
+  }
+  function padraoCartelas(P) {
+    return {
+      vazio: { titulo: P.vazio.t, off: P.vazio.o },
+      virada: { titulo: P.virada.t, off: P.virada.o },
+      prova: { valor: '', mede: P.mede, periodo: '', base: '', fonte: '', origem: 'em-validacao', link: '', captura: '' },
+      oferta: { item: 0, itens: itensOferta(P) },
+      acao: { titulo: P.rotulo, off: '' }
+    };
+  }
+  function validaCartela(id, c, P) {
+    var r;
+    if (id === 'prova') {
+      var dados = { valor: c.valor ? Number(String(c.valor).replace(/\./g, '').replace(',', '.')) : null, vrotulo: c.valor, mede: c.mede, periodo: c.periodo, base: c.base, fonte: c.fonte, origem: c.origem, link: c.link, captura: c.captura };
+      var v = window.VViz ? window.VViz.valida('numeral', dados) : { faltas: [], avisos: [] };
+      r = confere([c.valor, c.mede, c.periodo, c.base, c.fonte]);
+      r.faltas = unicos(r.faltas.concat(v.faltas));
+      if (c.origem === 'em-validacao') r.faltas.unshift('dado em validação: a tela existe só no arquivo de trabalho e não exporta');
+      if (!String(c.valor || '').trim()) r.faltas.unshift('falta o número validado [P 15]');
+      return r;
+    }
+    if (id === 'oferta') {
+      var it = c.itens[c.item];
+      r = confere([it.valor, it.cond]);
+      if (palavras(it.valor).length > 6) r.faltas.push('texto principal com mais de 6 palavras (L6)');
+      return r;
+    }
+    r = confere([c.titulo, c.off]);
+    var n = palavras(c.titulo).length, no = palavras(c.off).length;
+    if (!n) r.faltas.push('falta o título');
+    if (n > 6) r.faltas.push('título com ' + n + ' palavras; o máximo é 6 (L6)');
+    if (no > 7) r.faltas.push('voz em off com ' + no + ' palavras; o máximo é 7');
+    if (n + no > 14) r.faltas.push('cartela com mais de 14 palavras');
+    if (/\*/.test(c.titulo) && String(c.off || '').trim()) r.faltas.push('a voz em off entra uma vez por tela: tire o itálico do título ou a linha de baixo');
+    if (/\d/.test(c.titulo + c.off) && id !== 'acao') r.avisos.push('número em cartela só com Crédito de Prova: use a cartela Prova');
+    if (id === 'acao' && c.titulo.trim().toUpperCase() !== P.rotulo) r.avisos.push('o rótulo dito no vídeo precisa ser igual ao do botão da página: ' + P.rotulo);
+    if (id === 'acao' && palavras(c.titulo).length > 5) r.faltas.push('rótulo de botão com mais de 5 palavras');
+    return r;
+  }
+  KIT.validaCartela = validaCartela;
+
+  function desenhaCartela(cv, id, fmt, c, opts) {
+    opts = opts || {};
+    var P = PROD[opts.produto || estado.produto];
+    var H_ = fmt === 'h', W = H_ ? 1920 : 1080, H = H_ ? 1080 : 1920;
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d');
+    var mx = H_ ? 120 : 72, topo = H_ ? 96 : 270, base = H_ ? H - 96 : 1500, maxW = H_ ? W - 2 * mx : W - mx - 120;
+    var def = CARTELAS.filter(function (k) { return k.id === id; })[0];
+    var leitura = id === 'oferta';
+    var destaque = P.destaque;
+    var precisa = [fontes()];
+    if (leitura) precisa.push(img(svgDe(P.logo + '-preto')));
+    return Promise.all(precisa).then(function (r) {
+      var avisos = [];
+      if (leitura) { campo(ctx, W, H, T.tela); grao(ctx, W, H, true); }
+      else { campo(ctx, W, H, T.sala); janela(ctx, W, H); grao(ctx, W, H, false); }
+      marcadorCapitulo(ctx, mx, topo + 28, 1, def.cap[0], def.cap[1], leitura ? T.ardosia : T.po);
+      var rotuloPe = P.label.toUpperCase();
+      if (id === 'prova') {
+        var temNum = String(c.valor || '').trim() && c.origem !== 'em-validacao';
+        var yN = H_ ? 520 : 900;
+        if (temNum) texto(ctx, c.valor, mx - 8, yN, { peso: 700, tam: H_ ? 300 : 260, wdth: 75, ls: -0.01 }, T.tela);
+        else texto(ctx, 'dado em validação', mx, yN - 40, { peso: 600, tam: H_ ? 88 : 72, wdth: 100 }, T.po);
+        var linhasMede = equilibra(ctx, fichas(c.mede || 'o que o número mede'), maxW, function () { return { peso: 600, tam: H_ ? 56 : 52, wdth: 100, ls: -0.005 }; });
+        desenhaLinhas(ctx, linhasMede.slice(0, 2), mx, yN + (H_ ? 96 : 96), (H_ ? 56 : 52) * 1.15, function () { return { peso: 600, tam: H_ ? 56 : 52, wdth: 100, ls: -0.005 }; }, function () { return T.cal; });
+        var yR = yN + (H_ ? 96 : 96) + (H_ ? 56 : 52) * 1.15 * Math.min(2, linhasMede.length) + 36;
+        var regua = [c.periodo || '{{período}}', c.base || '{{base}}', c.fonte || '{{fonte}}'].join(' · ');
+        ctx.save(); ctx.strokeStyle = T.po; ctx.lineWidth = 4;
+        if (c.origem === 'terceiro') ctx.setLineDash([8, 6]); else if (c.origem === 'mercado') ctx.setLineDash([3, 5]); else if (c.origem === 'em-validacao') { ctx.setLineDash([8, 6]); ctx.strokeStyle = T.fumaca; }
+        ctx.beginPath(); ctx.moveTo(mx, yR - 10); ctx.lineTo(mx + 32, yR - 10); ctx.stroke(); ctx.restore();
+        var rl = equilibra(ctx, fichas(regua), maxW - 48, function () { return { peso: 400, tam: 30, wdth: 100 }; });
+        desenhaLinhas(ctx, rl.slice(0, 3), mx + 48, yR, 40, function () { return { peso: 400, tam: 30, wdth: 100 }; }, function () { return T.po; });
+        texto(ctx, 'Resultados individuais variam conforme prática e dedicação.', mx, base - 64, { peso: 400, tam: H_ ? 28 : 26, wdth: 100 }, T.po);
+        if (!temNum) {
+          tracejado(ctx, mx - 32, yN - (H_ ? 200 : 180), maxW + 64, yR - yN + (H_ ? 260 : 240) + 40 * Math.min(3, rl.length), 1, T.fumaca);
+          texto(ctx, 'DADO EM VALIDAÇÃO · NÃO EXPORTAR', mx, yN - (H_ ? 220 : 200), { peso: 500, tam: 26, wdth: 125, ls: 0.18 }, T.po);
+        }
+      } else if (id === 'oferta') {
+        var it = c.itens[c.item];
+        var logo = r[1], lhL = 40, lwL = lhL * logo.width / logo.height;
+        ctx.drawImage(logo, W - mx - lwL, topo, lwL, lhL);
+        var maiusc = fichas(it.valor.toLocaleUpperCase('pt-BR')).map(function (k) { k.d = false; return k; });
+        var tv = ajustaTitulo(ctx, maiusc, maxW, H_ ? 120 : 104, 64, 3, 0);
+        var estV = function (k) { var e = tv.est(k); e.peso = 700; e.ls = -0.012; return e; };
+        var tvl = equilibra(ctx, maiusc, maxW, estV);
+        var fC = { peso: 400, tam: H_ ? 38 : 36, wdth: 100 }, lhC = fC.tam * 1.4;
+        var cl = equilibra(ctx, fichas(it.cond), Math.min(maxW, H_ ? 1300 : maxW), function () { return fC; });
+        var ncl = Math.min(5, cl.length);
+        /* bloco centrado: rótulo, texto principal e condição */
+        var altBloco = 30 + 40 + tv.tam * 0.74 + tv.tam * 0.98 * (tvl.length - 1) + 88 + lhC * (ncl - 1);
+        var centro = H_ ? H / 2 + 20 : (270 + 1500) / 2;
+        var yRot = Math.round(centro - altBloco / 2) + 30;
+        texto(ctx, it.rotulo.toUpperCase(), mx, yRot, { peso: 500, tam: 30, wdth: 125, ls: 0.18 }, T.ardosia);
+        var yV = yRot + 40 + tv.tam * 0.74;
+        desenhaLinhas(ctx, tvl, mx, yV, tv.tam * 0.98, estV, function () { return T.sala; });
+        desenhaLinhas(ctx, cl.slice(0, 5), mx, yV + tv.tam * 0.98 * (tvl.length - 1) + 88, lhC, function () { return fC; }, function () { return T.ardosia; });
+        if (cl.length > 5) avisos.push('a condição passou de 5 linhas; divida em duas telas');
+        return { avisos: avisos };
+      } else {
+        /* Vazio, Virada e Ação: Título de Filme com a voz em off */
+        var tamMax = H_ ? 140 : 120, tamMin = H_ ? 110 : 96;
+        var toks = fichas(c.titulo).map(function (k) { return { t: k.d ? k.t : k.t.toLocaleUpperCase('pt-BR'), d: k.d }; });
+        var tr = ajustaTitulo(ctx, toks, maxW, tamMax, tamMin, 3, 1.2);
+        if (tr.erro) avisos.push(tr.erro);
+        var offTxt = String(c.off || '').trim(), offF = null;
+        if (offTxt) {
+          var faixa = H_ ? [170, 130] : [150, 120];
+          for (var s = faixa[0]; s >= 64; s -= 2) { if (mede(ctx, offTxt, { off: true, tam: s }) <= maxW) { offF = { off: true, tam: s }; break; } }
+          if (!offF) { offF = { off: true, tam: 64 }; avisos.push('a linha em voz em off não cabe em uma linha: encurte'); }
+          else if (offF.tam < faixa[1]) avisos.push('voz em off com ' + offF.tam + ' px, abaixo da escala de cartela (' + faixa[1] + ' a ' + faixa[0] + ' px); prefira encurtar');
+        }
+        var lhT = tr.tam * 0.92, altT = lhT * (tr.linhas.length - 1) + tr.tam * 0.74;
+        var altOff = offF ? offF.tam * 1.0 + 24 : 0;
+        var altSeta = id === 'acao' ? 220 : 0;
+        var blocoH = altT + altOff + altSeta;
+        var meio = H_ ? H / 2 : (270 + 1500) / 2;
+        var yT = Math.round(meio - blocoH / 2) + tr.tam * 0.74;
+        desenhaLinhas(ctx, tr.linhas, mx, yT, lhT, tr.est, function (k) { return k.d ? destaque : T.tela; });
+        var yFim = yT + lhT * (tr.linhas.length - 1);
+        if (offF) { yFim += 24 + offF.tam * 0.9; texto(ctx, offTxt, mx, yFim, offF, destaque); }
+        if (id === 'acao') {
+          texto(ctx, 'Toque no botão abaixo do vídeo.', mx, yFim + 96, { peso: 400, tam: H_ ? 48 : 44, wdth: 100 }, T.cal);
+          setaBaixo(ctx, mx - 12, H_ ? H - 260 : 1500 - 300, H_ ? 168 : 144, destaque);
+          rotuloPe = '';
+        }
+      }
+      if (rotuloPe) texto(ctx, rotuloPe, mx, base, { peso: 500, tam: 26, wdth: 125, ls: 0.18 }, T.po);
+      return { avisos: avisos };
+    });
+  }
+
+  /* ============================== LEGENDA ============================== */
+  var LEG = {
+    h: { W: 1920, H: 1080, tam: 50, max: 42, mx: 120, base: 110, padX: 28, padY: 14 },
+    v: { W: 1080, H: 1920, tam: 64, max: 28, mx: 72, base: 420, padX: 24, padY: 14 }
+  };
+  var ctxMedida = document.createElement('canvas').getContext('2d');
+  function fonteLeg(cfg) { return function () { return { peso: 600, tam: cfg.tam, wdth: 100, ls: -0.005 }; }; }
+  function texLinha(l) { return l.map(function (k) { return k.t; }).join(' '); }
+  function cabe(l, cfg) {
+    var s = texLinha(l);
+    if (s.length > cfg.max) return false;
+    var larguraUtil = (cfg.W - 2 * cfg.mx - (cfg === LEG.v ? 120 - cfg.mx : 0)) - 2 * cfg.padX;
+    return mede(ctxMedida, s, fonteLeg(cfg)()) <= larguraUtil;
+  }
+  /* divide um bloco em até 2 linhas, a mais equilibrada possível */
+  function divide(ws, cfg) {
+    if (cabe(ws, cfg)) return [ws];
+    var melhor = null;
+    for (var i = 1; i < ws.length; i++) {
+      var a = ws.slice(0, i), b = ws.slice(i);
+      if (cabe(a, cfg) && cabe(b, cfg)) { var dif = Math.abs(texLinha(a).length - texLinha(b).length); if (!melhor || dif < melhor.dif) melhor = { l: [a, b], dif: dif }; }
+    }
+    return melhor ? melhor.l : null;
+  }
+  function quebrarLegenda(txt, fmt) {
+    var cfg = LEG[fmt], ws = fichas(String(txt || '').replace(/[\u2014\u2013]/g, ',')), cues = [], atual = [];
+    /* palavra que sozinha não cabe numa linha é partida com hífen (caso raro: link ou termo colado) */
+    ws = ws.reduce(function (acc, k) {
+      if (cabe([k], cfg)) { acc.push(k); return acc; }
+      var resto = k.t;
+      while (resto.length) {
+        var n = resto.length;
+        while (n > 1 && !cabe([{ t: resto.slice(0, n) + (n < resto.length ? '-' : '') }], cfg)) n--;
+        acc.push({ t: resto.slice(0, n) + (n < resto.length ? '-' : ''), d: k.d }); resto = resto.slice(n);
+      }
+      return acc;
+    }, []);
+    function fecha() { if (atual.length) { cues.push(divide(atual, cfg) || [atual]); atual = []; } }
+    ws.forEach(function (k) {
+      var tenta = atual.concat([k]);
+      if (!divide(tenta, cfg)) fecha(), atual = [k]; else atual = tenta;
+      /* fim de frase fecha o bloco quando ele já tem corpo */
+      if (/[.?!]$/.test(k.t) && texLinha(atual).length >= 8) fecha();
+    });
+    fecha();
+    var t = 0;
+    return cues.map(function (linhas, i) {
+      var chars = linhas.map(texLinha).join(' ').length, dur = Math.max(1.2, chars / 15);
+      var c = { n: i + 1, linhas: linhas, ini: t, fim: t + dur, destaques: linhas.reduce(function (s, l) { return s + l.filter(function (k) { return k.d; }).length; }, 0) };
+      t += dur; return c;
+    });
+  }
+  KIT.quebrarLegenda = function (txt, fmt) {
+    return quebrarLegenda(txt, fmt).map(function (c) {
+      var cfg = LEG[fmt];
+      return { linhas: c.linhas.map(texLinha), larguras: c.linhas.map(function (l) { return mede(ctxMedida, texLinha(l), fonteLeg(cfg)()); }), max: cfg.max, util: (cfg.W - 2 * cfg.mx - (fmt === 'v' ? 120 - cfg.mx : 0)) - 2 * cfg.padX };
+    });
+  };
+  function tc(s) { var ms = Math.round(s * 1000), h = Math.floor(ms / 3600000), m = Math.floor(ms / 60000) % 60, ss = Math.floor(ms / 1000) % 60, r = ms % 1000; function p(n, k) { n = String(n); while (n.length < k) n = '0' + n; return n; } return p(h, 2) + ':' + p(m, 2) + ':' + p(ss, 2) + ',' + p(r, 3); }
+  function srt(cues) { return cues.map(function (c) { return c.n + '\r\n' + tc(c.ini) + ' --> ' + tc(c.fim) + '\r\n' + c.linhas.map(texLinha).join('\r\n'); }).join('\r\n\r\n') + '\r\n'; }
+  KIT.srt = function (txt, fmt) { return srt(quebrarLegenda(txt, fmt)); };
+  function desenhaLegenda(cv, fmt, cue, transparente) {
+    var cfg = LEG[fmt]; cv.width = cfg.W; cv.height = cfg.H;
+    var ctx = cv.getContext('2d');
+    return fontes().then(function () {
+      ctx.clearRect(0, 0, cfg.W, cfg.H);
+      if (!transparente) {
+        espacoFoto(ctx, 0, 0, cfg.W, cfg.H, fmt === 'h' ? 1.4 : 1.4, 'QUADRO DO VÍDEO');
+        if (fmt === 'v') { ctx.save(); ctx.strokeStyle = T.areia; ctx.lineWidth = 2; ctx.setLineDash([10, 8]); ctx.strokeRect(0, 270, cfg.W, 1230); ctx.strokeRect(cfg.W - 120, 0, 120, cfg.H); ctx.restore(); }
+      }
+      if (!cue) return;
+      var est = fonteLeg(cfg), lh = cfg.tam * 1.15;
+      cue.linhas.forEach(function (l) { l.forEach(function (k) { var f = est(); k.w = mede(ctx, k.t, f); k.esp = mede(ctx, ' ', f); }); });
+      var larg = Math.max.apply(null, cue.linhas.map(largLinha));
+      var bw = larg + 2 * cfg.padX, bh = lh * cue.linhas.length + 2 * cfg.padY;
+      var centro = fmt === 'v' ? (cfg.W - 120 + 72) / 2 : cfg.W / 2;
+      var bx = centro - bw / 2, by = cfg.H - cfg.base - bh;
+      ctx.fillStyle = rgbaSala(0.75); ctx.fillRect(bx, by, bw, bh);
+      desenhaLinhas(ctx, cue.linhas, centro, by + cfg.padY + cfg.tam * 0.92, lh, est, function (k) { return k.d ? T.areia : T.tela; }, 'center');
+    });
+  }
+
+  /* ============================== LOWER THIRD ============================== */
+  function bezier(p1x, p1y, p2x, p2y) {
+    return function (x) {
+      if (x <= 0) return 0; if (x >= 1) return 1;
+      var cx = 3 * p1x, bx = 3 * (p2x - p1x) - cx, ax = 1 - cx - bx, cy = 3 * p1y, by = 3 * (p2y - p1y) - cy, ay = 1 - cy - by, t = x;
+      for (var i = 0; i < 10; i++) { var xt = ((ax * t + bx) * t + cx) * t - x, d = (3 * ax * t + 2 * bx) * t + cx; if (Math.abs(d) < 1e-6) break; t = Math.min(1, Math.max(0, t - xt / d)); }
+      return ((ay * t + by) * t + cy) * t;
+    };
+  }
+  var CENA = bezier(0.2, 0, 0, 1), SAIDA = bezier(0.4, 0, 1, 1);
+  function validaLT(lt) {
+    var r = confere([lt.nome, lt.funcao]);
+    if (!String(lt.nome || '').trim()) r.faltas.push('falta o nome');
+    if (/^NOME\s+SOBRENOME$/i.test(String(lt.nome).trim())) r.faltas.push('troque o nome de exemplo pelo nome real autorizado [P 13]');
+    if (palavras(lt.funcao).length > 7) r.faltas.push('função com mais de 7 palavras (voz em off)');
+    if (lt.nome && lt.nome.length > 28) r.avisos.push('nome longo: confira se não passa da metade do quadro');
+    return r;
+  }
+  KIT.validaLT = validaLT;
+  /* um quadro do lower third no tempo t (s), fundo transparente: mesma conta do CSS */
+  function quadroLT(ctx, t, lt, fmt, P) {
+    var W = fmt === 'h' ? 1920 : 1080, H = fmt === 'h' ? 1080 : 1920;
+    ctx.clearRect(0, 0, W, H);
+    var x = fmt === 'h' ? 120 : 72, base = fmt === 'h' ? 140 : 420;
+    var fN = { peso: 600, tam: 40, wdth: 112, ls: 0.08 }, fF = { off: true, tam: 34 };
+    var nome = String(lt.nome || '').toLocaleUpperCase('pt-BR'), func = String(lt.funcao || '');
+    var wTxt = Math.max(mede(ctx, nome, fN), mede(ctx, func, fF));
+    var padT = 20, padL = 24, padR = 28, gap = 24, altTxt = 40 * 1.1 + 8 + 34 * 1.1;
+    var bw = padL + 2 + gap + wTxt + padR, bh = padT * 2 + altTxt, bx = x, by = H - base - bh;
+    var sai = Math.max(0, Math.min(1, (t - (lt.dur - 0.2)) / 0.2)), alfaSaida = 1 - SAIDA(sai);
+    ctx.save(); ctx.globalAlpha = alfaSaida;
+    if (lt.veu) { var av = CENA(Math.max(0, Math.min(1, (t - 0.2) / 0.48))); ctx.fillStyle = rgbaSala(0.70 * av); ctx.fillRect(bx, by, bw, bh); }
+    var cf = Math.max(0, Math.min(1, t / 0.333)), hf = bh - 2 * padT + 0;
+    ctx.fillStyle = P.grafismo || 'rgba(248,249,244,0.32)';
+    ctx.fillRect(bx + padL, by + padT + hf * (1 - cf), 2, hf * cf);
+    var tx = bx + padL + 2 + gap;
+    function entra(atraso) { var p = CENA(Math.max(0, Math.min(1, (t - atraso) / 0.48))); return { a: p, dy: 16 * (1 - p) }; }
+    var eN = entra(0.25), eF = entra(0.37);
+    ctx.globalAlpha = alfaSaida * eN.a; texto(ctx, nome, tx, by + padT + 40 * 0.86 + eN.dy, fN, T.tela);
+    ctx.globalAlpha = alfaSaida * eF.a; texto(ctx, func, tx, by + padT + 40 * 1.1 + 8 + 34 * 0.86 + eF.dy, fF, T.tela);
+    ctx.restore();
+  }
+  KIT.quadroLT = quadroLT;
+
+  /* ============================== FECHO ============================== */
+  function desenhaFecho(cv, variante, opts) {
+    opts = opts || {};
+    var P = PROD[opts.produto || estado.produto];
+    var W = 1920, H = 1080; cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d');
+    var produto = variante === 'produto' && P.selo;
+    var logoNome = produto ? P.logo : (P.selo ? 'void-horizontal' : P.logo);
+    var srcs = [fontes(), img(svgDe(logoNome + '-branco')), img(svgDe('void-horizontal-branco')), produto ? img(svgDe('selo-completo-' + P.selo)) : null];
+    return Promise.all(srcs).then(function (r) {
+      var logo = r[1], ecoImg = r[2], selo = r[3];
+      var corTexto = T.po, corFim = T.tela;
+      if (produto) {
+        campo(ctx, W, H, P.campo);
+        if (P.selo === 'pro') { ctx.fillStyle = T.ardosia; ctx.fillRect(0, H - 24, W, 24); }
+        grao(ctx, W, H, false);
+        if (P.selo === 'start') { corTexto = T.sala; corFim = T.sala; }
+        else if (P.selo === 'master') { corTexto = T.tela; corFim = T.tela; }
+        /* Palavra de Produto (6.13): o nome na voz em off, caixa alta, Tela a 8%, sangrando */
+        ctx.save(); ctx.globalAlpha = 0.08; texto(ctx, P.nome.toLocaleUpperCase('pt-BR'), -24, H - 172, { off: true, tam: 400 }, T.tela, 'left'); ctx.restore();
+        var lh = 116, lw = lh * logo.width / logo.height, d = 240, X = lh * 0.352, total = lw + X * 3 + d;
+        var x = (W - total) / 2, y = H / 2 - 90;
+        ctx.drawImage(logo, x, y - lh / 2, lw, lh);
+        ctx.drawImage(selo, x + lw + X * 3, y - d / 2, d, d);
+      } else {
+        campo(ctx, W, H, T.sala); janela(ctx, W, H);
+        eco(ctx, ecoImg, W, H, 0.12);
+        grao(ctx, W, H, false);
+        var lh2 = 116, lw2 = lh2 * logo.width / logo.height;
+        ctx.drawImage(logo, (W - lw2) / 2, H / 2 - 40 - lh2 / 2, lw2, lh2);
+      }
+      creditosFinais(ctx, W / 2, H - 120, 28, corTexto, corFim);
+    });
+  }
+
+  /* ============================== EXPORTAÇÃO ============================== */
+  function baixar(blob, nome) {
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = nome;
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+  }
+  function blobDe(cv) {
+    return new Promise(function (ok, erro) {
+      try { cv.toBlob(function (b) { b ? ok(b) : erro(new Error('vazio')); }, 'image/png'); }
+      catch (e) { erro(e); }
+    });
+  }
+  var AVISO_ARQUIVO = 'o navegador bloqueou a exportação porque a página foi aberta direto do disco. Abra pelo servidor local (python3 -m http.server na pasta do repositório) ou pela versão autocontida em dist/.';
+  function falhaExport(el, e) { el.innerHTML = linha('erro', 'Não deu certo', (e && e.name === 'SecurityError') ? AVISO_ARQUIVO : 'a imagem não foi gerada (' + (e && e.message || e) + '). Tente de novo.'); }
+  function slug(s) { return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+  /* ZIP sem compressão (store), datas fixas: o mesmo conteúdo gera o mesmo arquivo */
+  var CRC = (function () { var t = new Uint32Array(256); for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+  function crc32(u8) { var c = 0xFFFFFFFF; for (var i = 0; i < u8.length; i++) c = CRC[(c ^ u8[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+  function zip(arquivos) {
+    var enc = new TextEncoder(), partes = [], central = [], off = 0;
+    arquivos.forEach(function (a) {
+      var nome = enc.encode(a.nome), dados = a.dados, crc = crc32(dados);
+      var lh = new DataView(new ArrayBuffer(30));
+      lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+      lh.setUint16(10, 0, true); lh.setUint16(12, 0x21, true); lh.setUint32(14, crc, true); lh.setUint32(18, dados.length, true); lh.setUint32(22, dados.length, true);
+      lh.setUint16(26, nome.length, true); lh.setUint16(28, 0, true);
+      partes.push(new Uint8Array(lh.buffer), nome, dados);
+      var ch = new DataView(new ArrayBuffer(46));
+      ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true);
+      ch.setUint16(12, 0, true); ch.setUint16(14, 0x21, true); ch.setUint32(16, crc, true); ch.setUint32(20, dados.length, true); ch.setUint32(24, dados.length, true);
+      ch.setUint16(28, nome.length, true); ch.setUint32(42, off, true);
+      central.push(new Uint8Array(ch.buffer), nome);
+      off += 30 + nome.length + dados.length;
+    });
+    var tamCentral = central.reduce(function (s, p) { return s + p.length; }, 0);
+    var fim = new DataView(new ArrayBuffer(22));
+    fim.setUint32(0, 0x06054b50, true); fim.setUint16(8, arquivos.length, true); fim.setUint16(10, arquivos.length, true);
+    fim.setUint32(12, tamCentral, true); fim.setUint32(16, off, true);
+    return new Blob(partes.concat(central, [new Uint8Array(fim.buffer)]), { type: 'application/zip' });
+  }
+  KIT.zip = zip;
+
+  /* ============================== INTERFACE ============================== */
+  function P() { return PROD[estado.produto]; }
+  function lerCampos() {
+    estado.capa.texto = $('#capa-texto').value;
+    estado.capa.selo = $('#capa-selo').checked;
+    estado.capa.guias = $('#capa-guias').checked;
+    estado.capa.aut = !!estado.capa.foto && $('#capa-aut').checked;
+  }
+
+  /* --- capa --- */
+  var capaVez = 0;
+  function atualizaCapa() {
+    lerCampos();
+    var vez = ++capaVez, t = estado.capa.texto, r = validaCapa(t);
+    $('#capa-selo').disabled = !P().selo;
+    var feitos = ['h', 'v', 'f'].map(function (fmt) {
+      return desenhaCapa($('#cv-capa-' + fmt), fmt, t, { guias: estado.capa.guias, selo: estado.capa.selo, foto: estado.capa.foto });
+    });
+    Promise.all(feitos).then(function (rs) {
+      if (vez !== capaVez) return;
+      rs.forEach(function (x, i) {
+        if (x.res.erro) r.faltas.push(['16:9', '9:16', '4:5'][i] + ': ' + x.res.erro);
+        if (x.amostra) {
+          var a = x.amostra, rotulo = ['16:9', '9:16', '4:5'][i];
+          if (a.tela < 3 || a.destaque < 3) r.faltas.push(rotulo + ': o pixel mais claro sob o título deixa a Tela em ' + br(a.tela) + ':1 e a Areia em ' + br(a.destaque) + ':1; o mínimo para título é 3:1. Escureça o véu ou troque a foto');
+          else r.avisos.push(rotulo + ': pior pixel sob o título conferido. Tela ' + br(a.tela) + ':1 e Areia ' + br(a.destaque) + ':1');
+        }
+      });
+      r.faltas = unicos(confereFotoCapa(estado.capa).concat(r.faltas));
+      mostraEstado($('#capa-estado'), r, 'pronta para exportar nos três tamanhos.');
+      $$('[data-exportar^="capa-"]').forEach(function (b) { b.disabled = r.faltas.length > 0; });
+      ['h', 'v', 'f'].forEach(function (fmt) { $('#cv-capa-' + fmt).setAttribute('aria-label', 'Capa ' + FORMATOS_CAPA[fmt].join(' por ') + ': ' + t.replace(/\*/g, '')); });
+    });
+    desenhaCapa($('#cv-capa-assim'), 'h', P().capa, {});
+  }
+  function exportaCapa(fmt) {
+    lerCampos();
+    var t = estado.capa.texto, r = validaCapa(t), st = $('#capa-estado');
+    r.faltas = unicos(confereFotoCapa(estado.capa).concat(r.faltas));
+    if (r.faltas.length) { mostraEstado(st, r); return Promise.resolve(null); }
+    var cv = document.createElement('canvas');
+    return desenhaCapa(cv, fmt, t, { selo: estado.capa.selo, foto: estado.capa.foto, exportar: true }).then(function (x) {
+      if (x.res.erro) throw new Error(x.res.erro);
+      return blobDe(cv);
+    }).then(function (b) {
+      var nome = 'the-void-' + slug(P().nome) + '-capa-' + FORMATOS_CAPA[fmt].join('x') + '.png';
+      baixar(b, nome); st.insertAdjacentHTML('afterbegin', linha('ok', 'Validado', 'baixado ' + nome + '.'));
+      return nome;
+    }).catch(function (e) { falhaExport(st, e); });
+  }
+
+  /* --- cartelas --- */
+  function cartelaAtual() { return estado.cartelas[estado.cartela]; }
+  function preencheEditorCartela() {
+    var id = estado.cartela, c = cartelaAtual(), def = CARTELAS.filter(function (k) { return k.id === id; })[0];
+    $('#cartela-editor').setAttribute('data-cartela', id);
+    $('#cartela-titulo').textContent = 'Cartela ' + def.nome;
+    $('#cartela-apoio').textContent = def.apoio;
+    if (id === 'prova') {
+      ['valor', 'mede', 'periodo', 'base', 'fonte', 'link', 'captura'].forEach(function (k) { $('#pv-' + k).value = c[k] || ''; });
+      $('#pv-origem').value = c.origem;
+    } else if (id === 'oferta') {
+      $('#of-item').innerHTML = c.itens.map(function (it, i) { return '<option value="' + i + '">' + esc(it.rotulo) + '</option>'; }).join('');
+      $('#of-item').value = String(c.item);
+      $('#of-valor').value = c.itens[c.item].valor; $('#of-cond').value = c.itens[c.item].cond;
+    } else { $('#ct-titulo').value = c.titulo; $('#ct-off').value = c.off; }
+  }
+  function lerEditorCartela() {
+    var id = estado.cartela, c = cartelaAtual();
+    if (id === 'prova') { ['valor', 'mede', 'periodo', 'base', 'fonte', 'link', 'captura'].forEach(function (k) { c[k] = $('#pv-' + k).value; }); c.origem = $('#pv-origem').value; }
+    else if (id === 'oferta') { var it = c.itens[c.item]; it.valor = $('#of-valor').value; it.cond = $('#of-cond').value; }
+    else { c.titulo = $('#ct-titulo').value; c.off = $('#ct-off').value; }
+  }
+  var tiraVez = 0;
+  function montaTira() {
+    var tira = $('#tira'), vez = ++tiraVez;
+    if (!tira.children.length) {
+      tira.innerHTML = CARTELAS.map(function (k) {
+        return '<button type="button" data-cartela="' + k.id + '" aria-pressed="' + (k.id === estado.cartela) + '"><canvas width="1920" height="1080" aria-hidden="true"></canvas><span class="rotulo credito"><span class="st"></span>' + k.nome + '</span></button>';
+      }).join('');
+      $$('button', tira).forEach(function (b) { b.addEventListener('click', function () { estado.cartela = b.getAttribute('data-cartela'); $$('button', tira).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); preencheEditorCartela(); atualizaCartela(); }); });
+    }
+    CARTELAS.forEach(function (k) {
+      var b = $('[data-cartela="' + k.id + '"]', tira), cv = $('canvas', b), r = validaCartela(k.id, estado.cartelas[k.id], P());
+      desenhaCartela(cv, k.id, estado.formatoCartela, estado.cartelas[k.id]).then(function () {
+        if (vez !== tiraVez) return;
+        $('.st', b).innerHTML = r.faltas.length ? '<span class="bloq">' + ic('lock', 'ic-16') + '</span><span class="so-leitor">bloqueada:</span>' : '<span class="ok">' + ic('circle-check', 'ic-16') + '</span><span class="so-leitor">liberada:</span>';
+      });
+    });
+  }
+  var cartelaVez = 0;
+  function atualizaCartela() {
+    lerEditorCartela();
+    var vez = ++cartelaVez, id = estado.cartela, c = cartelaAtual(), r = validaCartela(id, c, P());
+    var cv = $('#cv-cartela');
+    desenhaCartela(cv, id, estado.formatoCartela, c).then(function (x) {
+      if (vez !== cartelaVez) return;
+      (x.avisos || []).forEach(function (a) { if (/não cabe/.test(a)) r.faltas.push(a); else r.avisos.push(a); });
+      mostraEstado($('#ct-estado'), r, 'pronta para exportar.');
+      $('[data-exportar="cartela"]').disabled = r.faltas.length > 0;
+      $('#cartela-fig').classList.toggle('vertical-limite', estado.formatoCartela === 'v');
+      $('#cartela-legenda').textContent = (estado.formatoCartela === 'h' ? '1920 por 1080 · VSL' : '1080 por 1920 · cortes de anúncio');
+      cv.setAttribute('aria-label', 'Cartela ' + id);
+    });
+    montaTira();
+  }
+  function exportaCartelas(ids) {
+    var st = $('#ct-estado'), fmt = estado.formatoCartela, dims = fmt === 'h' ? '1920x1080' : '1080x1920';
+    var liberadas = ids.filter(function (id) { return !validaCartela(id, estado.cartelas[id], P()).faltas.length; });
+    if (!liberadas.length) { st.innerHTML = linha('erro', 'Não exporta', 'nenhuma cartela liberada; as bloqueadas mostram o motivo ao serem abertas.'); return Promise.resolve(null); }
+    return liberadas.reduce(function (p, id) {
+      return p.then(function (lista) {
+        var cv = document.createElement('canvas');
+        return desenhaCartela(cv, id, fmt, estado.cartelas[id]).then(function (x) {
+          if ((x.avisos || []).some(function (a) { return /não cabe/.test(a); })) return lista;
+          return blobDe(cv).then(function (b) { return b.arrayBuffer(); }).then(function (ab) {
+            var nomeItem = id === 'oferta' ? '-' + slug(estado.cartelas.oferta.itens[estado.cartelas.oferta.item].rotulo) : '';
+            lista.push({ nome: 'the-void-' + slug(P().nome) + '-cartela-' + id + nomeItem + '-' + dims + '.png', dados: new Uint8Array(ab) }); return lista;
+          });
+        });
+      });
+    }, Promise.resolve([])).then(function (lista) {
+      if (lista.length === 1) { baixar(new Blob([lista[0].dados], { type: 'image/png' }), lista[0].nome); st.insertAdjacentHTML('afterbegin', linha('ok', 'Validado', 'baixado ' + lista[0].nome + '.')); return lista; }
+      var nome = 'the-void-' + slug(P().nome) + '-cartelas-' + dims + '.zip';
+      baixar(zip(lista), nome);
+      var fora = ids.length - lista.length;
+      st.insertAdjacentHTML('afterbegin', linha('ok', 'Validado', 'baixado ' + nome + ' com ' + lista.length + ' cartela' + (lista.length > 1 ? 's' : '') + (fora ? '; ' + fora + ' bloqueada' + (fora > 1 ? 's ficaram' : ' ficou') + ' de fora' : '') + '.'));
+      return lista;
+    }).catch(function (e) { falhaExport(st, e); });
+  }
+
+  /* --- legenda --- */
+  function atualizaLegenda() {
+    estado.legenda.texto = $('#lg-texto').value;
+    var fmt = estado.legenda.formato, cues = quebrarLegenda(estado.legenda.texto, fmt);
+    if (estado.legenda.atual >= cues.length) estado.legenda.atual = 0;
+    var r = confere([estado.legenda.texto]);
+    if (/[\u2014\u2013]/.test(estado.legenda.texto)) r.faltas = r.faltas.filter(function (f) { return !/travessão/.test(f); }), r.avisos.push('o travessão foi trocado por vírgula na legenda; corrija o texto de origem');
+    cues.forEach(function (c) { if (c.destaques > 1) r.avisos.push('bloco ' + c.n + ' tem ' + c.destaques + ' destaques; a legenda acende uma palavra só'); });
+    mostraEstado($('#lg-estado'), r, cues.length + ' bloco' + (cues.length === 1 ? '' : 's') + ', todos com até 2 linhas e até ' + LEG[fmt].max + ' caracteres por linha.');
+    $('#lg-srt').disabled = r.faltas.length > 0 || !cues.length;
+    $('#lg-png').disabled = r.faltas.length > 0 || !cues.length;
+    var ol = $('#lg-cues');
+    ol.innerHTML = cues.map(function (c, i) {
+      var txt = c.linhas.map(function (l) { return l.map(function (k) { return k.d ? '<mark>' + esc(k.t) + '</mark>' : esc(k.t); }).join(' '); }).join('\n');
+      var med = c.linhas.map(function (l) { return texLinha(l).length; }).join(' e ') + ' car.';
+      return '<li tabindex="0" data-i="' + i + '" aria-current="' + (i === estado.legenda.atual) + '"><span class="n">' + (i + 1 < 10 ? '0' : '') + (i + 1) + '</span><span class="linhas">' + txt + '</span><span class="med">' + tc(c.ini).slice(3, 8) + ' · ' + med + '</span></li>';
+    }).join('');
+    $$('li', ol).forEach(function (li) {
+      function sel() { estado.legenda.atual = +li.getAttribute('data-i'); atualizaLegenda(); }
+      li.addEventListener('click', sel); li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sel(); } });
+    });
+    $('#lg-fig').classList.toggle('vertical-limite', fmt === 'v');
+    var c = cues[estado.legenda.atual];
+    $('#lg-legenda').textContent = c ? 'Bloco ' + c.n + ' de ' + cues.length + ' · ' + (fmt === 'h' ? '1920 por 1080, 50 px' : '1080 por 1920, 64 px') : 'Sem texto';
+    $('#cv-legenda').setAttribute('aria-label', c ? 'Legenda: ' + c.linhas.map(texLinha).join(' ') : 'Legenda vazia');
+    desenhaLegenda($('#cv-legenda'), fmt, c, false);
+    return cues;
+  }
+
+  /* --- lower third --- */
+  function atualizaLT(reanima) {
+    var lt = estado.lt;
+    lt.nome = $('#lt-nome').value; lt.funcao = $('#lt-funcao').value; lt.dur = +$('#lt-dur').value; lt.veu = $('#lt-veu').checked;
+    $('#lt-dur-v').textContent = br(lt.dur, 1) + ' s'; $('#lt-tempo-tela').textContent = br(lt.dur, 1) + ' s';
+    $('#lt-demo-nome').textContent = lt.nome; $('#lt-demo-funcao').textContent = lt.funcao;
+    var demo = $('#lt-demo');
+    demo.setAttribute('data-veu', lt.veu ? 'sim' : 'nao');
+    demo.style.setProperty('--lt-saida', Math.round(lt.dur * 1000 - 200) + 'ms');
+    $('#lt-palco').setAttribute('data-formato', lt.formato);
+    if (reanima) { demo.classList.remove('anima'); void demo.offsetWidth; demo.classList.add('anima'); }
+    var r = validaLT(lt);
+    mostraEstado($('#lt-estado'), r, 'pronto: ' + Math.round(lt.dur * 24) + ' quadros PNG de ' + (lt.formato === 'h' ? '1920 por 1080' : '1080 por 1920') + ', fundo transparente.');
+    $('#lt-seq').disabled = r.faltas.length > 0;
+  }
+  /* repete a prévia enquanto a seção está visível (sem movimento reduzido) */
+  var ltVisivel = false;
+  function lacoLT() {
+    var reduz = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (ltVisivel && !reduz && !document.hidden) { var d = $('#lt-demo'); d.classList.remove('anima'); void d.offsetWidth; d.classList.add('anima'); }
+    setTimeout(lacoLT, Math.round(estado.lt.dur * 1000) + 1200);
+  }
+  function exportaLT() {
+    var lt = estado.lt, st = $('#lt-estado'), r = validaLT(lt);
+    if (r.faltas.length) { mostraEstado(st, r); return Promise.resolve(null); }
+    var fmt = lt.formato, W = fmt === 'h' ? 1920 : 1080, H = fmt === 'h' ? 1080 : 1920, n = Math.round(lt.dur * 24), cv = document.createElement('canvas');
+    cv.width = W; cv.height = H;
+    var ctx = cv.getContext('2d'), arquivos = [], prog = $('#lt-progresso'), pt = $('#lt-progresso-t');
+    $('#lt-progresso-l').hidden = false; $('#lt-seq').disabled = true;
+    var base = 'the-void-' + slug(P().nome) + '-lower-third-' + slug(lt.nome) + '-' + W + 'x' + H;
+    return fontes().then(function () {
+      var i = 0;
+      function proximo() {
+        if (i >= n) return Promise.resolve();
+        quadroLT(ctx, i / 24, lt, fmt, P());
+        return blobDe(cv).then(function (b) { return b.arrayBuffer(); }).then(function (ab) {
+          var num = String(i + 1); while (num.length < 4) num = '0' + num;
+          arquivos.push({ nome: base + '/quadro-' + num + '.png', dados: new Uint8Array(ab) });
+          i++; prog.value = i / n; pt.textContent = Math.round(100 * i / n) + '%';
+          return proximo();
+        });
+      }
+      return proximo();
+    }).then(function () {
+      var nome = base + '-24qps.zip';
+      baixar(zip(arquivos), nome);
+      st.innerHTML = linha('ok', 'Validado', 'baixado ' + nome + ' com ' + n + ' quadros a 24 por segundo.');
+      $('#lt-seq').disabled = false; $('#lt-progresso-l').hidden = true;
+      return { nome: nome, quadros: n };
+    }).catch(function (e) { falhaExport(st, e); $('#lt-seq').disabled = false; $('#lt-progresso-l').hidden = true; });
+  }
+
+  /* --- fecho --- */
+  function atualizaFecho() {
+    var p = P();
+    if (!p.selo) estado.fecho = 'institucional';
+    $$('[data-fecho]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-fecho') === estado.fecho)); b.disabled = b.getAttribute('data-fecho') === 'produto' && !p.selo; });
+    $('#fecho-nota').textContent = estado.fecho === 'produto'
+      ? 'Campo de Produto do ' + p.nome + ' com o logotipo de produto branco e o selo completo a 3 X de distância. Sem Eco do VOID (o Eco não entra em Campo de Produto).'
+      : 'Sala com Janela de Luz, Eco do VOID e o logotipo branco' + (p.selo ? '' : ' de produto do Start, que assina a aula experimental') + '. O Eco não conta como segundo logotipo.';
+    desenhaFecho($('#cv-fecho'), estado.fecho).then(function () {
+      mostraEstado($('#fecho-estado'), { faltas: [], avisos: [] }, 'pronto para exportar; o rodapé é o texto literal dos Créditos Finais.');
+    });
+  }
+  function exportaFecho() {
+    var st = $('#fecho-estado'), cv = document.createElement('canvas');
+    return desenhaFecho(cv, estado.fecho).then(function () { return blobDe(cv); }).then(function (b) {
+      var nome = 'the-void-' + slug(P().nome) + '-fecho-' + estado.fecho + '-1920x1080.png';
+      baixar(b, nome); st.innerHTML = linha('ok', 'Validado', 'baixado ' + nome + '.'); return nome;
+    }).catch(function (e) { falhaExport(st, e); });
+  }
+
+  /* --- roteiro --- */
+  var BLOCOS = [
+    { id: 'gancho', nome: 'Gancho', fixo: true, tipo: 'cena', cap: 'O vazio', funcao: function (p) { return 'Parar o polegar e dizer por que vale assistir. A crença falsa aparece nos 2 s iniciais. Exemplo: “' + p.gancho + '” (' + p.ganchoFonte + ').'; }, tela: 'Legenda palavra por palavra e, se houver, uma frase de até 6 palavras. Sem vinheta antes. Na VSL longa, a abertura com a Esfera entra logo depois.', peca: 'Legenda queimada' },
+    { id: 'vazio', nome: 'O vazio', peso: 75, tipo: 'cartela', cap: 'O vazio', funcao: function (p) { return 'Fazer a pessoa se ver. A crença de ' + p.persona + ': “' + p.crenca + '” (' + p.crencaFonte + ').'; }, tela: 'Cartela Vazio, depois planos do dia a dia que não preenche.', peca: 'Cartela Vazio' },
+    { id: 'historia', nome: 'História real autorizada', peso: 150, tipo: 'cena', cap: 'O vazio', funcao: function () { return 'Provar que o caminho existe com a história de um aluno ou de quem fundou a escola, contada por quem viveu. História autorizada [P 22].'; }, tela: 'Depoimento com lower third na primeira fala; planos de 4 a 8 s; frase de depoimento autorizado.', peca: 'Lower third' },
+    { id: 'virada', nome: 'Virada de crença', peso: 60, tipo: 'cartela', cap: 'O método', funcao: function (p) { return 'Trocar a crença pela verdade: “' + p.verdade + '” (Brand DNA da The VOID, set/2026).'; }, tela: 'Cartela Virada com a Palavra Sensível; respiro com o som da máquina.', peca: 'Cartela Virada' },
+    { id: 'metodo', nome: 'Método', peso: 180, tipo: 'documento', cap: 'O método', funcao: function () { return 'Dar a razão lógica: o Método ARTE (Artista, Tatuador, Empreendedor), os pilares Técnica, Identidade e Empreendedor, a trilha Start, Master e Pro e os ritos (Ritual do Traço, Primeira Pele, Formatura com Pele).'; }, tela: 'Mapa da Trilha com o produto aceso; mãos em close, biossegurança visível.', peca: 'Mapa da Trilha' },
+    { id: 'prova', nome: 'Prova', peso: 180, tipo: 'cena', cap: 'Quem já fez', funcao: function () { return 'Reduzir a dúvida com depoimentos autorizados e números com fonte. Sem número validado, o bloco segue só com depoimentos [P 15].'; }, tela: 'Depoimentos com lower third; cartela Prova com o Crédito na mesma tela; Aviso de Conformidade.', peca: 'Cartela Prova' },
+    { id: 'oferta', nome: 'Oferta', peso: 120, tipo: 'documento', cap: 'A turma', funcao: function (p) { return p.selo ? 'Dizer exatamente o que se compra: o que inclui, formato, turma, investimento com valor total e parcelas, e o direito de arrependimento [P 15]. Nenhuma promessa financeira.' : 'Dizer como entrar: data, horário e local da aula. "Gratuita" entra como informação, nunca como argumento principal [P 16].'; }, tela: 'Cartela Oferta em Modo Leitura, um item por tela.', peca: 'Cartela Oferta' },
+    { id: 'objecoes', nome: 'Objeções', peso: 90, tipo: 'cena', cap: 'Como entrar', funcao: function () { return 'Responder as quatro objeções da persona: preço, talento, mercado e "vou pensar" (Personas, set/2026).'; }, tela: 'Professor ou ex-aluno falando, com lower third; uma objeção por plano.', peca: 'Lower third' },
+    { id: 'cta', nome: 'Pedido único', peso: 30, tipo: 'cartela', cap: 'Como entrar', funcao: function (p) { return 'Um pedido, falado e escrito, igual ao botão sob o player: “' + p.rotulo.charAt(0) + p.rotulo.slice(1).toLowerCase() + '”. Repita uma vez antes do fim.'; }, tela: 'Cartela Ação com a seta para o botão; depois o fecho de 1,5 a 2 s.', peca: 'Cartela Ação e fecho' }
+  ];
+  function minutagem(totalS) {
+    var g = totalS >= 300 ? 15 : Math.round(totalS * 0.15), resto = totalS - g, soma = BLOCOS.reduce(function (s, b) { return s + (b.peso || 0); }, 0), t = 0;
+    return BLOCOS.map(function (b, i) {
+      var d = b.fixo ? g : (i === BLOCOS.length - 1 ? totalS - t : Math.round(resto * b.peso / soma));
+      var o = { b: b, ini: t, fim: t + d }; t += d; return o;
+    });
+  }
+  KIT.minutagem = minutagem;
+  function mmss(s) { var m = Math.floor(s / 60), ss = Math.round(s % 60); if (ss === 60) { m++; ss = 0; } return m + ':' + (ss < 10 ? '0' : '') + ss; }
+  function atualizaRoteiro() {
+    var p = P(), d = p.dur, v = +$('#rt-dur').value, total = d.un === 'min' ? v * 60 : v;
+    $('#rt-dur-v').textContent = d.un === 'min' ? v + ' min' : v + ' s';
+    var m = minutagem(total);
+    $('#rt-linha').innerHTML = m.map(function (x) { return '<span data-tipo="' + x.b.tipo + '" style="flex:' + (x.fim - x.ini) + '">' + ((x.fim - x.ini) / total > 0.07 ? x.b.nome.split(' ')[0] : '') + '</span>'; }).join('') +
+      (function () { var h = ''; for (var s = 105; s < total - 60; s += 105) h += '<i style="left:' + (100 * s / total).toFixed(2) + '%"></i>'; return h; })();
+    var tipos = m.map(function (x) { return x.b.tipo; }), ok = true;
+    for (var i = 2; i < tipos.length; i++) if (tipos[i] === tipos[i - 1] && tipos[i] === tipos[i - 2]) ok = false;
+    var l8 = $('#rt-l8'); l8.classList.toggle('falha', !ok);
+    l8.innerHTML = ic(ok ? 'circle-check' : 'circle-x') + '<span><b>' + (ok ? 'L8 confere.' : 'L8 não confere.') + '</b> ' + tipos.join(', ') + '. Nenhum tipo aparece três vezes seguidas; o fim é um único pedido.</span>';
+    $('#rt-persona').textContent = 'Persona: ' + p.persona + '. Rótulo do botão: ' + p.rotulo + '.';
+    $('#rt-blocos').innerHTML = m.map(function (x, i) {
+      return '<li><div class="quando"><b>' + mmss(x.ini) + '</b><span>até ' + mmss(x.fim) + ' · ' + mmss(x.fim - x.ini) + '</span></div><div><h4><small>Bloco ' + (i + 1) + ' · capítulo "' + x.b.cap + '"</small>' + esc(x.b.nome) + '</h4><p>' + esc(x.b.funcao(p)) + '</p><span class="tag">' + x.b.tipo + '</span></div><p class="na-tela"><b>Na tela</b>' + esc(x.b.tela) + '<br><br><b>Peça do kit</b>' + esc(x.b.peca) + '</p></li>';
+    }).join('');
+    estado.duracao = total;
+  }
+  function textoRoteiro() {
+    var p = P(), m = minutagem(estado.duracao);
+    return 'Roteiro de VSL · The VOID · ' + p.label + ' · ' + mmss(estado.duracao) + '\n' + 'Persona: ' + p.persona + '\n\n' +
+      m.map(function (x, i) { return (i + 1) + '. ' + mmss(x.ini) + ' a ' + mmss(x.fim) + ' · ' + x.b.nome + ' (' + x.b.tipo + ', capítulo ' + x.b.cap + ')\n   ' + x.b.funcao(p) + '\n   Na tela: ' + x.b.tela; }).join('\n\n') +
+      '\n\nRespiro a cada 90 a 120 s: som da máquina, silêncio e uma cartela.\n';
+  }
+  KIT.textoRoteiro = textoRoteiro;
+  function configuraRoteiro() {
+    var d = P().dur, r = $('#rt-dur');
+    r.min = d.min; r.max = d.max; r.step = d.passo; r.value = d.padrao;
+    r.setAttribute('aria-valuetext', d.padrao + (d.un === 'min' ? ' minutos' : ' segundos'));
+    atualizaRoteiro();
+  }
+
+  /* --- checklist --- */
+  var CHECK = [
+    ['Roteiro e prova', [
+      ['persona', 'Persona e crença falsa declaradas no roteiro', 'uma persona, uma crença por vídeo'],
+      ['gancho', 'Gancho nos 15 s iniciais, sem vinheta antes', 'a crença aparece nos 2 s iniciais'],
+      ['prova', 'Todo número com Crédito de Prova', 'o que mede, período, base, fonte e marca de origem'],
+      ['claims', 'Nenhum claim vetado nem promessa de renda com número ou prazo', 'superlativo conta como número sem crédito'],
+      ['aviso', 'Aviso de resultado na tela de prova', '"Resultados individuais variam conforme prática e dedicação."'],
+      ['oferta', 'Valor total, parcelas e condições iguais ao checkout', 'e o direito de arrependimento informado'],
+      ['vagas', 'Vagas e datas reais, sem urgência inventada', 'falta de vagas só com o número real da turma']
+    ]],
+    ['Imagem e pessoas', [
+      ['autorizacao', 'Autorização de imagem de cada rosto, para este canal', 'orgânico, site e anúncio são finalidades diferentes'],
+      ['banco', 'Nenhuma imagem de banco ou gerada por IA', 'só escola, aluno, professor ou evento reais'],
+      ['bio', 'Biossegurança visível em todo procedimento', 'luva, filme plástico, material de uso único'],
+      ['menor', 'Nenhum menor de 18 anos em procedimento', 'mídia paga segmentada para 18 anos ou mais']
+    ]],
+    ['Peças', [
+      ['capa', 'Capa sem valor em reais, com o canto da duração livre', '1280 por 720, 1080 por 1920 e 1080 por 1350'],
+      ['cartelas', 'Cartelas com até 6 palavras e o Marcador de Capítulo', 'a Oferta é a única tela clara'],
+      ['lt', 'Lower third sem selo, de 3 a 4 s', 'nome e função de pessoa real autorizada'],
+      ['fecho', 'Fecho com Créditos Finais e a assinatura sonora', 'zumbido da máquina, 0,8 s, e silêncio'],
+      ['travessao', 'Zero travessão e grafia TATTOO em tudo', 'legenda, cartela, título do vídeo e descrição']
+    ]],
+    ['Som, legenda e página', [
+      ['legenda', 'Legenda queimada revisada, no máximo 2 linhas', 'ortografia e sincronia conferidas'],
+      ['srt', 'Arquivo .srt revisado em todo vídeo público', 'e transcrição no HTML da página'],
+      ['som', 'Som em -14 LUFS, pico de -1 dBTP, trilha de 18 a 22 dB abaixo da voz', 'trilha licenciada para anúncio'],
+      ['respiro', 'Respiro a cada 90 a 120 s', 'som da máquina, silêncio e uma cartela'],
+      ['cta', 'Pedido falado igual ao botão sob o player', 'botão visível sem rolar no computador'],
+      ['capitulos', 'Capítulos nomeados no player e na página', 'O vazio, O método, Quem já fez, A turma, Como entrar'],
+      ['cortes', 'Cortes de 15, 30 e 60 s exportados em 9:16', 'começam no gancho, sem Créditos Finais']
+    ]]
+  ];
+  var CHAVE = 'thevoid-vslkit-checklist-v1';
+  function lerMarcas() { try { return JSON.parse(localStorage.getItem(CHAVE) || '{}') || {}; } catch (e) { return {}; } }
+  function gravarMarcas(m) { try { localStorage.setItem(CHAVE, JSON.stringify(m)); } catch (e) { /* sem armazenamento: segue sem lembrar */ } }
+  function montaChecklist() {
+    var m = lerMarcas();
+    $('#checklist').innerHTML = CHECK.map(function (g, gi) {
+      return '<fieldset><legend class="credito">' + esc(g[0]) + '</legend>' + g[1].map(function (it) {
+        return '<label class="marcar"><input type="checkbox" data-ck="' + it[0] + '"' + (m[it[0]] ? ' checked' : '') + '><span>' + esc(it[1]) + '<small>' + esc(it[2]) + '</small></span></label>';
+      }).join('') + '</fieldset>';
+    }).join('');
+    $$('[data-ck]').forEach(function (c) { c.addEventListener('change', function () { var mm = lerMarcas(); mm[c.getAttribute('data-ck')] = c.checked; gravarMarcas(mm); resumoChecklist(); }); });
+    resumoChecklist();
+  }
+  function resumoChecklist() {
+    var todos = $$('[data-ck]'), feitos = todos.filter(function (c) { return c.checked; });
+    $('#ck-n').textContent = feitos.length + ' de ' + todos.length;
+    $('#ck-msg').textContent = feitos.length === todos.length ? 'itens conferidos: pode seguir para a aprovação.' : 'itens conferidos; os que faltam voltam antes de publicar.';
+    var falta = todos.filter(function (c) { return !c.checked; }).map(function (c) { return '[ ] ' + c.parentNode.querySelector('span').firstChild.textContent; });
+    $('#ck-resumo').value = 'VSL · ' + P().label + '\nChecklist: ' + feitos.length + ' de ' + todos.length + ' itens conferidos.\n' +
+      (falta.length ? '\nFaltam:\n' + falta.join('\n') + '\n' : '\nTodos os itens conferidos.\n');
+  }
+
+  /* --- produto --- */
+  function aplicaProduto(chave, inicio) {
+    estado.produto = chave;
+    var p = P();
+    document.documentElement.setAttribute('data-estacao', p.estacao);
+    $$('.seletor [data-produto]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-produto') === chave)); });
+    $('#produto-curto').value = chave;
+    $$('.rotulo-produto').forEach(function (s) { s.textContent = p.label; });
+    $('#capa-texto').value = p.capa;
+    if (!p.selo) $('#capa-selo').checked = false;
+    estado.cartelas = padraoCartelas(p);
+    preencheEditorCartela();
+    $('#lt-funcao').value = p.funcao;
+    if (inicio) { $('#lt-nome').value = 'NOME SOBRENOME'; }
+    estado.fecho = p.selo ? 'produto' : 'institucional';
+    if (window.VForms) window.VForms.redesenhar();
+    atualizaCapa(); atualizaCartela(); atualizaLT(true); atualizaFecho(); configuraRoteiro(); resumoChecklist();
+  }
+
+  function liga() {
+    $$('.seletor [data-produto]').forEach(function (b) { b.addEventListener('click', function () { aplicaProduto(b.getAttribute('data-produto')); }); });
+    $('#produto-curto').addEventListener('change', function (e) { aplicaProduto(e.target.value); });
+    ['#capa-texto', '#capa-selo', '#capa-guias', '#capa-aut'].forEach(function (s) { $(s).addEventListener('input', atualizaCapa); $(s).addEventListener('change', atualizaCapa); });
+    $('#capa-foto').addEventListener('change', function (e) {
+      var f = e.target.files && e.target.files[0]; if (!f) { tiraFoto(); return; }
+      var leitor = new FileReader();
+      leitor.onload = function () { var i = new Image(); i.onload = function () { estado.capa.foto = ritual(i); $('#capa-foto-nome').textContent = f.name + ' · preto e branco Ritual'; $('#capa-foto-tirar').hidden = false; $('#capa-aut').checked = false; $('#capa-aut').disabled = false; atualizaCapa(); }; i.src = leitor.result; };
+      leitor.readAsDataURL(f);
+    });
+    $('#capa-foto-tirar').addEventListener('click', tiraFoto);
+    function tiraFoto() { estado.capa.foto = null; $('#capa-foto').value = ''; $('#capa-foto-nome').textContent = 'Nenhuma foto escolhida'; $('#capa-foto-tirar').hidden = true; $('#capa-aut').checked = false; $('#capa-aut').disabled = true; atualizaCapa(); }
+    $$('[data-exportar^="capa-"]').forEach(function (b) { b.addEventListener('click', function () { exportaCapa(b.getAttribute('data-exportar').slice(5)); }); });
+    $$('[data-formato-cartela]').forEach(function (b) { b.addEventListener('click', function () { estado.formatoCartela = b.getAttribute('data-formato-cartela'); $$('[data-formato-cartela]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); atualizaCartela(); }); });
+    ['#ct-titulo', '#ct-off', '#pv-valor', '#pv-mede', '#pv-periodo', '#pv-base', '#pv-fonte', '#pv-link', '#pv-captura', '#of-valor', '#of-cond'].forEach(function (s) { $(s).addEventListener('input', atualizaCartela); });
+    $('#pv-origem').addEventListener('change', atualizaCartela);
+    $('#of-item').addEventListener('change', function (e) { estado.cartelas.oferta.item = +e.target.value; preencheEditorCartela(); atualizaCartela(); });
+    $('[data-exportar="cartela"]').addEventListener('click', function () { exportaCartelas([estado.cartela]); });
+    $('#baixar-cartelas').addEventListener('click', function () { exportaCartelas(CARTELAS.map(function (k) { return k.id; })); });
+    $('#lg-texto').addEventListener('input', atualizaLegenda);
+    $$('[data-formato-legenda]').forEach(function (b) { b.addEventListener('click', function () { estado.legenda.formato = b.getAttribute('data-formato-legenda'); $$('[data-formato-legenda]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); atualizaLegenda(); }); });
+    $('#lg-srt').addEventListener('click', function () {
+      var nome = 'the-void-' + slug(P().nome) + '-legenda-' + (estado.legenda.formato === 'h' ? '16x9' : '9x16') + '.srt';
+      baixar(new Blob([srt(quebrarLegenda(estado.legenda.texto, estado.legenda.formato))], { type: 'application/x-subrip;charset=utf-8' }), nome);
+      $('#lg-estado').insertAdjacentHTML('afterbegin', linha('ok', 'Validado', 'baixado ' + nome + '.'));
+    });
+    $('#lg-png').addEventListener('click', function () {
+      var cues = quebrarLegenda(estado.legenda.texto, estado.legenda.formato), c = cues[estado.legenda.atual], cv = document.createElement('canvas'), st = $('#lg-estado');
+      desenhaLegenda(cv, estado.legenda.formato, c, true).then(function () { return blobDe(cv); }).then(function (b) {
+        var nome = 'the-void-legenda-bloco-' + c.n + '-' + cv.width + 'x' + cv.height + '.png'; baixar(b, nome); st.insertAdjacentHTML('afterbegin', linha('ok', 'Validado', 'baixado ' + nome + '.'));
+      }).catch(function (e) { falhaExport(st, e); });
+    });
+    ['#lt-nome', '#lt-funcao', '#lt-dur', '#lt-veu'].forEach(function (s) { $(s).addEventListener('input', function () { atualizaLT(false); }); $(s).addEventListener('change', function () { atualizaLT(s === '#lt-dur' || s === '#lt-veu'); }); });
+    $$('[data-formato-lt]').forEach(function (b) { b.addEventListener('click', function () { estado.lt.formato = b.getAttribute('data-formato-lt'); $$('[data-formato-lt]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); atualizaLT(true); }); });
+    $('#lt-play').addEventListener('click', function () { atualizaLT(true); });
+    $('#lt-seq').addEventListener('click', exportaLT);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { ltVisivel = es[0].isIntersecting; }).observe($('#lt-palco'));
+    setTimeout(lacoLT, 4700);
+    $('#esfera-play').addEventListener('click', function () { var e = $('#esfera-palco'); e.classList.remove('anima'); void e.offsetWidth; e.classList.add('anima'); });
+    $$('[data-fecho]').forEach(function (b) { b.addEventListener('click', function () { if (b.disabled) return; estado.fecho = b.getAttribute('data-fecho'); atualizaFecho(); }); });
+    $('[data-exportar="fecho"]').addEventListener('click', exportaFecho);
+    $('#fecho-play').addEventListener('click', function () { var f = $('#fecho-fig'); f.classList.remove('anima'); void f.offsetWidth; f.classList.add('anima'); });
+    $('#rt-dur').addEventListener('input', function () { atualizaRoteiro(); });
+    $('#rt-copiar').addEventListener('click', function () {
+      var t = textoRoteiro(), st = $('#rt-estado');
+      (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { st.innerHTML = linha('ok', 'Validado', 'roteiro copiado.'); }, function () { st.innerHTML = linha('atencao', 'Atenção', 'a cópia automática foi bloqueada; selecione o texto dos blocos.'); });
+    });
+    $('#ck-copiar').addEventListener('click', function () { var a = $('#ck-resumo'); a.select(); (navigator.clipboard ? navigator.clipboard.writeText(a.value) : Promise.reject()).catch(function () { try { document.execCommand('copy'); } catch (e) { /* segue */ } }); });
+    $('#ck-limpar').addEventListener('click', function () { gravarMarcas({}); montaChecklist(); });
+  }
+
+  /* exemplo proibido (só para ensinar; não exporta) */
+  function exemploProibido() {
+    var t = 'GANHE R$ 10 MIL EM *3* MESES';
+    desenhaCapa($('#cv-capa-nao'), 'h', t, {}).then(function () {
+      var r = validaCapa(t);
+      $('#capa-nao-estado').innerHTML = r.faltas.map(function (f) { return linha('erro', 'Não exporta', f); }).join('');
+    });
+  }
+
+  KIT.estado = estado; KIT.PROD = PROD; KIT.aplicaProduto = aplicaProduto;
+  KIT.exportaCapa = exportaCapa; KIT.exportaCartelas = exportaCartelas; KIT.exportaLT = exportaLT; KIT.exportaFecho = exportaFecho;
+  KIT.desenhaCapa = desenhaCapa; KIT.desenhaCartela = desenhaCartela; KIT.atualizaCartela = atualizaCartela; KIT.atualizaLegenda = atualizaLegenda; KIT.atualizaLT = atualizaLT;
+
+  function inicia() {
+    $('#lg-texto').value = 'Você já pensou que talvez a tatuagem não seja um sonho, seja um *chamado*? Existe um vazio dentro de você. Esse vazio não é fraqueza. É um *chamado*. Venha como você é, com seus medos, suas dúvidas, suas mãos trêmulas. Aqui, elas se tornarão *firmes*.';
+    liga(); montaChecklist(); aplicaProduto('start', true); atualizaLegenda(); exemploProibido();
+    fontes().then(function () { atualizaCapa(); atualizaCartela(); atualizaLegenda(); atualizaFecho(); exemploProibido(); KIT.pronto = true; document.documentElement.setAttribute('data-kit-pronto', '1'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inicia); else inicia();
+})();
+</script>
+</body>
+</html>

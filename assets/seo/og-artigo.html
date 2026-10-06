@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="start">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>Imagem de compartilhamento do artigo</title>
+<link rel="icon" href="../brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../tokens.css">
+<!-- Imagem de compartilhamento do artigo (spec 12.7 e 12.6): 1200 por 630, Sala, a pergunta,
+     Marcador de Estação e selo do produto. Para gerar outra: troque a pergunta e o rótulo,
+     abra no Playwright em 1200 por 630 e salve o PNG com o nome og-<slug>-1200x630.png. -->
+<style>
+html,body{margin:0;width:1200px;height:630px;background:var(--sala);overflow:hidden}
+.og{position:relative;width:1200px;height:630px;padding:72px 80px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
+.marcador{display:flex;align-items:center;gap:12px;margin:0;font-size:16px;color:var(--areia)}
+.marcador .vf-marcador{display:inline-flex;align-items:center;gap:12px}
+h1{margin:0;max-width:15ch;font:600 72px/1.04 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.01em;color:var(--tela)}
+.pe{display:flex;align-items:flex-end;justify-content:space-between}
+.pe .credito{font-size:16px;margin:0}
+.selo{position:absolute;right:80px;top:64px;width:160px;height:160px}
+</style>
+</head>
+<body>
+<div class="og janela-luz grao">
+  <p class="marcador credito"><span data-vforms='{"forma":"marcador-estacao","rotulo":"The VOID Start · Guia","tamanho":18}'></span></p>
+  <img class="selo" src="../brand/svg/selo-simples-start.svg" width="160" height="160" alt="Selo da formação The VOID Start">
+  <h1>Preciso saber desenhar para ser tatuador?</h1>
+  <div class="pe"><p class="credito">THE VOID TATTOO ACADEMY · SÃO PAULO · BRAZIL</p></div>
+</div>
+<script src="../../vforms.js"></script>
+</body>
+</html>

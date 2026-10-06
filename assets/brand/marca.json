@@ -1,0 +1,310 @@
+{
+  "marca": "The VOID Tattoo Academy",
+  "versao": "2026-10-06",
+  "fonte_dos_vetores": "Exportação do Figma entregue pela aureadesign.co. Os arquivos-mestre ficam fora do repositório público; os derivados oficiais estão em assets/brand/.",
+  "regra_de_ouro": "O logotipo é desenho (contornos), não texto. Use sempre os arquivos de assets/brand/svg ou png. Nunca redigite THE VOID em fonte.",
+  "unidades": "Medidas em unidades do viewBox de cada SVG. H = altura das maiúsculas do VOID (topo do V até a base).",
+  "logotipos": {
+    "horizontal": {
+      "arquivos": [
+        "svg/void-horizontal-preto.svg",
+        "svg/void-horizontal-branco.svg",
+        "svg/cor/void-horizontal-grafite.svg",
+        "svg/cor/void-horizontal-offwhite.svg"
+      ],
+      "viewBox": [
+        3804,
+        579
+      ],
+      "proporcao_largura_altura": 6.57,
+      "composicao": "THE (Archivo Regular) + VOID (letreiro pesado derivado do Archivo) + ® + TATTOO (Archivo Regular), em 4 paths, sem texto vivo",
+      "H_void": 551.81,
+      "haste_I_void": 110.36,
+      "haste_sobre_H": 0.2,
+      "maiuscula_THE": 194.22,
+      "THE_sobre_H": 0.352,
+      "haste_THE": 26.9,
+      "registrado_altura": 85.93,
+      "registrado_sobre_H": 0.156,
+      "registrado_posicao": "alinhado ao topo do VOID, colado à direita do D (folga de 8 unidades)",
+      "espaco_THE_para_V": 159.37,
+      "espaco_D_para_TATTOO": 172.1,
+      "alinhamento_vertical": "THE e TATTOO centralizados na altura do VOID (desvio óptico de 4 unidades)"
+    },
+    "vertical": {
+      "arquivos": [
+        "svg/void-vertical-preto.svg",
+        "svg/void-vertical-branco.svg",
+        "svg/cor/void-vertical-grafite.svg",
+        "svg/cor/void-vertical-offwhite.svg"
+      ],
+      "viewBox": [
+        1937,
+        1057
+      ],
+      "proporcao_largura_altura": 1.83,
+      "composicao": "THE em cima, VOID®, TATTOO ACADEMY embaixo",
+      "H_void": 523.17,
+      "maiuscula_THE": 184.14,
+      "THE_sobre_H": 0.352,
+      "maiuscula_TATTOO_ACADEMY": 103.5,
+      "TATTOO_ACADEMY_sobre_H": 0.198,
+      "espaco_THE_para_VOID": 107.52,
+      "espaco_VOID_para_TATTOO_ACADEMY": 109.03,
+      "regra_de_espacamento": "os dois respiros verticais valem cerca de 0,2 H, ou seja, a largura da haste do I"
+    },
+    "produtos": {
+      "arquivos": [
+        "svg/void-start-preto.svg",
+        "svg/void-master-preto.svg",
+        "svg/void-pro-preto.svg",
+        "e as versões branco, grafite e offwhite"
+      ],
+      "viewBox": {
+        "start": [
+          3620,
+          579
+        ],
+        "master": [
+          3894,
+          579
+        ],
+        "pro": [
+          3745,
+          578
+        ]
+      },
+      "regra": "Mesmo THE VOID® do horizontal; o descritor TATTOO é trocado por START, MASTER ou PRO na mesma fonte e na mesma altura (194,22). O espaço entre o D e o descritor é 191,1 (contra 172,1 no TATTOO)."
+    }
+  },
+  "area_de_protecao": {
+    "unidade_X": "X = altura das maiúsculas do THE (0,352 H). No horizontal, X = 194 unidades, cerca de um terço da altura do arquivo.",
+    "logotipos": "1 X livre em todos os lados, medido a partir do desenho (não da caixa do arquivo).",
+    "selos": "12,5% do diâmetro livre em volta do círculo (proposta GrowAI).",
+    "status": "proposta GrowAI a validar com a The Void e a aureadesign.co; a apresentação de rebranding não traz área de proteção"
+  },
+  "tamanhos_minimos": {
+    "horizontal_e_produtos": {
+      "tela_px_altura": 24,
+      "tela_px_largura_aprox": 158,
+      "impressao_mm_altura": 6,
+      "impressao_mm_largura_aprox": 39,
+      "criterio": "haste do THE com pelo menos 1 px e maiúscula do THE com pelo menos 8 px em tela; maiúscula do THE com 2 mm no impresso"
+    },
+    "vertical": {
+      "tela_px_altura": 80,
+      "tela_px_largura_aprox": 147,
+      "impressao_mm_altura": 16,
+      "impressao_mm_largura_aprox": 29,
+      "criterio": "TATTOO ACADEMY com maiúscula de pelo menos 7,8 px em tela e 1,5 mm no impresso"
+    },
+    "selo_completo": {
+      "tela_px_diametro": 200,
+      "impressao_mm_diametro": 40,
+      "criterio": "textos TATTOO e ACADEMY têm cerca de 2,9% do diâmetro; abaixo disso use o selo simples"
+    },
+    "selo_simples": {
+      "tela_px_diametro": 96,
+      "impressao_mm_diametro": 20,
+      "criterio": "texto circular com cerca de 6,5% do diâmetro"
+    },
+    "abaixo_dos_minimos": "use favicon (O do VOID) ou só o horizontal sem descritor quando houver versão aprovada",
+    "status": "derivado por cálculo das medidas dos vetores; proposta GrowAI"
+  },
+  "cores": {
+    "neutras_figma_rotuladas": {
+      "grafite": "#181818",
+      "terracota": "#B25A32",
+      "nevoa": "#C9D0D8",
+      "cinza": "#898989",
+      "petroleo": "#3F4E4F",
+      "offwhite": "#F8F9F4"
+    },
+    "marrons_figma_sem_rotulo_amostrados": {
+      "areia": "#DBC5A3",
+      "caramelo": "#AE8A64",
+      "cafe": "#6C4327",
+      "chocolate": "#412919",
+      "observacao": "os rótulos no slide-027 dizem #181818 por erro; valores aproximados por amostragem de pixel"
+    },
+    "selos_exatos_dos_vetores": {
+      "start": {
+        "base": "#93693B",
+        "faixa_superior": "#734120",
+        "faixa_inferior": "#93693B",
+        "miolo": "#93693B"
+      },
+      "master": {
+        "base": "#B25A32",
+        "faixa_superior": "#8C4529",
+        "faixa_inferior": "#C46039",
+        "miolo": "#B25A32"
+      },
+      "pro": {
+        "base": "#000000",
+        "faixa_superior": "#181818",
+        "faixa_inferior": "#474747",
+        "miolo": "#3F4E4F"
+      },
+      "linhas_e_textos": "#FFFFFF"
+    },
+    "arquivos_preto_e_branco": "os SVG oficiais usam fill black (#000000) e white (#FFFFFF); as versões grafite (#181818) e offwhite (#F8F9F4) trocam só esse valor",
+    "divergencias": [
+      "O Brand DNA cita o preto #1A1A1A; o sistema usa #181818 até o arquivo de tokens do design system do cliente chegar [P 4]",
+      "O Brand DNA diz 'Logo sempre preto ou branco'. As versões grafite e offwhite são tons do preto e do branco do sistema; validar antes de usar no lugar das oficiais [P 11]"
+    ],
+    "acento_thumbs_lp_start": {
+      "hex_amostrado": "#FCBC64",
+      "fonte": "thumbs antigas da LP Start (arquivo local, fora do repositório)",
+      "observacao": "âmbar das thumbs da LP Start; o Brand DNA fala em dourado/âmbar para o Start, mas o selo Start usa #93693B e #734120"
+    }
+  },
+  "tipografia": {
+    "titulos_e_texto": {
+      "familia": "Archivo",
+      "licenca": "SIL Open Font License (livre, Google Fonts)",
+      "eixos": {
+        "wght": [
+          100,
+          900
+        ],
+        "wdth": [
+          62,
+          125
+        ]
+      },
+      "italicos": true
+    },
+    "logotipo_THE_TATTOO_descritores": "Archivo Regular (peso 400, largura 100): coincide com o vetor com erro abaixo de 1%",
+    "logotipo_VOID": "letreiro próprio derivado do Archivo entre SemiBold e Bold (peso cerca de 650, largura 97,5 a 100), com V mais largo, D mais estreito e espaçamento bem mais apertado. Não é Archivo expandido (largura 125 peso 900 sobrepõe só 48%).",
+    "acento_editorial": {
+      "original": "Alga Italic (Nova Type Foundry, Joana Correia, 2020; licença paga; disponível no Adobe Fonts com assinatura Creative Cloud; não está no Google Fonts)",
+      "substituta_livre": "Newsreader Italic peso 300, eixo opsz 72 em títulos (SIL Open Font License, Google Fonts)",
+      "status": "substituta escolhida pela GrowAI por comparação visual; usar Alga quando houver licença"
+    },
+    "corpo_longo": {
+      "familia": "Nunito",
+      "fonte": "Brand DNA da The VOID (resumo do design system do cliente)",
+      "observacao": "não aparece na apresentação de rebranding (slide-025 mostra só Archivo e Alga); confirmar com o cliente"
+    }
+  },
+  "selos": {
+    "completo": "Círculo com anel branco duplo, faixa superior escura com THE VOID em arco (TATTOO menor à esquerda), faixa inferior com o nome do produto e ACADEMY menor à direita, duas estrelas de quatro pontas no horizonte e o símbolo no miolo.",
+    "simples": "Círculo de cor única, texto circular VOID TATTOO ACADEMY, nome do produto embaixo entre dois arcos terminados em traço, símbolo no centro.",
+    "simbolo": {
+      "start": "duas faixas elípticas horizontais empilhadas",
+      "master": "duas faixas elípticas verticais lado a lado",
+      "pro": "duas faixas elípticas diagonais cruzadas e entrelaçadas (passa por cima e por baixo)"
+    },
+    "leitura_proposta": "horizontal (base) para vertical (crescimento) para cruzado (domínio). Interpretação GrowAI, não declarada pela agência."
+  },
+  "trilha": {
+    "nome": "Mapa da Trilha (Círculos Tangentes)",
+    "fonte": "slide 30 da apresentação de rebranding (aureadesign.co); especificação Sala Escura 6.11",
+    "descricao": "três círculos tangentes no mesmo ponto à esquerda: Start menor, Master médio, Pro maior; seta horizontal saindo do ponto de tangência",
+    "medido_no_slide_px": {
+      "start": 61,
+      "master": 141,
+      "pro": 218
+    },
+    "proporcao": "1 : 2,3 : 3,6",
+    "svg": {
+      "viewBox": [
+        1000,
+        560
+      ],
+      "cy": 280,
+      "circulos": {
+        "start": {
+          "cx": 315,
+          "r": 65
+        },
+        "master": {
+          "cx": 400,
+          "r": 150
+        },
+        "pro": {
+          "cx": 482,
+          "r": 232
+        }
+      },
+      "tangencia_x": 250,
+      "regra_de_tangencia": "cx menos r = 250 nos três círculos",
+      "seta": {
+        "linha": "M250 280H940",
+        "ponta": "M928 272L940 280L928 288"
+      },
+      "rotulos": {
+        "start": [
+          315,
+          287
+        ],
+        "master": [
+          452,
+          287
+        ],
+        "pro": [
+          640,
+          287
+        ]
+      },
+      "rotulos_fonte": "voz em off (Alga ou Newsreader Italic 300), 22 px, caixa alta só aqui (exceção nomeada), cor Cal",
+      "traco": "1,5 px, vector-effect non-scaling-stroke, cor Fumaça; círculo ativo 2,5 px na cor do grafismo do produto"
+    },
+    "frases": [
+      "ESSE É O VAZIO",
+      "ESSE É O CAMINHO PARA PREENCHÊ-LO"
+    ],
+    "frases_regra": "em Crédito, fora do SVG, em HTML (texto real para leitura por máquina)",
+    "ativo_por_produto": {
+      "chamado": "nenhum (todos em contorno)",
+      "start": "o menor",
+      "master": "o médio",
+      "pro": "o maior",
+      "voiders": "os concluídos pela pessoa"
+    },
+    "celular": "abaixo de 430 px, versão vertical nativa gerada pelo vforms.js; rotação de 90 graus só como reserva",
+    "marcador_de_estacao": "mini Mapa da Trilha de 14 px, o ativo cheio; todos em contorno no chamado",
+    "nunca": "sem os nomes; fora de proporção ou não tangentes; mais de três círculos; eventos dentro dos círculos"
+  },
+  "orbitas": {
+    "nome": "Órbitas da Trilha",
+    "fonte": "símbolos dos selos simples (svg/selo-simples-*.svg), medidos no vetor; especificação Sala Escura 6.10",
+    "start": {
+      "forma": "duas elipses horizontais empilhadas",
+      "largura_sobre_altura_do_conjunto": 1.13
+    },
+    "master": {
+      "forma": "duas elipses verticais lado a lado",
+      "largura_sobre_altura_do_conjunto": 0.89
+    },
+    "pro": {
+      "forma": "duas elipses entrelaçadas",
+      "angulo_do_eixo_maior_graus": [
+        -32,
+        32
+      ],
+      "referencia_do_angulo": "a partir da vertical",
+      "eixo_menor_sobre_maior": 0.63,
+      "interrupcao_no_cruzamento_px": 6,
+      "observacao": "os conceitos de trabalho diziam 35 e 45 graus; vale o medido"
+    },
+    "voiders": {
+      "forma": "três círculos concêntricos"
+    },
+    "chamado": "nenhuma órbita (só a Esfera do Vazio)",
+    "traco": {
+      "documento_px": 1.5,
+      "peca_u": 2,
+      "vector_effect": "non-scaling-stroke",
+      "cor": "Tela a 28% ou a cor do grafismo do produto"
+    },
+    "movimento": "paradas; movimento só na abertura de vídeo",
+    "nunca": "no chamado; sobre rosto ou texto; mais de um conjunto por peça; preenchidas"
+  },
+  "arquivos_derivados": {
+    "favicon": "favicon/ (O do VOID em off-white sobre grafite; proposta GrowAI). Alternativa com o V em favicon/favicon-alternativa-v.svg.",
+    "avatar": "social/avatar-1080.png (lockup vertical off-white sobre grafite, 68% da largura, cabe no recorte circular)",
+    "compartilhamento": "social/og-1200x630.png (horizontal off-white, tagline em Newsreader Italic)"
+  }
+}

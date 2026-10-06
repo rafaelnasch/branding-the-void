@@ -1,0 +1,29 @@
+# The VOID Tattoo Academy
+
+> A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional. Endereço: Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040. Telefone: +55 11 92481-8712.
+
+Metodologia própria: Método ARTE (Artista, Tatuador, Empreendedor). Trilha de formação em três etapas: The VOID Start (presencial, para quem nunca tatuou), The VOID Master (presencial, para quem já tatua e quer descobrir a sua identidade artística) e The VOID Pro (online e ao vivo, marca, conteúdo, vendas e carreira para tatuadores). Ano de fundação: {{A_CONFIRMAR}}. Os números da escola, com método de contagem e data, ficam só na página de fatos.
+
+## Trilha de formação
+- [A trilha Start, Master e Pro](https://thevoidtattoo.com.br/trilha/): as três formações comparadas.
+- [The VOID Start](https://thevoidtattoo.com.br/trilha/start/): formação presencial para iniciantes; não é preciso saber desenhar.
+- [The VOID Master](https://thevoidtattoo.com.br/trilha/master/): formação presencial para quem já tatua.
+- [The VOID Pro](https://thevoidtattoo.com.br/trilha/pro/): programa online e ao vivo de carreira para tatuadores.
+- [Aula experimental](https://thevoidtattoo.com.br/aula-experimental/): aula presencial para maiores de 18 anos; a aula é gratuita.
+
+## A escola
+- [Sobre a The VOID](https://thevoidtattoo.com.br/sobre/): história, manifesto e Método ARTE.
+- [Fatos e números, com método de contagem](https://thevoidtattoo.com.br/fatos/)
+- [Professores](https://thevoidtattoo.com.br/professores/)
+- [Os ritos da The VOID](https://thevoidtattoo.com.br/ritos/): Ritual do Traço, Primeira Pele, Workshop do Estilo e Formatura com Pele.
+- [The VOID Talks](https://thevoidtattoo.com.br/talks/)
+- [Contato e como chegar](https://thevoidtattoo.com.br/contato/)
+
+## Guia
+- [Preciso saber desenhar para ser tatuador?](https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/)
+- [Como ser tatuador](https://thevoidtattoo.com.br/guia/como-ser-tatuador/)
+
+## Optional
+- [Perguntas frequentes](https://thevoidtattoo.com.br/perguntas-frequentes/)
+- [VOIDERS: histórias de ex-alunos](https://thevoidtattoo.com.br/voiders/)
+- [Seja modelo](https://thevoidtattoo.com.br/seja-modelo/)

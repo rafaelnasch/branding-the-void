@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="start">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Preciso saber desenhar para ser tatuador? · Guia The VOID</title>
+<meta name="description" content="Não. Desenhar e tatuar são habilidades diferentes. Entenda o que muda, o que se treina antes da primeira tatuagem em pele e onde o desenho entra.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="noindex, nofollow">
+<!-- Modelo de demonstração, publicado no GitHub Pages do brand book: não é o site oficial e não deve ser indexado.
+     Na publicação real: tirar a linha robots acima e pôr o canonical da URL definitiva, por exemplo
+     <link rel="canonical" href="https://[domínio oficial]/guia/como-ser-tatuador/preciso-saber-desenhar/">
+     (domínio oficial em validação, P 18). -->
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="The VOID Tattoo Academy">
+<meta property="og:title" content="Preciso saber desenhar para ser tatuador?">
+<meta property="og:description" content="Não. Desenhar e tatuar são habilidades diferentes. Entenda o que muda e onde o desenho entra.">
+<meta property="og:image" content="assets/seo/og-preciso-saber-desenhar-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A pergunta Preciso saber desenhar para ser tatuador, com o selo da formação Start, sobre fundo escuro.">
+<meta property="article:modified_time" content="2026-10-06">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+
+<!-- =====================================================================
+     THE VOID · MODELO DE ARTIGO DO GUIA (SEO, GEO e AEO) · sistema Sala Escura v1 · 06/10/2026
+     Fonte normativa: spec do sistema, seções 12.7 (anatomia), 13 (entidade e arquitetura),
+     11 (conformidade) e 3.6 (Modo Leitura). Regras editoriais E01 a E12 do relatório 05.
+
+     COMO USAR
+     1. Troque a pergunta, a Resposta Direta (40 a 60 palavras, sujeito explícito), os H2 em
+        forma de pergunta, a Ficha de Fatos e o FAQ. Cada artigo responde UMA pergunta e
+        recebe UM produto (data-estacao no <html>): chamado, start, master ou pro.
+     2. O bloco JSON-LD no fim do <body> (Article + BreadcrumbList + FAQPage) tem que dizer
+        exatamente o que a página mostra. O FAQ visível e o FAQPage são o mesmo texto.
+        Modelos avulsos em assets/seo/json-ld/.
+     3. Revisão: ?painel=1 abre o painel do modelo (contagem da Resposta Direta, conferência
+        do FAQ contra o JSON-LD, perguntas nos títulos, pendências). Enquanto a pendência P 2 (Modo Leitura) não for
+        aprovada, o corpo sai em Sala com texto Cal, que é o padrão deste modelo. ?leitura=1 mostra
+        a versão em Modo Leitura, só para avaliação da P 2; ela não é publicada antes da aprovação.
+     5. O modelo traz noindex e não traz canonical, porque é demonstração. Na publicação real, tire o
+        noindex e ponha o canonical da URL definitiva.
+     4. Todo dado não validado aparece como {{A_CONFIRMAR}} ou com a pendência [P n] da spec.
+        Artigo com {{A_CONFIRMAR}} ou com dado em validação não é publicado.
+     ===================================================================== -->
+<style>
+/* ---------- página ---------- */
+html{background:var(--sala)}
+body{background:var(--sala);min-width:0;overflow-wrap:break-word}
+*,*::before,*::after{box-sizing:border-box}
+a{color:inherit}
+.pular{position:absolute;left:16px;top:-80px;z-index:20;background:var(--tela);color:var(--sala);padding:12px 16px;font:700 14px/1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.pular:focus{top:12px}
+.ic{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.ic-16{width:16px;height:16px}.ic-20{width:20px;height:20px}
+.wrap{width:100%;max-width:calc(var(--conteudo) + 2 * var(--margem));margin:0 auto;padding:0 var(--margem)}
+.coluna{width:100%;max-width:calc(var(--coluna-leitura) + 2 * var(--margem));margin:0 auto;padding:0 var(--margem)}
+@media (max-width:900px){.wrap,.coluna{padding:0 32px}}
+@media (max-width:600px){.wrap,.coluna{padding:0 16px}}
+
+/* ---------- topo do site ---------- */
+.topo{position:relative;z-index:2;border-bottom:1px solid var(--fio)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.topo .marca{display:inline-flex;align-items:center;min-height:44px}
+.topo .marca img{display:block;height:28px;width:auto}
+.topo nav a{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;color:var(--po)}
+.topo nav a:hover{color:var(--tela)}
+
+/* ---------- cabeçalho do artigo (Sala, Janela de Luz) ---------- */
+.cab{position:relative;padding:48px 0 40px}
+.trilha-nav ol{display:flex;flex-wrap:wrap;align-items:center;gap:4px 0;margin:0 0 28px;padding:0;list-style:none}
+.trilha-nav li{display:inline-flex;align-items:center}
+.trilha-nav li+li::before{content:"›";margin:0 .7em;color:var(--fumaca);font-family:var(--font-texto);letter-spacing:0}
+.trilha-nav a{display:inline-flex;align-items:center;min-height:32px;text-decoration:none;color:var(--po)}
+.trilha-nav a:hover{color:var(--tela);text-decoration:underline;text-underline-offset:3px}
+.trilha-nav [aria-current]{color:var(--cal)}
+.marcador{display:flex;align-items:center;gap:10px;margin:0 0 20px;color:var(--areia)}
+.marcador .vf-marcador{display:inline-flex;align-items:center;gap:10px}
+.art-h1{margin:0;max-width:20ch;font:600 44px/1.08 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.005em;color:var(--tela);text-wrap:balance}
+.byline{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin:24px 0 0;font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.byline span{display:inline-flex;align-items:center;gap:8px}
+.byline a{color:var(--cal);text-underline-offset:3px}
+.ac{display:inline-block;padding:0 6px;border:1px dashed var(--fumaca);font:600 .82em/1.5 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.02em;color:var(--areia);white-space:nowrap}
+.pend{display:inline-block;padding:0 4px;font:600 .8em/1.5 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.03em;color:var(--areia);border-bottom:1px dashed currentColor;white-space:nowrap}
+@media (max-width:600px){.art-h1{font-size:30px;line-height:1.12}.cab{padding:32px 0 32px}}
+
+/* ---------- Faixa Cinemascope (cabeçalho com foto real) ---------- */
+.cinemascope{margin:0;background:var(--nanquim);padding:32px 0 0}
+.cinemascope .quadro{position:relative;width:min(100%,calc(40vh * 2.39));margin:0 auto;aspect-ratio:2.39/1;overflow:hidden}
+.cinemascope figcaption{width:min(100%,calc(40vh * 2.39));margin:0 auto;padding:14px 0 20px;color:var(--po)}
+@media (max-width:900px){.cinemascope{padding-top:0}.cinemascope .quadro{width:100%}.cinemascope figcaption{width:100%;padding:12px 32px 16px}}
+@media (max-width:600px){.cinemascope figcaption{padding:10px 16px 14px}.cinemascope .foto-slot .desc{display:none}.cinemascope .foto-slot{padding:16px;gap:6px}}
+.foto-slot{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%;background:var(--bastidor);padding:24px;text-align:center}
+.foto-slot::before{content:"";position:absolute;inset:12px;border:1px dashed var(--fumaca);pointer-events:none}
+.foto-slot .ic{color:var(--po)}
+.foto-slot .cred{color:var(--cal);max-width:30ch}
+.foto-slot .desc{margin:0;font:400 13px/1.45 var(--font-texto);color:var(--po);max-width:36ch}
+.foto-slot code{font:400 12px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--po);word-break:break-all}
+
+/* ---------- corpo: Sala com Cal (padrão até a aprovação da [P 2]) e Modo Leitura (3.6, só com ?leitura=1) ---------- */
+.corpo{--c-fundo:var(--tela);--c-texto:var(--sala);--c-apoio:var(--ardosia);--c-legenda:var(--penumbra);--c-link:var(--terracota-funda);--c-zebra:var(--cinza-100);--c-linha:var(--fumaca);--c-cartao:var(--cinza-100);--c-filete:var(--terracota-funda);--c-ac:var(--ouro-fundo);
+  background:var(--c-fundo);color:var(--c-texto);padding:64px 0 96px}
+.corpo.sem-leitura{--c-fundo:var(--sala);--c-texto:var(--cal);--c-apoio:var(--po);--c-legenda:var(--po);--c-link:var(--terracota-luz);--c-zebra:var(--bastidor);--c-linha:var(--fio);--c-cartao:var(--bastidor);--c-filete:var(--terracota-luz);--c-ac:var(--areia);color-scheme:dark;--foco:2px solid var(--areia)}
+.corpo.sem-leitura .botao{background:var(--tela);color:var(--sala)}
+.corpo a{color:var(--c-link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.corpo p,.corpo li,.corpo dd{font:400 18px/1.65 var(--font-texto);hyphens:manual}
+.corpo p{margin:0 0 16px}
+.corpo h2{margin:64px 0 20px;font:600 28px/1.18 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.005em;color:var(--c-texto);text-wrap:balance;scroll-margin-top:24px}
+.corpo h3{margin:0 0 8px;font:600 21px/1.25 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--c-texto)}
+.corpo .ac{color:var(--c-ac);border-color:var(--c-legenda)}
+.corpo .pend{color:var(--c-ac)}
+.corpo .credito{color:var(--c-apoio)}
+@media (max-width:430px){.corpo p,.corpo li,.corpo dd{font-size:17px;hyphens:auto}.corpo h2{font-size:23px;margin-top:48px}.corpo h3{font-size:19px}.corpo{padding:40px 0 64px}}
+
+/* Resposta Direta */
+.resposta-direta{margin:0 0 40px;padding:4px 0 4px 24px;border-left:3px solid var(--c-filete)}
+.resposta-direta .credito{margin:0 0 10px;color:var(--c-apoio)}
+.resposta-direta p.rd{margin:0;font:400 20px/1.55 var(--font-texto);color:var(--c-texto);hyphens:manual}
+@media (max-width:430px){.resposta-direta{padding-left:16px}.resposta-direta p.rd{font-size:19px}}
+
+/* glossário: definição de uma frase */
+.glossario{margin:24px 0 8px;padding:0;border-top:1px solid var(--c-linha)}
+.glossario div{display:grid;grid-template-columns:180px 1fr;gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--c-linha)}
+.glossario dt{font:600 17px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--c-texto)}
+.glossario dd{margin:0;font-size:17px!important;line-height:1.55!important}
+@media (max-width:600px){.glossario div{grid-template-columns:1fr}}
+.nota{display:flex;gap:10px;align-items:flex-start;margin:12px 0 0;font:400 15px/1.5 var(--font-texto)!important;color:var(--c-apoio)}
+.nota .ic{margin-top:2px}
+
+/* Onde isso fica na trilha */
+.na-trilha{display:grid;grid-template-columns:1fr;gap:8px;margin:40px 0;padding:24px 28px 28px;border:1px solid var(--c-linha)}
+.na-trilha .mapa{min-width:0;width:100%;max-width:520px}
+.na-trilha .mapa .vf-mapa{margin:0}
+.na-trilha .credito{margin:0 0 8px;display:flex;align-items:center;gap:8px;color:var(--c-apoio)}
+.na-trilha p.frase{margin:0 0 8px;font:600 19px/1.35 var(--font-letreiro)!important;font-variation-settings:"wdth" 100;color:var(--c-texto)}
+.na-trilha p.sub{margin:0;font-size:15px!important;line-height:1.5!important;color:var(--c-apoio)}
+@media (max-width:600px){.na-trilha{padding:20px 16px}.na-trilha .mapa{max-width:300px;margin:0 auto}}
+
+/* tabela do Modo Leitura */
+.tabela-wrap{margin:24px 0 12px;overflow-x:auto}
+.tabela-wrap:focus-visible{outline:var(--foco);outline-offset:3px}
+.tabela{width:100%;border-collapse:collapse;font:400 16px/1.5 var(--font-texto)}
+.tabela caption{caption-side:top;text-align:left;padding:0 0 10px;font:600 17px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--c-texto)}
+.tabela th,.tabela td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--c-linha)}
+.tabela thead th{background:var(--c-zebra);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.14em;color:var(--c-texto)}
+.tabela tbody th{font:600 16px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--c-texto);width:28%}
+.tabela td{color:var(--c-texto)}
+.tabela td.sit{color:var(--c-apoio);font-size:15px;width:26%}
+@media (max-width:430px){
+  .tabela thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .tabela,.tabela caption,.tabela tbody,.tabela tr,.tabela th,.tabela td{display:block;width:100%!important}
+  .tabela tr{padding:14px 0;border-bottom:1px solid var(--c-linha)}
+  .tabela th,.tabela td{padding:2px 0;border:0}
+  .tabela td::before{content:attr(data-rotulo);display:block;margin:8px 0 2px;font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.14em;color:var(--c-apoio)}
+}
+
+/* Crédito de Prova (6.16) em Modo Leitura */
+.regua{display:flex;gap:8px;align-items:baseline;margin:0 0 8px;font:400 13px/1.45 var(--font-texto)!important;color:var(--c-apoio)}
+.regua .origem{flex:none;display:inline-block;width:16px;border-top:2px solid var(--c-apoio);transform:translateY(-3px)}
+.regua[data-origem="em-validacao"] .origem{border-top-style:dashed}
+.regua b{font-weight:600;color:var(--c-texto)}
+
+/* Dado com fonte (vviz numeral) */
+.dado{margin:40px 0}
+
+/* Ficha de Fatos */
+.ficha{margin:40px 0;padding:28px 28px 20px;background:var(--c-cartao)}
+.ficha .topo-ficha{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:0 0 16px}
+.ficha h3{margin:0}
+.ficha dl{margin:0}
+.ficha dl div{display:grid;grid-template-columns:184px 1fr;gap:4px 20px;padding:12px 0;border-top:1px solid var(--c-linha)}
+.ficha dt{display:flex;gap:8px;align-items:flex-start;font:500 12px/1.5 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.14em;color:var(--c-apoio);padding-top:3px}
+.ficha dd{margin:0;font-size:16px!important;line-height:1.5!important;color:var(--c-texto)}
+.ficha .rodape-ficha{margin:12px 0 0;font:400 13px/1.45 var(--font-texto)!important;color:var(--c-apoio)}
+@media (max-width:600px){.ficha{padding:20px 16px 14px}.ficha dl div{grid-template-columns:1fr}}
+
+/* foto e vídeo */
+.foto{margin:40px 0}
+.foto .quadro{aspect-ratio:3/2}
+.corpo .foto-slot{background:var(--c-cartao)}
+.corpo .foto-slot::before{border-color:var(--c-legenda)}
+.corpo .foto-slot .ic,.corpo .foto-slot .desc,.corpo .foto-slot code{color:var(--c-apoio)}
+.corpo .foto-slot .cred{color:var(--c-texto)}
+.foto figcaption{margin:10px 0 0;font:400 13px/1.45 var(--font-texto);color:var(--c-legenda)}
+.video{margin:40px 0;border:1px solid var(--c-linha)}
+.video .capa{position:relative;aspect-ratio:16/9;background:var(--sala);color:var(--tela);display:flex;flex-direction:column;justify-content:space-between;padding:20px}
+.video .capa .credito{color:var(--po);display:flex;align-items:center;gap:8px}
+.video .capa .h{margin:0;max-width:16ch;font:700 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela)}
+.video .play{position:absolute;right:20px;bottom:20px;width:56px;height:56px;border-radius:50%;border:1px solid var(--tela);display:flex;align-items:center;justify-content:center;color:var(--tela)}
+.video .miolo{padding:20px}
+.video .miolo .credito{margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.capitulos{margin:0 0 12px;padding:0;list-style:none;counter-reset:cap}
+.capitulos li{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--c-linha);font-size:16px!important;line-height:1.45!important}
+.capitulos li::before{counter-increment:cap;content:counter(cap,decimal-leading-zero);font:500 12px/1.9 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;color:var(--c-apoio)}
+.transcricao summary{display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font:600 16px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--c-texto)}
+.transcricao[open] summary{margin-bottom:8px}
+.transcricao p{font-size:16px!important}
+@media (max-width:430px){.video .capa .h{font-size:22px}.video .capa{padding:14px}.video .play{width:44px;height:44px;right:14px;bottom:14px}}
+
+/* FAQ visível e aberto */
+.faq{margin:0;padding:0}
+.faq .q{padding:20px 0;border-top:1px solid var(--c-linha)}
+.faq .q:last-child{border-bottom:1px solid var(--c-linha)}
+.faq h3{display:flex;gap:10px;align-items:flex-start}
+.faq h3 .ic{margin-top:2px;color:var(--c-apoio)}
+.faq .r{margin:0;padding-left:34px}
+@media (max-width:430px){.faq .r{padding-left:0}}
+
+/* autor completo */
+.autor{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:start;margin:56px 0 0;padding:24px 0 0;border-top:2px solid var(--c-texto)}
+.autor .retrato{width:96px;height:96px;border-radius:50%;background:var(--c-cartao);border:1px dashed var(--c-legenda);display:flex;align-items:center;justify-content:center;color:var(--c-apoio)}
+.autor .credito{margin:0 0 6px}
+.autor h3{margin:0 0 6px}
+.autor p{font-size:16px!important;line-height:1.55!important;margin:0 0 6px}
+@media (max-width:430px){.autor{grid-template-columns:64px 1fr;gap:14px}.autor .retrato{width:64px;height:64px}}
+
+/* ---------- Fecho: Cartela curta (Sala, Janela de Luz) ---------- */
+.fecho{position:relative;padding:128px 0;text-align:left}
+.fecho .credito{margin:0 0 20px;color:var(--po);display:flex;align-items:center;gap:10px}
+.fecho h2{margin:0 0 24px;max-width:14ch;font:700 56px/.98 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela);text-wrap:balance}
+.fecho h2 .off{font-size:1.2em;line-height:.9}
+.fecho p.apoio{max-width:46ch;margin:0 0 32px;font:400 18px/1.6 var(--font-texto);color:var(--cal)}
+.fecho .micro{margin:12px 0 0;font:400 13px/1.45 var(--font-texto);color:var(--po)}
+@media (max-width:600px){.fecho{padding:96px 0}.fecho h2{font-size:34px}}
+
+/* ---------- rodapé ---------- */
+.rodape{border-top:1px solid var(--fio);padding:48px 0 40px;background:var(--sala)}
+.rodape .grade{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.rodape img{display:block;height:28px;width:auto;margin:0 0 20px}
+.rodape address{font:400 15px/1.6 var(--font-texto);font-style:normal;color:var(--cal);white-space:pre-line}
+.rodape .legal{margin:0;font:400 13px/1.6 var(--font-texto);color:var(--po)}
+.rodape .legal a{color:var(--cal);text-underline-offset:3px}
+.rodape .assinatura{margin-top:40px;padding-top:20px;border-top:1px solid var(--fio)}
+@media (max-width:700px){.rodape .grade{grid-template-columns:1fr}}
+
+/* ---------- painel do modelo (só com ?painel=1) ---------- */
+.painel{display:none;position:relative;z-index:3;background:var(--bastidor);border-top:1px solid var(--fio);padding:32px 0 48px}
+.painel.ligado{display:block}
+.painel h2{margin:0 0 6px;font:700 24px/1.1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela)}
+.painel p{margin:0 0 16px;font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.painel ul{margin:0 0 20px;padding:0;list-style:none}
+.painel li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--fio);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.painel li .ic{margin-top:1px}
+.painel li[data-ok="sim"] .ic{color:var(--sucesso)}
+.painel li[data-ok="nao"] .ic{color:var(--erro)}
+.painel li[data-ok="aviso"] .ic{color:var(--atencao)}
+.painel .acoes{display:flex;flex-wrap:wrap;gap:12px}
+.painel .vazado{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;background:transparent;border:1px solid var(--fumaca);color:var(--tela);font:700 14px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;text-decoration:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-circle-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-circle-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-user-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+    <symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></symbol>
+    <symbol id="i-pen-line" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+    <symbol id="i-list-video" viewBox="0 0 24 24"><path d="M12 12H3"/><path d="M16 6H3"/><path d="M12 18H3"/><path d="m16 12 5 3-5 3v-6Z"/></symbol>
+    <symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+    <symbol id="i-circle-dashed" viewBox="0 0 24 24"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></symbol>
+    <symbol id="i-images" viewBox="0 0 24 24"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2"/></symbol>
+  </defs>
+</svg>
+
+<a class="pular" href="#conteudo">Pular para o artigo</a>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="https://thevoidtattoo.com.br/" aria-label="The VOID Tattoo Academy, página inicial"><img src="assets/brand/svg/void-horizontal-branco.svg" width="184" height="28" alt="The VOID Tattoo Academy"></a>
+    <nav aria-label="Seções do site"><a class="credito" href="https://thevoidtattoo.com.br/guia/">Guia</a></nav>
+  </div>
+</header>
+
+<header class="cab janela-luz grao">
+  <div class="wrap">
+    <nav class="trilha-nav credito" aria-label="Você está em">
+      <ol>
+        <li><a href="https://thevoidtattoo.com.br/">Início</a></li>
+        <li><a href="https://thevoidtattoo.com.br/guia/">Guia</a></li>
+        <li><a href="https://thevoidtattoo.com.br/guia/como-ser-tatuador/">Como ser tatuador</a></li>
+        <li><span aria-current="page">Preciso saber desenhar?</span></li>
+      </ol>
+    </nav>
+    <p class="marcador credito"><span data-vforms='{"forma":"marcador-estacao","rotulo":"The VOID Start · Guia"}'><span>THE VOID START · GUIA</span></span></p>
+    <h1 class="art-h1" id="pergunta">Preciso saber desenhar para ser tatuador?</h1>
+    <p class="byline">
+      <span><svg class="ic ic-20" aria-hidden="true"><use href="#i-user-round"/></svg>Por <span class="ac">{{A_CONFIRMAR}}</span> <span class="pend" title="Pendência 13 da spec: quadro de professores e autorização de nome">[P 13]</span></span>
+      <span><svg class="ic ic-20" aria-hidden="true"><use href="#i-calendar-days"/></svg>Atualizado em <time datetime="2026-10-06">06/10/2026</time></span>
+      <span><svg class="ic ic-20" aria-hidden="true"><use href="#i-clock"/></svg>Leitura de 5 minutos</span>
+    </p>
+  </div>
+</header>
+
+<figure class="cinemascope" aria-labelledby="cs-leg">
+  <div class="quadro">
+    <div class="foto-slot" role="img" aria-label="Espaço reservado para foto real da escola, com autorização: mão do aluno sobre o estêncil, na bancada.">
+      <svg class="ic" aria-hidden="true"><use href="#i-images"/></svg>
+      <p class="cred credito">Foto real da escola, com autorização</p>
+      <p class="desc">Plano de mão: estêncil na pele artificial, luz de cima, biossegurança visível</p>
+    </div>
+  </div>
+  <figcaption id="cs-leg" class="credito">Foto: <span class="ac">{{A_CONFIRMAR}}</span> · The VOID Tattoo Academy</figcaption>
+</figure>
+
+<main class="corpo sem-leitura grao" id="conteudo">
+  <article class="coluna" aria-labelledby="pergunta">
+
+    <section class="resposta-direta" aria-label="Resposta direta">
+      <p class="credito">Resposta direta</p>
+      <p class="rd" id="resposta-direta">Não. Desenhar e tatuar são habilidades diferentes: o desenho cria a arte, e a tatuagem é a técnica de levar essa arte para a pele com controle de máquina, agulha e profundidade. A The VOID Tattoo Academy ensina essa técnica do zero no The VOID Start, inclusive o desenho necessário para tatuar.</p>
+    </section>
+
+    <p>A dúvida é das mais comuns entre quem pensa em começar, e quase sempre vem acompanhada de outra: “e se eu não tiver talento?”. Este guia separa as duas coisas, mostra o que se treina antes da primeira tatuagem em pele e explica em que momento o desenho passa a fazer diferença.</p>
+
+    <h2 id="diferenca">Qual é a diferença entre desenhar e tatuar?</h2>
+    <p>Desenhar é criar uma imagem no papel ou na tela, com liberdade para apagar e refazer. Tatuar é aplicar uma imagem na pele de outra pessoa, de forma permanente, com uma máquina que movimenta a agulha. Por isso a The VOID resume assim, na página da aula experimental: tatuar não é desenhar, é uma técnica nova.</p>
+    <p>Na prática, quem começa a tatuar treina três coisas que o desenho não ensina: firmeza da mão com a máquina ligada, profundidade da agulha na pele e protocolo de biossegurança.</p>
+
+    <dl class="glossario" aria-label="Termos deste guia">
+      <div><dt>Estêncil</dt><dd>O decalque do desenho transferido para a pele antes da agulha; é o guia do traço.</dd></div>
+      <div><dt>Pele artificial</dt><dd>Uma placa de material sintético em que o aluno treina antes de tatuar uma pessoa.</dd></div>
+      <div><dt>Biossegurança</dt><dd>O conjunto de cuidados que protege quem tatua e quem é tatuado, como luva, filme plástico e material de uso único.</dd></div>
+    </dl>
+    <p class="nota"><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-dashed"/></svg><span>Definições em revisão pelo time pedagógico da escola: <span class="ac">{{A_CONFIRMAR}}</span></span></p>
+
+    <aside class="na-trilha" aria-labelledby="na-trilha-t">
+      <div>
+        <p class="credito" id="na-trilha-t"><svg class="ic ic-16" aria-hidden="true"><use href="#i-route"/></svg>Onde isso fica na trilha</p>
+        <p class="frase">Esse assunto é ensinado no The VOID Start, no pilar Técnica.</p>
+        <p class="sub">O Start é a primeira das três formações da trilha da The VOID: Start, Master e Pro.</p>
+      </div>
+      <div class="mapa" data-vforms='{"forma":"mapa-trilha","ativa":"start","frases":false,"aria":"Trilha da The VOID: Start, Master e Pro. Este assunto fica no Start."}'></div>
+    </aside>
+
+    <h2 id="antes-da-pele">O que a formação ensina antes da primeira tatuagem em pele?</h2>
+    <p>No The VOID Start, o caminho até a pele humana é feito por etapas. Segundo a página da formação, o aluno começa pelos fundamentos, que incluem uma aula de biossegurança, treina 8 técnicas em pele artificial e só então faz 4 tatuagens em pele humana, em voluntários da rede de cadastrados da escola. A última etapa trata do mercado: portfólio, Instagram, precificação e primeiras vendas.</p>
+
+    <div class="tabela-wrap" tabindex="0" role="region" aria-labelledby="tab-etapas-c">
+      <table class="tabela">
+        <caption id="tab-etapas-c">As etapas do The VOID Start</caption>
+        <thead><tr><th scope="col">Etapa</th><th scope="col">O que o aluno faz</th><th scope="col">Situação do dado</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fundamentos</th><td data-rotulo="O que o aluno faz">Começa pela base do ofício e tem uma aula de biossegurança. Conteúdo detalhado da etapa: <span class="ac">{{A_CONFIRMAR}}</span></td><td class="sit" data-rotulo="Situação do dado">Dado público, em validação <span class="pend">[P 15]</span></td></tr>
+          <tr><th scope="row">Pele artificial</th><td data-rotulo="O que o aluno faz">Treina 8 técnicas em 6 aulas, antes de tatuar uma pessoa: Boldline, Fineline, Sculptline, Sombra, Rastelado, Pontilhismo, Preenchimento e Transição de Cor.</td><td class="sit" data-rotulo="Situação do dado">Dado público, em validação <span class="pend">[P 15]</span></td></tr>
+          <tr><th scope="row">Pele humana</th><td data-rotulo="O que o aluno faz">Faz 4 tatuagens em pele humana, em voluntários da rede da escola, com mais de 5.000 cadastrados. Como o professor acompanha essa etapa: <span class="ac">{{A_CONFIRMAR}}</span></td><td class="sit" data-rotulo="Situação do dado">Dado público, em validação <span class="pend">[P 15]</span></td></tr>
+          <tr><th scope="row">Mercado</th><td data-rotulo="O que o aluno faz">Trabalha portfólio, Instagram, precificação e primeiras vendas.</td><td class="sit" data-rotulo="Situação do dado">Dado público, em validação <span class="pend">[P 15]</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="regua" data-origem="em-validacao"><span class="origem" aria-hidden="true"></span><span><b>Em validação.</b> Etapas da formação Start · programa divulgado em 2026 · site oficial, consultado em 06/10/2026 · aguarda confirmação da escola</span></p>
+
+    <div class="dado" data-vviz='{"tipo":"numeral","valor":4,"mede":"tatuagens em pele humana previstas no The VOID Start","periodo":"programa divulgado em 2026","base":"formação Start","fonte":"site oficial, consultado em 06/10/2026","origem":"em-validacao"}'></div>
+
+    <section class="ficha" aria-labelledby="ficha-t">
+      <div class="topo-ficha">
+        <h3 id="ficha-t">The VOID Start em fatos</h3>
+        <span class="credito">Ficha de Fatos</span>
+      </div>
+      <dl>
+        <div><dt>Formato</dt><dd>Presencial, na escola</dd></div>
+        <div><dt>Duração</dt><dd>15 aulas em 2 meses <span class="pend" title="Pendência 15 da spec: dados de oferta">[P 15]</span></dd></div>
+        <div><dt>Próxima turma</dt><dd><span class="ac">{{A_CONFIRMAR}}</span> <span class="pend">[P 15]</span></dd></div>
+        <div><dt>Local</dt><dd>Rua Jericó, 217 · Vila Madalena · São Paulo, SP</dd></div>
+        <div><dt>Pré-requisitos</dt><dd>Não é preciso saber desenhar. Idade mínima: <span class="ac">{{A_CONFIRMAR}}</span> <span class="pend" title="Pendência 20 da spec: aceitação de menores">[P 20]</span></dd></div>
+        <div><dt>Certificado</dt><dd><span class="ac">{{A_CONFIRMAR}}</span> <span class="pend" title="Pendência 20 da spec: frase de curso livre">[P 20]</span></dd></div>
+      </dl>
+      <p class="rodape-ficha">Os mesmos dados da página do Start e da página de fatos da escola. Fonte: site oficial, consultado em 06/10/2026.</p>
+    </section>
+
+    <h2 id="desenho-importa">Então o desenho não importa para quem tatua?</h2>
+    <p>Importa, mas em outro momento. Na largada, o que decide é a técnica: mão firme, profundidade certa e protocolo seguido à risca. O desenho entra como ferramenta de criação e cresce junto com a prática, porque quem tatua todo dia também passa a desenhar todo dia.</p>
+    <p>Quem quer um estilo próprio costuma aprofundar o desenho depois, na fase de identidade artística. Na trilha da The VOID, essa fase é o The VOID Master, a formação para quem já tatua. E talento, aqui, é tratado como consequência de treino, não como pré-requisito.</p>
+
+    <figure class="foto">
+      <div class="quadro">
+        <div class="foto-slot" role="img" aria-label="Espaço reservado para foto real da escola, com autorização: professor ao lado do aluno na primeira tatuagem em pele.">
+          <svg class="ic" aria-hidden="true"><use href="#i-images"/></svg>
+          <p class="cred credito">Foto real da escola, com autorização</p>
+          <p class="desc">Primeira Pele: plano médio em três quartos, professor ao lado, biossegurança visível</p>
+          <code>the-void-start-primeira-pele-professor-aluno-aaaa-mm.webp</code>
+        </div>
+      </div>
+      <figcaption>Foto: <span class="ac">{{A_CONFIRMAR}}</span> · The VOID Tattoo Academy</figcaption>
+    </figure>
+
+    <section class="video" aria-labelledby="video-t">
+      <div class="capa" role="img" aria-label="Capa do vídeo, em produção">
+        <p class="credito"><svg class="ic ic-16" aria-hidden="true"><use href="#i-list-video"/></svg>Vídeo em produção · duração <span class="ac">{{A_CONFIRMAR}}</span></p>
+        <p class="h">Tatuar não é desenhar</p>
+        <span class="play" aria-hidden="true"><svg class="ic ic-20"><use href="#i-play"/></svg></span>
+      </div>
+      <div class="miolo">
+        <h3 id="video-t">Vídeo: a diferença entre desenhar e tatuar, na bancada</h3>
+        <p class="credito"><svg class="ic ic-16" aria-hidden="true"><use href="#i-list-video"/></svg>Capítulos</p>
+        <ol class="capitulos">
+          <li>O que o desenho resolve</li>
+          <li>O que só a máquina ensina</li>
+          <li>Do estêncil ao primeiro traço</li>
+        </ol>
+        <details class="transcricao">
+          <summary><svg class="ic ic-20" aria-hidden="true"><use href="#i-list-video"/></svg>Ler a transcrição</summary>
+          <p>Transcrição completa do vídeo, revisada, entra aqui em texto: <span class="ac">{{A_CONFIRMAR}}</span></p>
+        </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-t">
+      <h2 id="faq-t">O que mais as pessoas perguntam?</h2>
+      <div class="faq">
+        <div class="q"><h3><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-help"/></svg><span class="q-texto">Preciso saber desenhar para fazer o The VOID Start?</span></h3><p class="r">Não. Tatuar é uma técnica diferente de desenhar. O Start ensina do zero, inclusive o desenho necessário para tatuar.</p></div>
+        <div class="q"><h3><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-help"/></svg><span class="q-texto">Desenhar bem ajuda quem está aprendendo a tatuar?</span></h3><p class="r">Ajuda a criar arte própria, mas não é pré-requisito. A técnica de tatuar se aprende com prática, e o desenho evolui junto com ela.</p></div>
+        <div class="q"><h3><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-help"/></svg><span class="q-texto">O que eu treino antes de tatuar uma pessoa?</span></h3><p class="r">No The VOID Start, o aluno passa pelos fundamentos e pela biossegurança e treina 8 técnicas em pele artificial antes de fazer 4 tatuagens em pele humana, em voluntários da rede da escola.</p></div>
+        <div class="q"><h3><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-help"/></svg><span class="q-texto">Como saber se a tatuagem é para mim antes de escolher uma formação?</span></h3><p class="r">Fazendo a aula experimental da The VOID, na Vila Madalena, em São Paulo. Você conhece a sala, quem ensina e o caminho para começar. A aula é gratuita.</p></div>
+      </div>
+    </section>
+
+    <section class="autor" aria-labelledby="autor-t">
+      <div class="retrato" role="img" aria-label="Espaço reservado para retrato em preto e branco do professor, com autorização"><svg class="ic" aria-hidden="true"><use href="#i-user-round"/></svg></div>
+      <div>
+        <p class="credito">Quem escreveu</p>
+        <h3 id="autor-t"><span class="ac">{{A_CONFIRMAR}}</span></h3>
+        <p>Professor da The VOID Tattoo Academy · tatua há <span class="ac">{{A_CONFIRMAR}}</span> anos · estilo <span class="ac">{{A_CONFIRMAR}}</span> <span class="pend">[P 13]</span></p>
+        <p><a href="https://thevoidtattoo.com.br/professores/">Conheça os professores da The VOID</a></p>
+      </div>
+    </section>
+  </article>
+</main>
+
+<section class="fecho janela-luz grao" aria-labelledby="fecho-t">
+  <div class="coluna">
+    <p class="credito"><span data-vforms='{"forma":"marcador-estacao","rotulo":"Aula experimental"}'><span>AULA EXPERIMENTAL</span></span></p>
+    <h2 id="fecho-t">Talento é consequência de <em class="off">treino</em>.</h2>
+    <p class="apoio">A aula experimental da The VOID, na Vila Madalena, em São Paulo, é o jeito de ver a técnica de perto antes de escolher uma formação. A aula é gratuita.</p>
+    <a class="botao" href="https://thevoidtattoo.com.br/aula-experimental/" data-evento="clicar-cta"><span>Garantir minha vaga na aula</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="grade">
+      <div>
+        <img src="assets/brand/svg/void-horizontal-branco.svg" width="184" height="28" alt="The VOID Tattoo Academy">
+        <address>The VOID Tattoo Academy
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
++55 11 92481-8712</address>
+      </div>
+      <p class="legal">Razão social <span class="ac">{{A_CONFIRMAR}}</span> · CNPJ <span class="ac">{{A_CONFIRMAR}}</span> <span class="pend">[P 8]</span><br><a href="https://thevoidtattoo.com.br/privacidade/">Política de Privacidade</a></p>
+    </div>
+    <div class="assinatura" data-vforms="rodape"><p class="credito">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · PREENCHA O VAZIO</p></div>
+  </div>
+</footer>
+
+<aside class="painel" id="painel" aria-labelledby="painel-t">
+  <div class="wrap">
+    <h2 id="painel-t">Painel do modelo</h2>
+    <p>Visível só com ?painel=1. Some na publicação. Conferências feitas na hora, nesta página.</p>
+    <ul id="painel-lista"></ul>
+    <div class="acoes">
+      <a class="vazado" id="alterna-leitura" href="?painel=1&amp;leitura=1">Avaliar o corpo em Modo Leitura (P 2)</a>
+    </div>
+  </div>
+</aside>
+
+<script type="application/ld+json" id="jsonld-artigo">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#artigo",
+      "headline": "Preciso saber desenhar para ser tatuador?",
+      "description": "Não. Desenhar e tatuar são habilidades diferentes: o desenho cria a arte, e a tatuagem é a técnica de levar essa arte para a pele com controle de máquina, agulha e profundidade. A The VOID Tattoo Academy ensina essa técnica do zero no The VOID Start, inclusive o desenho necessário para tatuar.",
+      "author": {
+        "@id": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/#pessoa"
+      },
+      "publisher": {
+        "@id": "https://thevoidtattoo.com.br/#organizacao"
+      },
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-10-06",
+      "image": [
+        "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/og-preciso-saber-desenhar-1200x630.png"
+      ],
+      "inLanguage": "pt-BR",
+      "about": [
+        {
+          "@id": "https://thevoidtattoo.com.br/trilha/start/#curso"
+        },
+        {
+          "@type": "Thing",
+          "name": "aprender a tatuar"
+        }
+      ],
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "https://thevoidtattoo.com.br/trilha/start/",
+        "url": "https://thevoidtattoo.com.br/trilha/start/",
+        "name": "The VOID Start"
+      },
+      "mainEntityOfPage": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#trilha-de-navegacao",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://thevoidtattoo.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guia",
+          "item": "https://thevoidtattoo.com.br/guia/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Como ser tatuador",
+          "item": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Preciso saber desenhar?",
+          "item": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#perguntas",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Preciso saber desenhar para fazer o The VOID Start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Tatuar é uma técnica diferente de desenhar. O Start ensina do zero, inclusive o desenho necessário para tatuar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Desenhar bem ajuda quem está aprendendo a tatuar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ajuda a criar arte própria, mas não é pré-requisito. A técnica de tatuar se aprende com prática, e o desenho evolui junto com ela."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que eu treino antes de tatuar uma pessoa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No The VOID Start, o aluno passa pelos fundamentos e pela biossegurança e treina 8 técnicas em pele artificial antes de fazer 4 tatuagens em pele humana, em voluntários da rede da escola."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como saber se a tatuagem é para mim antes de escolher uma formação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fazendo a aula experimental da The VOID, na Vila Madalena, em São Paulo. Você conhece a sala, quem ensina e o caminho para começar. A aula é gratuita."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script src="vforms.js"></script>
+<script src="vviz.js"></script>
+<script>
+(function () {
+  'use strict';
+  var q = new URLSearchParams(location.search);
+  var corpo = document.querySelector('.corpo');
+
+  /* Até a aprovação da [P 2], o corpo sai em Sala com texto Cal (padrão).
+     ?leitura=1 mostra o Modo Leitura só para avaliação; não publicar assim antes da aprovação. */
+  if (q.get('leitura') === '1') {
+    corpo.classList.remove('sem-leitura');
+    corpo.classList.add('modo-leitura');
+    var alt = document.getElementById('alterna-leitura');
+    if (alt) { alt.textContent = 'Voltar ao corpo em Sala (padrão até a P 2)'; alt.href = '?painel=1'; }
+  }
+
+  /* conferências do modelo (expostas em window.ARTIGO para teste automático) */
+  function palavras(t) { return t.trim().split(/\s+/).filter(Boolean).length; }
+  function norm(t) { return t.replace(/\s+/g, ' ').trim(); }
+  function conferir() {
+    var r = {};
+    var rd = document.getElementById('resposta-direta').textContent;
+    r.respostaPalavras = palavras(rd);
+    r.respostaOk = r.respostaPalavras >= 40 && r.respostaPalavras <= 60;
+    var h1 = document.querySelector('h1').textContent.trim();
+    var h2s = Array.prototype.map.call(document.querySelectorAll('.corpo h2'), function (h) { return h.textContent.trim(); });
+    r.h1Pergunta = /\?$/.test(h1);
+    r.h2Pergunta = h2s.length > 0 && h2s.every(function (t) { return /\?$/.test(t); });
+    var ld = {};
+    try { ld = JSON.parse(document.getElementById('jsonld-artigo').textContent); r.jsonldOk = true; } catch (e) { r.jsonldOk = false; }
+    var g = ld['@graph'] || [];
+    var tipos = g.map(function (n) { return n['@type']; });
+    r.tipos = tipos;
+    r.tiposOk = ['Article', 'BreadcrumbList', 'FAQPage'].every(function (t) { return tipos.indexOf(t) >= 0; });
+    var faqLd = (g.filter(function (n) { return n['@type'] === 'FAQPage'; })[0] || {}).mainEntity || [];
+    var faqVis = Array.prototype.map.call(document.querySelectorAll('.faq .q'), function (el) {
+      return { q: norm(el.querySelector('.q-texto').textContent), r: norm(el.querySelector('.r').textContent) };
+    });
+    r.faqIgual = faqVis.length === faqLd.length && faqVis.every(function (v, i) {
+      return v.q === norm(faqLd[i].name) && v.r === norm(faqLd[i].acceptedAnswer.text);
+    });
+    var art = g.filter(function (n) { return n['@type'] === 'Article'; })[0] || {};
+    r.headlineIgual = norm(art.headline || '') === norm(h1);
+    r.descricaoIgual = norm(art.description || '') === norm(rd);
+    var bc = (g.filter(function (n) { return n['@type'] === 'BreadcrumbList'; })[0] || {}).itemListElement || [];
+    var bcVis = Array.prototype.map.call(document.querySelectorAll('.trilha-nav li'), function (li) { return norm(li.textContent); });
+    r.trilhaIgual = bc.length === bcVis.length && bc.every(function (b, i) { return norm(b.name) === bcVis[i]; });
+    r.isPartOf = art.isPartOf && art.isPartOf['@id'];
+    r.pendentes = (document.body.innerText.match(/\{\{A_CONFIRMAR\}\}/g) || []).length;
+    r.travessao = /[\u2013\u2014]/.test(document.body.innerText + document.title);
+    r.noindex = !!document.querySelector('meta[name="robots"][content*="noindex"]');
+    r.canonical = !!document.querySelector('link[rel="canonical"]');
+    r.modoLeitura = corpo.classList.contains('modo-leitura');
+    return r;
+  }
+
+  function item(ok, txt) {
+    var ic = ok === 'sim' ? 'circle-check' : ok === 'nao' ? 'circle-x' : 'triangle-alert';
+    var pal = ok === 'sim' ? 'Confirmado' : ok === 'nao' ? 'Não deu certo' : 'Atenção';
+    return '<li data-ok="' + ok + '"><svg class="ic ic-20" aria-hidden="true"><use href="#i-' + ic + '"/></svg><span><b>' + pal + ':</b> ' + txt + '</span></li>';
+  }
+  function painel() {
+    var r = conferir();
+    window.ARTIGO = r;
+    if (q.get('painel') !== '1') return;
+    var p = document.getElementById('painel');
+    p.classList.add('ligado');
+    var s = function (b) { return b ? 'sim' : 'nao'; };
+    document.getElementById('painel-lista').innerHTML =
+      item(s(r.respostaOk), 'Resposta Direta com ' + r.respostaPalavras + ' palavras (regra: 40 a 60).') +
+      item(s(r.h1Pergunta && r.h2Pergunta), 'H1 e todos os H2 do corpo em forma de pergunta.') +
+      item(s(r.jsonldOk && r.tiposOk), 'JSON-LD válido com Article, BreadcrumbList e FAQPage.') +
+      item(s(r.faqIgual), 'FAQ visível idêntico ao FAQPage do JSON-LD.') +
+      item(s(r.headlineIgual && r.descricaoIgual), 'headline igual ao H1 e description igual à Resposta Direta.') +
+      item(s(r.trilhaIgual), 'Trilha de navegação igual ao BreadcrumbList.') +
+      item(s(!!r.isPartOf), 'isPartOf aponta para ' + (r.isPartOf || 'nada') + '.') +
+      item(s(!r.travessao), 'Nenhum travessão no texto da página.') +
+      item(r.modoLeitura ? 'aviso' : 'sim', r.modoLeitura ? 'Corpo em Modo Leitura, só para avaliar a P 2. Até a aprovação, o artigo sai em Sala com texto Cal.' : 'Corpo em Sala com texto Cal, como manda a spec até a aprovação da P 2.') +
+      item('aviso', (r.noindex ? 'Modelo com noindex' : 'Modelo sem noindex') + (r.canonical ? ' e com canonical' : ' e sem canonical') + ': na publicação real, tirar o noindex e pôr o canonical da URL definitiva (domínio em validação, P 18).') +
+      item(r.pendentes ? 'aviso' : 'sim', r.pendentes + ' campos {{A_CONFIRMAR}} e um dado em validação: o artigo não é publicado até zerar.');
+  }
+
+  if (window.VForms) VForms.montar();
+  if (window.VViz && VViz.montar) VViz.montar();
+  painel();
+})();
+</script>
+</body>
+</html>

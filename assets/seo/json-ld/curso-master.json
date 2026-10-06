@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://thevoidtattoo.com.br/trilha/master/#curso",
+  "name": "The VOID Master",
+  "description": "Formação presencial para quem já tatua e quer descobrir a sua identidade artística, na Vila Madalena, em São Paulo.",
+  "url": "https://thevoidtattoo.com.br/trilha/master/",
+  "inLanguage": "pt-BR",
+  "provider": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "educationalLevel": "Intermediário",
+  "teaches": [
+    "{{A_CONFIRMAR}}"
+  ],
+  "coursePrerequisites": "{{A_CONFIRMAR}}",
+  "educationalCredentialAwarded": "{{A_CONFIRMAR}}",
+  "image": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-master-{{A_CONFIRMAR}}.webp",
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "price": "{{A_CONFIRMAR}}",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "https://thevoidtattoo.com.br/trilha/master/"
+  },
+  "hasCourseInstance": [
+    {
+      "@type": "CourseInstance",
+      "name": "Turma {{A_CONFIRMAR}}",
+      "courseMode": "Onsite",
+      "startDate": "{{A_CONFIRMAR}}",
+      "endDate": "{{A_CONFIRMAR}}",
+      "courseWorkload": "{{A_CONFIRMAR}}",
+      "courseSchedule": {
+        "@type": "Schedule",
+        "byDay": [
+          "{{A_CONFIRMAR}}"
+        ],
+        "startTime": "{{A_CONFIRMAR}}",
+        "endTime": "{{A_CONFIRMAR}}",
+        "repeatFrequency": "P1W"
+      },
+      "location": {
+        "@id": "https://thevoidtattoo.com.br/#organizacao"
+      },
+      "instructor": [
+        {
+          "@id": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/#pessoa"
+        }
+      ],
+      "maximumAttendeeCapacity": "{{A_CONFIRMAR}}"
+    }
+  ]
+}

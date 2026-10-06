@@ -1,0 +1,817 @@
+<!-- F3 · Cor (s13 a s16). Fonte normativa: especificação do sistema Sala Escura, seção 3. -->
+<style data-fragmento="f03">
+.f03-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f03-campo{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f03-campo-cor{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:var(--e-5);min-height:280px;padding:var(--e-6);background:var(--c);color:var(--ct);outline:1px solid var(--fio);outline-offset:-1px}
+.f03-campo-cor .titulo-secao{color:inherit;font-size:clamp(34px,4vw,56px)}
+.f03-campo-cor .credito{color:inherit;opacity:1}
+.f03-campo-txt{display:grid;gap:var(--e-3);padding:var(--e-5) var(--e-6) var(--e-6)}
+.f03-campo-txt p{font:400 var(--fs-apoio)/1.55 var(--font-texto);color:var(--cal)}
+.f03-hex{font:500 13px/1.4 var(--font-codigo);letter-spacing:.02em}
+.f03-chips{display:flex;flex-wrap:wrap;gap:var(--e-2)}
+.f03-chip{display:inline-flex;align-items:center;gap:8px;min-height:30px;padding:0 10px 0 4px;border:1px solid var(--fio);font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em;color:var(--cal);white-space:nowrap}
+.f03-chip i{display:inline-grid;place-items:center;width:22px;height:22px;background:var(--f);color:var(--t);font:800 12px/1 var(--font-letreiro);font-style:normal;outline:1px solid var(--fio);outline-offset:-1px}
+.f03-chip[data-n="cond"]{border-style:dashed}
+.f03-origem{display:inline-flex;align-items:center;gap:6px;margin-top:2px;font:500 11px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.1em;text-transform:uppercase;color:var(--po)}
+.modo-leitura .f03-origem{color:var(--ardosia)}
+@media (min-width:900px){.amostras.f03-a4{grid-template-columns:repeat(4,minmax(0,1fr))}.amostras.f03-a3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.f03-origem[data-tipo="pixel"]{color:var(--areia)}
+.f03-escada{display:grid;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f03-degrau{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--e-5);align-items:center;padding:var(--e-5) var(--e-6);border-top:1px solid var(--fio)}
+.f03-degrau:first-child{border-top:0}
+.f03-nivel{display:grid;gap:6px}
+.f03-nivel b{font:700 44px/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--c)}
+.f03-nivel span{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f03-amostra-t{color:var(--c);min-width:0}
+.f03-amostra-t.f03-g{font:800 clamp(28px,3.4vw,44px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase;letter-spacing:-.02em}
+.f03-amostra-t.f03-c{font:400 18px/1.65 var(--font-texto);max-width:60ch}
+.f03-amostra-t.f03-a{font:400 13px/1.45 var(--font-texto)}
+.f03-amostra-t.f03-x{font:400 15px/1.5 var(--font-texto)}
+.f03-amostra-t.f03-d{display:flex;align-items:center;gap:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.f03-amostra-t.f03-d i{flex:none;width:96px;height:4px;background:var(--penumbra)}
+.f03-prof{position:relative;padding:var(--e-6);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f03-prof > div{padding:var(--e-5);background:var(--bastidor)}
+.f03-prof > div > div{margin-top:var(--e-4);padding:var(--e-5);background:var(--coxia)}
+.f03-prof .rotulo{color:var(--po)}
+.f03-prof p:not(.rotulo){margin-top:var(--e-2);font:400 var(--fs-apoio)/1.5 var(--font-texto);color:var(--cal)}
+.f03-estados{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-4)}
+.f03-estado{display:grid;min-width:0;outline:1px solid var(--fio);outline-offset:-1px}
+.f03-estado > div{display:grid;gap:6px;padding:var(--e-4)}
+.f03-estado .f03-escuro{background:var(--sala);color:var(--e)}
+.f03-estado .f03-claro{background:var(--tela);color:var(--ec)}
+.f03-estado p{display:flex;align-items:center;gap:8px;font:700 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.1em;text-transform:uppercase}
+.f03-estado small{font:500 12px/1.3 var(--font-codigo);opacity:.9}
+.f03-veus{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--e-3)}
+.f03-veu{display:flex;flex-direction:column;min-width:0;background:var(--cinza-100)}
+.f03-foto{position:relative;min-height:240px;background:radial-gradient(70% 60% at 30% 25%,var(--branco) 0 38%,var(--cinza-100) 62%,var(--po) 100%)}
+.f03-foto::before{content:"";position:absolute;inset:22% 0 0;background:var(--sala);opacity:var(--a)}
+.f03-foto > *{position:relative}
+.f03-foto::after{content:"sem véu";position:absolute;left:var(--e-3);top:var(--e-2);font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--sala)}
+.f03-foto{display:flex;flex-direction:column;justify-content:flex-end;gap:var(--e-2);padding:var(--e-4)}
+.f03-foto .f03-vt{font:800 32px/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela)}
+.f03-foto .f03-vp{font:400 15px/1.4 var(--font-texto);color:var(--tela)}
+.f03-foto[data-ok="titulo"] .f03-vp,.f03-foto[data-ok="nao"] .f03-vp,.f03-foto[data-ok="nao"] .f03-vt{text-decoration:line-through;text-decoration-thickness:2px}
+.f03-veu-leg{display:grid;gap:4px;padding:var(--e-3) var(--e-4) var(--e-4);font:400 13px/1.45 var(--font-texto);color:var(--sala)}
+.f03-veu-leg b{font:700 22px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums}
+.f03-veu-leg code{color:var(--terracota-funda)}
+.f03-barra{display:flex;height:72px;outline:1px solid var(--fio);outline-offset:-1px}
+.f03-barra span{flex:0 0 var(--w);min-width:6px;background:var(--c)}
+.f03-barra .f03-foto-pb{background:repeating-linear-gradient(135deg,var(--chumbo) 0 6px,var(--penumbra) 6px 12px)}
+ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--e-4);margin-top:var(--e-4)}
+.f03-legenda-barra li{list-style:none;display:grid;gap:4px;padding-top:var(--e-3);border-top:2px solid var(--c);font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.f03-legenda-barra li b{font:700 32px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela)}
+.f03-tetos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-4)}
+.f03-teto{display:grid;align-content:start;gap:var(--e-3);padding:var(--e-5);background:var(--bastidor);min-width:0}
+.f03-teto .rotulo{min-height:2.5em;align-items:flex-start}
+.f03-teto b.f03-pct{font:700 56px/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela)}
+.f03-teto p{font:400 14px/1.5 var(--font-texto);color:var(--cal)}
+.f03-medidor{height:12px;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f03-medidor i{display:block;height:100%;width:var(--w);background:var(--c)}
+.f03-feed{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;max-width:420px}
+.f03-feed span{aspect-ratio:4/5;background:var(--bastidor)}
+.f03-feed span:nth-child(odd){background:var(--coxia)}
+.f03-feed .f03-cp{background:var(--campo-master)!important}
+.f03-feed .f03-cs{background:var(--campo-start)!important}
+.f03-carro{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;max-width:360px}
+.f03-carro span{aspect-ratio:4/5;background:var(--coxia)}
+.f03-produto{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--e-6);align-items:start}
+.f03-produto .titulo-secao{font-size:clamp(30px,3.6vw,48px);max-width:14ch}
+.f03-fio{height:3px;width:120px;margin:var(--e-5) 0;background:var(--estacao-grafismo)}
+.f03-mudou{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px var(--e-4);margin-top:var(--e-5);font:400 14px/1.45 var(--font-texto);color:var(--cal)}
+.f03-mudou dt{font:500 11px/1.9 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f03-palco-campo{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:var(--e-5);min-height:300px;padding:var(--e-6);background:var(--estacao-campo);color:var(--estacao-campo-texto);outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}
+.f03-palco-campo img{width:min(280px,70%);height:auto}
+.f03-palco-campo img.f03-selo{width:120px}
+.f03-tab table{min-width:1000px}.f03-tab thead th{white-space:normal}
+.f03-pagina-topo .credito{color:var(--po)}
+.f03-palco-campo .f03-pp{position:absolute;right:-.06em;bottom:-.12em;font:300 italic clamp(96px,12vw,160px)/.8 var(--font-off);font-variation-settings:"opsz" 72;text-transform:uppercase;opacity:.08;pointer-events:none}
+.f03-palco-campo .credito{color:inherit}
+.f03-faixa-pro{position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--ardosia)}
+.f03-cabeca{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:var(--e-4)}
+.f03-selo{width:120px;flex:none}
+.f03-mapa{margin-top:var(--e-5)}
+.f03-orb{margin-top:var(--e-4)}
+.f03-lp{display:grid;gap:3px;max-width:320px}
+.f03-lp span{display:flex;justify-content:space-between;gap:var(--e-3);padding:6px 10px;min-height:var(--h,28px);background:var(--sala);color:var(--cal);font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.1em;text-transform:uppercase}
+.f03-lp span[data-l]{background:var(--tela);color:var(--sala);outline:1px solid var(--fumaca);outline-offset:-1px}
+.f03-lp span em{font-style:normal;color:var(--po)}
+.f03-lp span[data-l] em{color:var(--ardosia)}
+.f03-lado{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f03-pagina{display:flex;flex-direction:column;min-width:0;outline:1px solid var(--fumaca);outline-offset:-1px}
+.f03-pagina-topo{padding:var(--e-5);background:var(--sala);color:var(--tela)}
+.f03-pagina-topo h4{font:600 26px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f03-pagina-corpo{flex:1;display:grid;align-content:start;gap:var(--e-4);padding:var(--e-5);background:var(--sala);color:var(--cal);font:400 17px/1.65 var(--font-texto)}
+.f03-pagina[data-modo="leitura"] .f03-pagina-corpo{background:var(--tela);color:var(--sala)}
+.f03-direta{padding-left:var(--e-4);border-left:3px solid var(--fumaca)}
+.f03-pagina[data-modo="leitura"] .f03-direta{border-left-color:var(--terracota-funda)}
+.f03-pagina[data-modo="leitura"] .f03-pagina-corpo a{color:var(--terracota-funda)}
+.f03-pagina-corpo a{color:var(--areia)}
+@media (max-width:1180px){.f03-estados,.f03-tetos{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-veus{grid-template-columns:repeat(3,minmax(0,1fr))}ul.f03-legenda-barra{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:899px){.f03-produto,.f03-lado,.f03-campos{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.f03-degrau{grid-template-columns:minmax(0,1fr);gap:var(--e-3);padding:var(--e-4)}.f03-veus{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-campo-cor{min-height:200px;padding:var(--e-5)}.f03-campo-txt{padding:var(--e-4) var(--e-5) var(--e-5)}.f03-prof{padding:var(--e-4)}}
+.f03-pares .par-legenda{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px}.f03-pares .par .copiar{margin-top:auto;align-self:flex-start}.f03-pares .par-legenda > :nth-last-child(2){margin-bottom:4px}
+@media (max-width:430px){.pares.f03-pares{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-3)}.f03-pares .par-amostra{min-height:104px;padding:var(--e-3)}.f03-pares .par-aa{font-size:40px}.f03-pares .par-linha{font-size:13px}.f03-pares .par-legenda{padding:var(--e-2) var(--e-3) var(--e-3)}.f03-pares .par-razao{font-size:22px}.f03-pares .par-nivel{white-space:normal;min-height:22px;padding:2px 6px;font-size:11px}.f03-feed{max-width:none}.f03-estados,.f03-tetos{grid-template-columns:minmax(0,1fr)}ul.f03-legenda-barra{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-veus{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-foto{min-height:180px;padding:var(--e-3)}.f03-barra{height:56px}.f03-palco-campo{padding:var(--e-5);min-height:240px}.f03-palco-campo img.f03-selo{width:96px}}
+</style>
+
+<!-- ============================== s13 ============================== -->
+<section class="sec" id="s13" data-parte="IV" data-nome="Paleta e papéis" aria-labelledby="s13-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>13</b> · Paleta e papéis</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">13</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Cor</p>
+        <h2 id="s13-t" class="titulo-secao">Uma sala, <em class="off">uma luz</em></h2>
+        <p class="sec-apoio">A paleta tem um nome por valor e um papel para cada nome. O escuro é o campo onde tudo acontece, a Tela é a luz que entra nele, e as terras e a terracota são a cor que a pessoa conquista quando entra numa formação.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Sala <code>#181818</code> é o campo da marca. Nanquim <code>#000000</code> é só logotipo, base do selo Pro e barra de vídeo, nunca campo de página.</li>
+        <li>No escuro, o texto tem quatro intensidades sólidas da Tela: Tela para título e botão, Cal para corpo longo, Pó para apoio e Fumaça para auxiliar de 14 px ou mais. Nada abaixo disso é texto.</li>
+        <li>Terracota Luz <code>#DE8C66</code> é a única terracota para texto pequeno no escuro. Os campos Start e Master só aparecem em peça de produto.</li>
+        <li>Estado sempre leva ícone e palavra. Os marrons amostrados por pixel do slide 27 continuam marcados até o arquivo de tokens do cliente chegar [P 4].</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s13-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.1</p>
+        <h3 class="fala">O campo e a luz</h3>
+        <p class="bloco-apoio">As duas cores que fazem a marca. Embaixo de cada campo estão os pares que já foram calculados para ele; o cálculo completo está na seção 14.</p>
+      </div>
+      <div class="f03-campos">
+        <figure class="f03-campo">
+          <div class="f03-campo-cor" style="--c:var(--sala);--ct:var(--tela)">
+            <p class="credito">Campo da marca</p>
+            <p class="titulo-secao">Sala</p>
+          </div>
+          <figcaption class="f03-campo-txt">
+            <p class="f03-hex"><b>#181818</b> · RGB 24 24 24 · <code>--sala</code></p>
+            <p>Site, landing page, post, story, VSL, área de membros, cabeçalho e rodapé de e-mail. No Modo Leitura vira a cor do texto. É o preto do slide 27 e da faixa do selo Pro, e por isso substitui o <code>#1A1A1A</code> antigo do Brand DNA.</p>
+            <div class="f03-chips" aria-label="Pares liberados sobre Sala">
+              <span class="f03-chip" style="--t:var(--tela);--f:var(--sala)"><i>A</i>Tela 16,78</span>
+              <span class="f03-chip" style="--t:var(--cal);--f:var(--sala)"><i>A</i>Cal 13,00</span>
+              <span class="f03-chip" style="--t:var(--areia);--f:var(--sala)"><i>A</i>Areia 10,59</span>
+              <span class="f03-chip" style="--t:var(--po);--f:var(--sala)"><i>A</i>Pó 8,61</span>
+              <span class="f03-chip" style="--t:var(--terracota-luz);--f:var(--sala)"><i>A</i>Terracota Luz 6,81</span>
+              <span class="f03-chip" data-n="cond" style="--t:var(--terracota);--f:var(--sala)"><i>A</i>Terracota 3,72 só grande</span>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="f03-campo">
+          <div class="f03-campo-cor" style="--c:var(--tela);--ct:var(--sala)">
+            <p class="credito">A luz e a página de leitura</p>
+            <p class="titulo-secao">Tela</p>
+          </div>
+          <figcaption class="f03-campo-txt">
+            <p class="f03-hex"><b>#F8F9F4</b> · RGB 248 249 244 · <code>--tela</code></p>
+            <p>A luz projetada: título, botão e número de prova no escuro. Vira campo só no Modo Leitura (seção 16), em artigo, e-mail, oferta e impresso. O Brand DNA a chama de respiro, nunca fundo principal de peça de marca.</p>
+            <div class="f03-chips" aria-label="Pares liberados sobre Tela">
+              <span class="f03-chip" style="--t:var(--sala);--f:var(--tela)"><i>A</i>Sala 16,78</span>
+              <span class="f03-chip" style="--t:var(--chumbo);--f:var(--tela)"><i>A</i>Chumbo 8,78</span>
+              <span class="f03-chip" style="--t:var(--ardosia);--f:var(--tela)"><i>A</i>Ardósia 8,22</span>
+              <span class="f03-chip" style="--t:var(--terracota-funda);--f:var(--tela)"><i>A</i>Terracota Funda 6,62</span>
+              <span class="f03-chip" style="--t:var(--penumbra);--f:var(--tela)"><i>A</i>Penumbra 6,05</span>
+              <span class="f03-chip" data-n="cond" style="--t:var(--terracota);--f:var(--tela)"><i>A</i>Terracota 4,51 título</span>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s13-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.2</p>
+        <h3 class="fala">Neutros: a sala e a luz</h3>
+        <p class="bloco-apoio">Quinze neutros, do preto do arquivo ao branco do arquivo. Clique no HEX para copiar. A etiqueta diz de onde o valor veio: vetor oficial, slide da Plataforma de Branding ou derivado pela GrowAI para completar a escala.</p>
+      </div>
+      <h4 class="intertitulo">O escuro, em ordem de elevação</h4>
+      <div class="amostras f03-a4">
+        <figure class="amostra-cor" data-token="nanquim"><span class="cor"></span><figcaption><b>Nanquim</b><code>#000000</code><span>Preto dos SVG do logotipo, base do selo Pro, barras de vídeo. Nunca campo de página.</span><span class="f03-origem">Vetor oficial</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="sala"><span class="cor"></span><figcaption><b>Sala</b><code>#181818</code><span>O campo da marca. Texto no Modo Leitura.</span><span class="f03-origem">Slide 27 e selo Pro</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="bastidor"><span class="cor"></span><figcaption><b>Bastidor</b><code>#212121</code><span>Cartão e painel sobre Sala, faixa alternada, Barra de Turma.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="coxia"><span class="cor"></span><figcaption><b>Coxia</b><code>#2B2B2B</code><span>Cartão ativo, campo de formulário escuro, disco de assentamento do selo Pro.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="fio"><span class="cor"></span><figcaption><b>Fio</b><code>#363636</code><span>Linha divisória no escuro. Só linha.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="chumbo"><span class="cor"></span><figcaption><b>Chumbo</b><code>#474747</code><span>Faixa inferior do selo Pro; texto forte no claro.</span><span class="f03-origem">Selo Pro</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="penumbra"><span class="cor"></span><figcaption><b>Penumbra</b><code>#5F5F5C</code><span>Legenda no Modo Leitura. No escuro, só decoração.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="ardosia"><span class="cor"></span><figcaption><b>Ardósia</b><code>#3F4E4F</code><span>Miolo do selo Pro, apoio no Modo Leitura, informação no claro. Nunca texto sobre Sala.</span><span class="f03-origem">Slide 27 e selo Pro</span></figcaption></figure>
+      </div>
+      <h4 class="intertitulo">A luz, em ordem de intensidade</h4>
+      <div class="amostras f03-a4">
+        <figure class="amostra-cor" data-token="fumaca"><span class="cor"></span><figcaption><b>Fumaça</b><code>#898989</code><span>Auxiliar de 14 px ou mais no escuro; borda de campo; linha no claro.</span><span class="f03-origem">Slide 27</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="po"><span class="cor"></span><figcaption><b>Pó</b><code>#B4B5B0</code><span>Apoio no escuro: Crédito de Prova, legenda, microcopy do botão.</span><span class="f03-origem">Derivado: Tela a 68%</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="nevoa"><span class="cor"></span><figcaption><b>Névoa</b><code>#C9D0D8</code><span>Acento frio do Pro no escuro; estado informativo no escuro.</span><span class="f03-origem">Slide 27</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="cal"><span class="cor"></span><figcaption><b>Cal</b><code>#DCDDD8</code><span>Corpo longo no escuro; botão pressionado.</span><span class="f03-origem">Derivado: Tela a 86%</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="cinza-100"><span class="cor"></span><figcaption><b>Cinza 100</b><code>#ECEDE7</code><span>Zebra e cabeçalho de tabela no Modo Leitura.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="tela"><span class="cor"></span><figcaption><b>Tela</b><code>#F8F9F4</code><span>A luz: título e botão no escuro; campo do Modo Leitura.</span><span class="f03-origem">Slide 27 e Brand DNA</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="branco"><span class="cor"></span><figcaption><b>Branco</b><code>#FFFFFF</code><span>Só o logotipo branco oficial e as linhas dos selos.</span><span class="f03-origem">Vetor oficial</span></figcaption></figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s13-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.3</p>
+        <h3 class="fala">A hierarquia de luz no escuro</h3>
+        <p class="bloco-apoio">Em vez de cinzas soltos ou transparências, quatro intensidades sólidas da Tela. Por serem opacas, funcionam igual em e-mail, PDF e vídeo. O número grande é quanto da Tela cada uma carrega; a razão é o contraste sobre Sala.</p>
+      </div>
+      <div class="f03-escada">
+        <div class="f03-degrau" style="--c:var(--tela)"><p class="f03-nivel"><b>100</b><span>Tela · 16,78:1</span></p><p class="f03-amostra-t f03-g">Título e botão</p></div>
+        <div class="f03-degrau" style="--c:var(--cal)"><p class="f03-nivel"><b>86</b><span>Cal · 13,00:1</span></p><p class="f03-amostra-t f03-c">Corpo longo. Texto claro de leitura demorada cansa a vista quando é branco puro sobre preto; a Cal baixa o brilho sem perder a nitidez e ainda passa de 13 para 1.</p></div>
+        <div class="f03-degrau" style="--c:var(--po)"><p class="f03-nivel"><b>68</b><span>Pó · 8,61:1</span></p><p class="f03-amostra-t f03-a">Apoio, legenda, Crédito de Prova e rodapé, a partir de 13 px.</p></div>
+        <div class="f03-degrau" style="--c:var(--fumaca)"><p class="f03-nivel"><b>55</b><span>Fumaça · 5,08:1</span></p><p class="f03-amostra-t f03-x">Texto auxiliar de 14 px ou mais. Abaixo de 14 px, use Pó.</p></div>
+        <div class="f03-degrau" style="--c:var(--penumbra)"><p class="f03-nivel"><b>&lt;55</b><span>Penumbra · 2,77:1</span></p><p class="f03-amostra-t f03-d"><i aria-hidden="true"></i>Daqui para baixo não é texto: só linha, número decorativo e grafismo.</p></div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s13-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.4</p>
+        <h3 class="fala">Profundidade por tom, nunca por sombra</h3>
+        <p class="bloco-apoio">O sistema não usa sombra decorativa (L7). Uma superfície sobe sobre a outra trocando de tom: Sala, depois Bastidor, depois Coxia. Fio separa quando o tom não basta.</p>
+      </div>
+      <div class="grade-2">
+        <div class="f03-prof" aria-label="Três níveis de elevação por tom">
+          <p class="rotulo">Sala · campo</p>
+          <div>
+            <p class="rotulo">Bastidor · cartão</p>
+            <p>Cartão de aula, painel, Barra de Turma, faixa alternada de seção.</p>
+            <div>
+              <p class="rotulo">Coxia · ativo</p>
+              <p>Cartão selecionado, campo de formulário, disco do selo Pro.</p>
+            </div>
+          </div>
+        </div>
+        <div class="texto">
+          <p>A escala tem três degraus e para aí. Um quarto degrau mais claro começaria a parecer cinza de interface genérica e quebraria a L4 (o preto é a sala).</p>
+          <p>Formulário escuro: campo em Coxia com borda Fumaça de 1 px (5,08:1), raio zero, rótulo visível acima. O foco é o anel Areia de 2 px afastado 3 px; no claro, Sala.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s13-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.5</p>
+        <h3 class="fala">Quentes: terracota e terras</h3>
+        <p class="bloco-apoio">A família da terracota vem do selo Master; a das terras vem do selo Start e dos marrons do slide 27. A etiqueta em areia marca os valores amostrados por pixel, que dependem do arquivo de tokens do cliente para virar definitivos.</p>
+      </div>
+      <h4 class="intertitulo">Terracota</h4>
+      <div class="amostras">
+        <figure class="amostra-cor" data-token="terracota"><span class="cor"></span><figcaption><b>Terracota</b><code>#B25A32</code><span>Acento quente da marca; base do selo Master; grafismo e título grande do Master.</span><span class="f03-origem">Slide 27 e selo Master</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="terracota-viva"><span class="cor"></span><figcaption><b>Terracota Viva</b><code>#C46039</code><span>Faixa inferior do selo Master; alta luz do duotom Master; palavra de título grande.</span><span class="f03-origem">Selo Master</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="terracota-funda"><span class="cor"></span><figcaption><b>Terracota Funda</b><code>#8C4529</code><span>Faixa superior do selo Master; link e filete no Modo Leitura.</span><span class="f03-origem">Selo Master</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="terracota-luz"><span class="cor"></span><figcaption><b>Terracota Luz</b><code>#DE8C66</code><span>A única terracota de texto pequeno no escuro: link, rótulo, destaque do Master.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="terracota-noite"><span class="cor"></span><figcaption><b>Terracota Noite</b><code>#4A2416</code><span>Cartela opcional do Master: campo escuro quente.</span><span class="f03-origem">Derivado</span></figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Terras</h4>
+      <div class="amostras f03-a3">
+        <figure class="amostra-cor" data-token="areia"><span class="cor"></span><figcaption><b>Areia</b><code>#DBC5A3</code><span>Luz quente de texto no escuro (Start e institucional), palavra de destaque, anel de foco.</span><span class="f03-origem" data-tipo="pixel">Slide 27 por pixel · P 4</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="caramelo"><span class="cor"></span><figcaption><b>Caramelo</b><code>#AE8A64</code><span>Grafismo do Start sobre Sala e sobre Coxia; destaque grande.</span><span class="f03-origem" data-tipo="pixel">Slide 27 por pixel · P 4</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="ouro-velho"><span class="cor"></span><figcaption><b>Ouro Velho</b><code>#93693B</code><span>Base do selo Start; grafismo, barra de progresso e seta do botão do Start.</span><span class="f03-origem">Selo Start</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="ouro-fundo"><span class="cor"></span><figcaption><b>Ouro Fundo</b><code>#734120</code><span>Faixa superior do selo Start; texto do Start no Modo Leitura.</span><span class="f03-origem">Selo Start</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="couro"><span class="cor"></span><figcaption><b>Couro</b><code>#6C4327</code><span>Superfície quente secundária: cartão do Start em documento.</span><span class="f03-origem" data-tipo="pixel">Slide 27 por pixel · P 4</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="cafe"><span class="cor"></span><figcaption><b>Café</b><code>#412919</code><span>Sombra do duotom Start; cartela escura do Start.</span><span class="f03-origem" data-tipo="pixel">Slide 27 por pixel · P 4</span></figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Campos de produto e cor de apoio de imagem</h4>
+      <div class="amostras f03-a3">
+        <figure class="amostra-cor" data-token="campo-start"><span class="cor"></span><figcaption><b>Campo Start</b><code>#B5966B</code><span>Campo da peça de Start. Texto em Sala; logotipo branco oficial, como no slide 31.</span><span class="f03-origem" data-tipo="pixel">Slide 31 por pixel · P 4</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="campo-master"><span class="cor"></span><figcaption><b>Campo Master</b><code>#76432B</code><span>Campo da peça de Master. Texto em Tela; logotipo branco oficial.</span><span class="f03-origem" data-tipo="pixel">Slide 31 por pixel · P 4</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="duotom-master-sombra"><span class="cor"></span><figcaption><b>Sombra do duotom Master</b><code>#21130C</code><span>Só dentro de imagem tratada em duotom. Não é cor de interface.</span><span class="f03-origem" data-tipo="pixel">Slide 35 por pixel</span></figcaption></figure>
+      </div>
+      <p class="pendencia" data-p="4">[P 4] Arquivo de tokens e instruções do design system do cliente, com a confirmação dos marrons do slide 27 e dos campos do slide 31. No slide 27, os quatro marrons aparecem rotulados como <code>#181818</code> por erro; até o arquivo chegar, valem os valores lidos por pixel mostrados aqui.</p>
+    </div>
+
+    <div class="bloco" id="s13-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.6</p>
+        <h3 class="fala">Estados: cor, ícone e palavra</h3>
+        <p class="bloco-apoio">Os estados usam tons terrosos, em versão para o escuro e para o claro. A cor nunca trabalha sozinha: o ícone Lucide e a palavra vão junto, sempre. Erro nunca é usado como urgência.</p>
+      </div>
+      <div class="f03-estados">
+        <div class="f03-estado" style="--e:var(--sucesso);--ec:var(--sucesso-claro)">
+          <div class="f03-escuro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg>Validado</p><small>Musgo Luz #9DB79B · 8,19</small></div>
+          <div class="f03-claro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg>Confirmado</p><small>Musgo #3E6A4B · 5,89</small></div>
+        </div>
+        <div class="f03-estado" style="--e:var(--atencao);--ec:var(--atencao-claro)">
+          <div class="f03-escuro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Atenção</p><small>Areia #DBC5A3 · 10,59</small></div>
+          <div class="f03-claro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Falta um passo</p><small>Âmbar Fundo #7A5418 · 6,38</small></div>
+        </div>
+        <div class="f03-estado" style="--e:var(--erro);--ec:var(--erro-claro)">
+          <div class="f03-escuro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não deu certo</p><small>Ferrugem Luz #EF8A80 · 7,29</small></div>
+          <div class="f03-claro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não deu certo</p><small>Ferrugem #A8322C · 6,29</small></div>
+        </div>
+        <div class="f03-estado" style="--e:var(--info);--ec:var(--info-claro)">
+          <div class="f03-escuro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Para saber</p><small>Névoa #C9D0D8 · 11,41</small></div>
+          <div class="f03-claro"><p><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Para saber</p><small>Ardósia #3F4E4F · 8,22</small></div>
+        </div>
+      </div>
+      <p class="nota">Ao lado do erro vem sempre o que fazer ("Não deu certo. Confira o número do WhatsApp com DDD."). Em página do Pro, onde a Névoa também é o acento, o estado informativo nunca aparece sem o ícone <code>info</code> e a palavra. A razão de cada estado é contra Sala (escuro) e contra Tela (claro).</p>
+    </div>
+
+    <div class="bloco" id="s13-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">13.7</p>
+        <h3 class="fala">O que sai da paleta</h3>
+        <p class="bloco-apoio">Cores de materiais anteriores ao sistema que não voltam. Nenhuma ganha amostra aqui, de propósito: a lista existe para ser reconhecida e retirada.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Fora do sistema</caption>
+          <thead><tr><th scope="col">O que sai</th><th scope="col">De onde vem</th><th scope="col">No lugar</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Verde de botão e vermelho saturado de faixa de urgência</th><td>Peças de venda anteriores ao sistema</td><td>Botão Letreiro Aceso em Tela; Barra de Turma em Bastidor, ligada ao calendário</td></tr>
+            <tr><th scope="row">Âmbar de capa de vídeo</th><td>Capas anteriores ao sistema</td><td>Areia</td></tr>
+            <tr><th scope="row">Rosa, magenta e ciano</th><td>Marca antiga</td><td>Paleta terrosa desta seção</td></tr>
+            <tr><th scope="row">Laranja, verde, lilás e gradiente</th><td>Deck da agência</td><td>Nada: são cores de apresentação, não da marca</td></tr>
+            <tr><th scope="row">Gradiente bege para cobre nos botões</th><td>Peças anteriores ao sistema</td><td>Botão reto em Tela</td></tr>
+            <tr><th scope="row">Verde do WhatsApp como cor de interface</th><td>Botão flutuante</td><td>Círculo Sala com fio e glifo em Tela</td></tr>
+            <tr><th scope="row">Logotipo em ocre ou cinza</th><td>Assinaturas antigas</td><td>Só preto e branco oficiais; o cinza entra como Eco do VOID</td></tr>
+            <tr><th scope="row">Qualquer gradiente de cor</th><td>Diversos</td><td>Só gradientes de luz: Janela de Luz, Véu e Esfera</td></tr>
+            <tr><th scope="row">Estados em rosa ou azul</th><td>Propostas anteriores do sistema</td><td>Estados terrosos do bloco 13.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.1, 3.2, 3.7, 7.3 e 16); Plataforma de Branding, aureadesign, 2025 (slides 27, 31 e 35); vetores oficiais dos selos e do logotipo; Brand DNA da The VOID, set/2026 (seção 9).</p>
+  </div>
+</section>
+
+<!-- ============================== s14 ============================== -->
+<section class="sec modo-leitura" id="s14" data-parte="IV" data-nome="Contraste calculado" aria-labelledby="s14-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>14</b> · Contraste calculado</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">14</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Cor</p>
+        <h2 id="s14-t" class="titulo-secao">AA ou <em class="off">não sai</em></h2>
+        <p class="sec-apoio">Cada par de texto e fundo foi calculado por script, pela fórmula de contraste das diretrizes de acessibilidade para a web (WCAG 2). Par que não está nesta seção não é usado até ser calculado e acrescentado.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Texto comum precisa de 4,5 para 1. O limite de 3 para 1 só vale para texto de 24 px ou mais, ou 19 px em peso 700 (L3).</li>
+        <li>Três listas: liberados para qualquer texto, liberados com condição e proibidos como texto. Cada cartão recalcula a razão na página e tem botão para copiar o par.</li>
+        <li>Texto sobre foto usa o Véu de Leitura, calculado sobre o pior pixel possível, o branco puro. Padrão 70%; mínimo 62% sob texto abaixo de 24 px.</li>
+        <li>Logotipo e selos são isentos do critério de texto, por isso o logotipo branco continua sobre o Campo Start.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s14-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">14.1</p>
+        <h3 class="fala">Como ler um par</h3>
+        <p class="bloco-apoio">O "Aa" está na cor do texto sobre a cor do fundo. A razão vem com vírgula; o selo diz o nível. Se a razão escrita e a calculada pela página diferirem em mais de 0,01, o cartão ganha moldura tracejada e um aviso.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Níveis usados neste manual</caption>
+          <thead><tr><th scope="col">Nível</th><th scope="col">Razão</th><th scope="col">O que pode</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">AAA</th><td>7 para 1 ou mais</td><td>Qualquer texto, inclusive corpo longo e legenda de 13 px</td></tr>
+            <tr><th scope="row">AA</th><td>4,5 a 6,99 para 1</td><td>Qualquer texto, respeitando a nota de uso do par (Fumaça só de 14 px para cima, por decisão de marca)</td></tr>
+            <tr><th scope="row">Com condição</th><td>3 a 4,49 para 1, ou no limite e restrito pela marca</td><td>Só texto grande, numeral, grafismo ou ícone, como diz cada cartão</td></tr>
+            <tr><th scope="row">Proibido como texto</th><td>Abaixo de 3 para 1, ou vetado</td><td>Só linha, campo ou decoração</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s14-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">14.2</p>
+        <h3 class="fala">Liberados para qualquer texto</h3>
+        <p class="bloco-apoio">Quarenta pares com 4,5 para 1 ou mais, agrupados pelo fundo. Use sem consultar ninguém; a nota de uso, quando existe, diz para que o par foi pensado.</p>
+      </div>
+      <h4 class="intertitulo">Sobre o escuro: Nanquim, Sala, Bastidor e Coxia</h4>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="tela" data-fundo="nanquim" data-razao="19.85" data-nivel="AAA" data-condicao="Barras de vídeo e fundo de logotipo em arquivo.">Aa</div>
+        <div class="par" data-texto="branco" data-fundo="sala" data-razao="17.76" data-nivel="AAA" data-condicao="Logotipo e linhas do selo.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="sala" data-razao="16.78" data-nivel="AAA" data-condicao="Título, botão, número de prova.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="bastidor" data-razao="15.22" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="coxia" data-razao="13.38" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="cal" data-fundo="sala" data-razao="13.00" data-nivel="AAA" data-condicao="Corpo longo no escuro.">Aa</div>
+        <div class="par" data-texto="cal" data-fundo="bastidor" data-razao="11.79" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="nevoa" data-fundo="sala" data-razao="11.41" data-nivel="AAA" data-condicao="Acento do Pro e estado informativo.">Aa</div>
+        <div class="par" data-texto="areia" data-fundo="sala" data-razao="10.59" data-nivel="AAA" data-condicao="Destaque do Start e do institucional.">Aa</div>
+        <div class="par" data-texto="areia" data-fundo="bastidor" data-razao="9.61" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="po" data-fundo="sala" data-razao="8.61" data-nivel="AAA" data-condicao="Apoio, legenda, Crédito de Prova.">Aa</div>
+        <div class="par" data-texto="sucesso" data-fundo="sala" data-razao="8.19" data-nivel="AAA" data-condicao="Estado, com ícone e palavra.">Aa</div>
+        <div class="par" data-texto="po" data-fundo="bastidor" data-razao="7.80" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="erro" data-fundo="sala" data-razao="7.29" data-nivel="AAA" data-condicao="Estado, com ícone e palavra.">Aa</div>
+        <div class="par" data-texto="po" data-fundo="coxia" data-razao="6.86" data-nivel="AA">Aa</div>
+        <div class="par" data-texto="terracota-luz" data-fundo="sala" data-razao="6.81" data-nivel="AA" data-condicao="Destaque do Master em texto pequeno.">Aa</div>
+        <div class="par" data-texto="terracota-luz" data-fundo="bastidor" data-razao="6.17" data-nivel="AA">Aa</div>
+        <div class="par" data-texto="caramelo" data-fundo="sala" data-razao="5.60" data-nivel="AA" data-condicao="Destaque do Start sobre Sala.">Aa</div>
+        <div class="par" data-texto="fumaca" data-fundo="sala" data-razao="5.08" data-nivel="AA" data-condicao="Só texto de 14 px ou mais (decisão de marca).">Aa</div>
+      </div>
+      <h4 class="intertitulo">Sobre o claro: Tela, Cinza 100, Névoa e Areia</h4>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="sala" data-fundo="tela" data-razao="16.78" data-nivel="AAA" data-condicao="Corpo no Modo Leitura; botão no claro.">Aa</div>
+        <div class="par" data-texto="sala" data-fundo="cinza-100" data-razao="15.08" data-nivel="AAA" data-condicao="Zebra do Modo Leitura.">Aa</div>
+        <div class="par" data-texto="sala" data-fundo="nevoa" data-razao="11.41" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="sala" data-fundo="areia" data-razao="10.59" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="chumbo" data-fundo="tela" data-razao="8.78" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="ardosia" data-fundo="tela" data-razao="8.22" data-nivel="AAA" data-condicao="Apoio no Modo Leitura.">Aa</div>
+        <div class="par" data-texto="terracota-funda" data-fundo="tela" data-razao="6.62" data-nivel="AA" data-condicao="Link e filete no claro.">Aa</div>
+        <div class="par" data-texto="atencao-claro" data-fundo="tela" data-razao="6.38" data-nivel="AA" data-condicao="Estado, com ícone e palavra.">Aa</div>
+        <div class="par" data-texto="erro-claro" data-fundo="tela" data-razao="6.29" data-nivel="AA" data-condicao="Estado, com ícone e palavra.">Aa</div>
+        <div class="par" data-texto="penumbra" data-fundo="tela" data-razao="6.05" data-nivel="AA" data-condicao="Legenda no Modo Leitura.">Aa</div>
+        <div class="par" data-texto="sucesso-claro" data-fundo="tela" data-razao="5.89" data-nivel="AA" data-condicao="Estado, com ícone e palavra.">Aa</div>
+      </div>
+      <h4 class="intertitulo">Sobre os campos quentes</h4>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="tela" data-fundo="cafe" data-razao="12.76" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="terracota-noite" data-razao="12.76" data-nivel="AAA" data-condicao="Cartela opcional do Master.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="couro" data-razao="8.04" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="ouro-fundo" data-razao="7.92" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="campo-master" data-razao="7.61" data-nivel="AAA" data-condicao="Texto no Campo Master.">Aa</div>
+        <div class="par" data-texto="sala" data-fundo="campo-start" data-razao="6.38" data-nivel="AA" data-condicao="Texto no Campo Start.">Aa</div>
+      </div>
+      <h4 class="intertitulo">Sobre foto com Véu de Leitura</h4>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="tela" data-fundo="veu-75" data-razao="7.39" data-nivel="AAA" data-condicao="Caixa de legenda de vídeo.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="veu-70" data-razao="6.22" data-nivel="AA" data-condicao="Véu padrão.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="veu-62" data-razao="4.68" data-nivel="AA" data-condicao="Mínimo sob qualquer texto abaixo de 24 px.">Aa</div>
+        <div class="par" data-texto="areia" data-fundo="veu-75" data-razao="4.66" data-nivel="AA" data-condicao="Palavra de destaque na legenda de vídeo.">Aa</div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s14-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">14.3</p>
+        <h3 class="fala">Liberados com condição</h3>
+        <p class="bloco-apoio">Abaixo de 4,5 para 1, ou no limite e restritos por decisão de marca. Só valem no tamanho e no uso escritos em cada cartão; fora disso, contam como proibidos.</p>
+      </div>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="tela" data-fundo="ouro-velho" data-razao="4.59" data-nivel="condicionado" data-condicao="Só 19 px em 700, ou 24 px ou mais.">Aa</div>
+        <div class="par" data-texto="ouro-velho" data-fundo="tela" data-razao="4.59" data-nivel="condicionado" data-condicao="Título ou rótulo em 600 ou mais, nunca corpo.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="terracota" data-razao="4.51" data-nivel="condicionado" data-condicao="Só 19 px em 700, ou 24 px ou mais.">Aa</div>
+        <div class="par" data-texto="terracota" data-fundo="tela" data-razao="4.51" data-nivel="condicionado" data-condicao="Título e numeral, nunca corpo.">Aa</div>
+        <div class="par" data-texto="terracota-viva" data-fundo="sala" data-razao="4.29" data-nivel="condicionado" data-condicao="Só texto grande e ícone.">Aa</div>
+        <div class="par" data-texto="areia" data-fundo="veu-70" data-razao="3.93" data-nivel="condicionado" data-condicao="Só palavra de destaque em título de 24 px ou mais.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="veu-55" data-razao="3.73" data-nivel="condicionado" data-condicao="Só título de 24 px ou mais.">Aa</div>
+        <div class="par" data-texto="terracota" data-fundo="sala" data-razao="3.72" data-nivel="condicionado" data-condicao="Só título de 24 px ou mais, numeral e grafismo.">Aa</div>
+        <div class="par" data-texto="ouro-velho" data-fundo="sala" data-razao="3.66" data-nivel="condicionado" data-condicao="Só grafismo e texto de 24 px ou mais.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="veu-48" data-razao="3.02" data-nivel="condicionado" data-condicao="Só título de 32 px ou mais, sobre região da foto já escura e com amostragem conferida.">Aa</div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s14-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">14.4</p>
+        <h3 class="fala">Proibidos como texto</h3>
+        <p class="bloco-apoio">Estas cores convivem, mas não como texto sobre este fundo. O cartão diz o único uso permitido da combinação.</p>
+      </div>
+      <div class="pares f03-pares">
+        <div class="par" data-texto="fumaca" data-fundo="tela" data-razao="3.31" data-nivel="proibido" data-condicao="Só linha e divisória no claro.">Aa</div>
+        <div class="par" data-texto="caramelo" data-fundo="tela" data-razao="3.00" data-nivel="proibido" data-condicao="Só campo.">Aa</div>
+        <div class="par" data-texto="penumbra" data-fundo="sala" data-razao="2.77" data-nivel="proibido" data-condicao="Decoração.">Aa</div>
+        <div class="par" data-texto="tela" data-fundo="campo-start" data-razao="2.63" data-nivel="proibido" data-condicao="No Campo Start o texto é Sala.">Aa</div>
+        <div class="par" data-texto="ardosia" data-fundo="sala" data-razao="2.04" data-nivel="proibido" data-condicao="Só campo e miolo do selo.">Aa</div>
+        <div class="par" data-texto="chumbo" data-fundo="sala" data-razao="1.91" data-nivel="proibido" data-condicao="Só fio decorativo.">Aa</div>
+        <div class="par" data-texto="fio" data-fundo="sala" data-razao="1.47" data-nivel="proibido" data-condicao="Só linha.">Aa</div>
+        <div class="par" data-texto="coxia" data-fundo="sala" data-razao="1.25" data-nivel="proibido" data-condicao="Superfície: disco do selo Pro.">Aa</div>
+        <div class="par" data-texto="nanquim" data-fundo="sala" data-razao="1.18" data-nivel="proibido" data-condicao="A base do selo Pro some na Sala: o selo simples vai sobre o disco Coxia.">Aa</div>
+      </div>
+      <p class="nota">O par Tela sobre véu de 48% (3,02) aparece na lista com condição e vale como proibido para qualquer texto abaixo de 24 px. Logotipo e selos são isentos do critério de contraste de texto (as diretrizes excluem logotipos), por isso o logotipo branco oficial continua sobre o Campo Start, como no slide 31.</p>
+    </div>
+
+    <div class="bloco" id="s14-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">14.5</p>
+        <h3 class="fala">O véu sobre a foto mais clara possível</h3>
+        <p class="bloco-apoio">Texto sobre foto é conferido no pior pixel sob o texto. Como a foto pode ter uma área estourada, o cálculo usa branco puro e mistura a Sala por cima na opacidade do véu. Abaixo, a mesma área clara com os cinco véus da tabela.</p>
+      </div>
+      <div class="f03-veus">
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.48" data-ok="titulo"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>48% · 3,02</b><code>#909090</code><span>Só título de 32 px ou mais, sobre região já escura.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.55" data-ok="titulo"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>55% · 3,73</b><code>#808080</code><span>Só título de 24 px ou mais.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.62"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>62% · 4,68</b><code>#707070</code><span>Mínimo sob texto abaixo de 24 px.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.70"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>70% · 6,22</b><code>#5D5D5D</code><span>Padrão de todo véu.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.75"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>75% · 7,39</b><code>#525252</code><span>Caixa de legenda de vídeo.</span></figcaption></figure>
+      </div>
+      <p class="legenda">Simulação do pior caso: área de foto com branco estourado, no lugar da foto real da escola, com autorização. O texto riscado está abaixo do mínimo para aquele tamanho. O HEX é a cor que resulta sob o véu quando o pixel da foto é branco puro.</p>
+      <div class="grade-2">
+        <div class="texto">
+          <h4 class="intertitulo">A conta</h4>
+          <p>Cor sob o véu = Sala × opacidade + Branco × (1 menos opacidade), canal por canal. No véu de 70%: 24 × 0,70 + 255 × 0,30 = 93, ou <code>#5D5D5D</code>, que dá 6,22 para 1 com Tela por cima.</p>
+          <p>Antes de publicar, amostre o pixel mais claro debaixo do texto (a ferramenta está no kit de redes) e confira a razão nesta seção. O véu é localizado: degradê do lado do texto, para o rosto e a mão continuarem vivos.</p>
+        </div>
+        <pre class="codigo" data-rotulo="CSS"><code>--veu:rgb(24 24 24 / .70);
+.veu-esquerda{background:linear-gradient(90deg,
+  rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,
+  rgb(24 24 24 / 0) 72%)}
+.veu-base{background:linear-gradient(0deg,
+  rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 38%,
+  rgb(24 24 24 / 0) 70%)}</code></pre>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2 L3, 3.4 e 6.5); cálculo de contraste da especificação, 06/10/2026, pela fórmula de luminância relativa das diretrizes WCAG 2; Plataforma de Branding, aureadesign, 2025 (slide 31).</p>
+  </div>
+</section>
+
+<!-- ============================== s15 ============================== -->
+<section class="sec" id="s15" data-parte="IV" data-nome="Orçamento de área e regra por produto" aria-labelledby="s15-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>15</b> · Orçamento de área e regra por produto</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">15</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Cor</p>
+        <h2 id="s15-t" class="titulo-secao">A cor se <em class="off">conquista</em></h2>
+        <p class="sec-apoio">A cor é medida em área, no mês e em cada peça, e muda de produto com um único atributo. O topo do funil é monocromático; a cor da formação aparece quando a pessoa chega perto dela.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>No mês, o escuro e a fotografia P&amp;B somam 77% da área; terracota e Areia como acento ficam em 1%.</li>
+        <li>Numa peça isolada: institucional até 5% de Terracota ou Areia, Start e Master até 12% da cor do produto, Pro até 8% de Névoa.</li>
+        <li>O Campo de Produto é a única exceção: peça inteira na cor, no máximo uma tela a cada cinco num carrossel e uma peça a cada seis no feed.</li>
+        <li>O tema troca com <code>data-estacao</code>. O logotipo continua preto ou branco em todos; a cor mora no selo, no campo, no grafismo e na seta do botão.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s15-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">15.1</p>
+        <h3 class="fala">O orçamento do mês</h3>
+        <p class="bloco-apoio">A régua da revisão mensal de direção de arte. Some a área de tudo que saiu no mês (feed, site, landing pages, e-mails) e compare com a barra. Se a cor de produto ou o acento passarem do teto, o mês está quente demais.</p>
+      </div>
+      <div class="f03-barra" role="img" aria-label="Orçamento de área do mês: escuro 55%, fotografia P&amp;B 22%, Tela 12%, neutros de apoio 5%, cor de produto 5%, acento 1%.">
+        <span style="--w:55%;--c:var(--bastidor)"></span>
+        <span class="f03-foto-pb" style="--w:22%"></span>
+        <span style="--w:12%;--c:var(--tela)"></span>
+        <span style="--w:5%;--c:var(--fumaca)"></span>
+        <span style="--w:5%;--c:var(--campo-master)"></span>
+        <span style="--w:1%;--c:var(--terracota)"></span>
+      </div>
+      <ul class="f03-legenda-barra">
+        <li style="--c:var(--fumaca)"><b>55%</b>Sala, Nanquim, Bastidor e Coxia</li>
+        <li style="--c:var(--penumbra)"><b>22%</b>Fotografia P&amp;B tratada (conta como escuro na L4)</li>
+        <li style="--c:var(--tela)"><b>12%</b>Tela: texto claro e Modo Leitura</li>
+        <li style="--c:var(--fumaca)"><b>5%</b>Névoa, Fumaça, Pó, Ardósia, Chumbo e Fio</li>
+        <li style="--c:var(--campo-master)"><b>5%</b>Cor de produto: campos, selos e duotons</li>
+        <li style="--c:var(--terracota)"><b>1%</b>Terracota e Areia como acento</li>
+      </ul>
+      <p class="nota">Na barra, o escuro aparece em Bastidor e a fotografia em hachura só para ficarem distinguíveis na página; na peça real, os dois são Sala e foto.</p>
+    </div>
+
+    <div class="bloco" id="s15-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">15.2</p>
+        <h3 class="fala">O teto de cor numa peça</h3>
+        <p class="bloco-apoio">Medido em área da peça. O que conta: palavra de destaque, grafismo, selo, barra de progresso, campo. O que não conta: o escuro, a Tela e a foto P&amp;B.</p>
+      </div>
+      <div class="f03-tetos">
+        <div class="f03-teto"><p class="rotulo">Institucional e eventos</p><b class="f03-pct">5%</b><div class="f03-medidor" aria-hidden="true"><i style="--w:5%;--c:var(--areia)"></i></div><p>Terracota ou Areia, em peça institucional, de aula experimental, Talks e Convenção. Em geral, uma palavra do título.</p></div>
+        <div class="f03-teto"><p class="rotulo">Peça de Start</p><b class="f03-pct">12%</b><div class="f03-medidor" aria-hidden="true"><i style="--w:12%;--c:var(--ouro-velho)"></i></div><p>Cor do produto: selo, Fio de Produto, órbita e seta do botão em Ouro Velho.</p></div>
+        <div class="f03-teto"><p class="rotulo">Peça de Master</p><b class="f03-pct">12%</b><div class="f03-medidor" aria-hidden="true"><i style="--w:12%;--c:var(--terracota)"></i></div><p>Cor do produto: selo, grafismo e palavra grande em Terracota.</p></div>
+        <div class="f03-teto"><p class="rotulo">Peça do Pro</p><b class="f03-pct">8%</b><div class="f03-medidor" aria-hidden="true"><i style="--w:8%;--c:var(--nevoa)"></i></div><p>Névoa. O Pro é monocromático, como pede o Brand DNA.</p></div>
+      </div>
+      <h4 class="intertitulo">A exceção nomeada: Campo de Produto</h4>
+      <div class="grade-2">
+        <figure>
+          <div class="f03-feed" role="img" aria-label="Grade do feed com doze peças, duas delas em Campo de Produto: uma a cada seis.">
+            <span></span><span class="f03-cs"></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span class="f03-cp"></span><span></span>
+          </div>
+          <figcaption class="legenda">Feed: no máximo uma peça em Campo de Produto a cada seis.</figcaption>
+        </figure>
+        <figure>
+          <div class="f03-carro" role="img" aria-label="Carrossel de cinco telas com uma tela em Campo de Produto.">
+            <span></span><span></span><span></span><span class="f03-cp" style="background:var(--campo-master)"></span><span></span>
+          </div>
+          <figcaption class="legenda">Carrossel: no máximo uma tela em Campo de Produto a cada cinco.</figcaption>
+          <p class="nota">O Campo de Produto é o modelo R8 (seção 35): a peça inteira no campo do produto, logotipo de produto branco, selo e a Palavra de Produto a 8%.</p>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s15-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">15.3</p>
+        <h3 class="fala">A regra por produto</h3>
+        <p class="bloco-apoio">Um atributo no contêiner troca o tema inteiro. <code>estação</code> é palavra de código: nunca aparece em copy pública. Na página, o produto aparece pelo nome.</p>
+      </div>
+      <div class="tabela-wrap f03-tab" tabindex="0">
+        <table>
+          <caption>O que cada valor de <code>data-estacao</code> muda</caption>
+          <thead><tr><th scope="col">Item</th><th scope="col">chamado: institucional, aula, Talks, Convenção</th><th scope="col">start</th><th scope="col">master</th><th scope="col">pro</th><th scope="col">voiders: comunidade e ex-alunos</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Campo de produto</th><td>Nenhum: Sala, Tela e grão</td><td>Campo Start, texto Sala, logotipo branco</td><td>Campo Master, texto Tela, logotipo branco; cartela opcional Terracota Noite</td><td>Sala com faixa Ardósia ou Chumbo</td><td>Nenhum</td></tr>
+            <tr><th scope="row">Destaque de texto no escuro</th><td>Areia</td><td>Areia</td><td>Terracota Luz (pequeno) ou Terracota Viva (24 px ou mais)</td><td>Névoa</td><td>Areia</td></tr>
+            <tr><th scope="row">Grafismo (Fio de Produto, órbita ativa, barra)</th><td>Tela a 32%</td><td>Ouro Velho (Caramelo sobre Coxia)</td><td>Terracota</td><td>Névoa</td><td>Tela a 32%</td></tr>
+            <tr><th scope="row">Seta do botão (sobre Tela)</th><td>Sala</td><td>Ouro Velho (4,59)</td><td>Terracota (4,51)</td><td>Ardósia (8,22)</td><td>Sala</td></tr>
+            <tr><th scope="row">Duotom</th><td>Não há</td><td>Café para Areia</td><td>Sombra do duotom Master para Terracota Viva</td><td>Sala para Névoa</td><td>Não há</td></tr>
+            <tr><th scope="row">Órbita</th><td>Nenhuma (só a Esfera)</td><td>Duas elipses horizontais empilhadas</td><td>Duas elipses verticais lado a lado</td><td>Duas elipses entrelaçadas a 32° da vertical</td><td>Três círculos concêntricos</td></tr>
+            <tr><th scope="row">Círculo ativo no Mapa da Trilha</th><td>Nenhum (todos em contorno)</td><td>O menor</td><td>O médio</td><td>O maior</td><td>Os concluídos pela pessoa</td></tr>
+            <tr><th scope="row">Palavra Sensível de assinatura</th><td>o primeiro passo</td><td>o primeiro traço</td><td>a sua identidade</td><td>o seu plano</td><td>família</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;body class="grao" data-estacao="master"&gt;
+  &lt;!-- tudo dentro herda: --estacao-destaque, --estacao-grafismo,
+       --estacao-seta, --estacao-campo, --estacao-campo-texto --&gt;
+&lt;/body&gt;</code></pre>
+    </div>
+
+    <div class="bloco" id="s15-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">15.4</p>
+        <h3 class="fala">A mesma peça em cinco produtos</h3>
+        <p class="bloco-apoio">Troque o produto no seletor. Só o atributo muda: o texto, o logotipo e a estrutura continuam iguais. Repare que o logotipo nunca ganha cor.</p>
+      </div>
+      <div class="demo-estacao" data-estacao="start">
+        <div class="f03-produto">
+          <div>
+            <p class="marcador credito"><span data-vforms="marcador-estacao"></span><span data-so="chamado">Aula experimental</span><span data-so="start">The VOID Start</span><span data-so="master">The VOID Master</span><span data-so="pro">The VOID Pro</span><span data-so="voiders">VOIDERS</span></p>
+            <p class="titulo-secao"><span data-so="chamado">Dê <em class="off">o primeiro passo</em></span><span data-so="start">Faça <em class="off">o primeiro traço</em></span><span data-so="master">Descubra <em class="off">a sua identidade</em></span><span data-so="pro">Trace <em class="off">o seu plano</em></span><span data-so="voiders">Aqui é <em class="off">família</em></span></p>
+            <div class="f03-fio" aria-hidden="true"></div>
+            <span class="botao"><span data-so="chamado">Garantir minha vaga na aula</span><span data-so="start">Quero conversar sobre minha turma</span><span data-so="master">Quero falar sobre o Master</span><span data-so="pro">Agendar meu diagnóstico</span><span data-so="voiders">Confirmar presença</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <dl class="f03-mudou">
+              <dt>Destaque</dt><dd><span data-so="chamado start voiders">Areia</span><span data-so="master">Terracota Luz</span><span data-so="pro">Névoa</span></dd>
+              <dt>Grafismo</dt><dd><span data-so="chamado voiders">Tela a 32%</span><span data-so="start">Ouro Velho</span><span data-so="master">Terracota</span><span data-so="pro">Névoa</span></dd>
+              <dt>Seta</dt><dd><span data-so="chamado voiders">Sala</span><span data-so="start">Ouro Velho</span><span data-so="master">Terracota</span><span data-so="pro">Ardósia</span></dd>
+              <dt>Campo</dt><dd><span data-so="chamado voiders">Nenhum: Sala e grão</span><span data-so="start">Campo Start com texto Sala</span><span data-so="master">Campo Master com texto Tela</span><span data-so="pro">Sala com faixa Ardósia</span></dd>
+            </dl>
+            <div class="f03-mapa">
+              <div data-so="chamado voiders" data-vforms="mapa-trilha" data-vforms-opts='{"estacao":"chamado","frases":false,"orientacao":"horizontal"}'></div>
+              <div data-so="start" data-vforms="mapa-trilha" data-vforms-opts='{"ativa":"start","estacao":"start","frases":false,"orientacao":"horizontal"}'></div>
+              <div data-so="master" data-vforms="mapa-trilha" data-vforms-opts='{"ativa":"master","estacao":"master","frases":false,"orientacao":"horizontal"}'></div>
+              <div data-so="pro" data-vforms="mapa-trilha" data-vforms-opts='{"ativa":"pro","estacao":"pro","frases":false,"orientacao":"horizontal"}'></div>
+            </div>
+          </div>
+          <div class="f03-palco-campo grao">
+            <div class="f03-cabeca">
+              <img data-so="chamado voiders" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="280" height="43">
+              <img data-so="start" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="280" height="45">
+              <img data-so="master" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="280" height="42">
+              <img data-so="pro" src="assets/brand/svg/void-pro-branco.svg" alt="The VOID Pro" width="280" height="43">
+              <img class="f03-selo" data-so="start" src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="120" height="120">
+              <img class="f03-selo" data-so="master" src="assets/brand/svg/selo-simples-master.svg" alt="Selo The VOID Master" width="120" height="120">
+              <div class="f03-selo" data-so="pro" data-vforms='{"forma":"selo","produto":"pro","tamanho":120,"tema":"sala"}'></div>
+            </div>
+            <div data-so="start master pro voiders" class="f03-orb">
+              <div data-so="start" data-vforms="orbita" data-vforms-opts='{"estacao":"start","cor":"grafismo","largura":480,"altura":200,"traco":2}'></div>
+              <div data-so="master" data-vforms="orbita" data-vforms-opts='{"estacao":"master","cor":"grafismo","largura":480,"altura":200,"traco":2}'></div>
+              <div data-so="pro" data-vforms="orbita" data-vforms-opts='{"estacao":"pro","cor":"grafismo","largura":480,"altura":200,"traco":2}'></div>
+              <div data-so="voiders" data-vforms="orbita" data-vforms-opts='{"estacao":"voiders","cor":"grafismo","largura":480,"altura":200,"traco":2}'></div>
+            </div>
+            <p class="credito"><span data-so="chamado">Campo: Sala com grão. Sem órbita, sem selo.</span><span data-so="start">Campo Start · texto Sala</span><span data-so="master">Campo Master · texto Tela</span><span data-so="pro">Sala com faixa Ardósia</span><span data-so="voiders">Campo: Sala com grão. Sem selo.</span></p>
+            <p class="f03-pp" aria-hidden="true"><span data-so="start">Start</span><span data-so="master">Master</span><span data-so="pro">Pro</span></p>
+            <span class="f03-faixa-pro" data-so="pro" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+      <p class="nota">A aula experimental continua assinando com o logotipo do Start, como está no ar, porque é a porta do Start; o selo Start entra só como "próxima etapa", sem campo de cor. Nesta demonstração ela aparece no modo institucional, com o logotipo horizontal, para mostrar o campo sem cor.</p>
+      <p class="pendencia" data-p="14">[P 14] Manter a aula experimental com o logotipo Start (decisão atual) ou passar para o institucional.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.3, 3.5, 6.10, 6.11, 6.13 e 12.3); Brand DNA da The VOID, set/2026 (seção 9); Plataforma de Branding, aureadesign, 2025 (slides 30 e 31).</p>
+  </div>
+</section>
+
+<!-- ============================== s16 ============================== -->
+<section class="sec modo-leitura" id="s16" data-parte="IV" data-nome="Modo Leitura" aria-labelledby="s16-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>16</b> · Modo Leitura</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">16</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Cor</p>
+        <h2 id="s16-t" class="titulo-secao">A página de <em class="off">leitura</em></h2>
+        <p class="sec-apoio">A Tela vira página onde a leitura é longa e racional. É uma exceção nomeada ao "nunca fundo principal" do Brand DNA, com lugares, teto e paleta próprios, e depende de aprovação da The VOID.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Vale para corpo de artigo, corpo de e-mail, oferta e fatos da landing page, PDF, contrato, certificado e impresso.</li>
+        <li>Nunca vale para hero, capa, post de topo, story, Reels, VSL (exceto a tela de oferta), thumbnail, Campo de Produto ou fundo de foto.</li>
+        <li>Na landing page: até 25% da altura e no máximo duas seções seguidas.</li>
+        <li>Enquanto a aprovação não vier [P 2], artigo e e-mail saem em Sala com corpo em Cal; nada mais muda.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s16-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">16.1</p>
+        <h3 class="fala">Por que existe</h3>
+        <p class="bloco-apoio">Texto claro longo sobre preto cansa a vista e sofre inversão automática em vários clientes de e-mail. A marca continua escura; a leitura ganha uma página.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Onde o Modo Leitura vale</caption>
+          <thead><tr><th scope="col">Vale</th><th scope="col">Nunca vale</th></tr></thead>
+          <tbody>
+            <tr><td data-rotulo="Vale">Corpo de artigo do guia, abaixo de cabeçalho em Sala</td><td data-rotulo="Nunca vale">Hero de site e de landing page, capa, post de topo, story, Reels, VSL (exceto a tela de oferta), thumbnail</td></tr>
+            <tr><td data-rotulo="Vale">Corpo de e-mail, entre cabeçalho e rodapé em Sala</td><td data-rotulo="Nunca vale">Campo de Produto e Assinatura de Produto</td></tr>
+            <tr><td data-rotulo="Vale">Seção de oferta e fatos da landing page: até 25% da altura da página e no máximo 2 seções seguidas</td><td data-rotulo="Nunca vale">Mais de uma tela a cada cinco num carrossel</td></tr>
+            <tr><td data-rotulo="Vale">PDF, contrato, certificado, material impresso de aula; leitura na área de membros por escolha do aluno</td><td data-rotulo="Nunca vale">Fundo de foto ou de vídeo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s16-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">16.2</p>
+        <h3 class="fala">A paleta da página</h3>
+        <p class="bloco-apoio">Sete papéis. O logotipo é o preto oficial; o grão cai para 4%, em multiplicação. Sublinhado só aqui, em link: 1 px, afastado 3 px.</p>
+      </div>
+      <div class="amostras f03-a4">
+        <figure class="amostra-cor" data-token="tela"><span class="cor"></span><figcaption><b>Tela</b><code>#F8F9F4</code><span>Campo da página.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="sala"><span class="cor"></span><figcaption><b>Sala</b><code>#181818</code><span>Texto: 16,78 para 1. Botão em Sala com texto Tela.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="ardosia"><span class="cor"></span><figcaption><b>Ardósia</b><code>#3F4E4F</code><span>Apoio: 8,22 para 1.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="penumbra"><span class="cor"></span><figcaption><b>Penumbra</b><code>#5F5F5C</code><span>Legenda: 6,05 para 1.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="terracota-funda"><span class="cor"></span><figcaption><b>Terracota Funda</b><code>#8C4529</code><span>Link e filete: 6,62 para 1.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="cinza-100"><span class="cor"></span><figcaption><b>Cinza 100</b><code>#ECEDE7</code><span>Zebra e cabeçalho de tabela.</span></figcaption></figure>
+        <figure class="amostra-cor" data-token="fumaca"><span class="cor"></span><figcaption><b>Fumaça</b><code>#898989</code><span>Só linha: 3,31 para 1, nunca texto.</span></figcaption></figure>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>.modo-leitura{background:var(--tela);color:var(--sala);color-scheme:light;
+  --grao-opacidade:.04;--foco:2px solid var(--sala)}
+.modo-leitura a{color:var(--terracota-funda);text-decoration:underline;
+  text-decoration-thickness:1px;text-underline-offset:3px}
+.modo-leitura .botao{background:var(--sala);color:var(--tela)}</code></pre>
+    </div>
+
+    <div class="bloco" id="s16-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">16.3</p>
+        <h3 class="fala">O teto na landing page</h3>
+        <p class="bloco-apoio">Some a altura das seções em Modo Leitura e divida pela altura da página: até 25%. E nunca três seções claras seguidas. Na ordem do Start, a única seção clara é a Ficha da Formação.</p>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco">
+            <div class="f03-lp" aria-label="Ordem da landing page do Start com uma seção em Modo Leitura">
+              <span>LP03 Plano de Abertura <em>cena</em></span>
+              <span>LP04 e LP05 Cartelas <em>cartela</em></span>
+              <span>LP06 Depoimentos <em>cena</em></span>
+              <span>LP08 e LP09 Método e roteiro <em>documento</em></span>
+              <span>LP10 e LP11 Rituais e elenco <em>cena</em></span>
+              <span>LP07 e LP12 Prova e para quem é <em>documento</em></span>
+              <span>LP13 Locação <em>cena</em></span>
+              <span data-l style="--h:56px">LP14 Ficha da Formação <em>leitura</em></span>
+              <span>LP15 Perguntas <em>documento</em></span>
+              <span>LP16 Créditos Finais <em>cartela</em></span>
+            </div>
+          </div>
+          <figcaption>Uma seção clara, a oferta, perto do fim. A página continua escura e a leitura racional ganha a página que pede.</figcaption>
+        </figure>
+        <figure class="nao">
+          <div class="fn-palco">
+            <div class="f03-lp" aria-label="Contraexemplo com três seções seguidas em Modo Leitura">
+              <span>LP03 Plano de Abertura <em>cena</em></span>
+              <span>LP04 Cartela do Vazio <em>cartela</em></span>
+              <span data-l>LP08 Método <em>leitura</em></span>
+              <span data-l>LP09 Roteiro <em>leitura</em></span>
+              <span data-l>LP12 Para quem é <em>leitura</em></span>
+              <span data-l style="--h:56px">LP14 Ficha da Formação <em>leitura</em></span>
+              <span>LP15 Perguntas <em>documento</em></span>
+              <span>LP16 Créditos Finais <em>cartela</em></span>
+            </div>
+          </div>
+          <figcaption>Quatro seções claras seguidas e bem mais de 25% da altura: a página deixa de ser da marca e vira documento.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s16-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">16.4</p>
+        <h3 class="fala">Sala e Leitura, lado a lado</h3>
+        <p class="bloco-apoio">O mesmo artigo nas duas versões. A da esquerda é a que vale hoje, enquanto a aprovação não vem; a da direita é a proposta. O cabeçalho continua em Sala nas duas.</p>
+      </div>
+      <div class="f03-lado">
+        <figure class="f03-pagina" data-modo="sala">
+          <div class="f03-pagina-topo"><p class="credito">Guia · exemplo · Sala</p><h4>Como ler uma tabela de contraste?</h4></div>
+          <div class="f03-pagina-corpo">
+            <p class="f03-direta">Texto de exemplo. Uma tabela de contraste diz quanto uma cor de texto se destaca do fundo. Quanto maior a razão, mais fácil de ler; para texto comum, o mínimo é 4,5 para 1.</p>
+            <p>Corpo em Cal sobre Sala, 13 para 1. É confortável em blocos curtos e continua sendo o padrão de todo o material enquanto o Modo Leitura não for aprovado. <a href="#s14">Veja a seção 14</a>.</p>
+          </div>
+        </figure>
+        <figure class="f03-pagina" data-modo="leitura">
+          <div class="f03-pagina-topo"><p class="credito">Guia · exemplo · Modo Leitura</p><h4>Como ler uma tabela de contraste?</h4></div>
+          <div class="f03-pagina-corpo">
+            <p class="f03-direta">Texto de exemplo. Uma tabela de contraste diz quanto uma cor de texto se destaca do fundo. Quanto maior a razão, mais fácil de ler; para texto comum, o mínimo é 4,5 para 1.</p>
+            <p>Corpo em Sala sobre Tela, 16,78 para 1, com filete e link em Terracota Funda. Em leitura longa, cansa menos e não inverte no modo escuro dos clientes de e-mail. <a href="#s14">Veja a seção 14</a>.</p>
+          </div>
+        </figure>
+      </div>
+      <p class="pendencia" data-p="2">[P 2] Aprovação do Modo Leitura como exceção ao "nunca fundo principal" (artigo, e-mail, oferta, impresso). Até a aprovação, artigo e e-mail saem em Sala com corpo em Cal, e nada muda nas outras regras.</p>
+      <p class="nota">Na área de membros, o aluno escolhe entre Sala (padrão) e Leitura. A troca nunca segue o tema claro ou escuro do aparelho, e a página sempre declara a cor de fundo do <code>body</code>.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.6, 4.7, 12.1 e 16, conflito C19); Brand DNA da The VOID, set/2026 (seção 9); pesquisa GrowAI de Bowtie e área de membros, 06/10/2026 (e-mail em modo escuro).</p>
+  </div>
+</section>

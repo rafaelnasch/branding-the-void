@@ -1,0 +1,1057 @@
+<!-- F7 · Voz e conformidade (s31 a s33). Fonte normativa: especificação Sala Escura, seções 9, 10 e 11. -->
+<style data-fragmento="f07">
+.f07-pessoa{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--e-7);align-items:start}
+.f07-citacao{padding:var(--e-7) var(--e-6);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--bastidor);border-left:2px solid var(--estacao-grafismo)}
+.f07-citacao .voz-off{line-height:1.12;text-wrap:balance}
+.f07-citacao .credito{display:block;margin-top:var(--e-5)}
+.f07-lista{list-style:none;display:grid;gap:var(--e-4)}
+.f07-pessoa .f07-lista{margin-top:var(--e-5)}
+.f07-lista li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:var(--e-3);font:400 16px/1.55 var(--font-texto);color:var(--cal)}
+.f07-lista li b{display:block;margin-bottom:2px;font:600 18px/1.3 var(--font-letreiro);color:var(--tela)}
+.f07-lista .ic{margin-top:3px;color:var(--estacao-destaque)}
+.f07-duplas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f07-dupla{container-type:inline-size;display:flex;flex-direction:column;gap:var(--e-3);padding:var(--e-6);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f07-dupla > .f07-sim{font:800 clamp(26px,11.6cqi,52px)/.92 var(--font-letreiro);overflow-wrap:normal;word-break:normal;hyphens:manual;font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)}
+.f07-dupla > .f07-nao{font:500 var(--fs-credito)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f07-nao s{text-decoration-thickness:2px;text-decoration-color:var(--erro)}
+.f07-dupla > p{font:400 16px/1.55 var(--font-texto);color:var(--cal)}
+.f07-ex{display:grid;gap:var(--e-2);margin-top:auto;padding-top:var(--e-4);border-top:1px solid var(--fio)}
+.f07-ex p{display:grid;grid-template-columns:20px minmax(0,1fr);gap:var(--e-2);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f07-ex .f07-ok .ic{color:var(--sucesso)}
+.f07-ex .f07-x .ic{color:var(--erro)}
+.f07-ex .f07-x{color:var(--po)}
+.f07-sobe{font-weight:700;color:var(--estacao-destaque)}
+.bloco > .f07-pilares,.bloco > .f07-atos,.bloco > .f07-chips,.bloco > .f07-gravata,.bloco > .f07-ritos,.bloco > .f07-leis,.bloco > .f07-trava{max-width:none;padding-left:0}
+.bloco > .f07-pilares{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--e-4);list-style:none;counter-reset:f07p}
+.f07-pilares li{container-type:inline-size;display:flex;flex-direction:column;gap:var(--e-3);padding:var(--e-5) var(--e-4);background:var(--bastidor);border-top:1px solid var(--fio)}
+.f07-pilares .numeral-prova{font-size:44px;color:var(--estacao-destaque)}
+.f07-pilares b{font:700 clamp(14px,12cqi,16px)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 85;overflow-wrap:normal;word-break:normal;hyphens:manual;text-transform:uppercase;color:var(--tela)}
+.f07-pilares span{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.bloco > .f07-atos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;border-top:1px solid var(--fio)}
+.f07-atos li{position:relative;padding:var(--e-5) var(--e-5) 0 0}
+.f07-atos li::before{content:"";position:absolute;left:0;top:-5px;width:9px;height:9px;border-radius:50%;background:var(--estacao-destaque)}
+.f07-atos .credito{display:block;margin-bottom:var(--e-2);color:var(--estacao-destaque)}
+.f07-atos b{display:block;font:700 26px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela);margin-bottom:var(--e-2)}
+.f07-atos span{font:400 16px/1.55 var(--font-texto);color:var(--cal)}
+.bloco > .f07-chips{display:flex;flex-wrap:wrap;gap:var(--e-2);list-style:none}
+.f07-chips li{padding:6px 12px;border:1px solid var(--fio);font:400 15px/1.35 var(--font-texto);color:var(--cal)}
+.f07-chips .f07-prop{border-color:var(--estacao-destaque);color:var(--tela);font-weight:600}
+.bloco > .f07-chips.f07-fora li{color:var(--po);text-decoration:line-through;text-decoration-color:var(--erro);text-decoration-thickness:1px}
+.f07-teste{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--e-5);padding:var(--e-6);background:var(--bastidor);border-left:2px solid var(--estacao-grafismo)}
+.f07-teste label{display:block;margin-bottom:var(--e-2)}
+.f07-teste textarea{width:100%;min-height:208px;padding:var(--e-4);background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 16px/1.55 var(--font-texto);resize:vertical}
+.f07-acoes{display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:var(--e-3)}
+.f07-btn{min-height:var(--alvo-toque);padding:0 var(--e-4);background:transparent;border:1px solid var(--fumaca);border-radius:0;cursor:pointer;font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;color:var(--tela)}
+.f07-btn:hover{background:var(--coxia)}
+.f07-btn[aria-pressed="true"],.f07-btn[aria-selected="true"]{background:var(--tela);border-color:var(--tela);color:var(--sala)}
+.f07-resultado{display:grid;gap:var(--e-2);align-content:start;list-style:none;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f07-resultado li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:var(--e-2);padding:var(--e-2) 0;border-bottom:1px solid var(--fio)}
+.f07-resultado .f07-r-x .ic{color:var(--erro)}
+.f07-resultado .f07-r-a .ic{color:var(--atencao)}
+.f07-resultado .f07-r-ok .ic{color:var(--sucesso)}
+.f07-resultado b{color:var(--tela);font-weight:600}
+.f07-cena{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--u)*72);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f07-cena-marca{font:500 calc(var(--u)*26)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f07-cena-titulo{font:800 calc(var(--u)*100)/.92 var(--font-letreiro);font-variation-settings:"wdth" 92;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela);text-wrap:balance}
+.f07-cena-titulo .off{color:var(--estacao-destaque)}
+.f07-cena-logo{width:calc(var(--u)*300);height:auto}
+.f07-hero figcaption{display:grid;gap:4px;margin-top:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f07-hero figcaption b{font:600 18px/1.3 var(--font-letreiro);color:var(--tela)}
+.f07-tagline{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--e-6);align-items:center}
+.f07-tagline .titulo-filme{font-size:clamp(30px,4.4vw,64px);font-variation-settings:"wdth" 100;max-width:none;overflow-wrap:normal}
+.f07-tagline .titulo-filme span{display:block}
+.bloco > .f07-gravata{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:var(--e-2);list-style:none}
+.f07-gravata li{display:grid;grid-template-rows:auto 168px auto;gap:var(--e-3);min-width:0}
+.f07-gravata .f07-m{font:700 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela)}
+.f07-gravata .f07-m small{display:block;margin-top:6px;font:500 11px/1.25 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase;color:var(--po)}
+.f07-barra{align-self:center;height:var(--h);background:var(--coxia);border-top:1px solid var(--fio);border-bottom:1px solid var(--fio)}
+.f07-gravata .f07-no .f07-barra{background:var(--estacao-destaque);border-color:var(--estacao-destaque)}
+.f07-gravata .f07-fun{font:600 14px/1.3 var(--font-letreiro);color:var(--cal)}
+.f07-lados{display:grid;grid-template-columns:4.5fr 3.5fr;gap:var(--e-2);margin-top:var(--e-4)}
+.f07-lados p{padding-top:var(--e-2);border-top:1px solid var(--fumaca)}
+.f07-abas{display:flex;flex-wrap:wrap;gap:var(--e-2)}
+.f07-ficha{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--e-6);padding:var(--e-6);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f07-ficha + .f07-ficha{margin-top:var(--e-5)}
+.f07-fichas .f07-ficha[hidden]{display:none}
+.f07-ficha .fala{font-size:clamp(24px,2.6vw,34px);color:var(--tela);text-wrap:balance}
+.f07-ficha dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:var(--e-2) var(--e-4);margin-top:var(--e-5)}
+.f07-ficha dt{font:500 11px/1.9 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f07-ficha dd{font:400 15px/1.55 var(--font-texto);color:var(--cal)}
+.f07-ficha .rotulo{display:block;line-height:1.5;margin-bottom:var(--e-2)}
+.f07-ficha .botao{margin:var(--e-2) 0 var(--e-5)}
+.f07-zap{padding:var(--e-4) var(--e-5);background:var(--coxia);border-left:2px solid var(--fumaca);font:400 16px/1.55 var(--font-texto);color:var(--tela)}
+.f07-nunca{margin-top:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.f07-nunca b{color:var(--erro);font-weight:600}
+.bloco > .f07-ritos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5);list-style:none}
+.f07-ritos li{display:flex;flex-direction:column;gap:var(--e-3);padding:var(--e-5);background:var(--bastidor);border-left:2px solid var(--estacao-grafismo)}
+.f07-ritos b{font:700 22px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela)}
+.f07-ritos .voz-off{font-size:24px;line-height:1.2;color:var(--estacao-destaque)}
+.f07-ritos .nota{margin-top:auto}
+.f07-ritos .f07-rito-pend{background:transparent;border:1px dashed var(--fumaca);border-left:2px dashed var(--areia)}
+.f07-g-tela{display:block;font:800 16px/1.1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela);overflow-wrap:normal;hyphens:manual}.f07-g-tela em{font:italic 400 1.15em/1 var(--font-off);text-transform:none;color:var(--estacao-destaque)}.f07-g-regras{margin-bottom:var(--e-6)}.f07-g-fonte,.f07-g-fora{display:block;margin-top:var(--e-2);font:400 13px/1.45 var(--font-texto);color:var(--po)}.f07-g-fora b{color:var(--erro);font-weight:600}
+.bloco > .f07-leis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-4);list-style:none}
+.f07-leis li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:var(--e-3);padding:var(--e-5) var(--e-4);background:var(--cinza-100);border-top:2px solid var(--terracota-funda)}
+.f07-leis .numeral-prova{font-size:34px;color:var(--terracota-funda)}
+.f07-leis b{display:block;margin-bottom:var(--e-1);font:700 16px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--sala)}
+.f07-leis span{font:400 15px/1.5 var(--font-texto);color:var(--sala)}
+.f07-anat{align-self:start}
+.f07-anat .prova-bloqueio{color:var(--atencao-claro)}
+.f07-ol li::marker{color:var(--terracota-funda);font-weight:700}
+.f07-riscado{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--erro-claro)}
+.f07-frases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-4)}
+.f07-frase{display:flex;flex-direction:column;gap:var(--e-3);padding:var(--e-5);background:var(--cinza-100);border-left:2px solid var(--terracota-funda)}
+.f07-frase .copiavel{font:400 17px/1.55 var(--font-texto);color:var(--sala)}
+.f07-frase .copiar{align-self:flex-start;margin-top:auto}
+.f07-frase .legenda{color:var(--penumbra)}
+.f07-frase .rotulo{color:var(--ardosia)}
+.bloco > .f07-trava{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--e-4);list-style:none}
+.f07-trava li{padding:var(--e-4);border-top:2px solid var(--sala);font:400 15px/1.5 var(--font-texto);color:var(--sala)}
+.f07-trava b{display:block;margin-bottom:var(--e-2);font:700 15px/1.2 var(--font-letreiro);text-transform:uppercase;letter-spacing:.04em}
+@media (min-width:1121px) and (max-width:1439px){.f07-gravata .f07-m small{font-variation-settings:"wdth" 85;letter-spacing:.04em}}
+@media (max-width:1120px){.f07-duplas,.f07-frases{grid-template-columns:minmax(0,1fr)}.bloco > .f07-gravata{grid-template-columns:minmax(0,1fr);gap:var(--e-3)}.f07-gravata li{grid-template-columns:112px minmax(0,1fr);grid-template-rows:auto auto;column-gap:var(--e-3);row-gap:var(--e-1)}.f07-gravata .f07-m{grid-row:span 2}.f07-gravata .f07-m small{overflow-wrap:normal;font-variation-settings:"wdth" 100;letter-spacing:.06em}.f07-barra{width:var(--h);height:12px}.f07-lados{display:none}}
+@media (max-width:1260px){.bloco > .f07-pilares{grid-template-columns:repeat(3,minmax(0,1fr))}.bloco > .f07-trava{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:899px){.f07-pessoa,.f07-teste,.f07-tagline,.f07-ficha{grid-template-columns:minmax(0,1fr)}.bloco > .f07-leis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.bloco > .f07-atos,.bloco > .f07-leis,.bloco > .f07-ritos,.bloco > .f07-trava{grid-template-columns:minmax(0,1fr)}.bloco > .f07-pilares{grid-template-columns:repeat(2,minmax(0,1fr))}.f07-dupla,.f07-teste,.f07-ficha{padding:var(--e-5)}.f07-atos li{padding-right:0;padding-bottom:var(--e-3)}.f07-ritos .voz-off{font-size:20px}.f07-ficha dl{grid-template-columns:minmax(0,1fr);gap:2px}.f07-ficha dd + dt{margin-top:var(--e-2)}}
+@media (max-width:430px){.bloco > .f07-pilares{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:900px){.f07-tagline .titulo-filme span{white-space:nowrap}}
+@media print{.f07-abas,.f07-teste{display:none}.f07-fichas .f07-ficha[hidden]{display:grid!important}}
+</style>
+
+<section class="sec" id="s31" data-parte="VIII" data-nome="Voz, território e tom por canal" aria-labelledby="s31-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>31</b> · Voz, território e tom por canal</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">31</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Voz</p>
+        <h2 id="s31-t" class="titulo-secao">Uma voz, <em class="off">dez tons</em></h2>
+        <p class="sec-apoio">A The VOID fala como um artista que virou professor. A voz é sempre a mesma em todo canal; o que muda é o tom, e cada tom tem regra escrita.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Quatro atributos, sempre em dupla com o que a marca não é: Corajosa sem ser agressiva, Inspiradora sem ser idealizada, Técnica sem ser fria, Próxima sem ser invasiva.</li>
+        <li>Toda peça declara a persona, a crença falsa que ataca e o pilar em que se apoia. Sem isso, a peça não começa.</li>
+        <li>O vocabulário tem território: palavras para usar, terminologia travada e uma lista do que fica fora. O testador do bloco 31.5 confere qualquer texto.</li>
+        <li>A tagline "A arte que preenche. A carreira que liberta." só aparece em contexto de peso, uma vez por peça.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s31-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.1</p>
+        <h3 class="fala">A marca como pessoa</h3>
+        <p class="bloco-apoio">Antes de escrever, imagine quem fala. Essa pessoa explica o tom de tudo o que vem depois.</p>
+      </div>
+      <div class="f07-pessoa">
+        <figure class="f07-citacao">
+          <blockquote><p class="voz-off">Inspira sem intimidar, ensina sem condescendência, acolhe sem perder a firmeza.</p></blockquote>
+          <figcaption class="credito">Brand DNA da The VOID, set/2026</figcaption>
+        </figure>
+        <div class="texto">
+          <p>Alguém que carregou o peso de não saber se era capaz, duvidou das próprias mãos, encontrou o caminho e hoje dedica a vida a provar que outros também podem. O comportamento é <b>ousado, profundo e intencional</b>: sempre em movimento, nunca com pressa. Atua como guia, não como guru.</p>
+          <ul class="f07-lista" aria-label="Três pilares do tom">
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Coragem que convida</b>Ousadia para incluir, nunca para excluir.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Inspira porque vive</b>Compartilha verdades conquistadas, não sonhos prontos.</span></li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Ensina com paixão</b>Técnica e emoção andam juntas na mesma frase.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.2</p>
+        <h3 class="fala">Quatro atributos, sempre em dupla</h3>
+        <p class="bloco-apoio">O atributo vem colado ao seu limite. Os quatro estão em toda peça; em cada etapa da régua M1 a M8, um deles sobe de volume (seção 32). O adjetivo é feminino porque concorda com "a marca".</p>
+      </div>
+      <div class="f07-duplas">
+        <article class="f07-dupla">
+          <p class="f07-sim">Corajosa</p>
+          <p class="f07-nao"><s>não agressiva</s></p>
+          <p>Fala o que precisa ser dito e provoca o acomodado para despertar. Nunca hostil, arrogante ou cruel: força com respeito.</p>
+          <p class="legenda">Sobe em <span class="f07-sobe">M1 e M6</span></p>
+          <div class="f07-ex">
+            <p class="f07-ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Assim:</b> "Talento é consequência de treino."</span></p>
+            <p class="f07-x" data-exemplo="proibido"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span><b>Assim não:</b> "Quem ainda não tatua está perdendo tempo de vida."</span></p>
+          </div>
+        </article>
+        <article class="f07-dupla">
+          <p class="f07-sim">Inspiradora</p>
+          <p class="f07-nao"><s>não idealizada</s></p>
+          <p>Faz a pessoa acreditar que é capaz com histórias reais e imagens de processo. Nunca autoajuda genérica ou frase de almanaque: inspira com os pés no chão.</p>
+          <p class="legenda">Sobe em <span class="f07-sobe">M7 (no fecho) e M8</span></p>
+          <div class="f07-ex">
+            <p class="f07-ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Assim:</b> "Todo mundo começa com um traço. Aqui, ele tem nome, coragem e história."</span></p>
+            <p class="f07-x" data-exemplo="proibido"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span><b>Assim não:</b> "Acredite nos seus sonhos e tudo é possível."</span></p>
+          </div>
+        </article>
+        <article class="f07-dupla">
+          <p class="f07-sim">Técnica</p>
+          <p class="f07-nao"><s>não fria</s></p>
+          <p>Demonstra domínio e usa termos precisos quando pertinente. Nunca pedante: todo termo técnico ganha uma definição de uma frase na primeira vez em que aparece.</p>
+          <p class="legenda">Sobe em <span class="f07-sobe">M3, M4 e M7</span></p>
+          <div class="f07-ex">
+            <p class="f07-ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Assim:</b> "Técnica sem posicionamento é invisível."</span></p>
+            <p class="f07-x" data-exemplo="proibido"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span><b>Assim não:</b> "Domine magnum e liner no setup certo." (jargão sem explicação para quem começa)</span></p>
+          </div>
+        </article>
+        <article class="f07-dupla">
+          <p class="f07-sim">Próxima</p>
+          <p class="f07-nao"><s>não invasiva</s></p>
+          <p>Fala como mentor que conhece a realidade da pessoa, com "você" direto. Respeita limites e tempos. Nunca trata ninguém como número ou "lead".</p>
+          <p class="legenda">Sobe em <span class="f07-sobe">M2, M4, M5 e M6</span></p>
+          <div class="f07-ex">
+            <p class="f07-ok"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span><b>Assim:</b> "Oi, {nome}. Me conta: o que te trouxe até aqui?"</span></p>
+            <p class="f07-x" data-exemplo="proibido"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span><b>Assim não:</b> "Prezado cliente, identificamos seu interesse em nossos cursos."</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.3</p>
+        <h3 class="fala">Cinco pilares de mensagem</h3>
+        <p class="bloco-apoio">Toda peça se ancora em pelo menos um. Se não der para dizer qual, a peça ainda não tem assunto.</p>
+      </div>
+      <ol class="f07-pilares">
+        <li><span class="numeral-prova" aria-hidden="true">01</span><b>Transformação</b><span>A mudança que se vê no traço e na trajetória de cada aluno, do primeiro dia à formatura, contada com prova e autorização.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">02</span><b>Autoridade com afeto</b><span>Referência porque se importa: técnica de ponta com acolhimento humano.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">03</span><b>Comunidade</b><span>Ninguém estuda sozinho. A família Void permanece depois da formação.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">04</span><b>Realidade do mercado</b><span>Desmistifica o mercado com números reais, carreiras reais e trajetórias possíveis, sempre com crédito.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">05</span><b>Arte como liberdade</b><span>Tatuagem como rebeldia criativa: não à mediocridade, sim ao propósito.</span></li>
+      </ol>
+    </div>
+
+    <div class="bloco" id="s31-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.4</p>
+        <h3 class="fala">A narrativa da falsa convicção</h3>
+        <p class="bloco-apoio">Toda mensagem parte do que o público acredita, de forma equivocada, sobre si mesmo. A marca nomeia a crença, mostra a verdade e convida para o próximo passo.</p>
+      </div>
+      <div class="grade-2">
+        <div class="palco">
+          <p class="rotulo">Iniciante · formação Start</p>
+          <p class="fala" style="margin-top:var(--e-4);color:var(--tela)">"Eu não sou capaz de viver da minha arte."</p>
+          <p class="nota" style="margin-top:var(--e-4)">A verdade que a marca revela: talento é consequência de treino estruturado. O que falta não é talento, é estrutura, método e comunidade. O fantasma é a versão de si que nunca tentou.</p>
+        </div>
+        <div class="palco">
+          <p class="rotulo">Avançado · Master e Pro</p>
+          <p class="fala" style="margin-top:var(--e-4);color:var(--tela)">"Preciso ser melhor tecnicamente antes de cobrar o que mereço."</p>
+          <p class="nota" style="margin-top:var(--e-4)">A verdade: técnica sem posicionamento é invisível. Quem chega mais longe não é necessariamente quem tem mais talento, é quem tem mais estratégia.</p>
+        </div>
+      </div>
+      <h4 class="intertitulo">Os três atos, em toda história contada</h4>
+      <ol class="f07-atos">
+        <li><span class="credito">Ato 1</span><b>O vazio</b><span>A pessoa sonha, mas não acredita. A peça nomeia a crença sem humilhar.</span></li>
+        <li><span class="credito">Ato 2</span><b>O encontro</b><span>O vazio ganha nome e caminho. A The VOID é o lugar para virar quem a pessoa já quer ser.</span></li>
+        <li><span class="credito">Ato 3</span><b>A metamorfose</b><span>Com método e comunidade, a pessoa cruza a linha. A prova vem com crédito.</span></li>
+      </ol>
+      <p class="nota">O inimigo comum nunca é outra escola. É o sistema que desvaloriza a arte e a frase "arte não paga conta". A marca fica ao lado da pessoa contra essa ideia.</p>
+    </div>
+
+    <div class="bloco" id="s31-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.5</p>
+        <h3 class="fala">Território de palavras</h3>
+        <p class="bloco-apoio">O que a marca diz, como chama cada coisa e o que nunca entra em texto público. As palavras proprietárias aparecem com borda acesa.</p>
+      </div>
+      <h4 class="intertitulo">Usar</h4>
+      <ul class="f07-chips" aria-label="Palavras do território">
+        <li class="f07-prop">vazio</li><li class="f07-prop">traço</li><li class="f07-prop">metamorfose</li><li class="f07-prop">VOIDERS</li><li class="f07-prop">Primeira Pele</li><li class="f07-prop">ritual</li><li class="f07-prop">chamado</li><li class="f07-prop">preencher o vazio</li>
+        <li>voz própria</li><li>estilo autoral</li><li>traço limpo</li><li>metodologia</li><li>precisão</li><li>processo criativo</li><li>fundamento</li><li>rigor</li><li>do zero ao primeiro cliente</li><li>agenda cheia (sem promessa)</li><li>evolução real</li><li>resultado concreto</li><li>dar o salto</li><li>faça mesmo com medo</li>
+      </ul>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Terminologia travada</caption>
+          <thead><tr><th scope="col">Use</th><th scope="col">Evite</th><th scope="col">Por quê</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">The VOID; "a Void" no texto corrido</th><td>nome completo em conversa informal</td><td>Proximidade. O nome completo vai em dados estruturados, imprensa e primeira menção (seção 12).</td></tr>
+            <tr><th scope="row">formação</th><td>curso</td><td>Caminho, não produto. "Curso livre" só onde a natureza legal pede (seção 33).</td></tr>
+            <tr><th scope="row">aluno</th><td>estudante, clientela</td><td>Pertencimento.</td></tr>
+            <tr><th scope="row">metodologia, ao nomear o jeito de ensinar da escola</th><td>"técnica" ou "método" como nome desse jeito de ensinar em texto institucional, Ficha de Fatos e dados estruturados</td><td>Propriedade intelectual (Brand DNA). Em copy, "método" segue liberado como palavra comum, como nas frases do próprio DNA ("estrutura, método e comunidade"). "Método ARTE" é nome próprio e continua como está.</td></tr>
+            <tr><th scope="row">mercado de tatuagem</th><td>área, segmento</td><td>Universo cultural, não setor econômico.</td></tr>
+            <tr><th scope="row">"você", no singular; "nós, a Void"</th><td>"nossos clientes", voz impessoal</td><td>Conversa de mentor com uma pessoa.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">Fora (nunca em texto público)</h4>
+      <ul class="f07-chips f07-fora" data-exemplo="proibido" aria-label="Palavras fora do território">
+        <li>incrível</li><li>maravilhoso</li><li>simples assim</li><li>fácil</li><li>em poucos cliques</li><li>sonho realizado</li><li>empoderar</li><li>revolucionário</li><li>disruptivo</li><li>"jornada" sem contexto</li><li>"transformação de vida" sem dado</li><li>curso rápido</li><li>certificado fácil</li><li>tatuagem comercial</li><li>conteúdo gratuito como argumento</li><li>influencer de tattoo</li><li>aula online gravada</li><li>preço baixo ou acessível</li><li>nível</li><li>XP</li><li>desbloquear</li><li>ranking</li><li>sequência</li><li>"magnum" ou "liner" sem explicação</li><li>Learn More</li><li>Keep Up, Baby!</li><li>Self Made</li>
+      </ul>
+      <p class="nota"><b>Ortografia travada:</b> TATTOO com dois T, sempre · "a uma carreira", sem crase · zero travessão em qualquer texto, inclusive legenda, assunto de e-mail e texto alternativo · The VOID Talks, grafia única · VOIDERS e VOIDER em caixa alta · copy pública em português (The VOID Talks e Business Playbook são nomes próprios).</p>
+
+      <div class="f07-teste" id="s31-teste">
+        <div>
+          <label class="credito" for="s31-teste-campo">Testador de território</label>
+          <textarea id="s31-teste-campo" spellcheck="true" lang="pt-BR" placeholder="Cole aqui uma legenda, um e-mail ou o texto de uma LP."></textarea>
+          <div class="f07-acoes">
+            <button class="f07-btn" type="button" data-f07-testar>Testar o texto</button>
+            <button class="f07-btn" type="button" data-f07-exemplo>Carregar um exemplo com erros</button>
+          </div>
+        </div>
+        <div>
+          <p class="credito" id="s31-teste-rotulo">Resultado</p>
+          <ul class="f07-resultado" aria-labelledby="s31-teste-rotulo" aria-live="polite">
+            <li class="f07-r-a"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg><span>O teste procura palavras fora do território, termos vetados, travessão, grafia errada de TATTOO e promessas com número. Ele ajuda; não substitui a leitura de uma pessoa.</span></li>
+          </ul>
+        </div>
+      </div>
+      <script>
+      (function(){
+        "use strict";
+        var raiz=document.getElementById("s31-teste");if(!raiz)return;
+        var campo=raiz.querySelector("textarea"),saida=raiz.querySelector(".f07-resultado");
+        var I={x:'<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',a:'<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',ok:'<circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/>'};
+        var R=[
+          ["x",/\bincr[ií]ve(l|is)\b|\bmaravilhos[oa]s?\b|simples assim|\bf[aá]ceis?\b|em poucos cliques|sonho realizado|empoder\w*|revolucion[aá]ri\w*|disruptiv\w*/gi,"fora do território. Diga o que acontece de fato, com um exemplo concreto."],
+          ["x",/curso r[aá]pido|certificado f[aá]cil|tatuagem comercial|influencer|aula online gravada|pre[cç]o baixo|\bacess[ií]ve(l|is)\b/gi,"fora do território: rebaixa a formação."],
+          ["x",/\bn[ií]vel\b|\bXP\b|desbloque\w*|\branking\b/gi,"linguagem de jogo, vetada na comunicação e na área de membros."],
+          ["x",/maior(es)? (escola|mercado|estrutura)|#\s?1\b|\bn[ºo°]\.?\s?1\b|a melhor escola|a [uú]nica escola|l[ií]der(es)? (no|do) (segmento|mercado)|\+\s?\d[\d.]*\s?(mil )?(alunos|formados)|\b(desde|EST\.?) (19|20)\d\d\b/gi,"claim vetado até prova pública na Ficha de Fatos (seção 33)."],
+          ["x",/\bMEC\b|diploma|curso t[eé]cnico|habilita[cç][aã]o|credenciad\w*|institui[cç][aã]o parceira|certifica[cç][aã]o (via|com|pel[ao])/g,"natureza do curso: vetado sem validação de advogado [P 20]."],
+          ["x",/garantid[oa]s?|garantia de (sucesso|clientes|resultado)|dinheiro f[aá]cil|sem esfor[cç]o|se paga|dobr\w* o valor|\d+\s?x mais/gi,"promessa de resultado ou de renda. Retire ou troque por processo e prova com crédito."],
+          ["x",/[úu]ltimas vagas|s[óo] hoje|corra\b|n[aã]o perca/gi,"urgência sem número real. Use a frase de vagas com número e data (seção 33)."],
+          ["x",/saiba mais|clique aqui|compre agora|learn more|keep up|your own|self made/gi,"rótulo ou inglês proibido em copy pública."],
+          ["x",/[\u2014\u2013]/g,"travessão. Troque por ponto, vírgula ou dois pontos."],
+          ["x",new RegExp("\\bTAT"+"OO\\b","gi"),"grafia errada. É sempre TATTOO."],
+          ["x",/\bvoid talks\b/gi,"grafia: é The VOID Talks, sempre com The."],
+          ["a",/\bjornada\b/gi,"só com contexto concreto (qual caminho, quanto tempo)."],
+          ["a",/\bcursos?\b/gi,"prefira \"formação\". \"Curso livre\" só onde a natureza legal pede."],
+          ["a",/\bestudantes?\b|\bclientela\b/gi,"prefira \"aluno\"."],
+          ["a",/\bmagnum\b|\bliner\b/gi,"termo técnico: explique em uma frase na primeira vez."],
+          ["a",/\bR\$\s?\d[\d.,]*/g,"valor em reais: confira se não é promessa de renda e se bate com o checkout."],
+          ["a",/\bgratuit[oa]s?\b|\bde gra[cç]a\b/gi,"\"gratuita\" é informação, nunca o argumento principal."],
+          ["a",/\bà uma carreira\b/gi,"sem crase: \"a uma carreira\"."]
+        ];
+        function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+        function item(tipo,html){return '<li class="f07-r-'+tipo+'"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+I[tipo]+'</svg><span>'+html+'</span></li>';}
+        function testar(){
+          var t=campo.value,achados=[],vistos={};
+          if(!t.trim()){saida.innerHTML=item("a","Cole um texto no campo para testar.");return;}
+          R.forEach(function(r){var m;r[1].lastIndex=0;while((m=r[1].exec(t))!==null){var k=r[2]+"|"+m[0].toLowerCase();if(!vistos[k]){vistos[k]=1;achados.push([r[0],m[0],r[2]]);}if(!r[1].global)break;}});
+          var linhas=t.split(/\n/).filter(function(l){return l.replace(/[^A-Za-zÀ-ú]/g,"").length>24;});
+          linhas.forEach(function(l){var letras=l.replace(/[^A-Za-zÀ-ú]/g,"");if(letras===letras.toUpperCase())achados.push(["a",l.slice(0,32)+"...","caixa alta em texto longo. Caixa alta só em título, botão, crédito e rótulo."]);});
+          var x=achados.filter(function(a){return a[0]==="x";}).length,a=achados.length-x;
+          var topo=x?item("x","<b>"+x+" "+(x>1?"pontos travam":"ponto trava")+" a peça</b> e "+a+" "+(a===1?"pede":"pedem")+" atenção."):(a?item("a","<b>Nada vetado.</b> "+a+" "+(a===1?"ponto pede":"pontos pedem")+" atenção."):item("ok","<b>Nada fora do território.</b> Confira ainda persona, CTA único e Crédito de Prova."));
+          saida.innerHTML=topo+achados.map(function(a){return item(a[0],"<b>"+esc(a[1])+"</b>: "+esc(a[2]));}).join("");
+        }
+        raiz.querySelector("[data-f07-testar]").addEventListener("click",testar);
+        raiz.querySelector("[data-f07-exemplo]").addEventListener("click",function(){
+          campo.value="SAIBA MAIS: a maior escola de tatuagem do país! Curso rápido e fácil, certificado reconhecido pelo MEC.\nÚltimas vagas \u2014 em 3 meses você ganha R$ 10.000 com tatuagem. Garantido.";
+          testar();
+        });
+      })();
+      </script>
+    </div>
+
+    <div class="bloco" id="s31-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.6</p>
+        <h3 class="fala">Tom por canal</h3>
+        <p class="bloco-apoio">A voz não muda; o tom muda com o canal. A coluna da direita é a regra que se confere antes de publicar.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Tom e regra operacional de cada canal</caption>
+          <thead><tr><th scope="col">Canal</th><th scope="col">Tom</th><th scope="col">Regra operacional</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Instagram (Reels e feed)</th><td>Direto, provocador, visual; inspira antes de vender</td><td>Gancho na falsa convicção nos 2 s iniciais; legenda de até 3 parágrafos curtos; contrações naturais ("você tá", "não vai").</td></tr>
+            <tr><th scope="row">TikTok</th><td>Autêntico, rápido, bastidor e realidade do mercado</td><td>Sem vinheta; número só com Crédito de Prova.</td></tr>
+            <tr><th scope="row">Blog, guia e busca</th><td>Educativo, aprofundado, confiável</td><td>Resposta direta primeiro; voz em off só na abertura e no fecho.</td></tr>
+            <tr><th scope="row">Landing page</th><td>Emocional na abertura, racional nas provas</td><td>Uma persona e uma crença por página.</td></tr>
+            <tr><th scope="row">VSL</th><td>Mentor que já passou por isso</td><td>Roteiro de 9 blocos (seção 34).</td></tr>
+            <tr><th scope="row">E-mail</th><td>Próximo, pessoal, mentoria</td><td>"Oi, {nome}." Uma ideia por e-mail; uma pessoa real assina, com cargo.</td></tr>
+            <tr><th scope="row">WhatsApp</th><td>Conversa humana</td><td>Uma ideia por mensagem; quem escreve se apresenta pelo nome e assina "{nome}, The VOID"; sem emoji de M1 a M4.</td></tr>
+            <tr><th scope="row">Anúncio pago</th><td>Objetivo e provocador</td><td>Sem promessa de renda, sem antes e depois lado a lado, sem presumir condição pessoal de quem lê.</td></tr>
+            <tr><th scope="row">Área de membros</th><td>Mentor que acompanha</td><td>Progresso contra si mesmo; nunca comparação com a turma.</td></tr>
+            <tr><th scope="row">Deck e proposta</th><td>Técnica com calor</td><td>Dado com fonte; uma ideia por slide.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.7</p>
+        <h3 class="fala">Frases de assinatura</h3>
+        <p class="bloco-apoio">Cada linha da marca tem a sua frase, tirada das fontes da própria The VOID. Nenhuma é inventada para a campanha; uma por peça.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Frase de cada linha e onde ela nasceu</caption>
+          <thead><tr><th scope="col">Linha</th><th scope="col">Frase</th><th scope="col">Fonte</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Institucional</th><td>"PREENCHA O VAZIO", nos Créditos Finais. A tagline só em contexto de peso (31.9).</td><td>Plataforma de Branding, aureadesign, 2025 (slides 14 e 30)</td></tr>
+            <tr><th scope="row">Start</th><td>"Sempre faça arte" (apoio, nunca segunda tagline)</td><td>site oficial, consultado em 06/10/2026</td></tr>
+            <tr><th scope="row">Master</th><td>"Trabalhe as suas inseguranças como tatuador, independente do nível que você estiver, e dê um próximo passo na carreira." Recorte permitido: "Dê um próximo passo na carreira."</td><td>Plataforma de Branding, aureadesign, 2025 (slide 35, key visual Master)</td></tr>
+            <tr><th scope="row">Pro</th><td>"Seja um estrategista da sua carreira profissional" ou "A arte é sua. O plano é nosso." (uma por campanha)</td><td>Plataforma de Branding, aureadesign, 2025 (slides 37 e 40)</td></tr>
+            <tr><th scope="row">Aula experimental</th><td>"Tatuar não é desenhar. É uma técnica nova."</td><td>site oficial, consultado em 06/10/2026</td></tr>
+            <tr><th scope="row">The VOID Talks</th><td>"Da sala pra cena. A Void conecta você com quem vive disso."</td><td>Plataforma de Branding, aureadesign, 2025 (slide 62)</td></tr>
+            <tr><th scope="row">Convenção</th><td>"Convocação a todos os Artistas do Brasil" (com "Artistas do Brasil" na voz em off, na peça)</td><td>Plataforma de Branding, aureadesign, 2025 (slide 21)</td></tr>
+            <tr><th scope="row">VOIDERS</th><td>"Aqui não existem estranhos, apenas família que ainda não se conheceu."</td><td>Plataforma de Branding, aureadesign, 2025 (slides 8 e 10)</td></tr>
+            <tr><th scope="row">Ritos</th><td>Primeira Pele: "Você nunca esquece sua primeira pele. Aqui, ela é celebrada." · Ritual do Traço: "Todo mundo começa com um traço. Aqui, ele tem nome, coragem e história." · Formatura com Pele: "Você não sai apenas com um certificado. Sai com um novo capítulo na pele." · Workshop do Estilo: "Descubra sua identidade artística." Cada frase só entra em peça depois de a escola confirmar o rito [P 6].</td><td>Plataforma de Branding, aureadesign, 2025 (slides 59 a 61 e 63)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-8">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.8</p>
+        <h3 class="fala">Uma abertura por persona</h3>
+        <p class="bloco-apoio">Três títulos de abertura prontos para teste, cada um atacando a crença de uma persona. A persona não aparece na peça: ela orienta a escrita, a segmentação e o depoimento escolhido. As outras estruturas de gancho estão na <a href="#s31-11">biblioteca de 31.11</a>.</p>
+      </div>
+      <div class="grade-3">
+        <figure class="f07-hero">
+          <div class="peca" data-formato="1080x1350" data-nome="Gabriel, Start" data-estacao="start">
+            <div class="peca-tela grao">
+              <div class="f07-cena">
+                <p class="f07-cena-marca">The VOID Start · São Paulo</p>
+                <p class="f07-cena-titulo">Talento é consequência de <em class="off">treino</em>.</p>
+                <img class="f07-cena-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48">
+              </div>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Gabriel · formação Start</b>Ataca "não tenho talento". Prova certa: depoimento de quem começou do zero, com crédito.</figcaption>
+        </figure>
+        <figure class="f07-hero">
+          <div class="peca" data-formato="1080x1350" data-nome="Camila, Start" data-estacao="start">
+            <div class="peca-tela grao">
+              <div class="f07-cena">
+                <p class="f07-cena-marca">The VOID Start · São Paulo</p>
+                <p class="f07-cena-titulo">Sua experiência é um <em class="off">diferencial</em>, não um atraso.</p>
+                <img class="f07-cena-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48">
+              </div>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Camila · Start, em transição de carreira</b>Ataca "já passei da hora". Prova certa: adultos que recomeçaram, com autorização.</figcaption>
+        </figure>
+        <figure class="f07-hero">
+          <div class="peca" data-formato="1080x1350" data-nome="Bruno, Master" data-estacao="master">
+            <div class="peca-tela grao">
+              <div class="f07-cena">
+                <p class="f07-cena-marca">The VOID Master · São Paulo</p>
+                <p class="f07-cena-titulo">Técnica sem posicionamento é <em class="off">invisível</em>.</p>
+                <img class="f07-cena-logo" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="300" height="45">
+              </div>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Bruno · Master e Pro</b>Ataca "preciso de mais técnica". Prova certa: casos de posicionamento, nunca de faturamento com número e prazo.</figcaption>
+        </figure>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">Talento é consequência de <em class="off">treino</em>.</p></div>
+          <figcaption>A crença é atacada de frente, sem diminuir quem lê.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao">Você não precisa de talento para <em class="off">começar</em>.</p></div>
+          <figcaption>Vetada: fica perto do tom condescendente que o Brand DNA proíbe ("mesmo sem talento você consegue").</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-9">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.9</p>
+        <h3 class="fala">A regra da tagline</h3>
+        <p class="bloco-apoio">"A arte que preenche. A carreira que liberta." desgasta com o uso. Por isso ela tem lista fechada de lugares, aparece uma vez por peça e é a única exceção à regra de uma linha na voz em off.</p>
+      </div>
+      <div class="f07-tagline">
+        <div class="palco" style="padding:var(--e-8) var(--e-6)">
+          <p class="titulo-filme"><span><em class="off">A arte</em> que preenche</span><span><em class="off">A carreira</em> que liberta</span></p>
+          <p class="credito" style="margin-top:var(--e-6)">Composição permitida · duas linhas de voz em off</p>
+        </div>
+        <div class="grade-2" style="gap:var(--e-5)">
+          <div>
+            <h4 class="intertitulo">Só aqui</h4>
+            <ul class="f07-lista">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span>Página inicial do site</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span>LP de produto em lançamento de turma</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span>E-mail de boas-vindas da matrícula (M5)</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span>Formatura com Pele</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/></svg><span>Campanha institucional e capa deste manual</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="intertitulo">Nunca aqui</h4>
+            <ul class="f07-lista">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:var(--erro)"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>LP da aula experimental</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:var(--erro)"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Reels de topo de funil</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:var(--erro)"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Anúncio de conversão</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:var(--erro)"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>WhatsApp</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="color:var(--erro)"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Fecho de toda LP, por hábito</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="nota">Apoio permitido, sem status de tagline: "Do primeiro traço a uma carreira de sucesso." (sem crase).</p>
+    </div>
+
+    <div class="bloco" id="s31-10">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.10</p>
+        <h3 class="fala">Oito regras para quem escreve</h3>
+        <p class="bloco-apoio">As regras R01 a R08, transcritas do Brand DNA, valem para pessoas e para agentes de IA, sem exceção. A seção 33 mostra a base legal das que tocam prova e promessa e endurece R05: nem por insinuação (regra 11 de 33.1).</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Regras inegociáveis do Brand DNA</caption>
+          <thead><tr><th scope="col">Regra</th><th scope="col">O que manda</th><th scope="col">Por quê</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">R01</th><td>Nunca linguagem de autoajuda genérica.</td><td>Fora do território, perde diferenciação.</td></tr>
+            <tr><th scope="row">R02</th><td>Resultado sempre com número ou dado concreto, conservador e verificável.</td><td>Credibilidade exige especificidade; exagero quebra confiança.</td></tr>
+            <tr><th scope="row">R03</th><td>Identifique a persona antes de criar qualquer conteúdo.</td><td>Conteúdo genérico não converte.</td></tr>
+            <tr><th scope="row">R04</th><td>Tagline só em contexto de peso.</td><td>Desgaste reduz impacto.</td></tr>
+            <tr><th scope="row">R05</th><td>Nunca mencione concorrente pelo nome.</td><td>Posicionamento próprio, não reativo.</td></tr>
+            <tr><th scope="row">R06</th><td>Conteúdo de fundo de funil tem um CTA único e claro.</td><td>Vários CTAs diluem.</td></tr>
+            <tr><th scope="row">R07</th><td>Nunca prometa resultado sem qualificação; nunca promessa financeira com número e prazo.</td><td>Frustração, reclamação e política editorial.</td></tr>
+            <tr><th scope="row">R08</th><td>Identidade visual vem do design system, não de memória.</td><td>Consistência.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s31-11">
+      <div class="bloco-head">
+        <p class="bloco-n credito">31.11</p>
+        <h3 class="fala">Biblioteca de ganchos</h3>
+        <p class="bloco-apoio">Oito estruturas para os 2 segundos iniciais de Reels, TikTok e anúncio 9:16. Cada uma traz a regra, um exemplo montado só com frases das fontes da The VOID e o modelo pronto em comunicacao-m1-m8.html. Assim cada peça varia a estrutura sem inventar frase nova.</p>
+      </div>
+      <p><span class="status" data-status="proposta">Proposta</span></p>
+      <ul class="f07-lista f07-g-regras">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Tempo e tamanho</b>Gancho nos 2 s iniciais, até 6 palavras na tela, em Título de Filme de 96 a 120 px (seção 19), com a palavra sensível na voz em off.</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Uma crença, três lugares</b>O gancho, a tela de abertura e a primeira linha da legenda do post dizem a mesma crença, da persona declarada (R03). A legenda fecha no CTA único da etapa (32.2).</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Nada inventado</b>Toda frase sai do Brand DNA, das Personas, da Plataforma de Branding ou do site oficial. O recorte só encurta; quando muda o sentido, a frase vira nova e precisa de aprovação.</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span><b>Anúncio pago é mais estrito</b>Nada de renda, prazo de retorno, condição pessoal presumida nem antes e depois lado a lado (31.6 e 33.1).</span></li>
+      </ul>
+      <div class="tabela-wrap" tabindex="0">
+        <table class="f07-ganchos">
+          <caption>Estruturas de gancho, com exemplo, fonte e modelo pronto</caption>
+          <thead><tr><th scope="col">Estrutura</th><th scope="col">Tela</th><th scope="col">Abertura e fonte</th><th scope="col">Modelo e limite</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Pergunta que nomeia a crença. A tela afirma a verdade da marca; a fala devolve a crença como pergunta, em "você".</th><td><span class="f07-g-tela">Talento é consequência de <em>treino</em></span></td><td>"Você acha que não tem talento para tatuar?"<span class="f07-g-fonte">Brand DNA, seção 6 (a verdade da marca); Personas, Gabriel</span></td><td><a href="comunicacao-m1-m8.html#m1-reels-gabriel">Gancho do Vazio, Gabriel</a><span class="f07-g-fora"><b>Fora:</b> Pergunta sobre renda, dívida, saúde ou idade de quem lê.</span></td></tr>
+            <tr><th scope="row">Recomeço. Mesma estrutura, para quem acha que passou da hora. A tela troca o atraso por repertório.</th><td><span class="f07-g-tela">Sua experiência é um <em>diferencial</em></span></td><td>"Acha que já passou da hora de começar a tatuar?"<span class="f07-g-fonte">Personas, Camila ("Sua experiência de vida é um diferencial, não um atraso.")</span></td><td><a href="comunicacao-m1-m8.html#m1-reels-camila">Gancho do Vazio, Camila</a> [P 15]<span class="f07-g-fora"><b>Fora:</b> Faixa de idade ou situação de carreira citada em anúncio pago.</span></td></tr>
+            <tr><th scope="row">Verdade contrária. A tela inverte a crença do avançado sem diminuir ninguém.</th><td><span class="f07-g-tela">Técnica sem posicionamento é <em>invisível</em></span></td><td>"Você já tatua bem e sente que o seu trabalho não é visto como deveria?"<span class="f07-g-fonte">Brand DNA, seção 6 (Master e Pro); Personas, Bruno</span></td><td><a href="comunicacao-m1-m8.html#m1-reels-bruno">Gancho do Vazio, Bruno</a><span class="f07-g-fora"><b>Fora:</b> Comparação com outro tatuador ou escola; faturamento com número.</span></td></tr>
+            <tr><th scope="row">Pergunta-chamado. Abre pelo território do vazio, sem nomear a persona.</th><td><span class="f07-g-tela">Talvez seja um <em>chamado</em></span></td><td>"Você já pensou que talvez a tatuagem não seja um sonho, seja um chamado?"<span class="f07-g-fonte">Brand DNA, seção 7 (abertura de Reels; travessão trocado por vírgula)</span></td><td><a href="comunicacao-m1-m8.html#m1-reels-gabriel">Gancho do Vazio</a>, com esta tela<span class="f07-g-fora"><b>Fora:</b> "Acredite nos seus sonhos" e todo clichê vetado por R01.</span></td></tr>
+            <tr><th scope="row">Mito e fato. A tela derruba uma ideia sobre a tatuagem; a fala dá o fato em uma frase.</th><td><span class="f07-g-tela">Tatuar não é <em>desenhar</em></span></td><td>"É uma técnica nova."<span class="f07-g-fonte">Site oficial, aula experimental, consultado em 06/10/2026 (31.7)</span></td><td><a href="comunicacao-m1-m8.html#m1-reels-gabriel">Gancho do Vazio</a>, com o CTA da aula<span class="f07-g-fora"><b>Fora:</b> Mito sobre outra escola; o mito é sempre uma ideia sobre a tatuagem.</span></td></tr>
+            <tr><th scope="row">Cena de processo. A mão em prática abre o vídeo; a legenda queimada carrega a crença.</th><td><span class="f07-g-tela">Aqui, elas se tornarão <em>firmes</em></span></td><td>"Venha como você é, com seus medos, suas dúvidas, suas mãos trêmulas. Aqui, elas se tornarão firmes."<span class="f07-g-fonte">Brand DNA, seção 4, manifesto (travessão trocado por vírgula)</span></td><td>Plano fechado de mão de <a href="comunicacao-m1-m8.html#m1-reels-gabriel">Gancho do Vazio</a> (3 a 14 s) e regras da seção 30<span class="f07-g-fora"><b>Fora:</b> Sangue, pele irritada, menor de 18 anos, procedimento sem biossegurança visível (33.5).</span></td></tr>
+            <tr><th scope="row">Antes era. Só com depoimento real, autorizado e com Crédito de Prova.</th><td><span class="f07-g-tela">Antes [ocupação]. Hoje, <em>tatuadora</em></span></td><td>O depoimento em vídeo, com legenda queimada e a legenda de depoimento de 33.2.<span class="f07-g-fonte">Personas, Camila (descoberta por post de transição de carreira)</span></td><td><a href="comunicacao-m1-m8.html#m2-reels">Antes Era</a> [P 15]<span class="f07-g-fora"><b>Fora:</b> Antes e depois lado a lado em anúncio pago; renda ou prazo; depoimento sem autorização.</span></td></tr>
+            <tr><th scope="row">Convocação. Para encontros reais, com convidado, data e local confirmados.</th><td><span class="f07-g-tela">Da sala pra <em>cena</em></span></td><td>"Da sala pra cena. A Void conecta você com quem vive disso."<span class="f07-g-fonte">Plataforma de Branding, aureadesign, 2025 (slide 62)</span></td><td><a href="comunicacao-m1-m8.html#m8-reels-talks">Convocação do Talks</a> [P 6]<span class="f07-g-fora"><b>Fora:</b> "Todo mês" sem frequência confirmada; convidado sem autorização.</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Teste antes de gravar: o gancho passa no testador de 31.5, ataca uma crença nomeada em 31.4 e cabe em 2 s lido em voz alta.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seção 9 e tabela de escalas de vídeo); Brand DNA da The VOID, set/2026 (seções 1 a 8); Personas, set/2026; comunicacao-m1-m8.html (modelos de Reels de 31.11); Plataforma de Branding, aureadesign, 2025 (slides citados na tabela 31.7); site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<section class="sec" id="s32" data-parte="VIII" data-nome="Comunicação M1 a M8" aria-labelledby="s32-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>32</b> · Comunicação M1 a M8</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">32</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Régua de comunicação</p>
+        <h2 id="s32-t" class="titulo-secao">Uma crença por <em class="off">etapa</em></h2>
+        <p class="sec-apoio">Do cadastro à indicação, a pessoa passa por oito etapas. Em cada uma pesa uma crença diferente, e a comunicação responde com um atributo, um recurso, um componente e um único pedido.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>A régua tem oito etapas em forma de gravata: de M1 a M4 a pessoa decide entrar; M5 é a matrícula; de M6 a M8 ela vive o valor e leva outros junto.</li>
+        <li>Cada etapa tem uma crença dominante, um CTA e uma métrica. Duas ações na mesma mensagem reprovam a peça.</li>
+        <li>Os ritos da Plataforma de Branding têm lugar fixo em M6, M7 e M8. Cada um só aparece em peça depois de a The VOID confirmar que ele acontece hoje na escola [P 6]; ritos propostos na pesquisa ficam fora até a aprovação.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s32-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">32.1</p>
+        <h3 class="fala">A régua em forma de gravata</h3>
+        <p class="bloco-apoio">O lado esquerdo estreita até a matrícula, onde o nó aperta; o lado direito abre de novo, porque quem forma bem traz o próximo aluno. A função que lidera cada etapa aparece sob a barra.</p>
+      </div>
+      <ol class="f07-gravata" aria-label="As oito etapas da régua">
+        <li style="--h:100%"><p class="f07-m">M1<small>Lead</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Atenção</p></li>
+        <li style="--h:84%"><p class="f07-m">M2<small>Qualificação</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Prova</p></li>
+        <li style="--h:68%"><p class="f07-m">M3<small>Oportunidade</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Decisão</p></li>
+        <li style="--h:52%"><p class="f07-m">M4<small>Proposta</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Decisão para ação</p></li>
+        <li class="f07-no" style="--h:36%"><p class="f07-m">M5<small>Matrícula</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Ação, com acolhida</p></li>
+        <li style="--h:56%"><p class="f07-m">M6<small>Ativação</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Ação</p></li>
+        <li style="--h:76%"><p class="f07-m">M7<small>Valor</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Prova de si</p></li>
+        <li style="--h:100%"><p class="f07-m">M8<small>Expansão</small></p><span class="f07-barra" aria-hidden="true"></span><p class="f07-fun">Atenção de novo</p></li>
+      </ol>
+      <div class="f07-lados" aria-hidden="true"><p class="credito">Até a matrícula · decidir entrar</p><p class="credito">Depois da matrícula · viver o valor</p></div>
+      <p class="nota">Nomes técnicos da régua, usados no CRM e no painel: M1 lead · M2 qualificado · M3 oportunidade · M4 proposta · M5 ganho · M6 ativado · M7 valor realizado e retido · M8 expandido e indicação. O time da The VOID vê os nomes em português.</p>
+    </div>
+
+    <div class="bloco" id="s32-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">32.2</p>
+        <h3 class="fala">A matriz completa</h3>
+        <p class="bloco-apoio">Uma linha por etapa. O CTA é o rótulo exato do botão ou da mensagem; o recurso e o componente têm nome canônico nas seções 21 a 25 e 34 a 36.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table style="min-width:1440px">
+          <caption>Matriz de comunicação M1 a M8</caption>
+          <thead><tr><th scope="col">Etapa</th><th scope="col">Crença dominante</th><th scope="col">Atributo que sobe</th><th scope="col">Função</th><th scope="col">Recurso que lidera</th><th scope="col">Componente principal</th><th scope="col">CTA único</th><th scope="col">Métrica</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">M1 Lead</th><td>"Isso não é para mim."</td><td>Corajosa</td><td>Atenção</td><td>Esfera do Vazio e Palavra Sensível</td><td>Gancho do Vazio (Reels e anúncio 9:16), Plano de Abertura</td><td>"Garantir minha vaga na aula" ou responder "o que te trouxe até aqui?"</td><td>Retenção de 3 s; conversão da página</td></tr>
+            <tr><th scope="row">M2 Qualificação</th><td>"Escola de tatuagem é tudo igual."</td><td>Próxima</td><td>Prova</td><td>Crédito de Prova e Fio de Produto</td><td>Antes Era (depoimento), Roteiro</td><td>"Agendar minha conversa" (ou visita)</td><td>Leads qualificados sobre cadastrados</td></tr>
+            <tr><th scope="row">M3 Oportunidade</th><td>"Lá dentro vou ser só mais um."</td><td>Técnica</td><td>Decisão</td><td>Mapa da Trilha</td><td>Comparativo de trilhas, Cartão de Turma, visita</td><td>"Receber minha proposta de turma"</td><td>Comparecimento</td></tr>
+            <tr><th scope="row">M4 Proposta</th><td>"É caro." "Vou pensar."</td><td>Técnica e Próxima</td><td>Decisão para ação</td><td>Barra de Turma e Modo Leitura</td><td>Ficha da Formação, Perguntas, proposta de uma página</td><td>"Garantir minha vaga na turma de [mês]"</td><td>Tempo em decisão</td></tr>
+            <tr><th scope="row">M5 Ganho</th><td>"Será que escolhi certo?"</td><td>Próxima</td><td>Ação, com acolhida</td><td>Selo como Carimbo</td><td>E-mail e WhatsApp de boas-vindas, Cartão do Primeiro Dia</td><td>"Confirmar presença no primeiro dia"</td><td>Matrícula sobre propostas</td></tr>
+            <tr><th scope="row">M6 Ativação</th><td>"Minhas mãos não vão obedecer."</td><td>Próxima e Corajosa</td><td>Ação</td><td>Esfera no estado vazio, Ritual do Traço</td><td>Hoje, Meu Traço</td><td>"Registrar meu primeiro traço"</td><td>Ativação no prazo</td></tr>
+            <tr><th scope="row">M7 Valor</th><td>"Todo mundo evolui mais rápido que eu."</td><td>Técnica (Inspiradora no fecho)</td><td>Prova de si</td><td>Anel de Preenchimento, Mapa da Trilha</td><td>Minha Trilha, Prática com Feedback, Marco</td><td>"Enviar meu trabalho para feedback"</td><td>Conclusão da turma</td></tr>
+            <tr><th scope="row">M8 Expansão</th><td>"Já aprendi o que precisava."</td><td>Inspiradora</td><td>Atenção de novo</td><td>Próximo círculo aceso no Mapa da Trilha</td><td>Convite Talks, Formatura, próxima formação, indicação</td><td>Um por mensagem: "Conhecer o Master" ou "Indicar alguém"</td><td>Ascensão em 12 meses; indicação consentida</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s32-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">32.3</p>
+        <h3 class="fala">A ficha de cada etapa</h3>
+        <p class="bloco-apoio">O que a matriz não cabe: a frase que guia a etapa, a prova que funciona ali, o que nunca dizer e uma mensagem de WhatsApp pronta. As mensagens completas por canal ficam em <a href="comunicacao-m1-m8.html">comunicacao-m1-m8.html</a>.</p>
+      </div>
+      <div class="f07-abas" role="group" aria-label="Escolher a etapa" hidden>
+        <button class="f07-btn" type="button" data-f07-aba="m1" aria-pressed="true">M1</button><button class="f07-btn" type="button" data-f07-aba="m2" aria-pressed="false">M2</button><button class="f07-btn" type="button" data-f07-aba="m3" aria-pressed="false">M3</button><button class="f07-btn" type="button" data-f07-aba="m4" aria-pressed="false">M4</button><button class="f07-btn" type="button" data-f07-aba="m5" aria-pressed="false">M5</button><button class="f07-btn" type="button" data-f07-aba="m6" aria-pressed="false">M6</button><button class="f07-btn" type="button" data-f07-aba="m7" aria-pressed="false">M7</button><button class="f07-btn" type="button" data-f07-aba="m8" aria-pressed="false">M8</button>
+      </div>
+      <div class="f07-fichas" id="s32-fichas">
+        <article class="f07-ficha" data-f07-ficha="m1" aria-label="Ficha da etapa M1">
+          <div>
+            <p class="rotulo">M1 · Lead · atributo: Corajosa</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Isso não é para mim."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Se existe um vazio aí, ele tem nome e tem caminho.</dd>
+              <dt>Prova</dt><dd>História real de quem começou do zero, autorizada e com crédito. Uma prova por mensagem.</dd>
+              <dt>Canais</dt><dd>WhatsApp no primeiro contato, e-mail com o material pedido, Instagram.</dd>
+              <dt>Métrica</dt><dd>Tempo até o primeiro contato humano, em minutos; respostas em até 24 horas sobre cadastros.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · primeiro contato</p>
+            <p class="copiavel f07-zap">Oi, {nome}. Aqui é {consultor}, da The VOID.<br>Vi que você pediu {material}. Já está no seu e-mail.<br>Antes de qualquer coisa, me conta: o que te trouxe até aqui?</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "fácil", "simples assim", "mesmo sem talento você consegue", "curso barato", qualquer número de renda.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m2" aria-label="Ficha da etapa M2">
+          <div>
+            <p class="rotulo">M2 · Qualificação · atributo: Próxima</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Escola de tatuagem é tudo igual."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Aqui você aprende fazendo desde o primeiro dia, com feedback individual e uma turma ao lado.</dd>
+              <dt>Prova</dt><dd>A grade em três pilares (técnica, identidade artística e carreira) explicada em uma frase; a prática desde o primeiro dia.</dd>
+              <dt>Canais</dt><dd>WhatsApp, ligação para quem prefere voz, mensagem direta no Instagram.</dd>
+              <dt>Métrica</dt><dd>Leads qualificados sobre cadastrados, por mês, com o motivo de desqualificação registrado.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Agendar minha conversa<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · qualificação</p>
+            <p class="copiavel f07-zap">{nome}, obrigado por contar.<br>Para eu te indicar o caminho certo: hoje você já tatua ou vai começar do zero?</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> nome de outra escola; "a única escola" ou qualquer exclusividade sem prova; pergunta de renda ou dívida por escrito.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m3" aria-label="Ficha da etapa M3">
+          <div>
+            <p class="rotulo">M3 · Oportunidade · atributo: Técnica</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Lá dentro vou ser só mais um."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Veja com seus olhos como se aprende aqui.</dd>
+              <dt>Prova</dt><dd>O estúdio na Vila Madalena, o método no Mapa da Trilha e os professores, com nome e trajetória autorizados [P 13].</dd>
+              <dt>Canais</dt><dd>Visita presencial, ligação ou videochamada de diagnóstico, resumo por WhatsApp depois.</dd>
+              <dt>Métrica</dt><dd>Comparecimento: visitas ou conversas realizadas sobre agendadas.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Receber minha proposta de turma<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · confirmação da visita</p>
+            <p class="copiavel f07-zap">{nome}, sua visita está marcada: *{data}* às *{horario}*, em *{endereco}*.<br>Quem vai te receber sou eu, {consultor}. Pode trazer seus desenhos, se quiser.</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "decide hoje que o preço muda amanhã" quando não for verdade; comparação com outras escolas.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m4" aria-label="Ficha da etapa M4">
+          <div>
+            <p class="rotulo">M4 · Proposta · atributo: Técnica e Próxima</p>
+            <p class="fala" style="margin-top:var(--e-3)">"É caro." "Vou pensar."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>O que você vai ter, quando começa e como paga. Sem letra miúda.</dd>
+              <dt>Prova</dt><dd>Depoimento de alguém com o mesmo perfil, com crédito; valor total, parcelas e condições iguais ao checkout [P 15].</dd>
+              <dt>Canais</dt><dd>WhatsApp para enviar e acompanhar, e-mail com a proposta por escrito, ligação para objeções.</dd>
+              <dt>Métrica</dt><dd>Tempo em decisão: dias entre o envio da proposta e a resposta.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Garantir minha vaga na turma<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · resposta a "vou pensar"</p>
+            <p class="copiavel f07-zap">Faz sentido pensar, {nome}. Decisão boa é decisão consciente.<br>Me conta: o que pesa mais agora, o valor, o tempo ou a dúvida se você dá conta?</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "o investimento se paga em X semanas"; "últimas vagas" sem número real.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m5" aria-label="Ficha da etapa M5">
+          <div>
+            <p class="rotulo">M5 · Matrícula · atributo: Próxima</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Será que escolhi certo?"</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Você escolheu. Agora a gente cuida do primeiro passo junto com você.</dd>
+              <dt>Prova</dt><dd>O plano do primeiro dia, com horário, endereço e o nome de quem recebe. Clareza é a prova.</dd>
+              <dt>Canais</dt><dd>WhatsApp na hora, e-mail de boas-vindas (um dos dois e-mails com a tagline; o outro é o convite da Formatura com Pele), ligação para quem mostrou mais insegurança.</dd>
+              <dt>Métrica</dt><dd>Matrículas pagas sobre propostas decididas; ciclo de venda em dias.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Confirmar presença no primeiro dia<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · confirmação</p>
+            <p class="copiavel f07-zap">{nome}, matrícula confirmada. Boas-vindas à The VOID.<br>Seu primeiro dia é *{data_turma}*, às *{horario}*, em *{endereco}*.<br>Pode confirmar sua presença?</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "agora não tem volta"; condição que não estava na proposta; várias mensagens no mesmo dia.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m6" aria-label="Ficha da etapa M6">
+          <div>
+            <p class="rotulo">M6 · Ativação · atributo: Próxima e Corajosa</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Minhas mãos não vão obedecer."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Todo mundo começa com um traço. Aqui, ele tem nome, coragem e história.</dd>
+              <dt>Prova</dt><dd>O próprio avanço do aluno. Aqui, a prova de terceiros pesa menos que a evidência de si.</dd>
+              <dt>Ritos</dt><dd>Ritual do Traço no primeiro dia; Primeira Pele, com foto oficial e consentimento. Os dois só entram em mensagem depois de confirmados [P 6].</dd>
+              <dt>Métrica</dt><dd>Ativação no prazo: alunos que cumpriram os marcos combinados sobre matrículas pagas.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Registrar meu primeiro traço<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp do professor · depois da Primeira Pele</p>
+            <p class="copiavel f07-zap">{nome}, você fez sua primeira pele hoje. Você nunca esquece a primeira.<br>Um ponto forte: {ponto_forte}. Um ponto para a próxima: {ponto_ajuste}.<br>{professor}, The VOID</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "relaxa, é fácil"; correção do erro de um aluno no grupo da turma; comparação entre alunos.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m7" aria-label="Ficha da etapa M7">
+          <div>
+            <p class="rotulo">M7 · Valor · atributo: Técnica</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Todo mundo evolui mais rápido que eu."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Sua evolução é medida contra você mesmo, não contra os outros.</dd>
+              <dt>Prova</dt><dd>O primeiro traço ao lado do trabalho de hoje, visível só para o aluno.</dd>
+              <dt>Ritos</dt><dd>Workshop do Estilo no meio da formação; Formatura com Pele no fim, quando a Inspiradora volta ao primeiro plano. Os dois dependem de confirmação [P 6].</dd>
+              <dt>Métrica</dt><dd>Conclusão da turma: alunos na Formatura com Pele sobre alunos ativados.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único</p>
+            <span class="botao">Enviar meu trabalho para feedback<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · falta em aula prática</p>
+            <p class="copiavel f07-zap">{nome}, senti sua falta na prática de hoje. Está tudo bem?<br>Me fala como você está, e eu vejo com a coordenação o jeito certo de você não perder esse conteúdo.</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "você está atrasado em relação à turma"; ranking de velocidade; cobrança financeira na mesma mensagem do feedback.</p>
+          </div>
+        </article>
+        <article class="f07-ficha" data-f07-ficha="m8" aria-label="Ficha da etapa M8">
+          <div>
+            <p class="rotulo">M8 · Expansão · atributo: Inspiradora</p>
+            <p class="fala" style="margin-top:var(--e-3)">"Já aprendi o que precisava."</p>
+            <dl>
+              <dt>Frase-guia</dt><dd>Seu próximo capítulo, e o capítulo de quem você trouxer.</dd>
+              <dt>Prova</dt><dd>Trajetória de ex-alunos do Master e do Pro, com autorização; a história do próprio aluno, contada por ele.</dd>
+              <dt>Ritos</dt><dd>The VOID Talks, com frequência a confirmar [P 6]; a comunidade VOIDERS. Ex-alunos como mentores só depois de a escola confirmar que o programa existe [P 6].</dd>
+              <dt>Métrica</dt><dd>Formados que entram na formação seguinte em até 12 meses; indicações e depoimentos consentidos.</dd>
+            </dl>
+          </div>
+          <div>
+            <p class="rotulo">CTA único (um por mensagem)</p>
+            <span class="botao">Conhecer o Master<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <p class="rotulo">WhatsApp · próximo nível</p>
+            <p class="copiavel f07-zap">{nome}, olhando seu portfólio de formatura, o próximo passo natural é o The VOID Master, onde você descobre sua identidade artística.<br>Quer conhecer o Master numa conversa de 20 minutos?</p>
+            <button class="copiar" type="button">Copiar mensagem</button>
+            <p class="f07-nunca" data-exemplo="proibido"><b>Nunca:</b> "indique e ganhe dinheiro" como argumento; benefício de indicação que não exista; "você ainda não está pronto".</p>
+          </div>
+        </article>
+      </div>
+      <script>
+      (function(){
+        "use strict";
+        var abas=document.querySelector("#s32-3 .f07-abas"),fichas=document.querySelectorAll("#s32-fichas .f07-ficha");
+        if(!abas||!fichas.length)return;
+        abas.hidden=false;
+        function mostrar(id){
+          Array.prototype.forEach.call(fichas,function(f){f.hidden=f.getAttribute("data-f07-ficha")!==id;});
+          Array.prototype.forEach.call(abas.querySelectorAll("[data-f07-aba]"),function(b){b.setAttribute("aria-pressed",b.getAttribute("data-f07-aba")===id?"true":"false");});
+        }
+        abas.addEventListener("click",function(e){var b=e.target.closest("[data-f07-aba]");if(b)mostrar(b.getAttribute("data-f07-aba"));});
+        mostrar("m1");
+      })();
+      </script>
+    </div>
+
+    <div class="bloco" id="s32-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">32.4</p>
+        <h3 class="fala">Os ritos na régua</h3>
+        <p class="bloco-apoio">Os momentos de marca definidos na Plataforma de Branding (slides 59 a 63). Cada um tem lugar fixo na régua e frase própria, dita na voz em off. A prática atual de cada um na escola depende de confirmação [P 6]: até lá, nenhum aparece em peça, página, mensagem ou área de membros como coisa que já acontece.</p>
+      </div>
+      <ul class="f07-ritos">
+        <li><p class="rotulo">M6 · primeiro dia</p><b>Ritual do Traço</b><p class="voz-off">Todo mundo começa com um traço.</p><p class="nota">Aqui, ele tem nome, coragem e história. Elemento do rito: cada aluno desenha seu traço num mural coletivo da escola (slide 60). O mural segue a mesma regra do rito: só aparece depois de confirmado.</p></li>
+        <li><p class="rotulo">M6 · a primeira tatuagem</p><b>Primeira Pele</b><p class="voz-off">Você nunca esquece sua primeira pele.</p><p class="nota">Foto oficial pelo protocolo da seção 29, com consentimento do aluno e de quem foi tatuado.</p></li>
+        <li><p class="rotulo">M7 · meio da formação</p><b>Workshop do Estilo</b><p class="voz-off">Descubra sua identidade artística.</p><p class="nota">Experimentação com foco em estilo autoral, com aulas especiais, desafios e imersões, para sair do "mais do mesmo".</p></li>
+        <li><p class="rotulo">M7 · fim da formação</p><b>Formatura com Pele</b><p class="voz-off">Um novo capítulo na pele.</p><p class="nota">Você não sai apenas com um certificado. Contexto de peso: aceita a tagline.</p></li>
+        <li><p class="rotulo">M8 · comunidade</p><b>The VOID Talks</b><p class="voz-off">Da sala pra cena.</p><p class="nota">Encontros com quem vive de tatuagem. Frequência real a confirmar antes de dizer "todo mês" [P 6].</p></li>
+        <li class="f07-rito-pend"><p class="rotulo">M8 · comunidade · a confirmar</p><b>Ex-alunos mentores</b><p class="nota">Não é um momento de marca: é uma direção da Plataforma para a fidelização (slide 74). Até a escola confirmar que o programa existe [P 6], a peça diz só: "Quem se forma continua na comunidade VOIDERS." Sem logotipo próprio.</p></li>
+      </ul>
+      <p class="pendencia" data-p="6">[P 6] Duas confirmações com a The VOID. Primeira: se os momentos da Plataforma de Branding (Ritual do Traço com o mural coletivo, Primeira Pele, Workshop do Estilo, Formatura com Pele e The VOID Talks, com a frequência real) e o programa de ex-alunos mentores acontecem hoje na escola. Segunda: a aprovação dos ritos propostos durante a pesquisa da GrowAI (Pergunta do Vazio, Primeiro Toque, Convite ao Traço, Passagem de Trilha, padrinho de turma, Mural do Vazio) e do quinto momento de marca, que não existe nas fontes. Até a resposta, nenhum deles aparece em peça, página, mensagem ou arquitetura do site como coisa que já acontece.</p>
+    </div>
+
+    <div class="bloco" id="s32-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">32.5</p>
+        <h3 class="fala">Como medir cada etapa</h3>
+        <p class="bloco-apoio">Definições para o painel, sem número: os valores saem do CRM e da secretaria. Receita e valor por aluno ficam só no painel interno.</p>
+      </div>
+      <p><span class="status" data-status="proposta">Proposta</span></p>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Métricas por etapa</caption>
+          <thead><tr><th scope="col">Etapa</th><th scope="col">Métrica</th><th scope="col">Como calcular</th><th scope="col">Unidade e período</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">M1</th><td>Tempo até o primeiro contato humano</td><td>Mediana de (primeira resposta da equipe menos cadastro)</td><td>Minutos, por semana</td></tr>
+            <tr><th scope="row">M2</th><td>Conversão de M1 para M2</td><td>Leads qualificados / leads cadastrados</td><td>Percentual, por mês</td></tr>
+            <tr><th scope="row">M3</th><td>Comparecimento</td><td>Visitas ou conversas realizadas / agendadas</td><td>Percentual, por mês</td></tr>
+            <tr><th scope="row">M4</th><td>Tempo em decisão</td><td>Mediana de (resposta menos envio da proposta)</td><td>Dias</td></tr>
+            <tr><th scope="row">M5</th><td>Taxa de matrícula</td><td>Matrículas pagas / propostas decididas (sim ou não)</td><td>Percentual, por turma</td></tr>
+            <tr><th scope="row">M6</th><td>Ativação no prazo</td><td>Alunos que cumpriram os marcos de M6 no prazo / matrículas pagas</td><td>Percentual, por turma</td></tr>
+            <tr><th scope="row">M7</th><td>Conclusão da turma</td><td>Alunos na Formatura com Pele / alunos ativados</td><td>Percentual, por turma</td></tr>
+            <tr><th scope="row">M8</th><td>Ascensão em 12 meses</td><td>Formados que entraram na formação seguinte em até 12 meses / formados</td><td>Percentual, por turma</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Regra de operação: as mensagens de M1 a M5 saem de um único canal oficial de WhatsApp, com um responsável nomeado por etapa. Telefone e WhatsApp oficiais por produto dependem de [P 8].</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seção 10 e tabela 9.4); pesquisa de comunicação M1 a M8 e área de membros, GrowAI, 06/10/2026; Brand DNA da The VOID, set/2026; Personas, set/2026; Plataforma de Branding, aureadesign, 2025 (jornada atual, momentos de marca e direção de fidelização, slides 55 a 63 e 73 a 75); comunicacao-m1-m8.html, fonte das mensagens prontas.</p>
+  </div>
+</section>
+
+<section class="sec modo-leitura" id="s33" data-parte="VIII" data-nome="Conformidade e prova" aria-labelledby="s33-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>33</b> · Conformidade e prova</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">33</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Conformidade</p>
+        <h2 id="s33-t" class="titulo-secao">Prova antes de <em class="off">promessa</em></h2>
+        <p class="sec-apoio">O que a The VOID pode afirmar, o que só afirma com prova arquivada e o que não afirma nunca. Com as frases prontas para os avisos que a lei e as plataformas exigem.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Todo número vai com o Crédito de Prova completo: o que mede, recorte, data, fonte e marca de origem. Sem prova, o número sai; nunca vira zero e nunca vai com colchete.</li>
+        <li>Superlativo, natureza oficial do curso e promessa de renda com número ou prazo estão vetados. A tabela 33.3 diz o que escrever no lugar.</li>
+        <li>As frases-modelo de 33.4 são usadas como estão; quem muda o sentido de uma delas reabre a validação.</li>
+        <li>Esta seção é guia de comunicação, não parecer jurídico. Os itens marcados pedem advogado antes de virar contrato [P 20].</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s33-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.1</p>
+        <h3 class="fala">As doze regras de prova</h3>
+        <p class="bloco-apoio">Valem para peça orgânica, anúncio, página, mensagem, e-mail e área de membros. Um "não" em qualquer uma trava a peça até a correção.</p>
+      </div>
+      <ol class="f07-leis">
+        <li><span class="numeral-prova" aria-hidden="true">01</span><span><b>Número com prova arquivada</b>Recorte dito (turma, período, base), data, fonte e marca de origem visível (seção 25).</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">02</span><span><b>Superlativo só com prova pública</b>Nenhum "maior", "melhor" ou "única", e nenhuma contagem de alunos sem método publicado na Ficha de Fatos.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">03</span><span><b>Natureza do curso</b>Nada que sugira <span data-exemplo="proibido">diploma, curso técnico</span> ou chancela de órgão oficial sem validação de advogado [P 20].</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">04</span><span><b>Zero promessa financeira</b>Nenhum valor de ganho, prazo de retorno ou multiplicador de preço em texto público.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">05</span><span><b>Urgência só real</b>Vagas e prazos vêm do calendário de turmas; a Barra de Turma some sozinha quando a data vence.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">06</span><span><b>Preço igual ao checkout</b>Valor total, número de parcelas e condições batem com a página de pagamento [P 15].</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">07</span><span><b>Depoimento real</b>Autorizado, sem edição que mude o sentido; caso fora da média dito como tal; parceria paga identificada.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">08</span><span><b>Antes e depois de traço</b>Só em página interna e orgânico, com data e autorização; nunca lado a lado em anúncio pago.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">09</span><span><b>Menores, nunca</b>Nenhum menor como modelo ou em procedimento; mídia paga segmentada para maiores de 18 anos.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">10</span><span><b>Nada presumido</b>O texto nunca supõe dívida, renda, saúde ou emoção de quem lê. Faixa de renda das personas é dado interno.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">11</span><span><b>Concorrente nunca citado</b>Nem pelo nome, nem por insinuação. Material interno da agência nunca vai a público.</span></li>
+        <li><span class="numeral-prova" aria-hidden="true">12</span><span><b>Mesma promessa no destino</b>A página repete a promessa do anúncio e traz razão social e CNPJ no rodapé [P 8].</span></li>
+      </ol>
+    </div>
+
+    <div class="bloco" id="s33-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.2</p>
+        <h3 class="fala">A anatomia de uma prova</h3>
+        <p class="bloco-apoio">Cinco partes, lidas em voz alta antes de publicar. A construção visual, com as quatro marcas de origem, está na seção 25.</p>
+      </div>
+      <div class="grade-2">
+        <figure class="prova f07-anat" data-origem="em-validacao" data-exemplo="modelo">
+          <data class="prova-n" value="">[N]</data>
+          <figcaption class="prova-o-que">alunos concluíram a formação Start</figcaption>
+          <p class="prova-regua"><span class="origem"></span>contagem da secretaria · turmas de [mês/ano] a [mês/ano] · registro interno da escola</p>
+        </figure>
+        <ol class="lista f07-ol">
+          <li><b>O que mede:</b> uma frase que diz o que foi contado ("alunos concluíram a formação Start").</li>
+          <li><b>Recorte:</b> turma, período e base ("turmas de [mês/ano] a [mês/ano]").</li>
+          <li><b>Data:</b> quando o número foi apurado.</li>
+          <li><b>Fonte:</b> de onde veio ("contagem da secretaria", "Perfil da Empresa no Google, captura de [data]").</li>
+          <li><b>Marca de origem:</b> fio cheio para medido pela escola, tracejado para declarado por terceiro, pontilhado para estudo de mercado. Em validação, o número some e a peça não sai.</li>
+        </ol>
+      </div>
+      <h4 class="intertitulo">Legenda de depoimento (use como está)</h4>
+      <p class="copiavel f07-zap" style="background:var(--sala);color:var(--tela);border-left-color:var(--terracota-funda)">Depoimento real de [nome], aluno da formação [Start/Master/Pro], turma [mês/ano], usado com autorização.</p>
+      <button class="copiar" type="button">Copiar legenda</button>
+    </div>
+
+    <div class="bloco" id="s33-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.3</p>
+        <h3 class="fala">Claims vetados e o que dizer no lugar</h3>
+        <p class="bloco-apoio">Os textos riscados não aparecem em peça, página, bio, roteiro, mensagem ou dado estruturado. Alguns voltam quando houver prova pública; outros, só com advogado.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Claims vetados</caption>
+          <thead><tr><th scope="col">Vetado</th><th scope="col">Por quê</th><th scope="col">Diga no lugar</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"a maior escola de tatuagem do [país, região ou mundo]"</span></th><td>Superlativo sem prova pública (L2, R02).</td><td>"Escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional."</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"#1", "Nº 1", "a melhor escola", "a única escola", "líder"</span></th><td>Superlativo conta como número sem crédito.</td><td>Descreva o que a escola faz e mostre uma prova com crédito.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"+[N] alunos" sem método de contagem</span></th><td>Número de alunos sem método de contagem publicado.</td><td>"[N] alunos concluíram a formação [produto] entre [mês/ano] e [mês/ano]", com o Crédito de Prova completo [P 15].</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"[N] anos de mercado", "EST [ano]", "desde [ano]"</span></th><td>Tempo de mercado ou ano de fundação depende da confirmação com a The VOID [P 5].</td><td>Nenhum ano até a confirmação.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"o mercado cresce [N]% ao ano", "o maior mercado do [país ou região]"</span></th><td>Dado de mercado sem fonte publicada.</td><td>Estudo externo com link, data e origem pontilhada; sem fonte, a frase sai.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"curso reconhecido pelo MEC", "diploma", "curso técnico", "habilitação", "credenciado", certificação por instituição parceira</span></th><td>Reconhecimento oficial de ensino: vetado até validação de advogado [P 20].</td><td>A frase de curso livre de 33.4, depois de validada. O certificado aparece como item da oferta, nunca como argumento.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"o curso se paga em [N] meses", "cobrei R$ [valor] em [N] meses", "dobrar o valor", "cobrar [N] vezes mais"</span></th><td>Promessa de valor cobrado ou faturamento com número e prazo (R07). A peça não sai.</td><td>"A tatuagem pode virar sua profissão. O caminho é treino, portfólio e cliente, e a formação prepara você para cada etapa."</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">Nome de produto, desafio ou evento com valor em dinheiro ("Desafio [N] mil")</span></th><td>O nome é lido como promessa de ganho [P 7].</td><td>Nome sem número.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"últimas vagas" sem número, contador que reinicia, "só hoje" toda semana</span></th><td>Urgência fabricada induz a erro.</td><td>A frase de vagas com número e data (33.4) e a Barra de Turma ligada ao calendário.</td></tr>
+            <tr><th scope="row" data-exemplo="proibido"><span class="f07-riscado">"garantia de sucesso", "garantia de clientes", "renda garantida"</span></th><td>Resultado depende de prática e de mercado; a escola não controla.</td><td>Garantia só de processo que a escola cumpre e que esteja no contrato, se existir [P 15].</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s33-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.4</p>
+        <h3 class="fala">Frases-modelo, prontas para copiar</h3>
+        <p class="bloco-apoio">Use como estão. Os colchetes viram dado real antes de publicar; frase com colchete não vai ao ar.</p>
+      </div>
+      <div class="f07-frases">
+        <div class="f07-frase"><p class="rotulo">Resultado · versão longa</p><p class="copiavel">Os resultados mostrados são de alunos reais e não são garantia. O seu resultado depende da sua dedicação, da prática fora da aula e do seu mercado local.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Aviso de Conformidade da LP · versão curta</p><p class="copiavel">Resultados individuais variam conforme prática e dedicação.</p><p class="legenda">Vai logo abaixo do Rolo de Depoimentos e de toda Régua de Prova.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase" data-exemplo="proibido" data-pendente="P20"><p class="rotulo">Curso livre e certificado</p><p><span class="status" data-status="pendente">Aguarda advogado</span></p><p class="copiavel">A The VOID oferece formação livre em tatuagem. Ao concluir, você recebe o certificado de conclusão da escola. Curso livre não depende de autorização do MEC e não equivale a curso técnico ou superior.</p><p class="legenda">Redação proposta; só vai ao ar depois da validação [P 20].</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Vagas</p><p class="copiavel">Turma de [mês/ano]: [N] vagas no total. Restam [N] em [data].</p><p class="legenda">O número vem do controle de matrículas no dia da publicação; sem número atualizado, a frase não sai.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Prazo de condição</p><p class="copiavel">Condição válida até [dia/mês], às [hora]. Depois disso, o valor volta para R$ [valor].</p><p class="legenda">A condição precisa acabar de fato na data.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Direito de arrependimento</p><p class="copiavel">Matrícula feita pela internet, telefone ou WhatsApp pode ser cancelada em até 7 dias a partir da contratação, com devolução integral do valor pago, conforme o artigo 49 do Código de Defesa do Consumidor.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Chamada de modelos</p><p class="copiavel">Procuramos modelos maiores de 18 anos. Documento com foto obrigatório no dia. A sessão é feita por aluno sob supervisão de instrutor, com protocolo de biossegurança.</p><p class="legenda">"Sob supervisão de instrutor" só entra se for verdade.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Biossegurança e licença</p><p class="copiavel">Na formação você aprende o protocolo de biossegurança. Para atender clientes no seu próprio espaço, você precisa da licença da vigilância sanitária da sua cidade.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Parceria paga</p><p class="copiavel">#publi · Parceria paga com a The VOID.</p><p class="legenda">No início da legenda, com a marcação de parceria paga da plataforma.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Concurso cultural</p><p class="copiavel">Concurso exclusivamente cultural, sem sorteio, sem compra e sem custo de participação. Vencedores escolhidos por júri com os critérios do regulamento.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Formulário</p><p class="copiavel">Usamos seus dados para falar com você sobre a formação. Você pode sair quando quiser. Leia a Política de Privacidade.</p><p class="legenda">Com a caixa de consentimento desmarcada e o link da política ao lado.</p><button class="copiar" type="button">Copiar frase</button></div>
+        <div class="f07-frase"><p class="rotulo">Microcopy do botão</p><p class="copiavel">Resposta de uma pessoa do time em até 2h, sem ligação invasiva.</p><p class="legenda">Só enquanto o compromisso de prazo existir e for cumprido.</p><button class="copiar" type="button">Copiar frase</button></div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s33-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.5</p>
+        <h3 class="fala">Imagem, menores, saúde e dados</h3>
+        <p class="bloco-apoio">Quatro regras que valem para toda foto, vídeo, formulário e chamada de modelo. A base legal vem da pesquisa de conformidade e precisa de advogado onde indicado.</p>
+      </div>
+      <div class="regras">
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">18+</p>
+          <h4 class="regra-titulo">Nenhum menor tatuado</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Nenhum menor de 18 anos como modelo, em aula, evento, workshop ou peça, mesmo com autorização dos pais. Mídia paga de matrícula e de modelos sempre segmentada para maiores de 18.</dd>
+            <dt>Por quê</dt><dd>A lei estadual de São Paulo 9.828/1997 proíbe tatuagem permanente em menores, sem exceção. Aceitar menor em aula teórica é decisão da escola, com advogado [P 20].</dd>
+            <dt>Teste</dt><dd>Toda pessoa na peça tem documento conferido e autorização arquivada?</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">02</p>
+          <h4 class="regra-titulo">Dois direitos em cada foto</h4>
+          <dl>
+            <dt>O que manda</dt><dd>A pessoa fotografada autoriza a imagem por finalidade (orgânico, site, anúncio pago, depoimento com nome, área de membros); a arte do aluno e a foto têm direito autoral próprio. Foto autorizada só para orgânico não vai para anúncio.</dd>
+            <dt>Por quê</dt><dd>Código Civil, artigo 20 (imagem) e Lei 9.610/1998 (direito autoral). Termo de imagem e cessão da arte aguardam advogado [P 20].</dd>
+            <dt>Teste</dt><dd>O termo assinado cobre o canal onde a peça vai sair?</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">BIO</p>
+          <h4 class="regra-titulo">Biossegurança visível e verdadeira</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Todo procedimento aparece com luva nitrílica, filme plástico, material de uso único e descarte. Em anúncio pago, nada de sangue, ferida, secreção ou close de pele irritada. O certificado nunca é apresentado como licença para abrir estúdio.</dd>
+            <dt>Por quê</dt><dd>Em São Paulo, estúdio precisa de cadastro na vigilância em saúde do município e segue a norma sanitária do estado. A licença da escola para procedimento em aula está em validação [P 20].</dd>
+            <dt>Teste</dt><dd>O que aparece na foto é o que acontece de fato na sala?</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">07</p>
+          <h4 class="regra-titulo">Dados com finalidade dita</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Formulário com finalidade explicada, link da política de privacidade e consentimento desmarcado. Nada de renda, dívida ou saúde sem necessidade; anamnese de modelo nunca aparece em conteúdo. Venda online informa o cancelamento em até 7 dias.</dd>
+            <dt>Por quê</dt><dd>Lei Geral de Proteção de Dados (dado de saúde é sensível) e Código de Defesa do Consumidor, artigo 49.</dd>
+            <dt>Teste</dt><dd>A pessoa sabe para que serve cada campo e como sair?</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s33-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.6</p>
+        <h3 class="fala">O que trava uma peça</h3>
+        <p class="bloco-apoio">Antes de publicar, a peça passa pelo checklist de aprovação da <a href="#s07">seção 07</a>, que gera o resumo para quem aprova. Estes são os cinco grupos de conformidade dele.</p>
+      </div>
+      <ul class="f07-trava">
+        <li><b>Promessa e prova</b>Sem renda com número e prazo; todo número com crédito; aviso de resultado quando há prova.</li>
+        <li><b>Natureza do curso</b>Nenhuma chancela oficial sugerida; certificado só como item da oferta.</li>
+        <li><b>Menores e saúde</b>Ninguém abaixo de 18 anos; biossegurança real; anúncio sem sangue.</li>
+        <li><b>Imagem e dados</b>Autorização por canal; arte creditada; nenhum dado de aluno visível.</li>
+        <li><b>Oferta e plataforma</b>Preço igual ao checkout; vagas reais; mesma promessa no destino; nada presumido sobre quem lê.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s33-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">33.7</p>
+        <h3 class="fala">Itens que pedem advogado</h3>
+        <p class="bloco-apoio">Não são dados pendentes: são decisões jurídicas. Até a validação, o claim correspondente fica fora e as frases ficam marcadas como proposta.</p>
+      </div>
+      <ol class="lista f07-ol">
+        <li>Redação final do aviso de curso livre e vigência das normas de educação profissional que o sustentam.</li>
+        <li>Se a escola aceita alunos menores de idade em alguma formação, e em que condições contratuais.</li>
+        <li>Licença sanitária da sede para procedimento em aula e adequação da carga de biossegurança à vigilância local.</li>
+        <li>Termo de uso de imagem por finalidade e cessão de direito autoral da arte do aluno e de fotos de terceiros.</li>
+        <li>Cancelamento e reembolso: turmas que começam em menos de 7 dias e conteúdo digital já acessado.</li>
+        <li>Política de garantia, se existir.</li>
+        <li>Regulamento de cada concurso cultural; autorização prévia para qualquer sorteio.</li>
+        <li>Política de privacidade e base legal de cada tratamento de dados (leads, alunos, modelos, área de membros).</li>
+        <li>Forma de exibir o preço parcelado.</li>
+      </ol>
+      <p class="pendencia" data-p="20">[P 20] Validação de advogado para os itens acima, para a retirada definitiva da menção a órgão oficial e parceria de certificação, e para a aceitação de menores. Nada desta lista vira regra pública antes disso.</p>
+      <p class="pendencia" data-p="8">[P 8] Razão social, CNPJ, telefone principal e WhatsApp oficial por produto. Sem eles, o rodapé legal das páginas de destino fica incompleto e a regra 12 não fecha.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seção 11); pesquisa de conformidade da GrowAI, 06/10/2026, a partir do Código de Defesa do Consumidor, do Código e do Guia de Influenciadores do CONAR, da Lei Geral de Proteção de Dados, da lei estadual de São Paulo 9.828/1997, da legislação sanitária de São Paulo e das políticas de anúncio da Meta e do Google (guia de comunicação, não parecer jurídico); Brand DNA da The VOID, set/2026 (regras R02, R05 e R07).</p>
+  </div>
+</section>

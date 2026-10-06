@@ -1,0 +1,112 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "EducationalOrganization",
+        "LocalBusiness"
+      ],
+      "@id": "https://thevoidtattoo.com.br/#organizacao",
+      "name": "The VOID Tattoo Academy",
+      "alternateName": [
+        "The VOID",
+        "The VOID Tattoo",
+        "The Void Tattoo Academy",
+        "Void Tattoo Academy"
+      ],
+      "legalName": "{{A_CONFIRMAR}}",
+      "taxID": "{{A_CONFIRMAR}}",
+      "description": "A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.",
+      "url": "https://thevoidtattoo.com.br/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-tattoo-academy-logo-horizontal-preto.png",
+        "width": 1200,
+        "height": 183
+      },
+      "image": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-tattoo-academy-fachada-rua-jerico.webp",
+      "foundingDate": "{{A_CONFIRMAR}}",
+      "founder": [
+        {
+          "@id": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/#pessoa"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Jericó, 217",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "05435-040",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "{{A_CONFIRMAR}}",
+        "longitude": "{{A_CONFIRMAR}}"
+      },
+      "hasMap": "{{A_CONFIRMAR}}",
+      "telephone": "+55 11 92481-8712",
+      "email": "thevoid@thevoidtattoo.com.br",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "{{A_CONFIRMAR}}"
+          ],
+          "opens": "{{A_CONFIRMAR}}",
+          "closes": "{{A_CONFIRMAR}}"
+        }
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "São Paulo"
+      },
+      "knowsAbout": [
+        "tatuagem",
+        "biossegurança em tatuagem",
+        "estilos de tatuagem",
+        "carreira de tatuador"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/thevoidtattooacademy/",
+        "https://www.tiktok.com/@thevoidtattooacademy",
+        "https://www.youtube.com/channel/UC3vLxX3-VMB-HIIVUDqjMQg",
+        "https://www.facebook.com/thevoidtattooacademy/"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Formações The VOID",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@id": "https://thevoidtattoo.com.br/trilha/start/#curso"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@id": "https://thevoidtattoo.com.br/trilha/master/#curso"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@id": "https://thevoidtattoo.com.br/trilha/pro/#curso"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thevoidtattoo.com.br/#site",
+      "url": "https://thevoidtattoo.com.br/",
+      "name": "The VOID Tattoo Academy",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://thevoidtattoo.com.br/#organizacao"
+      }
+    }
+  ]
+}

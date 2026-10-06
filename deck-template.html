@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="start">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo de Apresentação · The VOID</title>
+<meta name="description" content="Modelo de apresentação da The VOID Tattoo Academy em 1440 por 900: os oito tipos de slide do sistema (Capa, Cartela, Documento, Prova, Mapa da Trilha, Foto cheia, Comparativo e Fecho), navegação por teclado e toque, notas do apresentador na tecla P, visão geral, conferência automática das leis e impressão de um slide por página.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/svg+xml" href="assets/brand/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* =====================================================================
+   THE VOID · MODELO DE APRESENTAÇÃO · sistema de marca v1 · 06/10/2026
+   Valores: tokens.css (nenhum HEX solto). Regras: spec 12.8 (deck), 7.1 (grade
+   do deck: 12 colunas, margem de 96 px, medianiz de 24 px), L1 a L8, 3.6
+   (Modo Leitura), 6 (recursos assinatura) e 11 (conformidade).
+
+   COMO EDITAR
+   1. Cada slide é um <article class="quadro"> com data-tipo (um dos oito tipos),
+      data-l8 (cena, cartela ou documento) e data-recursos (no máximo três,
+      o grão conta como um). Copie o quadro do tipo que precisa e troque o texto.
+   2. As notas do apresentador ficam no <aside class="notas"> de cada quadro.
+   3. Os dados da proposta (produto, turma, destino do botão) ficam no objeto
+      DECK no fim do arquivo. A Barra de Turma só aparece com data real e futura.
+   4. A conferência (tecla C) roda as leis sobre o deck inteiro. Número em
+      validação ou valor pendente bloqueiam a exportação.
+
+   TECLAS: setas, espaço, Page Up e Page Down mudam o slide; Home e End vão ao
+   início e ao fim; número e Enter vão direto; P notas; G visão geral;
+   C conferência; F tela cheia; Esc fecha painéis.
+   ===================================================================== */
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--sala);min-height:100vh;overflow-wrap:break-word}
+h1,h2,h3,p,figure,ul,ol,table{margin:0}
+ul,ol{padding:0;list-style:none}
+img{display:block}
+button,select{font:inherit;color:inherit}
+code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em}
+.so-leitor{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+
+/* ---------- 1. Barra de comando (interface do modelo, fora dos slides) ---------- */
+.comando{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 16px;background:var(--bastidor);border-bottom:1px solid var(--fio)}
+.comando h1{font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--tela);white-space:nowrap}
+.comando h1 span{color:var(--po);font-weight:500}
+.comando-meio{display:flex;align-items:center;gap:8px;margin:0 auto}
+.comando-fim{display:flex;align-items:center;gap:8px}
+.cmd{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;min-height:44px;padding:0 12px;border:1px solid var(--fio);border-radius:0;background:var(--sala);color:var(--cal);font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background var(--t-micro) var(--curva-cena),border-color var(--t-micro) var(--curva-cena)}
+.cmd:hover{background:var(--coxia);border-color:var(--fumaca)}
+.cmd[aria-pressed="true"]{border-color:var(--areia);color:var(--tela)}
+.cmd kbd{font:inherit;color:var(--po);border:1px solid var(--fio);padding:2px 5px}
+.cmd.so-icone{padding:0}
+.contador{min-width:120px;text-align:center;font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.contador b{color:var(--tela);font-weight:600}
+.contador span{display:block;color:var(--fumaca);letter-spacing:.14em;font-size:11px}
+.selo-produto{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.selo-produto select{min-height:44px;padding:0 12px;border:1px solid var(--fumaca);border-radius:0;background:var(--coxia);color:var(--tela);font:600 14px/1 var(--font-letreiro);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.estado-gate{display:inline-flex;align-items:center;gap:8px}
+.estado-gate[data-estado="ok"]{color:var(--sucesso)}
+.estado-gate[data-estado="bloqueio"]{color:var(--atencao)}
+
+/* ---------- 2. Quadro, moldura e slide (a peça de 1440 por 900) ---------- */
+.deck{--k:.25;position:relative}
+.quadro{position:relative}
+.moldura{position:relative;overflow:hidden;background:var(--nanquim)}
+.slide{position:absolute;left:0;top:0;width:1440px;height:900px;overflow:hidden;transform:scale(var(--k));transform-origin:0 0;background:var(--sala);color:var(--cal);font:400 20px/1.6 var(--font-texto)}
+.slide.modo-leitura{background:var(--tela);color:var(--sala)}
+.slide.grao::after{z-index:5}
+.slide>*{position:absolute}
+
+/* registros do deck: a escala de documento da spec 4.4 levada a 1440 por 900 */
+.d-filme{font:800 112px/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase;letter-spacing:-.02em;color:var(--tela);text-wrap:balance;hyphens:none}
+.d-filme.menor{font-size:96px}
+.d-secao{font:700 60px/.98 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela);text-wrap:balance;hyphens:none}
+.modo-leitura .d-secao{color:var(--sala)}
+.d-credito{font:500 14px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.modo-leitura .d-credito{color:var(--ardosia)}
+.d-chamada{font:400 26px/1.45 var(--font-texto);color:var(--cal);max-width:700px}
+.slide .off{color:var(--estacao-destaque)}
+.folio{right:96px;bottom:48px;font:500 14px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;color:var(--po)}
+.modo-leitura .folio{color:var(--ardosia)}
+.pendente{color:var(--atencao)}
+.modo-leitura .pendente{color:var(--atencao-claro)}
+.marca-p{display:inline-block;margin-left:8px;padding:2px 6px;border:1px dashed currentColor;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.12em;vertical-align:middle;white-space:nowrap}
+
+/* espaço de foto: só foto real da escola, com autorização (spec 8.1) */
+.foto-placa{inset:0;background:var(--bastidor)}
+.foto-placa::before{content:"";position:absolute;inset:24px;border:1px dashed var(--fumaca)}
+.foto-rotulo{position:absolute;display:flex;flex-direction:column;gap:12px;max-width:420px;color:var(--po)}
+.foto-rotulo svg{width:40px;height:40px;fill:none;stroke:var(--po);stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.foto-rotulo b{font:500 14px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--cal)}
+.foto-rotulo span{font:400 16px/1.5 var(--font-texto)}
+.veu-camada{inset:0}
+
+/* ---------- 3. Tipos de slide ---------- */
+/* Capa */
+.t-capa .eco-camada{inset:0}
+.t-capa .ficha-tecnica{left:96px;top:72px}
+.t-capa .capa-logo{left:96px;top:144px;width:330px;height:auto}
+.t-capa .capa-texto{left:96px;right:200px;bottom:144px;display:flex;flex-direction:column;gap:24px}
+.t-capa .capa-pe{left:96px;bottom:48px}
+
+/* Cartela */
+.t-cartela .janela-camada{inset:0}
+.t-cartela .cartela-texto{left:96px;right:240px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:32px}
+
+/* Foto cheia */
+.t-foto .texto-foto{left:96px;width:840px;display:flex;flex-direction:column;gap:24px}
+.t-foto.veu-lado .texto-foto{top:50%;transform:translateY(-50%)}
+.t-foto.veu-pe .texto-foto{bottom:120px;width:900px}
+
+/* Mapa da Trilha */
+.t-mapa .cabeca{left:96px;top:72px;right:96px;display:flex;flex-direction:column;gap:16px}
+.t-mapa .mapa-caixa{left:250px;top:224px;width:940px}
+.t-mapa .mapa-caixa .vf-mapa .vf-frase{font-size:14px}
+.t-mapa .mapa-nota{left:96px;bottom:48px;max-width:760px;font:400 18px/1.5 var(--font-texto);color:var(--po)}
+
+/* Prova */
+.t-prova .cabeca{left:96px;top:72px;display:flex;flex-direction:column;gap:16px}
+.t-prova .prova-caixa{left:96px;top:270px;width:900px}
+.t-prova .aviso-conf{left:96px;bottom:48px;max-width:760px;font:400 16px/1.5 var(--font-texto);color:var(--po)}
+
+/* Comparativo */
+.t-compara .cabeca{left:96px;top:64px;display:flex;flex-direction:column;gap:16px}
+.t-compara .compara-caixa{left:96px;right:96px;top:206px}
+.compara{width:100%;border-collapse:collapse;table-layout:fixed}
+.compara th,.compara td{padding:14px 20px;vertical-align:top;text-align:left;border-bottom:1px solid var(--fio)}
+.compara thead th{padding-top:20px;padding-bottom:16px;border-bottom:1px solid var(--fumaca)}
+.compara col.c-rot{width:224px}
+.compara tbody th{font:500 13px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po);padding-top:18px}
+.compara td{font:400 18px/1.45 var(--font-texto);color:var(--cal)}
+.compara .cab-prod{display:flex;align-items:center;gap:16px}
+.compara .cab-prod [data-vforms]{flex:none;line-height:0}
+.compara .cab-nome{display:flex;flex-direction:column;gap:6px}
+.compara .cab-nome b{font:700 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela)}
+.compara .cab-nome span{font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--estacao-destaque);visibility:hidden}
+.compara th[data-ativo="true"],.compara td[data-ativo="true"]{background:var(--bastidor)}
+.compara thead th[data-ativo="true"]{box-shadow:inset 0 2px 0 var(--estacao-grafismo)}
+.compara thead [data-ativo="true"] .cab-nome span{visibility:visible}
+.compara td[data-ativo="true"]{color:var(--tela)}
+.t-compara .compara-fonte{left:96px;bottom:48px;font:400 15px/1.5 var(--font-texto);color:var(--po)}
+
+/* Documento (Modo Leitura) */
+.t-doc .cabeca{left:96px;top:72px;display:flex;flex-direction:column;gap:16px}
+.t-doc .doc-selo{right:96px;top:56px;width:200px;height:200px}
+.t-doc .doc-corpo{left:96px;right:336px;top:220px;display:flex;flex-direction:column;gap:28px}
+.ficha{width:100%;border-collapse:collapse}
+.ficha th,.ficha td{padding:11px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--fumaca)}
+.ficha tr:nth-child(odd){background:var(--cinza-100)}
+.ficha th{width:260px;font:500 13px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--ardosia)}
+.ficha td{font:400 19px/1.45 var(--font-texto);color:var(--sala)}
+.t-doc .doc-legal{display:flex;flex-direction:column;gap:8px;font:400 15px/1.5 var(--font-texto);color:var(--penumbra)}
+.t-doc .doc-lado{right:96px;top:316px;width:200px;display:flex;flex-direction:column;gap:12px;font:400 15px/1.5 var(--font-texto);color:var(--ardosia)}
+.t-doc .doc-lado b{font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--sala)}
+
+/* Barra de Turma (LP01): só com data real e futura; some quando vence */
+.barra-turma{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 16px;background:var(--bastidor);border-bottom:1px solid var(--estacao-grafismo);color:var(--tela);font:500 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+.barra-turma[hidden]{display:none}
+.barra-ausente{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 16px;border:1px dashed var(--atencao-claro);color:var(--atencao-claro);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.barra-ausente[hidden]{display:none}
+
+/* Fecho */
+.t-fecho .fecho-logo{left:96px;top:72px;height:32px;width:auto}
+.t-fecho .fecho-texto{left:96px;right:240px;top:50%;transform:translateY(-56%);display:flex;flex-direction:column;align-items:flex-start;gap:48px}
+.t-fecho .botao{min-height:64px;padding:0 36px;font-size:18px}
+.t-fecho .botao svg{width:22px;height:22px}
+.t-fecho .fecho-pe{left:96px;right:96px;bottom:44px;border-top:1px solid var(--fio);padding-top:20px}
+.t-fecho .fecho-pe .vf-rodape{font-size:14px}
+
+/* ---------- 4. Modo palco (apresentação: um slide, ajustado à tela) ---------- */
+html.palco body{overflow:hidden}
+html.palco .deck{position:fixed;left:0;right:0;top:57px;bottom:0;background:var(--nanquim)}
+html.palco.com-notas .deck{right:400px}
+html.palco .quadro{display:none;position:absolute;inset:0}
+html.palco .quadro.ativo{display:flex;align-items:center;justify-content:center}
+html.palco .moldura{width:calc(1440px * var(--k));height:calc(900px * var(--k));flex:none}
+html.palco aside.notas{display:none}
+html.palco .trilho{display:flex}
+html.tela-cheia .comando{display:none}
+html.tela-cheia.palco .deck{top:0}
+
+/* trilho do ritmo (L8): um segmento por slide, com o tipo escrito */
+.trilho{display:none;position:fixed;left:0;right:0;bottom:0;z-index:20;height:4px;gap:2px;background:var(--nanquim)}
+html.palco.com-notas .trilho{right:400px}
+.trilho a{flex:1;background:var(--fio)}
+.trilho a.feito{background:var(--fumaca)}
+.trilho a.atual{background:var(--tela)}
+
+/* ---------- 5. Modo lista (celular, telas baixas) e visão geral ---------- */
+html.lista .deck,html.grade .deck{display:flex;flex-direction:column;gap:48px;max-width:1200px;margin:0 auto;padding:24px 16px 96px}
+html.lista .moldura,html.grade .moldura{width:100%;height:calc(900px * var(--k));outline:1px solid var(--fio)}
+.quadro-rotulo{display:none}
+html.lista .quadro-rotulo,html.grade .quadro-rotulo{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:12px;font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.quadro-rotulo b{color:var(--tela);font-weight:600}
+.quadro-rotulo i{font-style:normal;color:var(--fumaca)}
+html.lista aside.notas{margin-top:16px}
+aside.notas{display:none}
+html.lista.com-notas aside.notas{display:block}
+html.lista aside.notas,html.grade aside.notas{max-width:680px;padding:16px 16px 16px 20px;border-left:2px solid var(--estacao-grafismo);background:var(--bastidor);font:400 16px/1.6 var(--font-texto);color:var(--cal)}
+aside.notas p+p,aside.notas p+ul,aside.notas ul+p{margin-top:12px}
+aside.notas ul{list-style:disc;padding-left:20px}
+aside.notas li+li{margin-top:6px}
+aside.notas b{color:var(--tela);font-weight:600}
+aside.notas .n-rotulo{font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+html.grade .deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px 24px}
+html.grade aside.notas{display:none}
+html.grade .quadro{cursor:pointer}
+html.grade .quadro:hover .moldura{outline-color:var(--fumaca)}
+html.grade .quadro.ativo .moldura{outline:2px solid var(--areia);outline-offset:3px}
+.quadro:focus-visible{outline:none}
+html.lista .quadro:focus-visible .moldura,html.grade .quadro:focus-visible .moldura{outline:2px solid var(--areia);outline-offset:3px}
+.intro-lista{display:none}
+html.lista .intro-lista,html.grade .intro-lista{display:block;max-width:680px;margin:0 0 8px;font:400 16px/1.6 var(--font-texto);color:var(--po)}
+html.grade .intro-lista{grid-column:1/-1}
+
+/* ---------- 6. Painéis: notas e conferência ---------- */
+.painel{position:fixed;top:57px;right:0;bottom:0;z-index:25;width:400px;display:flex;flex-direction:column;gap:20px;padding:24px;overflow-y:auto;background:var(--bastidor);border-left:1px solid var(--fio);color:var(--cal);font:400 16px/1.6 var(--font-texto);visibility:hidden;transform:translateX(100%);transition:transform var(--t-ui) var(--curva-cena),visibility 0s linear var(--t-ui)}
+.painel.aberto{visibility:visible;transform:none;transition:transform var(--t-ui) var(--curva-cena)}
+html.tela-cheia .painel{top:0}
+.painel h2{font:700 24px/1.05 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela)}
+.painel .p-rotulo{font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.painel-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.painel-corpo p+p,.painel-corpo p+ul,.painel-corpo ul+p{margin-top:12px}
+.painel-corpo ul{list-style:disc;padding-left:20px}
+.painel-corpo li+li{margin-top:6px}
+.painel-corpo b{color:var(--tela);font-weight:600}
+.relogio{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid var(--fio);border-bottom:1px solid var(--fio)}
+.relogio output{font:300 36px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;font-variant-numeric:tabular-nums;color:var(--tela)}
+.proximo{padding-top:12px;border-top:1px solid var(--fio);font-size:15px;color:var(--po)}
+.proximo b{display:block;color:var(--cal)}
+.teclas{margin-top:auto;padding-top:12px;border-top:1px solid var(--fio);font-size:14px;line-height:1.5;color:var(--po)}
+.checks{display:flex;flex-direction:column;gap:12px}
+.checks li{display:grid;grid-template-columns:24px 1fr;gap:4px 12px;align-items:start;padding-bottom:12px;border-bottom:1px solid var(--fio);font-size:15px;line-height:1.5}
+.checks svg{width:24px;height:24px;fill:none;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.checks [data-estado="ok"] svg{stroke:var(--sucesso)}
+.checks [data-estado="atencao"] svg{stroke:var(--atencao)}
+.checks [data-estado="bloqueio"] svg,.checks [data-estado="erro"] svg{stroke:var(--erro)}
+.checks b{display:block;color:var(--tela);font-weight:600}
+.checks .estado{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase}
+.checks [data-estado="ok"] .estado{color:var(--sucesso)}
+.checks [data-estado="atencao"] .estado{color:var(--atencao)}
+.checks [data-estado="bloqueio"] .estado,.checks [data-estado="erro"] .estado{color:var(--erro)}
+.aviso-export{padding:12px 16px;border:1px solid var(--erro);color:var(--tela);font-size:15px}
+.aviso-export[hidden]{display:none}
+
+/* ---------- 7. Celular e telas estreitas ---------- */
+@media (max-width:900px){
+  .painel{top:auto;left:0;width:auto;max-height:70vh;border-left:0;border-top:1px solid var(--fio);transform:translateY(100%)}
+  .painel.aberto{transform:none}
+}
+@media (max-width:1280px){.cmd .rotulo-longo{display:none}}
+@media (min-width:761px) and (max-width:1000px){.comando h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+html.lista .comando{position:static}
+html.lista .comando-meio,html.lista #b-cheia{display:none}
+@media (max-width:760px){
+  .comando{flex-wrap:wrap;gap:8px 12px}
+  .comando h1{flex:1 1 100%;white-space:normal}
+  .comando-meio{margin:0}
+  .comando-fim{flex-wrap:wrap;gap:6px}
+  .selo-produto select{width:96px}
+  .cmd .rotulo-longo,.cmd kbd{display:none}
+  .contador{min-width:0}
+}
+@media (max-width:430px){
+  html.lista .deck{gap:40px}
+  .selo-produto>span{display:none}
+}
+
+/* ---------- 8. Movimento reduzido ---------- */
+@media (prefers-reduced-motion:reduce){
+  .painel,.painel.aberto,.cmd{transition-duration:0ms!important}
+}
+
+/* ---------- 9. Impressão e PDF: um slide por página de 1440 por 900 ---------- */
+@page{size:1440px 900px;margin:0}
+@media print{
+  html,body{background:var(--sala)!important;overflow:visible!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .comando,.painel,.trilho,.quadro-rotulo,.intro-lista,aside.notas{display:none!important}
+  body>svg{position:absolute!important;width:0!important;height:0!important;overflow:hidden}
+  .deck,html.palco .deck,html.lista .deck,html.grade .deck{position:static!important;display:block!important;padding:0!important;margin:0!important;max-width:none!important;background:none!important}
+  .quadro,html.palco .quadro{display:block!important;position:relative!important;inset:auto!important;width:1440px;height:900px;break-after:page;page-break-after:always;break-inside:avoid}
+  .deck .quadro:last-child,html.palco .quadro:last-child{break-after:auto;page-break-after:auto}
+  .moldura,html.palco .moldura,html.lista .moldura{width:1440px!important;height:900px!important;outline:0!important}
+  .slide{transform:none!important}
+  html.bloqueado .slide::before{content:"ARQUIVO DE TRABALHO · HÁ DADO EM VALIDAÇÃO OU VALOR PENDENTE · NÃO PUBLICAR";position:absolute;left:0;right:0;top:0;z-index:9;padding:8px 96px;background:var(--atencao);color:var(--sala);font:600 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em}
+}
+</style>
+</head>
+<body class="grao">
+
+<header class="comando" id="comando">
+  <h1>Modelo de apresentação</h1>
+  <div class="comando-meio">
+    <button class="cmd so-icone" type="button" id="b-ant" aria-label="Slide anterior"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <p class="contador" id="contador" aria-live="polite"><b>01</b> / 09<span>Capa</span></p>
+    <button class="cmd so-icone" type="button" id="b-prox" aria-label="Próximo slide"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
+  <div class="comando-fim">
+    <label class="selo-produto"><span class="so-leitor">Formação</span>
+      <select id="produto" aria-label="Formação da proposta">
+        <option value="start">Start</option>
+        <option value="master">Master</option>
+        <option value="pro">Pro</option>
+      </select>
+    </label>
+    <button class="cmd" type="button" id="b-notas" aria-pressed="false" aria-controls="painel-notas" title="Notas do apresentador (tecla P)"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg><span class="rotulo-longo">Notas</span></button>
+    <button class="cmd" type="button" id="b-grade" aria-pressed="false" title="Visão geral (tecla G)"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3"/><rect width="7" height="7" x="14" y="3"/><rect width="7" height="7" x="14" y="14"/><rect width="7" height="7" x="3" y="14"/></svg><span class="rotulo-longo">Visão geral</span></button>
+    <button class="cmd" type="button" id="b-conf" aria-pressed="false" aria-controls="painel-conferencia" title="Conferência das leis (tecla C)"><span class="estado-gate" id="estado-gate" data-estado="ok"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-.82c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="rotulo-longo">Conferência</span></button>
+    <button class="cmd so-icone" type="button" id="b-cheia" aria-label="Tela cheia (tecla F)"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+    <button class="cmd" type="button" id="b-pdf"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8"/></svg><span class="rotulo-longo">Exportar PDF</span></button>
+  </div>
+</header>
+
+<main class="deck" id="deck" aria-label="Slides da apresentação">
+
+  <p class="intro-lista">Modelo de apresentação da The VOID em 1440 por 900. Os oito tipos de slide do sistema aparecem em ordem, como uma proposta de turma (etapa M4). No computador, a apresentação abre um slide por vez; aqui, os slides ficam em lista, com as notas do apresentador logo abaixo de cada um (botão Notas).</p>
+
+  <!-- ================= 01 · CAPA ================= -->
+  <article class="quadro" id="slide-1" data-tipo="capa" data-l8="cartela" data-recursos="grao eco ficha-tecnica" aria-roledescription="slide" aria-label="Slide 1 de 9: Capa" tabindex="-1">
+    <p class="quadro-rotulo"><b>01</b> Capa <i>· cartela</i></p>
+    <div class="moldura">
+      <div class="slide t-capa grao">
+        <div class="eco-camada" data-vforms="eco" aria-hidden="true"></div>
+        <p class="ficha-tecnica d-credito">THE VOID TATTOO ACADEMY · SÃO PAULO · BRAZIL</p>
+        <img class="capa-logo" src="assets/brand/svg/void-vertical-branco.svg" width="330" height="180" alt="The VOID Tattoo Academy">
+        <div class="capa-texto">
+          <p class="d-credito">Proposta de turma · <span data-produto-nome>The VOID Start</span></p>
+          <h2 class="d-filme">Do primeiro traço a uma carreira</h2>
+        </div>
+        <p class="capa-pe d-credito">Preparada para <span class="pendente">{{A_CONFIRMAR}}</span></p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Capa · cartela · recursos: grão, Eco do VOID, Ficha Técnica</p>
+      <p>Abra com calma. Diga o nome da pessoa e o motivo da conversa: <b>apresentar a turma, o que a formação entrega e como entrar</b>. Nada de preço neste slide.</p>
+      <ul>
+        <li>Troque <b>{{A_CONFIRMAR}}</b> pelo primeiro nome de quem recebe a proposta. Nunca envie o slide com o marcador.</li>
+        <li>A frase do título é o apoio institucional "Do primeiro traço a uma carreira de sucesso", encurtada para caber em seis palavras (lei L6), sem crase.</li>
+        <li>A Ficha Técnica fica sem ano: "EST" e "desde" esperam a decisão do ano de fundação [P 5].</li>
+        <li>Logotipo vertical branco oficial, em arquivo. O Eco do VOID atrás não conta como segundo logotipo.</li>
+      </ul>
+      <p>Fonte: Plataforma de Branding, aureadesign, 2025.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 02 · CARTELA ================= -->
+  <article class="quadro" id="slide-2" data-tipo="cartela" data-l8="cartela" data-recursos="grao janela palavra-sensivel" aria-roledescription="slide" aria-label="Slide 2 de 9: Cartela" tabindex="-1">
+    <p class="quadro-rotulo"><b>02</b> Cartela <i>· cartela</i></p>
+    <div class="moldura">
+      <div class="slide t-cartela grao">
+        <div class="janela-camada janela-luz" aria-hidden="true"></div>
+        <div class="cartela-texto">
+          <h2 class="d-filme">Talento é consequência de <em class="off">treino</em>.</h2>
+          <p class="d-chamada">O que falta é estrutura, método e comunidade.</p>
+        </div>
+        <p class="folio" aria-hidden="true">02</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Cartela · cartela · recursos: grão, Janela de Luz, Palavra Sensível</p>
+      <p>Uma frase, uma pausa. Este slide responde à crença "não tenho talento", que costuma voltar na hora da decisão. Leia a frase em voz alta e espere a reação antes de seguir.</p>
+      <ul>
+        <li>Cartela: até 14 palavras no total, título de até seis, uma única linha na voz em off.</li>
+        <li>Para a Camila (transição de carreira) troque por "SUA EXPERIÊNCIA É UM <i>diferencial</i>, NÃO UM ATRASO." Para o Bruno (Master e Pro), "TÉCNICA SEM POSICIONAMENTO É <i>invisível</i>."</li>
+        <li>Nunca use "Você não precisa de talento para começar": soa condescendente.</li>
+      </ul>
+      <p>Fontes: Brand DNA da The VOID, set/2026 (narrativa da falsa convicção); Personas, set/2026.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 03 · FOTO CHEIA ================= -->
+  <article class="quadro" id="slide-3" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 3 de 9: Foto cheia" tabindex="-1">
+    <p class="quadro-rotulo"><b>03</b> Foto cheia <i>· cena</i></p>
+    <div class="moldura">
+      <div class="slide t-foto veu-lado grao">
+        <div class="foto-placa" role="img" aria-label="Espaço para foto real da escola, com autorização: o Ritual do Traço visto de cima do mural">
+          <div class="foto-rotulo" style="right:96px;top:96px">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2"/></svg>
+            <b>Foto real da escola, com autorização</b>
+            <span>Ritual do Traço: de cima do mural, a mão entrando no quadro, lente de 35 mm. Preset Ritual, espaço negativo à esquerda.</span>
+          </div>
+        </div>
+        <div class="veu-camada veu-esquerda" aria-hidden="true"></div>
+        <div class="texto-foto">
+          <p class="d-credito">Ritual do Traço</p>
+          <h2 class="d-filme menor">Todo mundo começa com um <em class="off">traço</em>.</h2>
+          <p class="d-chamada">Aqui, ele tem nome, coragem e história.</p>
+        </div>
+        <p class="folio" aria-hidden="true">03</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Foto cheia · cena · recursos: grão, Véu de Leitura, Palavra Sensível</p>
+      <p>Mostre o primeiro dia antes de falar de conteúdo. A pessoa precisa se ver dentro da sala. Conte como é o Ritual do Traço com as palavras da escola, sem prometer o que ainda não está confirmado no roteiro da aula.</p>
+      <ul>
+        <li>Só foto real da escola, com autorização de imagem por escrito para este uso. Banco de imagem e imagem gerada não entram.</li>
+        <li>Véu de 70% no lado do texto; mínimo de 62% sob qualquer linha abaixo de 24 px. Confira o pixel mais claro sob o texto antes de exportar.</li>
+        <li>Protocolo do rito: sempre de cima do mural, a mão entrando no quadro, 35 mm, turma após turma.</li>
+      </ul>
+      <p>Fonte: Plataforma de Branding, aureadesign, 2025 (rituais da marca).</p>
+    </aside>
+  </article>
+
+  <!-- ================= 04 · MAPA DA TRILHA ================= -->
+  <article class="quadro" id="slide-4" data-tipo="mapa" data-l8="documento" data-recursos="grao mapa-trilha palavra-sensivel" aria-roledescription="slide" aria-label="Slide 4 de 9: Mapa da Trilha" tabindex="-1">
+    <p class="quadro-rotulo"><b>04</b> Mapa da Trilha <i>· documento</i></p>
+    <div class="moldura">
+      <div class="slide t-mapa grao">
+        <div class="cabeca">
+          <p class="d-credito">A trilha</p>
+          <h2 class="d-secao">Três formações, um só <em class="off">caminho</em></h2>
+        </div>
+        <div class="mapa-caixa" id="mapa-trilha" data-vforms='{"forma":"mapa-trilha","ativa":"start","orientacao":"horizontal","voceEstaAqui":true,"larguraReal":940}'></div>
+        <p class="mapa-nota">Start é a formação presencial para quem nunca tatuou. Master é a especialização presencial para quem já tatua em pele humana. Pro é o programa online, com aulas ao vivo, de marca, conteúdo, vendas, gestão financeira e tráfego.</p>
+        <p class="folio" aria-hidden="true">04</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Mapa da Trilha · documento · recursos: grão, Mapa da Trilha, Palavra Sensível</p>
+      <p>Aponte o círculo aceso: <b>é aqui que a pessoa entra</b>. Mostre que Master e Pro continuam o mesmo caminho, sem empurrar a venda delas agora.</p>
+      <ul>
+        <li>Três círculos tangentes no ponto da esquerda, proporção 1 : 2,3 : 3,6, sempre com os nomes. Nunca mais de três círculos nem evento dentro deles.</li>
+        <li>O círculo aceso segue a formação escolhida na barra de comando.</li>
+        <li>As frases "Esse é o vazio" e "Esse é o caminho para preenchê-lo" ficam em texto real, fora do desenho.</li>
+      </ul>
+      <p>Fontes: Plataforma de Branding, aureadesign, 2025 (diagrama dos círculos); descrição das formações conforme o site oficial, consultado em 06/10/2026. A descrição do one page da marca antiga (dez/2024) é registro histórico e não entra.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 05 · PROVA ================= -->
+  <article class="quadro" id="slide-5" data-tipo="prova" data-l8="documento" data-recursos="grao credito-prova" aria-roledescription="slide" aria-label="Slide 5 de 9: Prova" tabindex="-1">
+    <p class="quadro-rotulo"><b>05</b> Prova <i>· documento</i></p>
+    <div class="moldura">
+      <div class="slide t-prova grao">
+        <div class="cabeca">
+          <p class="d-credito">Quem já fez</p>
+          <h2 class="d-secao">Quem já passou por aqui</h2>
+        </div>
+        <div class="prova-caixa" id="prova-numeral"></div>
+        <p class="aviso-conf">Resultados individuais variam conforme prática e dedicação.</p>
+        <p class="folio" aria-hidden="true">05</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Prova · documento · recursos: grão, Crédito de Prova</p>
+      <p>Um número só, dito com a régua inteira: o que mede, o recorte, a data, a fonte e a origem. Se o número ainda não foi validado, ele não vai ao ar.</p>
+      <ul>
+        <li>Este modelo vem com o número <b>em validação</b> [P 15]: o slide mostra "dado em validação", desenha a moldura tracejada e a exportação fica bloqueada.</li>
+        <li>Para liberar, preencha <code>valor</code>, <code>periodo</code>, <code>base</code> e <code>fonte</code> no objeto DECK e troque a origem para <code>medido</code> (registro arquivado da escola).</li>
+        <li>Nunca use <span data-exemplo="proibido">"maior escola", "#1", "a melhor"</span> ou contagem de alunos sem método publicado. Número nunca anima contando.</li>
+        <li>O Aviso de Conformidade fica no mesmo slide da prova, nunca depois.</li>
+      </ul>
+      <p>Fonte das regras: especificação Sala Escura, Crédito de Prova e conformidade.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 06 · FOTO CHEIA (VÉU NA BASE) ================= -->
+  <article class="quadro" id="slide-6" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 6 de 9: Foto cheia" tabindex="-1">
+    <p class="quadro-rotulo"><b>06</b> Foto cheia <i>· cena</i></p>
+    <div class="moldura">
+      <div class="slide t-foto veu-pe grao">
+        <div class="foto-placa" role="img" aria-label="Espaço para foto real da escola, com autorização: retrato da Formatura com Pele">
+          <div class="foto-rotulo" style="right:96px;top:96px">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2"/></svg>
+            <b>Foto real da escola, com autorização</b>
+            <span>Formatura com Pele: retrato ambiental com o trabalho e o certificado, lente de 50 a 85 mm. Consentimento do aluno e do cliente tatuado.</span>
+          </div>
+        </div>
+        <div class="veu-camada veu-base" aria-hidden="true"></div>
+        <div class="texto-foto">
+          <p class="d-credito">Formatura com Pele</p>
+          <h2 class="d-filme menor">Um novo capítulo na <em class="off">pele</em>.</h2>
+          <p class="d-chamada">Você não sai apenas com um certificado.</p>
+        </div>
+        <p class="folio" aria-hidden="true">06</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Foto cheia · cena · recursos: grão, Véu de Leitura, Palavra Sensível</p>
+      <p>Mostre o fim do caminho antes de falar de valor: a decisão fica mais fácil quando a pessoa enxerga onde chega. Descreva a formatura como a escola descreve, sem prometer renda nem prazo.</p>
+      <ul>
+        <li>Véu na base (78% no pé, 70% no meio, transparente no alto), para rosto e mãos continuarem vivos.</li>
+        <li>Rosto de aluno nunca em duotom; cor só no regime Terra, no máximo uma imagem colorida a cada quatro.</li>
+        <li>Certificado: não fale em <span data-exemplo="proibido">diploma, curso técnico nem MEC</span>. A frase de curso livre está no slide da proposta.</li>
+      </ul>
+      <p>Fonte: Plataforma de Branding, aureadesign, 2025 (Formatura com Pele).</p>
+    </aside>
+  </article>
+
+  <!-- ================= 07 · COMPARATIVO ================= -->
+  <article class="quadro" id="slide-7" data-tipo="comparativo" data-l8="documento" data-recursos="grao selo palavra-sensivel" aria-roledescription="slide" aria-label="Slide 7 de 9: Comparativo" tabindex="-1">
+    <p class="quadro-rotulo"><b>07</b> Comparativo <i>· documento</i></p>
+    <div class="moldura">
+      <div class="slide t-compara grao">
+        <div class="cabeca">
+          <p class="d-credito">A trilha, lado a lado</p>
+          <h2 class="d-secao">O que muda em cada <em class="off">etapa</em></h2>
+        </div>
+        <div class="compara-caixa">
+          <table class="compara">
+            <caption class="so-leitor">Comparativo das formações Start, Master e Pro pelos três pilares</caption>
+            <colgroup><col class="c-rot"><col><col><col></colgroup>
+            <thead>
+              <tr>
+                <th scope="col"><span class="so-leitor">Pilar</span></th>
+                <th scope="col" data-produto="start"><div class="cab-prod"><span data-vforms='{"forma":"selo","produto":"start","tamanho":96,"tipo":"simples"}'></span><span class="cab-nome"><b>Start</b><span>Você está aqui</span></span></div></th>
+                <th scope="col" data-produto="master"><div class="cab-prod"><span data-vforms='{"forma":"selo","produto":"master","tamanho":96,"tipo":"simples"}'></span><span class="cab-nome"><b>Master</b><span>Você está aqui</span></span></div></th>
+                <th scope="col" data-produto="pro"><div class="cab-prod"><span data-vforms='{"forma":"selo","produto":"pro","tamanho":96,"tipo":"simples"}'></span><span class="cab-nome"><b>Pro</b><span>Você está aqui</span></span></div></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Para quem</th><td data-produto="start">Para quem nunca tatuou. Presencial.</td><td data-produto="master">Para quem já tatua em pele humana. Presencial.</td><td data-produto="pro">Para quem já tem técnica e quer crescer na carreira. Online, com aulas ao vivo.</td></tr>
+              <tr><th scope="row">Técnica</th><td data-produto="start">Fundamentos em pele artificial, equipamentos e biossegurança.</td><td data-produto="master">Nivelamento técnico e trabalhos mais complexos na pele humana.</td><td data-produto="pro">Diagnóstico do seu momento e plano de evolução.</td></tr>
+              <tr><th scope="row">Identidade</th><td data-produto="start">Visão geral de projeto autoral e dos estilos de tatuagem.</td><td data-produto="master">Desenvolvimento da sua autoralidade e trabalho final autoral.</td><td data-produto="pro">Construção da sua marca profissional.</td></tr>
+              <tr><th scope="row">Empreendedor</th><td data-produto="start">Como captar os primeiros clientes e produzir conteúdo.</td><td data-produto="master">A importância de criar a sua marca pessoal.</td><td data-produto="pro">Estratégias para captar clientes, vender e produzir conteúdo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compara-fonte">Carga horária, turmas e datas de cada formação na proposta.</p>
+        <p class="folio" aria-hidden="true">07</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Comparativo · documento · recursos: grão, Selo, Palavra Sensível</p>
+      <p>Use este slide para responder "e depois do Start?". A coluna acesa é a da proposta; as outras mostram que o caminho continua.</p>
+      <ul>
+        <li>Compare só as formações da The VOID entre si. Outra escola nunca aparece, nem por insinuação.</li>
+        <li>Selo simples a 96 px, o mínimo. Abaixo disso, use o nome do produto em texto. O selo Pro simples ganha o disco Coxia sozinho.</li>
+        <li>Materiais citados na grade da agência (playbooks, imersão e desafio) ficam fora até a escola confirmar que existem [P 7].</li>
+      </ul>
+      <p>Fontes: linha "Para quem" conforme o site oficial, consultado em 06/10/2026; linhas Técnica, Identidade e Empreendedor da grade por pilar da Plataforma de Branding, aureadesign, 2025. A procedência fica nesta nota e nunca no slide, que vai para o lead e para o PDF.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 08 · DOCUMENTO (MODO LEITURA) ================= -->
+  <article class="quadro" id="slide-8" data-tipo="documento" data-l8="documento" data-campo="leitura" data-recursos="grao selo" aria-roledescription="slide" aria-label="Slide 8 de 9: Documento" tabindex="-1">
+    <p class="quadro-rotulo"><b>08</b> Documento <i>· documento</i></p>
+    <div class="moldura">
+      <div class="slide t-doc modo-leitura grao">
+        <div class="cabeca">
+          <p class="d-credito">Proposta de uma página · <span data-produto-nome>The VOID Start</span></p>
+          <h2 class="d-secao">Sua proposta de turma</h2>
+        </div>
+        <div class="doc-selo" id="doc-selo" data-vforms='{"forma":"selo","produto":"start","tamanho":200,"tipo":"completo"}'></div>
+        <div class="doc-corpo">
+        <div class="barra-turma" id="barra-turma" hidden>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
+          <span id="barra-turma-texto"></span>
+        </div>
+        <p class="barra-ausente" id="barra-ausente">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg>
+          Barra de Turma oculta: falta a data de início real da turma [P 15]
+        </p>
+        <div class="ficha-tabela">
+          <table class="ficha">
+            <caption class="so-leitor">Ficha da formação</caption>
+            <tbody>
+              <tr><th scope="row">Formação</th><td data-produto-nome>The VOID Start</td></tr>
+              <tr><th scope="row">O que você desenvolve</th><td>Técnica, identidade e empreendedorismo: os três pilares da formação.</td></tr>
+              <tr><th scope="row">Local</th><td>Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040</td></tr>
+              <tr><th scope="row">Carga horária</th><td><span class="pendente">{{A_CONFIRMAR}}</span><span class="marca-p pendente">P 15</span></td></tr>
+              <tr><th scope="row">Turma e início</th><td><span class="pendente">{{A_CONFIRMAR}}</span><span class="marca-p pendente">P 15</span></td></tr>
+              <tr><th scope="row">Investimento</th><td>Valor total <span class="pendente">{{A_CONFIRMAR}}</span>, em <span class="pendente">{{A_CONFIRMAR}}</span><span class="marca-p pendente">P 15</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-legal">
+          <p>Matrícula feita pela internet, telefone ou WhatsApp pode ser cancelada em até 7 dias a partir da contratação, com devolução integral do valor pago, conforme o artigo 49 do Código de Defesa do Consumidor.</p>
+          <p data-exemplo="proibido">A The VOID oferece formação livre em tatuagem. Ao concluir, você recebe o certificado de conclusão da escola. Curso livre não depende de autorização do MEC e não equivale a curso técnico ou superior.<span class="marca-p pendente">P 20</span></p>
+        </div>
+        </div>
+        <div class="doc-lado">
+          <b>Validade</b>
+          <span>Condição válida até <span class="pendente">{{A_CONFIRMAR}}</span>.<span class="marca-p pendente">P 15</span></span>
+        </div>
+        <p class="folio" aria-hidden="true">08</p>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Documento · documento em Modo Leitura · recursos: grão, Selo como Carimbo</p>
+      <p>A proposta de uma página: o que a pessoa recebe, quando começa e como paga, sem letra miúda. Leia os campos com ela e responda a objeção real ("é caro", "vou pensar") com fatos, nunca com pressa inventada.</p>
+      <ul>
+        <li>Modo Leitura: no máximo um slide a cada três. Fundo Tela, texto Sala, apoio Ardósia, logotipo e selo nas versões oficiais.</li>
+        <li>Valores com total, parcelas e condições iguais aos do checkout [P 15]. Nada de "o investimento se paga" com número ou prazo.</li>
+        <li>A Barra de Turma só aparece com data real e futura e some sozinha quando a data vence. Com vagas, use número real: "Restam [N] de [total] em [data]".</li>
+        <li>Validade só com prazo real, escrita pela frase-modelo de prazo. Sem prazo, apague o bloco: urgência inventada é proibida.</li>
+        <li>A frase de curso livre espera validação de advogado [P 20]. A frase de arrependimento vale para matrícula feita pela internet, telefone ou WhatsApp.</li>
+      </ul>
+      <p>Fontes: especificação Sala Escura (frases-modelo de conformidade e bloco de endereço); Plataforma de Branding, aureadesign, 2025.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 09 · FECHO ================= -->
+  <article class="quadro" id="slide-9" data-tipo="fecho" data-l8="cartela" data-recursos="grao palavra-sensivel creditos-finais" aria-roledescription="slide" aria-label="Slide 9 de 9: Fecho" tabindex="-1">
+    <p class="quadro-rotulo"><b>09</b> Fecho <i>· cartela</i></p>
+    <div class="moldura">
+      <div class="slide t-fecho grao">
+        <img class="fecho-logo" src="assets/brand/svg/void-horizontal-branco.svg" width="210" height="32" alt="The VOID Tattoo Academy">
+        <div class="fecho-texto">
+          <h2 class="d-filme">Faça mesmo com <em class="off">medo</em>.</h2>
+          <a class="botao" id="cta" href="#slide-8">Garantir minha vaga na turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        <div class="fecho-pe" data-vforms='{"forma":"rodape","alinhar":"esquerda"}'></div>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Fecho · cartela · recursos: grão, Palavra Sensível, Créditos Finais</p>
+      <p>Um pedido, um destino. Diga o rótulo do botão em voz alta e pare de falar: a próxima fala é da pessoa.</p>
+      <ul>
+        <li>O botão é o ponto mais claro do slide (lei L5). Mesmo rótulo e mesmo destino em toda a conversa (lei L1).</li>
+        <li>O destino do botão fica em <code>DECK.destino</code>. Enquanto ele estiver vazio, o botão aponta para a proposta e a conferência avisa.</li>
+        <li>Créditos Finais literais e únicos. Tagline não entra em proposta.</li>
+      </ul>
+      <p>Fontes: especificação Sala Escura (biblioteca de rótulos, etapa M4); Brand DNA da The VOID, set/2026 (território de palavras).</p>
+    </aside>
+  </article>
+
+</main>
+
+<nav class="trilho" id="trilho" aria-label="Ritmo da apresentação"></nav>
+
+<aside class="painel" id="painel-notas" aria-label="Notas do apresentador" aria-hidden="true">
+  <div class="painel-topo">
+    <div><p class="p-rotulo" id="pn-rotulo">Slide 01 de 09</p><h2 id="pn-titulo">Notas</h2></div>
+    <button class="cmd so-icone" type="button" data-fecha="painel-notas" aria-label="Fechar notas"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <div class="relogio"><output id="relogio" aria-label="Tempo de apresentação">00:00</output><button class="cmd" type="button" id="b-zerar">Zerar</button></div>
+  <div class="painel-corpo" id="pn-corpo"></div>
+  <p class="proximo" id="pn-proximo"></p>
+  <p class="teclas">Setas, espaço e Page Up ou Page Down mudam o slide · Home e End · número e Enter vão direto · P notas · G visão geral · C conferência · F tela cheia · Esc fecha</p>
+</aside>
+
+<aside class="painel" id="painel-conferencia" aria-label="Conferência do deck" aria-hidden="true">
+  <div class="painel-topo">
+    <div><p class="p-rotulo">Leis e conformidade</p><h2>Conferência</h2></div>
+    <button class="cmd so-icone" type="button" data-fecha="painel-conferencia" aria-label="Fechar conferência"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <p class="aviso-export" id="aviso-export" role="alert" hidden></p>
+  <ul class="checks" id="checks"></ul>
+</aside>
+
+<script src="vforms.js"></script>
+<script src="vviz.js"></script>
+<script>
+/* =====================================================================
+   DADOS DA PROPOSTA. Tudo que não está validado fica nulo e aparece no slide
+   como {{A_CONFIRMAR}} ou [P n]; a conferência bloqueia a exportação.
+   ===================================================================== */
+var DECK = {
+  produto: 'start',                      /* start | master | pro */
+  destino: '',                           /* link real do pedido (WhatsApp oficial ou formulário) [P 8] */
+  rotulo: 'Garantir minha vaga na turma',/* biblioteca de rótulos, proposta M4 */
+  turma: {                               /* Barra de Turma: só renderiza com data real e futura [P 15] */
+    mes: null,                           /* ex.: 'novembro' */
+    data_inicio: null,                   /* 'AAAA-MM-DD' */
+    inscricoes_ate: null,                /* 'AAAA-MM-DD' */
+    vagas_total: null, restam: null, restam_em: null
+  },
+  prova: {                               /* Numeral de Prova com Crédito de Prova [P 15] */
+    mede: 'alunos concluíram a formação Start',
+    valor: null,
+    periodo: 'turmas até {{A_CONFIRMAR}}',
+    base: 'todas as turmas Start',
+    fonte: 'contagem da secretaria, registro interno',
+    origem: 'em-validacao'               /* medido | terceiro | mercado | em-validacao */
+  }
+};
+
+(function () {
+  'use strict';
+  var raiz = document.documentElement;
+  var deck = document.getElementById('deck');
+  var quadros = [].slice.call(deck.querySelectorAll('.quadro'));
+  var total = quadros.length;
+  var atual = 0, iniciado = false;
+  var NOMES_TIPO = { capa: 'Capa', cartela: 'Cartela', documento: 'Documento', prova: 'Prova', mapa: 'Mapa da Trilha', foto: 'Foto cheia', comparativo: 'Comparativo', fecho: 'Fecho' };
+  var NOME_PRODUTO = { start: 'The VOID Start', master: 'The VOID Master', pro: 'The VOID Pro' };
+  var ROTULOS_CTA = ['QUERO CONVERSAR SOBRE MINHA TURMA', 'QUERO FALAR SOBRE O MASTER', 'AGENDAR MEU DIAGNÓSTICO', 'GARANTIR MINHA VAGA NA AULA', 'CONFIRMAR PRESENÇA', 'QUERO ASSISTIR', 'GARANTIR MINHA VAGA NA TURMA', 'REGISTRAR MEU PRIMEIRO TRAÇO', 'ENVIAR MEU TRABALHO'];
+  function dd(n) { return (n < 10 ? '0' : '') + n; }
+  function $(id) { return document.getElementById(id); }
+
+  /* ---------- modo: palco (computador), lista (celular) ou grade (visão geral) ---------- */
+  var modoBase = null, grade = false;
+  function escolherModo() {
+    var largo = window.innerWidth >= 900 && window.innerHeight >= 560;
+    modoBase = largo ? 'palco' : 'lista';
+    aplicarModo();
+  }
+  function aplicarModo() {
+    raiz.classList.remove('palco', 'lista', 'grade');
+    raiz.classList.add(grade ? 'grade' : modoBase);
+    $('b-grade').setAttribute('aria-pressed', grade ? 'true' : 'false');
+    escalar();
+  }
+  function escalar() {
+    var k;
+    if (raiz.classList.contains('palco')) {
+      var w = deck.clientWidth, h = deck.clientHeight - 4;
+      k = Math.min(w / 1440, h / 900);
+    } else {
+      var m = quadros[0].querySelector('.moldura');
+      k = (m.clientWidth || deck.clientWidth) / 1440;
+    }
+    deck.style.setProperty('--k', Math.max(k, 0.05).toFixed(5));
+  }
+
+  /* ---------- navegação ---------- */
+  function ir(i, rolar) {
+    atual = Math.max(0, Math.min(total - 1, i));
+    quadros.forEach(function (q, j) { q.classList.toggle('ativo', j === atual); q.setAttribute('aria-hidden', raiz.classList.contains('palco') && j !== atual ? 'true' : 'false'); });
+    var q = quadros[atual];
+    $('contador').innerHTML = '<b>' + dd(atual + 1) + '</b> / ' + dd(total) + '<span>' + NOMES_TIPO[q.getAttribute('data-tipo')] + '</span>';
+    [].slice.call($('trilho').children).forEach(function (a, j) { a.className = j < atual ? 'feito' : (j === atual ? 'atual' : ''); a.setAttribute('aria-current', j === atual ? 'step' : 'false'); });
+    if (iniciado && history.replaceState) history.replaceState(null, '', '#' + q.id);
+    atualizarNotas();
+    if (rolar !== false && !raiz.classList.contains('palco')) q.scrollIntoView({ block: 'start', behavior: 'auto' });
+  }
+  function prox() { ir(atual + 1); }
+  function ant() { ir(atual - 1); }
+
+  /* trilho do ritmo */
+  quadros.forEach(function (q, j) {
+    var a = document.createElement('a');
+    a.href = '#' + q.id;
+    a.title = dd(j + 1) + ' · ' + NOMES_TIPO[q.getAttribute('data-tipo')] + ' · ' + q.getAttribute('data-l8');
+    a.setAttribute('aria-label', a.title);
+    a.addEventListener('click', function (e) { e.preventDefault(); ir(j); });
+    $('trilho').appendChild(a);
+  });
+
+  /* ---------- notas ---------- */
+  var t0 = Date.now();
+  function atualizarNotas() {
+    var q = quadros[atual];
+    var n = q.querySelector('aside.notas');
+    $('pn-rotulo').textContent = 'Slide ' + dd(atual + 1) + ' de ' + dd(total);
+    $('pn-titulo').textContent = NOMES_TIPO[q.getAttribute('data-tipo')];
+    $('pn-corpo').innerHTML = n ? n.innerHTML : '<p>Sem notas neste slide.</p>';
+    var p = quadros[atual + 1];
+    $('pn-proximo').innerHTML = p ? 'Próximo<b>' + dd(atual + 2) + ' · ' + NOMES_TIPO[p.getAttribute('data-tipo')] + ': ' + p.querySelector('h2').textContent + '</b>' : 'Último slide: o pedido.';
+  }
+  setInterval(function () {
+    var s = Math.floor((Date.now() - t0) / 1000);
+    $('relogio').textContent = dd(Math.floor(s / 60)) + ':' + dd(s % 60);
+  }, 1000);
+  $('b-zerar').addEventListener('click', function () { t0 = Date.now(); $('relogio').textContent = '00:00'; });
+
+  function painel(id, abrir) {
+    var p = $(id);
+    var aberto = abrir === undefined ? !p.classList.contains('aberto') : abrir;
+    ['painel-notas', 'painel-conferencia'].forEach(function (o) {
+      if (o !== id && aberto) { $(o).classList.remove('aberto'); $(o).setAttribute('aria-hidden', 'true'); }
+    });
+    p.classList.toggle('aberto', aberto);
+    p.setAttribute('aria-hidden', aberto ? 'false' : 'true');
+    $('b-notas').setAttribute('aria-pressed', $('painel-notas').classList.contains('aberto') ? 'true' : 'false');
+    $('b-conf').setAttribute('aria-pressed', $('painel-conferencia').classList.contains('aberto') ? 'true' : 'false');
+    raiz.classList.toggle('com-notas', $('painel-notas').classList.contains('aberto') || $('painel-conferencia').classList.contains('aberto'));
+    escalar();
+  }
+  function alternarNotas() {
+    if (raiz.classList.contains('palco')) painel('painel-notas');
+    else {
+      var on = !raiz.classList.contains('com-notas');
+      raiz.classList.toggle('com-notas', on);
+      $('b-notas').setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+
+  /* ---------- produto (data-estacao): selo, mapa, comparativo e nomes ---------- */
+  function aplicarProduto(p) {
+    DECK.produto = p;
+    raiz.setAttribute('data-estacao', p);
+    $('produto').value = p;
+    [].forEach.call(document.querySelectorAll('[data-produto-nome]'), function (el) { el.textContent = NOME_PRODUTO[p]; });
+    [].forEach.call(document.querySelectorAll('.compara th[data-produto],.compara td[data-produto]'), function (el) { el.setAttribute('data-ativo', el.getAttribute('data-produto') === p ? 'true' : 'false'); });
+    if (window.VForms) {
+      VForms.render($('mapa-trilha'), 'mapa-trilha', { ativa: p, orientacao: 'horizontal', voceEstaAqui: true, larguraReal: 940 });
+      VForms.render($('doc-selo'), 'selo', { produto: p, tamanho: 200, tipo: 'completo' });
+    }
+    DECK.prova.mede = 'alunos concluíram a formação ' + { start: 'Start', master: 'Master', pro: 'Pro' }[p];
+    desenharProva();
+    conferir();
+  }
+
+  /* ---------- Numeral de Prova pelo vviz (régua inteira ou nada) ---------- */
+  function desenharProva() {
+    if (!window.VViz) return;
+    var o = DECK.prova;
+    var dados = { mede: o.mede, periodo: o.periodo, base: o.base, fonte: o.fonte, origem: o.origem, escala: 2.1 };
+    if (o.valor != null) dados.valor = o.valor;
+    else dados.vrotulo = '{{A_CONFIRMAR}}';
+    VViz.render($('prova-numeral'), 'numeral', dados);
+  }
+
+  /* ---------- Barra de Turma: data real e futura, ou não aparece ---------- */
+  var MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+  function lerData(s) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s || '')) return null;
+    var d = new Date(s + 'T00:00:00');
+    return isNaN(d.getTime()) ? null : d;
+  }
+  function fmtData(d) { return dd(d.getDate()) + '/' + dd(d.getMonth() + 1); }
+  function barraTurma(t, hoje) {
+    hoje = hoje || new Date();
+    var ini = lerData(t && t.data_inicio);
+    if (!ini) return { mostra: false, motivo: 'sem data de início real' };
+    var h0 = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+    if (ini <= h0) return { mostra: false, motivo: 'turma já começou: a barra some sozinha' };
+    var mes = t.mes || MESES[ini.getMonth()];
+    var txt = 'Turma de ' + mes + ' · começa em ' + fmtData(ini);
+    var ate = lerData(t.inscricoes_ate);
+    if (ate) txt += ' · inscrições até ' + fmtData(ate);
+    var em = lerData(t.restam_em);
+    if (t.restam != null && t.vagas_total != null && em) txt += ' · restam ' + t.restam + ' de ' + t.vagas_total + ' em ' + fmtData(em);
+    return { mostra: true, texto: txt.toUpperCase() };
+  }
+  function aplicarBarra(hoje) {
+    var r = barraTurma(DECK.turma, hoje);
+    $('barra-turma').hidden = !r.mostra;
+    $('barra-ausente').hidden = r.mostra;
+    if (r.mostra) $('barra-turma-texto').textContent = r.texto;
+    return r;
+  }
+
+  /* ---------- botão: um destino, um rótulo ---------- */
+  function aplicarCta() {
+    var a = $('cta');
+    a.firstChild.nodeValue = DECK.rotulo;
+    if (/^(https?:|mailto:|tel:)/.test(DECK.destino || '')) a.href = DECK.destino;
+  }
+
+  /* ---------- conferência: as leis sobre o deck inteiro ---------- */
+  var ICONES = {
+    ok: '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    atencao: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+    bloqueio: '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>'
+  };
+  ICONES.erro = ICONES.bloqueio;
+  var PALAVRA_ESTADO = { ok: 'Validado', atencao: 'Atenção', bloqueio: 'Bloqueia a exportação', erro: 'Não deu certo' };
+  var CLAIMS = /(maior escola|maior mercado|#\s?1\b|n[ºo°]\s?1\b|\ba melhor\b|\bo melhor\b|\ba [úu]nica escola\b|l[íi]der (no|do) (segmento|mercado)|institui[çc][ãa]o parceira|certifica[çc][ãa]o (via|com|pel[ao])|diploma|curso t[ée]cnico reconhecido|garantid[oa]s? de renda|se paga em)/i;
+  var TRAVESSAO = /[\u2013\u2014]/;
+  function textoVisivel(el) {
+    var c = el.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('[data-exemplo="proibido"],.so-leitor'), function (n) { n.remove(); });
+    return c.textContent.replace(/\s+/g, ' ').trim();
+  }
+  function conferir() {
+    var r = [];
+    var tipos = quadros.map(function (q) { return q.getAttribute('data-l8'); });
+    /* L8: nunca três do mesmo tipo seguidos; o fim é um pedido */
+    var tres = [];
+    for (var i = 2; i < tipos.length; i++) if (tipos[i] === tipos[i - 1] && tipos[i] === tipos[i - 2]) tres.push(dd(i - 1) + ' a ' + dd(i + 1));
+    r.push({ e: tres.length ? 'erro' : 'ok', t: 'Ritmo de montagem (L8)', d: tres.length ? 'Três ' + 'slides do mesmo tipo seguidos em ' + tres.join(', ') + '.' : 'Cena, cartela e documento alternados: ' + tipos.join(', ') + '.' });
+    var ult = quadros[total - 1];
+    r.push({ e: ult.getAttribute('data-tipo') === 'fecho' ? 'ok' : 'erro', t: 'Fim com um pedido', d: ult.getAttribute('data-tipo') === 'fecho' ? 'O último slide é o Fecho, com Créditos Finais.' : 'O último slide precisa ser o Fecho.' });
+    /* Modo Leitura: no máximo um a cada três */
+    var leit = quadros.map(function (q) { return q.getAttribute('data-campo') === 'leitura' ? 1 : 0; });
+    var excesso = false;
+    for (var j = 0; j < leit.length; j++) { var s = leit[j] + (leit[j + 1] || 0) + (leit[j + 2] || 0); if (s > 1) excesso = true; }
+    r.push({ e: excesso ? 'erro' : 'ok', t: 'Modo Leitura', d: excesso ? 'Mais de um slide em Modo Leitura numa janela de três.' : leit.reduce(function (a, b) { return a + b; }, 0) + ' slide em Modo Leitura, no máximo um a cada três.' });
+    /* L6: título com até seis palavras; voz em off uma vez por slide */
+    var longos = [], offs = [];
+    quadros.forEach(function (q, k) {
+      var h = q.querySelector('h2');
+      var n = h ? h.textContent.trim().split(/\s+/).filter(function (w) { return /[\wÀ-ú]/.test(w); }).length : 0;
+      if (n > 6) longos.push(dd(k + 1) + ' (' + n + ')');
+      if (q.querySelectorAll('.slide .off').length > 1) offs.push(dd(k + 1));
+    });
+    r.push({ e: longos.length ? 'erro' : 'ok', t: 'Título é letreiro (L6)', d: longos.length ? 'Títulos com mais de seis palavras: ' + longos.join(', ') + '.' : 'Todos os títulos com até seis palavras.' });
+    r.push({ e: offs.length ? 'erro' : 'ok', t: 'Voz em off', d: offs.length ? 'Mais de uma linha em voz em off em ' + offs.join(', ') + '.' : 'No máximo uma linha em voz em off por slide.' });
+    /* recursos: no máximo três por slide, grão incluído */
+    var muitos = quadros.filter(function (q) { return (q.getAttribute('data-recursos') || '').split(/\s+/).filter(Boolean).length > 3; }).map(function (q) { return q.id.replace('slide-', ''); });
+    r.push({ e: muitos.length ? 'erro' : 'ok', t: 'Até três recursos por slide', d: muitos.length ? 'Passou de três em ' + muitos.join(', ') + '.' : 'Nenhum slide passa de três recursos (o grão conta como um).' });
+    /* L1: um pedido, um destino, rótulo da biblioteca */
+    var botoes = deck.querySelectorAll('.slide .botao');
+    var rot = botoes.length ? botoes[0].textContent.trim().toUpperCase() : '';
+    var ctaOk = botoes.length === 1 && ROTULOS_CTA.indexOf(rot) >= 0;
+    r.push({ e: ctaOk ? 'ok' : 'erro', t: 'Um vazio, uma ação (L1)', d: ctaOk ? 'Um botão só, com rótulo da biblioteca: "' + rot + '".' : 'O deck precisa de um único botão com rótulo da biblioteca.' });
+    var temDestino = /^(https?:|mailto:|tel:)/.test(DECK.destino || '');
+    r.push({ e: temDestino ? 'ok' : 'atencao', t: 'Destino do botão', d: temDestino ? 'Destino definido: ' + DECK.destino + '.' : 'Falta o link real do pedido (WhatsApp oficial ou formulário) [P 8]. Preencha DECK.destino.' });
+    /* L2: prova com crédito; em validação bloqueia */
+    var emVal = DECK.prova.origem === 'em-validacao' || deck.querySelector('[data-origem="em-validacao"]');
+    r.push({ e: emVal ? 'bloqueio' : 'ok', t: 'Toda prova tem crédito (L2)', d: emVal ? 'O número do slide 05 está em validação [P 15]. Ele não vai ao ar até ter contagem arquivada, recorte, data e fonte.' : 'Prova com régua completa e origem declarada.' });
+    /* pendências visíveis nos slides */
+    var pend = [];
+    quadros.forEach(function (q, k) { var t = textoVisivel(q.querySelector('.slide')); if (/\{\{A_CONFIRMAR\}\}|\bP \d{1,2}\b/.test(t)) pend.push(dd(k + 1)); });
+    r.push({ e: pend.length ? 'bloqueio' : 'ok', t: 'Valores pendentes', d: pend.length ? 'Há {{A_CONFIRMAR}} ou pendência numerada nos slides ' + pend.join(', ') + '. Valor entre colchetes nunca vai ao ar.' : 'Nenhum marcador pendente nos slides.' });
+    /* Barra de Turma */
+    var b = barraTurma(DECK.turma);
+    r.push({ e: b.mostra ? 'ok' : 'atencao', t: 'Barra de Turma', d: b.mostra ? 'Turma real e futura: ' + b.texto.toLowerCase() + '.' : 'Oculta (' + b.motivo + '). Preencha DECK.turma com datas reais [P 15].' });
+    /* texto: travessão, grafia de TATTOO, claims proibidos */
+    var tudo = quadros.map(function (q) { return textoVisivel(q.querySelector('.slide')); }).join(' ');
+    var probs = [];
+    if (TRAVESSAO.test(tudo)) probs.push('travessão');
+    if (new RegExp('\\bTA' + 'TOO\\b', 'i').test(tudo)) probs.push('grafia errada (sempre TATTOO)');
+    var m = tudo.match(CLAIMS); if (m) probs.push('claim proibido: "' + m[0] + '"');
+    r.push({ e: probs.length ? 'erro' : 'ok', t: 'Texto e conformidade', d: probs.length ? 'Encontrado: ' + probs.join(', ') + '.' : 'Sem travessão, TATTOO sempre com dois T, nenhum claim proibido da lista de conformidade.' });
+    /* procedência interna (agência, documento de trabalho) fica nas notas, nunca no slide que vai para o lead */
+    var internos = quadros.filter(function (q) { return /aureadesign|plataforma de branding|brand dna|especifica[cç][aã]o sala escura/i.test(textoVisivel(q.querySelector('.slide'))); }).map(function (q) { return q.id.replace('slide-', ''); });
+    r.push({ e: internos.length ? 'erro' : 'ok', t: 'Procedência nas notas', d: internos.length ? 'Fonte interna visível no slide ' + internos.join(', ') + '. Leve para as notas do apresentador.' : 'Nenhum slide mostra fonte interna; a procedência fica nas notas.' });
+    /* logotipo: arquivo oficial, uma vez por slide */
+    var logo = quadros.filter(function (q) { return q.querySelectorAll('.slide img[src*="assets/brand/svg/void-"]').length > 1; });
+    r.push({ e: logo.length ? 'erro' : 'ok', t: 'Logotipo', d: logo.length ? 'Logotipo nítido mais de uma vez num slide.' : 'Sempre o arquivo oficial, no máximo uma vez por slide.' });
+
+    var bloq = r.filter(function (x) { return x.e === 'bloqueio' || x.e === 'erro'; });
+    raiz.classList.toggle('bloqueado', bloq.length > 0);
+    var est = bloq.length ? 'bloqueio' : 'ok';
+    $('estado-gate').setAttribute('data-estado', est);
+    $('b-conf').setAttribute('aria-label', 'Conferência: ' + (bloq.length ? bloq.length + ' item bloqueia a exportação' : 'tudo validado') + ' (tecla C)');
+    $('checks').innerHTML = r.map(function (x) {
+      return '<li data-estado="' + x.e + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONES[x.e] + '</svg><div><span class="estado">' + PALAVRA_ESTADO[x.e] + '</span><b>' + x.t + '</b>' + x.d + '</div></li>';
+    }).join('');
+    window.DeckVoid.resultado = r;
+    return r;
+  }
+
+  function exportar() {
+    var r = conferir();
+    var bloq = r.filter(function (x) { return x.e === 'bloqueio' || x.e === 'erro'; });
+    if (bloq.length) {
+      $('aviso-export').hidden = false;
+      $('aviso-export').textContent = 'Exportação bloqueada: ' + bloq.map(function (x) { return x.t.toLowerCase(); }).join('; ') + '. Resolva os itens abaixo e exporte de novo.';
+      painel('painel-conferencia', true);
+      return false;
+    }
+    $('aviso-export').hidden = true;
+    window.print();
+    return true;
+  }
+
+  /* ---------- eventos ---------- */
+  $('b-prox').addEventListener('click', prox);
+  $('b-ant').addEventListener('click', ant);
+  $('b-notas').addEventListener('click', alternarNotas);
+  $('b-conf').addEventListener('click', function () { painel('painel-conferencia'); });
+  $('b-grade').addEventListener('click', function () { grade = !grade; aplicarModo(); ir(atual); });
+  $('b-cheia').addEventListener('click', telaCheia);
+  $('b-pdf').addEventListener('click', exportar);
+  $('produto').addEventListener('change', function () { aplicarProduto(this.value); });
+  [].forEach.call(document.querySelectorAll('[data-fecha]'), function (b) { b.addEventListener('click', function () { painel(b.getAttribute('data-fecha'), false); }); });
+  quadros.forEach(function (q, j) {
+    q.addEventListener('click', function (e) {
+      if (raiz.classList.contains('grade')) { e.preventDefault(); grade = false; aplicarModo(); ir(j); }
+    });
+  });
+  function telaCheia() {
+    var d = document;
+    if (!d.fullscreenElement && raiz.requestFullscreen) raiz.requestFullscreen().catch(function () {});
+    else if (d.exitFullscreen && d.fullscreenElement) d.exitFullscreen();
+  }
+  document.addEventListener('fullscreenchange', function () { raiz.classList.toggle('tela-cheia', !!document.fullscreenElement); setTimeout(escalar, 50); });
+
+  var digitos = '';
+  document.addEventListener('keydown', function (e) {
+    if (e.target.closest && e.target.closest('select,input,textarea')) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var k = e.key;
+    if (/^[0-9]$/.test(k)) { digitos = (digitos + k).slice(-2); return; }
+    if (k === 'Enter' && digitos) { ir(parseInt(digitos, 10) - 1); digitos = ''; e.preventDefault(); return; }
+    digitos = '';
+    var palco = raiz.classList.contains('palco');
+    if (k === 'ArrowRight' || k === 'PageDown' || (k === ' ' && palco)) { e.preventDefault(); prox(); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); ant(); }
+    else if (k === 'ArrowDown' && palco) { e.preventDefault(); prox(); }
+    else if (k === 'ArrowUp' && palco) { e.preventDefault(); ant(); }
+    else if (k === 'Home') { e.preventDefault(); ir(0); }
+    else if (k === 'End') { e.preventDefault(); ir(total - 1); }
+    else if (k === 'p' || k === 'P') alternarNotas();
+    else if (k === 'g' || k === 'G') { grade = !grade; aplicarModo(); ir(atual); }
+    else if (k === 'c' || k === 'C') painel('painel-conferencia');
+    else if (k === 'f' || k === 'F') telaCheia();
+    else if (k === 'Escape') {
+      if (grade) { grade = false; aplicarModo(); ir(atual); }
+      painel('painel-notas', false); painel('painel-conferencia', false);
+    }
+  });
+  /* toque: deslize para os lados no palco */
+  var x0 = null;
+  deck.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener('touchend', function (e) {
+    if (x0 == null || !raiz.classList.contains('palco')) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 48) { if (dx < 0) prox(); else ant(); }
+  });
+  /* na lista, o slide visível vira o atual */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (ents) {
+      if (!raiz.classList.contains('lista')) return;
+      ents.forEach(function (en) { if (en.isIntersecting) { var j = quadros.indexOf(en.target); if (j >= 0 && j !== atual) ir(j, false); } });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    quadros.forEach(function (q) { io.observe(q); });
+  }
+  var espera;
+  window.addEventListener('resize', function () {
+    clearTimeout(espera);
+    espera = setTimeout(function () { var antes = modoBase; escolherModo(); if (antes !== modoBase) ir(atual, false); }, 80);
+  });
+  window.addEventListener('beforeprint', function () { conferir(); });
+
+  /* ---------- API para teste e para outras ferramentas ---------- */
+  window.DeckVoid = { ir: ir, prox: prox, ant: ant, conferir: conferir, exportar: exportar, barraTurma: barraTurma, aplicarBarra: aplicarBarra, aplicarProduto: aplicarProduto, escalar: escalar, get atual() { return atual; }, total: total };
+
+  /* ---------- início ---------- */
+  escolherModo();
+  aplicarCta();
+  aplicarBarra();
+  aplicarProduto(DECK.produto);
+  var alvo = location.hash ? quadros.map(function (q) { return '#' + q.id; }).indexOf(location.hash) : 0;
+  ir(alvo > 0 ? alvo : 0, false);
+  window.addEventListener('load', function () { iniciado = true; if (alvo > 0 && !raiz.classList.contains('palco')) quadros[alvo].scrollIntoView({ block: 'start' }); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { escalar(); if (window.VViz) desenharProva(); });
+})();
+</script>
+</body>
+</html>

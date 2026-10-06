@@ -1,0 +1,47 @@
+# robots.txt modelo da The VOID Tattoo Academy (sistema Sala Escura, spec 13.4)
+# Domínio canônico pendente [P 18]: troque thevoidtattoo.com.br se o canônico for outro.
+
+# Robôs de busca e de resposta em tempo real: liberados.
+# São eles que deixam a The VOID ser encontrada e citada por assistentes de IA.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Robôs de treino de modelos: {{A_CONFIRMAR}} decisão da The VOID [P 19].
+# ESCOLHA ANTES DE SUBIR este arquivo. Ele não vai ao ar com esta pendência aberta.
+# Atenção: subir sem nenhuma linha para eles equivale a LIBERAR o treino, porque eles
+# seguem a regra geral lá embaixo. Por isso a escolha não pode ficar implícita.
+#
+# Opção A, liberar o treino: apague o bloco da opção B e mantenha este comentário
+# registrando a decisão, com a data.
+#
+# Opção B, bloquear o treino (a busca e a citação por IA continuam liberadas acima):
+# tire o "# " do começo das oito linhas abaixo.
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ClaudeBot
+# Disallow: /
+# User-agent: Google-Extended
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+
+# Regra geral
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+# Área de membros: caminho a confirmar
+# Disallow: {{A_CONFIRMAR}}
+
+Sitemap: https://thevoidtattoo.com.br/sitemap_index.xml

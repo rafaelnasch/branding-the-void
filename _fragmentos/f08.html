@@ -1,0 +1,1687 @@
+<style data-fragmento="f08">
+/* F8 · Canais e fechamento: peças em escala (unidade --u da casca), miniaturas, maquetes de e-mail, membros, site e artigo */
+.f08-p{position:absolute;inset:0;display:flex;flex-direction:column;gap:calc(var(--u)*24);padding:calc(var(--u)*72)}
+.f08-p > *{position:relative}
+.f08-janela{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f08-campo{background:var(--estacao-campo);color:var(--estacao-campo-texto)}
+.f08-fill{position:absolute;inset:0}
+.f08-foto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bastidor)}
+.f08-foto::before{content:"";position:absolute;inset:calc(var(--u)*18);border:1px dashed var(--fumaca)}
+.f08-foto span{position:relative;max-width:64%;text-align:center;font:500 calc(var(--u)*24)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f08-foto.f08-alto span{align-self:flex-start;margin-top:22%}
+.f08-veu-base{position:absolute;inset:0;background:linear-gradient(0deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 46%,rgb(24 24 24 / 0) 78%)}
+.f08-veu-esq{position:absolute;inset:0;background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,rgb(24 24 24 / 0) 72%)}
+.f08-tf{margin:0;font:800 calc(var(--u)*104)/.92 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela);text-wrap:balance}
+.f08-tf[data-largura="85"]{font-variation-settings:"wdth" 85}
+.f08-tf .f08-d{color:var(--estacao-destaque)}
+.f08-off{margin:0;font:300 italic calc(var(--u)*64)/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
+.f08-cr{margin:0;font:500 calc(var(--u)*26)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f08-cr b{font-weight:700;color:var(--tela)}
+.f08-corr{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;height:calc(var(--u)*64);border-top:1px solid var(--fio);background:var(--sala);font-size:calc(var(--u)*18)}
+.f08-corr > span{display:flex;justify-content:center;width:100%;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent 0,black 12%,black 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,black 12%,black 88%,transparent 100%)}.f08-corr > span > span{flex:none}
+.f08-tx{margin:0;font:400 calc(var(--u)*36)/1.3 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}
+.f08-fim{margin-top:auto}
+.f08-btn{display:inline-flex;align-self:flex-start;justify-self:start;align-items:center;gap:calc(var(--u)*16);padding:calc(var(--u)*26) calc(var(--u)*36);background:var(--tela);color:var(--sala);font:700 calc(var(--u)*30)/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase}
+.f08-btn svg,.f08-icp{width:calc(var(--u)*34);height:calc(var(--u)*34);flex:none;fill:none;stroke:var(--estacao-seta);stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
+.f08-logo{display:block;width:calc(var(--u)*300);height:auto}
+.f08-selo{position:absolute;top:calc(var(--u)*72);right:calc(var(--u)*72);width:calc(var(--u)*220);height:auto}
+.f08-fio{width:calc(var(--u)*96);height:calc(var(--u)*4);background:var(--estacao-grafismo)}
+.f08-barra{display:flex;align-items:center;gap:calc(var(--u)*12);min-height:calc(var(--u)*40);padding:0 calc(var(--u)*72);background:var(--bastidor);border-bottom:1px solid var(--estacao-grafismo);font:500 calc(var(--u)*13)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--cal)}
+.f08-barra svg{width:calc(var(--u)*18);height:calc(var(--u)*18);fill:none;stroke:currentColor;stroke-width:1.5}
+.f08-dagua{position:absolute;left:calc(var(--u)*-20);bottom:calc(var(--u)*120);margin:0;font:300 italic calc(var(--u)*330)/.8 var(--font-off);font-variation-settings:"opsz" 72;text-transform:uppercase;color:var(--tela);opacity:.08;white-space:nowrap}
+.f08-zona{position:absolute;border:1px dashed var(--fumaca);display:flex;align-items:center;justify-content:center}
+.f08-lps{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:var(--e-5)}
+.f08-lp{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f08-lp-txt{display:grid;gap:6px;padding:var(--e-3) var(--e-4) var(--e-4)}
+.f08-lp-txt b{font:700 17px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f08-lp-txt span{font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f08-lp-id{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;color:var(--estacao-destaque)}
+.f08-mini{position:relative;aspect-ratio:16/9;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:12px 14px;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f08-mini[data-tipo="cartela"]{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .1) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}.f08-mini[data-tipo="documento"]{background:var(--tela)}.f08-mini[data-tipo="interface"]{justify-content:flex-start}
+.f08-mini i{position:relative;display:block;height:4px;width:70%;background:var(--fumaca)}.f08-mini .t{height:10px;width:58%;background:var(--tela)}.f08-mini .o{height:6px;width:34%;background:var(--estacao-destaque)}.f08-mini .b{height:12px;width:40%;background:var(--tela)}
+.f08-mini .r{height:14px;width:100%;background:var(--bastidor);border-bottom:1px solid var(--estacao-grafismo)}.f08-mini .k{height:30px;width:100%;background:linear-gradient(90deg,var(--coxia) 0 31%,transparent 31% 34.5%,var(--coxia) 34.5% 65.5%,transparent 65.5% 69%,var(--coxia) 69%)}
+.f08-mini .c{position:absolute;right:14%;top:18%;width:24%;aspect-ratio:1;height:auto;border-radius:50%;background:var(--penumbra);opacity:.6}.f08-mini .f{position:absolute;inset:0;height:auto;width:auto;background:var(--coxia);border:1px dashed var(--fumaca)}
+.f08-mini .v{position:absolute;inset:0;height:auto;width:auto;background:linear-gradient(0deg,rgb(24 24 24 / .78),rgb(24 24 24 / 0) 75%)}
+.f08-mini[data-tipo="documento"] .t,.f08-mini[data-tipo="documento"] .b{background:var(--sala)}.f08-mini[data-tipo="documento"] i:not(.t):not(.b):not(.o){background:var(--fumaca)}
+.f08-tipo{display:inline-flex;align-items:center;gap:6px;font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--po);white-space:nowrap}
+.f08-tipo::before{content:"";width:10px;height:10px;flex:none;background:var(--sala);outline:1px solid var(--fumaca)}.f08-tipo[data-tipo="cena"]::before{background:var(--coxia);outline-style:dashed}
+.f08-tipo[data-tipo="documento"]::before{background:var(--tela)}.f08-tipo[data-tipo="interface"]::before{background:var(--bastidor);outline-color:var(--estacao-grafismo)}.f08-tipo[data-tipo="campo"]::before{background:var(--campo-master)}
+.f08-fita{display:grid;grid-template-columns:repeat(17,minmax(0,1fr));gap:3px;margin-bottom:var(--e-3)}
+.f08-fita span,.f08-feed span{display:flex;align-items:flex-end;justify-content:center;height:84px;padding-bottom:6px;background:var(--sala);outline:1px solid var(--fumaca);outline-offset:-1px;font:700 10px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--po)}
+.f08-fita [data-tipo="cena"],.f08-feed [data-tipo="cena"]{background:var(--coxia);outline-style:dashed}.f08-fita [data-tipo="documento"],.f08-feed [data-tipo="documento"]{background:var(--tela);color:var(--sala)}
+.f08-fita [data-tipo="interface"]{background:var(--bastidor);outline-color:var(--estacao-grafismo)}.f08-fita .f08-leit{outline:2px solid var(--estacao-destaque);outline-offset:-2px}
+.f08-feed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;width:100%;max-width:360px}
+.f08-feed span{height:auto;aspect-ratio:3/4;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:4px;padding:8px;font-size:12px;letter-spacing:.06em}
+.f08-feed [data-tipo="cartela"]{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .12) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}.f08-feed [data-tipo="campo"]{background:var(--campo-master);color:var(--tela);outline-color:var(--terracota)}
+.f08-feed small{max-width:100%;font:500 9px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.06em;text-transform:uppercase;overflow-wrap:anywhere}
+.f08-vsl{display:flex;gap:2px;height:56px}
+.f08-vsl span{display:flex;align-items:center;justify-content:center;min-width:6px;background:var(--coxia);font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--cal);border-top:2px solid var(--estacao-grafismo)}.f08-vsl .f08-vsl-p{background:var(--chumbo);color:var(--tela)}
+.f08-vsl-escala{display:flex;justify-content:space-between;margin-top:6px;font:300 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;color:var(--po)}
+.f08-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(var(--f08-min,280px),100%),1fr));gap:var(--e-5);align-items:start}
+.f08-grid .peca,.f08-dobra .peca{max-width:none}.f08-grid-deck{--f08-min:220px}
+.f08-dobra{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:var(--e-6);align-items:start}
+.f08-zonas{list-style:none;display:grid;gap:var(--e-4)}.f08-zonas li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:var(--e-3);font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f08-zonas b{font:700 28px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}
+.f08-estados{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--e-5)}.f08-estados > div{display:grid;gap:var(--e-3);align-content:start}.f08-estados .botao{width:100%}
+.f08-sel{display:grid;gap:var(--e-2)}.f08-sel select{min-height:44px;padding:0 10px;background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 16px/1 var(--font-texto)}
+.f08-cel{width:100%;max-width:390px;border:1px solid var(--fumaca);background:var(--sala);overflow:hidden}
+.f08-fixa{display:flex;align-items:center;justify-content:space-between;gap:8px;height:64px;padding:0 16px;background:rgb(24 24 24 / .95);border-top:1px solid var(--fio)}
+.f08-fixa .botao{flex:0 1 auto;min-width:0;min-height:44px;width:auto;padding:4px 12px;gap:6px;font-size:13px;line-height:1.1;letter-spacing:.04em}.f08-fixa .botao svg{width:16px;height:16px}.f08-rp{display:inline-flex;align-items:center;height:44px;padding:0 8px;border:1px solid var(--fio);color:var(--tela);font-size:10px;letter-spacing:.14em;white-space:nowrap}
+.f08-comp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-4)}
+.f08-comp > div{display:grid;gap:var(--e-3);align-content:start;padding:var(--e-5);background:var(--bastidor);border-top:4px solid var(--fumaca);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f08-comp .f08-atual{border-top-color:var(--estacao-grafismo);outline:1px solid var(--estacao-grafismo);outline-offset:-1px}.f08-comp dl{display:grid;gap:var(--e-2);margin:0}.f08-comp dd{margin:0 0 var(--e-2)}
+.f08-comp img{width:96px;height:96px}.f08-comp .botao{width:100%;font-size:14px}
+.f08-par{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--e-6);align-items:start}
+.f08-mail{width:100%;max-width:600px;background:var(--tela);color:var(--sala);font:400 17px/1.6 var(--font-texto)}
+.f08-mail .f08-mail-corpo strong{color:var(--sala)}.f08-mail.f08-p2 .f08-mail-corpo strong{color:var(--tela)}
+.f08-mail-cab{display:flex;align-items:center;min-height:64px;padding:0 24px;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f08-mail-corpo{display:grid;gap:16px;padding:24px}
+.f08-mail-corpo .f08-mk{font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--ardosia)}
+.f08-mail-corpo .f08-ul{font:300 italic 24px/1.2 var(--font-off);font-variation-settings:"opsz" 72;color:var(--sala)}
+.f08-mail-btn{display:flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;background:var(--sala);color:var(--tela);font:700 15px/1.25 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;text-align:center}
+.f08-mail-link{font-size:14px;color:var(--terracota-funda);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.f08-mail-rod{display:grid;gap:10px;padding:24px;background:var(--sala);font:400 13px/1.5 var(--font-texto);color:var(--po)}
+.f08-mail.f08-p2 .f08-mail-corpo{background:var(--sala);color:var(--cal)}.f08-mail.f08-p2 .f08-mail-corpo .f08-ul{color:var(--tela)}.f08-mail.f08-p2 .f08-mail-btn{background:var(--tela);color:var(--sala)}
+.f08-mail.f08-p2 .f08-mail-link{color:var(--terracota-luz)}.f08-mail.f08-p2 .f08-mk{color:var(--po)}
+.f08-zap{display:grid;gap:var(--e-3);padding:var(--e-5);background:var(--bastidor);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f08-zap p{max-width:88%;padding:var(--e-3) var(--e-4);background:var(--coxia)}.f08-zap .f08-eu{justify-self:end;background:var(--chumbo);color:var(--tela)}
+.f08-sala{position:relative;background:var(--sala);color:var(--cal);padding:var(--e-6);font:400 15px/1.5 var(--font-texto)}
+.f08-sala .botao,.f08-vazio .botao{background:var(--tela);color:var(--sala)}.f08-sala .botao svg,.f08-vazio .botao svg{stroke:var(--estacao-seta)}
+.f08-sala h4,.f08-sala .f08-h{margin:0;font:600 22px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f08-sala .f08-k{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f08-ui{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--e-5)}
+.f08-ui > div{display:grid;gap:var(--e-4);align-content:start;padding:var(--e-5);background:var(--bastidor)}
+.f08-ui .f08-janela{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--bastidor)}
+.f08-aula{display:grid;gap:4px;padding:var(--e-4);background:var(--coxia);border-left:2px solid var(--estacao-grafismo)}
+.f08-pilar{display:grid;gap:6px}.f08-pilar div{height:8px;background:var(--coxia)}.f08-pilar div i{display:block;height:100%;background:var(--caramelo)}
+.f08-vazio{display:grid;justify-items:center;gap:var(--e-3);text-align:center;padding:var(--e-6) var(--e-5);background:var(--sala);color:var(--cal)}.f08-vazio [data-vforms]{width:120px;height:120px}
+.f08-art-h1{margin:0;font:600 clamp(30px,3.6vw,44px)/1.1 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);text-wrap:balance}
+.f08-rd{max-width:680px;padding:var(--e-4) var(--e-5);border-left:3px solid var(--terracota-funda);font:400 20px/1.55 var(--font-texto);color:var(--sala)}
+.f08-ficha{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px var(--e-5);max-width:680px;padding:var(--e-5);background:var(--cinza-100);font:400 15px/1.5 var(--font-texto);color:var(--sala)}
+.f08-ficha dt{font:500 11px/2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--ardosia)}.f08-ficha dd{margin:0}
+.f08-pends{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-3)}.f08-pends .pendencia{max-width:none}
+.f08-menu{display:flex;align-items:center;gap:calc(var(--u)*26);font:500 calc(var(--u)*13)/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase;color:var(--cal)}
+.f08-zapf{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--sala);border:1px solid var(--tela);color:var(--tela)}.f08-zapf svg{width:24px;height:24px}
+.f08-check{list-style:none;padding:0;display:grid;gap:var(--e-2)}.f08-check li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:var(--e-3);align-items:start}.f08-check li::before{content:"";width:16px;height:16px;margin-top:4px;border:1.5px solid currentColor}
+@media (max-width:900px){.f08-par,.f08-ui,.f08-dobra{grid-template-columns:minmax(0,1fr)}.f08-dobra .peca{max-width:300px}}
+@media (max-width:640px){.f08-pends,.f08-comp{grid-template-columns:minmax(0,1fr)}.f08-comp .f08-atual{order:-1}.f08-fita span{height:56px;font-size:0}.f08-sala{padding:var(--e-5) var(--e-4)}.f08-ficha{grid-template-columns:minmax(0,1fr)}.f08-ficha dd{margin-bottom:var(--e-2)}.f08-vsl span{font-size:0}}
+@media (prefers-reduced-motion:reduce){.f08-mail{transition:none}}
+</style>
+
+<section class="sec" id="s34" data-parte="IX" data-nome="Landing page e VSL" aria-labelledby="s34-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>34</b> · Landing page e VSL</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">34</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Canais · Conversão</p>
+        <h2 id="s34-t" class="titulo-secao">Uma página, <em class="off">um pedido</em></h2>
+        <p class="sec-apoio">Toda landing page e toda VSL da The VOID nomeiam uma crença, alternam cena, cartela e documento, e terminam em um único botão com o mesmo rótulo do começo ao fim.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>A página não tem menu nem saída: um destino de CTA, repetido de 3 a 5 vezes, sempre com o mesmo rótulo da biblioteca.</li>
+        <li>São 23 componentes nomeados (LP01 a LP23). A ordem do Start alterna cena, cartela e documento e só usa Modo Leitura na Ficha da Formação.</li>
+        <li>O botão é o Letreiro Aceso: retângulo Tela, texto Sala, seta na cor do produto. É o ponto mais claro da dobra.</li>
+        <li>A VSL tem 9 blocos, 5 tipos de cartela, legenda sempre e um fecho com Créditos Finais. Nada de valor em reais na capa.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s34-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.1</p>
+        <h3 class="fala">A primeira dobra</h3>
+        <p class="bloco-apoio">No celular, título, linha de apoio e botão cabem em 640 px de altura sem rolar. No computador, o botão é a superfície mais clara da tela. As duas maquetes seguem o Plano de Abertura (LP03).</p>
+      </div>
+      <div class="f08-dobra">
+        <div class="peca" data-formato="1080x1920" data-nome="LP03 no celular, Start" data-estacao="start">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span style="margin-top:72%">Foto real da escola, com autorização</span></div>
+            <div class="f08-veu-base"></div>
+            <div class="f08-barra" style="position:relative;min-height:calc(var(--u)*120);font-size:calc(var(--u)*30);padding:0 calc(var(--u)*48)"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*40);height:calc(var(--u)*40)"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>Turma de [mês] · começa em [data]</div>
+            <div class="f08-p" style="top:calc(var(--u)*120);padding:calc(var(--u)*48)">
+              <img class="f08-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48" style="width:calc(var(--u)*520)">
+              <img src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="288" height="288" style="position:absolute;top:calc(var(--u)*170);right:calc(var(--u)*48);width:calc(var(--u)*288);height:auto">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*48)">
+                <p class="f08-tf" data-largura="85" style="font-size:calc(var(--u)*132)">Talento é consequência de <em class="off">treino</em>.</p>
+                <p class="f08-tx" style="font-size:calc(var(--u)*51)">Formação Start na Vila Madalena, em São Paulo.</p>
+                <span class="f08-btn" style="justify-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*46)">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*56);height:calc(var(--u)*56)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <p class="f08-cr" style="font:400 calc(var(--u)*39)/1.4 var(--font-texto);letter-spacing:0;text-transform:none;text-align:center">Uma pessoa do time responde pelo WhatsApp.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;gap:var(--e-6)">
+          <div class="peca" data-formato="1440x900" data-nome="LP03 no computador, Master" data-estacao="master">
+            <div class="peca-tela">
+              <div class="f08-foto" style="left:46%"><span>Foto real da escola, com autorização</span></div>
+              <div class="f08-veu-esq"></div>
+              <div class="f08-barra" style="position:relative"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>Turma de [mês] · começa em [data] · inscrições até [data]</div>
+              <div class="f08-p" style="top:calc(var(--u)*40);padding:calc(var(--u)*40) calc(var(--u)*64)">
+                <div style="display:flex;justify-content:space-between;align-items:center"><img class="f08-logo" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="200" height="30" style="width:calc(var(--u)*200)"><p class="f08-cr" style="font-size:calc(var(--u)*12)">The VOID Tattoo Academy · São Paulo · Brazil</p></div>
+                <img src="assets/brand/svg/selo-simples-master.svg" alt="Selo The VOID Master" width="150" height="150" style="position:absolute;right:calc(var(--u)*64);top:calc(var(--u)*120);width:calc(var(--u)*150);height:auto">
+                <div class="f08-fim" style="display:grid;gap:calc(var(--u)*24);max-width:calc(var(--u)*620);margin-bottom:calc(var(--u)*72)">
+                  <p class="f08-tf" style="font-size:calc(var(--u)*76)">Técnica sem posicionamento é <em class="off">invisível</em>.</p>
+                  <p class="f08-tx" style="font:400 calc(var(--u)*22)/1.5 var(--font-texto)">Formação Master para quem já tatua, na Vila Madalena, em São Paulo.</p>
+                  <span class="f08-btn" style="font-size:calc(var(--u)*16);padding:calc(var(--u)*20) calc(var(--u)*28)">Quero falar sobre o Master<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*20);height:calc(var(--u)*20)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="f08-zonas" aria-label="As três zonas da primeira dobra">
+            <li><b>1</b><span><strong>Vazio.</strong> O título nomeia a crença da persona, em até 6 palavras, com uma Palavra Sensível. Véu de 70% sob o texto (62% mínimo sob a linha de apoio).</span></li>
+            <li><b>2</b><span><strong>Encontro.</strong> Uma linha racional: o que é e onde é ("Vila Madalena, São Paulo"). Ficha Técnica no topo, sem ano de fundação [P 5].</span></li>
+            <li><b>3</b><span><strong>Ação.</strong> O botão com o rótulo da biblioteca e uma microcopy em Pó. No celular ele ocupa a largura toda; no computador é a superfície mais clara.</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="nota">No celular, o título passou de 3 linhas com o Archivo a 100 de largura: a regra de largura (seção <a href="#s18">18</a>) estreitou para 85 antes de reduzir o tamanho, e o título ficou em 44 px. O Selo como Carimbo tem 96 px reais (o mínimo do selo simples); abaixo disso, entra o Rótulo de Produto.</p>
+      <h4 class="intertitulo">O esqueleto comum a toda LP</h4>
+      <ul>
+        <li>Campo Sala, sem menu e sem link de saída; <code>data-estacao</code> do produto no <code>&lt;body&gt;</code>.</li>
+        <li>Um único destino de CTA, repetido de 3 a 5 vezes com o mesmo rótulo (L1). Privacidade e descadastro não contam.</li>
+        <li>Maior elemento visível em menos de 2,5 s em 4G; imagens WebP ou AVIF com largura e altura declaradas; vídeo nunca toca sozinho com som.</li>
+        <li>Densidade: aula experimental de 5 a 7 seções; Start de 12 a 14; Master de 10 a 12; Pro de 9 a 11; The VOID Talks com 5.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s34-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.2</p>
+        <h3 class="fala">Os 23 componentes</h3>
+        <p class="bloco-apoio">Cada componente tem nome canônico, tipo de tela (cena, cartela, documento ou interface) e uma especificação fechada. A miniatura mostra a composição; o quadradinho do tipo é o mesmo da régua de montagem abaixo.</p>
+      </div>
+      <div class="f08-lps" data-estacao="start">
+        <div class="f08-lp"><div class="f08-mini" data-tipo="interface"><i class="r"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP01<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Barra de Turma</b><span>40 px em Bastidor, fio do produto, ícone de calendário e a turma em Crédito. Só existe com data de início válida e futura; some sozinha quando vence. Nunca em vermelho, nunca com contador.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="interface"><i class="b" style="width:30%;height:6px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP02<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Cabeçalho Mínimo</b><span>Logotipo de produto branco, de 24 a 32 px de altura. Sem menu.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="f"></i><i class="v"></i><i class="t"></i><i class="o"></i><i class="b"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP03<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Plano de Abertura</b><span>Foto P&amp;B sangrada com véu, Título de Filme com Palavra Sensível, linha racional, botão, microcopy, selo no canto e Ficha Técnica sem ano.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="c"></i><i class="t" style="width:44%"></i><i class="t" style="width:36%"></i><i class="t" style="width:50%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP04<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Cartela do Vazio</b><span>Esfera ou campo puro e frases curtas empilhadas que espelham a crença da persona.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i style="width:52%"></i><i class="t" style="width:76%"></i><i class="t" style="width:48%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP05<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Virada</b><span>A crença em Pó, riscada por um fio de 2 px no grafismo do produto; a verdade abaixo, em Título de Filme. No Pro, vira Autoavaliação.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:70%"></i><i style="width:60%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP06<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Rolo de Depoimentos</b><span>3 ou 4 vídeos 9:16 com rolagem lateral visível, capa no regime Terra, "ANTES, [OCUPAÇÃO]. HOJE, [TATUADOR OU TATUADORA]" com o gênero que a pessoa escolher, crédito de depoimento e Aviso de Conformidade abaixo.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:18%;height:22px"></i><i style="width:46%"></i><i style="width:30%;height:2px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP07<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Régua de Prova</b><span>De 3 a 4 numerais validados, cada um com Crédito de Prova. Some se não houver nenhum validado.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:30%"></i><i class="k" style="height:22px;background:linear-gradient(90deg,var(--cinza-100) 0 31%,transparent 31% 34.5%,var(--cinza-100) 34.5% 65.5%,transparent 65.5% 69%,var(--cinza-100) 69%)"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP08<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Método ARTE e Mapa da Trilha</b><span>Mapa da Trilha com o produto aceso e três colunas (Artista, Tatuador, Empreendedor). No celular, cartões empilhados com o atual primeiro.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:40%"></i><i style="width:90%;height:1px"></i><i style="width:60%"></i><i style="width:90%;height:1px"></i><i style="width:52%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP09<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Roteiro</b><span>Grade de módulos em acordeão, o primeiro aberto: Marcador de Estação, nome, o que o aluno sabe fazer no fim e o pilar. Termo técnico explicado na primeira vez.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:64%;background:linear-gradient(90deg,var(--coxia) 0 32%,transparent 32% 34%,var(--coxia) 34% 66%,transparent 66% 68%,var(--coxia) 68%)"></i><i class="o"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP10<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Fotograma dos Rituais</b><span>Tríptico P&amp;B no protocolo dos ritos: Ritual do Traço, Primeira Pele, Formatura com Pele, cada um com a frase do rito na voz em off.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:58%"></i><i style="width:40%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP11<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Elenco</b><span>Retratos P&amp;B de luz lateral, nome, estilo e anos de prática [P 13], com link para a página do professor.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:30%"></i><i style="width:44%"></i><i style="width:38%"></i><i style="width:46%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP12<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Para Quem É</b><span>Duas colunas: ícone de confirmação para "é" e traço em Fumaça para "não é".</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="f" style="right:45%"></i><i style="width:40%;margin-left:58%"></i><i style="width:34%;margin-left:58%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP13<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Locação</b><span>Foto real da fachada e da sala, bloco NAP canônico, mapa estático em Penumbra e "como chegar".</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:44%"></i><i style="width:64%"></i><i style="width:58%"></i><i class="b"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP14<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Ficha da Formação</b><span>Modo Leitura: selo, o que inclui, formato, carga horária, turma, investimento com total e parcelas [P 15], botão Sala, frase de arrependimento e frase de curso livre.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento" style="background:var(--sala)"><i class="t" style="width:60%;height:7px"></i><i style="width:92%;height:1px"></i><i class="t" style="width:52%;height:7px"></i><i style="width:92%;height:1px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP15<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Perguntas</b><span>Acordeão em Sala com as objeções da persona (preço, talento, mercado, "vou pensar"). Texto idêntico ao do FAQPage.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="t" style="width:46%"></i><i class="b"></i><i style="width:84%;height:2px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP16<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Créditos Finais</b><span>Sala total, Eco do VOID, a última linha que fica, botão, rodapé-assinatura, NAP e rodapé legal. Tagline só nos contextos de peso.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="interface" style="justify-content:flex-end"><i class="r" style="height:20px;border:0;border-top:1px solid var(--fio)"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP17<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Barra Fixa</b><span>Só no celular, depois do hero: 64 px, Rótulo de Produto à esquerda e o botão à direita. Some na Ficha da Formação; respeita a área segura do aparelho.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i style="width:26%;height:3px"></i><i style="width:100%;height:12px;background:var(--cinza-100);border:1px solid var(--fumaca)"></i><i style="width:26%;height:3px"></i><i style="width:100%;height:12px;background:var(--cinza-100);border:1px solid var(--fumaca)"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP18<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Formulário Curto</b><span>3 a 4 campos com rótulo visível acima, campo Coxia de raio 0 com borda Fumaça, erro com ícone e frase, consentimento desmarcado e UTM oculta.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="c" style="right:38%;top:14%;width:24%"></i><i class="t" style="width:56%;margin:0 auto"></i><i class="b" style="margin:0 auto"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP19<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Pós-Créditos</b><span>Página de obrigado: Esfera, "Seu lugar está reservado. O próximo passo é [ação].", prazo real de resposta e botão para o WhatsApp com a origem.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="f" style="inset:12px 18% 26px 18%"></i><i style="width:64%;margin:0 auto;height:3px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP20<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Sala de Projeção</b><span>Player 16:9 com capa no sistema, capítulos nomeados, resumo em texto e transcrição recolhível presente no HTML.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="t" style="width:88%;height:6px"></i><i class="t" style="width:80%;height:6px"></i><i class="o" style="width:30%"></i><i class="t" style="width:70%;height:6px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP21<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Faixa de Manifesto</b><span>Frase do manifesto em Archivo 500 caixa alta, até 40 palavras, com uma Palavra Sensível, sobre Sala com grão.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="interface"><i class="t" style="width:62%;height:7px"></i><i style="width:40%;height:10px;background:var(--coxia);outline:1px solid var(--fumaca)"></i><i style="width:40%;height:10px;background:var(--coxia);outline:1px solid var(--fumaca)"></i><i class="r" style="height:18px;margin-top:auto"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP22<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Autoavaliação</b><span>Só no Pro, no lugar da Virada: cinco perguntas de sim ou não, uma por vez, e a resposta num cartão Bastidor que nomeia o ponto de partida. Nenhuma pergunta sobre renda.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:36%"></i><i class="k" style="height:34px;background:linear-gradient(90deg,var(--cinza-100) 0 31%,transparent 31% 34.5%,var(--estacao-destaque) 34.5% 65.5%,transparent 65.5% 69%,var(--cinza-100) 69%)"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP23<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Comparativo de Trilhas</b><span>Start, Master e Pro como um caminho, não como concorrentes: selo, para quem é, o que desenvolve, pré-requisito, formato e próximo passo. A coluna da página atual fica acesa; no celular, ela vem primeiro.</span></div></div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s34-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.3</p>
+        <h3 class="fala">A ordem do Start e as variantes</h3>
+        <p class="bloco-apoio">A régua abaixo é a LP do Start de cima para baixo, rotulada por tipo. Nunca há três telas iguais seguidas (L8) e o Modo Leitura aparece uma vez, na Ficha da Formação, dentro do teto de 25% da altura.</p>
+      </div>
+      <div data-estacao="start">
+        <div class="f08-fita" role="img" aria-label="Régua da LP do Start: LP01 interface, LP02 interface, LP03 cena, LP04 cartela, LP05 cartela, LP06 cena, LP08 documento, LP09 documento, LP10 cena, LP11 cena, LP07 documento, LP12 documento, LP13 cena, LP14 documento em Modo Leitura, LP15 documento, LP16 cartela, LP17 interface.">
+          <span data-tipo="interface">01</span><span data-tipo="interface">02</span><span data-tipo="cena">03</span><span data-tipo="cartela">04</span><span data-tipo="cartela">05</span><span data-tipo="cena">06</span><span data-tipo="documento">08</span><span data-tipo="documento">09</span><span data-tipo="cena">10</span><span data-tipo="cena">11</span><span data-tipo="documento">07</span><span data-tipo="documento">12</span><span data-tipo="cena">13</span><span data-tipo="documento" class="f08-leit">14</span><span data-tipo="documento">15</span><span data-tipo="cartela">16</span><span data-tipo="interface">17</span>
+        </div>
+        <p class="legenda"><span class="f08-tipo" data-tipo="cena">cena</span> · <span class="f08-tipo" data-tipo="cartela">cartela</span> · <span class="f08-tipo" data-tipo="documento">documento</span> · <span class="f08-tipo" data-tipo="interface">interface</span> · a moldura na cor do produto marca a única seção em Modo Leitura.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Variantes por oferta</caption>
+          <thead><tr><th scope="col">Oferta</th><th scope="col">Seções</th><th scope="col">O que muda em relação ao Start</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Aula experimental</th><td>5 a 7</td><td>Assina com <code>void-start</code> e o selo Start como próxima etapa, campo institucional (<code>chamado</code>) [P 14]. Hero com o que é, quando e onde; roteiro da aula só depois de confirmado [P 16]. A métrica é presença, não cadastro.</td></tr>
+            <tr><th scope="row">Start</th><td>12 a 14</td><td>A ordem da régua acima. Variante para a persona Camila: hero "Sua experiência é um diferencial, não um atraso", lógica antes da emoção e CTA para visita.</td></tr>
+            <tr><th scope="row">Master</th><td>10 a 12</td><td>Hero de provocação técnica, galeria do trabalho final autoral (com autorização), Comparativo de Trilhas (LP23) com o Master aceso. O método pode citar o diagnóstico técnico como primeira etapa, como faz o site oficial. Fecho com "Descubra sua identidade artística".</td></tr>
+            <tr><th scope="row">Pro</th><td>9 a 11</td><td>Autoavaliação (LP22) no lugar da Virada. Casos com régua de prova, nunca faturamento com número e prazo. Uma frase de assinatura por campanha.</td></tr>
+            <tr><th scope="row">The VOID Talks</th><td>5</td><td>Página cultural, sem oferta de formação. Letreiro Corrido no topo, convidado, data e local reais, confirmação em dois campos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">LP23 · Comparativo de Trilhas, na LP do Master</h4>
+      <div class="f08-comp" data-estacao="master" role="group" aria-label="Comparativo de trilhas: Start, Master e Pro">
+        <div data-estacao="start">
+          <img src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="96" height="96">
+          <p class="f08-lp-id" style="color:var(--tela)">The VOID Start</p>
+          <dl>
+            <dt class="rotulo">Para quem é</dt><dd>Quem nunca tatuou e quer começar do zero, sem precisar saber desenhar.</dd>
+            <dt class="rotulo">O que desenvolve</dt><dd>Fundamentos, pele artificial, pele humana e mercado.</dd>
+            <dt class="rotulo">Pré-requisito</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+            <dt class="rotulo">Formato</dt><dd>Presencial, na Vila Madalena. Carga horária [P 15].</dd>
+          </dl>
+        </div>
+        <div class="f08-atual" data-estacao="master" aria-current="page">
+          <img src="assets/brand/svg/selo-simples-master.svg" alt="Selo The VOID Master" width="96" height="96">
+          <p class="f08-lp-id" style="color:var(--tela);flex-wrap:wrap;justify-content:flex-start;gap:6px 12px">The VOID Master<span class="credito" style="color:var(--estacao-destaque)">Você está aqui</span></p>
+          <dl>
+            <dt class="rotulo">Para quem é</dt><dd>Quem aprendeu a tatuar e já tatua em pele humana.</dd>
+            <dt class="rotulo">O que desenvolve</dt><dd>Diagnóstico técnico, prática progressiva, correção em tempo real e projetos maiores.</dd>
+            <dt class="rotulo">Pré-requisito</dt><dd>Já tatuar em pele humana.</dd>
+            <dt class="rotulo">Formato</dt><dd>Presencial, na Vila Madalena. Turma e carga horária [P 15].</dd>
+          </dl>
+          <span class="botao">Quero falar sobre o Master<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+        <div data-estacao="pro">
+          <span style="display:block;width:96px;height:96px;padding:4px;border-radius:50%;background:var(--coxia);box-sizing:content-box"><img src="assets/brand/svg/selo-simples-pro.svg" alt="Selo The VOID Pro" width="96" height="96"></span>
+          <p class="f08-lp-id" style="color:var(--tela)">The VOID Pro</p>
+          <dl>
+            <dt class="rotulo">Para quem é</dt><dd>Tatuador que quer profissionalizar a carreira e construir a sua estratégia de crescimento.</dd>
+            <dt class="rotulo">O que desenvolve</dt><dd>Marca, conteúdo, vendas e gestão financeira, e tráfego.</dd>
+            <dt class="rotulo">Pré-requisito</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+            <dt class="rotulo">Formato</dt><dd>Online, com aulas ao vivo. Duração [P 15].</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="legenda">Na LP, só a coluna acesa tem botão: as outras explicam o caminho, sem virar saída (L1). Na página <code>/trilha/</code> do site, nenhuma coluna fica acesa e cada uma leva à página do seu produto. No celular, três cartões empilhados com o atual primeiro; nunca uma tabela larga cortada. Nunca compara com outras escolas. Os textos de "para quem é" e "o que desenvolve" vêm das páginas oficiais; formato, carga horária e turma esperam o dado de oferta [P 15].</p>
+    </div>
+
+    <div class="bloco" id="s34-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.4</p>
+        <h3 class="fala">O botão Letreiro Aceso</h3>
+        <p class="bloco-apoio">O único estilo de CTA do sistema. Troque o produto: só a seta muda de cor. Nada pulsa, nada brilha, nada conta o tempo.</p>
+      </div>
+      <div class="demo-estacao" data-estacao="start">
+        <div class="f08-estados">
+          <div><p class="rotulo">Repouso</p><span class="botao"><span data-so="chamado">Garantir minha vaga na aula</span><span data-so="start">Quero conversar sobre minha turma</span><span data-so="master">Quero falar sobre o Master</span><span data-so="pro">Agendar meu diagnóstico</span><span data-so="voiders">Confirmar presença</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><p class="legenda">Tela com texto Sala, 56 px de altura (52 px no celular, largura total).</p></div>
+          <div><p class="rotulo">Sob o ponteiro</p><span class="botao" style="background:var(--branco)">Quero conversar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><p class="legenda">O fundo sobe para Branco em 120 ms. Sem escala, sem sombra.</p></div>
+          <div><p class="rotulo">Pressionado</p><span class="botao" style="background:var(--cal)">Quero conversar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><p class="legenda">O fundo desce para Cal.</p></div>
+          <div><p class="rotulo">Foco pelo teclado</p><span class="botao" style="outline:2px solid var(--areia);outline-offset:3px">Quero conversar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><p class="legenda">Contorno de 2 px em Areia, afastado 3 px. Sempre visível.</p></div>
+          <div><p class="rotulo">Carregando</p><span class="botao">Abrindo o WhatsApp...</span><p class="legenda">O rótulo diz o que está acontecendo. Sem ícone girando.</p></div>
+          <div><p class="rotulo">Desabilitado</p><span class="botao" style="background:var(--coxia);color:var(--po)">Falta o seu WhatsApp</span><p class="legenda">Só em formulário incompleto, e sempre com a frase do que falta.</p></div>
+        </div>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>.botao{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border:0;border-radius:0;
+ background:var(--tela);color:var(--sala);font:700 16px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;
+ transition:background var(--t-micro) cubic-bezier(.2,0,0,1)}
+.botao svg{width:20px;height:20px;stroke:var(--estacao-seta,var(--sala));stroke-width:2;stroke-linecap:square;fill:none}
+.botao:hover{background:var(--branco)}.botao:active{background:var(--cal)}
+.botao:focus-visible{outline:2px solid var(--areia);outline-offset:3px}
+.modo-leitura .botao{background:var(--sala);color:var(--tela)}.modo-leitura .botao svg{stroke:var(--tela)}.modo-leitura .botao:focus-visible{outline-color:var(--sala)}
+@media (max-width:430px){.botao{width:100%;min-height:52px;font-size:17px}}</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><span class="botao">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          <figcaption>Retângulo, verbo na primeira pessoa, até 5 palavras. A ação secundária é um link sublinhado ou um botão vazado com borda Fumaça.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><span class="botao" style="border-radius:999px;background:var(--terracota);color:var(--tela)">Saiba mais</span></div>
+          <figcaption>Pílula colorida e rótulo genérico. A pílula só volta se vencer o teste A/B 10 [P 9].</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s34-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.5</p>
+        <h3 class="fala">Biblioteca de rótulos</h3>
+        <p class="bloco-apoio">Primeira pessoa, verbo, até cinco palavras. O rótulo é o mesmo no anúncio, no botão, na Barra Fixa e na mensagem pré-preenchida do WhatsApp.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Rótulos aprovados por oferta</caption>
+          <thead><tr><th scope="col">Oferta</th><th scope="col">Rótulo</th><th scope="col">Onde</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Start</th><td><code>QUERO CONVERSAR SOBRE MINHA TURMA</code></td><td>LP do Start, anúncios M1 e M2 do Start</td></tr>
+            <tr><th scope="row">Master</th><td><code>QUERO FALAR SOBRE O MASTER</code></td><td>LP do Master</td></tr>
+            <tr><th scope="row">Pro</th><td><code>AGENDAR MEU DIAGNÓSTICO</code></td><td>LP do Pro. O rótulo é só do Pro; o Master pode citar o diagnóstico técnico como primeira etapa do método, nunca como botão.</td></tr>
+            <tr><th scope="row">Aula experimental</th><td><code>GARANTIR MINHA VAGA NA AULA</code></td><td>LP da aula, Reels e anúncios de topo (M1)</td></tr>
+            <tr><th scope="row">The VOID Talks</th><td><code>CONFIRMAR PRESENÇA</code> · ao vivo: <code>QUERO ASSISTIR</code></td><td>Página do evento, convite M8</td></tr>
+            <tr><th scope="row">Proposta (M4)</th><td><code>GARANTIR MINHA VAGA NA TURMA</code></td><td>Proposta de uma página, WhatsApp</td></tr>
+            <tr><th scope="row">Membros (M6 e M7)</th><td><code>REGISTRAR MEU PRIMEIRO TRAÇO</code> · <code>ENVIAR MEU TRABALHO</code></td><td>Tela Hoje, Prática com Feedback</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grade-2">
+        <div class="palco" data-exemplo="proibido">
+          <p class="rotulo">Rótulos proibidos</p>
+          <p class="nota">"SAIBA MAIS", "CLIQUE AQUI", "COMPRE AGORA", "LEARN MORE" e qualquer rótulo que prometa uma experiência não confirmada, como "sentir a máquina na mão" enquanto o roteiro da aula não estiver confirmado [P 16].</p>
+        </div>
+        <div class="palco">
+          <p class="rotulo">Microcopy sob o botão</p>
+          <p class="nota">"Resposta de uma pessoa do time em até 2h, sem ligação invasiva." Só enquanto esse compromisso existir de verdade na operação. Sem compromisso medido, a microcopy diz só quem responde e por onde.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s34-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.6</p>
+        <h3 class="fala">Barra de Turma e Barra Fixa</h3>
+        <p class="bloco-apoio">A única urgência permitida é a real: a Barra de Turma lê a data de início do calendário e desaparece quando ela passa. Teste abaixo com uma data simulada.</p>
+      </div>
+      <div class="palco" data-estacao="start" id="s34-turma">
+        <div class="f08-barra" id="s34-turma-barra" style="--u:1px;min-height:40px;padding:0 16px;font-size:12px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><span id="s34-turma-texto">Turma de [mês] · começa em [data] · inscrições até [data]</span></div>
+        <p class="nota" id="s34-turma-estado" role="status" style="margin-top:var(--e-4)">Sem data informada, a barra mostra os campos que a página precisa receber.</p>
+        <fieldset style="display:flex;flex-wrap:wrap;align-items:end;gap:var(--e-4);margin:var(--e-4) 0 0;padding:0;border:0">
+          <legend class="rotulo" style="margin-bottom:var(--e-2)">Data de início simulada (dia, mês e ano)</legend>
+          <label class="rotulo f08-sel">Dia<select id="s34-turma-dia"></select></label>
+          <label class="rotulo f08-sel">Mês<select id="s34-turma-mes"><option value="0">janeiro</option><option value="1">fevereiro</option><option value="2">março</option><option value="3">abril</option><option value="4">maio</option><option value="5">junho</option><option value="6">julho</option><option value="7">agosto</option><option value="8">setembro</option><option value="9">outubro</option><option value="10">novembro</option><option value="11">dezembro</option></select></label>
+          <label class="rotulo f08-sel">Ano<select id="s34-turma-ano"></select></label>
+          <button type="button" class="copiar" id="s34-turma-vencer" style="min-height:44px">Simular turma vencida</button>
+        </fieldset>
+      </div>
+      <div class="palco" data-estacao="start" style="display:grid;justify-items:center;gap:var(--e-3);padding-left:0;padding-right:0">
+        <div class="f08-cel" role="img" aria-label="Maquete de celular de 390 px: fim de uma seção da LP do Start e, presa no pé da tela, a Barra Fixa com o Rótulo de Produto THE VOID START à esquerda e o botão Quero conversar à direita.">
+          <div style="display:grid;gap:12px;padding:24px 16px 20px">
+            <p class="rotulo" style="display:flex;align-items:center;gap:8px"><span data-vforms='{"forma":"marcador-estacao","tamanho":14}'></span>Start · O roteiro</p>
+            <p style="margin:0;font:600 22px/1.15 var(--font-letreiro);color:var(--tela)">Fundamentos, pele artificial, pele humana e mercado</p>
+            <i style="display:block;height:44px;background:var(--bastidor);border-left:2px solid var(--estacao-grafismo)"></i>
+            <i style="display:block;height:44px;background:var(--bastidor)"></i>
+            <i style="display:block;height:44px;background:var(--bastidor)"></i>
+          </div>
+          <div class="f08-fixa">
+            <span class="credito f08-rp">The VOID Start</span>
+            <span class="botao">Quero conversar<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </div>
+          <div style="height:20px;background:rgb(24 24 24 / .95)" title="Área segura do aparelho"></div>
+        </div>
+      </div>
+      <p class="legenda">Barra Fixa (LP17), numa tela de 390 px: 64 px de altura, Sala a 95% com fio superior de 1 px, Rótulo de Produto em texto com fio de 1 px à esquerda (abaixo de 96 px não existe selo) e o botão à direita, os dois com 44 px de altura e alinhados ao centro. A faixa de baixo é a área segura do aparelho. Em telas mais estreitas que 380 px, o texto do botão quebra em duas linhas e nunca é cortado. O rótulo do botão pode encurtar na barra desde que mantenha o verbo e o destino.</p>
+      <script>
+      (function(){
+        var dia=document.getElementById("s34-turma-dia"),mes=document.getElementById("s34-turma-mes"),ano=document.getElementById("s34-turma-ano"),barra=document.getElementById("s34-turma-barra"),txt=document.getElementById("s34-turma-texto"),est=document.getElementById("s34-turma-estado"),venc=document.getElementById("s34-turma-vencer");
+        if(!dia||!mes||!ano||!barra)return;
+        var MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+        function dd(n){return ("0"+n).slice(-2);}
+        function br(d){return dd(d.getDate())+"/"+dd(d.getMonth()+1)+"/"+d.getFullYear();}
+        var i,o,a0=new Date().getFullYear();
+        for(i=1;i<=31;i++){o=document.createElement("option");o.value=i;o.textContent=dd(i);dia.appendChild(o);}
+        for(i=a0-1;i<=a0+2;i++){o=document.createElement("option");o.value=i;o.textContent=i;ano.appendChild(o);}
+        function definir(d){dia.value=d.getDate();mes.value=d.getMonth();ano.value=d.getFullYear();}
+        function atualizar(){
+          var y=+ano.value,m=+mes.value,ult=new Date(y,m+1,0).getDate();
+          if(+dia.value>ult)dia.value=ult;
+          var ini=new Date(y,m,+dia.value),hoje=new Date();hoje.setHours(0,0,0,0);
+          var ate=new Date(ini.getTime()-86400000);
+          if(ini>hoje){barra.hidden=false;txt.textContent="Turma de "+MESES[ini.getMonth()]+" · começa em "+br(ini)+" · inscrições até "+br(ate);est.textContent="Data futura: a barra aparece. Data simulada, não é calendário real.";}
+          else{barra.hidden=true;est.textContent="A data de início ("+br(ini)+") já passou: a barra sumiu sozinha. Nenhuma frase de urgência fica no lugar.";}
+        }
+        var d=new Date();d.setDate(d.getDate()+21);definir(d);atualizar();
+        [dia,mes,ano].forEach(function(s){s.addEventListener("change",atualizar);});
+        venc.addEventListener("click",function(){var v=new Date();v.setDate(v.getDate()-1);definir(v);atualizar();});
+      })();
+      </script>
+    </div>
+
+    <div class="bloco" id="s34-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.7</p>
+        <h3 class="fala">Testes A/B previstos</h3>
+        <p class="bloco-apoio">Um teste por vez, com hipótese, métrica principal e volume mínimo combinados antes de começar. A vitória se mede em matrícula e conversa qualificada, não em clique.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Fila de testes, em ordem de prioridade</caption>
+          <thead><tr><th scope="col">#</th><th scope="col">Hipótese</th><th scope="col">Variante A</th><th scope="col">Variante B</th><th scope="col">Métrica principal</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1</th><td>O destino do CTA muda a qualidade do lead</td><td>Botão abre o WhatsApp direto</td><td>Formulário curto, depois WhatsApp</td><td>Matrícula por visitante</td></tr>
+            <tr><th scope="row">2</th><td>Hero emocional supera a racional no tráfego frio</td><td>Hero com o vazio</td><td>Hero com o resultado concreto e a turma</td><td>Conversão da página</td></tr>
+            <tr><th scope="row">3</th><td>Vídeo acima da dobra ajuda a vender o Start</td><td>VSL na hero</td><td>Hero estática, VSL mais abaixo</td><td>Conversa qualificada</td></tr>
+            <tr><th scope="row">4</th><td>Persona específica converte mais que genérica</td><td>LP Start única</td><td>LP Start Gabriel e LP Start Camila</td><td>Conversão e matrícula por segmento</td></tr>
+            <tr><th scope="row">5</th><td>Prova de iniciante supera prova de autoridade</td><td>Depoimentos de quem começou do zero</td><td>Professores e estrutura primeiro</td><td>Rolagem até a oferta e conversão</td></tr>
+            <tr><th scope="row">6</th><td>Investimento visível reduz conversa improdutiva</td><td>Investimento na página</td><td>"Fale com a equipe para condições"</td><td>Matrícula sobre conversas</td></tr>
+            <tr><th scope="row">7</th><td>A narrativa do Pro</td><td>"Do traço ao topo"</td><td>"A arte é sua. O plano é nosso."</td><td>Agendamento de diagnóstico</td></tr>
+            <tr><th scope="row">8</th><td>A capa do vídeo</td><td>Rosto com frase de transformação</td><td>Mãos em ação com frase de método</td><td>Taxa de clique da capa</td></tr>
+            <tr><th scope="row">9</th><td>Tamanho do formulário da aula</td><td>3 campos</td><td>3 campos e segunda etapa opcional</td><td>Inscrição e presença</td></tr>
+            <tr><th scope="row">10</th><td>O botão reto converte tanto quanto a pílula [P 9]</td><td>Letreiro Aceso, raio 0</td><td>Pílula atual</td><td>Clique no CTA e matrícula</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Eventos padronizados em toda LP: ver o CTA, clicar no CTA, enviar formulário, abrir o WhatsApp e vídeo assistido a 25, 50, 75 e 100%. Toda LP grava a UTM, e a mensagem pré-preenchida do WhatsApp carrega a origem para ligar a matrícula à página e ao criativo.</p>
+    </div>
+
+    <div class="bloco" id="s34-8">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.8</p>
+        <h3 class="fala">VSL: o roteiro em 9 blocos</h3>
+        <p class="bloco-apoio">O roteiro segue os três atos do DNA (o vazio, o encontro, a metamorfose) e termina em um único pedido, falado e escrito. As durações abaixo são da VSL longa do Start e serão ajustadas com a curva de retenção.</p>
+      </div>
+      <div data-estacao="start">
+        <div class="f08-vsl" role="img" aria-label="Linha do tempo da VSL do Start em 15 minutos: 1 gancho até 15 segundos, 2 o vazio até 1 minuto e 30, 3 história até 4 minutos, 4 virada até 5 minutos, 5 método até 8 minutos, 6 prova até 11 minutos, 7 oferta até 13 minutos, 8 objeções até 14 minutos e 30, 9 CTA até 15 minutos.">
+          <span style="flex:15">1</span><span style="flex:75">2</span><span style="flex:150">3</span><span style="flex:60" class="f08-vsl-p">4</span><span style="flex:180">5</span><span style="flex:180">6</span><span style="flex:120">7</span><span style="flex:90">8</span><span style="flex:30" class="f08-vsl-p">9</span>
+        </div>
+        <p class="f08-vsl-escala" aria-hidden="true"><span>0:00</span><span>5:00</span><span>10:00</span><span>15:00</span></p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Os 9 blocos (VSL do Start, proposta a validar com retenção)</caption>
+          <thead><tr><th scope="col">Bloco</th><th scope="col">O que faz</th><th scope="col">Até</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1 · Gancho</th><td>Nomeia a crença falsa nos primeiros segundos. Sem vinheta antes.</td><td>0:15</td></tr>
+            <tr><th scope="row">2 · O vazio</th><td>O espectador se vê: o trabalho que não preenche.</td><td>1:30</td></tr>
+            <tr><th scope="row">3 · História</th><td>Uma história real e autorizada de aluno ou do fundador.</td><td>4:00</td></tr>
+            <tr><th scope="row">4 · Virada</th><td>"O que falta não é talento. É estrutura, método e comunidade."</td><td>5:00</td></tr>
+            <tr><th scope="row">5 · Método</th><td>Os três pilares e o Mapa da Trilha; os ritos.</td><td>8:00</td></tr>
+            <tr><th scope="row">6 · Prova</th><td>Depoimentos autorizados e números com Crédito de Prova na mesma tela.</td><td>11:00</td></tr>
+            <tr><th scope="row">7 · Oferta</th><td>O que inclui, formato, turma, investimento [P 15]. Sem promessa financeira.</td><td>13:00</td></tr>
+            <tr><th scope="row">8 · Objeções</th><td>Preço, talento, mercado e "vou pensar".</td><td>14:30</td></tr>
+            <tr><th scope="row">9 · CTA</th><td>Um pedido, dito e escrito, igual ao botão sob o player.</td><td>15:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Durações por formato: Start de 12 a 18 min; Master de 8 a 12; Pro de 6 a 10; aula experimental de 60 a 120 s; cortes de 15, 30 e 60 s em 9:16 para anúncio. Montagem: planos de 2 a 4 s nos primeiros 30 s, de 4 a 8 s no miolo e um respiro a cada 90 a 120 s (som da máquina, silêncio e uma Cartela).</p>
+    </div>
+
+    <div class="bloco" id="s34-9">
+      <div class="bloco-head">
+        <p class="bloco-n credito">34.9</p>
+        <h3 class="fala">Capa, cartelas e quadro de fala</h3>
+        <p class="bloco-apoio">A capa é um painel Sala com uma frase curta e um rosto ou mãos à direita. As cinco cartelas são as únicas telas de texto da VSL; só a de Oferta é clara.</p>
+      </div>
+      <div class="pecas" data-estacao="start">
+        <div class="peca" data-formato="1280x720" data-nome="Capa da VSL, Start">
+          <div class="peca-tela">
+            <div class="f08-foto" style="left:40%"><span>Rosto ou mãos, foto real com autorização</span></div>
+            <div class="f08-veu-esq" style="left:40%;background:linear-gradient(90deg,rgb(24 24 24 / .7) 0%,rgb(24 24 24 / 0) 40%)"></div>
+            <div class="f08-p grao f08-janela" style="right:60%;padding:calc(var(--u)*56)">
+              <img class="f08-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="260" height="42" style="width:calc(var(--u)*260)">
+              <p class="f08-tf f08-fim" style="font-size:calc(var(--u)*72);text-wrap:pretty">Do zero ao primeiro <span class="f08-d">cliente</span></p>
+            </div>
+            <div class="f08-zona" style="right:calc(var(--u)*24);bottom:calc(var(--u)*24);width:calc(var(--u)*150);height:calc(var(--u)*64)"><span class="f08-cr" style="font-size:calc(var(--u)*18)">Duração</span></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Quadro de fala: lower third e legenda">
+          <div class="peca-tela">
+            <div class="f08-foto"><span>Quem fala, foto real com autorização</span></div>
+            <div style="position:absolute;left:calc(var(--u)*120);bottom:calc(var(--u)*330);display:flex;gap:calc(var(--u)*20)">
+              <span style="width:calc(var(--u)*2);min-width:1px;background:var(--estacao-grafismo)"></span>
+              <span><span class="f08-cr" style="display:block;font:600 calc(var(--u)*40)/1.1 var(--font-letreiro);font-variation-settings:'wdth' 112;letter-spacing:.08em;color:var(--tela)">[Nome da aluna]</span><span style="display:block;margin-top:calc(var(--u)*8);font:300 italic calc(var(--u)*34)/1.1 var(--font-off);color:var(--cal)">Aluna do Start, turma de [ano]</span></span>
+            </div>
+            <p style="position:absolute;left:50%;bottom:calc(var(--u)*110);transform:translateX(-50%);margin:0;width:max-content;max-width:80%;padding:calc(var(--u)*12) calc(var(--u)*24);background:rgb(24 24 24 / .75);text-align:center;font:600 calc(var(--u)*50)/1.25 var(--font-letreiro);color:var(--tela)">Legenda com a fala real, em até duas<br>linhas de até 42 caracteres no <span style="color:var(--areia)">horizontal</span>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="f08-grid" data-estacao="start" style="--f08-min:400px">
+        <div class="peca" data-formato="1920x1080" data-nome="Cartela Vazio">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*120)">
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span style="width:calc(var(--u)*24);height:1px;background:var(--po)"></span>Capítulo 01 · O vazio</p>
+            <p class="f08-tf f08-fim" style="font-size:calc(var(--u)*130);max-width:80%">"Não tenho talento para isso."</p>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Cartela Virada">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*120)">
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span style="width:calc(var(--u)*24);height:1px;background:var(--po)"></span>Capítulo 02 · O método</p>
+            <p class="f08-tf f08-fim" style="font-size:calc(var(--u)*130);max-width:86%">Talento é consequência de <em class="off">treino</em>.</p>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Cartela Prova">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*120)">
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span style="width:calc(var(--u)*24);height:1px;background:var(--po)"></span>Capítulo 03 · Quem já fez</p>
+            <div class="f08-fim" style="padding:calc(var(--u)*24) 0 calc(var(--u)*24) calc(var(--u)*40);border-left:calc(var(--u)*4) dashed var(--fumaca)">
+              <p style="margin:0;font:700 calc(var(--u)*150)/.9 var(--font-letreiro);font-variation-settings:'wdth' 75;color:var(--tela);text-transform:uppercase">Dado em validação</p>
+              <p class="f08-cr" style="margin-top:calc(var(--u)*24);font-size:calc(var(--u)*30)">[O que mede] · [recorte] · [data] · [fonte] · não publicar</p>
+            </div>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Cartela Oferta (Modo Leitura)">
+          <div class="peca-tela" style="background:var(--tela)"><div class="f08-p" style="padding:calc(var(--u)*120)">
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16);color:var(--ardosia)"><span style="width:calc(var(--u)*24);height:1px;background:var(--ardosia)"></span>Capítulo 04 · A turma</p>
+            <p class="f08-tf f08-fim" style="font-size:calc(var(--u)*120);color:var(--sala)">Um item da oferta por tela</p>
+            <p class="f08-tx" style="color:var(--ardosia);font:400 calc(var(--u)*44)/1.4 var(--font-texto)">Formato, carga horária e investimento com total e parcelas [P 15].</p>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Cartela Ação">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*120)">
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span style="width:calc(var(--u)*24);height:1px;background:var(--po)"></span>Capítulo 05 · Como entrar</p>
+            <p class="f08-tf f08-fim" style="font-size:calc(var(--u)*120)">Quero conversar sobre minha turma</p>
+            <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16);font-size:calc(var(--u)*34);color:var(--tela)"><svg class="f08-icp" viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*56);height:calc(var(--u)*56)"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>O botão está logo abaixo do vídeo</p>
+          </div></div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Elementos da VSL</caption>
+          <thead><tr><th scope="col">Elemento</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Capa</th><td>1280 por 720 (e 1080 por 1920, 1080 por 1350). Painel Sala com grão, logotipo de produto ou selo no alto, frase de 3 a 6 palavras com uma palavra no destaque do produto, rosto ou mãos nos dois terços da direita com véu, canto inferior direito livre para a duração. Nenhum valor em reais.</td></tr>
+            <tr><th scope="row">Abertura</th><td>Sem vinheta antes do gancho. Em VSL longa, depois do gancho, 1,2 s de abertura com a Esfera.</td></tr>
+            <tr><th scope="row">Legenda</th><td>Archivo 600, de 46 a 54 px no horizontal (60 a 68 px no vertical), 2 linhas no máximo, Tela sobre caixa Sala a 75% (7,39:1), uma palavra em Areia (4,66:1), base a 110 px da borda.</td></tr>
+            <tr><th scope="row">Lower third</th><td>Fio vertical de 2 px no grafismo do produto, nome em Archivo 600 largura 112 caixa alta 40 px, função na voz em off 34 px, de 3 a 4 s, a 120 px da lateral e 140 px da base. Sem selo.</td></tr>
+            <tr><th scope="row">Capítulos</th><td>"O vazio", "O método", "Quem já fez", "A turma", "Como entrar", no player e na página.</td></tr>
+            <tr><th scope="row">Fecho</th><td>1,5 a 2 s: Sala, Eco do VOID, logotipo branco, Créditos Finais e o zumbido da máquina de 0,8 s seguido de silêncio. Em produto, Campo de Produto com logotipo e selo.</td></tr>
+            <tr><th scope="row">Página</th><td>Botão sob o player visível sem rolar no computador; transcrição completa no HTML.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">Checklist da VSL antes de publicar</h4>
+      <ul>
+        <li>Persona e crença falsa declaradas no roteiro; um CTA, falado e escrito, igual ao botão da página.</li>
+        <li>Toda afirmação de resultado com fonte arquivada; nenhuma promessa de renda com número e prazo.</li>
+        <li>Autorização de imagem de todo rosto que aparece, para a finalidade em que o vídeo vai rodar.</li>
+        <li>Legenda revisada (ortografia e sincronia), arquivo <code>.srt</code> e transcrição na página.</li>
+        <li>Trilha licenciada para anúncio; áudio em -14 LUFS integrados, pico em -1 dBTP.</li>
+        <li>Cortes de 15, 30 e 60 s exportados em 9:16.</li>
+      </ul>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2, 4.3, 6, 11.2, 12.1 e 12.2); diretrizes de conversão para LP e VSL, pesquisa GrowAI, out/2026; Brand DNA da The VOID, set/2026; Personas, set/2026; Plataforma de Branding, aureadesign, 2025 (slides 57, 59 a 63).</p>
+  </div>
+</section>
+
+<section class="sec" id="s35" data-parte="IX" data-nome="Redes, WhatsApp, e-mail e deck" aria-labelledby="s35-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>35</b> · Redes, WhatsApp, e-mail e deck</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">35</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Canais · Conversa</p>
+        <h2 id="s35-t" class="titulo-secao">Onde a marca <em class="off">conversa</em></h2>
+        <p class="sec-apoio">Treze modelos de rede com a cadência de cada canal, cinco Cartões de Conversa, um e-mail à prova de modo escuro e oito tipos de slide: cada um com medidas fechadas, uma etapa da régua M1 a M8 e um único pedido.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Feed em 1080 por 1350 com o miolo 3:4 protegido; story e Reels em 1080 por 1920 com conteúdo entre y = 270 e y = 1500.</li>
+        <li>Logotipo uma vez por peça, no máximo três recursos, Campo de Produto em uma peça a cada seis, nunca duas Cartelas seguidas. Cadência proposta: 4 a 5 Reels e 2 carrosséis por semana.</li>
+        <li>WhatsApp é conversa humana: uma ideia por mensagem, quem escreve se apresenta, nenhum emoji de M1 a M4.</li>
+        <li>E-mail em tabela com fundo explícito, logotipo PNG de 200 px, corpo em Modo Leitura [P 2] e uma pessoa real assinando.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s35-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.1</p>
+        <h3 class="fala">Formatos e áreas seguras</h3>
+        <p class="bloco-apoio">As medidas das plataformas mudam com frequência: confira na véspera de cada campanha. Em todas as peças abaixo, o botão "Áreas seguras" mostra as faixas da seção <a href="#s26">26</a>.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Formatos de produção</caption>
+          <thead><tr><th scope="col">Formato</th><th scope="col">Medida</th><th scope="col">Área segura e regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Feed e carrossel</th><td>1080 por 1350</td><td>Título, rosto e CTA dentro do recorte 3:4 que o perfil mostra; margem de 72 u; até 10 cartões no carrossel educativo.</td></tr>
+            <tr><th scope="row">Story</th><td>1080 por 1920</td><td>Conteúdo entre y = 270 e y = 1500; área de figurinha entre y = 1200 e y = 1500.</td></tr>
+            <tr><th scope="row">Reels e capa de Reels</th><td>1080 por 1920</td><td>120 u livres à direita para os ícones; título da capa dentro do miolo 3:4.</td></tr>
+            <tr><th scope="row">Capas de destaque</th><td>1080 por 1920</td><td>Símbolo do selo em linha ou a Esfera sobre Sala, num círculo central: START, MASTER, PRO, AULA, TALKS, VOIDERS, LOCAL.</td></tr>
+            <tr><th scope="row">YouTube e capa de VSL</th><td>1280 por 720</td><td>Canto inferior direito livre (duração); frase no terço esquerdo.</td></tr>
+            <tr><th scope="row">Prévia de link</th><td>1200 por 630</td><td>Sala, título da página e selo (ou logotipo no institucional). Toda página tem a sua.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s35-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.2</p>
+        <h3 class="fala">Os 13 modelos de rede</h3>
+        <p class="bloco-apoio">Cada modelo está desenhado na escala da peça de 1080 e encolhe sem perder proporção. Onde aparece "foto real da escola", entra só fotografia própria com autorização para o canal (seção <a href="#s29">29</a>).</p>
+      </div>
+      <div class="f08-grid">
+        <div class="peca" data-formato="1080x1350" data-nome="R1 · Cartaz · M1">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span>Foto real da escola, com autorização</span></div>
+            <div class="f08-veu-base"></div>
+            <div class="f08-p">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*40)">
+                <p class="f08-tf" style="font-size:calc(var(--u)*112)">O seu chamado para a arte <em class="off">acabou de chegar</em>.</p>
+                <p class="f08-cr">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R2 · Cartela · M1">
+          <div class="peca-tela grao">
+            <div class="f08-p f08-janela">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*32)">
+                <p class="f08-tf">Tatuar não é desenhar.</p>
+                <p class="f08-off">É uma técnica nova.</p>
+              </div>
+              <p class="f08-cr">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R3 · Cinemascope · M1 a M7">
+          <div class="peca-tela">
+            <div class="f08-fill" data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Ritual do Traço · The VOID Start"}'></div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R4 · Fotograma Triplo · M1 e M2">
+          <div class="peca-tela">
+            <div class="f08-p" style="gap:calc(var(--u)*16)">
+              <div style="position:relative;flex:1"><div class="f08-foto"><span>1 · A primeira linha</span></div></div>
+              <div style="position:relative;flex:1"><div class="f08-foto"><span>2 · Mão guiando mão</span></div></div>
+              <div style="position:relative;flex:1"><div class="f08-foto"><span>3 · O traço firme</span></div></div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R5 · Antes Era · M2" data-estacao="start">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span>Aluno real, regime Terra ou P&amp;B, com autorização</span></div>
+            <div class="f08-veu-base"></div>
+            <div class="f08-p">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*28)">
+                <div class="f08-fio"></div>
+                <p class="f08-tf" style="font-size:calc(var(--u)*96)">Antes, [ocupação]. Hoje, [tatuador ou tatuadora].</p>
+                <p class="f08-cr" style="color:var(--tela)">[Nome] · @[perfil autorizado] · Start, turma [mês/ano]</p>
+                <p class="f08-cr" style="text-transform:none;letter-spacing:0;font-family:var(--font-texto);font-size:calc(var(--u)*26)">Resultados individuais variam conforme prática e dedicação.</p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R6 · Letreiro · institucional">
+          <div class="peca-tela">
+            <div class="f08-fill" data-vforms='{"forma":"corte-logo","mostra":"VO","ancora":"topo"}'></div>
+            <div class="f08-p">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*48)">
+                <p class="f08-tf" style="font-size:calc(var(--u)*120)">O vazio é um <em class="off">chamado</em>.</p>
+                <img class="f08-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="300" height="46">
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R7 · Roteiro, cartão 02 · M1 e M2">
+          <div class="peca-tela grao">
+            <div class="f08-p f08-janela">
+              <p class="f08-cr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span style="width:calc(var(--u)*24);height:1px;background:var(--po)"></span>02 · A técnica</p>
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*32)">
+                <p class="f08-tf">[Termo técnico]</p>
+                <p class="f08-tx">Definição de uma frase, validada pelo professor, que um iniciante entende de primeira.</p>
+                <p class="f08-cr">por [professor] · The VOID Start</p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R8 · Campo de Produto · M2 a M4" data-estacao="master">
+          <div class="peca-tela f08-campo">
+            <p class="f08-dagua" aria-hidden="true">Master</p>
+            <img class="f08-selo" src="assets/brand/svg/selo-simples-master.svg" alt="Selo The VOID Master" width="220" height="220">
+            <div class="f08-p">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*48)">
+                <p class="f08-tf" style="font-size:calc(var(--u)*108)">Descubra a sua <em class="off" style="color:var(--tela)">identidade</em> artística.</p>
+                <img class="f08-logo" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="360" height="54" style="width:calc(var(--u)*360)">
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R9 · Convocação · pré-M1 e M8">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span>Público real à noite, P&amp;B, com autorização</span></div>
+            <div class="f08-veu-base"></div>
+            <div class="f08-p" style="padding-bottom:calc(var(--u)*150)">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*28)">
+                <p class="f08-cr" style="color:var(--tela)">Convocação</p>
+                <p class="f08-tf" style="font-size:calc(var(--u)*100)">A todos os <em class="off">Artistas do Brasil</em></p>
+                <p class="f08-cr">[Data real] · [local real]</p>
+              </div>
+            </div>
+            <p class="f08-cr f08-corr" role="img" aria-label="Letreiro Corrido: The VOID Tattoo, ® 2025, São Paulo, Brazil"><span aria-hidden="true"><span>Brazil<i style="margin:0 .9em;font-style:normal">·</i>The VOID Tattoo<i style="margin:0 .9em;font-style:normal">·</i>® 2025<i style="margin:0 .9em;font-style:normal">·</i>São Paulo<i style="margin:0 .9em;font-style:normal">·</i>Brazil<i style="margin:0 .9em;font-style:normal">·</i>The VOID</span></span></p>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="R10 · Bastidor (story) · M1 a M7" data-estacao="start">
+          <div class="peca-tela">
+            <div class="f08-foto"><span>Vídeo ou foto cheia, real</span></div>
+            <p class="f08-cr" style="position:absolute;left:calc(var(--u)*72);top:calc(var(--u)*290);display:flex;align-items:center;gap:calc(var(--u)*16);color:var(--tela)"><span data-vforms='{"forma":"marcador-estacao","tamanho":30}'></span>Start · Ritual do Traço</p>
+            <div class="f08-zona" style="left:calc(var(--u)*72);right:calc(var(--u)*72);top:calc(var(--u)*1200);height:calc(var(--u)*300)"><span class="f08-cr">Área de figurinha</span></div>
+            <p style="position:absolute;left:calc(var(--u)*110);right:calc(var(--u)*110);top:calc(var(--u)*1010);margin:0;padding:calc(var(--u)*14) calc(var(--u)*24);background:rgb(24 24 24 / .75);text-align:center;font:600 calc(var(--u)*62)/1.2 var(--font-letreiro);color:var(--tela)">Legenda queimada, duas linhas no <span style="color:var(--areia)">máximo</span></p>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R11 · Prova com Régua · M2">
+          <div class="peca-tela grao">
+            <div class="f08-p f08-janela">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*24);padding-left:calc(var(--u)*32);border-left:calc(var(--u)*4) dashed var(--fumaca)">
+                <p style="margin:0;font:700 calc(var(--u)*170)/.88 var(--font-letreiro);font-variation-settings:'wdth' 75;text-transform:uppercase;color:var(--tela)">Dado em validação</p>
+                <p class="f08-tx" style="font-weight:600">[O que o número mede]</p>
+                <p class="f08-cr">[Recorte] · [data] · [fonte] · não publicar</p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="R12 · Turma Aberta (story) · M3 e M4" data-estacao="start">
+          <div class="peca-tela f08-campo">
+            <img src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="260" height="260" style="position:absolute;left:calc(var(--u)*72);top:calc(var(--u)*290);width:calc(var(--u)*260);height:auto">
+            <div class="f08-p" style="padding-top:calc(var(--u)*640);padding-bottom:calc(var(--u)*430);gap:calc(var(--u)*40)">
+              <p class="f08-tf" style="color:var(--sala);font-size:calc(var(--u)*120)">Turma de [mês] aberta</p>
+              <div style="display:grid;gap:calc(var(--u)*14);padding:calc(var(--u)*36);background:var(--sala)">
+                <p class="f08-cr" style="color:var(--tela)">Começa em [data]</p>
+                <p class="f08-cr" style="color:var(--tela)">[Dias] · [horário]</p>
+                <p class="f08-cr" style="color:var(--tela)">Restam [N] de [total] em [data]</p>
+              </div>
+              <p class="f08-tx" style="color:var(--sala);font-weight:600">Responda TURMA</p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="R13 · Marco do Aluno · M6 a M8" data-estacao="start">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span>Foto oficial do rito, com consentimento do aluno e do cliente tatuado</span></div>
+            <div class="f08-veu-base"></div>
+            <img class="f08-selo" src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="200" height="200" style="width:calc(var(--u)*200)">
+            <div class="f08-p">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*24)">
+                <p class="f08-tf" style="font-size:calc(var(--u)*120)">Primeira Pele</p>
+                <p class="f08-off" style="color:var(--tela)">Você nunca esquece sua primeira pele.</p>
+              </div>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <p class="nota">R1 usa a frase dos posts verticais da Plataforma de Branding (slide 24); R2, a ideia central da página da aula experimental no site oficial; R13, a frase do rito Primeira Pele. Em R5, o gênero de "tatuador" ou "tatuadora" é o que a pessoa do depoimento escolher. R9 é peça de evento e por isso leva o Letreiro Corrido no pé (24.4): na imagem parada, ele mostra um quadro do letreiro, com uma volta inteira no centro e as pontas esmaecidas; em vídeo e na LP do evento, ele corre. As frases com colchetes só vão ao ar preenchidas com dado real. A cadência e a grade do feed estão em <a href="#s35-6">35.6</a>.</p>
+    </div>
+
+    <div class="bloco" id="s35-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.3</p>
+        <h3 class="fala">WhatsApp e Cartões de Conversa</h3>
+        <p class="bloco-apoio">No WhatsApp, a marca fala como gente. O cartão leva o dado (turma, endereço, marco); a mensagem leva a conversa.</p>
+      </div>
+      <div class="f08-par">
+        <div>
+          <div class="f08-zap" role="img" aria-label="Exemplo de conversa no WhatsApp: a mensagem pré-preenchida da página do Start e a resposta de uma pessoa do time.">
+            <p class="f08-eu">Oi, vim pela página do Start e quero entender as próximas turmas.</p>
+            <p>Oi, {nome}. Aqui é {consultor}, da The VOID.</p>
+            <p>A próxima turma do Start começa em *[data]*, às *[horário]*. Quer que eu te mande como é o primeiro dia?</p>
+            <p>{consultor}, The VOID</p>
+          </div>
+          <p class="legenda">Exemplo de estrutura. A primeira mensagem é a pré-preenchida da página e carrega a origem.</p>
+        </div>
+        <ul class="lista">
+          <li>Uma ideia por mensagem, "você" direto, contrações naturais, zero travessão e nada em caixa alta.</li>
+          <li>Negrito (<code>*assim*</code>) só em data, hora e endereço. A pergunta ou o link vai sozinho na última linha.</li>
+          <li>Quem escreve se apresenta pelo nome, sem artigo antes da variável ("Aqui é {consultor}, da The VOID."), e assina "{consultor}, The VOID". <code>{nome}</code> é sempre o nome de quem recebe.</li>
+          <li>Emoji: nenhum de M1 a M4. De M6 a M8, no máximo um, no fim de mensagem de marco, nunca no lugar de palavra.</li>
+          <li>Perfil com o avatar oficial e a descrição de uma linha (seção 36.3). O botão flutuante do site é um círculo Sala de 56 px com fio de 1 px em Tela; nunca o verde do aplicativo (seção <a href="#s36-7">36.7</a>).</li>
+        </ul>
+      </div>
+      <div class="f08-grid" data-estacao="start">
+        <div class="peca" data-formato="1080x1350" data-nome="Cartão de Turma · M3 e M4">
+          <div class="peca-tela grao">
+            <div class="f08-p f08-janela">
+              <img src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="200" height="200" style="width:calc(var(--u)*200);height:auto">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*32)"><p class="f08-tf" style="font-size:calc(var(--u)*100)">Sua turma de [mês]</p>
+              <div style="display:grid;gap:calc(var(--u)*12)">
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Começa em [data]</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">[Dias] · [horário]</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Rua Jericó, 217 · Vila Madalena</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Restam [N] de [total]</p>
+              </div></div>
+              <p class="f08-cr" style="margin-top:calc(var(--u)*24)">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Cartão do Primeiro Dia · M5">
+          <div class="peca-tela grao">
+            <div class="f08-p f08-janela">
+              <img src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="200" height="200" style="width:calc(var(--u)*200);height:auto">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*32)"><p class="f08-tf" style="font-size:calc(var(--u)*100)">Seu primeiro dia</p>
+              <div style="display:grid;gap:calc(var(--u)*12)">
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">[Data] · [horário]</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Rua Jericó, 217 · Vila Madalena</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Traga: [lista da secretaria]</p>
+                <p class="f08-tx" style="font-weight:500;font-size:calc(var(--u)*40);color:var(--tela)">Quem recebe: [nome]</p>
+              </div></div>
+              <p class="f08-cr" style="margin-top:calc(var(--u)*24)">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Os cinco Cartões de Conversa (1080 por 1350, Sala, selo, título de até 5 palavras, até 4 linhas de dado)</caption>
+          <thead><tr><th scope="col">Cartão</th><th scope="col">Etapa</th><th scope="col">O que leva</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cartão de Turma</th><td>M3 e M4</td><td>O mesmo dado da Barra de Turma: uma fonte de verdade para a página, o story e a conversa.</td></tr>
+            <tr><th scope="row">Cartão do Primeiro Dia</th><td>M5</td><td>Data, horário, endereço, o que levar e quem recebe.</td></tr>
+            <tr><th scope="row">Cartão de Marco</th><td>M6 e M7</td><td>O rito validado, enviado ao aluno com pedido de autorização antes de qualquer publicação.</td></tr>
+            <tr><th scope="row">Convite Talks</th><td>M8</td><td>Convidado, data e local reais; CTA "Confirmar presença".</td></tr>
+            <tr><th scope="row">Mapa da Trilha</th><td>M3</td><td>O produto indicado aceso: "é aqui que você entra".</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s35-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.4</p>
+        <h3 class="fala">A anatomia do e-mail</h3>
+        <p class="bloco-apoio">600 px, uma coluna, tabelas com fundo explícito e <code>color-scheme</code> claro, para que nenhum aplicativo inverta as cores. Abaixo, o e-mail de boas-vindas do primeiro dia (M5).</p>
+      </div>
+      <div class="f08-par">
+        <div>
+          <div class="f08-mail" id="s35-mail" data-estacao="start">
+            <div class="f08-mail-cab"><img src="assets/brand/png/web/void-horizontal-branco.png" alt="The VOID Tattoo Academy" width="200" height="30" style="width:200px;height:auto"></div>
+            <div class="f08-mail-corpo">
+              <p class="f08-mk">Start · Primeiro dia</p>
+              <p><strong>Oi, {nome}.</strong></p>
+              <p>Seu lugar na turma de [mês] está confirmado. Aqui está tudo o que você precisa para o primeiro dia.</p>
+              <p>A aula começa em [data], às [horário], na Rua Jericó, 217, na Vila Madalena. O que levar: [lista da secretaria].</p>
+              <span class="f08-mail-btn">Confirmar presença no primeiro dia</span>
+              <span class="f08-mail-link">[link de confirmação, o mesmo do botão]</span>
+              <p class="f08-ul">Todo mundo começa com um traço.</p>
+              <p>{nome_remetente}<br>{cargo} | The VOID</p>
+            </div>
+            <div class="f08-mail-rod">
+              <p class="f08-cr" style="--u:1px;font-size:11px">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+              <p>The VOID Tattoo Academy · Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040</p>
+              <p>Você recebe este e-mail porque se matriculou na formação Start. Descadastrar · Política de Privacidade</p>
+            </div>
+          </div>
+          <button type="button" class="copiar" id="s35-mail-p2" aria-pressed="false" style="margin-top:var(--e-4)">Ver como sai enquanto [P 2] não for aprovado</button>
+        </div>
+        <ol class="lista">
+          <li><strong>Assunto</strong> até 45 caracteres, pré-cabeçalho até 80. Exemplo: "{nome}, seu primeiro dia na The VOID" e "Data, horário, endereço e o que levar, numa mensagem só." Sem caixa alta inteira, sem travessão, sem emoji no lugar de palavra.</li>
+          <li><strong>Cabeçalho</strong> Sala de até 64 px com Janela de Luz e o logotipo horizontal branco em PNG 2x de 200 px. Em e-mail de marco, o selo da formação no lugar do logotipo.</li>
+          <li><strong>Marcador de Estação</strong> em texto logo abaixo do cabeçalho.</li>
+          <li><strong>Corpo</strong> em Modo Leitura: Tela, texto Sala 17 px, "Oi, {nome}.", uma ideia, até três parágrafos e no máximo uma prova com Crédito de Prova.</li>
+          <li><strong>Botão</strong> reto, Sala com texto Tela, 48 px, Archivo com pilha de reserva; o mesmo link em texto logo abaixo.</li>
+          <li><strong>Última linha</strong> na voz em off, que cai para Georgia itálico em quem não carrega a fonte. Nunca vira imagem.</li>
+          <li><strong>Assinatura</strong> de pessoa real com cargo. Nunca "Equipe The VOID" sozinha, nunca "não responda".</li>
+          <li><strong>Rodapé</strong> Sala com Créditos Finais, NAP, motivo do recebimento, descadastro e privacidade.</li>
+          <li><strong>Tagline</strong> só na boas-vindas da matrícula (M5) e na Formatura com Pele.</li>
+        </ol>
+      </div>
+      <p class="pendencia" data-p="2">[P 2] Corpo em Modo Leitura depende de aprovação. Enquanto não houver, o corpo sai em Sala com texto Cal; o botão acima mostra essa versão.</p>
+      <script>
+      (function(){
+        var b=document.getElementById("s35-mail-p2"),m=document.getElementById("s35-mail");if(!b||!m)return;
+        b.addEventListener("click",function(){var on=!m.classList.contains("f08-p2");m.classList.toggle("f08-p2",on);b.setAttribute("aria-pressed",on?"true":"false");b.lastChild.textContent=on?"Voltar ao corpo em Modo Leitura":"Ver como sai enquanto [P 2] não for aprovado";});
+      })();
+      </script>
+    </div>
+
+    <div class="bloco" id="s35-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.5</p>
+        <h3 class="fala">Deck: os oito tipos de slide</h3>
+        <p class="bloco-apoio">1440 por 900, 12 colunas, margem de 96 px, uma ideia por slide e notas do apresentador na tecla P. A sequência obedece a L8, e o Documento aparece no máximo a cada três slides.</p>
+      </div>
+      <div class="f08-grid f08-grid-deck" data-estacao="chamado">
+        <div class="peca" data-formato="1440x900" data-nome="Capa">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96)">
+            <img src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="1440" height="219" style="position:absolute;right:calc(var(--u)*-300);top:calc(var(--u)*250);width:calc(var(--u)*1500);height:auto;opacity:.12;filter:blur(calc(var(--u)*30))">
+            <p class="f08-cr" style="font-size:calc(var(--u)*20)">The VOID Tattoo Academy · São Paulo · Brazil</p>
+            <img class="f08-logo f08-fim" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="520" height="79" style="width:calc(var(--u)*520)">
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Cartela">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96);justify-content:center">
+            <p class="f08-tf" style="font-size:calc(var(--u)*110)">Uma frase por slide.</p>
+            <p class="f08-off" style="font-size:calc(var(--u)*90)">e uma linha que sente</p>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Documento (Modo Leitura)">
+          <div class="peca-tela" style="background:var(--tela)"><div class="f08-p" style="padding:calc(var(--u)*96)">
+            <p class="f08-tf" style="font-size:calc(var(--u)*64);color:var(--sala)">Tabela ou texto longo</p>
+            <div style="display:grid;gap:calc(var(--u)*18)"><i style="display:block;height:calc(var(--u)*44);background:var(--cinza-100)"></i><i style="display:block;height:calc(var(--u)*2);background:var(--fumaca)"></i><i style="display:block;height:calc(var(--u)*2);background:var(--fumaca)"></i><i style="display:block;height:calc(var(--u)*2);background:var(--fumaca)"></i><i style="display:block;height:calc(var(--u)*2);background:var(--fumaca)"></i></div>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Prova">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96);justify-content:center">
+            <div style="padding-left:calc(var(--u)*32);border-left:calc(var(--u)*4) dashed var(--fumaca)">
+              <p style="margin:0;font:700 calc(var(--u)*140)/.9 var(--font-letreiro);font-variation-settings:'wdth' 75;text-transform:uppercase;color:var(--tela)">Dado em validação</p>
+              <p class="f08-cr" style="margin-top:calc(var(--u)*24);font-size:calc(var(--u)*22)">[O que mede] · [recorte] · [data] · [fonte]</p>
+            </div>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Mapa da Trilha">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96);justify-content:center;align-items:center">
+            <div style="width:calc(var(--u)*1100)" data-vforms='{"forma":"mapa-trilha","ativa":"master","orientacao":"horizontal","frases":false,"tema":"sala"}'></div>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Foto cheia com véu">
+          <div class="peca-tela">
+            <div class="f08-foto f08-alto"><span>Foto real da escola, com autorização</span></div>
+            <div class="f08-veu-base"></div>
+            <div class="f08-p" style="padding:calc(var(--u)*96)"><p class="f08-tf f08-fim" style="font-size:calc(var(--u)*90);max-width:70%">O processo como <em class="off">ritual</em>.</p></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Comparativo">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96)">
+            <p class="f08-tf" style="font-size:calc(var(--u)*64)">Start, Master e Pro</p>
+            <div class="f08-fim" style="display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*24);height:calc(var(--u)*430)">
+              <div style="background:var(--bastidor);border-top:calc(var(--u)*6) solid var(--ouro-velho)"></div><div style="background:var(--bastidor);border-top:calc(var(--u)*6) solid var(--terracota)"></div><div style="background:var(--bastidor);border-top:calc(var(--u)*6) solid var(--nevoa)"></div>
+            </div>
+          </div></div>
+        </div>
+        <div class="peca" data-formato="1440x900" data-nome="Fecho">
+          <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96);justify-content:center;align-items:center;text-align:center">
+            <img class="f08-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="460" height="70" style="width:calc(var(--u)*460)">
+            <p class="f08-cr" style="font-size:calc(var(--u)*20)">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+          </div></div>
+        </div>
+      </div>
+      <p class="nota">A proposta comercial de uma página (M4) usa o tipo Documento com o selo da formação escolhida. Os slides oficiais de cada projeto nascem do <code>deck-template.html</code>.</p>
+    </div>
+
+    <div class="bloco" id="s35-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.6</p>
+        <h3 class="fala">Mix editorial e cadência</h3>
+        <p class="bloco-apoio">Quanto publicar de cada pilar (seção <a href="#s31-3">31.3</a>), em que formato, para qual persona e em que canal. É uma proposta: os pesos orientam o mês, não são cota rígida, e se ajustam depois de três meses de dado real de alcance e de conversa.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Pilar, persona e formato (proposta)</caption>
+          <thead><tr><th scope="col">Pilar</th><th scope="col">Peso no mês</th><th scope="col">Gabriel (Start)</th><th scope="col">Camila (Start a Master)</th><th scope="col">Bruno (Master e Pro)</th><th scope="col">Formato preferido</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">01 Transformação</th><td>30%</td><td>A primeira linha; aluno que veio do zero</td><td>Quem mudou de carreira aos 30 ou 40</td><td>Antes e depois de portfólio, fora de anúncio</td><td>Reels, depoimento</td></tr>
+            <tr><th scope="row">02 Autoridade com afeto</th><td>20%</td><td>Mão guiando mão</td><td>Estrutura, segurança e método</td><td>Professores e crítica de portfólio</td><td>Carrossel, YouTube</td></tr>
+            <tr><th scope="row">03 Comunidade</th><td>15%</td><td>Intervalo, brinde, turma</td><td>"Aqui não existem estranhos"</td><td>The VOID Talks, rede de mentores</td><td>Stories, feed</td></tr>
+            <tr><th scope="row">04 Realidade do mercado</th><td>25%</td><td>"Por onde começar"</td><td>"É tarde para começar?"</td><td>Preço, posicionamento, agenda</td><td>YouTube, TikTok, LinkedIn</td></tr>
+            <tr><th scope="row">05 Arte como liberdade</th><td>10%</td><td>Estilo autoral</td><td>Autonomia</td><td>Marca pessoal</td><td>Feed editorial</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Num mês com cerca de 29 peças de feed, os pesos dão perto de 9 de Transformação, 7 de Realidade do mercado, 6 de Autoridade com afeto, 4 de Comunidade e 3 de Arte como liberdade. Realidade do mercado fala de preço e de agenda sempre com Crédito de Prova e nunca promete renda (seção <a href="#s33">33</a>).</p>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Cadência por canal (proposta)</caption>
+          <thead><tr><th scope="col">Canal</th><th scope="col">Frequência</th><th scope="col">Como se divide</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Instagram Reels</th><td>4 a 5 por semana</td><td>2 de processo, 1 de depoimento, 1 de mercado, 1 de comunidade.</td></tr>
+            <tr><th scope="row">Instagram carrossel</th><td>2 por semana</td><td>Educativo, para Camila e Bruno; até 10 cartões.</td></tr>
+            <tr><th scope="row">Instagram stories</th><td>Diário, de 4 a 8 quadros</td><td>Bastidor (R10), enquetes e caixa de perguntas. As perguntas recebidas viram pauta do guia (seção <a href="#s36-8">36.8</a>).</td></tr>
+            <tr><th scope="row">TikTok</th><td>4 a 5 por semana</td><td>O mesmo material do Reels, com texto e gancho próprios.</td></tr>
+            <tr><th scope="row">YouTube longo</th><td>1 a cada 2 semanas</td><td>Responde a uma pergunta do guia, com transcrição na página do site.</td></tr>
+            <tr><th scope="row">YouTube Shorts</th><td>3 por semana</td><td>Cortes dos vídeos longos.</td></tr>
+            <tr><th scope="row">LinkedIn</th><td>2 por semana</td><td>Transição de carreira (Camila) e institucional: escola e eventos.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">Uma semana tipo no feed</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Semana tipo: cumpre a L8, nunca duas Cartelas seguidas e um Campo de Produto a cada seis peças</caption>
+          <thead><tr><th scope="col">Dia</th><th scope="col">Formato</th><th scope="col">Modelo</th><th scope="col">Tela</th><th scope="col">Pilar</th><th scope="col">Persona</th><th scope="col">Etapa</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Segunda</th><td>Reels de processo</td><td>R3 Cinemascope</td><td><span class="f08-tipo" data-tipo="cena">cena</span></td><td>Transformação</td><td>Gabriel</td><td>M1</td></tr>
+            <tr><th scope="row">Terça</th><td>Carrossel educativo</td><td>R7 Roteiro</td><td><span class="f08-tipo" data-tipo="cartela">cartela</span></td><td>Realidade do mercado</td><td>Camila</td><td>M1 e M2</td></tr>
+            <tr><th scope="row">Quarta</th><td>Reels de depoimento</td><td>R5 Antes Era</td><td><span class="f08-tipo" data-tipo="cena">cena</span></td><td>Transformação</td><td>Camila</td><td>M2</td></tr>
+            <tr><th scope="row">Quinta</th><td>Reels de mercado</td><td>R2 Cartela</td><td><span class="f08-tipo" data-tipo="cartela">cartela</span></td><td>Realidade do mercado</td><td>Gabriel</td><td>M1</td></tr>
+            <tr><th scope="row">Sexta</th><td>Reels de processo</td><td>R1 Cartaz</td><td><span class="f08-tipo" data-tipo="cena">cena</span></td><td>Arte como liberdade</td><td>Bruno</td><td>M1</td></tr>
+            <tr><th scope="row">Sábado</th><td>Carrossel de produto</td><td>R8 Campo de Produto</td><td><span class="f08-tipo" data-tipo="campo">campo</span></td><td>Autoridade com afeto</td><td>Bruno</td><td>M2 a M4</td></tr>
+            <tr><th scope="row">Domingo</th><td>Reels de comunidade</td><td>R4 Fotograma Triplo</td><td><span class="f08-tipo" data-tipo="cena">cena</span></td><td>Comunidade</td><td>Gabriel e Camila</td><td>M1 e M2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grade-2" style="align-items:start">
+        <div>
+          <p class="rotulo">Grade do perfil, últimas 9 peças</p>
+          <div class="f08-feed" role="img" aria-label="Grade de 3 por 3 do perfil, da peça mais nova para a mais antiga: R4 cena, R8 campo de produto, R1 cena; R2 cartela, R5 cena, R7 cartela; R3 cena, R4 cena da semana anterior, R8 campo de produto da semana anterior.">
+            <span data-tipo="cena">R4<small>Comunidade · dom</small></span><span data-tipo="campo">R8<small>Autoridade · sáb</small></span><span data-tipo="cena">R1<small>Arte · sex</small></span>
+            <span data-tipo="cartela">R2<small>Mercado · qui</small></span><span data-tipo="cena">R5<small>Transformação · qua</small></span><span data-tipo="cartela">R7<small>Mercado · ter</small></span>
+            <span data-tipo="cena">R3<small>Transformação · seg</small></span><span data-tipo="cena">R4<small>semana anterior</small></span><span data-tipo="campo">R8<small>semana anterior</small></span>
+          </div>
+          <p class="legenda">A grade mostra o recorte 3:4 do perfil. <span class="f08-tipo" data-tipo="cena">cena</span> · <span class="f08-tipo" data-tipo="cartela">cartela</span> · <span class="f08-tipo" data-tipo="campo">campo de produto</span></p>
+        </div>
+        <ul class="lista">
+          <li>Antes de agendar a semana, confira na ordem de publicação: nenhuma sequência de três telas do mesmo tipo e nenhuma Cartela logo depois de outra.</li>
+          <li>Campo de Produto: no máximo um a cada seis peças seguidas. Na grade acima, os dois campos estão sete posições distantes.</li>
+          <li>Stories e anúncios não entram na conta do feed, mas seguem as mesmas regras dentro de cada sequência.</li>
+          <li>Story de Turma Aberta (R12) só existe com turma real aberta, e com o mesmo dado da Barra de Turma.</li>
+          <li>Toda peça declara pilar, persona e etapa antes de ir para produção. Sem isso, ela ainda não tem assunto.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6, 7.1, 9.4, 12.3, 12.5, 12.6 e 12.8); direção de fotografia, vídeo e redes, pesquisa GrowAI, out/2026 (pilares por persona e frequência por canal, seções 3.3 e 3.4); régua M1 a M8 e área de membros, pesquisa GrowAI, out/2026; Plataforma de Branding, aureadesign, 2025 (slides 10, 21, 59 a 63); site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<section class="sec modo-leitura" id="s36" data-parte="IX" data-nome="Membros, artigo, entidade e pendências" aria-labelledby="s36-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>36</b> · Membros, artigo, entidade e pendências</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">36</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Canais · Fechamento</p>
+        <h2 id="s36-t" class="titulo-secao">Dentro da escola e <em class="off">na busca</em></h2>
+        <p class="sec-apoio">A área de membros registra o que acontece no estúdio; o site, o artigo e os dados estruturados ensinam a busca a descrever a The VOID do mesmo jeito em todo lugar, e um painel mensal confere se isso funciona. A seção também reúne as decisões e o que ainda depende do cliente.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>A área de membros é o diário de bordo do estúdio, não um curso online: um próximo passo por vez e progresso só com validação do professor.</li>
+        <li>O artigo tem cabeçalho de cinema e corpo de livro: pergunta no H1, Resposta Direta de 40 a 60 palavras, autor real e data.</li>
+        <li>Nome, descrição de uma linha e NAP são copiados, nunca redigitados. O site é o único lugar com menu e se organiza por <code>/trilha/</code> e <code>/ritos/</code>; o guia nasce de seis pilares de pergunta real.</li>
+        <li>As 22 pendências abaixo são decisões do cliente: nenhuma é resolvida por conta própria.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s36-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.1</p>
+        <h3 class="fala">A área de membros</h3>
+        <p class="bloco-apoio">Campo Sala, com Modo Leitura por escolha do aluno. O tema segue a formação ativa; o ex-aluno navega como VOIDERS. A maquete usa uma conta de demonstração.</p>
+      </div>
+      <div class="f08-sala grao" data-estacao="start">
+        <div class="f08-ui">
+          <div class="f08-janela">
+            <p class="f08-k" style="display:flex;align-items:center;gap:8px"><span data-vforms='{"forma":"marcador-estacao","tema":"sala"}'></span>Start · Ritual do Traço</p>
+            <p class="f08-h">Seu próximo passo</p>
+            <p>Registre a foto do seu primeiro traço.</p>
+            <span class="botao">Registrar meu primeiro traço<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            <div class="f08-aula">
+              <p class="f08-k">Aula do dia</p>
+              <p style="color:var(--tela);font-weight:600">[Nome da aula]</p>
+              <p style="display:flex;align-items:center;gap:8px"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>[duração] · prática</p>
+              <p style="display:flex;align-items:center;gap:8px;color:var(--po)"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg>Não iniciada</p>
+            </div>
+            <div class="f08-aula" style="border-left-color:var(--fio)">
+              <p class="f08-k">Último feedback · [professor]</p>
+              <p>Um ponto forte e um ajuste, sempre em par. Visível só para você.</p>
+            </div>
+          </div>
+          <div>
+            <p class="f08-k">Minha Trilha · conta de demonstração</p>
+            <div data-vforms='{"forma":"mapa-trilha","ativa":"start","voceEstaAqui":true,"frases":false,"tema":"sala","orientacao":"horizontal"}'></div>
+            <div class="f08-pilar"><p class="f08-k">Técnica</p><div><i style="width:44%"></i></div><p>4 de 9 práticas validadas</p></div>
+            <div class="f08-pilar"><p class="f08-k">Identidade</p><div><i style="width:20%"></i></div><p>1 de 5 práticas validadas</p></div>
+            <div class="f08-pilar"><p class="f08-k">Empreendedor</p><div><i style="width:0"></i></div><p>0 de 4 práticas validadas</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="legenda">Números da conta de demonstração, só para mostrar o formato. Assistir aula não enche nada: a barra avança quando o professor valida a prática.</p>
+      <div class="grade-2">
+        <div class="f08-vazio grao" data-estacao="start">
+          <div data-vforms='{"forma":"esfera","tema":"sala"}'></div>
+          <p style="color:var(--tela);font-weight:600">Aqui ainda é vazio. Todo mundo começa com um traço.</p>
+          <span class="botao">Registrar meu primeiro traço</span>
+        </div>
+        <div class="f08-sala" data-estacao="start" style="display:grid;gap:var(--e-4);align-content:start">
+          <p class="f08-k">Anel de Preenchimento · formação em curso</p>
+          <div style="max-width:240px" data-vforms='{"forma":"anel","atual":"start","tema":"sala"}'></div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Componentes da área de membros</caption>
+          <thead><tr><th scope="col">Componente</th><th scope="col">Especificação</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Hoje</th><td>Janela de Luz, Marcador de Estação, um único próximo passo com botão, aula do dia em cartão Bastidor, último feedback com o nome do professor e o Anel pequeno à direita.</td></tr>
+            <tr><th scope="row">Minha Trilha</th><td>Mapa da Trilha com "você está aqui" e três barras (Técnica, Identidade, Empreendedor) sempre com texto. Avança só com validação.</td></tr>
+            <tr><th scope="row">Cartão de Aula</th><td>Raio 0, Bastidor, título, duração e tipo. Estados com ícone e palavra: não iniciada, em andamento, concluída, validada pelo professor.</td></tr>
+            <tr><th scope="row">Meu Traço</th><td>Linha do tempo de fotogramas datados; o primeiro é o do Ritual do Traço. A comparação entre o primeiro traço e o trabalho atual é só para o aluno.</td></tr>
+            <tr><th scope="row">Prática com Feedback</th><td>Foto do aluno e resposta do professor em par (um ponto forte, um ajuste), com Fio de Produto. Visível só para o aluno, salvo escolha dele.</td></tr>
+            <tr><th scope="row">Marcos</th><td>Cartão grande P&amp;B com Revelação ao validar, nome do rito, frase na voz em off e data. Marco futuro com data real e contorno tracejado.</td></tr>
+            <tr><th scope="row">Comunidade VOIDERS</th><td>Publicações da turma e de ex-alunos, campo "o que você quer que olhem", sem contagem pública de curtidas, etiqueta "mentor" para ex-aluno mentor.</td></tr>
+            <tr><th scope="row">Agenda</th><td>Lista semanal, um botão "Confirmar presença" por item, lembrete na véspera.</td></tr>
+            <tr><th scope="row">Biblioteca e Suporte</th><td>Gravações dos Talks e glossário com transcrição; "Fala com a gente" com prazo e nome de quem responde.</td></tr>
+            <tr><th scope="row">Certificado de Passagem</th><td>Modo Leitura em A4: Mapa da Trilha com a formação cheia, trabalho final, selo, assinatura dos professores, frase de curso livre e código de turma (<code>START · OUT/26 · SEMANA</code>), nunca número sequencial de aluno [P 17].</td></tr>
+            <tr><th scope="row">Perfil</th><td>Dados, certificados e consentimentos de imagem editáveis; selos simples das formações concluídas, concedidos só na Formatura com Pele [P 17].</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Estados vazios (Esfera de 96 a 160 px, duas linhas, no máximo um botão)</caption>
+          <thead><tr><th scope="col">Onde</th><th scope="col">Texto</th><th scope="col">Botão</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Meu Traço</th><td>Aqui ainda é vazio. Todo mundo começa com um traço.</td><td>Registrar meu primeiro traço</td></tr>
+            <tr><th scope="row">Marcos antes do primeiro dia</th><td>Seu primeiro marco acontece em {data_turma}: o Ritual do Traço.</td><td>Ver como é o primeiro dia</td></tr>
+            <tr><th scope="row">Anel (formação nova)</th><td>Este círculo começa a se preencher no seu primeiro marco.</td><td>Ver os marcos do {produto}</td></tr>
+            <tr><th scope="row">Comunidade</th><td>Ninguém da turma publicou ainda. Abra o espaço: conte que estilo te trouxe até aqui.</td><td>Fazer a primeira publicação</td></tr>
+            <tr><th scope="row">Feedback</th><td>Seu professor ainda não recebeu um trabalho seu. Envie quando estiver pronto, não quando estiver perfeito.</td><td>Enviar um trabalho</td></tr>
+            <tr><th scope="row">Agenda</th><td>Semana sem aula marcada. Bom espaço para treinar: {pratica_sugerida}.</td><td>Abrir a prática</td></tr>
+            <tr><th scope="row">Certificado</th><td>Seu certificado chega com a sua Formatura com Pele.</td><td>Ver minha trilha</td></tr>
+            <tr><th scope="row">Notificações</th><td>Silêncio por aqui.</td><td>nenhum</td></tr>
+            <tr><th scope="row">Busca</th><td>Nada encontrado para "{termo}". Tente outra palavra ou pergunte para a equipe.</td><td>Falar com a equipe</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p style="margin:0;color:var(--cal);font:400 16px/1.5 var(--font-texto);text-align:center">Primeira Pele validada por [professor] em [data].<br><span style="color:var(--po)">Seu progresso, contra você mesmo.</span></p></div>
+          <figcaption>Marco validado por uma pessoa, com data. Progresso contra si mesmo.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p style="margin:0;color:var(--cal);font:700 16px/1.4 var(--font-letreiro);text-align:center;text-transform:uppercase">Você subiu de nível · +50 XP · 3º no ranking da turma</p></div>
+          <figcaption>Nível, XP, ranking, sequência que pune falta, pontos, moedas, medalha por vídeo assistido e contagem regressiva para concluir são proibidos.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s36-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.2</p>
+        <h3 class="fala">O artigo SEO, GEO e AEO</h3>
+        <p class="bloco-apoio">Cabeçalho de cinema, corpo de livro. A maquete usa o exemplo "Preciso saber desenhar para ser tatuador?", ainda a validar com o time pedagógico.</p>
+      </div>
+      <div style="display:grid;gap:0;max-width:880px;outline:1px solid var(--cinza-100)">
+        <div class="f08-sala grao" data-estacao="start" style="display:grid;gap:var(--e-4)">
+          <div style="position:relative;aspect-ratio:2.39/1;--u:.5px"><div class="f08-foto"><span>Foto real da escola, com autorização</span></div></div>
+          <p class="f08-k">Guia › Start › Pergunta</p>
+          <p class="f08-k" style="display:flex;align-items:center;gap:8px;color:var(--cal)"><span data-vforms='{"forma":"marcador-estacao","tema":"sala"}'></span>The VOID Start</p>
+          <p class="f08-art-h1">Preciso saber desenhar para ser tatuador?</p>
+          <p style="color:var(--po)">Por {{autor: professor real}} · Atualizado em {{dd/mm/aaaa}}</p>
+        </div>
+        <div style="display:grid;gap:var(--e-5);padding:var(--e-6);background:var(--tela)">
+          <p class="f08-rd">Não. Desenhar e tatuar são habilidades diferentes: o desenho cria a arte, e a tatuagem é a técnica de passar essa arte para a pele com controle de máquina, agulha e profundidade. Na The VOID Tattoo Academy, a formação Start ensina do zero, inclusive o desenho necessário para tatuar.</p>
+          <p class="legenda">Resposta Direta: 50 palavras, sujeito explícito, sem CTA. {{A_CONFIRMAR}} com o time pedagógico antes de publicar [P 15].</p>
+          <p style="margin:0;font:600 clamp(23px,2.4vw,28px)/1.2 var(--font-letreiro);font-variation-settings:'wdth' 100;color:var(--sala)">Quanto tempo leva para aprender a tatuar?</p>
+          <p style="max-width:680px;color:var(--sala)">O corpo segue em Nunito Sans 18 px, coluna de 680 px. Todo termo técnico ganha uma definição de uma frase na primeira vez que aparece.</p>
+          <div class="grade-2" style="align-items:start">
+            <div style="display:grid;gap:var(--e-3);padding:var(--e-5);background:var(--cinza-100)" data-estacao="start">
+              <p class="rotulo" style="color:var(--ardosia)">Onde isso fica na trilha</p>
+              <div data-vforms='{"forma":"mapa-trilha","ativa":"start","frases":false,"tema":"leitura","orientacao":"horizontal"}'></div>
+              <p style="color:var(--sala)">Esse assunto é ensinado no The VOID Start, no pilar Técnica.</p>
+            </div>
+            <dl class="f08-ficha">
+              <dt>Formato</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+              <dt>Duração</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+              <dt>Turma</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+              <dt>Local</dt><dd>Rua Jericó, 217 · Vila Madalena · São Paulo, SP</dd>
+              <dt>Pré-requisitos</dt><dd>{{A_CONFIRMAR}} [P 15]</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="f08-sala grao" data-estacao="start" style="display:grid;gap:var(--e-4)">
+          <p class="voz-off" style="color:var(--tela);font-size:30px">Todo mundo começa com um traço.</p>
+          <span class="botao" style="justify-self:start">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>As 12 regras editoriais para ser citado por busca e por IA</caption>
+          <thead><tr><th scope="col">Regra</th><th scope="col">O que manda</th><th scope="col">Na prática</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">E01</th><td>Resposta direta nas primeiras 40 a 60 palavras</td><td>Logo abaixo do título, com sujeito explícito.</td></tr>
+            <tr><th scope="row">E02</th><td>Um H2 por pergunta, escrito como pergunta real</td><td>"Quanto tempo leva para aprender a tatuar?", não "Tempo de aprendizado".</td></tr>
+            <tr><th scope="row">E03</th><td>Definição de uma frase para todo termo técnico</td><td>Validada por um professor antes de publicar.</td></tr>
+            <tr><th scope="row">E04</th><td>Todo número com fonte e data</td><td>Crédito de Prova junto do número.</td></tr>
+            <tr><th scope="row">E05</th><td>Tabela quando houver comparação, etapas ou números</td><td>Start, Master e Pro lado a lado.</td></tr>
+            <tr><th scope="row">E06</th><td>Autoria real, visível, com credencial</td><td>Nome, função, anos de tatuagem, estilo, link do professor.</td></tr>
+            <tr><th scope="row">E07</th><td>Data de publicação e de atualização visíveis</td><td>Revisão a cada 6 meses ou quando um fato mudar.</td></tr>
+            <tr><th scope="row">E08</th><td>Experiência própria acima de texto genérico</td><td>Fotos da escola e casos reais, com autorização.</td></tr>
+            <tr><th scope="row">E09</th><td>Nome completo da entidade em cada bloco importante</td><td>"No The VOID Start", não "no nosso curso".</td></tr>
+            <tr><th scope="row">E10</th><td>Honestidade como diferencial</td><td>Responder "depende" com critério e mostrar limites.</td></tr>
+            <tr><th scope="row">E11</th><td>Sem superlativo, sem promessa financeira, sem concorrente</td><td>Vale a lista de claims da seção <a href="#s33">33</a>.</td></tr>
+            <tr><th scope="row">E12</th><td>Texto real em HTML, nunca só em imagem ou vídeo</td><td>Número e lista também em texto; vídeo com transcrição.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Dados estruturados do artigo: <code>Article</code> com autor real, <code>about</code> apontando para a formação ou o rito e <code>isPartOf</code> para <code>/trilha/&lt;produto&gt;/</code>; <code>BreadcrumbList</code>; <code>FAQPage</code> com o mesmo texto do FAQ visível. A imagem de compartilhamento tem 1200 por 630, com a pergunta, o Marcador de Estação e o selo.</p>
+    </div>
+
+    <div class="bloco" id="s36-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.3</p>
+        <h3 class="fala">Entidade, NAP e arquitetura do site</h3>
+        <p class="bloco-apoio">Repetição idêntica é o que ensina a busca e os assistentes a descrever a The VOID do mesmo jeito. Estes trechos se copiam; nunca se redigitam.</p>
+      </div>
+      <h4 class="intertitulo">Nome e descrição de uma linha</h4>
+      <pre class="codigo" data-rotulo="Texto"><code>A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p>Nome legal e de dados estruturados: <strong>The VOID Tattoo Academy</strong>. Marca: The VOID. Coloquial, só em texto corrido: a Void. Nomes alternativos: The VOID Tattoo, The Void Tattoo Academy, Void Tattoo Academy, The VOID Escola de Tatuagem. Primeira menção sempre com "escola de tatuagem na Vila Madalena, em São Paulo", porque existem outros "Void" no Brasil e fora dele.</p>
+      <h4 class="intertitulo">Bloco NAP canônico</h4>
+      <pre class="codigo" data-rotulo="NAP"><code>The VOID Tattoo Academy
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
++55 11 92481-8712</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p class="nota">"Rua", nunca "R.". Um telefone principal, igual em rodapé, contato, JSON-LD, Perfil da Empresa no Google, redes, membros e e-mails. O telefone principal e o WhatsApp oficial por produto ainda dependem de confirmação [P 8]. O site que usa esta arquitetura está em <a href="#s36-7">36.7</a>; o mapa de pautas do guia, em <a href="#s36-8">36.8</a>; a medição de citação por IA, em <a href="#s36-9">36.9</a>.</p>
+      <h4 class="intertitulo">Arquitetura: trilha e ritos</h4>
+      <pre class="codigo" data-rotulo="Mapa do site"><code>/                          a escola (institucional)
+/sobre/                    história, manifesto, Método ARTE
+/fatos/                    Ficha de Fatos com método de contagem e data
+/trilha/                   o Mapa da Trilha: Start, Master e Pro comparados
+/trilha/start/             formação Start (Course)
+/trilha/master/            formação Master (Course)
+/trilha/pro/               programa Pro (Course)
+/aula-experimental/        Event recorrente
+/talks/                    The VOID Talks (Event)
+/ritos/                    os ritos da The VOID
+/ritos/ritual-do-traco/  /ritos/primeira-pele/  /ritos/workshop-do-estilo/  /ritos/formatura-com-pele/
+/professores/&lt;nome&gt;/       Person
+/voiders/                  comunidade e histórias de ex-alunos (com autorização)
+/guia/&lt;pilar&gt;/&lt;pergunta&gt;/  artigos, cada um marcado com o produto a que responde
+/perguntas-frequentes/  /contato/  /seja-modelo/  /llms.txt</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Cada artigo do guia recebe um produto</caption>
+          <thead><tr><th scope="col">Pergunta típica</th><th scope="col">Produto</th><th scope="col">Define</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Como ser tatuador</th><td>Institucional</td><td>Marcador "Aula experimental" e o CTA da aula</td></tr>
+            <tr><th scope="row">Quanto tempo leva para aprender</th><td>Start</td><td>Marcador do Start, CTA do Start, link para <code>/trilha/start/</code></td></tr>
+            <tr><th scope="row">Como criar estilo autoral</th><td>Master</td><td>Marcador do Master, CTA do Master, link para <code>/trilha/master/</code></td></tr>
+            <tr><th scope="row">Como cobrar mais</th><td>Pro</td><td>Marcador do Pro, CTA do Pro, link para <code>/trilha/pro/</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Só os quatro ritos que existem nas fontes ganham página. As URLs atuais redirecionam com 301 (por exemplo, <code>/the-void-start-curso-de-tatuagem/</code> para <code>/trilha/start/</code>). Páginas de captura levam <code>noindex</code>; não há páginas por bairro. O domínio canônico é decisão do cliente [P 18].</p>
+      <h4 class="intertitulo">Dados estruturados</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Tipos por página e modelos prontos em assets/seo/json-ld</caption>
+          <thead><tr><th scope="col">Onde</th><th scope="col">Tipo</th><th scope="col">Modelo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Todas as páginas</th><td><code>EducationalOrganization</code> + <code>LocalBusiness</code></td><td><code>organizacao.json</code></td></tr>
+            <tr><th scope="row">Formações</th><td><code>Course</code> com <code>hasCourseInstance</code></td><td><code>curso-start.json</code>, <code>curso-master.json</code>, <code>curso-pro.json</code></td></tr>
+            <tr><th scope="row">Aula, Talks e Convenção</th><td><code>Event</code></td><td><code>evento-aula.json</code>, <code>evento-talks.json</code></td></tr>
+            <tr><th scope="row">Perguntas</th><td><code>FAQPage</code></td><td><code>faq.json</code></td></tr>
+            <tr><th scope="row">Professores</th><td><code>Person</code></td><td><code>pessoa-professor.json</code></td></tr>
+            <tr><th scope="row">Vídeos</th><td><code>VideoObject</code> com transcrição</td><td><code>video.json</code></td></tr>
+            <tr><th scope="row">Artigos</th><td><code>Article</code> com <code>isPartOf</code>, <code>BreadcrumbList</code></td><td><code>artigo.json</code>, <code>breadcrumb.json</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="codigo" data-rotulo="JSON-LD"><code>{
+  "@context": "https://schema.org",
+  "@type": ["EducationalOrganization", "LocalBusiness"],
+  "name": "The VOID Tattoo Academy",
+  "alternateName": ["The VOID Tattoo", "The Void Tattoo Academy", "Void Tattoo Academy", "The VOID Escola de Tatuagem"],
+  "description": "A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.",
+  "url": "{{A_CONFIRMAR}}",
+  "foundingDate": "{{A_CONFIRMAR}}",
+  "telephone": "+55 11 92481-8712",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Jericó, 217",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "05435-040",
+    "addressCountry": "BR"
+  },
+  "sameAs": ["{{A_CONFIRMAR}}"]
+}</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p class="nota">O ano de fundação [P 5], o domínio [P 18] e os perfis oficiais ficam em <code>{{A_CONFIRMAR}}</code> até a validação. O <code>llms.txt</code> e o <code>robots.txt</code> modelo ficam em <code>assets/seo/</code>: os robôs de busca de IA ficam liberados; a liberação dos robôs de treino é decisão do cliente [P 19]. Afirmações de destaque só entram depois de publicadas na Ficha de Fatos com método de contagem e data (seção <a href="#s33">33</a>).</p>
+    </div>
+
+    <div class="bloco" id="s36-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.4</p>
+        <h3 class="fala">Decisões sobre os conflitos</h3>
+        <p class="bloco-apoio">As fontes do cliente e os três conceitos de direção divergiam em vários pontos. Esta é a decisão de cada um; o que depende do cliente leva o número da pendência.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Conflito e decisão</caption>
+          <thead><tr><th scope="col">Conflito</th><th scope="col">Decisão</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Tipografia</th><td>Archivo e Alga canônicas; Playfair sai; corpo provisório em Nunito Sans [P 1].</td></tr>
+            <tr><th scope="row">Paleta antiga e do deck da agência</th><td>Fora do sistema (seção <a href="#s13">13</a>).</td></tr>
+            <tr><th scope="row">Tagline</th><td>Única, só em contexto de peso. "Do primeiro traço a uma carreira de sucesso" como apoio, sem crase.</td></tr>
+            <tr><th scope="row">Grafia</th><td>Sempre TATTOO; item do checklist.</td></tr>
+            <tr><th scope="row">Marrons</th><td>Areia, Caramelo, Couro, Café e os campos Start e Master, marcados como amostrados [P 4].</td></tr>
+            <tr><th scope="row">Superlativo, mercado e renda</th><td>Proibidos sem prova; L2 e Crédito de Prova.</td></tr>
+            <tr><th scope="row">Nome da marca</th><td>The VOID Tattoo Academy (dados e primeira menção), The VOID (marca), a Void (coloquial).</td></tr>
+            <tr><th scope="row">Personas</th><td>Gabriel, Camila e Bruno canônicas; Joana, Lucas, Rafael e Sylvia como subperfis; Sylvia cobre o Pro.</td></tr>
+            <tr><th scope="row">"Conteúdo gratuito"</th><td>"Aula experimental", "aula aberta", "material de estudo"; "gratuita" só como informação.</td></tr>
+            <tr><th scope="row">Escassez</th><td>Barra de Turma ligada ao calendário.</td></tr>
+            <tr><th scope="row">Inglês em copy</th><td>Copy pública em português; The VOID Talks e Business Playbook como nomes próprios.</td></tr>
+            <tr><th scope="row">"Próximo" ou "Próxima"</th><td>"Próxima", concordando com "a marca".</td></tr>
+            <tr><th scope="row">Ritos na jornada</th><td>Ritos em M6 e M7, Talks em M8; o quinto momento fica pendente [P 6].</td></tr>
+            <tr><th scope="row">Logotipo em cor</th><td>Só preto e branco oficiais; a cor mora no selo, no campo e no grafismo; o cinza só como Eco.</td></tr>
+            <tr><th scope="row">Qual preto</th><td>Sala <code>#181818</code> é o campo; Nanquim <code>#000000</code> fica no logotipo, no selo Pro e nas barras de vídeo.</td></tr>
+            <tr><th scope="row">Off-white como fundo</th><td>Modo Leitura com lugares, teto de 25% e paleta própria [P 2].</td></tr>
+            <tr><th scope="row">Fotografia em cor</th><td>Três regimes, no máximo uma imagem colorida em cada quatro.</td></tr>
+            <tr><th scope="row">Imagem gerada ou de banco</th><td>Proibida.</td></tr>
+            <tr><th scope="row">Inclusão como claim</th><td>Só com casos reais e programa existente; até lá, uso interno.</td></tr>
+            <tr><th scope="row">Botão reto ou pílula</th><td>Reto (Letreiro Aceso), com o teste A/B 10 [P 9].</td></tr>
+            <tr><th scope="row">Terracota de texto pequeno</th><td>Uma só: Terracota Luz <code>#DE8C66</code>.</td></tr>
+            <tr><th scope="row">Nomes de token</th><td>Nanquim, Sala, Couro e Café; "Breu" não é token.</td></tr>
+            <tr><th scope="row">Proporção dos círculos</th><td>1 : 2,3 : 3,6, medida no slide 30; raios 65, 150 e 232 tangentes em x = 250.</td></tr>
+            <tr><th scope="row">Órbitas do Pro</th><td>±32° da vertical, medido no vetor do selo simples.</td></tr>
+            <tr><th scope="row">Selo Pro sobre Sala</th><td>Completo sem disco; simples com disco Coxia.</td></tr>
+            <tr><th scope="row">Selo abaixo de 96 px</th><td>Não existe: Rótulo de Produto em texto ou favicon.</td></tr>
+            <tr><th scope="row">Letreiro em Contorno</th><td>Vetado: altera o logotipo.</td></tr>
+            <tr><th scope="row">Rodapé por produto</th><td>Vetado: rodapé literal único.</td></tr>
+            <tr><th scope="row">Estados em rosa e azul</th><td>Vetados; estados terrosos.</td></tr>
+            <tr><th scope="row">Teto de cor de 30%</th><td>Vetado; 5%, 12% e 8% conforme a peça.</td></tr>
+            <tr><th scope="row">"Estação" em público</th><td>Só em código; o Marcador mostra produto ou rito.</td></tr>
+            <tr><th scope="row">CTA "sentir a máquina na mão"</th><td>Vetado até confirmar o roteiro da aula [P 16].</td></tr>
+            <tr><th scope="row">Diagnóstico no Master</th><td>Como botão, vetado: <code>AGENDAR MEU DIAGNÓSTICO</code> é o rótulo do Pro. O Master pode citar o diagnóstico técnico como primeira etapa do método, como faz o site oficial.</td></tr>
+            <tr><th scope="row">Nome da formação Master</th><td>"Formação Master" em toda copy. "Especialização" fica fora até o parecer de advogado [P 20], porque no Brasil é o nome de uma pós-graduação regulada.</td></tr>
+            <tr><th scope="row">Ritos inventados e mural digitalizado</th><td>Fora do sistema público [P 6].</td></tr>
+            <tr><th scope="row">Alga em caixa alta</th><td>Proibida, com duas exceções nomeadas (Mapa da Trilha e Palavra de Produto).</td></tr>
+            <tr><th scope="row">Arquitetura do site</th><td><code>/trilha/</code>, com 301 das URLs atuais.</td></tr>
+            <tr><th scope="row">Máscara CSS da Esfera</th><td>Vetada; SVG inline com filtro ou PNG pré-renderizado.</td></tr>
+            <tr><th scope="row"><code>var()</code> em atributo SVG</th><td>Vetado; cor por classe.</td></tr>
+            <tr><th scope="row">Eixos extras das fontes</th><td>Itálico do Archivo e eixos extras da Nunito Sans fora do link de fontes.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s36-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.5</p>
+        <h3 class="fala">As 22 pendências com o cliente</h3>
+        <p class="bloco-apoio">Cada uma tem um padrão provisório no manual. Nenhuma é resolvida por conta própria: a resposta vem da The VOID (e, quando indicado, da aureadesign.co ou de advogado).</p>
+      </div>
+      <div class="f08-pends">
+        <p class="pendencia" data-p="1">[P 1] Corpo de texto: Nunito Sans (padrão provisório), Nunito clássica ou Archivo.</p>
+        <p class="pendencia" data-p="2">[P 2] Aprovação do Modo Leitura como exceção ao "nunca fundo principal" (artigo, e-mail, oferta, impresso).</p>
+        <p class="pendencia" data-p="3">[P 3] Licença da Alga para web, aplicativo e vídeo; até lá, Newsreader Italic 300 em todo material público.</p>
+        <p class="pendencia" data-p="4">[P 4] Arquivo de tokens e instruções do design system do cliente; confirmação dos marrons e dos campos do slide 31.</p>
+        <p class="pendencia" data-p="5">[P 5] Ano de fundação a confirmar com a The VOID; até lá, sem <span data-exemplo="proibido">"EST", "desde" ou tempo de mercado em anos</span>.</p>
+        <p class="pendencia" data-p="6">[P 6] Quinto momento de marca; ritos propostos; existência e registro do mural do Ritual do Traço; frequência real dos Talks.</p>
+        <p class="pendencia" data-p="7">[P 7] Existência de Kit Start, Kit Boas-Vindas, Business Playbook, Imersão Tatuagem com Liberdade, CAST e STUDIO; nome do desafio de prática.</p>
+        <p class="pendencia" data-p="8">[P 8] Razão social, CNPJ, um telefone principal para todos os canais e WhatsApp oficial por produto.</p>
+        <p class="pendencia" data-p="9">[P 9] Botão reto contra pílula, pelo resultado do teste A/B 10.</p>
+        <p class="pendencia" data-p="10">[P 10] Arquivo aprovado do selo dentro do "O" do logotipo, se a composição for mantida.</p>
+        <p class="pendencia" data-p="11">[P 11] Área de proteção e tamanhos mínimos (propostos a partir dos vetores) e uso das versões grafite e offwhite, com a The VOID e a aureadesign.co.</p>
+        <p class="pendencia" data-p="12">[P 12] Favicon (O ou V), avatar e imagem de compartilhamento propostos.</p>
+        <p class="pendencia" data-p="13">[P 13] Quadro atual de professores, currículos, anos de prática e autorização de uso de nome e imagem.</p>
+        <p class="pendencia" data-p="14">[P 14] Manter a aula experimental com o logotipo Start (decisão atual) ou passar para o institucional.</p>
+        <p class="pendencia" data-p="15">[P 15] Números e dados de oferta: alunos formados com método de contagem e data, avaliações, preços, parcelamento, carga horária, vagas por turma, calendário e garantia, se existir.</p>
+        <p class="pendencia" data-p="16">[P 16] Roteiro e duração da aula experimental a confirmar com a The VOID.</p>
+        <p class="pendencia" data-p="17">[P 17] Código de turma (produto, mês e ano, turno) e selos de formação concluída no perfil da área de membros.</p>
+        <p class="pendencia" data-p="18">[P 18] Domínio canônico (raiz ou subdomínio de LP) e migração das URLs para a arquitetura por trilha.</p>
+        <p class="pendencia" data-p="19">[P 19] Liberação dos robôs de treino de IA (os de busca ficam liberados).</p>
+        <p class="pendencia" data-p="20">[P 20] Validação de advogado: frase de curso livre; qualquer menção a <span data-exemplo="proibido">reconhecimento oficial de ensino, diploma, curso técnico, especialização ou parceria de certificação</span> (fora da copy até o parecer); termo de imagem por finalidade, cessão da arte do aluno, cancelamento, menores, licença sanitária para procedimento em aula e regulamento de concursos.</p>
+        <p class="pendencia" data-p="21">[P 21] Faixa etária das personas a confirmar com a The VOID.</p>
+        <p class="pendencia" data-p="22">[P 22] Acervo de fotografia real e autorização de imagem; sessão de um dia pela lista de cenas da direção de fotografia.</p>
+      </div>
+    </div>
+
+    <div class="bloco" id="s36-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.6</p>
+        <h3 class="fala">O mapa do repositório</h3>
+        <p class="bloco-apoio">Tudo o que este manual decide existe também em arquivo. O README traz o estado de cada um e os comandos para regerar.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Arquivos do repositório branding-the-void</caption>
+          <thead><tr><th scope="col">Arquivo</th><th scope="col">O que é</th><th scope="col">Abra quando</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>brand-book.html</code></th><td>Este manual, 36 seções em 9 partes</td><td>Precisar decidir qualquer coisa</td></tr>
+            <tr><th scope="row"><code>tokens.css</code>, <code>tokens.json</code></th><td>Cores, tipografia, espaço, forma e movimento</td><td>Construir página, peça ou componente</td></tr>
+            <tr><th scope="row"><code>vforms.js</code>, <code>vviz.js</code></th><td>Motores das formas da casa e dos gráficos com régua de prova</td><td>Precisar da Esfera, do Mapa da Trilha, de um selo ou de um gráfico</td></tr>
+            <tr><th scope="row"><code>lockup.html</code></th><td>Trechos prontos: logotipos, selos, assinaturas, NAP, frases-modelo</td><td>Precisar copiar um bloco exato</td></tr>
+            <tr><th scope="row"><code>kit-social.html</code></th><td>Editor dos 13 modelos com exportação PNG</td><td>Produzir post, story ou Reels</td></tr>
+            <tr><th scope="row"><code>lp-template.html</code>, <code>vsl-kit.html</code></th><td>LP parametrizada e peças da VSL</td><td>Montar página de venda ou vídeo</td></tr>
+            <tr><th scope="row"><code>membros-ui.html</code></th><td>Componentes da área de membros</td><td>Configurar o portal do aluno</td></tr>
+            <tr><th scope="row"><code>comunicacao-m1-m8.html</code></th><td>Matriz da régua e modelos de mensagem</td><td>Escrever WhatsApp, e-mail ou anúncio por etapa</td></tr>
+            <tr><th scope="row"><code>email-template.html</code></th><td>E-mail em tabela, à prova de modo escuro</td><td>Montar um disparo</td></tr>
+            <tr><th scope="row"><code>artigo-template.html</code></th><td>Artigo SEO, GEO e AEO com JSON-LD</td><td>Publicar no guia</td></tr>
+            <tr><th scope="row"><code>deck-template.html</code></th><td>Apresentação 1440 por 900</td><td>Montar deck ou proposta</td></tr>
+            <tr><th scope="row"><code>guia-de-uso.html</code></th><td>Pedidos prontos por público</td><td>Pedir uma peça a alguém (ou a uma IA)</td></tr>
+            <tr><th scope="row"><code>assets/</code></th><td>Marca, texturas, LUTs de foto, kit de SEO e fontes</td><td>Precisar de um arquivo oficial</td></tr>
+            <tr><th scope="row"><code>SKILL.md</code></th><td>O sistema travado para agentes de IA</td><td>Instalar a skill <code>branding-the-void</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s36-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.7</p>
+        <h3 class="fala">O site institucional</h3>
+        <p class="bloco-apoio">O site é o único lugar da marca com menu. As LPs de campanha continuam sem saída (seção <a href="#s34">34</a>); a home e as páginas de trilha, ritos, professores, fatos e contato usam os componentes LP já descritos, mais cinco peças próprias do site.</p>
+      </div>
+      <div class="f08-grid" style="--f08-min:300px">
+        <div class="peca" data-formato="1440x900" data-nome="Home no computador · institucional" data-estacao="chamado" style="grid-column:1/-1;--peca-max:900px">
+          <div class="peca-tela grao">
+            <img src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="1440" height="219" style="position:absolute;right:calc(var(--u)*-260);top:calc(var(--u)*230);width:calc(var(--u)*1300);height:auto;opacity:.12;filter:blur(calc(var(--u)*30))">
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*88);display:flex;align-items:center;justify-content:space-between;gap:calc(var(--u)*32);padding:0 calc(var(--u)*64);background:rgb(24 24 24 / .95);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="190" height="29" style="width:calc(var(--u)*190);height:auto">
+              <span class="f08-menu"><span style="color:var(--tela)">Formações</span><span>Ritos</span><span>Professores</span><span>VOIDERS</span><span>Guia</span><span>Contato</span></span>
+              <span class="f08-btn" style="flex:none;align-self:center;white-space:nowrap;font-size:calc(var(--u)*14);padding:calc(var(--u)*16) calc(var(--u)*22)">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*18);height:calc(var(--u)*18)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*88);padding:calc(var(--u)*72) calc(var(--u)*64) calc(var(--u)*40)">
+              <p class="f08-cr" style="font-size:calc(var(--u)*13)">The VOID Tattoo Academy · Vila Madalena · São Paulo</p>
+              <p class="f08-tf" style="font-size:calc(var(--u)*84);max-width:calc(var(--u)*820)">Do primeiro traço à carreira <em class="off">profissional</em>.</p>
+              <p class="f08-tx" style="font:400 calc(var(--u)*22)/1.5 var(--font-texto);max-width:calc(var(--u)*560)">A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo.</p>
+              <span class="f08-btn" style="font-size:calc(var(--u)*16);padding:calc(var(--u)*20) calc(var(--u)*28)">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*20);height:calc(var(--u)*20)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <div class="f08-fim" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:calc(var(--u)*24);padding-top:calc(var(--u)*24);border-top:1px solid var(--fio)">
+                <p class="f08-cr" style="font-size:calc(var(--u)*14);color:var(--tela)">Nunca tatuei<br><span style="color:var(--po)">Aula experimental e Start</span></p>
+                <p class="f08-cr" style="font-size:calc(var(--u)*14);color:var(--tela)">Já tatuo e quero evoluir<br><span style="color:var(--po)">Master</span></p>
+                <p class="f08-cr" style="font-size:calc(var(--u)*14);color:var(--tela)">Quero profissionalizar a carreira<br><span style="color:var(--po)">Pro</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="Menu aberto no celular" data-estacao="chamado">
+          <div class="peca-tela">
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*176);display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*48);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="440" height="67" style="width:calc(var(--u)*440);height:auto">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*72);height:calc(var(--u)*72);fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*176);padding:calc(var(--u)*24) calc(var(--u)*48) calc(var(--u)*72);gap:0">
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">Formações</p>
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">Ritos</p>
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">Professores</p>
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">VOIDERS</p>
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">Guia</p>
+              <p class="f08-tf" style="font:600 calc(var(--u)*72)/1 var(--font-letreiro);padding:calc(var(--u)*44) 0;border-bottom:1px solid var(--fio)">Contato</p>
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*36)">
+                <span class="f08-btn" style="justify-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*38);white-space:nowrap">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*52);height:calc(var(--u)*52)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                <p class="f08-cr" style="font:400 calc(var(--u)*36)/1.4 var(--font-texto);letter-spacing:0;text-transform:none">Rua Jericó, 217 · Vila Madalena · São Paulo, SP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="Página 404 no celular" data-estacao="chamado">
+          <div class="peca-tela grao">
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*176);display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*48);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="440" height="67" style="width:calc(var(--u)*440);height:auto">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*72);height:calc(var(--u)*72);fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*176);padding:calc(var(--u)*96) calc(var(--u)*72) calc(var(--u)*120);align-items:center;text-align:center">
+              <div data-vforms='{"forma":"esfera","tema":"sala"}' style="width:calc(var(--u)*540);height:calc(var(--u)*540)"></div>
+              <p class="f08-cr" style="font-size:calc(var(--u)*30)">Erro 404</p>
+              <p class="f08-tf" style="font-size:calc(var(--u)*100)">Esta página ficou no <em class="off">vazio</em>.</p>
+              <p class="f08-tx" style="font:400 calc(var(--u)*40)/1.45 var(--font-texto)">O endereço pode ter mudado. O caminho continua pela escola.</p>
+              <span class="f08-btn f08-fim" style="align-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*44)">Voltar para o início<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*52);height:calc(var(--u)*52)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              <p class="f08-cr" style="font-size:calc(var(--u)*32);color:var(--cal)">Formações · Guia · Contato</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h4 class="intertitulo">Rodapé do Site e Botão Flutuante do WhatsApp</h4>
+      <div class="f08-sala grao" data-estacao="chamado" style="display:grid;grid-template-columns:minmax(0,1fr);gap:var(--e-5);padding-bottom:calc(var(--e-6) + 64px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:var(--e-5)">
+          <div style="display:grid;gap:var(--e-3);align-content:start"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="180" height="27" style="width:180px;height:auto"><p style="margin:0">A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</p></div>
+          <div style="display:grid;gap:var(--e-2);align-content:start"><p class="f08-k">Contato</p><p style="margin:0">Rua Jericó, 217 · Vila Madalena<br>São Paulo, SP · 05435-040<br>+55 11 92481-8712</p><p style="margin:0;color:var(--po)">WhatsApp por produto: {{A_CONFIRMAR}} [P 8]</p></div>
+          <div style="display:grid;gap:var(--e-2);align-content:start"><p class="f08-k">A escola</p><p style="margin:0">Sobre · Fatos · Professores<br>Perguntas frequentes · Seja modelo<br>Política de Privacidade</p></div>
+          <div style="display:grid;gap:var(--e-2);align-content:start"><p class="f08-k">Redes oficiais</p><p style="margin:0;color:var(--po)">{{A_CONFIRMAR}}</p></div>
+        </div>
+        <p class="f08-cr" style="--u:1px;padding-top:var(--e-4);border-top:1px solid var(--fio);font-size:12px">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+        <p style="margin:0;font-size:13px;color:var(--po)">[Razão social] · CNPJ [P 8] · Política de Privacidade</p>
+        <span class="f08-zapf" role="img" aria-label="Botão flutuante: conversar no WhatsApp" style="position:absolute;right:16px;bottom:16px"><svg viewBox="0 0 24 24" aria-hidden="true" class="ic"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+      </div>
+      <p class="legenda">O botão flutuante aparece no canto, a 16 px da borda e acima da área segura do aparelho. Ele leva a mensagem pré-preenchida com a página de origem e some nas LPs cujo botão já abre o WhatsApp.</p>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>As cinco peças próprias do site</caption>
+          <thead><tr><th scope="col">Peça</th><th scope="col">Tipo</th><th scope="col">Especificação</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Cabeçalho do Site</th><td>interface</td><td>72 px no computador e 64 px no celular, Sala a 95% com fio inferior de 1 px. Logotipo horizontal branco com 158 px de largura ou mais, até 6 itens de menu em Crédito e um único botão com o rótulo da biblioteca para aquela página: na home e no institucional, o da aula experimental; em <code>/trilha/start/</code>, o do Start. Fica preso no topo ao rolar, sem sombra.</td></tr>
+            <tr><th scope="row">Menu no celular</th><td>interface</td><td>Ícone de três linhas com rótulo acessível "Abrir menu". Abre em tela cheia Sala em 240 ms; itens em Archivo 600 com alvo de 48 px ou mais; o botão em largura total no pé e o endereço em Pó. Fecha com o X ou com a tecla Esc e devolve o foco ao ícone.</td></tr>
+            <tr><th scope="row">Rodapé do Site</th><td>cartela</td><td>Logotipo, descrição de uma linha, NAP canônico, links institucionais, redes oficiais {{A_CONFIRMAR}}, Créditos Finais literais e rodapé legal com razão social e CNPJ [P 8].</td></tr>
+            <tr><th scope="row">Botão Flutuante do WhatsApp</th><td>interface</td><td>Círculo de 56 px, Sala com fio de 1 px em Tela e ícone de conversa em Tela, rótulo acessível "Conversar no WhatsApp". Nunca o verde do aplicativo, nunca junto da Barra Fixa, nunca nas LPs cujo botão já abre o WhatsApp.</td></tr>
+            <tr><th scope="row">Página 404</th><td>cartela</td><td>Esfera, uma frase, um botão para o início e três links (Formações, Guia, Contato). Sem humor que culpe quem chegou ali. Leva <code>noindex</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">A ordem da home</h4>
+      <div data-estacao="chamado">
+        <div class="f08-fita" style="grid-template-columns:repeat(12,minmax(0,1fr))" role="img" aria-label="Régua da home: Cabeçalho do Site interface, Plano de Abertura cena, Caminhos por persona documento, Faixa de Manifesto cartela, Comparativo de Trilhas documento, Fotograma dos Rituais cena, Elenco cena, Régua de Prova documento, Rolo de Depoimentos cena, Locação cena, Perguntas documento, Rodapé do Site cartela.">
+          <span data-tipo="interface">1</span><span data-tipo="cena">2</span><span data-tipo="documento">3</span><span data-tipo="cartela">4</span><span data-tipo="documento">5</span><span data-tipo="cena">6</span><span data-tipo="cena">7</span><span data-tipo="documento">8</span><span data-tipo="cena">9</span><span data-tipo="cena">10</span><span data-tipo="documento">11</span><span data-tipo="cartela">12</span>
+        </div>
+      </div>
+      <ol class="lista">
+        <li><strong>Cabeçalho do Site</strong> com o botão da aula experimental.</li>
+        <li><strong>Plano de Abertura</strong> institucional (LP03): a frase da entidade, a descrição de uma linha e o botão. A home é um dos contextos da tagline (seção <a href="#s31-9">31.9</a>), uma vez na página.</li>
+        <li><strong>Caminhos por persona</strong>: três cartões, "Nunca tatuei" (aula experimental e Start), "Já tatuo e quero evoluir" (Master) e "Quero profissionalizar a carreira" (Pro), cada um levando à sua página.</li>
+        <li><strong>Faixa de Manifesto</strong> (LP21).</li>
+        <li><strong>Comparativo de Trilhas</strong> (LP23) sem coluna acesa, com o Mapa da Trilha.</li>
+        <li><strong>Fotograma dos Rituais</strong> (LP10), com link para <code>/ritos/</code>.</li>
+        <li><strong>Elenco</strong> (LP11), com link para cada professor [P 13].</li>
+        <li><strong>Régua de Prova</strong> (LP07), só com número validado; sem nenhum, a seção some.</li>
+        <li><strong>Rolo de Depoimentos</strong> (LP06), com autorização e Aviso de Conformidade.</li>
+        <li><strong>Locação</strong> (LP13) com o NAP canônico.</li>
+        <li><strong>Perguntas</strong> (LP15), com o mesmo texto do <code>FAQPage</code>.</li>
+        <li><strong>Rodapé do Site</strong>.</li>
+      </ol>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>O que leva cada página do site</caption>
+          <thead><tr><th scope="col">Página</th><th scope="col">O que leva</th><th scope="col">Dados estruturados</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><code>/</code></th><td>A ordem da home acima.</td><td><code>EducationalOrganization</code> + <code>LocalBusiness</code></td></tr>
+            <tr><th scope="row"><code>/trilha/</code></th><td>Mapa da Trilha e Comparativo de Trilhas sem coluna acesa; cada coluna leva à página do seu produto.</td><td><code>BreadcrumbList</code></td></tr>
+            <tr><th scope="row"><code>/trilha/&lt;produto&gt;/</code></th><td>A ordem da LP do produto (seção <a href="#s34-3">34.3</a>), com Cabeçalho e Rodapé do Site no lugar do Cabeçalho Mínimo e Barra de Turma só com data válida. Quando uma LP de campanha repete esta página, ela leva <code>noindex</code> e aponta a canônica para cá (depende do domínio [P 18]).</td><td><code>Course</code> com <code>hasCourseInstance</code></td></tr>
+            <tr><th scope="row"><code>/ritos/&lt;rito&gt;/</code></th><td>Cena do rito no protocolo de fotografia, a frase do rito na voz em off, em que formação acontece e a página da formação. Só os quatro ritos das fontes.</td><td><code>BreadcrumbList</code></td></tr>
+            <tr><th scope="row"><code>/professores/&lt;nome&gt;/</code></th><td>Retrato do Elenco, estilo, anos de prática, trabalhos com autorização e artigos que assina [P 13].</td><td><code>Person</code></td></tr>
+            <tr><th scope="row"><code>/fatos/</code></th><td>Ficha de Fatos em Modo Leitura: cada número com método de contagem e data (seção <a href="#s33">33</a>).</td><td><code>EducationalOrganization</code></td></tr>
+            <tr><th scope="row"><code>/contato/</code></th><td>Locação (LP13), NAP, mapa estático, como chegar e Formulário Curto (LP18).</td><td><code>LocalBusiness</code></td></tr>
+            <tr><th scope="row"><code>/seja-modelo/</code></th><td>Como funciona a tatuagem supervisionada, o que a pessoa escolhe e consentimento; texto revisado por advogado [P 20].</td><td><code>BreadcrumbList</code></td></tr>
+            <tr><th scope="row">404</th><td>A Página 404 acima.</td><td>nenhum</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="lista">
+        <li>A L8 vale para a página inteira: nunca três telas do mesmo tipo seguidas.</li>
+        <li>Modo Leitura só em <code>/fatos/</code>, nos artigos do guia e na Ficha da Formação; nas demais páginas, dentro do teto de 25% da altura.</li>
+        <li>Um botão principal por página, com o rótulo da biblioteca (seção <a href="#s34-5">34.5</a>). Os links do menu e dos cartões são navegação, não um segundo pedido.</li>
+        <li>O Eco do VOID só entra no cabeçalho da home em telas de 600 px ou mais; no celular, o campo fica limpo.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s36-8">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.8</p>
+        <h3 class="fala">Mapa do guia</h3>
+        <p class="bloco-apoio">O que escrever primeiro e como nomear cada página. São seis pilares de pergunta real, cada um ligado a uma persona, a uma etapa e a um produto. As perguntas são de partida: o time pedagógico valida as respostas, e o volume de busca se confere no Planejador de Palavras-chave do Google e, depois, no Search Console.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Os seis pilares do guia (proposta)</caption>
+          <thead><tr><th scope="col">Pilar e endereço</th><th scope="col">Persona e etapa</th><th scope="col">Produto do CTA</th><th scope="col">Perguntas de partida</th><th scope="col">Primeiro artigo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1 · Como ser tatuador<br><code>/guia/como-ser-tatuador/</code></th><td>Gabriel e Camila · M1 e M2</td><td>Aula experimental e Start</td><td>Como virar tatuador do zero? · Precisa saber desenhar para ser tatuador? · Quanto tempo leva para aprender a tatuar? · É tarde para começar com 30, 35 ou 40 anos? · Dá para aprender a tatuar sozinho?</td><td>Precisa saber desenhar para ser tatuador? (maquete em 36.2)</td></tr>
+            <tr><th scope="row">2 · A profissão<br><code>/guia/profissao-tatuador/</code></th><td>Todas · M1 a M3</td><td>Institucional</td><td>Precisa de certificado ou registro para ser tatuador? · O que é biossegurança na tatuagem? · Como montar uma bancada de tatuagem? · Quanto ganha um tatuador? (faixa com fonte e data, nunca promessa)</td><td>O que é biossegurança na tatuagem?</td></tr>
+            <tr><th scope="row">3 · Técnicas<br><code>/guia/tecnicas/</code></th><td>Gabriel · M1, M6 e M7</td><td>Start</td><td>O que é fineline, boldline, pontilhismo ou rastelado? · Qual a diferença entre agulha liner e magnum? · Máquina rotativa ou de bobina para começar?</td><td>Qual a diferença entre agulha liner e magnum?</td></tr>
+            <tr><th scope="row">4 · Estilos<br><code>/guia/estilos/</code></th><td>Bruno e alunos do Start · M1, M7 e M8</td><td>Master</td><td>Quais são os estilos de tatuagem? · Qual estilo é mais fácil para começar? · Como fazer cobertura de tatuagem? · Como encontrar meu estilo autoral?</td><td>Quais são os estilos de tatuagem?</td></tr>
+            <tr><th scope="row">5 · Carreira e negócio<br><code>/guia/carreira-e-negocio/</code></th><td>Bruno · M1 do Pro, M7 e M8 do Start</td><td>Pro</td><td>Como precificar tatuagem? · Como conseguir os primeiros clientes? · Como montar portfólio de tatuador? · Como usar o Instagram sendo tatuador?</td><td>Como montar portfólio de tatuador?</td></tr>
+            <tr><th scope="row">6 · Como escolher uma escola<br><code>/guia/como-escolher-escola/</code></th><td>Camila e Gabriel · M2 a M4</td><td>Start e a página <code>/fatos/</code></td><td>Qual escola de tatuagem escolher em São Paulo? · O que perguntar antes de fazer um curso de tatuagem? · Curso de tatuagem tem certificado? (resposta só depois do parecer [P 20]) · A The VOID vale a pena?</td><td>O que perguntar antes de fazer um curso de tatuagem?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Ordem de produção proposta: o primeiro artigo de cada pilar, um por semana, junto com um vídeo curto que responde à mesma pergunta. No pilar 6, a busca real costuma trazer superlativo; a resposta usa critérios verificáveis (prática em pele humana supervisionada, tamanho de turma, biossegurança, professores com portfólio público) e nunca repete o superlativo nem cita outra escola. As perguntas que chegam na caixa de stories e no WhatsApp entram nesta lista.</p>
+      <h4 class="intertitulo">Título da página e descrição para busca</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Regra do <code>title</code> e da <code>meta description</code></caption>
+          <thead><tr><th scope="col">Campo</th><th scope="col">Regra</th><th scope="col">Exemplo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Título da página (<code>title</code>)</th><td>A pergunta ou o nome da página, depois " | The VOID Tattoo Academy", em até cerca de 60 caracteres. Se passar, o fim vira " | The VOID". Cada página tem o seu; o título e o H1 dizem a mesma coisa.</td><td>The VOID Tattoo Academy | Escola de tatuagem em São Paulo<br>Precisa saber desenhar para ser tatuador? | The VOID</td></tr>
+            <tr><th scope="row">Descrição para busca (<code>meta description</code>)</th><td>A Resposta Direta resumida em até cerca de 155 caracteres: sujeito explícito, nome da entidade quando couber e o local nas páginas da escola e dos produtos. Sem claim vetado, sem caixa alta, sem emoji e sem travessão. Nunca repetida entre páginas.</td><td>Não. Desenhar e tatuar são habilidades diferentes. Na The VOID Tattoo Academy, a formação Start ensina do zero, inclusive o desenho para tatuar.</td></tr>
+            <tr><th scope="row">Home</th><td>A descrição de uma linha, literal.</td><td>A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</td></tr>
+            <tr><th scope="row">Prévia de compartilhamento</th><td>O título sem o fim " | The VOID" e a imagem de 1200 por 630 da seção <a href="#s35-1">35.1</a>.</td><td>Precisa saber desenhar para ser tatuador?</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s36-9">
+      <div class="bloco-head">
+        <p class="bloco-n credito">36.9</p>
+        <h3 class="fala">Ser citado e medir</h3>
+        <p class="bloco-apoio">Entidade, NAP e dados estruturados só valem se alguém conferir o resultado. Um painel mensal mostra se os assistentes de IA citam a The VOID e se descrevem a escola do jeito certo; o Perfil da Empresa no Google, os diretórios e a presença em sites de terceiros mantêm os sinais fora do site.</p>
+      </div>
+      <h4 class="intertitulo">Painel mensal de 30 perguntas</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Grupos de perguntas (as mesmas todo mês, ajustadas com a The VOID)</caption>
+          <thead><tr><th scope="col">Grupo</th><th scope="col">Quantas</th><th scope="col">Perguntas de exemplo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Categoria local</th><td>10</td><td>Onde fazer curso de tatuagem presencial em SP? · Curso de tatuagem para iniciante na zona oeste de São Paulo · Escola de tatuagem perto do metrô Vila Madalena</td></tr>
+            <tr><th scope="row">Persona Gabriel</th><td>5</td><td>Como virar tatuador sem saber desenhar? · Vale a pena fazer curso de tatuagem?</td></tr>
+            <tr><th scope="row">Persona Camila</th><td>5</td><td>É tarde para virar tatuadora aos 35? · Curso de tatuagem para adulto que quer mudar de carreira em SP</td></tr>
+            <tr><th scope="row">Persona Bruno</th><td>5</td><td>Curso de marketing para tatuador · Como cobrar mais caro pela tatuagem?</td></tr>
+            <tr><th scope="row">Marca</th><td>5</td><td>O que é a The VOID Tattoo Academy? · A The VOID é uma boa escola? · Quanto custa o The VOID Start? · Onde fica a The VOID?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Onde rodar: ChatGPT com busca, Gemini, Google AI Mode e AI Overviews, Perplexity, Claude com busca e Copilot, em sessão sem histórico e com localização em São Paulo quando possível.</p>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>O que registrar em cada resposta</caption>
+          <thead><tr><th scope="col">Métrica</th><th scope="col">Como medir</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Menção</th><td>A The VOID aparece? Sim ou não.</td></tr>
+            <tr><th scope="row">Posição</th><td>Em que ordem aparece entre as escolas citadas.</td></tr>
+            <tr><th scope="row">Citação com link</th><td>A resposta leva a uma página da The VOID? Qual?</td></tr>
+            <tr><th scope="row">Precisão</th><td>Endereço, formações e números estão certos? Cada erro vira tarefa de correção na fonte que o assistente usou.</td></tr>
+            <tr><th scope="row">Enquadramento</th><td>Como o assistente descreve a escola, comparado com a descrição de uma linha.</td></tr>
+            <tr><th scope="row">Fontes de terceiros</th><td>Quais sites o assistente usou: é o mapa de onde a The VOID precisa estar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Os nomes de outras escolas que aparecem nas respostas ficam só na planilha interna do painel, nunca em material público.</p>
+      <div class="grade-2" style="align-items:start">
+        <div>
+          <p class="rotulo">Fontes oficiais de dado</p>
+          <ul class="lista">
+            <li><strong>Google Search Console:</strong> o tráfego vindo dos resumos e do modo de IA do Google entra no relatório de desempenho da web.</li>
+            <li><strong>Bing Webmaster Tools:</strong> relatório de desempenho em IA, com citações no Copilot e as páginas citadas.</li>
+            <li><strong>Google Analytics 4:</strong> um grupo de canal "Assistentes de IA" com as origens <code>chatgpt.com</code>, <code>perplexity.ai</code>, <code>gemini.google.com</code>, <code>copilot.microsoft.com</code> e <code>claude.ai</code>.</li>
+            <li><strong>CRM:</strong> no formulário e na primeira conversa de WhatsApp, a pergunta "Como você conheceu a The VOID?" com a opção "Perguntei para uma IA (ChatGPT, Gemini etc.)". É o único jeito de medir quem chegou por recomendação sem clicar em link.</li>
+            <li><strong>Perfil da Empresa no Google:</strong> buscas, ligações, rotas e cliques no site, mês a mês.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="rotulo">Rotina</p>
+          <ul class="lista">
+            <li><strong>Semanal:</strong> turmas e eventos atualizados na página, no JSON-LD e no Perfil da Empresa no Google.</li>
+            <li><strong>Mensal:</strong> painel de 30 perguntas, avaliações respondidas e um ou dois conteúdos novos por pilar.</li>
+            <li><strong>Trimestral:</strong> NAP conferido em todos os diretórios, Ficha de Fatos revisada e relatório comparativo.</li>
+            <li><strong>Semestral:</strong> revisão de todos os artigos do guia, com a data de atualização.</li>
+          </ul>
+        </div>
+      </div>
+      <h4 class="intertitulo">Perfil da Empresa no Google</h4>
+      <ul class="f08-check" aria-label="Checklist do Perfil da Empresa no Google">
+        <li>Confirmar se o perfil existe, quem é o dono e se está verificado {{A_CONFIRMAR}}.</li>
+        <li>Nome exatamente "The VOID Tattoo Academy", sem palavras extras no nome.</li>
+        <li>Categoria principal: a mais próxima de "escola de tatuagem" na lista do painel; categorias secundárias só se forem verdadeiras.</li>
+        <li>NAP canônico (36.3), horário real e horários especiais em feriados.</li>
+        <li>Descrição: a descrição oficial da entidade, sem afirmação de destaque que não esteja na Ficha de Fatos.</li>
+        <li>Produtos: Start, Master, Pro e aula experimental, cada um com descrição curta e link para a sua página.</li>
+        <li>Fotos reais e autorizadas: fachada, recepção, salas, bancadas, aula em andamento e professores; dez ou mais no começo e novas todo mês.</li>
+        <li>Publicações com data: próximas turmas, The VOID Talks e aula experimental.</li>
+        <li>Perguntas e respostas semeadas com as perguntas do pilar 6, respondidas pela conta oficial.</li>
+        <li>Avaliações pedidas depois de marcos reais, sem incentivo; todas respondidas em até 72 horas, inclusive as negativas, na voz da marca.</li>
+      </ul>
+      <div class="grade-2" style="align-items:start">
+        <div>
+          <p class="rotulo">Diretórios com o mesmo NAP</p>
+          <p>Apple Business Connect (Apple Maps), Bing Places, Foursquare, Yelp, Waze e a página de empresa no LinkedIn. Mudou endereço ou telefone: primeiro o Perfil da Empresa no Google e o site, no mesmo dia; depois os diretórios.</p>
+        </div>
+        <div>
+          <p class="rotulo">Presença em sites de terceiros</p>
+          <ol class="lista">
+            <li>Pauta de imprensa local com dado próprio já publicado em <code>/fatos/</code>.</li>
+            <li>Guias e listas de São Paulo que já aparecem para buscas de tatuagem.</li>
+            <li>Professores e convidados dos Talks citando a escola pelo nome completo nos próprios perfis.</li>
+            <li>Participação honesta em comunidades e fóruns, sempre identificada como da The VOID.</li>
+            <li>Ex-alunos com "Formado pela The VOID Tattoo Academy" na bio, com link (ação de M8).</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6.2, 6.3, 12.4, 12.6, 12.7, 13, 16 e 17); playbook de SEO, GEO e AEO, pesquisa GrowAI, out/2026 (pilares e perguntas, seção 3.2; Perfil da Empresa e presença de terceiros, 6.2; medição, 7.1 a 7.4); diretrizes de conversão para LP e VSL, pesquisa GrowAI, out/2026 (comparativo de trilhas, 4.6); régua M1 a M8 e área de membros, pesquisa GrowAI, out/2026; plano de construção do manual, 06/10/2026; site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>

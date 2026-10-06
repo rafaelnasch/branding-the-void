@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The VOID · Kit social</title>
+<meta name="description" content="Editor dos 13 modelos de rede da The VOID Tattoo Academy (R1 a R13) em tamanho real, com áreas seguras, contador de palavras, amostragem do pior pixel sob o texto e exportação em PNG que só sai quando a peça passa nas regras do manual.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* =====================================================================
+   THE VOID · KIT SOCIAL · editor dos modelos R1 a R13 (spec 12.3)
+   Valores: tokens.css. Peça em escala: .peca com container query e
+   --u = largura da peça dividida pela largura real (1080 ou 1920).
+   Prefixos: ks- (página), pc- (peça), rN- (composição de um modelo).
+   ===================================================================== */
+
+/* ---------- 1. Página ---------- */
+html{background:var(--sala)}
+body.ks{margin:0;background:var(--sala);color:var(--cal);font:400 17px/1.6 var(--font-texto)}
+.ks *,.ks *::before,.ks *::after{box-sizing:border-box}
+.ks a{color:var(--areia);text-underline-offset:3px}
+[hidden]{display:none!important}
+.ks-oculto{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ks-ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+
+.ks-topo{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;min-height:64px;padding:0 24px;background:var(--sala);border-bottom:1px solid var(--fio)}
+.ks-topo .ks-logo{display:block;height:24px;width:auto}
+.ks-topo .ks-sep{width:1px;height:24px;background:var(--fio);flex:none}
+.ks-topo .ks-nome{margin:0;white-space:nowrap}
+.ks-topo .ks-nome b{color:var(--tela);font-weight:500}
+.ks-topo nav{margin-left:auto;display:flex;gap:8px}
+.ks-topo nav a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--fio);color:var(--cal);text-decoration:none;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+.ks-topo nav a:hover{border-color:var(--fumaca);color:var(--tela)}
+
+.ks-livro{max-width:1440px;margin:0 auto;padding:56px 24px 96px}
+.ks-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:32px 64px;align-items:end}
+.ks-intro .credito{margin:0 0 16px}
+.ks-intro h1{margin:0;font-size:clamp(40px,6vw,88px)}
+.ks-intro h1 .off{display:block;line-height:1;margin-top:.06em}
+.ks-intro .ks-apoio{margin:0;max-width:56ch;color:var(--cal);font-size:18px;line-height:1.65}
+.ks-intro .ks-apoio b{color:var(--tela);font-weight:600}
+
+/* ---------- 2. Editor ---------- */
+.ks-editor{display:grid;grid-template-columns:236px minmax(0,1fr) 392px;gap:24px;align-items:start;margin-top:56px;padding-top:32px;border-top:1px solid var(--fio)}
+.ks-rotulo{margin:0 0 12px;color:var(--po)}
+.ks-modelos ol{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ks-modelo{display:grid;grid-template-columns:44px minmax(0,1fr);align-items:center;gap:4px 8px;width:100%;min-height:52px;padding:8px 12px;border:1px solid transparent;border-left:2px solid transparent;background:transparent;color:var(--cal);text-align:left;cursor:pointer;font:400 15px/1.3 var(--font-texto)}
+.ks-modelo:hover{background:var(--bastidor)}
+.ks-modelo[aria-current="true"]{background:var(--bastidor);border-left-color:var(--areia);color:var(--tela)}
+.ks-modelo .ks-mn{grid-row:span 2;font:700 22px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--po)}
+.ks-modelo[aria-current="true"] .ks-mn{color:var(--areia)}
+.ks-modelo>span{min-width:0}
+.ks-modelo .ks-mt{font:600 16px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.ks-modelo .ks-me{overflow-wrap:anywhere;font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--po)}
+
+.ks-palco{position:sticky;top:88px;min-width:0}
+.ks-barra{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin-bottom:16px}
+.ks-seg{display:flex;flex-wrap:wrap;gap:4px}
+.ks-seg button,.ks-alterna{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;min-width:44px;padding:0 12px;border:1px solid var(--fio);background:transparent;color:var(--cal);cursor:pointer;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.ks-seg button:hover,.ks-alterna:hover{border-color:var(--fumaca);color:var(--tela)}
+.ks-seg button[aria-pressed="true"],.ks-alterna[aria-pressed="true"]{background:var(--tela);border-color:var(--tela);color:var(--sala)}
+.ks-seg button:disabled{opacity:.38;cursor:not-allowed}
+.ks-barra .ks-grupo{display:flex;flex-direction:column;gap:6px;min-width:0}
+.ks-barra .ks-grupo>span{color:var(--po)}
+
+.ks-moldura{position:relative;margin:0 auto;background:var(--nanquim);border:1px solid var(--fio)}
+.ks-moldura[data-fmt="4x5"]{max-width:min(100%,500px)}
+.ks-moldura[data-fmt="9x16"]{max-width:min(100%,400px)}
+.ks-moldura[data-fmt="16x9"]{max-width:min(100%,820px)}
+.ks-ficha{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;margin:12px auto 0;color:var(--po);font:400 13px/1.5 var(--font-texto)}
+.ks-ficha code{font:500 12px/1.5 ui-monospace,Menlo,monospace;color:var(--cal);word-break:break-all}
+.ks-moldura+.ks-ficha{max-width:inherit}
+
+/* sobreposições (nunca exportadas) */
+.ks-camada{position:absolute;inset:0;z-index:20;pointer-events:none;container-type:inline-size}
+.ks-camada .z{position:absolute;box-sizing:border-box}
+.ks-camada .z-margem{border:1px dashed var(--areia)}
+.ks-camada .z-faixa{background:rgb(24 24 24 / .62);display:flex;align-items:center;justify-content:center}
+.ks-camada .z-faixa span,.ks-camada .z-zona span{font:500 10px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--tela);padding:2px 6px;background:var(--sala)}
+.ks-camada .z-zona{border:1px dashed var(--nevoa);display:flex;align-items:flex-start;justify-content:flex-end;padding:4px}
+.ks-camada .z-miolo{border-left:1px dashed var(--areia);border-right:1px dashed var(--areia)}
+.ks-ponto{position:absolute;z-index:21;width:22px;height:22px;margin:-11px 0 0 -11px;border:2px solid var(--areia);border-radius:50%;background:transparent;box-shadow:0 0 0 1px rgb(24 24 24 / .9),inset 0 0 0 1px rgb(24 24 24 / .9);pointer-events:none}
+.ks-ponto::after{content:attr(data-n);position:absolute;left:24px;top:50%;transform:translateY(-50%);padding:2px 6px;background:var(--sala);color:var(--areia);font:700 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;white-space:nowrap}
+.ks-ponto[data-ok="false"]{border-color:var(--erro)}
+.ks-ponto[data-ok="false"]::after{color:var(--erro)}
+
+/* painel */
+.ks-painel{min-width:0;display:grid;gap:24px}
+.ks-caixa{background:var(--bastidor);padding:24px}
+.ks-caixa>h2{margin:0 0 4px;color:var(--tela);font:600 22px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.ks-caixa>.ks-sub{margin:0 0 20px;color:var(--po);font-size:15px;line-height:1.5}
+.ks-campos{display:grid;gap:20px}
+.ks-campo{display:grid;gap:8px;min-width:0}
+.ks-campo-topo{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ks-campo label,.ks-campo .ks-lbl{color:var(--po);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.ks-conta{flex:none;display:inline-flex;align-items:center;gap:4px;color:var(--po);font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em}
+.ks-conta .ks-ic{width:16px;height:16px}
+.ks-conta[data-ok="false"]{color:var(--erro)}
+.ks-campo input[type=text],.ks-campo input[type=date],.ks-campo input[type=number],.ks-campo input[type=url],.ks-campo select,.ks-campo textarea{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--fumaca);border-radius:0;background:var(--coxia);color:var(--tela);font:400 16px/1.4 var(--font-texto);color-scheme:dark}
+.ks-campo textarea{min-height:88px;resize:vertical}
+.ks-campo select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--po) 50%),linear-gradient(135deg,var(--po) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+.ks-campo input::placeholder,.ks-campo textarea::placeholder{color:var(--fumaca)}
+.ks-ajuda{margin:0;color:var(--po);font-size:14px;line-height:1.45}
+.ks-marca{display:flex;align-items:flex-start;gap:12px;min-height:44px;cursor:pointer;color:var(--cal);font-size:15px;line-height:1.45}
+.ks-marca input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--areia)}
+.ks-foto{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:start;padding:12px;border:1px dashed var(--fumaca)}
+.ks-foto .ks-mini{width:88px;aspect-ratio:1;background:var(--coxia);display:grid;place-items:center;overflow:hidden}
+.ks-foto .ks-mini img{width:100%;height:100%;object-fit:cover;display:block}
+.ks-foto .ks-mini .ks-ic{color:var(--fumaca);width:28px;height:28px}
+.ks-foto .ks-acoes{display:flex;flex-wrap:wrap;gap:8px}
+.ks-foto .ks-acoes label,.ks-foto .ks-acoes button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--fumaca);background:transparent;color:var(--tela);cursor:pointer;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.ks-foto .ks-acoes label:focus-within{outline:var(--foco);outline-offset:3px}
+.ks-foto input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+.ks-foto .ks-fn{margin:6px 0 0;color:var(--po);font-size:13px;line-height:1.4;word-break:break-word}
+.ks-foto select{margin-top:8px}
+.ks-sequencia{margin:0;color:var(--po);font-size:14px;line-height:1.5}
+.ks-sequencia b{color:var(--tela);font-weight:600}
+
+/* conferência */
+.ks-lista{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ks-lista li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;font-size:15px;line-height:1.45;color:var(--cal)}
+.ks-lista li .ks-ic{margin-top:2px}
+.ks-lista li b{font:600 13px/1.45 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.02em;text-transform:uppercase;margin-right:6px}
+.ks-lista li[data-estado="ok"] .ks-ic,.ks-lista li[data-estado="ok"] b{color:var(--sucesso)}
+.ks-lista li[data-estado="erro"] .ks-ic,.ks-lista li[data-estado="erro"] b{color:var(--erro)}
+.ks-lista li[data-estado="atencao"] .ks-ic,.ks-lista li[data-estado="atencao"] b{color:var(--atencao)}
+.ks-lista li[data-estado="espera"] .ks-ic,.ks-lista li[data-estado="espera"] b{color:var(--po)}
+.ks-lista li small{display:block;color:var(--po);font-size:13px}
+.ks-contraste{list-style:none;margin:16px 0 0;padding:16px 0 0;border-top:1px solid var(--fio);display:grid;gap:8px}
+.ks-contraste li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14px;line-height:1.4}
+.ks-contraste .sw{width:28px;height:28px;border:1px solid var(--fio)}
+.ks-contraste .rz{font:700 18px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--tela)}
+.ks-contraste li[data-ok="false"] .rz{color:var(--erro)}
+.ks-contraste small{display:block;color:var(--po);font-size:12px}
+.ks-saida{display:grid;gap:12px}
+.ks-saida .botao{width:100%}
+.ks-saida .botao:disabled{background:var(--coxia);color:var(--po);cursor:not-allowed}
+.ks-saida .botao:disabled svg{stroke:var(--po)}
+.ks-saida .ks-motivo{margin:0;color:var(--po);font-size:14px;line-height:1.45}
+.ks-saida .ks-motivo[data-estado="ok"]{color:var(--sucesso)}
+.ks-saida .ks-motivo[data-estado="erro"]{color:var(--erro)}
+.ks-saida code{font:500 12px/1.5 ui-monospace,Menlo,monospace;color:var(--cal);word-break:break-all}
+
+/* ---------- 3. Referência abaixo do editor ---------- */
+.ks-ref{margin-top:96px;padding-top:48px;border-top:1px solid var(--fio);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.ks-ref h2{grid-column:1/-1;margin:0}
+.ks-ref h3{margin:0 0 12px;color:var(--tela);font:600 22px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.ks-ref p,.ks-ref li{color:var(--cal);font-size:16px;line-height:1.6}
+.ks-ref ul{margin:0;padding-left:18px}
+.ks-ref li{margin-bottom:6px}
+.ks-ref .fontes{grid-column:1/-1;margin:0;color:var(--po);font-size:13px;line-height:1.5}
+.ks-pe{border-top:1px solid var(--fio);padding:32px 24px 48px;text-align:center}
+.ks-pe .credito .t::after{content:"·";margin-left:.9em;margin-right:.4em}
+.ks-pe .credito .q{display:none}
+.ks-pe .credito span{white-space:nowrap}
+.ks-pe .credito b{color:var(--tela);font-weight:700}
+.ks-host{position:fixed;left:-30000px;top:0;pointer-events:none}
+/* a peça mede o texto na hora: nada de transição, nem com movimento reduzido (tokens.css força 120 ms) */
+.ks-host *,.peca-tela,.peca-tela *{transition:none!important;animation:none!important}
+
+@media (max-width:1180px){
+  .ks-editor{grid-template-columns:minmax(0,1fr) 360px}
+  .ks-modelos{grid-column:1/-1}
+  .ks-modelos ol{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+  .ks-modelo{border:1px solid var(--fio);border-left:2px solid var(--fio)}
+}
+@media (max-width:900px){
+  .ks-editor{grid-template-columns:minmax(0,1fr)}
+  .ks-palco{position:static}
+  .ks-intro{grid-template-columns:minmax(0,1fr)}
+  .ks-ref{grid-template-columns:minmax(0,1fr)}
+  .ks-topo nav a span{display:none}
+}
+@media (max-width:560px){
+  .ks-livro{padding:40px 16px 72px}
+  .ks-topo{padding:0 16px;gap:12px}
+  .ks-topo .ks-nome{display:none}
+  .ks-topo .ks-sep{display:none}
+  .ks-modelos ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ks-modelo{grid-template-columns:32px minmax(0,1fr);padding:8px}
+  .ks-modelo .ks-mn{font-size:18px}
+  .ks-caixa{padding:20px 16px}
+  .ks-foto{grid-template-columns:64px minmax(0,1fr)}
+  .ks-foto .ks-mini{width:64px}
+  .ks-pe .credito .q{display:block;height:0;overflow:hidden}
+  .ks-pe .credito .t:nth-child(4)::after{content:none}
+}
+@media (max-width:400px){
+  .ks-modelo .ks-me{display:none}
+  .ks-modelo{min-height:48px}
+  .ks-modelo .ks-mn{grid-row:auto;font-size:16px}
+  .ks-modelo{grid-template-columns:28px minmax(0,1fr);gap:4px 6px;padding:8px 6px}
+  .ks-modelo .ks-mt{font-size:14px;font-variation-settings:"wdth" 92;hyphens:auto}
+  .ks-ponto{width:14px;height:14px;margin:-7px 0 0 -7px}
+  .ks-ponto::after{left:16px}
+}
+
+/* ---------- 4. A peça (escala por container query) ---------- */
+.peca{position:relative;width:100%;container-type:inline-size}
+.peca-tela{--u:calc(100cqw / var(--pw));position:relative;width:100%;aspect-ratio:var(--pw) / var(--ph);overflow:hidden;isolation:isolate;background:var(--sala);color:var(--tela);font-family:var(--font-letreiro);line-height:1.2;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+.peca-tela *{box-sizing:border-box;margin:0;padding:0}
+.peca-tela .off{font-size:1.2em}
+.fmt-4x5{--zt:72;--zr:72;--zb:72;--zl:72}
+.fmt-9x16{--zt:270;--zr:72;--zb:420;--zl:72}
+.fmt-9x16.reels{--zr:120}
+.fmt-16x9{--zt:96;--zr:120;--zb:96;--zl:120}
+
+.pc-campo{position:absolute;inset:0;z-index:0;background:var(--estacao-campo)}
+.pc-janela{position:absolute;inset:0;z-index:0;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%)}
+.pc-grao{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.06;mix-blend-mode:screen;background-image:url("assets/textura/grao-240.webp");background-size:calc(var(--u)*240) calc(var(--u)*240)}
+.pc-foto{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--bastidor)}
+.pc-foto.rel{position:relative;inset:auto}
+.pc-foto img{display:block;width:100%;height:100%;object-fit:cover}
+.pc-ph{position:absolute;inset:calc(var(--u)*24);border:calc(var(--u)*2) dashed var(--fumaca);display:flex;align-items:center;justify-content:center;padding:calc(var(--u)*24);text-align:center}
+/* o aviso do espaço reservado nunca fica sob o texto nem sob o selo */
+.peca-tela:has(.pc-zona.pc-fim) .pc-ph{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:calc(var(--u)*(var(--zt) - 24));padding-left:calc(var(--u)*(var(--zl) - 24))}
+.peca-tela:has(.pc-zona.pc-fim) .pc-ph span{max-width:calc(var(--u)*560)}
+.peca-tela:has(.pc-veu-topo) .pc-ph{align-items:flex-end;padding-bottom:calc(var(--u)*(var(--zb) + 24))}
+.pc-ph span{font-weight:500;font-size:calc(var(--u)*26);line-height:1.3;font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po);max-width:calc(var(--u)*640)}
+
+.pc-zona{position:absolute;z-index:3;top:calc(var(--u)*var(--zt));right:calc(var(--u)*var(--zr));bottom:calc(var(--u)*var(--zb));left:calc(var(--u)*var(--zl));display:flex;flex-direction:column}
+.pc-fim{justify-content:flex-end}
+.pc-meio{justify-content:center}
+.pc-entre{justify-content:space-between}
+.pc-base{position:relative}
+.pc-veu{position:absolute;z-index:-1;left:calc(var(--u)*var(--zl)*-1);right:calc(var(--u)*var(--zr)*-1);bottom:calc(var(--u)*var(--zb)*-1);top:calc(var(--u)*-460);background:linear-gradient(180deg,rgb(24 24 24 / 0) 0,rgb(24 24 24 / var(--veu)) calc(var(--u)*400),rgb(24 24 24 / var(--veu)) 70%,rgb(24 24 24 / calc(var(--veu) + .08)) 100%)}
+.pc-veu-topo{position:absolute;z-index:2;left:0;right:0;top:0;height:calc(var(--u)*(var(--zt) + 560));background:linear-gradient(180deg,rgb(24 24 24 / var(--veu)) 0,rgb(24 24 24 / var(--veu)) calc(var(--u)*(var(--zt) + 200)),rgb(24 24 24 / 0) 100%)}
+.pc-gap{flex:none;height:calc(var(--u)*var(--g,48))}
+.pc-mola{flex:1 1 auto}
+
+.pc-titulo{font-weight:800;font-size:calc(var(--u)*var(--fs,120));line-height:.92;font-variation-settings:"wdth" var(--wd,112);text-transform:uppercase;letter-spacing:-.02em;color:var(--tela);text-wrap:balance;hyphens:none;overflow-wrap:normal}
+.pc-titulo .off{line-height:.8}
+.pc-secao{font-weight:700;font-size:calc(var(--u)*var(--fs,96));line-height:.98;font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela);text-wrap:balance}
+.off,.pc-offl{font-family:var(--font-off);font-style:italic;font-weight:300;font-variation-settings:"opsz" 72;text-transform:none;letter-spacing:0;color:var(--estacao-destaque)}
+.pc-offl{display:block;font-size:calc(var(--u)*var(--fs,72));line-height:1;white-space:nowrap}
+.pc-credito{font-weight:500;font-size:calc(var(--u)*26);line-height:1.35;font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.pc-credito b{color:var(--tela);font-weight:600}
+.pc-texto{font-weight:400;font-size:calc(var(--u)*36);line-height:1.3;font-variation-settings:"wdth" 100;color:var(--cal);max-width:calc(var(--u)*880)}
+.pc-fala{font-weight:600;font-size:calc(var(--u)*var(--fs,52));line-height:1.15;font-variation-settings:"wdth" 100;letter-spacing:-.005em;color:var(--cal)}
+.pc-regua{font-weight:400;font-size:calc(var(--u)*26);line-height:1.4;font-variation-settings:"wdth" 100;color:var(--po)}
+.pc-data{font-weight:300;font-size:calc(var(--u)*52);line-height:1.05;font-variation-settings:"wdth" 125;color:var(--tela);letter-spacing:0}
+.pc-numeral{font-weight:700;font-size:calc(var(--u)*var(--fs,200));line-height:.9;font-variation-settings:"wdth" 75;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.01em;color:var(--tela);white-space:nowrap}
+.pc-logo{display:block;width:calc(var(--u)*300);height:auto}
+.pc-logo.produto{width:calc(var(--u)*var(--lw,460))}
+.pc-creditos{display:block}
+.pc-creditos .pc-cl{display:block;white-space:nowrap}
+.peca-tela .pc-s{margin:0 .9em}
+.pc-creditos b{color:var(--tela);font-weight:700}
+.pc-rodape{display:flex;flex-direction:column;align-items:flex-start;gap:calc(var(--u)*24)}
+.pc-fio{border-left:calc(var(--u)*4) solid var(--estacao-grafismo);padding-left:calc(var(--u)*36)}
+.pc-selo{position:absolute;z-index:4;top:calc(var(--u)*var(--zt));right:calc(var(--u)*var(--zr));width:calc(var(--u)*var(--sd,220));height:calc(var(--u)*var(--sd,220))}
+.pc-selo svg{display:block;width:100%;height:100%}
+.pc-marcador{display:flex;align-items:center;gap:calc(var(--u)*16)}
+.pc-marcador svg{display:block;flex:none;width:calc(var(--u)*34);height:calc(var(--u)*34)}
+.pc-capitulo{display:flex;align-items:center;gap:calc(var(--u)*20)}
+.pc-capitulo i{display:block;flex:none;width:calc(var(--u)*48);height:calc(var(--u)*2);background:var(--po)}
+.pc-botao{display:inline-flex;align-items:center;gap:calc(var(--u)*20);align-self:flex-start;min-height:calc(var(--u)*104);padding:0 calc(var(--u)*48);background:var(--tela);color:var(--sala);font-weight:700;font-size:calc(var(--u)*30);line-height:1;font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase}
+.pc-botao svg{width:calc(var(--u)*36);height:calc(var(--u)*36);fill:none;stroke:var(--estacao-seta);stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;flex:none}
+
+/* R3 Cinemascope */
+.r3-faixa{position:absolute;left:0;right:0;top:calc(var(--u)*449);height:calc(var(--u)*452);z-index:1}
+.r3-topo{position:absolute;z-index:3;left:calc(var(--u)*72);right:calc(var(--u)*72);bottom:calc(var(--u)*949)}
+.r3-pe{position:absolute;z-index:3;left:calc(var(--u)*72);right:calc(var(--u)*72);top:calc(var(--u)*949);bottom:calc(var(--u)*72);display:flex;flex-direction:column;justify-content:space-between}
+/* R4 Fotograma Triplo */
+.r4-quadros{flex:1 1 auto;display:flex;gap:calc(var(--u)*24);min-height:0}
+.r4-q{flex:1 1 0;display:flex;flex-direction:column;gap:calc(var(--u)*20);min-width:0}
+.r4-q .pc-foto{flex:1 1 auto}
+.r4-q .pc-ph span{font-size:calc(var(--u)*22);letter-spacing:.12em}
+/* R6 Letreiro */
+.r6-corte{position:absolute;left:0;top:0;width:100%;height:calc(var(--u)*760);z-index:1;overflow:hidden}
+.r6-corte svg{display:block;width:100%;height:100%}
+/* R8 Campo de Produto */
+.r8-dagua{position:absolute;z-index:1;right:calc(var(--u)*-40);bottom:calc(var(--u)*120);font-family:var(--font-off);font-style:italic;font-weight:300;font-variation-settings:"opsz" 72;font-size:calc(var(--u)*420);line-height:.8;text-transform:uppercase;color:var(--tela);opacity:.08;white-space:nowrap}
+.r8-dagua.vazada{font-family:var(--font-letreiro);font-style:normal;font-weight:800;font-variation-settings:"wdth" 125;color:transparent;-webkit-text-stroke:calc(var(--u)*2) var(--tela);opacity:.2}
+.r8-faixa{position:absolute;z-index:0;left:0;right:0;height:calc(var(--u)*64);background:var(--ardosia)}
+.pc-campotexto{color:var(--estacao-campo-texto)}
+.pc-campotexto .off,.pc-campotexto .pc-offl,.pc-campotexto .pc-titulo,.pc-campotexto .r12-cta{color:inherit}
+/* R9 Convocação: Letreiro Corrido parado na peça */
+.r9-corrido{position:relative;margin:0 calc(var(--u)*var(--zr)*-1) 0 calc(var(--u)*var(--zl)*-1);height:calc(var(--u)*64);display:flex;align-items:center;overflow:hidden;background:var(--sala);border-top:calc(var(--u)*1) solid var(--fio);border-bottom:calc(var(--u)*1) solid var(--fio)}
+.r9-corrido p{white-space:nowrap;padding-left:calc(var(--u)*var(--zl))}
+/* R10 Bastidor: legenda queimada */
+.r10-legenda{font-weight:600;font-size:calc(var(--u)*var(--fs,64));line-height:1.32;font-variation-settings:"wdth" 100;color:var(--tela);max-width:calc(var(--u)*900)}
+.r10-legenda span.cx{background:rgb(24 24 24 / .75);padding:calc(var(--u)*6) calc(var(--u)*18);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.r10-legenda .dest{color:var(--areia)}
+/* R11 Prova */
+.r11-prova{border-left:calc(var(--u)*4) solid var(--estacao-grafismo);padding-left:calc(var(--u)*40);display:flex;flex-direction:column;gap:calc(var(--u)*24)}
+.r11-prova[data-origem="em-validacao"]{border-left-style:dashed;border-left-color:var(--fumaca)}
+.r11-validacao{display:inline-flex;align-self:flex-start;align-items:center;gap:calc(var(--u)*16);padding:calc(var(--u)*28) calc(var(--u)*32);border:calc(var(--u)*3) dashed var(--fumaca);color:var(--po);font-weight:500;font-size:calc(var(--u)*40);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.r11-validacao svg{width:calc(var(--u)*44);height:calc(var(--u)*44);flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square}
+.r11-origem{display:inline-block;width:calc(var(--u)*40);margin-right:calc(var(--u)*16);vertical-align:middle;border-top:calc(var(--u)*4) solid var(--po)}
+.r11-origem[data-o="terceiro"]{border-top-style:dashed}
+.r11-origem[data-o="mercado"]{border-top-style:dotted}
+.r11-origem[data-o="em-validacao"]{border-top-style:dashed;border-top-color:var(--fumaca)}
+/* R12 Turma Aberta: Barra de Turma ampliada */
+.r12-barra{background:var(--bastidor);border-bottom:calc(var(--u)*4) solid var(--estacao-grafismo);padding:calc(var(--u)*36) calc(var(--u)*40);display:flex;flex-direction:column;gap:calc(var(--u)*20)}
+.r12-linha{display:flex;align-items:center;gap:calc(var(--u)*20);font-weight:500;font-size:calc(var(--u)*40);line-height:1.2;font-variation-settings:"wdth" 100;color:var(--tela);text-transform:uppercase;letter-spacing:.02em}
+.r12-linha svg{width:calc(var(--u)*48);height:calc(var(--u)*48);flex:none;fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.r12-linha.cabeca{color:var(--po);font-size:calc(var(--u)*26);font-variation-settings:"wdth" 125;letter-spacing:.18em}
+[data-estacao="start"] .r12-linha svg{stroke:var(--areia)}
+.r12-cta{font-weight:600;font-size:calc(var(--u)*48);line-height:1.15;font-variation-settings:"wdth" 100}
+</style>
+</head>
+<body class="ks">
+<script type="application/json" id="ks-arquivos">
+{
+  "logo": "assets/brand/svg/void-horizontal-branco.svg",
+  "logo-start": "assets/brand/svg/void-start-branco.svg",
+  "logo-master": "assets/brand/svg/void-master-branco.svg",
+  "logo-pro": "assets/brand/svg/void-pro-branco.svg",
+  "selo-completo-start": "assets/brand/svg/selo-completo-start.svg",
+  "selo-completo-master": "assets/brand/svg/selo-completo-master.svg",
+  "selo-completo-pro": "assets/brand/svg/selo-completo-pro.svg",
+  "selo-simples-start": "assets/brand/svg/selo-simples-start.svg",
+  "selo-simples-master": "assets/brand/svg/selo-simples-master.svg",
+  "selo-simples-pro": "assets/brand/svg/selo-simples-pro.svg",
+  "grao": "assets/textura/grao-240.webp"
+}
+</script>
+
+<header class="ks-topo">
+  <a href="index.html" aria-label="The VOID Tattoo Academy, página inicial do sistema"><img class="ks-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="158" height="24"></a>
+  <span class="ks-sep" aria-hidden="true"></span>
+  <p class="ks-nome credito"><b>Kit social</b> · 13 modelos de rede</p>
+  <nav aria-label="Outros materiais">
+    <a href="brand-book.html#s35"><svg class="ks-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><span>Manual, seção 35</span></a>
+  </nav>
+</header>
+
+<main class="ks-livro" id="conteudo">
+  <section class="ks-intro" aria-labelledby="ks-t">
+    <div>
+      <p class="credito"><span data-vforms="marcador-estacao" aria-hidden="true"></span> Canais · Redes sociais</p>
+      <h1 id="ks-t" class="titulo-filme">Peças de rede <em class="off">em tamanho real</em></h1>
+    </div>
+    <p class="ks-apoio">Escolha o modelo, preencha os campos e baixe o PNG em 1080 de largura. <b>A peça só sai quando passa nas regras do manual:</b> até 6 palavras no título, contraste conferido no pior pixel sob o texto, prova com origem, turma com data futura, cota de Campo de Produto respeitada e foto real com autorização.</p>
+  </section>
+
+  <noscript><p class="ks-apoio">Este editor desenha as peças no navegador. Ligue o JavaScript para usar os modelos e exportar as imagens. As regras completas estão no manual, seção 35.</p></noscript>
+
+  <div class="ks-editor">
+    <nav class="ks-modelos" aria-labelledby="ks-modelos-t">
+      <p class="ks-rotulo credito" id="ks-modelos-t">Modelos R1 a R13</p>
+      <ol id="ks-lista-modelos"></ol>
+    </nav>
+
+    <section class="ks-palco" aria-labelledby="ks-palco-t">
+      <h2 class="ks-oculto" id="ks-palco-t">Prévia da peça</h2>
+      <div class="ks-barra">
+        <div class="ks-grupo"><span class="credito">Formato</span><div class="ks-seg" id="ks-formatos" role="group" aria-label="Formato da peça"></div></div>
+        <div class="ks-grupo"><span class="credito">Produto</span><div class="ks-seg" id="ks-produtos" role="group" aria-label="Produto da peça"></div></div>
+        <div class="ks-grupo"><span class="credito">Ver</span><div class="ks-seg" role="group" aria-label="Camadas de conferência">
+          <button type="button" class="ks-alterna" id="ks-ver-areas" aria-pressed="false"><svg class="ks-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>Áreas seguras</button>
+          <button type="button" class="ks-alterna" id="ks-ver-pontos" aria-pressed="false" title="Mostra o pior pixel de todos os textos. Os que não passam aparecem sempre."><svg class="ks-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z"/></svg>Pior pixel</button>
+        </div></div>
+      </div>
+      <div class="ks-moldura" id="ks-moldura" data-fmt="4x5">
+        <div class="peca" id="ks-previa"></div>
+      </div>
+      <p class="ks-ficha" id="ks-ficha"></p>
+    </section>
+
+    <div class="ks-painel">
+      <section class="ks-caixa" aria-labelledby="ks-campos-t">
+        <h2 id="ks-campos-t">Campos</h2>
+        <p class="ks-sub" id="ks-campos-sub"></p>
+        <div class="ks-campos" id="ks-campos"></div>
+      </section>
+      <section class="ks-caixa" aria-labelledby="ks-conf-t">
+        <h2 id="ks-conf-t">Conferência</h2>
+        <p class="ks-sub">Cada linha é uma regra do manual. Uma linha em vermelho trava a exportação.</p>
+        <ul class="ks-lista" id="ks-conferencia" aria-live="polite"></ul>
+        <ul class="ks-contraste" id="ks-contraste" aria-label="Contraste no pior pixel sob cada texto"></ul>
+      </section>
+      <section class="ks-caixa ks-saida" aria-labelledby="ks-saida-t">
+        <h2 id="ks-saida-t">Exportar</h2>
+        <button type="button" class="botao" id="ks-exportar" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span id="ks-exportar-r">Baixar PNG</span></button>
+        <p class="ks-motivo" id="ks-motivo" aria-live="polite">Conferindo a peça.</p>
+        <p class="ks-motivo">Arquivo: <code id="ks-arquivo"></code></p>
+      </section>
+    </div>
+  </div>
+
+  <section class="ks-ref" aria-labelledby="ks-ref-t">
+    <h2 id="ks-ref-t" class="titulo-secao">Regras <em class="off">de toda peça</em></h2>
+    <div>
+      <h3>O que vale para os 13</h3>
+      <ul>
+        <li>Logotipo uma vez, sempre o arquivo oficial: horizontal branco de 300 u no rodapé ou de produto no Campo de Produto.</li>
+        <li>No máximo três recursos por peça; o grão conta como um.</li>
+        <li>Título em caixa alta com até 6 palavras e até 3 linhas; a voz em off entra numa linha.</li>
+        <li>Campo de Produto em uma peça a cada seis no feed e em uma tela a cada cinco no carrossel.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Como o editor confere</h3>
+      <ul>
+        <li>O título estreita antes de encolher: largura 112, 100, 92 e 85; depois o tamanho desce até 96 u. Se ainda passar de 3 linhas, reescreva.</li>
+        <li>O fundo é desenhado sem o texto e cada letra é medida contra o pixel mais claro (ou mais escuro) que está sob ela: 4,5:1 abaixo de 96 u, 3:1 a partir daí.</li>
+        <li>Prova sem origem, ou em validação, não sai. Turma com data passada também não.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Medidas</h3>
+      <ul>
+        <li>Feed 1080 por 1350, margem de 72 u, miolo 3:4 protegido para o corte do perfil.</li>
+        <li>Story e Reels 1080 por 1920, conteúdo entre y = 270 e y = 1500; 120 u livres à direita nos Reels.</li>
+        <li>Horizontal 1920 por 1080, margens de 120 u nas laterais e 96 u em cima e embaixo.</li>
+      </ul>
+    </div>
+    <p class="fontes">Fontes desta página: Plataforma de Branding, aureadesign, 2025 (frases de rito, Convenção, Talks e Pro); Brand DNA da The VOID, set/2026 (crença do Gabriel, voz em off, fotografia); Personas, set/2026; site oficial, consultado em 06/10/2026 (frases do Start e da aula experimental). Regras: manual de marca, seções 2, 3.4, 4.4, 6, 7.1, 11 e 12.3.</p>
+  </section>
+</main>
+
+<footer class="ks-pe">
+  <p class="credito"><span class="t">Tattoo Academy</span> <span class="t">® 2025</span> <span class="t">São Paulo</span> <span class="t">Brazil</span> <span class="q"></span> <span><b>Preencha o vazio</b></span></p>
+</footer>
+
+<div class="ks-host" id="ks-host" aria-hidden="true"></div>
+
+<script src="vforms.js"></script>
+<script src="vviz.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ============================== 1. Base ============================== */
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.prototype.slice.call((r || document).querySelectorAll(s));
+  const pad = n => (n < 10 ? '0' : '') + n;
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const vazio = s => s == null || String(s).trim() === '';
+  const hojeD = new Date();
+  const HOJE = hojeD.getFullYear() + '-' + pad(hojeD.getMonth() + 1) + '-' + pad(hojeD.getDate());
+  const ARQ = JSON.parse($('#ks-arquivos').textContent);
+  const MESES = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+  const dataBR = iso => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : ''; };
+
+  const FORMATOS = {
+    '4x5': { w: 1080, h: 1350, nome: '4:5', titulo: 'Feed 1080 por 1350' },
+    '9x16': { w: 1080, h: 1920, nome: '9:16', titulo: 'Story e Reels 1080 por 1920' },
+    '16x9': { w: 1920, h: 1080, nome: '16:9', titulo: 'Horizontal 1920 por 1080' }
+  };
+  const PRODUTOS = { chamado: 'Institucional', start: 'Start', master: 'Master', pro: 'Pro', voiders: 'VOIDERS' };
+  const ARQ_PRODUTO = { chamado: 'institucional', start: 'start', master: 'master', pro: 'pro', voiders: 'voiders' };
+
+  /* ícones Lucide (copiados; traço 1,5 e pontas retas pelo CSS) */
+  const ICONES = {
+    'circle-check': '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    'circle-x': '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>',
+    'triangle-alert': '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+    'circle-dashed': '<path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/>',
+    'image-plus': '<path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/>',
+    'x': '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    'calendar-days': '<path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/>',
+    'clock': '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    'users-round': '<path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/>',
+    'map-pin': '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+    'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>'
+  };
+  const ic = (n, cls) => '<svg class="' + (cls || 'ks-ic') + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + ICONES[n] + '</svg>';
+  const icPeca = n => '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + ICONES[n] + '</svg>';
+
+  /* ============================== 2. Linguagem vetada (spec 9.2 e 11.1) ============================== */
+  const LETRA = '[^\\p{L}\\p{N}]';
+  const palavra = src => new RegExp('(^|' + LETRA + ')(' + src + ')(?=$|' + LETRA + ')', 'iu');
+  const VETOS = [
+    [/[\u2014\u2013]/, 'travessão: troque por ponto, vírgula ou dois pontos (spec 4.7)'],
+    [palavra('tat' + 'oo'), 'grafia vetada: sempre TATTOO (C4)'],
+    [/\{\{|\}\}|\[[^\]]*\]/, 'valor entre colchetes ou {{A_CONFIRMAR}} nunca vai ao ar (spec, como ler)'],
+    [palavra('maior(es)?\\s+(escola|mercado|estrutura|d[oa]\\s+(brasil|pa[ií]s|mundo|regi[ãa]o))'), 'superlativo sem prova pública (11.1)'],
+    [/#\s?1(?!\d)/, 'claim #1 vetado (11.1)'],
+    [palavra('n[ºo°.]\\s?1'), 'claim Nº 1 vetado (11.1)'],
+    [palavra('(a|o|os|as)\\s+melhor(es)?'), 'superlativo "a melhor" vetado (11.1)'],
+    [palavra('(a|o)\\s+[uú]nic[ao]'), 'claim "a única" vetado (11.1)'],
+    [palavra('l[ií]der(es)?\\s+(no|do|de)\\s+(segmento|mercado)'), 'claim de liderança vetado (11.1)'],
+    [palavra('mec|diploma|curso\\s+t[eé]cnico|credenciad[ao]|habilita[çc][ãa]o|institui[çc][ãa]o\\s+parceira|certifica[çc][ãa]o\\s+(via|com|pel[ao]|oficial|reconhecida)'), 'reconhecimento oficial de ensino: só com advogado (11.1, P 20)'],
+    [/\+\s?\d[\d.]*\s?(mil\s+)?(alunos|formados)|\b\d+\s+anos\s+de\s+(mercado|hist[óo]ria|estrada|tradi[çc][ãa]o)|\b(desde|est\.?)\s+(19|20)\d\d\b/i, 'número sem prova pública ou tempo de mercado (11.1, P 5)'],
+    [/R\$\s?\d/, 'valor em reais fica fora da peça de rede: preço só com total, parcelas e condições do checkout (11.1, P 15)'],
+    [palavra('dobr(ar|e|ou)|ganhe|ganhar|renda|fature|faturar|\\d+\\s?k|lucr(o|ar|e)'), 'promessa financeira vetada (11.1)'],
+    [palavra('[úu]ltimas\\s+vagas|s[óo]\\s+hoje|corra|imperd[ií]vel'), 'urgência sem calendário real (11.1)'],
+    [palavra('saiba\\s+mais|clique\\s+aqui|compre\\s+agora|learn\\s+more'), 'rótulo de CTA vetado (12.1)'],
+    [palavra('incr[ií]vel|maravilhos[ao]s?|simples\\s+assim|f[áa]cil|f[áa]ceis|em\\s+poucos\\s+cliques|sonho\\s+realizado|empoder\\p{L}*|revolucion[áa]ri[ao]s?|disruptiv[ao]s?'), 'palavra fora do território da marca (9.2)'],
+    [palavra('curso\\s+r[áa]pido|certificado\\s+f[áa]cil|tatuagem\\s+comercial|conte[úu]do\\s+gratuito|influencer\\p{L}*|aula\\s+online\\s+gravada|pre[çc]o\\s+baixo|acess[íi]vel'), 'expressão vetada no território da marca (9.2)'],
+    [palavra('n[íi]vel|xp|desbloque\\p{L}*|ranking'), 'vocabulário de jogo vetado (9.2)']
+  ];
+  function vetos(texto) {
+    const t = String(texto || '');
+    const r = [];
+    VETOS.forEach(v => { if (v[0].test(t)) r.push(v[1]); });
+    return r;
+  }
+  const contaPalavras = s => String(s || '').trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
+
+  /* ============================== 3. Estado ============================== */
+  const S = {
+    modelo: 'r1', formato: '4x5', estacao: 'chamado', areas: false, pontos: false,
+    v: {}, fotos: {}, fit: {}, editado: {}, amostra: { estado: 'espera' }, ativos: { faltando: [] }
+  };
+
+  /* ============================== 4. Peças comuns ============================== */
+  function fitv(k, p, padrao) { return S.fit[k] && S.fit[k][p] != null ? S.fit[k][p] : padrao; }
+
+  function titulo(v, o) {
+    o = o || {};
+    const fs = fitv('titulo', 'fs', o.fs || 120), wd = fitv('titulo', 'wd', 112);
+    const off = !vazio(v.off) && !o.semOff ? ' <em class="off">' + esc(v.off.trim()) + '</em>' : '';
+    const txt = o.texto != null ? o.texto : v.titulo;
+    const corpo = o.quebra ? String(txt || '').trim().split(o.quebra).map(esc).join(o.quebra.trim() + '<br>') : esc(String(txt || '').trim());
+    return '<p class="pc-titulo' + (o.cls ? ' ' + o.cls : '') + '" data-papel="Título" data-fit="titulo" data-fs0="' + (o.fs || 120) + '" style="--fs:' + fs + ';--wd:' + wd + '">' + corpo + off + '</p>';
+  }
+  function offLinha(texto, o) {
+    o = o || {};
+    if (vazio(texto)) return '';
+    const fs = fitv('offlinha', 'fs', o.fs || 72);
+    return '<p class="pc-offl' + (o.cls ? ' ' + o.cls : '') + '" data-papel="Voz em off" data-fit="offlinha" data-fs0="' + (o.fs || 72) + '" style="--fs:' + fs + '">' + esc(texto.trim()) + '</p>';
+  }
+  function gap(n) { return '<div class="pc-gap" style="--g:' + n + '"></div>'; }
+  function creditosFinais() {
+    const q = fitv('creditos', 'q', 'uma');
+    const t = ['TATTOO ACADEMY', '® 2025', 'SÃO PAULO', 'BRAZIL'];
+    const s = '<span class="pc-s">·</span>';
+    const fim = '<b>PREENCHA O VAZIO</b>';
+    let linhas;
+    if (q === 'uma') linhas = [t.join(s) + s + fim];
+    else if (q === 'brazil') linhas = [t.join(s), fim];
+    else linhas = [t.slice(0, 3).join(s), t[3] + s + fim];
+    return '<p class="pc-credito pc-creditos" data-papel="Créditos Finais" data-fit="creditos">' + linhas.map(l => '<span class="pc-cl">' + l + '</span>').join('') + '</p>';
+  }
+  function logo(o) {
+    o = o || {};
+    if (o.produto && o.produto !== 'chamado' && o.produto !== 'voiders') {
+      return '<img class="pc-logo produto" style="--lw:' + (o.largura || 460) + '" src="' + ARQ['logo-' + o.produto] + '" alt="The VOID ' + PRODUTOS[o.produto] + '">';
+    }
+    return '<img class="pc-logo" src="' + ARQ.logo + '" alt="The VOID Tattoo Academy">';
+  }
+  function rodape(o) {
+    o = o || {};
+    return '<div class="pc-rodape">' + logo(o) + (o.creditos === false ? '' : creditosFinais()) + '</div>';
+  }
+  function grao() { return '<div class="pc-grao" aria-hidden="true"></div>'; }
+  function janela() { return '<div class="pc-janela" aria-hidden="true"></div>'; }
+  function fotoChave(slot) { return S.modelo + ':' + slot; }
+  function foto(slot, o) {
+    o = o || {};
+    const f = S.fotos[fotoChave(slot)];
+    const cls = 'pc-foto' + (o.rel ? ' rel' : '');
+    const st = o.style ? ' style="' + o.style + '"' : '';
+    if (f && f.proc) return '<div class="' + cls + '"' + st + '><img src="' + f.proc + '" alt="" style="object-position:' + (f.pos || '50% 50%') + '"></div>';
+    return '<div class="' + cls + '"' + st + ' data-foto-vazia="' + esc(slot) + '"><div class="pc-ph" data-amostra="nao" data-dica><span>Foto real da escola, com autorização</span></div></div>';
+  }
+  function veu(v) { return '<div class="pc-veu" aria-hidden="true" style="--veu:' + (+(v || 70) / 100) + '"></div>'; }
+  function selo(produto, d, tipo) {
+    if (!produto || produto === 'chamado' || produto === 'voiders') return '';
+    tipo = tipo || (d >= 200 ? 'completo' : 'simples');
+    const sv = window.VForms ? VForms.svg('selo', { produto: produto, tamanho: d, tipo: tipo, tema: 'sala', src: ARQ['selo-' + tipo + '-' + produto], aria: 'Selo The VOID ' + PRODUTOS[produto] }) : '';
+    const L = /data-disco/.test(sv) ? d * 1.08 : d;
+    return '<div class="pc-selo" style="--sd:' + L + '">' + sv + '</div>';
+  }
+  function marcadorEstacao(rotulo, est) {
+    const sv = window.VForms ? VForms.svg('marcador-estacao', { estacao: est || S.estacao, tema: 'sala', tamanho: 14 }) : '';
+    return '<p class="pc-credito pc-marcador" data-papel="Marcador">' + sv + '<span>' + esc(String(rotulo || '').toUpperCase()) + '</span></p>';
+  }
+  function capitulo(n, total, serie) {
+    const mostraTotal = n === 1 || n === total;
+    const txt = pad(n) + (mostraTotal ? ' / ' + pad(total) : '') + (vazio(serie) ? '' : ' · ' + serie.trim().toUpperCase());
+    return '<p class="pc-credito pc-capitulo" data-papel="Marcador de Capítulo"><i aria-hidden="true"></i><span>' + esc(txt) + '</span></p>';
+  }
+
+  /* ============================== 5. Os 13 modelos (spec 12.3) ============================== */
+  const ROTULOS_CTA = ['GARANTIR MINHA VAGA NA AULA', 'QUERO CONVERSAR SOBRE MINHA TURMA', 'QUERO FALAR SOBRE O MASTER', 'AGENDAR MEU DIAGNÓSTICO', 'CONFIRMAR PRESENÇA'];
+  const RITOS = {
+    'ritual-do-traco': { nome: 'Ritual do Traço', frase: 'Todo mundo começa com um traço.', cliente: false },
+    'primeira-pele': { nome: 'Primeira Pele', frase: 'Você nunca esquece sua primeira pele.', cliente: true },
+    'workshop-do-estilo': { nome: 'Workshop do Estilo', frase: 'Descubra sua identidade artística.', cliente: false },
+    'formatura-com-pele': { nome: 'Formatura com Pele', frase: 'Você não sai apenas com um certificado.', cliente: true }
+  };
+  const EVENTOS = {
+    talks: { nome: 'The VOID Talks', titulo: 'Da sala pra', off: 'cena' },
+    convencao: { nome: 'Convenção The VOID', titulo: 'A todos os', off: 'Artistas do Brasil' },
+    formatura: { nome: 'Formatura com Pele', titulo: 'Um novo capítulo', off: 'na pele' }
+  };
+  const PADRAO_PRODUTO = {
+    start: { titulo: 'Sempre faça', off: 'arte' },
+    master: { titulo: 'Descubra sua identidade', off: 'artística' },
+    pro: { titulo: 'A arte é sua.', off: 'O plano é nosso.' }
+  };
+  const FOTO_AUT = { k: 'aut', tipo: 'marca', rotulo: 'Tenho a autorização de imagem por escrito de quem aparece, cobrindo este canal e esta finalidade (orgânico ou anúncio).' };
+  const VEU_OPCOES = [['70', 'Véu de 70% (padrão)'], ['62', 'Véu de 62% (mínimo sob texto pequeno)'], ['55', 'Véu de 55% (só título de 24 px ou mais)'], ['48', 'Véu de 48% (só título grande sobre região escura)']];
+  const ENQ = [['50% 50%', 'Centro'], ['20% 50%', 'Esquerda'], ['80% 50%', 'Direita'], ['50% 20%', 'Topo'], ['50% 80%', 'Base']];
+
+  const MODELOS = [
+    {
+      id: 'r1', n: 'R1', nome: 'Cartaz', etapa: 'M1', formatos: ['4x5', '9x16'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'],
+      sub: 'Foto P&B sangrada, véu no terço do texto, Título de Filme com Palavra Sensível e Créditos Finais.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto principal' }],
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Título de Filme', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível (voz em off)', max: 7, ajuda: 'A palavra que sente, no fim do título. Minúscula.' },
+        { k: 'veu', tipo: 'opcoes', rotulo: 'Véu de Leitura', opcoes: VEU_OPCOES },
+        { foto: 'principal' }, FOTO_AUT
+      ],
+      padrao: { titulo: 'Talento é consequência de', off: 'treino', veu: '70', aut: false },
+      montar: v => foto('principal') + grao() + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(v.veu) + titulo(v) + gap(56) + rodape() + '</div></div>',
+      textos: v => [v.titulo, v.off]
+    },
+    {
+      id: 'r2', n: 'R2', nome: 'Cartela', etapa: 'M1', formatos: ['4x5'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'],
+      sub: 'Sala com grão e Janela de Luz, uma frase em Archivo e uma linha na voz em off. Nunca duas Cartelas seguidas.',
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Frase em Título de Filme', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Linha na voz em off', max: 7, ajuda: 'Uma linha só. Se não couber, o editor reduz até 56 u e depois avisa.' }
+      ],
+      padrao: { titulo: 'Tatuar não é desenhar.', off: 'É uma técnica nova.' },
+      montar: v => janela() + grao() + '<div class="pc-zona pc-fim"><div class="pc-mola"></div>' + titulo(v, { semOff: true }) + gap(32) + offLinha(v.off) + '<div class="pc-mola"></div>' + rodape() + '</div>',
+      textos: v => [v.titulo, v.off]
+    },
+    {
+      id: 'r3', n: 'R3', nome: 'Cinemascope', etapa: 'M1 a M7', formatos: ['4x5'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'],
+      sub: 'Faixa 2,39 por 1 no centro, título na faixa de cima e Crédito na de baixo. Não usar em depoimento.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto da faixa (2,39 por 1)' }],
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Título na faixa de cima', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7 },
+        { k: 'credito', tipo: 'texto', rotulo: 'Crédito na faixa de baixo', ajuda: 'Rito, lugar ou capítulo. Sem número e sem nome de aluno.' },
+        { foto: 'principal' }, FOTO_AUT
+      ],
+      padrao: { titulo: 'O processo como', off: 'ritual', credito: 'Vila Madalena · São Paulo', aut: false },
+      montar: v => '<div style="position:absolute;inset:0;background:var(--nanquim)"></div><div class="r3-faixa">' + foto('principal') + '</div>' + grao() +
+        '<div class="r3-topo">' + titulo(v, { fs: 96 }) + '</div>' +
+        '<div class="r3-pe"><p class="pc-credito" data-papel="Crédito">' + esc(String(v.credito || '').toUpperCase()) + '</p>' + rodape() + '</div>',
+      textos: v => [v.titulo, v.off, v.credito]
+    },
+    {
+      id: 'r4', n: 'R4', nome: 'Fotograma Triplo', etapa: 'M1, M2', formatos: ['4x5'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'],
+      sub: 'Três quadros que contam os três atos: primeira linha, mão guiando mão, traço firme.',
+      fotos: [{ slot: 'q1', rotulo: 'Quadro 1' }, { slot: 'q2', rotulo: 'Quadro 2' }, { slot: 'q3', rotulo: 'Quadro 3' }],
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Título de Filme', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7 },
+        { k: 'q1t', tipo: 'texto', rotulo: 'Legenda do quadro 1' }, { foto: 'q1' },
+        { k: 'q2t', tipo: 'texto', rotulo: 'Legenda do quadro 2' }, { foto: 'q2' },
+        { k: 'q3t', tipo: 'texto', rotulo: 'Legenda do quadro 3' }, { foto: 'q3' },
+        FOTO_AUT
+      ],
+      padrao: { titulo: 'Todo mundo começa com um', off: 'traço', q1t: 'Primeira linha', q2t: 'Mão guiando mão', q3t: 'Traço firme', aut: false },
+      montar: v => janela() + grao() + '<div class="pc-zona">' + titulo(v, { fs: 96 }) + gap(48) +
+        '<div class="r4-quadros">' + [1, 2, 3].map(i => '<div class="r4-q">' + foto('q' + i, { rel: true }) + '<p class="pc-credito" data-papel="Legenda do quadro"><b>' + pad(i) + '</b> · ' + esc(String(v['q' + i + 't'] || '').toUpperCase()) + '</p></div>').join('') + '</div>' +
+        gap(56) + rodape() + '</div>',
+      textos: v => [v.titulo, v.off, v.q1t, v.q2t, v.q3t]
+    },
+    {
+      id: 'r5', n: 'R5', nome: 'Antes Era', etapa: 'M2', formatos: ['4x5', '9x16'], estacoes: ['start', 'master', 'pro'],
+      sub: 'Depoimento real: foto Terra ou P&B com véu, "Antes [ocupação]. Hoje, tatuador.", nome e perfil autorizados, Fio de Produto e aviso curto.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto do aluno' }],
+      campos: [
+        { k: 'ocupacao', tipo: 'texto', rotulo: 'Ocupação anterior', ajuda: 'Como o aluno se descreve. Ex.: barista, professora.' },
+        { k: 'genero', tipo: 'opcoes', rotulo: 'Hoje', opcoes: [['TATUADOR', 'Tatuador'], ['TATUADORA', 'Tatuadora']] },
+        { k: 'nome', tipo: 'texto', rotulo: 'Nome do aluno (autorizado)' },
+        { k: 'perfil', tipo: 'texto', rotulo: 'Perfil na rede (opcional)', ajuda: 'Com @, só com autorização.' },
+        { k: 'turma', tipo: 'texto', rotulo: 'Turma (mês/ano)', ajuda: 'Formato out/2026.' },
+        { k: 'regime', tipo: 'opcoes', rotulo: 'Tratamento da foto', opcoes: [['terra', 'Terra (cor natural aquecida)'], ['ritual', 'Ritual (P&B)']] },
+        { foto: 'principal' },
+        { k: 'aut', tipo: 'marca', rotulo: 'O aluno autorizou por escrito o uso do depoimento, do nome e da imagem neste canal.' }
+      ],
+      padrao: { ocupacao: '', genero: 'TATUADORA', nome: '', perfil: '', turma: '', regime: 'terra', aut: false },
+      tituloDe: v => 'Antes ' + (vazio(v.ocupacao) ? '[ocupação]' : v.ocupacao.trim().replace(/[.]+$/, '')) + '. Hoje, ' + String(v.genero || 'TATUADORA').toLowerCase() + '.',
+      montar: (v, m) => {
+        const formacao = PRODUTOS[S.estacao];
+        const aluno = String(v.genero) === 'TATUADOR' ? 'aluno' : 'aluna';
+        const dep = 'Depoimento real de ' + (vazio(v.nome) ? '[nome]' : v.nome.trim()) + ', ' + aluno + ' da formação ' + formacao + ', turma ' + (vazio(v.turma) ? '[mês/ano]' : v.turma.trim()) + ', usado com autorização.';
+        return foto('principal') + grao() + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(70) +
+          '<div class="pc-fio">' + titulo(v, { texto: m.tituloDe(v), semOff: true, fs: 104, quebra: '. ' }) + gap(32) +
+          '<p class="pc-credito" data-papel="Nome"><b>' + esc((vazio(v.nome) ? '[NOME]' : v.nome.trim()).toUpperCase()) + '</b>' + (vazio(v.perfil) ? '' : ' · ' + esc(v.perfil.trim())) + '</p>' + gap(24) +
+          '<p class="pc-regua" data-papel="Crédito de Prova">' + esc(dep) + '</p>' +
+          '<p class="pc-regua" data-papel="Aviso de Conformidade">Resultados individuais variam conforme prática e dedicação.</p></div>' +
+          gap(48) + logo() + '</div></div>';
+      },
+      textos: v => [v.ocupacao, v.nome, v.perfil, v.turma]
+    },
+    {
+      id: 'r6', n: 'R6', nome: 'Letreiro', etapa: 'Institucional', formatos: ['4x5'], estacoes: ['chamado'],
+      sub: 'Corte do Logo no alto (o arquivo oficial, cortado entre letras inteiras), chamada ou data em Título de Filme e o logotipo completo pequeno no rodapé.',
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Chamada em Título de Filme', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7 },
+        { k: 'data', tipo: 'texto', rotulo: 'Data e horário (opcional)', ajuda: 'Só data confirmada. Formato 18/11/2026 · 19h30.' }
+      ],
+      padrao: { titulo: 'Da sala pra', off: 'cena', data: '' },
+      montar: v => {
+        const sv = window.VForms ? VForms.svg('corte-logo', { largura: 1080, altura: 760, mostra: 'VO', ancora: 'centro', src: ARQ.logo, tema: 'sala' }) : '';
+        return janela() + '<div class="r6-corte" aria-hidden="true">' + sv + '</div>' + grao() +
+          '<div class="pc-zona pc-fim">' + titulo(v, { fs: 112 }) + (vazio(v.data) ? '' : gap(28) + '<p class="pc-data" data-papel="Data">' + esc(v.data.trim().toUpperCase()) + '</p>') + gap(56) + rodape() + '</div>';
+      },
+      textos: v => [v.titulo, v.off, v.data]
+    },
+    {
+      id: 'r7', n: 'R7', nome: 'Roteiro', etapa: 'M1, M2', formatos: ['4x5'], estacoes: ['chamado', 'start', 'master', 'pro'],
+      sub: 'Carrossel educativo e glossário: capa Cartaz, cartões com Marcador de Capítulo alternando cartela e foto, definição de uma frase, "por [professor]" e um CTA no último.',
+      carrossel: true,
+      campos: [
+        { k: 'serie', tipo: 'texto', rotulo: 'Nome da série', ajuda: 'Vai no Marcador de Capítulo. Ex.: Glossário.' },
+        { k: 'total', tipo: 'opcoes', rotulo: 'Cartões no carrossel', opcoes: [3, 4, 5, 6, 7, 8, 9, 10].map(n => [String(n), n + ' cartões']) },
+        { k: 'atual', tipo: 'cartao', rotulo: 'Cartão em edição' },
+        { k: 'professor', tipo: 'texto', rotulo: 'Professor que assina', ajuda: 'Nome real e autorizado [P 13].' },
+        { k: 'cta', tipo: 'opcoes', rotulo: 'CTA do último cartão', opcoes: ROTULOS_CTA.map(r => [r, r]) },
+        FOTO_AUT
+      ],
+      padrao: {
+        serie: 'Glossário', total: '5', atual: '1', professor: '', cta: ROTULOS_CTA[0], aut: false,
+        cartoes: [
+          { titulo: 'Glossário do primeiro', off: 'traço', texto: '' },
+          { titulo: 'Estêncil', texto: 'O decalque do desenho na pele, que guia a agulha no primeiro traço.' },
+          { titulo: 'Biossegurança', texto: 'O protocolo que protege você e o cliente: luva, filme plástico, material de uso único e descarte.' },
+          { titulo: 'Linha', texto: 'O traço contínuo que desenha o contorno. Firmeza vem de treino, não de talento.' },
+          { titulo: 'Comece pelo', off: 'traço', texto: '' }
+        ]
+      },
+      montar: v => r7Cartao(v),
+      textos: v => { const t = [v.serie, v.professor]; (v.cartoes || []).slice(0, +v.total).forEach(c => t.push(c.titulo, c.off, c.texto)); return t; }
+    },
+    {
+      id: 'r8', n: 'R8', nome: 'Campo de Produto', etapa: 'M2 a M4', formatos: ['4x5', '9x16', '16x9'], estacoes: ['start', 'master', 'pro'], cota: true,
+      sub: 'A peça inteira no campo do produto, logotipo de produto branco, selo e Palavra de Produto a 8%. Uma peça a cada seis no feed.',
+      campos: [
+        { k: 'titulo', tipo: 'texto', rotulo: 'Título (opcional)', max: 6, ajuda: 'Frases de assinatura do produto. Muda com o produto até você editar.' },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7 },
+        { k: 'cotaCtx', tipo: 'opcoes', rotulo: 'Onde a peça vai sair', opcoes: [['feed', 'Feed (uma a cada seis)'], ['carrossel', 'Carrossel (uma tela a cada cinco)']] },
+        { k: 'cotaUsadas', tipo: 'numero', rotulo: 'Campo de Produto já usado', ajuda: 'Feed: quantas das últimas 5 peças já usaram Campo de Produto. Carrossel: quantas telas deste carrossel já usam.' },
+        { k: 'cotaTotal', tipo: 'numero', rotulo: 'Telas do carrossel', so: v => v.cotaCtx === 'carrossel' }
+      ],
+      padrao: { titulo: PADRAO_PRODUTO.start.titulo, off: PADRAO_PRODUTO.start.off, cotaCtx: 'feed', cotaUsadas: '', cotaTotal: '' },
+      montar: v => {
+        const e = S.estacao, pro = e === 'pro';
+        const f = FORMATOS[S.formato];
+        const dagua = '<div class="r8-dagua' + (pro ? ' vazada' : '') + '" aria-hidden="true" data-amostra="nao">' + PRODUTOS[e] + '</div>';
+        const faixa = pro ? '<div class="r8-faixa" aria-hidden="true" style="top:calc(var(--u)*' + Math.round(f.h * 0.62) + ')"></div>' : '';
+        return (pro ? '' : '<div class="pc-campo"></div>') + faixa + dagua + grao() + selo(e, 220) +
+          '<div class="pc-zona pc-fim pc-campotexto">' + (vazio(v.titulo) ? '' : titulo(v)) + gap(64) + logo({ produto: e, largura: S.formato === '16x9' ? 560 : 520 }) + '</div>';
+      },
+      textos: v => [v.titulo, v.off]
+    },
+    {
+      id: 'r9', n: 'R9', nome: 'Convocação', etapa: 'Pré-M1, M8', formatos: ['4x5', '9x16', '16x9'], estacoes: ['chamado', 'voiders'],
+      sub: 'Foto de público P&B noturna, "CONVOCAÇÃO" em Crédito, Título de Filme com Palavra Sensível, data e local reais, Letreiro Corrido no pé.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto de público (noturna)' }],
+      campos: [
+        { k: 'evento', tipo: 'opcoes', rotulo: 'Evento', opcoes: Object.keys(EVENTOS).map(k => [k, EVENTOS[k].nome]) },
+        { k: 'titulo', tipo: 'texto', rotulo: 'Título de Filme', max: 6 },
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7 },
+        { k: 'data', tipo: 'data', rotulo: 'Data do evento' },
+        { k: 'hora', tipo: 'texto', rotulo: 'Horário', ajuda: 'Formato 19h30.' },
+        { k: 'local', tipo: 'texto', rotulo: 'Local', ajuda: 'Endereço como no bloco NAP: Rua Jericó, 217 · Vila Madalena.' },
+        { k: 'veu', tipo: 'opcoes', rotulo: 'Véu de Leitura', opcoes: VEU_OPCOES },
+        { foto: 'principal' }, FOTO_AUT
+      ],
+      padrao: { evento: 'convencao', titulo: EVENTOS.convencao.titulo, off: EVENTOS.convencao.off, data: '', hora: '', local: '', veu: '70', aut: false },
+      montar: v => {
+        const corrido = Array(6).fill('THE VOID TATTOO<span class="pc-s">·</span>® 2025<span class="pc-s">·</span>SÃO PAULO<span class="pc-s">·</span>BRAZIL').join('<span class="pc-s">·</span>');
+        const quando = (vazio(v.data) ? '[DATA]' : dataBR(v.data)) + (vazio(v.hora) ? '' : ' · ' + v.hora.trim().toUpperCase());
+        return foto('principal') + grao() + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(v.veu) +
+          '<p class="pc-credito" data-papel="Crédito" style="color:var(--areia)">Convocação</p>' + gap(24) + titulo(v) + gap(40) +
+          '<p class="pc-data" data-papel="Data">' + esc(quando) + '</p>' + gap(12) +
+          '<p class="pc-credito" data-papel="Local">' + esc((vazio(v.local) ? '[local]' : v.local.trim()).toUpperCase()) + '</p>' + gap(48) + logo() + gap(48) +
+          '<div class="r9-corrido"><p class="pc-credito" data-papel="Letreiro Corrido">' + corrido + '</p></div></div></div>';
+      },
+      textos: v => [v.titulo, v.off, v.hora, v.local]
+    },
+    {
+      id: 'r10', n: 'R10', nome: 'Bastidor', etapa: 'M1 a M7', formatos: ['9x16'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'], reels: true,
+      sub: 'Story com foto cheia, Marcador de Estação no topo, legenda queimada e área de figurinha livre entre y = 1200 e 1500.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto do bastidor' }],
+      campos: [
+        { k: 'marcador', tipo: 'texto', rotulo: 'Marcador (produto ou rito)', ajuda: 'Nome do produto ou do rito, nunca a palavra estação. Ex.: Start · Ritual do Traço.' },
+        { k: 'legenda', tipo: 'area', rotulo: 'Legenda queimada', ajuda: 'Até 2 linhas, cerca de 28 caracteres por linha.' },
+        { k: 'destaque', tipo: 'texto', rotulo: 'Palavra de destaque (em Areia)', ajuda: 'Uma palavra que já está na legenda.' },
+        { k: 'veu', tipo: 'opcoes', rotulo: 'Véu no topo (sob o Marcador)', opcoes: VEU_OPCOES },
+        { foto: 'principal' }, FOTO_AUT
+      ],
+      padrao: { marcador: 'Aula experimental', legenda: 'Todo mundo começa com um traço.', destaque: 'traço', veu: '70', aut: false },
+      montar: v => {
+        let leg = esc(String(v.legenda || '').trim());
+        const d = String(v.destaque || '').trim();
+        if (d) { const i = leg.toLowerCase().indexOf(esc(d).toLowerCase()); if (i >= 0) leg = leg.slice(0, i) + '<span class="dest">' + leg.slice(i, i + esc(d).length) + '</span>' + leg.slice(i + esc(d).length); }
+        const fs = fitv('legenda', 'fs', 64);
+        return foto('principal') + '<div class="pc-veu-topo" aria-hidden="true" style="--veu:' + (+(v.veu || 70) / 100) + '"></div>' + grao() + '<div class="pc-zona">' + logo() + gap(32) + marcadorEstacao(v.marcador) + '<div class="pc-mola"></div>' +
+          '<p class="r10-legenda" data-papel="Legenda" data-fit="legenda" style="--fs:' + fs + '"><span class="cx">' + leg + '</span></p>' + gap(300) + '</div>';
+      },
+      textos: v => [v.marcador, v.legenda, v.destaque]
+    },
+    {
+      id: 'r11', n: 'R11', nome: 'Prova com Régua', etapa: 'M2', formatos: ['4x5'], estacoes: ['chamado', 'start', 'master', 'pro', 'voiders'],
+      sub: 'Um Numeral de Prova de 160 a 220 u, o que mede e a régua completa em 26 u. Sem origem, ou em validação, a peça não sai.',
+      campos: [
+        { k: 'marcador', tipo: 'texto', rotulo: 'Marcador (produto ou rito)' },
+        { k: 'valor', tipo: 'texto', rotulo: 'Número', ajuda: 'Só número com prova arquivada [P 15]. Ex.: 120 ou 4,9.' },
+        { k: 'mede', tipo: 'texto', rotulo: 'O que mede' },
+        { k: 'base', tipo: 'texto', rotulo: 'Recorte (base)', ajuda: 'Ex.: turmas Start de 2026.' },
+        { k: 'periodo', tipo: 'texto', rotulo: 'Data ou período', ajuda: 'Ex.: até out/2026.' },
+        { k: 'fonte', tipo: 'texto', rotulo: 'Fonte', ajuda: 'Ex.: registro da secretaria.' },
+        { k: 'origem', tipo: 'opcoes', rotulo: 'Marca de origem', opcoes: [['', 'Escolha a origem'], ['medido', 'Medido (registro da escola, arquivado)'], ['terceiro', 'Declarado por terceiro (Google, imprensa)'], ['mercado', 'Mercado (estudo externo)'], ['em-validacao', 'Em validação (não exporta)']] },
+        { k: 'link', tipo: 'texto', rotulo: 'Link da fonte', so: v => v.origem === 'terceiro' || v.origem === 'mercado' },
+        { k: 'captura', tipo: 'data', rotulo: 'Data da captura', so: v => v.origem === 'terceiro' },
+        { k: 'aviso', tipo: 'marca', rotulo: 'Mostrar o Aviso de Conformidade (obrigatório quando o número fala de resultado de aluno).' }
+      ],
+      padrao: { marcador: 'Start', valor: '', mede: 'alunos concluíram a formação Start', base: '', periodo: '', fonte: '', origem: 'em-validacao', link: '', captura: '', aviso: true },
+      montar: v => {
+        const ev = v.origem === 'em-validacao';
+        const num = ev || vazio(v.valor)
+          ? '<p class="r11-validacao" data-papel="Selo de validação">' + ic('circle-dashed', '') + 'Dado em validação</p>'
+          : '<p class="pc-numeral" data-papel="Numeral de Prova" data-fit="numeral" style="--fs:' + fitv('numeral', 'fs', 200) + '">' + esc(v.valor.trim()) + '</p>';
+        const regua = [v.base, v.periodo, v.fonte].map(x => vazio(x) ? '' : x.trim()).filter(Boolean).join(' · ') || '[recorte] · [data] · [fonte]';
+        return janela() + grao() + '<div class="pc-zona">' + marcadorEstacao(v.marcador) + '<div class="pc-mola"></div>' +
+          '<div class="r11-prova" data-origem="' + esc(v.origem || 'sem') + '">' + num +
+          '<p class="pc-fala" data-papel="O que mede">' + esc(vazio(v.mede) ? '[o que mede]' : v.mede.trim()) + '</p>' +
+          '<p class="pc-regua" data-papel="Régua"><span class="r11-origem" data-o="' + esc(v.origem || '') + '"></span>' + esc(regua) + '</p></div>' +
+          (v.aviso ? gap(32) + '<p class="pc-regua" data-papel="Aviso de Conformidade">Resultados individuais variam conforme prática e dedicação.</p>' : '') +
+          '<div class="pc-mola"></div>' + rodape() + '</div>';
+      },
+      textos: v => [v.marcador, v.valor, v.mede, v.base, v.periodo, v.fonte]
+    },
+    {
+      id: 'r12', n: 'R12', nome: 'Turma Aberta', etapa: 'M3, M4', formatos: ['9x16', '4x5'], estacoes: ['start', 'master', 'pro'], cota: true,
+      sub: 'Campo do produto, Barra de Turma ampliada com início, dias, horário e vagas reais, selo e o rótulo do CTA em texto. Some quando a data passa.',
+      campos: [
+        { k: 'off', tipo: 'texto', rotulo: 'Palavra Sensível', max: 7, ajuda: 'O título é "Turma de [mês]", tirado da data de início.' },
+        { k: 'inicio', tipo: 'data', rotulo: 'Começa em' },
+        { k: 'inscricoes', tipo: 'data', rotulo: 'Inscrições até' },
+        { k: 'dias', tipo: 'texto', rotulo: 'Dias', ajuda: 'Ex.: sábados.' },
+        { k: 'horario', tipo: 'texto', rotulo: 'Horário', ajuda: 'Ex.: 9h às 13h.' },
+        { k: 'vagasTotal', tipo: 'numero', rotulo: 'Vagas no total (opcional)' },
+        { k: 'vagasRestam', tipo: 'numero', rotulo: 'Vagas que restam', so: v => !vazio(v.vagasTotal) },
+        { k: 'vagasData', tipo: 'data', rotulo: 'Contagem feita em', so: v => !vazio(v.vagasTotal) },
+        { k: 'cta', tipo: 'texto', rotulo: 'Rótulo do CTA em texto' },
+        { k: 'cotaCtx', tipo: 'opcoes', rotulo: 'Onde a peça vai sair', opcoes: [['feed', 'Feed ou story (uma a cada seis)'], ['carrossel', 'Carrossel (uma tela a cada cinco)']] },
+        { k: 'cotaUsadas', tipo: 'numero', rotulo: 'Campo de Produto já usado', ajuda: 'Feed: quantas das últimas 5 peças já usaram Campo de Produto. Carrossel: quantas telas deste carrossel já usam.' },
+        { k: 'cotaTotal', tipo: 'numero', rotulo: 'Telas do carrossel', so: v => v.cotaCtx === 'carrossel' }
+      ],
+      padrao: { off: 'o primeiro traço', inicio: '', inscricoes: '', dias: '', horario: '', vagasTotal: '', vagasRestam: '', vagasData: HOJE, cta: 'Responda TURMA', cotaCtx: 'feed', cotaUsadas: '', cotaTotal: '' },
+      montar: v => {
+        const e = S.estacao;
+        const mes = /^\d{4}-(\d{2})/.exec(v.inicio || '');
+        const tit = 'Turma de ' + (mes ? MESES[+mes[1] - 1] : '[mês]');
+        const linhas = [
+          ['calendar-days', 'Começa em ' + (vazio(v.inicio) ? '[data]' : dataBR(v.inicio))],
+          ['clock', [v.dias, v.horario].map(x => vazio(x) ? '' : x.trim()).filter(Boolean).join(' · ') || '[dias] · [horário]']
+        ];
+        if (!vazio(v.vagasTotal)) linhas.push(['users-round', 'Restam ' + (vazio(v.vagasRestam) ? '[N]' : v.vagasRestam) + ' de ' + v.vagasTotal + ' em ' + (vazio(v.vagasData) ? '[data]' : dataBR(v.vagasData))]);
+        const barra = '<div class="r12-barra" data-papel="Barra de Turma"><p class="r12-linha cabeca">Inscrições até ' + esc(vazio(v.inscricoes) ? '[data]' : dataBR(v.inscricoes)) + '</p>' +
+          linhas.map(l => '<p class="r12-linha">' + icPeca(l[0]) + '<span>' + esc(l[1]) + '</span></p>').join('') + '</div>';
+        const pro = e === 'pro';
+        return (pro ? '' : '<div class="pc-campo"></div>') + grao() + selo(e, 220) +
+          '<div class="pc-zona pc-fim pc-campotexto">' + titulo(v, { texto: tit, fs: 112 }) + gap(48) + barra + gap(40) +
+          '<p class="r12-cta" data-papel="Rótulo do CTA">' + esc(String(v.cta || '').trim()) + '</p>' + gap(56) + logo({ produto: e, largura: 460 }) + '</div>';
+      },
+      textos: v => [v.off, v.dias, v.horario, v.cta]
+    },
+    {
+      id: 'r13', n: 'R13', nome: 'Marco do Aluno', etapa: 'M6 a M8', formatos: ['4x5', '9x16'], estacoes: ['start', 'master', 'pro'],
+      sub: 'Foto oficial do rito, nome do rito em Título de Filme, a frase do rito na voz em off e o selo da formação. Consentimento do aluno e do cliente tatuado.',
+      fotos: [{ slot: 'principal', rotulo: 'Foto oficial do rito' }],
+      campos: [
+        { k: 'rito', tipo: 'opcoes', rotulo: 'Rito', opcoes: Object.keys(RITOS).map(k => [k, RITOS[k].nome]) },
+        { k: 'frase', tipo: 'texto', rotulo: 'Frase do rito (voz em off)', max: 7, ajuda: 'Primeira frase do slide do rito. Muda com o rito até você editar.' },
+        { k: 'veu', tipo: 'opcoes', rotulo: 'Véu de Leitura', opcoes: VEU_OPCOES },
+        { foto: 'principal' },
+        { k: 'autAluno', tipo: 'marca', rotulo: 'O aluno autorizou por escrito a publicação desta foto.' },
+        { k: 'autCliente', tipo: 'marca', rotulo: 'O cliente tatuado autorizou por escrito (Primeira Pele e Formatura com Pele).', so: v => RITOS[v.rito] && RITOS[v.rito].cliente }
+      ],
+      padrao: { rito: 'primeira-pele', frase: RITOS['primeira-pele'].frase, veu: '70', autAluno: false, autCliente: false },
+      montar: v => {
+        const r = RITOS[v.rito] || RITOS['primeira-pele'];
+        return foto('principal') + grao() + selo(S.estacao, 220) + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(v.veu) +
+          titulo(v, { texto: r.nome, semOff: true }) + gap(28) + offLinha(v.frase, { fs: 64 }) + gap(56) + logo() + '</div></div>';
+      },
+      textos: v => [v.frase]
+    }
+  ];
+  const MOD = {}; MODELOS.forEach(m => { MOD[m.id] = m; });
+
+  /* R7: tipo de cada cartão (L8: cena, cartela, cena..., último é cartela com CTA) */
+  function tiposR7(n) {
+    const t = ['capa'];
+    for (let i = 2; i < n; i++) t.push(i % 2 === 0 ? 'cartela' : 'foto');
+    t.push('fim');
+    if (n >= 3 && t[n - 2] === 'cartela') t[n - 2] = 'foto';
+    return t;
+  }
+  const L8_R7 = { capa: 'cena', cartela: 'cartela', foto: 'cena', fim: 'cartela' };
+  function cartaoR7(v, i) {
+    if (!v.cartoes[i - 1]) v.cartoes[i - 1] = { titulo: '', texto: '' };
+    return v.cartoes[i - 1];
+  }
+  function r7Cartao(v) {
+    const n = +v.total, i = Math.min(+v.atual, n), tipo = tiposR7(n)[i - 1], c = cartaoR7(v, i);
+    const prof = '<p class="pc-credito" data-papel="Assinatura">Por <b>' + esc(vazio(v.professor) ? '[PROFESSOR]' : v.professor.trim().toUpperCase()) + '</b></p>';
+    const cap = capitulo(i, n, v.serie);
+    if (tipo === 'capa') {
+      return foto('c' + i) + grao() + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(70) + cap + gap(32) + titulo(c) + gap(56) + rodape() + '</div></div>';
+    }
+    if (tipo === 'foto') {
+      return foto('c' + i) + grao() + '<div class="pc-zona pc-fim"><div class="pc-base">' + veu(70) + cap + gap(32) +
+        titulo(c, { semOff: true, fs: 104 }) + gap(28) + '<p class="pc-texto" data-papel="Definição">' + esc(c.texto || '') + '</p>' + gap(28) + prof + '</div></div>';
+    }
+    if (tipo === 'cartela') {
+      return janela() + grao() + '<div class="pc-zona">' + cap + '<div class="pc-mola"></div>' + titulo(c, { semOff: true, fs: 104 }) + gap(32) +
+        '<p class="pc-texto" data-papel="Definição">' + esc(c.texto || '') + '</p>' + gap(32) + prof + '<div class="pc-mola"></div></div>';
+    }
+    return janela() + grao() + '<div class="pc-zona">' + cap + '<div class="pc-mola"></div>' + titulo(c) + gap(56) +
+      '<p class="pc-botao" data-papel="Botão desenhado"><span>' + esc(v.cta) + '</span>' + icPeca('arrow-right') + '</p><div class="pc-mola"></div>' + rodape() + '</div>';
+  }
+
+  /* ============================== 6. Montagem da peça ============================== */
+  function modeloAtual() { return MOD[S.modelo]; }
+  function valores() { return S.v[S.modelo]; }
+  function htmlPeca(semCamadas) {
+    const m = modeloAtual(), f = FORMATOS[S.formato];
+    const cls = 'peca-tela fmt-' + S.formato + (m.reels ? ' reels' : '');
+    return '<div class="' + cls + '" data-estacao="' + S.estacao + '" data-modelo="' + m.id + '" style="--pw:' + f.w + ';--ph:' + f.h + '">' +
+      m.montar(valores(), m) + (semCamadas ? '' : camadas()) + '</div>';
+  }
+  /* áreas seguras e miolo 3:4 (spec 7.1); nunca exportadas */
+  function camadas() {
+    const f = FORMATOS[S.formato], m = modeloAtual();
+    const pct = (a, b) => (a / b * 100).toFixed(4) + '%';
+    let h = '<div class="ks-camada" data-nao-exportar>';
+    if (S.formato === '4x5') {
+      h += '<div class="z z-margem" style="left:' + pct(72, 1080) + ';right:' + pct(72, 1080) + ';top:' + pct(72, 1350) + ';bottom:' + pct(72, 1350) + '"></div>';
+      h += '<div class="z z-faixa" style="left:0;top:0;bottom:0;width:' + pct(33.75, 1080) + '"></div><div class="z z-faixa" style="right:0;top:0;bottom:0;width:' + pct(33.75, 1080) + '"></div>';
+      h += '<div class="z z-miolo" style="left:' + pct(33.75, 1080) + ';right:' + pct(33.75, 1080) + ';top:0;bottom:0"></div>';
+      h += '<div class="z z-zona" style="left:' + pct(33.75, 1080) + ';right:' + pct(33.75, 1080) + ';top:0;height:' + pct(60, 1350) + ';border:0"><span>Miolo 3:4 do perfil</span></div>';
+    } else if (S.formato === '9x16') {
+      h += '<div class="z z-faixa" style="left:0;right:0;top:0;height:' + pct(270, 1920) + '"><span>Interface do aplicativo</span></div>';
+      h += '<div class="z z-faixa" style="left:0;right:0;bottom:0;height:' + pct(420, 1920) + '"><span>Interface do aplicativo</span></div>';
+      h += '<div class="z z-margem" style="left:' + pct(72, 1080) + ';right:' + pct(m.reels ? 120 : 72, 1080) + ';top:' + pct(270, 1920) + ';bottom:' + pct(420, 1920) + '"></div>';
+      h += '<div class="z z-miolo" style="left:0;right:0;top:' + pct(240, 1920) + ';bottom:' + pct(240, 1920) + ';border-left:0;border-right:0;border-top:1px dashed var(--areia);border-bottom:1px dashed var(--areia)"></div>';
+      if (m.reels) h += '<div class="z z-faixa" style="right:0;top:' + pct(270, 1920) + ';bottom:' + pct(420, 1920) + ';width:' + pct(120, 1080) + ';background:rgb(24 24 24 / .35)"></div>';
+      if (m.id === 'r10') h += '<div class="z z-zona" style="left:' + pct(72, 1080) + ';right:' + pct(120, 1080) + ';top:' + pct(1200, 1920) + ';height:' + pct(300, 1920) + '"><span>Figurinhas</span></div>';
+    } else {
+      h += '<div class="z z-margem" style="left:' + pct(120, 1920) + ';right:' + pct(120, 1920) + ';top:' + pct(96, 1080) + ';bottom:' + pct(96, 1080) + '"></div>';
+    }
+    if (!S.areas) h = h.replace(/class="z /g, 'hidden class="z ');
+    return h + '<div class="ks-pontos"></div></div>';
+  }
+
+  /* ============================== 7. Ajuste de texto (spec 4.3) ============================== */
+  function contaLinhas(el) {
+    const r = document.createRange(); r.selectNodeContents(el);
+    const rs = Array.prototype.filter.call(r.getClientRects(), x => x.width > 0.5 && x.height > 0.5);
+    const fs = parseFloat(getComputedStyle(el).fontSize) || 1;
+    const centros = rs.map(x => x.top + x.height / 2).sort((a, b) => a - b);
+    let n = 0, ult = -1e9;
+    centros.forEach(c => { if (c - ult > fs * 0.45) { n++; ult = c; } });
+    return n;
+  }
+  const cabe = el => el.scrollWidth <= el.clientWidth + 1;
+  function ajustar(tela) {
+    const fit = {};
+    const t = $('[data-fit="titulo"]', tela);
+    if (t) {
+      const fs0 = +t.dataset.fs0 || 120, tams = [];
+      for (let s = fs0; s >= 96; s -= 8) tams.push(s);
+      if (tams[tams.length - 1] !== 96) tams.push(96);
+      const tentativas = [[fs0, 112], [fs0, 100], [fs0, 92], [fs0, 85]].concat(tams.slice(1).map(s => [s, 85]));
+      let r = null;
+      for (let i = 0; i < tentativas.length; i++) {
+        const tt = tentativas[i];
+        t.style.setProperty('--fs', tt[0]); t.style.setProperty('--wd', tt[1]);
+        const l = contaLinhas(t);
+        if (l <= 3 && cabe(t)) { r = { fs: tt[0], wd: tt[1], linhas: l, ok: true }; break; }
+        r = { fs: tt[0], wd: tt[1], linhas: l, ok: false };
+      }
+      fit.titulo = r;
+    }
+    const o = $('[data-fit="offlinha"]', tela);
+    if (o) {
+      const fs0 = +o.dataset.fs0 || 72;
+      let r = null;
+      for (let s = fs0; s >= 56; s -= 4) { o.style.setProperty('--fs', s); if (cabe(o)) { r = { fs: s, ok: true }; break; } r = { fs: s, ok: false }; }
+      fit.offlinha = r;
+    }
+    const c = $('[data-fit="creditos"]', tela);
+    if (c) {
+      const zona = c.parentElement;
+      let r = { q: 'sp', ok: false };
+      const larg = zona.clientWidth;
+      for (const q of ['uma', 'brazil', 'sp']) {
+        S.fit.creditos = { q: q };
+        const tmp = document.createElement('div'); tmp.innerHTML = creditosFinais();
+        const novo = tmp.firstChild; c.replaceWith(novo);
+        const ok = $$('.pc-cl', novo).every(l => l.scrollWidth <= larg + 1 && l.getBoundingClientRect().width <= larg + 1);
+        if (ok) { r = { q: q, ok: true }; break; }
+        novo.replaceWith(c);
+      }
+      fit.creditos = r;
+    }
+    const lg = $('[data-fit="legenda"]', tela);
+    if (lg) {
+      let r = null;
+      for (let s = 68; s >= 60; s -= 4) { lg.style.setProperty('--fs', s); const l = contaLinhas(lg); r = { fs: s, linhas: l, ok: l <= 2 }; if (l <= 2) break; }
+      fit.legenda = r;
+    }
+    const nu = $('[data-fit="numeral"]', tela);
+    if (nu) {
+      let r = null;
+      for (let s = 220; s >= 160; s -= 10) { nu.style.setProperty('--fs', s); if (cabe(nu)) { r = { fs: s, ok: true }; break; } r = { fs: s, ok: false }; }
+      fit.numeral = r;
+    }
+    return fit;
+  }
+
+  /* ============================== 8. Fotos: tratamento Ritual e Terra (spec 8.3) ============================== */
+  const CURVA_RITUAL = [[0, .03], [.15, .10], [.5, .5], [.8, .85], [1, .96]];
+  function curva(pts, x) {
+    for (let i = 1; i < pts.length; i++) if (x <= pts[i][0]) { const a = pts[i - 1], b = pts[i]; return a[1] + (b[1] - a[1]) * (x - a[0]) / (b[0] - a[0]); }
+    return pts[pts.length - 1][1];
+  }
+  const LUT_RITUAL = new Uint8ClampedArray(256).map((_, i) => Math.round(curva(CURVA_RITUAL, i / 255) * 255));
+  function carregarImagem(src) {
+    return new Promise((ok, erro) => { const im = new Image(); im.onload = () => ok(im); im.onerror = () => erro(new Error('imagem')); im.src = src; });
+  }
+  async function tratar(original, regime) {
+    const im = await carregarImagem(original);
+    const cv = document.createElement('canvas'); cv.width = im.naturalWidth; cv.height = im.naturalHeight;
+    const cx = cv.getContext('2d'); cx.drawImage(im, 0, 0);
+    const d = cx.getImageData(0, 0, cv.width, cv.height), p = d.data;
+    for (let i = 0; i < p.length; i += 4) {
+      const r = p[i], g = p[i + 1], b = p[i + 2];
+      if (regime === 'terra') {
+        const l = 0.2126 * r + 0.7152 * g + 0.0722 * b, n = l / 255;
+        const sh = (1 - n) * (1 - n), hi = n * n;
+        p[i] = l + (r - l) * 0.8 + 255 * (0.012 * sh + 0.008 * hi);
+        p[i + 1] = l + (g - l) * 0.8 + 255 * (0.004 * hi);
+        p[i + 2] = l + (b - l) * 0.8 - 255 * (0.010 * sh + 0.012 * hi);
+      } else {
+        const y = LUT_RITUAL[Math.max(0, Math.min(255, Math.round(0.36 * r + 0.50 * g + 0.14 * b)))];
+        p[i] = p[i + 1] = p[i + 2] = y;
+      }
+    }
+    cx.putImageData(d, 0, 0);
+    return cv.toDataURL('image/jpeg', 0.92);
+  }
+  async function receberFoto(slot, arquivo) {
+    const url = await new Promise((ok, erro) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = erro; fr.readAsDataURL(arquivo); });
+    const im = await carregarImagem(url);
+    const lado = 2400, k = Math.min(1, lado / Math.max(im.naturalWidth, im.naturalHeight));
+    const cv = document.createElement('canvas'); cv.width = Math.round(im.naturalWidth * k); cv.height = Math.round(im.naturalHeight * k);
+    cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+    const original = cv.toDataURL('image/jpeg', 0.94);
+    const chave = fotoChave(slot);
+    const ant = S.fotos[chave] || {};
+    S.fotos[chave] = { original: original, nome: arquivo.name, pos: ant.pos || '50% 50%', regime: regimeDe(slot) };
+    S.fotos[chave].proc = await tratar(original, S.fotos[chave].regime);
+  }
+  function regimeDe() { return S.modelo === 'r5' ? (valores().regime || 'terra') : 'ritual'; }
+
+  /* ============================== 9. Rasterização (foreignObject, sem biblioteca) ============================== */
+  const TRANSPARENTE = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+  const cacheDados = {};
+  function blobParaDataURL(b) { return new Promise((ok, erro) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.onerror = erro; fr.readAsDataURL(b); }); }
+  async function paraDataURL(url) {
+    if (!url || /^data:/.test(url)) return url;
+    const abs = new URL(url, location.href).href;
+    if (cacheDados[abs]) return cacheDados[abs];
+    const mapa = window.VOID_ASSETS || {};
+    const rel = Object.keys(ARQ).map(k => ARQ[k]).find(p => abs.endsWith(p));
+    if (rel && mapa[rel]) return (cacheDados[abs] = mapa[rel]);
+    const r = await fetch(abs);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return (cacheDados[abs] = await blobParaDataURL(await r.blob()));
+  }
+  let cssFontes = null;
+  async function fontesEmbutidas() {
+    if (cssFontes) return cssFontes;
+    const blocos = [];
+    for (const sh of Array.prototype.slice.call(document.styleSheets)) {
+      let regras = null;
+      try { regras = sh.cssRules; } catch (e) { regras = null; }
+      if (regras) { Array.prototype.forEach.call(regras, r => { if (r.type === 5) blocos.push(r.cssText); }); }
+      else if (sh.href && /fonts\.googleapis\.com/.test(sh.href)) {
+        const txt = await (await fetch(sh.href)).text();
+        (txt.match(/@font-face\s*\{[^}]*\}/g) || []).forEach(b => blocos.push(b));
+      }
+    }
+    const uteis = blocos.filter(b => /Archivo|Newsreader/.test(b) && (!/unicode-range/.test(b) || /U\+0000-00FF/i.test(b)));
+    if (!uteis.length) throw new Error('fontes indisponíveis');
+    const saida = [];
+    for (const b of uteis) {
+      let nb = b;
+      const urls = b.match(/url\((['"]?)([^'")]+)\1\)/g) || [];
+      for (const u of urls) {
+        const href = u.replace(/^url\((['"]?)/, '').replace(/['"]?\)$/, '');
+        if (/^data:/.test(href)) continue;
+        nb = nb.split(u).join('url("' + await paraDataURL(href) + '")');
+      }
+      saida.push(nb);
+    }
+    return (cssFontes = saida.join('\n'));
+  }
+  const PULAR = /^(transition|animation|will-change|cursor|pointer-events|caret|outline|-webkit-tap|user-select|-webkit-user)/;
+  function estiloDe(el, semTexto) {
+    const cs = getComputedStyle(el);
+    let s = '';
+    for (let i = 0; i < cs.length; i++) {
+      const p = cs[i];
+      if (p.indexOf('--') === 0 || PULAR.test(p)) continue;
+      s += p + ':' + cs.getPropertyValue(p) + ';';
+    }
+    if (semTexto && (!el.closest('[data-amostra="nao"]') || el.closest('[data-dica]'))) s += 'color:transparent!important;-webkit-text-fill-color:transparent!important;-webkit-text-stroke:0!important;';
+    return s;
+  }
+  function clonar(no, semTexto) {
+    if (no.nodeType === 3) return document.createTextNode(no.nodeValue);
+    if (no.nodeType !== 1 || no.hasAttribute('data-nao-exportar')) return null;
+    if (no.namespaceURI === 'http://www.w3.org/2000/svg') {
+      const c = no.cloneNode(true);
+      const b = no.getBoundingClientRect();
+      c.setAttribute('width', b.width); c.setAttribute('height', b.height);
+      c.setAttribute('style', estiloDe(no, false));
+      return c;
+    }
+    const c = no.cloneNode(false);
+    c.removeAttribute('class'); c.removeAttribute('id');
+    c.setAttribute('style', estiloDe(no, semTexto));
+    for (let k = no.firstChild; k; k = k.nextSibling) { const x = clonar(k, semTexto); if (x) c.appendChild(x); }
+    return c;
+  }
+  async function embutirArquivos(raiz, tolerante, faltando) {
+    const trocar = async url => {
+      try { return await paraDataURL(url); }
+      catch (e) { faltando.push(url); if (tolerante) return TRANSPARENTE; throw e; }
+    };
+    for (const im of $$('img', raiz)) im.setAttribute('src', await trocar(im.getAttribute('src')));
+    for (const im of Array.prototype.slice.call(raiz.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'image'))) {
+      const h = im.getAttribute('href') || im.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+      if (h && !/^data:/.test(h)) { const d = await trocar(h); im.setAttribute('href', d); im.removeAttributeNS('http://www.w3.org/1999/xlink', 'href'); }
+    }
+    for (const el of $$('[style*="url("]', raiz)) {
+      let st = el.getAttribute('style');
+      const urls = st.match(/url\("([^"]+)"\)/g) || [];
+      for (const u of urls) {
+        const href = u.slice(5, -2);
+        if (/^data:/.test(href)) continue;
+        let d;
+        try { d = await paraDataURL(href); } catch (e) { d = null; if (!tolerante && !/grao-240/.test(href)) { faltando.push(href); throw e; } }
+        st = st.split(u).join(d ? 'url("' + d + '")' : 'none');
+      }
+      el.setAttribute('style', st);
+    }
+  }
+  async function rasterizar(tela, W, H, o) {
+    o = o || {};
+    const faltando = [];
+    const clone = clonar(tela, !!o.semTexto);
+    clone.style.margin = '0'; clone.style.left = '0'; clone.style.top = '0'; clone.style.transform = 'none';
+    await embutirArquivos(clone, !!o.tolerante, faltando);
+    const st = document.createElement('style');
+    st.textContent = await fontesEmbutidas();
+    clone.insertBefore(st, clone.firstChild);
+    const xhtml = new XMLSerializer().serializeToString(clone);
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '"><foreignObject x="0" y="0" width="' + W + '" height="' + H + '">' + xhtml + '</foreignObject></svg>';
+    const im = await carregarImagem('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg));
+    await new Promise(r => setTimeout(r, 60));
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const cx = cv.getContext('2d');
+    cx.fillStyle = '#181818'; cx.fillRect(0, 0, W, H);
+    cx.drawImage(im, 0, 0, W, H);
+    return { canvas: cv, faltando: faltando };
+  }
+
+  /* ============================== 10. Amostrador do pior pixel (spec 6.5 e 3.4) ============================== */
+  const LIN = new Float64Array(256).map((_, i) => { const c = i / 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); });
+  const lum = (r, g, b) => 0.2126 * LIN[r] + 0.7152 * LIN[g] + 0.0722 * LIN[b];
+  const razao = (a, b) => (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+  const rgbDe = s => { const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(s || ''); return m ? [+m[1], +m[2], +m[3]] : [248, 249, 244]; };
+  const hexDe = c => '#' + c.map(v => ('0' + v.toString(16)).slice(-2)).join('').toUpperCase();
+  function medir(tela, dados, W, H) {
+    const base = tela.getBoundingClientRect();
+    const px = dados.data;
+    const res = {};
+    const w = document.createTreeWalker(tela, NodeFilter.SHOW_TEXT);
+    for (let n = w.nextNode(); n; n = w.nextNode()) {
+      if (!/\S/.test(n.nodeValue)) continue;
+      const pai = n.parentElement;
+      if (pai.closest('[data-amostra="nao"],[data-nao-exportar]')) continue;
+      const cs = getComputedStyle(pai);
+      if (cs.visibility === 'hidden' || cs.display === 'none') continue;
+      const cor = rgbDe(cs.color), lt = lum(cor[0], cor[1], cor[2]);
+      const fs = parseFloat(cs.fontSize) || 0;
+      const grande = fs >= 96;
+      const papelEl = pai.closest('[data-papel]');
+      let papel = papelEl ? papelEl.getAttribute('data-papel') : 'Texto';
+      if (pai.closest('.off,.pc-offl')) papel = papel === 'Título' ? 'Palavra Sensível' : papel;
+      if (pai.classList.contains('dest')) papel = 'Destaque da legenda';
+      const r = document.createRange(); r.selectNodeContents(n);
+      let pior = null;
+      Array.prototype.forEach.call(r.getClientRects(), q => {
+        const x0 = Math.max(0, Math.floor(q.left - base.left)), y0 = Math.max(0, Math.floor(q.top - base.top));
+        const x1 = Math.min(W, Math.ceil(q.right - base.left)), y1 = Math.min(H, Math.ceil(q.bottom - base.top));
+        for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) {
+          const i = (y * W + x) * 4;
+          const rz = razao(lt, lum(px[i], px[i + 1], px[i + 2]));
+          if (!pior || rz < pior.rz) pior = { rz: rz, x: x, y: y, c: [px[i], px[i + 1], px[i + 2]] };
+        }
+      });
+      if (!pior) continue;
+      const minimo = grande ? 3 : 4.5;
+      const atual = res[papel];
+      if (!atual || pior.rz < atual.rz) res[papel] = { papel: papel, rz: pior.rz, x: pior.x, y: pior.y, fundo: hexDe(pior.c), texto: hexDe(cor), minimo: minimo, ok: pior.rz >= minimo, grande: grande };
+    }
+    return Object.keys(res).map(k => res[k]);
+  }
+
+  /* ============================== 11. Conferência (os bloqueios) ============================== */
+  function item(estado, rotulo, txt) { return { estado: estado, rotulo: rotulo, txt: txt }; }
+  function conferir() {
+    const m = modeloAtual(), v = valores(), it = [];
+    const ok = (c, rot, sim, nao) => it.push(c ? item('ok', 'Confirmado', sim) : item('erro', rot || 'Não passa', nao));
+
+    /* L6: palavras e linhas */
+    const tituloTxt = m.tituloDe ? m.tituloDe(v) : (m.id === 'r12' ? 'Turma de [mês]' : (m.id === 'r13' ? (RITOS[v.rito] || {}).nome : (m.id === 'r7' ? (cartaoR7(v, +v.atual) || {}).titulo : v.titulo)));
+    if (!vazio(tituloTxt)) {
+      const np = contaPalavras(tituloTxt);
+      ok(np <= 6, 'Não passa', 'Título com ' + np + ' de 6 palavras (L6).', 'Título com ' + np + ' palavras: o limite é 6 (L6). Corte até caber.');
+    }
+    const offTxt = m.id === 'r13' ? v.frase : (m.id === 'r7' ? (cartaoR7(v, +v.atual) || {}).off : v.off);
+    if (!vazio(offTxt)) {
+      const no = contaPalavras(offTxt);
+      ok(no <= 7, 'Não passa', 'Voz em off com ' + no + ' de 7 palavras.', 'Voz em off com ' + no + ' palavras: o limite é 7 (spec 4.6).');
+    }
+    if (S.fit.titulo) ok(S.fit.titulo.ok, 'Não passa', 'Título em ' + S.fit.titulo.linhas + ' linha' + (S.fit.titulo.linhas > 1 ? 's' : '') + ' (largura ' + S.fit.titulo.wd + ', ' + S.fit.titulo.fs + ' u).', 'O título passa de 3 linhas mesmo na largura 85 e em 96 u. Reescreva mais curto (spec 4.3).');
+    if (S.fit.offlinha) ok(S.fit.offlinha.ok, 'Não passa', 'A voz em off cabe numa linha (' + S.fit.offlinha.fs + ' u).', 'A voz em off não cabe numa linha nem em 56 u. Encurte a frase (spec 4.6).');
+    if (S.fit.legenda) ok(S.fit.legenda.ok, 'Não passa', 'Legenda em ' + S.fit.legenda.linhas + ' de 2 linhas.', 'A legenda passa de 2 linhas. Corte para cerca de 56 caracteres (spec 4.4, vídeo).');
+    if (S.fit.creditos && !S.fit.creditos.ok) it.push(item('erro', 'Não passa', 'Os Créditos Finais não cabem na largura da peça.'));
+
+    /* linguagem */
+    const textos = (m.textos ? m.textos(v) : []).filter(x => !vazio(x));
+    const problemas = [];
+    textos.forEach(t => vetos(t).forEach(p => { if (problemas.indexOf(p) < 0) problemas.push(p); }));
+    if (problemas.length) problemas.forEach(p => it.push(item('erro', 'Não passa', 'Texto: ' + p + '.')));
+    else it.push(item('ok', 'Confirmado', 'Texto sem travessão, com TATTOO bem grafado, sem claim vetado e no território da marca.'));
+
+    /* fotos e autorização */
+    const slots = m.id === 'r7' ? (tiposR7(+v.total)[+v.atual - 1] === 'capa' || tiposR7(+v.total)[+v.atual - 1] === 'foto' ? ['c' + v.atual] : []) : (m.fotos || []).map(f => f.slot);
+    let semFoto = false;
+    if (slots.length) {
+      const falta = slots.filter(s => !(S.fotos[fotoChave(s)] && S.fotos[fotoChave(s)].proc));
+      semFoto = falta.length > 0;
+      ok(!falta.length, 'Não passa', 'Foto real carregada.', 'Falta a foto real (' + falta.length + ' de ' + slots.length + '). Banco de imagem e imagem gerada não entram (spec 8.1).');
+      if (m.id === 'r13') {
+        ok(v.autAluno === true, 'Não passa', 'Autorização do aluno registrada.', 'Falta a autorização por escrito do aluno (spec 12.3, R13).');
+        if (RITOS[v.rito] && RITOS[v.rito].cliente) ok(v.autCliente === true, 'Não passa', 'Autorização do cliente tatuado registrada.', 'Falta a autorização por escrito do cliente tatuado.');
+      } else ok(v.aut === true, 'Não passa', 'Autorização de imagem cobre este canal.', 'Confirme a autorização de imagem por escrito para este canal (spec 8.1).');
+    }
+
+    /* específicos */
+    if (m.id === 'r5') {
+      ok(!vazio(v.ocupacao), 0, 'Ocupação anterior preenchida.', 'Falta a ocupação anterior do aluno.');
+      ok(!vazio(v.nome), 0, 'Nome do aluno preenchido.', 'Falta o nome autorizado do aluno.');
+      ok(/^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)\/\d{4}$/i.test(String(v.turma || '').trim()), 0, 'Turma no formato mês/ano.', 'Turma no formato mês/ano (out/2026).');
+      if (!vazio(v.perfil)) ok(/^@[\w.]{2,30}$/.test(v.perfil.trim()), 0, 'Perfil com @.', 'Perfil começa com @ e não tem espaço.');
+    }
+    if (m.id === 'r7') {
+      ok(!vazio(v.professor), 0, 'Assinado por ' + (v.professor || '').trim() + '.', 'Falta o nome do professor que assina [P 13].');
+      const c = cartaoR7(v, +v.atual), tipo = tiposR7(+v.total)[+v.atual - 1];
+      if (tipo === 'cartela' || tipo === 'foto') {
+        const frases = String(c.texto || '').split(/[.!?]+\s/).filter(x => /\S/.test(x)).length;
+        ok(!vazio(c.texto) && frases <= 1, 0, 'Definição em uma frase.', 'A definição tem de ser uma frase só (spec 12.3, R7).');
+      }
+      const seq = tiposR7(+v.total).map(t => L8_R7[t]);
+      let tres = false, duasCartelas = false;
+      for (let i = 2; i < seq.length; i++) if (seq[i] === seq[i - 1] && seq[i] === seq[i - 2]) tres = true;
+      for (let i = 1; i < seq.length; i++) if (seq[i] === 'cartela' && seq[i - 1] === 'cartela') duasCartelas = true;
+      ok(!tres && !duasCartelas, 0, 'Sequência alterna cena e cartela (L8).', 'Sequência com três telas iguais ou duas Cartelas seguidas (L8).');
+    }
+    if (m.id === 'r9') {
+      ok(!vazio(v.data) && v.data >= HOJE, 0, 'Data do evento futura: ' + dataBR(v.data) + '.', vazio(v.data) ? 'Falta a data real do evento.' : 'Data do evento já passou: a peça não sai.');
+      ok(!vazio(v.local), 0, 'Local preenchido.', 'Falta o local real do evento.');
+    }
+    if (m.id === 'r10') {
+      const d = String(v.destaque || '').trim();
+      if (d) it.push(String(v.legenda || '').toLowerCase().indexOf(d.toLowerCase()) >= 0 ? item('ok', 'Confirmado', 'Palavra de destaque está na legenda.') : item('atencao', 'Atenção', 'A palavra de destaque não aparece na legenda; nada fica em Areia.'));
+      ok(!vazio(v.marcador) && !/esta[çc][ãa]o/i.test(v.marcador), 0, 'Marcador com nome de produto ou rito.', 'O Marcador leva o nome do produto ou do rito, nunca a palavra estação (spec 6.12).');
+    }
+    if (m.id === 'r11') {
+      const val = VViz && VViz.valida ? VViz.valida('numeral', { valor: vazio(v.valor) ? null : v.valor, vrotulo: v.valor, mede: v.mede, periodo: v.periodo, base: v.base, fonte: v.fonte, origem: v.origem, link: v.link, captura: v.captura }) : { faltas: [] };
+      if (vazio(v.origem)) it.push(item('erro', 'Não passa', 'Prova sem marca de origem: escolha medido, terceiro ou mercado (L2).'));
+      else if (v.origem === 'em-validacao') it.push(item('erro', 'Não passa', 'Dado em validação: existe só no arquivo de trabalho e bloqueia a exportação (spec 6.16).'));
+      else ok(!vazio(v.valor) && /^[\d.,]+%?$/.test(v.valor.trim()), 0, 'Número preenchido.', 'Falta o número, ou ele tem texto junto. Escreva só o número.');
+      val.faltas.filter(f => !/^falta a origem|^origem "/.test(f) && !/valor/.test(f)).forEach(f => it.push(item('erro', 'Não passa', 'Régua: ' + f + ' (L2).')));
+      if (!val.faltas.length && v.origem && v.origem !== 'em-validacao') it.push(item('ok', 'Confirmado', 'Régua completa: o que mede, recorte, data, fonte e origem.'));
+      if (!v.aviso) it.push(item('atencao', 'Atenção', 'Sem o Aviso de Conformidade. Só tire se o número não fala de resultado de aluno.'));
+    }
+    if (m.id === 'r12') {
+      ok(!vazio(v.inicio) && v.inicio > HOJE, 0, 'Turma começa em ' + dataBR(v.inicio) + ', data futura.', vazio(v.inicio) ? 'Falta a data de início: a Barra de Turma só existe com data válida e futura (LP01).' : 'Data de início vencida: a Barra de Turma some e a peça não sai (LP01).');
+      ok(!vazio(v.inscricoes) && v.inscricoes >= HOJE && (vazio(v.inicio) || v.inscricoes <= v.inicio), 0, 'Inscrições até ' + dataBR(v.inscricoes) + '.', vazio(v.inscricoes) ? 'Falta a data limite das inscrições.' : (v.inscricoes < HOJE ? 'Inscrições já encerradas: a peça não sai.' : 'Inscrições terminam depois do início da turma.'));
+      ok(!vazio(v.dias) && !vazio(v.horario), 0, 'Dias e horário preenchidos.', 'Faltam os dias e o horário da turma.');
+      if (!vazio(v.vagasTotal)) {
+        const t = +v.vagasTotal, r = +v.vagasRestam;
+        ok(!vazio(v.vagasRestam) && r >= 0 && r <= t && !vazio(v.vagasData), 0, 'Vagas reais: restam ' + r + ' de ' + t + '.', 'Vagas: informe quantas restam (no máximo o total) e a data da contagem (11.1, urgência só real).');
+      }
+      ok(!vazio(v.cta), 0, 'Rótulo do CTA em texto.', 'Falta o rótulo do CTA ("Responda TURMA").');
+    }
+    if (m.cota) {
+      const usadas = +v.cotaUsadas, tem = !vazio(v.cotaUsadas);
+      if (v.cotaCtx === 'carrossel') {
+        const total = +v.cotaTotal, cabeM = Math.ceil(total / 5);
+        if (!tem || vazio(v.cotaTotal)) it.push(item('erro', 'Não passa', 'Informe as telas do carrossel e quantas já usam Campo de Produto.'));
+        else ok(usadas + 1 <= cabeM, 0, 'Cota do carrossel: ' + (usadas + 1) + ' de ' + cabeM + ' tela' + (cabeM > 1 ? 's' : '') + ' de Campo de Produto.', 'Cota estourada: num carrossel de ' + total + ' telas cabe ' + cabeM + ' tela de Campo de Produto (spec 3.3).');
+      } else {
+        if (!tem) it.push(item('erro', 'Não passa', 'Informe quantas das últimas 5 peças do feed já usaram Campo de Produto.'));
+        else ok(usadas === 0, 0, 'Cota do feed respeitada: esta é a única de seis.', 'Cota estourada: Campo de Produto é uma peça a cada seis no feed (spec 3.3).');
+      }
+    }
+
+    /* contraste no pior pixel */
+    const a = S.amostra;
+    if (a.estado === 'conferindo' || a.estado === 'espera') it.push(item('espera', 'Conferindo', 'Contraste no pior pixel sob o texto.'));
+    else if (a.estado === 'erro') it.push(item('erro', 'Não passa', 'Não foi possível desenhar a peça para medir o contraste: ' + a.msg));
+    else {
+      const ruins = a.res.filter(r => !r.ok);
+      if (ruins.length) ruins.forEach(r => it.push(item('erro', 'Não passa', r.papel + ': ' + fmt(r.rz) + ':1 no pior pixel, abaixo de ' + fmt(r.minimo) + ':1 (tabela 3.4). ' + (m.campos.some(c => c.k === 'veu') && +(v.veu || 70) < 70 ? 'Volte o véu para 70%, mude' : 'Mude') + ' o enquadramento ou use uma foto mais escura sob o texto.')));
+      else if (semFoto) it.push(item('atencao', 'Provisório', 'Contraste medido sobre o espaço reservado, sem a foto. A conferência refaz a medida no pior pixel assim que a foto real entrar (tabela 3.4).'));
+      else it.push(item('ok', 'Confirmado', 'Contraste conferido no pior pixel de ' + a.res.length + ' texto' + (a.res.length > 1 ? 's' : '') + ' (tabela 3.4).'));
+    }
+    if (S.ativos.faltando.length) it.push(item('erro', 'Não passa', 'Arquivos da marca não carregaram neste modo de abertura. Abra o kit por um servidor local (python3 -m http.server) ou use a versão de dist/.'));
+    return it;
+  }
+  const fmt = n => (Math.floor(n * 100) / 100).toFixed(2).replace('.', ',');
+
+  /* ============================== 12. Pintar a interface ============================== */
+  function nomeArquivo() {
+    const m = modeloAtual(), f = FORMATOS[S.formato];
+    const slug = (m.n + '-' + m.nome).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/-$/, '');
+    const extra = m.id === 'r7' ? '-' + pad(+valores().atual) + 'de' + pad(+valores().total) : '';
+    return 'thevoid_' + slug + extra + '_' + ARQ_PRODUTO[S.estacao] + '_' + f.w + 'x' + f.h + '_' + HOJE + '.png';
+  }
+  function pintarConferencia() {
+    const it = conferir();
+    const icone = { ok: 'circle-check', erro: 'circle-x', atencao: 'triangle-alert', espera: 'circle-dashed' };
+    $('#ks-conferencia').innerHTML = it.map(i => '<li data-estado="' + i.estado + '">' + ic(icone[i.estado]) + '<span><b>' + esc(i.rotulo) + '</b>' + esc(i.txt) + '</span></li>').join('');
+    const a = S.amostra;
+    const lc = $('#ks-contraste');
+    if (a.estado === 'ok' && a.res.length) {
+      lc.hidden = false;
+      lc.innerHTML = a.res.map((r, i) => '<li data-ok="' + r.ok + '"><span class="sw" style="background:' + r.fundo + '" title="Pior pixel ' + r.fundo + '"></span><span>' + (i + 1) + '. ' + esc(r.papel) + '<small>Texto ' + r.texto + ' sobre ' + r.fundo + ' · mínimo ' + fmt(r.minimo) + ':1' + (r.grande ? ' (96 u ou mais)' : '') + '</small></span><span class="rz">' + fmt(r.rz) + ':1</span></li>').join('');
+    } else { lc.hidden = true; lc.innerHTML = ''; }
+    const pts = $('.ks-pontos', $('#ks-previa'));
+    if (pts) {
+      const f = FORMATOS[S.formato];
+      pts.innerHTML = a.estado === 'ok' ? a.res.map((r, i) => (S.pontos || !r.ok) ? '<span class="ks-ponto" data-n="' + (i + 1) + '" data-ok="' + r.ok + '" style="left:' + (r.x / f.w * 100) + '%;top:' + (r.y / f.h * 100) + '%"></span>' : '').join('') : '';
+      pts.hidden = false;
+    }
+    const erros = it.filter(i => i.estado === 'erro'), espera = it.some(i => i.estado === 'espera');
+    const btn = $('#ks-exportar'), mot = $('#ks-motivo');
+    btn.disabled = erros.length > 0 || espera || exportando;
+    $('#ks-exportar-r').textContent = 'Baixar PNG ' + FORMATOS[S.formato].w + ' × ' + FORMATOS[S.formato].h;
+    if (exportando) { mot.dataset.estado = ''; mot.textContent = 'Desenhando o PNG em tamanho real.'; }
+    else if (espera) { mot.dataset.estado = ''; mot.textContent = 'Conferindo o contraste no pior pixel.'; }
+    else if (erros.length) { mot.dataset.estado = 'erro'; mot.textContent = 'Para baixar, falta resolver ' + erros.length + ' ponto' + (erros.length > 1 ? 's' : '') + ' da conferência: ' + erros[0].txt; }
+    else if (!ultimoExport) { mot.dataset.estado = 'ok'; mot.textContent = 'A peça passou em todas as regras. Pode baixar.'; }
+    $('#ks-arquivo').textContent = nomeArquivo();
+  }
+  function pintarModelos() {
+    $('#ks-lista-modelos').innerHTML = MODELOS.map(m => '<li><button type="button" class="ks-modelo" data-m="' + m.id + '" aria-current="' + (m.id === S.modelo) + '"><span class="ks-mn">' + m.n + '</span><span class="ks-mt">' + esc(m.nome) + '</span><span class="ks-me">' + esc(m.etapa) + '</span></button></li>').join('');
+  }
+  function pintarBarra() {
+    const m = modeloAtual();
+    $('#ks-formatos').innerHTML = Object.keys(FORMATOS).map(k => '<button type="button" data-f="' + k + '" aria-pressed="' + (k === S.formato) + '"' + (m.formatos.indexOf(k) < 0 ? ' disabled title="Este modelo não tem o formato ' + FORMATOS[k].nome + '"' : '') + '>' + FORMATOS[k].nome + '</button>').join('');
+    $('#ks-produtos').innerHTML = Object.keys(PRODUTOS).map(k => '<button type="button" data-e="' + k + '" aria-pressed="' + (k === S.estacao) + '"' + (m.estacoes.indexOf(k) < 0 ? ' disabled title="Este modelo não existe para ' + PRODUTOS[k] + '"' : '') + '>' + PRODUTOS[k] + '</button>').join('');
+    $('#ks-ver-areas').setAttribute('aria-pressed', S.areas);
+    $('#ks-ver-pontos').setAttribute('aria-pressed', S.pontos);
+    $('#ks-moldura').dataset.fmt = S.formato;
+    const f = FORMATOS[S.formato];
+    $('#ks-ficha').innerHTML = '<span>' + esc(m.n + ' · ' + m.nome + ' · ' + f.titulo) + '</span><span>Etapa ' + esc(m.etapa) + '</span>';
+    document.documentElement.setAttribute('data-estacao', S.estacao);
+  }
+  function campoHTML(c, v) {
+    if (c.foto) return fotoHTML(c.foto);
+    if (c.so && !c.so(v)) return '';
+    const id = 'ks-c-' + c.k;
+    const val = v[c.k] == null ? '' : v[c.k];
+    const ajuda = c.ajuda ? '<p class="ks-ajuda" id="' + id + '-a">' + esc(c.ajuda) + '</p>' : '';
+    const desc = c.ajuda ? ' aria-describedby="' + id + '-a"' : '';
+    const conta = c.max ? '<span class="ks-conta" id="' + id + '-n" data-max="' + c.max + '"></span>' : '';
+    if (c.tipo === 'marca') return '<div class="ks-campo"><label class="ks-marca" style="text-transform:none;letter-spacing:0;font:400 15px/1.45 var(--font-texto);color:var(--cal)"><input type="checkbox" data-k="' + c.k + '"' + (val === true ? ' checked' : '') + '>' + esc(c.rotulo) + '</label></div>';
+    let ctl;
+    if (c.tipo === 'opcoes') ctl = '<select id="' + id + '" data-k="' + c.k + '"' + desc + '>' + c.opcoes.map(o => '<option value="' + esc(o[0]) + '"' + (String(val) === String(o[0]) ? ' selected' : '') + '>' + esc(o[1]) + '</option>').join('') + '</select>';
+    else if (c.tipo === 'area') ctl = '<textarea id="' + id + '" data-k="' + c.k + '"' + desc + '>' + esc(val) + '</textarea>';
+    else if (c.tipo === 'data') ctl = '<input type="date" id="' + id + '" data-k="' + c.k + '" value="' + esc(val) + '"' + desc + '>';
+    else if (c.tipo === 'numero') ctl = '<input type="number" inputmode="numeric" min="0" step="1" id="' + id + '" data-k="' + c.k + '" value="' + esc(val) + '"' + desc + '>';
+    else if (c.tipo === 'cartao') return cartaoHTML(v);
+    else ctl = '<input type="text" id="' + id + '" data-k="' + c.k + '" value="' + esc(val) + '" autocomplete="off"' + desc + '>';
+    return '<div class="ks-campo"><div class="ks-campo-topo"><label for="' + id + '">' + esc(c.rotulo) + '</label>' + conta + '</div>' + ctl + ajuda + '</div>';
+  }
+  function fotoHTML(slot) {
+    const m = modeloAtual();
+    const def = (m.fotos || []).find(f => f.slot === slot) || { rotulo: 'Foto do cartão' };
+    const f = S.fotos[fotoChave(slot)];
+    const id = 'ks-f-' + slot;
+    return '<div class="ks-campo"><span class="ks-lbl">' + esc(def.rotulo) + '</span><div class="ks-foto"><div class="ks-mini">' + (f && f.proc ? '<img src="' + f.proc + '" alt="">' : ic('image-plus')) + '</div><div>' +
+      '<div class="ks-acoes"><label for="' + id + '">' + ic('image-plus') + (f ? 'Trocar' : 'Escolher foto') + '<input type="file" id="' + id + '" accept="image/*" data-foto="' + slot + '"></label>' +
+      (f ? '<button type="button" data-tirar="' + slot + '">' + ic('x') + 'Tirar</button>' : '') + '</div>' +
+      '<p class="ks-fn">' + (f ? esc(f.nome) + ' · tratada no regime ' + (f.regime === 'terra' ? 'Terra' : 'Ritual') : 'Só foto real da escola, com autorização. Sem banco de imagem e sem imagem gerada.') + '</p>' +
+      (f ? '<select data-enq="' + slot + '" aria-label="Enquadramento da foto">' + ENQ.map(e => '<option value="' + e[0] + '"' + (f.pos === e[0] ? ' selected' : '') + '>Enquadramento: ' + e[1] + '</option>').join('') + '</select>' : '') +
+      '</div></div></div>';
+  }
+  function cartaoHTML(v) {
+    const n = +v.total, i = Math.min(+v.atual, n), tipos = tiposR7(n), c = cartaoR7(v, i), tipo = tipos[i - 1];
+    const nomes = { capa: 'capa, cena', cartela: 'cartela', foto: 'foto, cena', fim: 'fecho com CTA, cartela' };
+    let h = '<div class="ks-campo"><div class="ks-campo-topo"><label for="ks-c-atual">Cartão em edição</label></div><select id="ks-c-atual" data-k="atual">' +
+      tipos.map((t, k) => '<option value="' + (k + 1) + '"' + (k + 1 === i ? ' selected' : '') + '>Cartão ' + pad(k + 1) + ' · ' + nomes[t] + '</option>').join('') + '</select>' +
+      '<p class="ks-sequencia">Sequência: ' + tipos.map((t, k) => (k + 1 === i ? '<b>' : '') + L8_R7[t] + (k + 1 === i ? '</b>' : '')).join(' · ') + '</p></div>';
+    h += '<div class="ks-campo"><div class="ks-campo-topo"><label for="ks-c-ct">' + (tipo === 'capa' || tipo === 'fim' ? 'Título de Filme do cartão' : 'Termo') + '</label><span class="ks-conta" id="ks-c-ct-n" data-max="6"></span></div><input type="text" id="ks-c-ct" data-cartao="titulo" value="' + esc(c.titulo || '') + '" autocomplete="off"></div>';
+    if (tipo === 'capa' || tipo === 'fim') h += '<div class="ks-campo"><div class="ks-campo-topo"><label for="ks-c-co">Palavra Sensível</label><span class="ks-conta" id="ks-c-co-n" data-max="7"></span></div><input type="text" id="ks-c-co" data-cartao="off" value="' + esc(c.off || '') + '" autocomplete="off"></div>';
+    else h += '<div class="ks-campo"><div class="ks-campo-topo"><label for="ks-c-cx">Definição em uma frase</label></div><textarea id="ks-c-cx" data-cartao="texto">' + esc(c.texto || '') + '</textarea></div>';
+    if (tipo === 'capa' || tipo === 'foto') h += fotoHTML('c' + i);
+    return h;
+  }
+  function pintarCampos() {
+    const m = modeloAtual(), v = valores();
+    $('#ks-campos-sub').textContent = m.sub;
+    $('#ks-campos').innerHTML = m.campos.map(c => campoHTML(c, v)).join('');
+    contadores();
+  }
+  function contadores() {
+    $$('.ks-conta', $('#ks-campos')).forEach(el => {
+      const ctl = el.closest('.ks-campo').querySelector('input,textarea');
+      const n = contaPalavras(ctl ? ctl.value : ''), max = +el.dataset.max;
+      el.dataset.ok = n <= max;
+      el.innerHTML = (n > max ? ic('circle-x') : '') + n + ' de ' + max + ' palavras';
+    });
+  }
+
+  /* ============================== 13. Ciclo de atualização ============================== */
+  const host = $('#ks-host'), previa = $('#ks-previa');
+  let ciclo = 0, cicloAmostra = 0, timerAmostra = 0, exportando = false, ultimoExport = '';
+  const fontesProntas = (document.fonts && document.fonts.load ? Promise.all([
+    document.fonts.load('800 120px Archivo'), document.fonts.load('500 26px Archivo'), document.fonts.load('300 26px Archivo'),
+    document.fonts.load('italic 300 72px Newsreader')
+  ]).catch(() => null) : Promise.resolve()).then(() => document.fonts && document.fonts.ready);
+
+  async function atualizar() {
+    const meu = ++ciclo;
+    ultimoExport = '';
+    const f = FORMATOS[S.formato];
+    host.style.width = f.w + 'px';
+    S.fit = {};
+    host.innerHTML = '<div class="peca">' + htmlPeca(true) + '</div>';
+    await fontesProntas;
+    if (meu !== ciclo) return;
+    S.fit = ajustar($('.peca-tela', host));
+    host.innerHTML = '<div class="peca">' + htmlPeca(true) + '</div>';
+    previa.innerHTML = htmlPeca(false);
+    S.amostra = { estado: 'conferindo' };
+    pintarConferencia();
+    clearTimeout(timerAmostra);
+    timerAmostra = setTimeout(amostrar, 350);
+  }
+  async function amostrar() {
+    const meu = ++cicloAmostra;
+    const f = FORMATOS[S.formato];
+    const tela = $('.peca-tela', host);
+    try {
+      await esperarImagens(tela);
+      const r = await rasterizar(tela, f.w, f.h, { semTexto: true, tolerante: true });
+      if (meu !== cicloAmostra) return;
+      const dados = r.canvas.getContext('2d').getImageData(0, 0, f.w, f.h);
+      S.ativos.faltando = r.faltando.filter(u => !/grao-240/.test(u));
+      S.amostra = { estado: 'ok', res: medir(tela, dados, f.w, f.h) };
+    } catch (e) {
+      if (meu !== cicloAmostra) return;
+      S.amostra = { estado: 'erro', msg: e && e.message ? e.message : 'erro desconhecido' };
+    }
+    pintarConferencia();
+  }
+  function esperarImagens(raiz) {
+    return Promise.all($$('img', raiz).map(im => im.complete ? null : new Promise(r => { im.onload = im.onerror = r; })));
+  }
+  async function exportar() {
+    if ($('#ks-exportar').disabled) return null;
+    exportando = true; pintarConferencia();
+    const f = FORMATOS[S.formato];
+    const tela = $('.peca-tela', host);
+    let nome = nomeArquivo(), msg, estado;
+    try {
+      await esperarImagens(tela);
+      const r = await rasterizar(tela, f.w, f.h, { semTexto: false, tolerante: false });
+      const blob = await new Promise(ok => r.canvas.toBlob(ok, 'image/png'));
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = nome; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      window.KitSocial.ultimo = { nome: nome, largura: r.canvas.width, altura: r.canvas.height, bytes: blob.size };
+      msg = 'Baixado: ' + nome + ' (' + r.canvas.width + ' × ' + r.canvas.height + ' px).'; estado = 'ok';
+      ultimoExport = nome;
+    } catch (e) {
+      msg = 'Não deu certo: ' + (e && e.message ? e.message : 'falha ao desenhar') + '. Abra o kit por um servidor local ou pela versão de dist/ e tente de novo.'; estado = 'erro';
+      S.ativos.faltando = ['exportação'];
+    }
+    exportando = false; pintarConferencia();
+    const mot = $('#ks-motivo'); mot.dataset.estado = estado; mot.textContent = msg;
+    return window.KitSocial.ultimo;
+  }
+
+  /* ============================== 14. Eventos ============================== */
+  function iniciarValores() {
+    MODELOS.forEach(m => { S.v[m.id] = JSON.parse(JSON.stringify(m.padrao)); });
+  }
+  function trocarModelo(id) {
+    S.modelo = id;
+    const m = modeloAtual();
+    if (m.formatos.indexOf(S.formato) < 0) S.formato = m.formatos[0];
+    if (m.estacoes.indexOf(S.estacao) < 0) S.estacao = m.estacoes[0];
+    aplicarPadraoProduto();
+    pintarModelos(); pintarBarra(); pintarCampos(); atualizar();
+  }
+  function aplicarPadraoProduto() {
+    const v = valores();
+    if (S.modelo === 'r8' && !S.editado.r8 && PADRAO_PRODUTO[S.estacao]) { v.titulo = PADRAO_PRODUTO[S.estacao].titulo; v.off = PADRAO_PRODUTO[S.estacao].off; }
+    if (S.modelo === 'r12' && !S.editado.r12off) v.off = { start: 'o primeiro traço', master: 'a sua identidade', pro: 'o seu plano' }[S.estacao] || v.off;
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    if (b.dataset.m) { trocarModelo(b.dataset.m); return; }
+    if (b.dataset.f && !b.disabled) { S.formato = b.dataset.f; pintarBarra(); atualizar(); return; }
+    if (b.dataset.e && !b.disabled) { S.estacao = b.dataset.e; aplicarPadraoProduto(); pintarBarra(); pintarCampos(); atualizar(); return; }
+    if (b.id === 'ks-ver-areas') { S.areas = !S.areas; pintarBarra(); atualizarCamadas(); return; }
+    if (b.id === 'ks-ver-pontos') { S.pontos = !S.pontos; pintarBarra(); atualizarCamadas(); return; }
+    if (b.dataset.tirar) { delete S.fotos[fotoChave(b.dataset.tirar)]; pintarCampos(); atualizar(); return; }
+    if (b.id === 'ks-exportar') { exportar(); }
+  });
+  function atualizarCamadas() {
+    const c = $('.ks-camada', previa);
+    if (!c) return;
+    $$('.z', c).forEach(z => { z.hidden = !S.areas; });
+    pintarConferencia();
+  }
+  document.addEventListener('input', e => {
+    const t = e.target;
+    const v = valores();
+    if (t.dataset.k && t.type !== 'checkbox' && t.tagName !== 'SELECT') {
+      v[t.dataset.k] = t.value;
+      if (S.modelo === 'r8' && (t.dataset.k === 'titulo' || t.dataset.k === 'off')) S.editado.r8 = true;
+      if (S.modelo === 'r12' && t.dataset.k === 'off') S.editado.r12off = true;
+      if (S.modelo === 'r13' && t.dataset.k === 'frase') S.editado.r13 = true;
+      contadores();
+      const refaz = modeloAtual().campos.some(c => c.so);
+      if (refaz && t.type === 'number' && (t.dataset.k === 'vagasTotal')) { pintarCampos(); const n = $('#ks-c-' + t.dataset.k); if (n) { n.focus(); } }
+      atualizar();
+    } else if (t.dataset.cartao) {
+      cartaoR7(v, +v.atual)[t.dataset.cartao] = t.value;
+      contadores(); atualizar();
+    }
+  });
+  document.addEventListener('change', async e => {
+    const t = e.target;
+    const v = valores();
+    if (t.dataset.k && t.type === 'checkbox') { v[t.dataset.k] = t.checked; atualizar(); return; }
+    if (t.dataset.k && t.tagName === 'SELECT') {
+      v[t.dataset.k] = t.value;
+      if (t.dataset.k === 'total' && +v.atual > +v.total) v.atual = v.total;
+      if (S.modelo === 'r9' && t.dataset.k === 'evento' && !S.editado.r9) { v.titulo = EVENTOS[t.value].titulo; v.off = EVENTOS[t.value].off; }
+      if (S.modelo === 'r13' && t.dataset.k === 'rito' && !S.editado.r13) v.frase = RITOS[t.value].frase;
+      if (S.modelo === 'r5' && t.dataset.k === 'regime') {
+        const ch = fotoChave('principal'), f = S.fotos[ch];
+        if (f) { f.regime = t.value; f.proc = await tratar(f.original, t.value); }
+      }
+      pintarCampos(); atualizar(); return;
+    }
+    if (t.dataset.k && (t.type === 'date' || t.type === 'number')) { v[t.dataset.k] = t.value; pintarCampos(); atualizar(); return; }
+    if (t.dataset.foto && t.files && t.files[0]) {
+      try { await receberFoto(t.dataset.foto, t.files[0]); } catch (err) { /* a conferência mostra a falta */ }
+      pintarCampos(); atualizar(); return;
+    }
+    if (t.dataset.enq) { const f = S.fotos[fotoChave(t.dataset.enq)]; if (f) f.pos = t.value; atualizar(); }
+  });
+  document.addEventListener('input', e => {
+    if (S.modelo === 'r9' && (e.target.dataset.k === 'titulo' || e.target.dataset.k === 'off')) S.editado.r9 = true;
+  });
+
+  /* ============================== 15. Início ============================== */
+  iniciarValores();
+  window.KitSocial = {
+    estado: S, modelos: MODELOS.map(m => m.id), formatos: FORMATOS,
+    escolher: id => trocarModelo(id),
+    formato: k => { S.formato = k; pintarBarra(); return atualizar(); },
+    produto: k => { S.estacao = k; aplicarPadraoProduto(); pintarBarra(); pintarCampos(); return atualizar(); },
+    definir: (k, val) => { valores()[k] = val; pintarCampos(); return atualizar(); },
+    conferir: () => conferir(), exportar: () => exportar(), nomeArquivo: () => nomeArquivo(),
+    pronto: () => new Promise(ok => { const t = setInterval(() => { if (S.amostra.estado !== 'conferindo' && S.amostra.estado !== 'espera') { clearInterval(t); ok(conferir()); } }, 80); }),
+    ultimo: null
+  };
+  pintarModelos(); pintarBarra(); pintarCampos(); atualizar();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://thevoidtattoo.com.br/trilha/pro/#curso",
+  "name": "The VOID Pro",
+  "description": "Programa online e ao vivo de marca, conteúdo, vendas e carreira para tatuadores.",
+  "url": "https://thevoidtattoo.com.br/trilha/pro/",
+  "inLanguage": "pt-BR",
+  "provider": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "educationalLevel": "{{A_CONFIRMAR}}",
+  "teaches": [
+    "posicionamento de marca",
+    "conteúdo",
+    "vendas",
+    "carreira de tatuador"
+  ],
+  "coursePrerequisites": "{{A_CONFIRMAR}}",
+  "educationalCredentialAwarded": "{{A_CONFIRMAR}}",
+  "image": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-pro-{{A_CONFIRMAR}}.webp",
+  "offers": {
+    "@type": "Offer",
+    "category": "Paid",
+    "price": "{{A_CONFIRMAR}}",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "https://thevoidtattoo.com.br/trilha/pro/"
+  },
+  "hasCourseInstance": [
+    {
+      "@type": "CourseInstance",
+      "name": "Turma {{A_CONFIRMAR}}",
+      "courseMode": "Online",
+      "startDate": "{{A_CONFIRMAR}}",
+      "endDate": "{{A_CONFIRMAR}}",
+      "courseWorkload": "{{A_CONFIRMAR}}",
+      "courseSchedule": {
+        "@type": "Schedule",
+        "byDay": [
+          "{{A_CONFIRMAR}}"
+        ],
+        "startTime": "{{A_CONFIRMAR}}",
+        "endTime": "{{A_CONFIRMAR}}",
+        "repeatFrequency": "P1W"
+      },
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "{{A_CONFIRMAR}}"
+      },
+      "instructor": [
+        {
+          "@id": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/#pessoa"
+        }
+      ]
+    }
+  ]
+}

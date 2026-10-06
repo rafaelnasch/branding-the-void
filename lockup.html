@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The VOID · Trechos da marca</title>
+<meta name="description" content="Trechos prontos para copiar da marca The VOID Tattoo Academy (sistema Sala Escura v1): logotipos em arquivo e em data URI, avatar, favicon, selos, assinaturas de produto, co-assinatura, Créditos Finais, Ficha Técnica, Crédito de Prova, avisos de conformidade, bloco NAP, assinatura de e-mail e mensagem de WhatsApp.">
+<meta name="theme-color" content="#181818">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* =====================================================================
+   THE VOID · TRECHOS DA MARCA (lockup.html) · sistema Sala Escura v1
+   Valores: tokens.css. Regras: especificação Sala Escura, seções 5, 6, 11, 12 e 13.
+   Cada trecho é guardado uma única vez, num <script type="text/html" class="lk-fonte">.
+   O mesmo texto vira a prévia (dentro de um Shadow DOM, sem herdar o CSS desta página),
+   o código mostrado e o que o botão Copiar entrega. Logotipo nunca é texto.
+   ===================================================================== */
+:root{--topo-h:64px;--pad-x:var(--e-8);--font-codigo:ui-monospace,"SF Mono",Menlo,Consolas,monospace;scroll-padding-top:calc(var(--topo-h) + var(--e-4))}
+*,*::before,*::after{box-sizing:border-box;transition-property:none}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--sala);min-height:100vh;overflow-wrap:break-word}
+body.grao::after{position:fixed;z-index:0}
+::selection{background:var(--areia);color:var(--sala)}
+h1,h2,h3,h4,p,figure,ul,ol,pre,address{margin:0}
+ul,ol{padding:0}
+button{font:inherit;color:inherit}
+code,pre{font-family:var(--font-codigo)}
+b,strong{font-weight:600;color:var(--tela)}
+a{color:var(--estacao-destaque);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--tela)}
+.so-leitor{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.pular{position:fixed;left:var(--e-4);top:var(--e-2);z-index:60;padding:var(--e-3) var(--e-4);background:var(--tela);color:var(--sala);transform:translateY(-200%)}
+.pular:focus{transform:none}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.ic-16{width:16px;height:16px}
+
+/* ---------- cabeçalho ---------- */
+.lk-topo{position:fixed;inset:0 0 auto 0;z-index:40;height:var(--topo-h);display:flex;align-items:center;gap:var(--e-5);padding:0 var(--e-5);background:var(--sala);border-bottom:1px solid var(--fio)}
+.lk-topo-marca{display:flex;align-items:center;min-height:var(--alvo-toque);text-decoration:none}
+.lk-topo-marca img{display:block;width:158px;height:24px}
+.lk-topo-nome{display:flex;align-items:center;gap:var(--e-4);padding-left:var(--e-5);border-left:1px solid var(--fio);height:24px}
+.lk-topo-nome .credito{color:var(--cal)}
+.lk-topo-links{margin-left:auto;display:flex;gap:var(--e-2)}
+.lk-topo-links a{display:inline-flex;align-items:center;gap:var(--e-2);min-height:var(--alvo-toque);padding:0 var(--e-3);border:1px solid var(--fio);color:var(--cal);text-decoration:none;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+.lk-topo-links a:hover{border-color:var(--fumaca);color:var(--tela)}
+
+/* ---------- abertura ---------- */
+.lk-wrap{position:relative;z-index:2;max-width:calc(var(--conteudo) + 2 * var(--pad-x));margin:0 auto;padding:0 var(--pad-x)}
+.lk-abertura{position:relative;overflow:hidden;padding:calc(var(--topo-h) + var(--e-10)) 0 var(--e-9)}
+.lk-abertura .janela-luz{position:absolute;inset:0;z-index:0}
+.lk-eco{position:absolute;inset:0;z-index:1;pointer-events:none}
+.lk-sobre{display:flex;align-items:center;gap:var(--e-3);margin-bottom:var(--e-6);color:var(--po)}
+.lk-abertura h1{max-width:12ch}
+.lk-abertura h1 .off{font-size:1.1em}
+.lk-apoio{max-width:var(--coluna-leitura);margin-top:var(--e-6);font:400 var(--fs-chamada)/1.5 var(--font-texto);color:var(--cal)}
+.lk-ficha{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--e-8);border-top:1px solid var(--fio)}
+.lk-ficha div{padding:var(--e-4) var(--e-4) 0 0}
+.lk-ficha div+div{padding-left:var(--e-4);border-left:1px solid var(--fio)}
+.lk-ficha dt{color:var(--po)}
+.lk-ficha dd{margin:var(--e-2) 0 0;font:600 15px/1.4 var(--font-texto);color:var(--tela)}
+
+/* ---------- regras e sumário ---------- */
+.lk-regras{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio);margin-top:var(--e-9)}
+.lk-regra{background:var(--sala);padding:var(--e-5)}
+.lk-regra .credito{display:block;color:var(--estacao-destaque);margin-bottom:var(--e-3)}
+.lk-regra h2{font:600 20px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);letter-spacing:-.005em}
+.lk-regra p{margin-top:var(--e-3);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.lk-sumario{margin-top:var(--e-8)}
+.lk-sumario>p{color:var(--po);margin-bottom:var(--e-4)}
+.lk-sumario ol{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--e-5);border-top:1px solid var(--fio)}
+.lk-sumario li{border-bottom:1px solid var(--fio)}
+.lk-sumario a{display:flex;align-items:baseline;gap:var(--e-3);min-height:var(--alvo-toque);padding:var(--e-3) 0;color:var(--cal);text-decoration:none;font:400 16px/1.4 var(--font-texto)}
+.lk-sumario a span{font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--po);min-width:2ch}
+.lk-sumario a:hover{color:var(--tela)}
+
+/* ---------- seção ---------- */
+.lk-sec{position:relative;padding:var(--e-10) 0;border-top:1px solid var(--fio)}
+.lk-sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--e-6);align-items:start;margin-bottom:var(--e-7)}
+.lk-sec-num{font:700 clamp(56px,7vw,var(--fs-numeral))/.8 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:lining-nums tabular-nums;color:var(--penumbra)}
+.lk-marcador{display:flex;align-items:center;gap:var(--e-3);margin-bottom:var(--e-4)}
+.lk-marcador [data-vforms] svg{width:14px;height:14px;display:block}
+.lk-sec-apoio{max-width:var(--coluna-leitura);margin-top:var(--e-5);color:var(--cal)}
+.lk-texto{max-width:var(--coluna-leitura);color:var(--cal)}
+.lk-texto+.lk-texto{margin-top:var(--e-4)}
+.lk-inter{margin:var(--e-8) 0 var(--e-5);font:600 var(--fs-inter)/1.25 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);letter-spacing:-.005em}
+.lk-fontes{margin-top:var(--e-8);padding-top:var(--e-4);border-top:1px solid var(--fio);text-transform:none;letter-spacing:0;font:400 13px/1.5 var(--font-texto);color:var(--po)}
+.lk-fontes b{font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po);margin-right:var(--e-2)}
+
+/* ---------- status, pendência, nota ---------- */
+.lk-status{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid currentColor;font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.lk-status[data-status="decidido"]{color:var(--sucesso)}
+.lk-status[data-status="proposta"]{color:var(--nevoa)}
+.lk-status[data-status="pendente"]{color:var(--areia)}
+.lk-status[data-status="bloqueado"]{color:var(--erro)}
+.lk-pendencia{display:flex;gap:var(--e-3);align-items:flex-start;max-width:var(--coluna-leitura);margin-top:var(--e-4);padding:var(--e-4);border:1px dashed var(--fumaca);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.lk-pendencia .ic{margin-top:2px;color:var(--areia)}
+.lk-pendencia b{color:var(--areia);font-weight:600;white-space:nowrap}
+
+/* ---------- trechos ---------- */
+.lk-grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.lk-grade+.lk-grade{margin-top:var(--e-5)}
+.lk-trecho{display:flex;flex-direction:column;min-width:0;background:var(--bastidor);border:1px solid var(--fio)}
+.lk-trecho.largo{grid-column:1/-1}
+.lk-trecho-head{padding:var(--e-5) var(--e-5) var(--e-4)}
+.lk-trecho-t{font:600 var(--fs-inter)/1.25 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);letter-spacing:-.005em}
+.lk-trecho-uso{margin-top:var(--e-2);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.lk-tags{list-style:none;display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:var(--e-3)}
+.lk-tags li{padding:3px 8px;border:1px solid var(--fio);font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase;color:var(--po)}
+.lk-palco{position:relative;display:flex;align-items:center;justify-content:safe center;min-height:168px;padding:var(--e-6);border-top:1px solid var(--fio);border-bottom:1px solid var(--fio);background:var(--sala);overflow:hidden}
+.lk-palco[data-justo]{padding-left:0;padding-right:0}
+.lk-palco[data-rola]{overflow-x:auto;justify-content:flex-start;padding-bottom:calc(var(--e-6) + 20px)}
+.lk-palco[data-rola]::after{content:attr(data-rola);position:absolute;left:var(--e-3);bottom:var(--e-2);font:500 10px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--areia)}
+.lk-palco[data-fundo="tela"][data-rola]::after{color:var(--ouro-fundo)}
+.lk-palco[data-fundo="tela"]{background:var(--tela)}
+.lk-palco[data-fundo="campo-start"]{background:var(--campo-start)}
+.lk-palco[data-fundo="campo-master"]{background:var(--campo-master)}
+.lk-palco[data-fundo="bastidor"]{background:var(--bastidor)}
+.lk-palco[data-alinhar="esquerda"]{justify-content:flex-start}
+.lk-palco>.lk-host{display:block;max-width:100%;min-width:0}
+.lk-palco>.lk-host.cheio{width:100%}
+.lk-palco-nota{position:absolute;left:var(--e-3);top:var(--e-2);font:500 10px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.lk-palco[data-fundo="tela"] .lk-palco-nota{color:var(--penumbra)}
+.lk-palco[data-fundo="campo-start"] .lk-palco-nota{color:var(--sala)}
+.lk-palco[data-texto]{min-height:0;justify-content:flex-start;padding:var(--e-5)}
+.lk-palco-texto{width:100%;max-width:var(--coluna-leitura);font:400 17px/1.6 var(--font-texto);color:var(--cal);white-space:pre-line;overflow-wrap:anywhere}
+.lk-codigo{position:relative;flex:1 0 auto;background:var(--sala)}
+.lk-codigo pre{max-height:240px;overflow:auto;margin:0;padding:var(--e-4) var(--e-5);font:400 12.5px/1.6 var(--font-codigo);color:var(--cal);white-space:pre-wrap;overflow-wrap:anywhere;tab-size:2}
+.lk-codigo pre:focus-visible{outline-offset:-2px}
+.lk-codigo .lk-uri{color:var(--areia)}
+.lk-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-3);padding:var(--e-4) var(--e-5);border-top:1px solid var(--fio);margin-top:auto}
+.lk-copiar{display:inline-flex;align-items:center;justify-content:center;gap:var(--e-2);min-height:var(--alvo-toque);padding:0 var(--e-4);border:1px solid var(--fumaca);border-radius:0;background:transparent;color:var(--tela);cursor:pointer;font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;transition:background var(--t-micro) var(--curva-cena),color var(--t-micro) var(--curva-cena)}
+.lk-copiar:hover{background:var(--tela);color:var(--sala)}
+.lk-copiar[data-copiado]{border-color:var(--sucesso);color:var(--sucesso);background:transparent}
+.lk-ok{font:400 13px/1.4 var(--font-texto);color:var(--po)}
+.lk-acoes .lk-status{margin-left:auto}
+
+/* ---------- gerador ---------- */
+.lk-controles{display:grid;gap:var(--e-4);padding:0 var(--e-5) var(--e-5)}
+.lk-campo{border:0;margin:0;padding:0;min-width:0}
+.lk-campo legend,.lk-campo label{display:block;margin-bottom:var(--e-2);padding:0;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.lk-opcoes{display:flex;flex-wrap:wrap;gap:var(--e-2)}
+.lk-opcoes button{min-height:var(--alvo-toque);padding:0 var(--e-4);border:1px solid var(--fio);border-radius:0;background:var(--sala);color:var(--cal);cursor:pointer;font:600 14px/1 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.lk-opcoes button[aria-pressed="true"]{background:var(--tela);color:var(--sala);border-color:var(--tela)}
+.lk-opcoes button:hover{border-color:var(--fumaca)}
+.lk-campo input[type="number"]{width:120px;min-height:var(--alvo-toque);padding:0 var(--e-3);border:1px solid var(--fumaca);border-radius:0;background:var(--coxia);color:var(--tela);font:600 16px/1 var(--font-letreiro)}
+.lk-aviso{display:flex;gap:var(--e-2);align-items:flex-start;font:400 14px/1.5 var(--font-texto);color:var(--areia)}
+.lk-aviso[hidden]{display:none}
+
+/* ---------- tabela ---------- */
+.tabela-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--fio)}
+.tabela-wrap table{width:100%;border-collapse:collapse;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.tabela-wrap th,.tabela-wrap td{padding:var(--e-3) var(--e-4);text-align:left;vertical-align:top;border-bottom:1px solid var(--fio)}
+.tabela-wrap thead th{background:var(--coxia);color:var(--tela);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase}
+.tabela-wrap tbody th{color:var(--tela);font-weight:600;width:28%}
+.tabela-wrap tr:last-child>*{border-bottom:0}
+
+/* ---------- diagramas do motor ---------- */
+.lk-diagramas{display:grid;grid-template-columns:3fr 2fr;gap:var(--e-5);align-items:start;margin-bottom:var(--e-5)}
+.lk-diagrama{margin:0;padding:var(--e-5);background:var(--bastidor);border:1px solid var(--fio)}
+.lk-diagrama figcaption{margin-top:var(--e-4);font:400 13px/1.5 var(--font-texto);color:var(--po)}
+.lk-viz{padding:var(--e-5);background:var(--sala)}
+.lk-viz-dica{display:none;margin:0;padding:0 var(--e-4) var(--e-3);background:var(--sala);font:500 10px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--areia)}
+.lk-viz-acoes{display:flex;flex-wrap:wrap;gap:var(--e-3);align-items:center;padding:var(--e-4) var(--e-5);border-top:1px solid var(--fio)}
+.lk-viz-msg{font:400 14px/1.5 var(--font-texto);color:var(--erro)}
+
+/* ---------- rodapé ---------- */
+.lk-rodape{position:relative;padding:var(--e-9) 0 var(--e-8);border-top:1px solid var(--fio)}
+.lk-rodape-links{display:flex;flex-wrap:wrap;gap:var(--e-2) var(--e-5);margin-top:var(--e-6);font:400 15px/1.5 var(--font-texto)}
+.lk-rodape .lk-fontes{border-top:0;padding-top:0;margin-top:var(--e-5)}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1100px){.lk-regras{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){
+  :root{--pad-x:var(--e-6)}
+  .lk-grade,.lk-diagramas{grid-template-columns:minmax(0,1fr)}
+  .lk-sumario ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lk-ficha{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lk-ficha div:nth-child(3){padding-left:0;border-left:0}
+  .lk-topo-nome .lk-topo-desc{display:none}
+}
+@media (max-width:600px){
+  .lk-topo-links{display:none}
+  .lk-eco{display:none}
+  .lk-regras{grid-template-columns:minmax(0,1fr)}
+  .lk-sumario ol{grid-template-columns:minmax(0,1fr)}
+  .lk-sec-head{grid-template-columns:minmax(0,1fr);gap:var(--e-3)}
+}
+@media (max-width:430px){
+  :root{--pad-x:var(--e-4)}
+  .lk-topo{padding:0 var(--e-4);gap:var(--e-4)}
+  .lk-topo-nome{padding-left:var(--e-4)}
+  .lk-abertura{padding-top:calc(var(--topo-h) + var(--e-9))}
+  .lk-sec{padding:var(--e-9) 0}
+  .lk-apoio{font-size:19px}
+  .lk-ficha{grid-template-columns:minmax(0,1fr)}
+  .lk-ficha div,.lk-ficha div+div{padding-left:0;border-left:0}
+  .lk-palco{padding:var(--e-5) var(--e-4);min-height:144px}
+  .lk-viz{padding:var(--e-4);overflow-x:auto}
+  #lk-viz-numeral{min-width:460px}
+  .lk-viz-dica{display:block}
+  .lk-trecho-head,.lk-acoes{padding-left:var(--e-4);padding-right:var(--e-4)}
+  .lk-trecho{border-left:0;border-right:0}
+  .lk-controles{padding:0 var(--e-4) var(--e-4)}
+  .lk-codigo pre{padding:var(--e-4)}
+  .lk-acoes .lk-status{margin-left:0}
+  .lk-copiar{flex:1 1 auto}
+  .tabela-wrap table,.tabela-wrap tbody,.tabela-wrap tr,.tabela-wrap th,.tabela-wrap td{display:block;width:100%}
+  .tabela-wrap thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .tabela-wrap tr{padding:var(--e-3) var(--e-4);border-bottom:1px solid var(--fio)}
+  .tabela-wrap th,.tabela-wrap td{padding:2px 0;border:0}
+  .tabela-wrap td::before{content:attr(data-rotulo);display:block;font:500 11px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--po)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.lk-topo,.lk-acoes,.lk-controles,.lk-eco{display:none}.lk-abertura{padding-top:var(--e-8)}.lk-sec{break-before:page}}
+</style>
+</head>
+<body class="grao">
+<a class="pular" href="#conteudo">Pular para os trechos</a>
+
+<header class="lk-topo">
+  <a class="lk-topo-marca" href="index.html" aria-label="The VOID Tattoo Academy, início do repositório de marca"><img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt=""></a>
+  <div class="lk-topo-nome"><span class="credito">Trechos <span class="lk-topo-desc">da marca</span></span></div>
+  <nav class="lk-topo-links" aria-label="Outros arquivos">
+    <a href="brand-book.html#s08"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Manual</a>
+    <a href="index.html"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3z"/><path d="M14 3h7v7h-7z"/><path d="M14 14h7v7h-7z"/><path d="M3 14h7v7H3z"/></svg>Arquivos</a>
+  </nav>
+</header>
+
+<main id="conteudo">
+<section class="lk-abertura" aria-labelledby="lk-titulo">
+  <div class="janela-luz" aria-hidden="true"></div>
+  <div class="lk-eco" data-vforms="eco" aria-hidden="true"></div>
+  <div class="lk-wrap">
+    <p class="lk-sobre credito"><span data-vforms="marcador-estacao"></span>Sistema Sala Escura · trechos prontos</p>
+    <h1 id="lk-titulo" class="titulo-filme">A marca pronta para <em class="off">colar</em></h1>
+    <p class="lk-apoio">Cada bloco desta página é um trecho que já obedece ao manual: copie inteiro e cole na página, no e-mail, na assinatura ou no WhatsApp. A prévia que você vê é desenhada a partir do mesmo texto que o botão copia, sem herdar nada desta página.</p>
+    <dl class="lk-ficha">
+      <div><dt class="credito">Sistema</dt><dd>Sala Escura v1</dd></div>
+      <div><dt class="credito">Edição</dt><dd>06/10/2026</dd></div>
+      <div><dt class="credito">Conteúdo</dt><dd>9 grupos de trechos</dd></div>
+      <div><dt class="credito">Situação</dt><dd>Aguarda aprovação da The VOID</dd></div>
+    </dl>
+
+    <div class="lk-regras">
+      <article class="lk-regra"><span class="credito">Regra 1</span><h2>A marca é arquivo</h2><p>Logotipo e selos saem de <code>assets/brand</code> ou do data URI gerado do arquivo oficial. THE VOID nunca é digitado.</p></article>
+      <article class="lk-regra"><span class="credito">Regra 2</span><h2>A versão segue o fundo</h2><p>Branco sobre Sala, Bastidor, Coxia e campos de produto. Preto sobre Tela, Branco, Cinza 100, Areia e Névoa.</p></article>
+      <article class="lk-regra"><span class="credito">Regra 3</span><h2>Respiro e mínimo</h2><p>1&nbsp;X livre em volta (X é a altura do THE). Logotipo a partir de 24 px de altura; selo a partir de 96 px.</p></article>
+      <article class="lk-regra"><span class="credito">Regra 4</span><h2>Toda prova tem crédito</h2><p>Número só sai com o que mede, recorte, data, fonte e marca de origem. Sem prova, o número sai da peça.</p></article>
+      <article class="lk-regra"><span class="credito">Regra 5</span><h2>Campo vazio não vai ao ar</h2><p>Troque cada <code>{{campo}}</code> antes de publicar. O que aparece como [P n] depende de uma decisão da escola.</p></article>
+    </div>
+
+    <nav class="lk-sumario" aria-labelledby="lk-sumario-t">
+      <p id="lk-sumario-t" class="credito">Os nove grupos</p>
+      <ol>
+        <li><a href="#l01"><span>01</span>A base: fontes e tokens</a></li>
+        <li><a href="#l02"><span>02</span>Logotipo em arquivo</a></li>
+        <li><a href="#l03"><span>03</span>Logotipo em data URI</a></li>
+        <li><a href="#l04"><span>04</span>Avatar, favicon e prévia de link</a></li>
+        <li><a href="#l05"><span>05</span>Selos e assinaturas de produto</a></li>
+        <li><a href="#l06"><span>06</span>Co-assinatura</a></li>
+        <li><a href="#l07"><span>07</span>Créditos Finais e Ficha Técnica</a></li>
+        <li><a href="#l08"><span>08</span>Prova e conformidade</a></li>
+        <li><a href="#l09"><span>09</span>NAP, bio, e-mail e WhatsApp</a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- ============================== 01 · BASE ============================== -->
+<section class="lk-sec" id="l01" aria-labelledby="l01-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">01</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>A base</p>
+        <h2 id="l01-t" class="titulo-secao">Antes de <em class="off">tudo</em></h2>
+        <p class="lk-sec-apoio">Os trechos desta página usam as três vozes da marca. Sem estas linhas no <code>&lt;head&gt;</code>, o título cai para Arial Narrow e a voz em off cai para Georgia.</p>
+      </div>
+    </header>
+    <div class="lk-grade">
+      <article class="lk-trecho largo" id="t-base" data-alvo="head">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Fontes e tokens</h3>
+          <p class="lk-trecho-uso">Vai no <code>&lt;head&gt;</code> de toda página. É o link exato da especificação: Archivo variável (peso e largura), Newsreader Italic 300 como voz em off enquanto a licença da Alga não chega, e Nunito Sans 400 e 600 no corpo.</p>
+          <ul class="lk-tags"><li>&lt;head&gt;</li><li>link exato da spec 4.1</li><li>corpo provisório [P 1]</li></ul>
+        </header>
+        <script type="text/html" class="lk-amostra">
+<div style="display:grid;gap:14px;width:100%;max-width:640px">
+<p style="margin:0;font:800 40px/.92 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 112;letter-spacing:-.02em;text-transform:uppercase;color:#F8F9F4">Letreiro <span style="font:italic 300 1.2em/1 'Alga','Newsreader',Georgia,serif;font-variation-settings:'opsz' 72;letter-spacing:0;text-transform:none;color:#DBC5A3">voz em off</span></p>
+<p style="margin:0;font:400 18px/1.65 'Nunito Sans',Arial,sans-serif;color:#DCDDD8">Nunito Sans no corpo longo, com entrelinha de 1,65 e coluna de até 680 px.</p>
+</div>
+        </script>
+        <script type="text/html" class="lk-fonte">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+        </script>
+      </article>
+    </div>
+    <p class="lk-pendencia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 1] [P 3]</b> O corpo em Nunito Sans é provisório e a Alga só entra onde houver licença instalada. Os trechos já trazem a Alga na frente da pilha: com licença, ela assume sozinha.</span></p>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, 06/10/2026, seções 4.1, 4.5 e 4.6; Brand DNA da The VOID, set/2026.</p>
+  </div>
+</section>
+
+<!-- ============================== 02 · LOGOTIPO EM ARQUIVO ============================== -->
+<section class="lk-sec" id="l02" aria-labelledby="l02-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">02</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Logotipo</p>
+        <h2 id="l02-t" class="titulo-secao">O logotipo é <em class="off">arquivo</em></h2>
+        <p class="lk-sec-apoio">O logotipo é desenho, não texto. Todo trecho aponta para o arquivo oficial em <code>assets/brand</code>, com largura e altura declaradas e 1&nbsp;X de respiro já aplicado como margem.</p>
+      </div>
+    </header>
+
+    <div class="lk-diagramas">
+      <figure class="lk-diagrama">
+        <div data-vforms='{"forma":"area-protecao","versao":"horizontal"}'></div>
+        <figcaption>Área de proteção do horizontal: 1&nbsp;X em todos os lados, medido do desenho. X é a altura das maiúsculas do THE, 0,352 da altura do VOID. Proposta a validar com a The VOID e a aureadesign [P 11].</figcaption>
+      </figure>
+      <figure class="lk-diagrama">
+        <div data-vforms='{"forma":"area-protecao","versao":"vertical"}'></div>
+        <figcaption>Vertical: o mesmo 1&nbsp;X. Mínimo de 80 px de altura em tela; abaixo disso, horizontal ou favicon.</figcaption>
+      </figure>
+    </div>
+
+    <div class="lk-grade">
+      <article class="lk-trecho largo" id="t-gerador-logo" data-gerador="logo">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Gerador do logotipo</h3>
+          <p class="lk-trecho-uso">Escolha a versão, a cor e o formato. O trecho sai com a altura pedida, a largura calculada pela proporção do arquivo e a margem de 1&nbsp;X. Abaixo do mínimo, o gerador recusa e indica o favicon.</p>
+        </header>
+        <div class="lk-controles">
+          <fieldset class="lk-campo"><legend>Versão</legend><div class="lk-opcoes" data-controle="versao">
+            <button type="button" data-v="horizontal" aria-pressed="true">Horizontal</button><button type="button" data-v="vertical" aria-pressed="false">Vertical</button><button type="button" data-v="start" aria-pressed="false">Start</button><button type="button" data-v="master" aria-pressed="false">Master</button><button type="button" data-v="pro" aria-pressed="false">Pro</button>
+          </div></fieldset>
+          <fieldset class="lk-campo"><legend>Cor (segue o fundo)</legend><div class="lk-opcoes" data-controle="cor">
+            <button type="button" data-v="branco" aria-pressed="true">Branco, fundo escuro</button><button type="button" data-v="preto" aria-pressed="false">Preto, fundo claro</button>
+          </div></fieldset>
+          <fieldset class="lk-campo"><legend>Formato</legend><div class="lk-opcoes" data-controle="formato">
+            <button type="button" data-v="svg" aria-pressed="true">Arquivo SVG</button><button type="button" data-v="png" aria-pressed="false">Arquivo PNG</button><button type="button" data-v="uri" aria-pressed="false">Data URI</button>
+          </div></fieldset>
+          <div class="lk-campo"><label for="lk-altura">Altura em px</label><input id="lk-altura" type="number" inputmode="numeric" min="24" max="320" step="1" value="40"></div>
+          <p class="lk-aviso" id="lk-aviso-logo" role="status" hidden></p>
+        </div>
+      </article>
+
+      <article class="lk-trecho" id="t-logo-site" data-fundo="sala">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Cabeçalho de site</h3>
+          <p class="lk-trecho-uso">Horizontal branco, 32 px de altura, com link para a página inicial. Campo Sala.</p>
+          <ul class="lk-tags"><li>32 px</li><li>1&nbsp;X = 11 px</li><li>branco</li></ul>
+        </header>
+        <script type="text/html" class="lk-fonte">
+<a href="/" aria-label="The VOID Tattoo Academy, página inicial" style="display:inline-block;line-height:0;padding:11px">
+<img src="assets/brand/svg/void-horizontal-branco.svg" width="210" height="32" alt="The VOID Tattoo Academy" style="display:block;width:210px;max-width:100%;height:auto">
+</a>
+        </script>
+      </article>
+
+      <article class="lk-trecho" id="t-logo-claro" data-fundo="tela">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Documento claro</h3>
+          <p class="lk-trecho-uso">Horizontal preto para PDF, certificado e páginas em Modo Leitura [P 2].</p>
+          <ul class="lk-tags"><li>32 px</li><li>1&nbsp;X = 11 px</li><li>preto</li></ul>
+        </header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/void-horizontal-preto.svg" width="210" height="32" alt="The VOID Tattoo Academy" style="display:block;width:210px;max-width:100%;height:auto;margin:11px">
+        </script>
+      </article>
+
+      <article class="lk-trecho" id="t-logo-vertical" data-fundo="sala">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Vertical em abertura</h3>
+          <p class="lk-trecho-uso">THE, VOID e TATTOO ACADEMY empilhados para capa, cartaz e fecho de vídeo. Nunca abaixo de 80 px de altura.</p>
+          <ul class="lk-tags"><li>96 px</li><li>1&nbsp;X = 17 px</li><li>mínimo 80 px</li></ul>
+        </header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/void-vertical-branco.svg" width="176" height="96" alt="The VOID Tattoo Academy" style="display:block;width:176px;max-width:100%;height:auto;margin:17px">
+        </script>
+      </article>
+
+      <article class="lk-trecho" id="t-logo-lp" data-fundo="sala">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Cabeçalho Mínimo de LP</h3>
+          <p class="lk-trecho-uso">Logotipo de produto branco, de 24 a 32 px, sem menu (componente LP02). Troque <code>start</code> por <code>master</code> ou <code>pro</code> e a largura pela do gerador.</p>
+          <ul class="lk-tags"><li>28 px</li><li>1&nbsp;X = 10 px</li><li>LP02</li></ul>
+        </header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/void-start-branco.svg" width="175" height="28" alt="The VOID Start" style="display:block;width:175px;max-width:100%;height:auto;margin:10px">
+        </script>
+      </article>
+    </div>
+
+    <h3 class="lk-inter">Qual versão em qual fundo</h3>
+    <div class="tabela-wrap" tabindex="0" role="region" aria-label="Fundos permitidos para cada versão do logotipo">
+      <table>
+        <thead><tr><th scope="col">Versão</th><th scope="col">Pode ir sobre</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Branco oficial</th><td data-rotulo="Pode ir sobre">Sala, Nanquim, Bastidor, Coxia, Campo Start (como no slide 31), Campo Master, Terracota Noite, Café e foto com véu de 55% ou mais.</td></tr>
+          <tr><th scope="row">Preto oficial</th><td data-rotulo="Pode ir sobre">Tela, Branco, Cinza 100, Areia e Névoa.</td></tr>
+          <tr><th scope="row">Nunca</th><td data-rotulo="Pode ir sobre">Terracota, Ouro Velho e Caramelo (as duas versões ficam ambíguas), foto sem véu e textura que atravesse o desenho.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lk-pendencia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 11]</b> Área de proteção e mínimos são proposta GrowAI medida nos vetores. As versões grafite e offwhite em <code>svg/cor/</code> ficam de uso interno e técnico até a validação; por isso nenhum trecho desta página as usa.</span></p>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, 06/10/2026, seções 5.1 a 5.4 e 12.1; medidas dos vetores oficiais (marca.json); Plataforma de Branding, aureadesign, 2025.</p>
+  </div>
+</section>
+
+<!-- ============================== 03 · DATA URI ============================== -->
+<section class="lk-sec" id="l03" aria-labelledby="l03-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">03</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Logotipo em data URI</p>
+        <h2 id="l03-t" class="titulo-secao">Quando o HTML <em class="off">viaja sozinho</em></h2>
+        <p class="lk-sec-apoio">Para landing page em construtor, arquivo único e protótipo que não leva a pasta <code>assets</code> junto. O data URI é o próprio arquivo oficial, codificado por script e conferido byte a byte. Ninguém digita estes caracteres.</p>
+      </div>
+    </header>
+    <p class="lk-texto">O código mostrado abrevia o data URI para caber na tela; o botão copia o trecho inteiro. Para regenerar depois de qualquer troca nos arquivos oficiais: <code>python3 tools/gerar_lockup_datauri.py</code>. Para conferir: o mesmo comando com <code>--verificar</code>.</p>
+    <p class="lk-texto">Em e-mail, data URI não funciona (a maioria dos programas bloqueia). Lá vale o PNG hospedado, como na assinatura do grupo 09.</p>
+    <div class="lk-grade" style="margin-top:var(--e-6)" id="lk-grade-uri"></div>
+    <p class="lk-fontes credito"><b>Fontes</b>Arquivos oficiais em assets/brand/svg (exportação da Plataforma de Branding, aureadesign, 2025); especificação Sala Escura v1, seções 5.1 e 15.</p>
+  </div>
+</section>
+
+<!-- ============================== 04 · AVATAR, FAVICON, PRÉVIA ============================== -->
+<section class="lk-sec" id="l04" aria-labelledby="l04-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">04</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Abaixo do mínimo</p>
+        <h2 id="l04-t" class="titulo-secao">Quando a marca <em class="off">encolhe</em></h2>
+        <p class="lk-sec-apoio">Abaixo de 24 px de altura o logotipo não existe: entra o favicon, o O do VOID em Tela sobre Sala. Avatar e imagem de compartilhamento usam os arquivos gerados do vetor oficial.</p>
+      </div>
+    </header>
+    <div class="lk-grade">
+      <article class="lk-trecho" id="t-avatar" data-fundo="bastidor">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Avatar de perfil</h3>
+          <p class="lk-trecho-uso">Vertical em Tela sobre Sala, ocupando 68% da largura, para caber no recorte circular das redes e do WhatsApp.</p>
+          <ul class="lk-tags"><li>1080 por 1080</li><li>círculo</li><li>proposta [P 12]</li></ul>
+        </header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/social/avatar-1080.png" width="160" height="160" alt="The VOID Tattoo Academy" style="display:block;width:160px;height:160px;border-radius:50%">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-favicon" data-alvo="head" data-fundo="bastidor">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Favicon e cor do navegador</h3>
+          <p class="lk-trecho-uso">Vai no <code>&lt;head&gt;</code>. SVG para navegadores atuais, PNG de 32 px de reserva, ícone de 180 px para a tela inicial do celular e o manifesto com a cor Sala.</p>
+          <ul class="lk-tags"><li>&lt;head&gt;</li><li>proposta [P 12]</li></ul>
+        </header>
+        <script type="text/html" class="lk-amostra">
+<div style="display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap">
+<img src="assets/brand/favicon/favicon-16.png" width="16" height="16" alt="Favicon de 16 px">
+<img src="assets/brand/favicon/favicon-32.png" width="32" height="32" alt="Favicon de 32 px">
+<img src="assets/brand/favicon/favicon-48.png" width="48" height="48" alt="Favicon de 48 px">
+<img src="assets/brand/favicon/apple-touch-icon.png" width="90" height="90" alt="Ícone da tela inicial" style="border-radius:0">
+</div>
+        </script>
+        <script type="text/html" class="lk-fonte">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon.png">
+<link rel="manifest" href="assets/brand/favicon/site.webmanifest">
+<meta name="theme-color" content="#181818">
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-og" data-alvo="head" data-fundo="bastidor">
+        <header class="lk-trecho-head">
+          <h3 class="lk-trecho-t">Prévia de link (1200 por 630)</h3>
+          <p class="lk-trecho-uso">Vai no <code>&lt;head&gt;</code> de toda página: é a imagem que aparece quando o link é colado no WhatsApp e nas redes. A imagem precisa de endereço absoluto: troque <code>{{URL_PUBLICA}}</code> pelo domínio publicado [P 18].</p>
+          <ul class="lk-tags"><li>&lt;head&gt;</li><li>proposta [P 12]</li><li>domínio [P 18]</li></ul>
+        </header>
+        <script type="text/html" class="lk-amostra">
+<img src="assets/brand/social/og-1200x630.png" width="600" height="315" alt="Prévia de link da The VOID Tattoo Academy" style="display:block;width:600px;max-width:100%;height:auto">
+        </script>
+        <script type="text/html" class="lk-fonte">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="The VOID Tattoo Academy">
+<meta property="og:title" content="{{título da página}}">
+<meta property="og:description" content="A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.">
+<meta property="og:image" content="{{URL_PUBLICA}}/assets/brand/social/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logotipo da The VOID Tattoo Academy em branco sobre fundo escuro.">
+<meta name="twitter:card" content="summary_large_image">
+        </script>
+      </article>
+    </div>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seções 5.1, 5.2, 12.6 e 13.1; arquivos derivados descritos em marca.json.</p>
+  </div>
+</section>
+
+<!-- ============================== 05 · SELOS E ASSINATURAS ============================== -->
+<section class="lk-sec" id="l05" aria-labelledby="l05-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">05</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Selos e assinaturas de produto</p>
+        <h2 id="l05-t" class="titulo-secao">A cor mora <em class="off">no selo</em></h2>
+        <p class="lk-sec-apoio">O logotipo é sempre preto ou branco; a cor da formação entra pelo selo. Completo a partir de 200 px, simples de 96 a 199 px, e abaixo de 96 px não existe selo: entra o Rótulo de Produto em texto.</p>
+      </div>
+    </header>
+
+    <div class="lk-diagramas">
+      <figure class="lk-diagrama">
+        <div data-vforms='{"forma":"area-protecao","versao":"selo","produto":"pro"}'></div>
+        <figcaption>Área de proteção do selo: 12,5% do diâmetro livre em volta. O selo Pro simples sobre Sala ganha o disco Coxia, com folga de 4% do diâmetro, porque a base Nanquim some no campo (1,18:1).</figcaption>
+      </figure>
+      <div class="tabela-wrap" tabindex="0" role="region" aria-label="Tamanhos mínimos dos selos">
+        <table>
+          <thead><tr><th scope="col">Peça</th><th scope="col">Mínimo em tela</th><th scope="col">Impresso</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Selo completo</th><td data-rotulo="Mínimo em tela">200 px de diâmetro</td><td data-rotulo="Impresso">40 mm</td></tr>
+            <tr><th scope="row">Selo simples</th><td data-rotulo="Mínimo em tela">96 px</td><td data-rotulo="Impresso">20 mm</td></tr>
+            <tr><th scope="row">Abaixo de 96 px</th><td data-rotulo="Mínimo em tela">Rótulo de Produto em texto</td><td data-rotulo="Impresso">favicon</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="lk-grade">
+      <article class="lk-trecho" id="t-selo-completo-start" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo completo Start</h3><p class="lk-trecho-uso">Hero e oferta da LP do Start, certificado, capa de VSL do produto.</p><ul class="lk-tags"><li>200 px</li><li>respiro 25 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/selo-completo-start.svg" width="200" height="200" alt="Selo The VOID Start" style="display:block;width:200px;height:200px;margin:25px">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-selo-completo-master" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo completo Master</h3><p class="lk-trecho-uso">Mesmo uso, na comunicação do Master.</p><ul class="lk-tags"><li>200 px</li><li>respiro 25 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/selo-completo-master.svg" width="200" height="200" alt="Selo The VOID Master" style="display:block;width:200px;height:200px;margin:25px">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-selo-completo-pro" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo completo Pro</h3><p class="lk-trecho-uso">Sobre Sala dispensa ajuda: o anel branco externo fica inteiro visível, como no slide 31.</p><ul class="lk-tags"><li>200 px</li><li>sem disco</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/selo-completo-pro.svg" width="200" height="200" alt="Selo The VOID Pro" style="display:block;width:200px;height:200px;margin:25px">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-selo-simples-start" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo simples Start</h3><p class="lk-trecho-uso">De 96 a 199 px: cartão de turma, e-mail de marco, capa de destaque.</p><ul class="lk-tags"><li>120 px</li><li>respiro 15 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/selo-simples-start.svg" width="120" height="120" alt="Selo The VOID Start" style="display:block;width:120px;height:120px;margin:15px">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-selo-simples-master" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo simples Master</h3><p class="lk-trecho-uso">Mesmo uso, na comunicação do Master.</p><ul class="lk-tags"><li>120 px</li><li>respiro 15 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<img src="assets/brand/svg/selo-simples-master.svg" width="120" height="120" alt="Selo The VOID Master" style="display:block;width:120px;height:120px;margin:15px">
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-selo-simples-pro" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Selo simples Pro sobre Sala</h3><p class="lk-trecho-uso">Assentado no disco Coxia (folga de 4% do diâmetro, aqui 5 px), sem tocar no vetor. Sobre fundo claro, use só a imagem.</p><ul class="lk-tags"><li>120 px</li><li>disco Coxia</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<span style="display:inline-block;line-height:0;padding:5px;margin:15px;border-radius:50%;background:#2B2B2B">
+<img src="assets/brand/svg/selo-simples-pro.svg" width="120" height="120" alt="Selo The VOID Pro" style="display:block;width:120px;height:120px">
+</span>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-rotulos" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Rótulo de Produto (abaixo de 96 px)</h3><p class="lk-trecho-uso">Onde o selo não cabe: Barra Fixa da LP, lower third, legenda. Texto em Crédito com fio de 1 px e canto reto. Copie só a linha do produto.</p><ul class="lk-tags"><li>12 px</li><li>Fumaça 5,08:1 na borda</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<span style="display:inline-block;margin:6px;padding:6px 10px;border:1px solid #898989;border-radius:0;color:#F8F9F4;font:500 12px/1.2 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase">THE VOID START</span>
+<span style="display:inline-block;margin:6px;padding:6px 10px;border:1px solid #898989;border-radius:0;color:#F8F9F4;font:500 12px/1.2 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase">THE VOID MASTER</span>
+<span style="display:inline-block;margin:6px;padding:6px 10px;border:1px solid #898989;border-radius:0;color:#F8F9F4;font:500 12px/1.2 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase">THE VOID PRO</span>
+        </script>
+      </article>
+    </div>
+
+    <h3 class="lk-inter">Assinaturas de produto</h3>
+    <p class="lk-texto">Start e Master assinam com o logotipo de produto e o selo lado a lado, afastados 1&nbsp;X. O Pro tem a única pílula do sistema: logotipo, pílula de contorno de 1,5 px com o selo simples e a frase do produto. A pílula não é clicável e não vira botão.</p>
+    <div class="lk-grade" style="margin-top:var(--e-5)">
+      <article class="lk-trecho" id="t-assinatura-start" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura do Start</h3><p class="lk-trecho-uso">Fecho de peça e de VSL do Start, cabeçalho de e-mail de marco.</p><ul class="lk-tags"><li>logotipo 40 px</li><li>selo 96 px</li><li>1&nbsp;X = 14 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px">
+<img src="assets/brand/svg/void-start-branco.svg" width="250" height="40" alt="The VOID Start" style="display:block;width:250px;max-width:100%;height:auto">
+<img src="assets/brand/svg/selo-simples-start.svg" width="96" height="96" alt="Selo The VOID Start" style="display:block;width:96px;height:96px">
+</div>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-assinatura-master" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura do Master</h3><p class="lk-trecho-uso">Mesma construção, na comunicação do Master.</p><ul class="lk-tags"><li>logotipo 40 px</li><li>selo 96 px</li><li>1&nbsp;X = 14 px</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px">
+<img src="assets/brand/svg/void-master-branco.svg" width="269" height="40" alt="The VOID Master" style="display:block;width:269px;max-width:100%;height:auto">
+<img src="assets/brand/svg/selo-simples-master.svg" width="96" height="96" alt="Selo The VOID Master" style="display:block;width:96px;height:96px">
+</div>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-assinatura-pro" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura de Produto do Pro</h3><p class="lk-trecho-uso">Capa e fecho do Pro. Pílula de 1,5 px com raio total, selo simples de 96 px no disco Coxia e a frase em Crédito. Não é recurso livre: só nesta composição. Precisa de 288 px de largura (cabe numa tela de 320 px com margem de 16 px); em espaço menor, use o logotipo do Pro com o selo simples, como no Start e no Master.</p><ul class="lk-tags"><li>a única pílula</li><li>selo 96 px</li><li>mínimo 288 px de largura</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+<img src="assets/brand/svg/void-pro-branco.svg" width="363" height="56" alt="The VOID Pro" style="display:block;width:363px;max-width:100%;height:auto">
+<div style="display:inline-flex;align-items:center;gap:12px;max-width:100%;padding:6px 16px 6px 6px;border:1.5px solid #F8F9F4;border-radius:999px">
+<span style="display:inline-block;flex:none;line-height:0;padding:4px;border-radius:50%;background:#2B2B2B"><img src="assets/brand/svg/selo-simples-pro.svg" width="96" height="96" alt="Selo The VOID Pro" style="display:block;width:96px;height:96px"></span>
+<span style="max-width:22em;color:#F8F9F4;font:500 12px/1.5 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase">SEJA UM ESTRATEGISTA DA SUA CARREIRA PROFISSIONAL.</span>
+</div>
+</div>
+        </script>
+      </article>
+    </div>
+    <p class="lk-pendencia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>Observação</b> No slide 37 a assinatura aparece como THE VOID®, pílula e PRO no fim. Não existe arquivo oficial de THE VOID® sem descritor, e digitar PRO montaria o descritor à mão. Até haver esse arquivo, o trecho usa o logotipo oficial do Pro antes da pílula. Selo dentro do O do VOID continua vetado sem arquivo aprovado [P 10].</span></p>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seções 3.5, 5.2, 5.6, 6.13 e 6.20; Plataforma de Branding, aureadesign, 2025, slides 31 e 37; selos oficiais em assets/brand/svg.</p>
+  </div>
+</section>
+
+<!-- ============================== 06 · CO-ASSINATURA ============================== -->
+<section class="lk-sec" id="l06" aria-labelledby="l06-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">06</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Co-assinatura</p>
+        <h2 id="l06-t" class="titulo-secao">Um nome <em class="off">ao lado</em></h2>
+        <p class="lk-sec-apoio">O descritor fundido ao logotipo só existe nos arquivos oficiais (TATTOO, TATTOO ACADEMY, START, MASTER, PRO). Qualquer outro nome entra ao lado: logotipo horizontal oficial, fio vertical de 1 px da altura do VOID, 1&nbsp;X de cada lado e o nome em Archivo 700, largura 112, com a mesma altura das maiúsculas do THE.</p>
+      </div>
+    </header>
+    <p class="lk-texto">Os três trechos medem tudo a partir de uma única variável, <code>--h</code>, a altura do logotipo: o fio vale 0,953 de <code>--h</code> (a altura do VOID no arquivo), o afastamento vale 0,335 (1&nbsp;X) e o corpo do nome vale 0,489 (a altura do THE dividida pela altura das maiúsculas do Archivo, 0,686). Já vem com <code>clamp(24px,7vw,48px)</code>: nunca abaixo do mínimo de 24 px.</p>
+    <div class="lk-grade" style="margin-top:var(--e-6)">
+      <article class="lk-trecho largo" id="t-co-talks" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Talks</h3><p class="lk-trecho-uso">Página, cartaz e convite do The VOID Talks (grafia única). Página de evento não traz oferta de formação.</p><ul class="lk-tags"><li>evento</li><li>co-assinatura</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="--h:clamp(24px,7vw,48px);display:inline-flex;align-items:center;max-width:100%;padding:calc(var(--h) * .335)">
+<img src="assets/brand/svg/void-horizontal-branco.svg" width="315" height="48" alt="The VOID Tattoo Academy" style="display:block;flex:none;width:auto;height:var(--h)">
+<span aria-hidden="true" style="display:block;flex:none;width:1px;height:calc(var(--h) * .953);margin:0 calc(var(--h) * .335);background:#F8F9F4"></span>
+<span style="color:#F8F9F4;font:700 calc(var(--h) * .489)/1 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 112;letter-spacing:0;text-transform:uppercase;white-space:nowrap;text-box:trim-both cap alphabetic">TALKS</span>
+</div>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-co-convencao" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Convenção</h3><p class="lk-trecho-uso">Cartaz, página e materiais da Convenção The VOID (nome canônico do evento).</p><ul class="lk-tags"><li>evento</li><li>co-assinatura</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="--h:clamp(24px,7vw,48px);display:inline-flex;align-items:center;max-width:100%;padding:calc(var(--h) * .335)">
+<img src="assets/brand/svg/void-horizontal-branco.svg" width="315" height="48" alt="The VOID Tattoo Academy" style="display:block;flex:none;width:auto;height:var(--h)">
+<span aria-hidden="true" style="display:block;flex:none;width:1px;height:calc(var(--h) * .953);margin:0 calc(var(--h) * .335);background:#F8F9F4"></span>
+<span style="color:#F8F9F4;font:700 calc(var(--h) * .489)/1 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 112;letter-spacing:0;text-transform:uppercase;white-space:nowrap;text-box:trim-both cap alphabetic">CONVENÇÃO</span>
+</div>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-co-voiders" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">VOIDERS</h3><p class="lk-trecho-uso">Comunidade de alunos e ex-alunos. Sempre em caixa alta, sem logotipo próprio.</p><ul class="lk-tags"><li>comunidade</li><li>co-assinatura</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<div style="--h:clamp(24px,7vw,48px);display:inline-flex;align-items:center;max-width:100%;padding:calc(var(--h) * .335)">
+<img src="assets/brand/svg/void-horizontal-branco.svg" width="315" height="48" alt="The VOID Tattoo Academy" style="display:block;flex:none;width:auto;height:var(--h)">
+<span aria-hidden="true" style="display:block;flex:none;width:1px;height:calc(var(--h) * .953);margin:0 calc(var(--h) * .335);background:#F8F9F4"></span>
+<span style="color:#F8F9F4;font:700 calc(var(--h) * .489)/1 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 112;letter-spacing:0;text-transform:uppercase;white-space:nowrap;text-box:trim-both cap alphabetic">VOIDERS</span>
+</div>
+        </script>
+      </article>
+    </div>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seção 5.5 (co-assinatura); medidas do horizontal em marca.json; altura das maiúsculas do Archivo medida no navegador em 06/10/2026.</p>
+  </div>
+</section>
+
+<!-- ============================== 07 · CRÉDITOS FINAIS ============================== -->
+<section class="lk-sec" id="l07" aria-labelledby="l07-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">07</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Créditos Finais e Ficha Técnica</p>
+        <h2 id="l07-t" class="titulo-secao">A última linha <em class="off">que fica</em></h2>
+        <p class="lk-sec-apoio">O rodapé-assinatura é texto fixo e literal, único para todos os produtos. Sempre TATTOO, com dois T. Frases de produto vão em outra linha, nunca dentro dele.</p>
+      </div>
+    </header>
+    <div class="lk-grade">
+      <article class="lk-trecho largo" id="t-creditos" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Créditos Finais</h3><p class="lk-trecho-uso">Rodapé de site, LP e e-mail, peça institucional, cartaz, fecho de vídeo, capa e contracapa de PDF. Uma vez por peça; nunca em anúncio 9:16. No celular, quebra depois de BRAZIL.</p><ul class="lk-tags"><li>Crédito 12 px</li><li>Pó, fim em Tela 700</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-creditos{margin:0;color:#B4B5B0;font:500 12px/1.8 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+.tv-creditos .tv-sep{margin:0 .9em}
+.tv-creditos b{font-weight:700;color:#F8F9F4}
+.tv-creditos .tv-quebra{display:none}
+@media (max-width:430px){.tv-creditos .tv-quebra{display:block}.tv-creditos .tv-quebra+.tv-sep{display:none}}
+</style>
+<p class="tv-creditos">TATTOO&nbsp;ACADEMY<span class="tv-sep">·</span><wbr>®&nbsp;2025<span class="tv-sep">·</span><wbr>SÃO&nbsp;PAULO<span class="tv-sep">·</span><wbr>BRAZIL<span class="tv-quebra"></span><span class="tv-sep">·</span><wbr><b>PREENCHA&nbsp;O&nbsp;VAZIO</b></p>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-ficha" data-fundo="sala">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Ficha Técnica</h3><p class="lk-trecho-uso">Canto superior de peça premium: Pro, capa de LP e de VSL, convite de evento, certificado, capa de PDF. Nunca em post de conversão de topo nem na mesma borda dos Créditos Finais.</p><ul class="lk-tags"><li>Crédito 12 px</li><li>Pó</li><li>sem ano [P 5]</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<p style="margin:0;color:#B4B5B0;font:500 12px/1.6 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase">THE VOID TATTOO ACADEMY<span style="margin:0 .9em">·</span>SÃO PAULO<span style="margin:0 .9em">·</span>BRAZIL</p>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-corrido" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Letreiro Corrido</h3><p class="lk-trecho-uso">Só em peça de evento (Talks, Convenção, Formatura) e no topo da LP de evento; nunca em LP de venda. Cerca de 40 px por segundo, pausa ao passar o cursor, parado com movimento reduzido.</p><ul class="lk-tags"><li>evento</li><li>56 px de faixa</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-corrido{display:flex;align-items:center;width:100%;min-height:56px;overflow:hidden;white-space:nowrap;background:#181818;color:#B4B5B0;font:500 12px/1 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 125;letter-spacing:.18em;text-transform:uppercase}
+.tv-corrido-trilho{display:inline-flex;flex:none;animation:tv-correr 53s linear infinite}
+.tv-corrido:hover .tv-corrido-trilho{animation-play-state:paused}
+.tv-corrido-trilho span{padding-right:.9em}
+@keyframes tv-correr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tv-corrido-trilho{animation:none}}
+@media print{.tv-corrido-trilho{animation:none}}
+</style>
+<div class="tv-corrido" role="marquee" aria-label="The VOID Tattoo, ® 2025, São Paulo, Brazil">
+<div class="tv-corrido-trilho" aria-hidden="true"><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span><span>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL ·</span></div>
+</div>
+        </script>
+      </article>
+    </div>
+    <p class="lk-pendencia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 5]</b> "EST [ano]" e "desde [ano]" ficam fora da Ficha Técnica até a confirmação do ano de fundação com a The VOID. O "® 2025" dos Créditos Finais é texto fixo copiado do rodapé da Plataforma de Branding (slides 14 e 30) e não indica o ano de fundação.</span></p>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seções 6.14 e 6.15; Plataforma de Branding, aureadesign, 2025, slides 14, 19, 21, 30 e 38.</p>
+  </div>
+</section>
+
+<!-- ============================== 08 · PROVA E CONFORMIDADE ============================== -->
+<section class="lk-sec" id="l08" aria-labelledby="l08-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">08</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>Prova e conformidade</p>
+        <h2 id="l08-t" class="titulo-secao">Toda prova tem <em class="off">crédito</em></h2>
+        <p class="lk-sec-apoio">Nenhum número, depoimento, avaliação ou dado de mercado aparece sem o Crédito de Prova: o que mede, recorte, data, fonte e a marca de origem, o fio de 16 por 2 px antes da régua. Nenhum número da escola está validado ainda; por isso os trechos trazem [P 15] no lugar do número.</p>
+      </div>
+    </header>
+
+    <div class="tabela-wrap" tabindex="0" role="region" aria-label="As quatro marcas de origem">
+      <table>
+        <thead><tr><th scope="col">Origem</th><th scope="col">Fio</th><th scope="col">Quando</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Medido</th><td data-rotulo="Fio">cheio</td><td data-rotulo="Quando">Registro da própria escola, arquivado.</td></tr>
+          <tr><th scope="row">Terceiro</th><td data-rotulo="Fio">tracejado</td><td data-rotulo="Quando">Declarado por terceiro (Google, imprensa), com link e data da captura.</td></tr>
+          <tr><th scope="row">Mercado</th><td data-rotulo="Fio">pontilhado</td><td data-rotulo="Quando">Estudo externo, com link.</td></tr>
+          <tr><th scope="row">Em validação</th><td data-rotulo="Fio">tracejado em Fumaça</td><td data-rotulo="Quando">Só no arquivo de trabalho. Bloqueia a exportação e a publicação.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lk-grade" style="margin-top:var(--e-6)">
+      <article class="lk-trecho" id="t-prova-medido" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Crédito de Prova · medido</h3><p class="lk-trecho-uso">Contagem da própria escola. O fio lateral é o grafismo do produto: Tela a 32% no institucional (Start <code>#93693B</code>, Master <code>#B25A32</code>, Pro <code>#C9D0D8</code>).</p><ul class="lk-tags"><li>fio cheio</li><li>número [P 15]</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-prova{margin:0;max-width:420px;padding-left:16px;border-left:2px solid rgb(248 249 244 / .32)}
+.tv-prova-n{display:block;color:#F8F9F4;font:700 56px/.9 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 75;font-variant-numeric:lining-nums tabular-nums}
+.tv-prova-o-que{display:block;margin-top:10px;color:#DCDDD8;font:600 18px/1.3 'Archivo','Arial Narrow',Arial,sans-serif}
+.tv-prova-regua{margin:10px 0 0;color:#B4B5B0;font:400 13px/1.45 'Nunito Sans',Arial,sans-serif}
+.tv-prova-regua a{color:#DBC5A3}
+.tv-origem{display:inline-block;width:16px;margin-right:8px;vertical-align:middle;border-top:2px solid #B4B5B0}
+.tv-prova[data-origem="terceiro"] .tv-origem{border-top-style:dashed}
+.tv-prova[data-origem="mercado"] .tv-origem{border-top-style:dotted}
+</style>
+<figure class="tv-prova" data-origem="medido">
+<data class="tv-prova-n" value="">[P 15]</data>
+<figcaption class="tv-prova-o-que">alunos concluíram a formação Start</figcaption>
+<p class="tv-prova-regua"><span class="tv-origem"></span>contagem da secretaria · turmas até {{mês/ano}} · registro interno</p>
+</figure>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-prova-terceiro" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Crédito de Prova · terceiro</h3><p class="lk-trecho-uso">Avaliação pública. Link para a fonte e data da captura são obrigatórios.</p><ul class="lk-tags"><li>fio tracejado</li><li>link e captura</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-prova{margin:0;max-width:420px;padding-left:16px;border-left:2px solid rgb(248 249 244 / .32)}
+.tv-prova-n{display:block;color:#F8F9F4;font:700 56px/.9 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 75;font-variant-numeric:lining-nums tabular-nums}
+.tv-prova-o-que{display:block;margin-top:10px;color:#DCDDD8;font:600 18px/1.3 'Archivo','Arial Narrow',Arial,sans-serif}
+.tv-prova-regua{margin:10px 0 0;color:#B4B5B0;font:400 13px/1.45 'Nunito Sans',Arial,sans-serif}
+.tv-prova-regua a{color:#DBC5A3}
+.tv-origem{display:inline-block;width:16px;margin-right:8px;vertical-align:middle;border-top:2px solid #B4B5B0}
+.tv-prova[data-origem="terceiro"] .tv-origem{border-top-style:dashed}
+.tv-prova[data-origem="mercado"] .tv-origem{border-top-style:dotted}
+</style>
+<figure class="tv-prova" data-origem="terceiro">
+<data class="tv-prova-n" value="">[P 15]</data>
+<figcaption class="tv-prova-o-que">nota média das avaliações no Google</figcaption>
+<p class="tv-prova-regua"><span class="tv-origem"></span>{{N}} avaliações · captura em {{dd/mm/aaaa}} · <a href="{{link do perfil}}">Perfil da Empresa no Google</a></p>
+</figure>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-prova-mercado" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Crédito de Prova · mercado</h3><p class="lk-trecho-uso">Estudo externo, sempre com link. Dado de mercado não vira promessa de renda.</p><ul class="lk-tags"><li>fio pontilhado</li><li>link</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-prova{margin:0;max-width:420px;padding-left:16px;border-left:2px solid rgb(248 249 244 / .32)}
+.tv-prova-n{display:block;color:#F8F9F4;font:700 56px/.9 'Archivo','Arial Narrow',Arial,sans-serif;font-variation-settings:'wdth' 75;font-variant-numeric:lining-nums tabular-nums}
+.tv-prova-o-que{display:block;margin-top:10px;color:#DCDDD8;font:600 18px/1.3 'Archivo','Arial Narrow',Arial,sans-serif}
+.tv-prova-regua{margin:10px 0 0;color:#B4B5B0;font:400 13px/1.45 'Nunito Sans',Arial,sans-serif}
+.tv-prova-regua a{color:#DBC5A3}
+.tv-origem{display:inline-block;width:16px;margin-right:8px;vertical-align:middle;border-top:2px solid #B4B5B0}
+.tv-prova[data-origem="terceiro"] .tv-origem{border-top-style:dashed}
+.tv-prova[data-origem="mercado"] .tv-origem{border-top-style:dotted}
+</style>
+<figure class="tv-prova" data-origem="mercado">
+<data class="tv-prova-n" value="">{{N}}</data>
+<figcaption class="tv-prova-o-que">{{o que o estudo mede, em uma linha}}</figcaption>
+<p class="tv-prova-regua"><span class="tv-origem"></span>{{base do estudo}} · {{ano}} · <a href="{{link do estudo}}">{{nome do instituto}}</a></p>
+</figure>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-prova-validacao" data-fundo="sala" data-alinhar="esquerda" data-bloqueado>
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Crédito de Prova · em validação</h3><p class="lk-trecho-uso">Só para o arquivo de trabalho: o número vira "dado em validação" e a moldura fica tracejada. Peça com este bloco não é exportada nem publicada.</p><ul class="lk-tags"><li>fio Fumaça tracejado</li><li>não publica</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<style>
+.tv-prova{margin:0;max-width:420px;padding-left:16px;border-left:2px solid rgb(248 249 244 / .32)}
+.tv-prova-o-que{display:block;margin-top:10px;color:#DCDDD8;font:600 18px/1.3 'Archivo','Arial Narrow',Arial,sans-serif}
+.tv-prova-regua{margin:10px 0 0;color:#B4B5B0;font:400 13px/1.45 'Nunito Sans',Arial,sans-serif}
+.tv-origem{display:inline-block;width:16px;margin-right:8px;vertical-align:middle;border-top:2px solid #B4B5B0}
+.tv-prova[data-origem="em-validacao"]{border-left:2px dashed #898989}
+.tv-prova[data-origem="em-validacao"] .tv-origem{border-top:2px dashed #898989}
+.tv-prova-pendente{display:block;color:#B4B5B0;font:600 22px/1.1 'Archivo','Arial Narrow',Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+</style>
+<figure class="tv-prova" data-origem="em-validacao">
+<data class="tv-prova-pendente" value="">dado em validação</data>
+<figcaption class="tv-prova-o-que">alunos concluíram a formação Start</figcaption>
+<p class="tv-prova-regua"><span class="tv-origem"></span>contagem da secretaria · aguarda método de contagem e data [P 15]</p>
+</figure>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-viz-bloqueio" data-demo>
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">O mesmo bloqueio no motor de gráficos</h3><p class="lk-trecho-uso">O <code>vviz.js</code> desenha o Numeral de Prova em validação só como arquivo de trabalho e recusa a exportação. Teste o botão.</p><ul class="lk-tags"><li>vviz.js</li><li>em-validacao</li></ul></header>
+        <div class="lk-viz" tabindex="0" role="region" aria-label="Numeral de Prova em validação"><div id="lk-viz-numeral"></div></div><p class="lk-viz-dica">Role para o lado: o numeral precisa de 460 px</p>
+        <div class="lk-viz-acoes"><button type="button" class="lk-copiar" id="lk-viz-exportar"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>Tentar exportar SVG</button><span class="lk-viz-msg" id="lk-viz-msg" role="status"></span></div>
+      </article>
+    </div>
+
+    <h3 class="lk-inter">Aviso de Conformidade e frases-modelo</h3>
+    <p class="lk-texto">Use como estão. Campos entre chaves são trocados antes de publicar; nada vai ao ar com chave ou colchete. A frase de curso livre e certificado não está aqui: ela depende de validação de advogado [P 20] e só entra depois disso.</p>
+    <div class="lk-grade" style="margin-top:var(--e-5)">
+      <article class="lk-trecho" id="t-aviso-curto" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Aviso de Conformidade (LP)</h3><p class="lk-trecho-uso">Abaixo do Rolo de Depoimentos e de toda prova de resultado.</p><ul class="lk-tags"><li>13 px</li><li>Pó 8,61:1</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<p style="margin:0;color:#B4B5B0;font:400 13px/1.45 'Nunito Sans',Arial,sans-serif">Resultados individuais variam conforme prática e dedicação.</p>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-aviso-longo" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Aviso de resultado, versão longa</h3><p class="lk-trecho-uso">Página de depoimentos, VSL (texto da descrição) e material impresso.</p><ul class="lk-tags"><li>15 px</li><li>Pó</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<p style="margin:0;max-width:680px;color:#B4B5B0;font:400 15px/1.5 'Nunito Sans',Arial,sans-serif">Os resultados mostrados são de alunos reais e não são garantia. O seu resultado depende da sua dedicação, da prática fora da aula e do seu mercado local.</p>
+        </script>
+      </article>
+    </div>
+    <div class="lk-grade" style="margin-top:var(--e-5)">
+      <article class="lk-trecho" id="t-frase-vagas" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Vagas</h3><p class="lk-trecho-uso">Só com o número real de vagas, ligado ao calendário.</p></header><script type="text/plain" class="lk-fonte">Turma de {{mês/ano}}: {{N}} vagas no total. Restam {{N}} em {{data}}.</script></article>
+      <article class="lk-trecho" id="t-frase-prazo" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Prazo</h3><p class="lk-trecho-uso">Condição com data e hora reais; nada de <span data-exemplo="proibido">"só hoje"</span> recorrente.</p></header><script type="text/plain" class="lk-fonte">Condição válida até {{dia/mês}}, às {{hora}}. Depois disso, o valor volta para R$ {{valor}}.</script></article>
+      <article class="lk-trecho" id="t-frase-arrependimento" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Arrependimento</h3><p class="lk-trecho-uso">Toda venda pela internet, telefone ou WhatsApp.</p></header><script type="text/plain" class="lk-fonte">Matrícula feita pela internet, telefone ou WhatsApp pode ser cancelada em até 7 dias a partir da contratação, com devolução integral do valor pago, conforme o artigo 49 do Código de Defesa do Consumidor.</script></article>
+      <article class="lk-trecho" id="t-frase-depoimento" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Depoimento</h3><p class="lk-trecho-uso">Junto de todo depoimento, com autorização por escrito.</p></header><script type="text/plain" class="lk-fonte">Depoimento real de {{nome}}, aluno da formação {{Start, Master ou Pro}}, turma {{mês/ano}}, usado com autorização.</script></article>
+      <article class="lk-trecho" id="t-frase-modelos" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Chamada de modelos</h3><p class="lk-trecho-uso">A parte da supervisão só entra se for verdade.</p></header><script type="text/plain" class="lk-fonte">Procuramos modelos maiores de 18 anos. Documento com foto obrigatório no dia. A sessão é feita por aluno sob supervisão de instrutor, com protocolo de biossegurança.</script></article>
+      <article class="lk-trecho" id="t-frase-biosseguranca" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Biossegurança</h3><p class="lk-trecho-uso">Página de formação e perguntas frequentes.</p></header><script type="text/plain" class="lk-fonte">Na formação você aprende o protocolo de biossegurança. Para atender clientes no seu próprio espaço, você precisa da licença da vigilância sanitária da sua cidade.</script></article>
+      <article class="lk-trecho" id="t-frase-parceria" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Parceria paga</h3><p class="lk-trecho-uso">Início da legenda de todo conteúdo em parceria ou com bolsa.</p></header><script type="text/plain" class="lk-fonte">#publi · Parceria paga com a The VOID.</script></article>
+      <article class="lk-trecho" id="t-frase-concurso" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Concurso cultural</h3><p class="lk-trecho-uso">Com regulamento validado [P 20].</p></header><script type="text/plain" class="lk-fonte">Concurso exclusivamente cultural, sem sorteio, sem compra e sem custo de participação. Vencedores escolhidos por júri com os critérios do regulamento.</script></article>
+      <article class="lk-trecho" id="t-frase-formulario" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Formulário</h3><p class="lk-trecho-uso">Abaixo do botão de envio, com o link da Política de Privacidade.</p></header><script type="text/plain" class="lk-fonte">Usamos seus dados para falar com você sobre a formação. Você pode sair quando quiser. Leia a Política de Privacidade.</script></article>
+      <article class="lk-trecho" id="t-frase-microcopy" data-formato="texto"><header class="lk-trecho-head"><h3 class="lk-trecho-t">Microcopy do botão</h3><p class="lk-trecho-uso">Só enquanto o compromisso de prazo existir de verdade no atendimento.</p></header><script type="text/plain" class="lk-fonte">Resposta de uma pessoa do time em até 2h, sem ligação invasiva.</script></article>
+    </div>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seções 6.16, 11.1, 11.2 e 14; relatório de conformidade da pesquisa GrowAI, out/2026.</p>
+  </div>
+</section>
+
+<!-- ============================== 09 · NAP, BIO, E-MAIL, WHATSAPP ============================== -->
+<section class="lk-sec" id="l09" aria-labelledby="l09-t">
+  <div class="lk-wrap">
+    <header class="lk-sec-head">
+      <span class="lk-sec-num" aria-hidden="true">09</span>
+      <div>
+        <p class="lk-marcador credito"><span data-vforms="marcador-estacao"></span>NAP, bio, e-mail e WhatsApp</p>
+        <h2 id="l09-t" class="titulo-secao">Onde a marca <em class="off">conversa</em></h2>
+        <p class="lk-sec-apoio">Nome, endereço e telefone iguais em todo lugar: rodapé, contato, dados estruturados, Google, redes, membros e e-mails. Copie, nunca redigite.</p>
+      </div>
+    </header>
+    <div class="lk-grade">
+      <article class="lk-trecho" id="t-nap-texto" data-formato="texto">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Bloco NAP em texto</h3><p class="lk-trecho-uso">Para redes, Google, diretórios e qualquer campo de texto. "Rua", nunca "R.".</p><ul class="lk-tags"><li>telefone [P 8]</li></ul></header>
+        <script type="text/plain" class="lk-fonte">The VOID Tattoo Academy
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
++55 11 92481-8712</script>
+      </article>
+      <article class="lk-trecho" id="t-nap-html" data-fundo="sala" data-alinhar="esquerda">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Bloco NAP em HTML</h3><p class="lk-trecho-uso">Rodapé de site e LP, página de contato. Telefone com link de discagem.</p><ul class="lk-tags"><li>&lt;address&gt;</li><li>telefone [P 8]</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<address style="margin:0;font-style:normal;color:#DCDDD8;font:400 15px/1.6 'Nunito Sans',Arial,sans-serif">
+<b style="font-weight:600;color:#F8F9F4">The VOID Tattoo Academy</b><br>
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040<br>
+<a href="tel:+5511924818712" style="color:#DBC5A3;text-decoration:underline;text-underline-offset:3px">+55 11 92481-8712</a>
+</address>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-bio" data-formato="texto">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Descrição de uma linha (bio)</h3><p class="lk-trecho-uso">Literal em todo lugar: bio do Instagram e do TikTok, descrição do WhatsApp Business, Google, imprensa e dados estruturados. Cabe nos 150 caracteres da bio. Ficam fora: superlativos, contagem de alunos e qualquer menção a <span data-exemplo="proibido">credenciamento</span>.</p><ul class="lk-tags"><li>146 caracteres</li><li>decidido</li></ul></header>
+        <script type="text/plain" class="lk-fonte">A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</script>
+      </article>
+      <article class="lk-trecho" id="t-whatsapp-assinatura" data-formato="texto">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura no WhatsApp</h3><p class="lk-trecho-uso">Quem escreve se apresenta pelo nome e assina assim, na última linha.</p></header>
+        <script type="text/plain" class="lk-fonte">{{nome}}, The VOID</script>
+      </article>
+      <article class="lk-trecho largo" id="t-email-sala" data-fundo="bastidor">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura de e-mail · Sala</h3><p class="lk-trecho-uso">Padrão enquanto o Modo Leitura não é aprovado [P 2]. Tabela com estilos em linha e logotipo em PNG (data URI e SVG não funcionam em e-mail). Antes de usar no programa de e-mail, troque o caminho do PNG pelo endereço público completo. Assina sempre uma pessoa real com cargo.</p><ul class="lk-tags"><li>600 px</li><li>logotipo 200 px</li><li>pessoa real</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#181818" style="width:100%;max-width:600px;border-collapse:collapse;background:#181818">
+<tr><td style="padding:24px">
+<p style="margin:0;color:#F8F9F4;font:600 16px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">{{nome}}</p>
+<p style="margin:4px 0 0;color:#B4B5B0;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">{{cargo}} · The VOID Tattoo Academy</p>
+<img src="assets/brand/png/web/void-horizontal-branco.png" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;margin:20px 0 0;border:0">
+<p style="margin:16px 0 0;color:#B4B5B0;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040<br><a href="tel:+5511924818712" style="color:#DBC5A3">+55 11 92481-8712</a></p>
+<p style="margin:16px 0 0;color:#B4B5B0;font:500 11px/1.6 'Archivo','Helvetica Neue',Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b style="font-weight:700;color:#F8F9F4">PREENCHA O VAZIO</b></p>
+</td></tr>
+</table>
+        </script>
+      </article>
+      <article class="lk-trecho largo" id="t-email-leitura" data-fundo="bastidor">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Assinatura de e-mail · Modo Leitura</h3><p class="lk-trecho-uso">Para quando o corpo do e-mail sair em Tela, depois da aprovação do Modo Leitura [P 2]. Logotipo preto, texto Sala, apoio Ardósia, link Terracota Funda.</p><ul class="lk-tags"><li>depende de [P 2]</li><li>logotipo preto</li></ul></header>
+        <script type="text/html" class="lk-fonte">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F8F9F4" style="width:100%;max-width:600px;border-collapse:collapse;background:#F8F9F4">
+<tr><td style="padding:24px;border-top:1px solid #898989">
+<p style="margin:0;color:#181818;font:600 16px/1.3 'Archivo','Helvetica Neue',Arial,sans-serif">{{nome}}</p>
+<p style="margin:4px 0 0;color:#3F4E4F;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">{{cargo}} · The VOID Tattoo Academy</p>
+<img src="assets/brand/png/web/void-horizontal-preto.png" width="200" height="31" alt="The VOID Tattoo Academy" style="display:block;width:200px;height:auto;margin:20px 0 0;border:0">
+<p style="margin:16px 0 0;color:#3F4E4F;font:400 13px/1.5 'Nunito Sans',Arial,sans-serif">Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040<br><a href="tel:+5511924818712" style="color:#8C4529">+55 11 92481-8712</a></p>
+</td></tr>
+</table>
+        </script>
+      </article>
+      <article class="lk-trecho" id="t-whatsapp" data-gerador="whatsapp" data-formato="texto">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Mensagem de WhatsApp pré-preenchida</h3><p class="lk-trecho-uso">A mensagem diz de onde a pessoa veio, para quem atende saber o contexto sem perguntar. Escolha a página de origem; o card seguinte traz o link pronto para o botão.</p><ul class="lk-tags"><li>sem emoji em M1 a M4</li><li>número [P 8]</li></ul></header>
+        <div class="lk-controles">
+          <fieldset class="lk-campo"><legend>Página de origem</legend><div class="lk-opcoes" data-controle="origem">
+            <button type="button" data-v="start" aria-pressed="true">Start</button><button type="button" data-v="master" aria-pressed="false">Master</button><button type="button" data-v="pro" aria-pressed="false">Pro</button><button type="button" data-v="aula" aria-pressed="false">Aula experimental</button><button type="button" data-v="talks" aria-pressed="false">Talks</button>
+          </div></fieldset>
+          <p class="lk-aviso" id="lk-aviso-wa"></p>
+        </div>
+      </article>
+      <article class="lk-trecho" id="t-whatsapp-link" data-formato="texto">
+        <header class="lk-trecho-head"><h3 class="lk-trecho-t">Link do botão de WhatsApp</h3><p class="lk-trecho-uso">Vai no destino do botão da página escolhida no card anterior: abre a conversa já com a mensagem. Troque <code>{{WHATSAPP_OFICIAL}}</code> pelo número só com dígitos (55, DDD e número) quando o WhatsApp oficial de cada produto for confirmado [P 8].</p><ul class="lk-tags"><li>wa.me</li><li>número [P 8]</li></ul></header>
+      </article>
+    </div>
+    <p class="lk-pendencia"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><span><b>[P 8]</b> O telefone do NAP é o publicado pela escola. Confirmar com a The VOID o telefone principal, se ele é WhatsApp, o WhatsApp oficial de cada produto, a razão social e o CNPJ do rodapé legal.</span></p>
+    <p class="lk-fontes credito"><b>Fontes</b>Especificação Sala Escura v1, seções 12.5, 12.6, 13.1 e 13.2; site oficial e Google Maps, levantamento de presença pública de out/2026.</p>
+  </div>
+</section>
+</main>
+
+<footer class="lk-rodape">
+  <div class="lk-wrap">
+    <div data-vforms="rodape"></div>
+    <nav class="lk-rodape-links" aria-label="Arquivos do repositório">
+      <a href="index.html">Todos os arquivos</a>
+      <a href="brand-book.html">Manual de marca</a>
+      <a href="brand-book.html#s33">Conformidade e prova</a>
+    </nav>
+    <p class="lk-fontes credito"><b>Página</b>Trechos da marca, sistema Sala Escura v1, 06/10/2026. Proposta GrowAI, aguarda aprovação da The VOID.</p>
+  </div>
+</footer>
+
+<!-- lockup-datauri:inicio -->
+<script type="application/json" id="lk-datauri">{"void-horizontal-branco":{"arquivo":"assets/brand/svg/void-horizontal-branco.svg","bytes":7668,"sha256":"516e5234167e6c92b7e94cc34611a1c7d552575096380970bc55a6fec7880143","viewBox":[0,0,3804,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223804%22 height=%22579%22 viewBox=%220 0 3804 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.627 564L726.397 12.1865H844.643L995.209 452.061L1146.56 12.1865H1263.23L1063 564H926.627ZM1518.27 573.46C1464.66 573.46 1417.36 561.372 1376.37 537.198C1335.38 513.023 1303.06 479.651 1279.41 437.083C1256.29 393.989 1244.73 344.326 1244.73 288.093C1244.73 231.861 1256.29 182.46 1279.41 139.892C1303.06 96.7979 1335.38 63.1636 1376.37 38.9889C1417.36 14.8142 1464.66 2.72684 1518.27 2.72684C1572.4 2.72684 1619.96 14.8142 1660.95 38.9889C1702.47 63.1636 1734.53 96.7979 1757.12 139.892C1780.25 182.46 1791.81 231.861 1791.81 288.093C1791.81 344.326 1780.25 393.989 1757.12 437.083C1734.53 479.651 1702.47 513.023 1660.95 537.198C1619.96 561.372 1572.4 573.46 1518.27 573.46ZM1518.27 474.133C1551.38 474.133 1580.02 466.513 1604.19 451.272C1628.37 436.032 1647.02 414.748 1660.16 387.42C1673.3 359.566 1679.87 326.457 1679.87 288.093C1679.87 249.729 1673.3 216.883 1660.16 189.555C1647.02 161.702 1628.37 140.155 1604.19 124.914C1580.02 109.674 1551.38 102.053 1518.27 102.053C1485.68 102.053 1457.31 109.674 1433.13 124.914C1409.48 140.155 1390.83 161.702 1377.16 189.555C1364.02 216.883 1357.45 249.729 1357.45 288.093C1357.45 326.457 1364.02 359.566 1377.16 387.42C1390.83 414.748 1409.48 436.032 1433.13 451.272C1457.31 466.513 1485.68 474.133 1518.27 474.133ZM1834.5 564V12.1865H1944.86V564H1834.5ZM2005.06 564V12.1865H2192.68C2256.27 12.1865 2309.09 23.7483 2351.13 46.8719C2393.17 69.47 2424.18 101.528 2444.15 143.045C2464.65 184.037 2474.89 232.386 2474.89 288.093C2474.89 343.275 2464.65 391.624 2444.15 433.141C2424.18 474.659 2393.17 506.979 2351.13 530.103C2309.61 552.701 2256.53 564 2191.89 564H2005.06ZM2115.43 469.403H2186.37C2230.52 469.403 2265.21 462.309 2290.43 448.119C2316.18 433.404 2334.58 412.645 2345.61 385.843C2356.65 358.515 2362.17 325.932 2362.17 288.093C2362.17 250.255 2356.65 217.934 2345.61 191.132C2334.58 163.804 2316.18 142.782 2290.43 128.067C2265.21 113.352 2230.52 105.995 2186.37 105.995H2115.43V469.403Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M71.9134 381.048V210.324H5.37935V186.825H165.91V210.324H98.8102V381.048H71.9134ZM201.71 381.048V186.825H228.607V270.063H334.212V186.825H361.392V381.048H334.212V293.563H228.607V381.048H201.71ZM415.845 381.048V186.825H565.334V210.041H442.741V270.063H552.876V293.28H442.741V357.832H567.033V381.048H415.845Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2525.57 86.8609C2517.22 86.8609 2509.8 85.0221 2503.29 81.3443C2496.93 77.6665 2491.9 72.5742 2488.23 66.0674C2484.69 59.5605 2482.92 52.205 2482.92 44.0007C2482.92 35.655 2484.69 28.2995 2488.23 21.9341C2491.9 15.4272 2496.93 10.3349 2503.29 6.65715C2509.8 2.83793 2517.22 0.928321 2525.57 0.928321C2533.77 0.928321 2541.06 2.83793 2547.42 6.65715C2553.79 10.3349 2558.74 15.4272 2562.28 21.9341C2565.95 28.2995 2567.79 35.655 2567.79 44.0007C2567.79 52.205 2565.95 59.5605 2562.28 66.0674C2558.74 72.5742 2553.79 77.6665 2547.42 81.3443C2541.06 85.0221 2533.77 86.8609 2525.57 86.8609ZM2534.06 66.4917L2520.9 45.486H2531.72L2545.94 66.4917H2534.06ZM2525.57 79.2225C2532.5 79.2225 2538.44 77.7372 2543.39 74.7667C2548.49 71.6548 2552.45 67.4819 2555.28 62.2481C2558.1 56.8729 2559.52 50.7905 2559.52 44.0007C2559.52 37.0695 2558.1 30.9871 2555.28 25.7533C2552.45 20.5195 2548.49 16.4174 2543.39 13.4469C2538.44 10.3349 2532.5 8.77896 2525.57 8.77896C2518.64 8.77896 2512.56 10.3349 2507.32 13.4469C2502.23 16.4174 2498.27 20.5195 2495.44 25.7533C2492.61 30.9871 2491.2 37.0695 2491.2 44.0007C2491.2 50.7905 2492.61 56.8729 2495.44 62.2481C2498.27 67.4819 2502.23 71.6548 2507.32 74.7667C2512.56 77.7372 2518.64 79.2225 2525.57 79.2225ZM2508.6 66.4917V20.8732H2528.75C2533.56 20.8732 2537.31 22.1462 2540 24.6924C2542.83 27.0971 2544.24 30.492 2544.24 34.877C2544.24 39.1206 2542.83 42.5155 2540 45.0616C2537.31 47.4663 2533.56 48.6687 2528.75 48.6687H2518.57V66.4917H2508.6ZM2518.57 40.6058H2527.9C2529.74 40.6058 2531.23 40.1815 2532.36 39.3328C2533.63 38.4841 2534.27 37.0695 2534.27 35.0892C2534.27 33.1089 2533.63 31.765 2532.36 31.0578C2531.23 30.2091 2529.74 29.7847 2527.9 29.7847H2518.57V40.6058Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2713.55 381.048V210.324H2647.01V186.825H2807.54V210.324H2740.44V381.048H2713.55ZM2796.37 381.048L2873.1 186.825H2908.49L2985.5 381.048H2956.33L2937.36 332.917H2842.8L2824.11 381.048H2796.37ZM2851.58 309.984H2928.3L2904.81 249.112C2904.24 247.414 2903.39 245.054 2902.26 242.034C2901.12 239.014 2899.9 235.711 2898.58 232.125C2897.26 228.35 2895.93 224.575 2894.61 220.8C2893.29 216.836 2892.06 213.25 2890.93 210.041H2889.23C2887.91 213.816 2886.4 218.157 2884.7 223.065C2883 227.972 2881.31 232.786 2879.61 237.504C2877.91 242.034 2876.49 245.904 2875.36 249.112L2851.58 309.984ZM3040.34 381.048V210.324H2973.81V186.825H3134.34V210.324H3067.24V381.048H3040.34ZM3217.71 381.048V210.324H3151.17V186.825H3311.7V210.324H3244.6V381.048H3217.71ZM3428.07 384.445C3407.87 384.445 3390.51 380.765 3375.97 373.404C3361.63 366.042 3350.49 354.906 3342.57 339.995C3334.83 325.084 3330.96 306.398 3330.96 283.937C3330.96 261.287 3334.83 242.6 3342.57 227.878C3350.49 212.967 3361.63 201.831 3375.97 194.469C3390.51 187.108 3407.87 183.428 3428.07 183.428C3448.26 183.428 3465.54 187.108 3479.88 194.469C3494.41 201.831 3505.55 212.967 3513.29 227.878C3521.22 242.6 3525.18 261.287 3525.18 283.937C3525.18 306.398 3521.22 325.084 3513.29 339.995C3505.55 354.906 3494.41 366.042 3479.88 373.404C3465.54 380.765 3448.26 384.445 3428.07 384.445ZM3428.07 361.229C3438.64 361.229 3448.17 359.814 3456.66 356.982C3465.35 354.151 3472.61 349.716 3478.46 343.676C3484.5 337.447 3489.13 329.708 3492.34 320.46C3495.55 311.022 3497.15 299.886 3497.15 287.051V281.105C3497.15 268.082 3495.55 256.945 3492.34 247.697C3489.13 238.259 3484.5 230.521 3478.46 224.481C3472.61 218.252 3465.35 213.722 3456.66 210.891C3448.17 208.059 3438.64 206.644 3428.07 206.644C3417.31 206.644 3407.68 208.059 3399.19 210.891C3390.7 213.722 3383.43 218.252 3377.39 224.481C3371.35 230.521 3366.73 238.259 3363.52 247.697C3360.5 256.945 3358.99 268.082 3358.99 281.105V287.051C3358.99 299.886 3360.5 311.022 3363.52 320.46C3366.73 329.708 3371.35 337.447 3377.39 343.676C3383.43 349.716 3390.7 354.151 3399.19 356.982C3407.68 359.814 3417.31 361.229 3428.07 361.229ZM3656.86 384.445C3636.66 384.445 3619.3 380.765 3604.76 373.404C3590.42 366.042 3579.28 354.906 3571.35 339.995C3563.61 325.084 3559.75 306.398 3559.75 283.937C3559.75 261.287 3563.61 242.6 3571.35 227.878C3579.28 212.967 3590.42 201.831 3604.76 194.469C3619.3 187.108 3636.66 183.428 3656.86 183.428C3677.05 183.428 3694.32 187.108 3708.67 194.469C3723.2 201.831 3734.34 212.967 3742.08 227.878C3750 242.6 3753.97 261.287 3753.97 283.937C3753.97 306.398 3750 325.084 3742.08 339.995C3734.34 354.906 3723.2 366.042 3708.67 373.404C3694.32 380.765 3677.05 384.445 3656.86 384.445ZM3656.86 361.229C3667.43 361.229 3676.96 359.814 3685.45 356.982C3694.13 354.151 3701.4 349.716 3707.25 343.676C3713.29 337.447 3717.92 329.708 3721.13 320.46C3724.33 311.022 3725.94 299.886 3725.94 287.051V281.105C3725.94 268.082 3724.33 256.945 3721.13 247.697C3717.92 238.259 3713.29 230.521 3707.25 224.481C3701.4 218.252 3694.13 213.722 3685.45 210.891C3676.96 208.059 3667.43 206.644 3656.86 206.644C3646.1 206.644 3636.47 208.059 3627.98 210.891C3619.48 213.722 3612.22 218.252 3606.18 224.481C3600.14 230.521 3595.51 238.259 3592.3 247.697C3589.28 256.945 3587.77 268.082 3587.77 281.105V287.051C3587.77 299.886 3589.28 311.022 3592.3 320.46C3595.51 329.708 3600.14 337.447 3606.18 343.676C3612.22 349.716 3619.48 354.151 3627.98 356.982C3636.47 359.814 3646.1 361.229 3656.86 361.229Z%22 fill=%22white%22/%3E%0A%3C/svg%3E%0A"},"void-horizontal-preto":{"arquivo":"assets/brand/svg/void-horizontal-preto.svg","bytes":7668,"sha256":"003177c7d88cb52fc1aaf3f190b5afaf274a99d73756c8a8b4f15ea936430782","viewBox":[0,0,3804,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223804%22 height=%22579%22 viewBox=%220 0 3804 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.626 564L726.397 12.1865H844.643L995.209 452.061L1146.56 12.1865H1263.23L1063 564H926.626ZM1518.27 573.46C1464.66 573.46 1417.36 561.372 1376.37 537.198C1335.38 513.023 1303.06 479.651 1279.41 437.083C1256.29 393.989 1244.73 344.326 1244.73 288.093C1244.73 231.861 1256.29 182.46 1279.41 139.892C1303.06 96.7979 1335.38 63.1636 1376.37 38.9889C1417.36 14.8142 1464.66 2.72684 1518.27 2.72684C1572.4 2.72684 1619.96 14.8142 1660.95 38.9889C1702.47 63.1636 1734.53 96.7979 1757.12 139.892C1780.25 182.46 1791.81 231.861 1791.81 288.093C1791.81 344.326 1780.25 393.989 1757.12 437.083C1734.53 479.651 1702.47 513.023 1660.95 537.198C1619.96 561.372 1572.4 573.46 1518.27 573.46ZM1518.27 474.133C1551.38 474.133 1580.02 466.513 1604.19 451.272C1628.37 436.032 1647.02 414.748 1660.16 387.42C1673.3 359.566 1679.87 326.457 1679.87 288.093C1679.87 249.729 1673.3 216.883 1660.16 189.555C1647.02 161.702 1628.37 140.155 1604.19 124.914C1580.02 109.674 1551.38 102.053 1518.27 102.053C1485.68 102.053 1457.31 109.674 1433.13 124.914C1409.48 140.155 1390.83 161.702 1377.16 189.555C1364.02 216.883 1357.45 249.729 1357.45 288.093C1357.45 326.457 1364.02 359.566 1377.16 387.42C1390.83 414.748 1409.48 436.032 1433.13 451.272C1457.31 466.513 1485.68 474.133 1518.27 474.133ZM1834.5 564V12.1865H1944.86V564H1834.5ZM2005.06 564V12.1865H2192.68C2256.27 12.1865 2309.09 23.7483 2351.13 46.8719C2393.17 69.47 2424.18 101.528 2444.15 143.045C2464.65 184.037 2474.89 232.386 2474.89 288.093C2474.89 343.275 2464.65 391.624 2444.15 433.141C2424.18 474.659 2393.17 506.979 2351.13 530.103C2309.61 552.701 2256.53 564 2191.89 564H2005.06ZM2115.43 469.403H2186.37C2230.52 469.403 2265.21 462.309 2290.43 448.119C2316.18 433.404 2334.58 412.645 2345.61 385.843C2356.65 358.515 2362.17 325.932 2362.17 288.093C2362.17 250.255 2356.65 217.934 2345.61 191.132C2334.58 163.804 2316.18 142.782 2290.43 128.067C2265.21 113.352 2230.52 105.995 2186.37 105.995H2115.43V469.403Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M71.9134 381.048V210.324H5.37935V186.825H165.91V210.324H98.8102V381.048H71.9134ZM201.71 381.048V186.825H228.607V270.063H334.212V186.825H361.392V381.048H334.212V293.563H228.607V381.048H201.71ZM415.845 381.048V186.825H565.334V210.041H442.741V270.063H552.876V293.28H442.741V357.832H567.033V381.048H415.845Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2525.57 86.8609C2517.22 86.8609 2509.8 85.0221 2503.29 81.3443C2496.93 77.6665 2491.9 72.5742 2488.23 66.0674C2484.69 59.5605 2482.92 52.205 2482.92 44.0007C2482.92 35.655 2484.69 28.2995 2488.23 21.9341C2491.9 15.4272 2496.93 10.3349 2503.29 6.65715C2509.8 2.83793 2517.22 0.928321 2525.57 0.928321C2533.77 0.928321 2541.06 2.83793 2547.42 6.65715C2553.79 10.3349 2558.74 15.4272 2562.28 21.9341C2565.96 28.2995 2567.79 35.655 2567.79 44.0007C2567.79 52.205 2565.96 59.5605 2562.28 66.0674C2558.74 72.5742 2553.79 77.6665 2547.42 81.3443C2541.06 85.0221 2533.77 86.8609 2525.57 86.8609ZM2534.06 66.4917L2520.9 45.486H2531.72L2545.94 66.4917H2534.06ZM2525.57 79.2225C2532.5 79.2225 2538.44 77.7372 2543.39 74.7667C2548.49 71.6548 2552.45 67.4819 2555.28 62.2481C2558.1 56.8729 2559.52 50.7905 2559.52 44.0007C2559.52 37.0695 2558.1 30.9871 2555.28 25.7533C2552.45 20.5195 2548.49 16.4174 2543.39 13.4469C2538.44 10.3349 2532.5 8.77896 2525.57 8.77896C2518.64 8.77896 2512.56 10.3349 2507.32 13.4469C2502.23 16.4174 2498.27 20.5195 2495.44 25.7533C2492.61 30.9871 2491.2 37.0695 2491.2 44.0007C2491.2 50.7905 2492.61 56.8729 2495.44 62.2481C2498.27 67.4819 2502.23 71.6548 2507.32 74.7667C2512.56 77.7372 2518.64 79.2225 2525.57 79.2225ZM2508.6 66.4917V20.8732H2528.75C2533.56 20.8732 2537.31 22.1462 2540 24.6924C2542.83 27.0971 2544.24 30.492 2544.24 34.877C2544.24 39.1206 2542.83 42.5155 2540 45.0616C2537.31 47.4663 2533.56 48.6687 2528.75 48.6687H2518.57V66.4917H2508.6ZM2518.57 40.6058H2527.9C2529.74 40.6058 2531.23 40.1815 2532.36 39.3328C2533.63 38.4841 2534.27 37.0695 2534.27 35.0892C2534.27 33.1089 2533.63 31.765 2532.36 31.0578C2531.23 30.2091 2529.74 29.7847 2527.9 29.7847H2518.57V40.6058Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2713.55 381.048V210.324H2647.01V186.825H2807.54V210.324H2740.44V381.048H2713.55ZM2796.37 381.048L2873.1 186.825H2908.49L2985.5 381.048H2956.33L2937.36 332.917H2842.8L2824.11 381.048H2796.37ZM2851.58 309.984H2928.3L2904.81 249.112C2904.24 247.414 2903.39 245.054 2902.26 242.034C2901.12 239.014 2899.9 235.711 2898.58 232.125C2897.26 228.35 2895.93 224.575 2894.61 220.8C2893.29 216.836 2892.06 213.25 2890.93 210.041H2889.23C2887.91 213.816 2886.4 218.157 2884.7 223.065C2883 227.972 2881.31 232.786 2879.61 237.504C2877.91 242.034 2876.49 245.904 2875.36 249.112L2851.58 309.984ZM3040.34 381.048V210.324H2973.81V186.825H3134.34V210.324H3067.24V381.048H3040.34ZM3217.71 381.048V210.324H3151.17V186.825H3311.7V210.324H3244.6V381.048H3217.71ZM3428.07 384.445C3407.87 384.445 3390.51 380.765 3375.97 373.404C3361.63 366.042 3350.49 354.906 3342.57 339.995C3334.83 325.084 3330.96 306.398 3330.96 283.937C3330.96 261.287 3334.83 242.6 3342.57 227.878C3350.49 212.967 3361.63 201.831 3375.97 194.469C3390.51 187.108 3407.87 183.428 3428.07 183.428C3448.26 183.428 3465.54 187.108 3479.88 194.469C3494.41 201.831 3505.55 212.967 3513.29 227.878C3521.22 242.6 3525.18 261.287 3525.18 283.937C3525.18 306.398 3521.22 325.084 3513.29 339.995C3505.55 354.906 3494.41 366.042 3479.88 373.404C3465.54 380.765 3448.26 384.445 3428.07 384.445ZM3428.07 361.229C3438.64 361.229 3448.17 359.814 3456.66 356.982C3465.35 354.151 3472.61 349.716 3478.46 343.676C3484.5 337.447 3489.13 329.708 3492.34 320.46C3495.55 311.022 3497.15 299.886 3497.15 287.051V281.105C3497.15 268.082 3495.55 256.945 3492.34 247.697C3489.13 238.259 3484.5 230.521 3478.46 224.481C3472.61 218.252 3465.35 213.722 3456.66 210.891C3448.17 208.059 3438.64 206.644 3428.07 206.644C3417.31 206.644 3407.68 208.059 3399.19 210.891C3390.7 213.722 3383.43 218.252 3377.39 224.481C3371.35 230.521 3366.73 238.259 3363.52 247.697C3360.5 256.945 3358.99 268.082 3358.99 281.105V287.051C3358.99 299.886 3360.5 311.022 3363.52 320.46C3366.73 329.708 3371.35 337.447 3377.39 343.676C3383.43 349.716 3390.7 354.151 3399.19 356.982C3407.68 359.814 3417.31 361.229 3428.07 361.229ZM3656.86 384.445C3636.66 384.445 3619.3 380.765 3604.76 373.404C3590.42 366.042 3579.28 354.906 3571.35 339.995C3563.61 325.084 3559.75 306.398 3559.75 283.937C3559.75 261.287 3563.61 242.6 3571.35 227.878C3579.28 212.967 3590.42 201.831 3604.76 194.469C3619.3 187.108 3636.66 183.428 3656.86 183.428C3677.05 183.428 3694.32 187.108 3708.67 194.469C3723.2 201.831 3734.34 212.967 3742.08 227.878C3750 242.6 3753.97 261.287 3753.97 283.937C3753.97 306.398 3750 325.084 3742.08 339.995C3734.34 354.906 3723.2 366.042 3708.67 373.404C3694.32 380.765 3677.05 384.445 3656.86 384.445ZM3656.86 361.229C3667.43 361.229 3676.96 359.814 3685.45 356.982C3694.13 354.151 3701.4 349.716 3707.25 343.676C3713.29 337.447 3717.92 329.708 3721.13 320.46C3724.33 311.022 3725.94 299.886 3725.94 287.051V281.105C3725.94 268.082 3724.33 256.945 3721.13 247.697C3717.92 238.259 3713.29 230.521 3707.25 224.481C3701.4 218.252 3694.13 213.722 3685.45 210.891C3676.96 208.059 3667.43 206.644 3656.86 206.644C3646.1 206.644 3636.47 208.059 3627.98 210.891C3619.48 213.722 3612.22 218.252 3606.18 224.481C3600.14 230.521 3595.51 238.259 3592.3 247.697C3589.28 256.945 3587.77 268.082 3587.77 281.105V287.051C3587.77 299.886 3589.28 311.022 3592.3 320.46C3595.51 329.708 3600.14 337.447 3606.18 343.676C3612.22 349.716 3619.48 354.151 3627.98 356.982C3636.47 359.814 3646.1 361.229 3656.86 361.229Z%22 fill=%22black%22/%3E%0A%3C/svg%3E%0A"},"void-vertical-branco":{"arquivo":"assets/brand/svg/void-vertical-branco.svg","bytes":11842,"sha256":"e7c617cc51d62cb4e685cfaac62b69434fc06257f0ee3d47e22567d3c67d3510","viewBox":[0,0,1937,1057],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%221937%22 height=%221057%22 viewBox=%220 0 1937 1057%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M757.174 185.691V23.829H694.094V1.54945H846.292V23.829H782.675V185.691H757.174ZM880.234 185.691V1.54945H905.735V80.4673H1005.86V1.54945H1031.63V185.691H1005.86V102.747H905.735V185.691H880.234ZM1083.25 185.691V1.54945H1224.98V23.5606H1108.75V80.4673H1213.17V102.478H1108.75V163.68H1226.59V185.691H1083.25Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M313.937 816.382L124.1 293.21H236.208L378.959 710.253L522.458 293.21H633.071L443.235 816.382H313.937ZM874.869 825.351C824.046 825.351 779.203 813.891 740.339 790.971C701.475 768.051 670.832 736.411 648.41 696.052C626.487 655.195 615.525 608.11 615.525 554.796C615.525 501.483 626.487 454.646 648.41 414.287C670.832 373.43 701.475 341.542 740.339 318.622C779.203 295.702 824.046 284.242 874.869 284.242C926.189 284.242 971.282 295.702 1010.15 318.622C1049.51 341.542 1079.9 373.43 1101.33 414.287C1123.25 454.646 1134.21 501.483 1134.21 554.796C1134.21 608.11 1123.25 655.195 1101.33 696.052C1079.9 736.411 1049.51 768.051 1010.15 790.971C971.282 813.891 926.189 825.351 874.869 825.351ZM874.869 731.18C906.259 731.18 933.414 723.955 956.334 709.505C979.254 695.056 996.942 674.876 1009.4 648.967C1021.85 622.559 1028.08 591.169 1028.08 554.796C1028.08 518.423 1021.85 487.282 1009.4 461.373C996.942 434.965 979.254 414.536 956.334 400.087C933.414 385.637 906.259 378.413 874.869 378.413C843.977 378.413 817.071 385.637 794.151 400.087C771.729 414.536 754.041 434.965 741.086 461.373C728.63 487.282 722.401 518.423 722.401 554.796C722.401 591.169 728.63 622.559 741.086 648.967C754.041 674.876 771.729 695.056 794.151 709.505C817.071 723.955 843.977 731.18 874.869 731.18ZM1174.69 816.382V293.21H1279.32V816.382H1174.69ZM1336.4 816.382V293.21H1514.28C1574.57 293.21 1624.64 304.172 1664.5 326.096C1704.36 347.521 1733.76 377.914 1752.69 417.277C1772.13 456.141 1781.84 501.981 1781.84 554.796C1781.84 607.113 1772.13 652.953 1752.69 692.316C1733.76 731.678 1704.36 762.321 1664.5 784.244C1625.14 805.669 1574.81 816.382 1513.53 816.382H1336.4ZM1441.03 726.695H1508.3C1550.15 726.695 1583.04 719.969 1606.95 706.516C1631.37 692.565 1648.81 672.883 1659.27 647.472C1669.73 621.563 1674.96 590.671 1674.96 554.796C1674.96 518.922 1669.73 488.279 1659.27 462.867C1648.81 436.958 1631.37 417.028 1606.95 403.076C1583.04 389.125 1550.15 382.15 1508.3 382.15H1441.03V726.695Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M1829.89 364.624C1821.97 364.624 1814.93 362.88 1808.76 359.394C1802.73 355.907 1797.97 351.079 1794.48 344.91C1791.13 338.741 1789.45 331.767 1789.45 323.988C1789.45 316.076 1791.13 309.102 1794.48 303.067C1797.97 296.898 1802.73 292.07 1808.76 288.583C1814.93 284.962 1821.97 283.152 1829.89 283.152C1837.67 283.152 1844.57 284.962 1850.61 288.583C1856.64 292.07 1861.34 296.898 1864.69 303.067C1868.18 309.102 1869.92 316.076 1869.92 323.988C1869.92 331.767 1868.18 338.741 1864.69 344.91C1861.34 351.079 1856.64 355.907 1850.61 359.394C1844.57 362.88 1837.67 364.624 1829.89 364.624ZM1837.93 345.312L1825.46 325.396H1835.72L1849.2 345.312H1837.93ZM1829.89 357.382C1836.46 357.382 1842.09 355.974 1846.79 353.157C1851.61 350.207 1855.37 346.251 1858.05 341.289C1860.73 336.192 1862.07 330.426 1862.07 323.988C1862.07 317.417 1860.73 311.65 1858.05 306.688C1855.37 301.726 1851.61 297.837 1846.79 295.02C1842.09 292.07 1836.46 290.595 1829.89 290.595C1823.32 290.595 1817.55 292.07 1812.59 295.02C1807.76 297.837 1804 301.726 1801.32 306.688C1798.64 311.65 1797.3 317.417 1797.3 323.988C1797.3 330.426 1798.64 336.192 1801.32 341.289C1804 346.251 1807.76 350.207 1812.59 353.157C1817.55 355.974 1823.32 357.382 1829.89 357.382ZM1813.79 345.312V302.061H1832.9C1837.46 302.061 1841.02 303.268 1843.57 305.682C1846.25 307.962 1847.59 311.181 1847.59 315.338C1847.59 319.362 1846.25 322.58 1843.57 324.994C1841.02 327.274 1837.46 328.414 1832.9 328.414H1823.25V345.312H1813.79ZM1823.25 320.77H1832.1C1833.84 320.77 1835.25 320.367 1836.32 319.563C1837.53 318.758 1838.14 317.417 1838.14 315.539C1838.14 313.662 1837.53 312.388 1836.32 311.717C1835.25 310.913 1833.84 310.51 1832.1 310.51H1823.25V320.77Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M301.844 1028.91V937.932H266.388V925.409H351.934V937.932H316.177V1028.91H301.844ZM345.979 1028.91L386.866 925.409H405.726L446.764 1028.91H431.223L421.115 1003.26H370.723L360.765 1028.91H345.979ZM375.4 991.04H416.287L403.764 958.602C403.463 957.696 403.01 956.439 402.406 954.83C401.803 953.221 401.149 951.46 400.445 949.549C399.741 947.538 399.037 945.526 398.333 943.514C397.629 941.402 396.975 939.491 396.371 937.781H395.466C394.762 939.793 393.957 942.106 393.052 944.721C392.147 947.336 391.242 949.901 390.336 952.416C389.431 954.83 388.677 956.892 388.073 958.602L375.4 991.04ZM475.992 1028.91V937.932H440.536V925.409H526.082V937.932H490.325V1028.91H475.992ZM570.507 1028.91V937.932H535.051V925.409H620.597V937.932H584.84V1028.91H570.507ZM682.608 1030.72C671.845 1030.72 662.592 1028.76 654.847 1024.84C647.202 1020.91 641.268 1014.98 637.043 1007.03C632.92 999.086 630.858 989.129 630.858 977.159C630.858 965.089 632.92 955.132 637.043 947.286C641.268 939.34 647.202 933.406 654.847 929.483C662.592 925.56 671.845 923.599 682.608 923.599C693.37 923.599 702.573 925.56 710.218 929.483C717.962 933.406 723.897 939.34 728.021 947.286C732.245 955.132 734.358 965.089 734.358 977.159C734.358 989.129 732.245 999.086 728.021 1007.03C723.897 1014.98 717.962 1020.91 710.218 1024.84C702.573 1028.76 693.37 1030.72 682.608 1030.72ZM682.608 1018.35C688.24 1018.35 693.32 1017.59 697.846 1016.08C702.473 1014.58 706.345 1012.21 709.463 1008.99C712.682 1005.67 715.146 1001.55 716.856 996.622C718.566 991.593 719.421 985.659 719.421 978.819V975.651C719.421 968.71 718.566 962.776 716.856 957.847C715.146 952.818 712.682 948.694 709.463 945.476C706.345 942.156 702.473 939.742 697.846 938.234C693.32 936.725 688.24 935.971 682.608 935.971C676.874 935.971 671.745 936.725 667.218 938.234C662.692 939.742 658.82 942.156 655.601 945.476C652.382 948.694 649.918 952.818 648.208 957.847C646.599 962.776 645.794 968.71 645.794 975.651V978.819C645.794 985.659 646.599 991.593 648.208 996.622C649.918 1001.55 652.382 1005.67 655.601 1008.99C658.82 1012.21 662.692 1014.58 667.218 1016.08C671.745 1017.59 676.874 1018.35 682.608 1018.35ZM804.527 1030.72C793.765 1030.72 784.511 1028.76 776.766 1024.84C769.122 1020.91 763.187 1014.98 758.963 1007.03C754.839 999.086 752.777 989.129 752.777 977.159C752.777 965.089 754.839 955.132 758.963 947.286C763.187 939.34 769.122 933.406 776.766 929.483C784.511 925.56 793.765 923.599 804.527 923.599C815.289 923.599 824.493 925.56 832.137 929.483C839.882 933.406 845.816 939.34 849.94 947.286C854.165 955.132 856.277 965.089 856.277 977.159C856.277 989.129 854.165 999.086 849.94 1007.03C845.816 1014.98 839.882 1020.91 832.137 1024.84C824.493 1028.76 815.289 1030.72 804.527 1030.72ZM804.527 1018.35C810.16 1018.35 815.239 1017.59 819.765 1016.08C824.392 1014.58 828.265 1012.21 831.383 1008.99C834.601 1005.67 837.066 1001.55 838.776 996.622C840.486 991.593 841.34 985.659 841.34 978.819V975.651C841.34 968.71 840.486 962.776 838.776 957.847C837.066 952.818 834.601 948.694 831.383 945.476C828.265 942.156 824.392 939.742 819.765 938.234C815.239 936.725 810.16 935.971 804.527 935.971C798.794 935.971 793.664 936.725 789.138 938.234C784.612 939.742 780.739 942.156 777.521 945.476C774.302 948.694 771.838 952.818 770.128 957.847C768.518 962.776 767.714 968.71 767.714 975.651V978.819C767.714 985.659 768.518 991.593 770.128 996.622C771.838 1001.55 774.302 1005.67 777.521 1008.99C780.739 1012.21 784.612 1014.58 789.138 1016.08C793.664 1017.59 798.794 1018.35 804.527 1018.35ZM902.606 1028.91L943.493 925.409H962.352L1003.39 1028.91H987.85L977.742 1003.26H927.35L917.392 1028.91H902.606ZM932.027 991.04H972.914L960.391 958.602C960.089 957.696 959.637 956.439 959.033 954.83C958.43 953.221 957.776 951.46 957.072 949.549C956.368 947.538 955.664 945.526 954.96 943.514C954.256 941.402 953.602 939.491 952.998 937.781H952.093C951.389 939.793 950.584 942.106 949.679 944.721C948.774 947.336 947.869 949.901 946.963 952.416C946.058 954.83 945.304 956.892 944.7 958.602L932.027 991.04ZM1062.68 1030.72C1052.11 1030.72 1043.16 1028.81 1035.82 1024.99C1028.48 1021.06 1022.84 1015.18 1018.92 1007.33C1015.1 999.388 1013.19 989.33 1013.19 977.159C1013.19 959.155 1017.56 945.727 1026.32 936.876C1035.07 928.024 1047.24 923.599 1062.83 923.599C1071.68 923.599 1079.52 925.057 1086.36 927.974C1093.2 930.79 1098.53 935.116 1102.36 940.949C1106.28 946.683 1108.24 953.925 1108.24 962.675H1093.76C1093.76 956.64 1092.45 951.661 1089.83 947.739C1087.32 943.816 1083.75 940.899 1079.12 938.988C1074.49 936.976 1069.06 935.971 1062.83 935.971C1055.58 935.971 1049.35 937.379 1044.12 940.195C1038.89 943.011 1034.91 947.387 1032.2 953.321C1029.48 959.155 1028.13 966.699 1028.13 975.952V979.121C1028.13 988.274 1029.48 995.767 1032.2 1001.6C1034.91 1007.33 1038.84 1011.56 1043.97 1014.27C1049.2 1016.99 1055.48 1018.35 1062.83 1018.35C1069.26 1018.35 1074.8 1017.39 1079.42 1015.48C1084.15 1013.57 1087.77 1010.65 1090.29 1006.73C1092.9 1002.71 1094.21 997.678 1094.21 991.643H1108.24C1108.24 1000.6 1106.23 1007.94 1102.2 1013.67C1098.28 1019.4 1092.9 1023.68 1086.06 1026.5C1079.22 1029.31 1071.43 1030.72 1062.68 1030.72ZM1119.34 1028.91L1160.22 925.409H1179.08L1220.12 1028.91H1204.58L1194.47 1003.26H1144.08L1134.12 1028.91H1119.34ZM1148.76 991.04H1189.64L1177.12 958.602C1176.82 957.696 1176.37 956.439 1175.76 954.83C1175.16 953.221 1174.5 951.46 1173.8 949.549C1173.1 947.538 1172.39 945.526 1171.69 943.514C1170.98 941.402 1170.33 939.491 1169.73 937.781H1168.82C1168.12 939.793 1167.31 942.106 1166.41 944.721C1165.5 947.336 1164.6 949.901 1163.69 952.416C1162.79 954.83 1162.03 956.892 1161.43 958.602L1148.76 991.04ZM1237.11 1028.91V925.409H1275.74C1286.6 925.409 1295.85 927.22 1303.5 930.841C1311.14 934.462 1316.98 940.094 1321 947.739C1325.12 955.282 1327.19 965.089 1327.19 977.159C1327.19 989.028 1325.12 998.785 1321 1006.43C1316.98 1014.07 1311.14 1019.76 1303.5 1023.48C1295.85 1027.1 1286.6 1028.91 1275.74 1028.91H1237.11ZM1251.45 1016.54H1275.44C1281.17 1016.54 1286.3 1015.83 1290.83 1014.43C1295.35 1012.92 1299.22 1010.65 1302.44 1007.64C1305.66 1004.62 1308.08 1000.75 1309.68 996.019C1311.39 991.191 1312.25 985.457 1312.25 978.819V975.801C1312.25 968.962 1311.39 963.178 1309.68 958.451C1308.08 953.623 1305.66 949.7 1302.44 946.683C1299.32 943.665 1295.5 941.452 1290.98 940.044C1286.45 938.535 1281.27 937.781 1275.44 937.781H1251.45V1016.54ZM1350.93 1028.91V925.409H1430.59V937.781H1365.26V969.766H1423.95V982.138H1365.26V1016.54H1431.5V1028.91H1350.93ZM1456.05 1028.91V925.409H1478.23L1501.77 992.548C1502.37 994.359 1502.97 996.371 1503.58 998.583C1504.28 1000.7 1504.89 1002.71 1505.39 1004.62C1505.99 1006.53 1506.44 1008.19 1506.75 1009.6H1507.8C1508.1 1008.09 1508.51 1006.38 1509.01 1004.47C1509.51 1002.46 1510.07 1000.39 1510.67 998.282C1511.27 996.169 1511.83 994.258 1512.33 992.548L1535.87 925.409H1557.89V1028.91H1543.56V968.258C1543.56 965.14 1543.61 961.77 1543.71 958.149C1543.81 954.428 1543.91 951.058 1544.01 948.04C1544.11 944.922 1544.16 942.71 1544.16 941.402H1542.96C1542.65 942.71 1542.15 944.57 1541.45 946.984C1540.74 949.298 1539.99 951.762 1539.18 954.377C1538.48 956.892 1537.83 959.155 1537.22 961.167L1512.93 1028.91H1500.56L1476.27 961.167C1475.67 959.457 1475.01 957.495 1474.31 955.282C1473.71 952.969 1473.05 950.605 1472.35 948.191C1471.74 945.777 1471.14 943.514 1470.54 941.402H1469.48C1469.58 943.615 1469.63 946.381 1469.63 949.7C1469.73 952.919 1469.78 956.188 1469.78 959.507C1469.88 962.726 1469.93 965.643 1469.93 968.258V1028.91H1456.05ZM1616.08 1028.91V985.91L1575.35 925.409H1591.79L1623.32 973.237H1624.08L1655.46 925.409H1671.15L1630.57 985.91V1028.91H1616.08Z%22 fill=%22white%22/%3E%0A%3C/svg%3E%0A"},"void-vertical-preto":{"arquivo":"assets/brand/svg/void-vertical-preto.svg","bytes":11842,"sha256":"9eeb95422543fb72995ac3d9e832d23486af211ca88ec28ad666ff13f5dfb927","viewBox":[0,0,1937,1057],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%221937%22 height=%221057%22 viewBox=%220 0 1937 1057%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M757.174 185.691V23.829H694.094V1.54945H846.292V23.829H782.675V185.691H757.174ZM880.234 185.691V1.54945H905.735V80.4673H1005.86V1.54945H1031.63V185.691H1005.86V102.747H905.735V185.691H880.234ZM1083.25 185.691V1.54945H1224.98V23.5606H1108.75V80.4673H1213.17V102.478H1108.75V163.68H1226.59V185.691H1083.25Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M313.937 816.382L124.1 293.21H236.208L378.959 710.253L522.458 293.21H633.071L443.235 816.382H313.937ZM874.869 825.351C824.046 825.351 779.203 813.891 740.339 790.971C701.475 768.051 670.832 736.411 648.41 696.052C626.487 655.195 615.525 608.11 615.525 554.796C615.525 501.483 626.487 454.646 648.41 414.287C670.832 373.43 701.475 341.542 740.339 318.622C779.203 295.702 824.046 284.242 874.869 284.242C926.189 284.242 971.282 295.702 1010.15 318.622C1049.51 341.542 1079.9 373.43 1101.33 414.287C1123.25 454.646 1134.21 501.483 1134.21 554.796C1134.21 608.11 1123.25 655.195 1101.33 696.052C1079.9 736.411 1049.51 768.051 1010.15 790.971C971.282 813.891 926.189 825.351 874.869 825.351ZM874.869 731.18C906.259 731.18 933.414 723.955 956.334 709.505C979.254 695.056 996.942 674.876 1009.4 648.967C1021.85 622.559 1028.08 591.169 1028.08 554.796C1028.08 518.423 1021.85 487.282 1009.4 461.373C996.942 434.965 979.254 414.536 956.334 400.087C933.414 385.637 906.259 378.413 874.869 378.413C843.977 378.413 817.071 385.637 794.151 400.087C771.729 414.536 754.041 434.965 741.086 461.373C728.63 487.282 722.401 518.423 722.401 554.796C722.401 591.169 728.63 622.559 741.086 648.967C754.041 674.876 771.729 695.056 794.151 709.505C817.071 723.955 843.977 731.18 874.869 731.18ZM1174.69 816.382V293.21H1279.32V816.382H1174.69ZM1336.4 816.382V293.21H1514.28C1574.57 293.21 1624.64 304.172 1664.5 326.096C1704.36 347.521 1733.76 377.914 1752.69 417.277C1772.13 456.141 1781.84 501.981 1781.84 554.796C1781.84 607.113 1772.13 652.953 1752.69 692.316C1733.76 731.678 1704.36 762.321 1664.5 784.244C1625.14 805.669 1574.81 816.382 1513.53 816.382H1336.4ZM1441.03 726.695H1508.3C1550.15 726.695 1583.04 719.969 1606.95 706.516C1631.37 692.565 1648.81 672.883 1659.27 647.472C1669.73 621.563 1674.96 590.671 1674.96 554.796C1674.96 518.922 1669.73 488.279 1659.27 462.867C1648.81 436.958 1631.37 417.028 1606.95 403.076C1583.04 389.125 1550.15 382.15 1508.3 382.15H1441.03V726.695Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M1829.89 364.624C1821.97 364.624 1814.93 362.88 1808.76 359.394C1802.73 355.907 1797.97 351.079 1794.48 344.91C1791.13 338.741 1789.45 331.767 1789.45 323.988C1789.45 316.076 1791.13 309.102 1794.48 303.067C1797.97 296.898 1802.73 292.07 1808.76 288.583C1814.93 284.962 1821.97 283.152 1829.89 283.152C1837.67 283.152 1844.57 284.962 1850.61 288.583C1856.64 292.07 1861.34 296.898 1864.69 303.067C1868.18 309.102 1869.92 316.076 1869.92 323.988C1869.92 331.767 1868.18 338.741 1864.69 344.91C1861.34 351.079 1856.64 355.907 1850.61 359.394C1844.57 362.88 1837.67 364.624 1829.89 364.624ZM1837.93 345.312L1825.46 325.396H1835.72L1849.2 345.312H1837.93ZM1829.89 357.382C1836.46 357.382 1842.09 355.974 1846.79 353.157C1851.61 350.207 1855.37 346.251 1858.05 341.289C1860.73 336.192 1862.07 330.426 1862.07 323.988C1862.07 317.417 1860.73 311.65 1858.05 306.688C1855.37 301.726 1851.61 297.837 1846.79 295.02C1842.09 292.07 1836.46 290.595 1829.89 290.595C1823.32 290.595 1817.55 292.07 1812.59 295.02C1807.76 297.837 1804 301.726 1801.32 306.688C1798.64 311.65 1797.3 317.417 1797.3 323.988C1797.3 330.426 1798.64 336.192 1801.32 341.289C1804 346.251 1807.76 350.207 1812.59 353.157C1817.55 355.974 1823.32 357.382 1829.89 357.382ZM1813.79 345.312V302.061H1832.9C1837.46 302.061 1841.02 303.268 1843.57 305.682C1846.25 307.962 1847.59 311.181 1847.59 315.338C1847.59 319.362 1846.25 322.58 1843.57 324.994C1841.02 327.274 1837.46 328.414 1832.9 328.414H1823.25V345.312H1813.79ZM1823.25 320.77H1832.1C1833.84 320.77 1835.25 320.367 1836.32 319.563C1837.53 318.758 1838.14 317.417 1838.14 315.539C1838.14 313.662 1837.53 312.388 1836.32 311.717C1835.25 310.913 1833.84 310.51 1832.1 310.51H1823.25V320.77Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M301.844 1028.91V937.932H266.388V925.409H351.934V937.932H316.177V1028.91H301.844ZM345.979 1028.91L386.866 925.409H405.726L446.764 1028.91H431.223L421.115 1003.26H370.723L360.765 1028.91H345.979ZM375.4 991.04H416.287L403.764 958.602C403.463 957.696 403.01 956.439 402.406 954.83C401.803 953.221 401.149 951.46 400.445 949.549C399.741 947.538 399.037 945.526 398.333 943.514C397.629 941.402 396.975 939.491 396.371 937.781H395.466C394.762 939.793 393.957 942.106 393.052 944.721C392.147 947.336 391.242 949.901 390.336 952.416C389.431 954.83 388.677 956.892 388.073 958.602L375.4 991.04ZM475.992 1028.91V937.932H440.536V925.409H526.082V937.932H490.325V1028.91H475.992ZM570.507 1028.91V937.932H535.051V925.409H620.597V937.932H584.84V1028.91H570.507ZM682.608 1030.72C671.845 1030.72 662.592 1028.76 654.847 1024.84C647.202 1020.91 641.268 1014.98 637.043 1007.03C632.92 999.086 630.858 989.129 630.858 977.159C630.858 965.089 632.92 955.132 637.043 947.286C641.268 939.34 647.202 933.406 654.847 929.483C662.592 925.56 671.845 923.599 682.608 923.599C693.37 923.599 702.573 925.56 710.218 929.483C717.962 933.406 723.897 939.34 728.021 947.286C732.245 955.132 734.358 965.089 734.358 977.159C734.358 989.129 732.245 999.086 728.021 1007.03C723.897 1014.98 717.962 1020.91 710.218 1024.84C702.573 1028.76 693.37 1030.72 682.608 1030.72ZM682.608 1018.35C688.24 1018.35 693.32 1017.59 697.846 1016.08C702.473 1014.58 706.345 1012.21 709.463 1008.99C712.682 1005.67 715.146 1001.55 716.856 996.622C718.566 991.593 719.421 985.659 719.421 978.819V975.651C719.421 968.71 718.566 962.776 716.856 957.847C715.146 952.818 712.682 948.694 709.463 945.476C706.345 942.156 702.473 939.742 697.846 938.234C693.32 936.725 688.24 935.971 682.608 935.971C676.874 935.971 671.745 936.725 667.218 938.234C662.692 939.742 658.82 942.156 655.601 945.476C652.382 948.694 649.918 952.818 648.208 957.847C646.599 962.776 645.794 968.71 645.794 975.651V978.819C645.794 985.659 646.599 991.593 648.208 996.622C649.918 1001.55 652.382 1005.67 655.601 1008.99C658.82 1012.21 662.692 1014.58 667.218 1016.08C671.745 1017.59 676.874 1018.35 682.608 1018.35ZM804.527 1030.72C793.765 1030.72 784.511 1028.76 776.766 1024.84C769.122 1020.91 763.187 1014.98 758.963 1007.03C754.839 999.086 752.777 989.129 752.777 977.159C752.777 965.089 754.839 955.132 758.963 947.286C763.187 939.34 769.122 933.406 776.766 929.483C784.511 925.56 793.765 923.599 804.527 923.599C815.289 923.599 824.493 925.56 832.137 929.483C839.882 933.406 845.816 939.34 849.94 947.286C854.165 955.132 856.277 965.089 856.277 977.159C856.277 989.129 854.165 999.086 849.94 1007.03C845.816 1014.98 839.882 1020.91 832.137 1024.84C824.493 1028.76 815.289 1030.72 804.527 1030.72ZM804.527 1018.35C810.16 1018.35 815.239 1017.59 819.765 1016.08C824.392 1014.58 828.265 1012.21 831.383 1008.99C834.601 1005.67 837.066 1001.55 838.776 996.622C840.486 991.593 841.34 985.659 841.34 978.819V975.651C841.34 968.71 840.486 962.776 838.776 957.847C837.066 952.818 834.601 948.694 831.383 945.476C828.265 942.156 824.392 939.742 819.765 938.234C815.239 936.725 810.16 935.971 804.527 935.971C798.794 935.971 793.664 936.725 789.138 938.234C784.612 939.742 780.739 942.156 777.521 945.476C774.302 948.694 771.838 952.818 770.128 957.847C768.518 962.776 767.714 968.71 767.714 975.651V978.819C767.714 985.659 768.518 991.593 770.128 996.622C771.838 1001.55 774.302 1005.67 777.521 1008.99C780.739 1012.21 784.612 1014.58 789.138 1016.08C793.664 1017.59 798.794 1018.35 804.527 1018.35ZM902.606 1028.91L943.493 925.409H962.352L1003.39 1028.91H987.85L977.742 1003.26H927.35L917.392 1028.91H902.606ZM932.027 991.04H972.914L960.391 958.602C960.089 957.696 959.637 956.439 959.033 954.83C958.43 953.221 957.776 951.46 957.072 949.549C956.368 947.538 955.664 945.526 954.96 943.514C954.256 941.402 953.602 939.491 952.998 937.781H952.093C951.389 939.793 950.584 942.106 949.679 944.721C948.774 947.336 947.869 949.901 946.963 952.416C946.058 954.83 945.304 956.892 944.7 958.602L932.027 991.04ZM1062.68 1030.72C1052.11 1030.72 1043.16 1028.81 1035.82 1024.99C1028.48 1021.06 1022.84 1015.18 1018.92 1007.33C1015.1 999.388 1013.19 989.33 1013.19 977.159C1013.19 959.155 1017.56 945.727 1026.32 936.876C1035.07 928.024 1047.24 923.599 1062.83 923.599C1071.68 923.599 1079.52 925.057 1086.36 927.974C1093.2 930.79 1098.53 935.116 1102.36 940.949C1106.28 946.683 1108.24 953.925 1108.24 962.675H1093.76C1093.76 956.64 1092.45 951.661 1089.83 947.739C1087.32 943.816 1083.75 940.899 1079.12 938.988C1074.49 936.976 1069.06 935.971 1062.83 935.971C1055.58 935.971 1049.35 937.379 1044.12 940.195C1038.89 943.011 1034.91 947.387 1032.2 953.321C1029.48 959.155 1028.13 966.699 1028.13 975.952V979.121C1028.13 988.274 1029.48 995.767 1032.2 1001.6C1034.91 1007.33 1038.84 1011.56 1043.97 1014.27C1049.2 1016.99 1055.48 1018.35 1062.83 1018.35C1069.26 1018.35 1074.8 1017.39 1079.42 1015.48C1084.15 1013.57 1087.77 1010.65 1090.29 1006.73C1092.9 1002.71 1094.21 997.678 1094.21 991.643H1108.24C1108.24 1000.6 1106.23 1007.94 1102.2 1013.67C1098.28 1019.4 1092.9 1023.68 1086.06 1026.5C1079.22 1029.31 1071.43 1030.72 1062.68 1030.72ZM1119.34 1028.91L1160.22 925.409H1179.08L1220.12 1028.91H1204.58L1194.47 1003.26H1144.08L1134.12 1028.91H1119.34ZM1148.76 991.04H1189.64L1177.12 958.602C1176.82 957.696 1176.37 956.439 1175.76 954.83C1175.16 953.221 1174.5 951.46 1173.8 949.549C1173.1 947.538 1172.39 945.526 1171.69 943.514C1170.98 941.402 1170.33 939.491 1169.73 937.781H1168.82C1168.12 939.793 1167.31 942.106 1166.41 944.721C1165.5 947.336 1164.6 949.901 1163.69 952.416C1162.79 954.83 1162.03 956.892 1161.43 958.602L1148.76 991.04ZM1237.11 1028.91V925.409H1275.74C1286.6 925.409 1295.85 927.22 1303.5 930.841C1311.14 934.462 1316.98 940.094 1321 947.739C1325.12 955.282 1327.19 965.089 1327.19 977.159C1327.19 989.028 1325.12 998.785 1321 1006.43C1316.98 1014.07 1311.14 1019.76 1303.5 1023.48C1295.85 1027.1 1286.6 1028.91 1275.74 1028.91H1237.11ZM1251.45 1016.54H1275.44C1281.17 1016.54 1286.3 1015.83 1290.83 1014.43C1295.35 1012.92 1299.22 1010.65 1302.44 1007.64C1305.66 1004.62 1308.08 1000.75 1309.68 996.019C1311.39 991.191 1312.25 985.457 1312.25 978.819V975.801C1312.25 968.962 1311.39 963.178 1309.68 958.451C1308.08 953.623 1305.66 949.7 1302.44 946.683C1299.32 943.665 1295.5 941.452 1290.98 940.044C1286.45 938.535 1281.27 937.781 1275.44 937.781H1251.45V1016.54ZM1350.93 1028.91V925.409H1430.59V937.781H1365.26V969.766H1423.95V982.138H1365.26V1016.54H1431.5V1028.91H1350.93ZM1456.05 1028.91V925.409H1478.23L1501.77 992.548C1502.37 994.359 1502.97 996.371 1503.58 998.583C1504.28 1000.7 1504.89 1002.71 1505.39 1004.62C1505.99 1006.53 1506.44 1008.19 1506.75 1009.6H1507.8C1508.1 1008.09 1508.51 1006.38 1509.01 1004.47C1509.51 1002.46 1510.07 1000.39 1510.67 998.282C1511.27 996.169 1511.83 994.258 1512.33 992.548L1535.87 925.409H1557.89V1028.91H1543.56V968.258C1543.56 965.14 1543.61 961.77 1543.71 958.149C1543.81 954.428 1543.91 951.058 1544.01 948.04C1544.11 944.922 1544.16 942.71 1544.16 941.402H1542.96C1542.65 942.71 1542.15 944.57 1541.45 946.984C1540.74 949.298 1539.99 951.762 1539.18 954.377C1538.48 956.892 1537.83 959.155 1537.22 961.167L1512.93 1028.91H1500.56L1476.27 961.167C1475.67 959.457 1475.01 957.495 1474.31 955.282C1473.71 952.969 1473.05 950.605 1472.35 948.191C1471.74 945.777 1471.14 943.514 1470.54 941.402H1469.48C1469.58 943.615 1469.63 946.381 1469.63 949.7C1469.73 952.919 1469.78 956.188 1469.78 959.507C1469.88 962.726 1469.93 965.643 1469.93 968.258V1028.91H1456.05ZM1616.08 1028.91V985.91L1575.35 925.409H1591.79L1623.32 973.237H1624.08L1655.46 925.409H1671.15L1630.57 985.91V1028.91H1616.08Z%22 fill=%22black%22/%3E%0A%3C/svg%3E%0A"},"void-start-branco":{"arquivo":"assets/brand/svg/void-start-branco.svg","bytes":7829,"sha256":"bffd0a4b8e923f5ff9e6ed277281d6916c2f2672ec25e98fcaef40a9bb45a106","viewBox":[0,0,3620,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223620%22 height=%22579%22 viewBox=%220 0 3620 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.627 563.807L726.397 11.9934H844.643L995.209 451.868L1146.56 11.9934H1263.23L1063 563.807H926.627ZM1518.27 573.267C1464.66 573.267 1417.36 561.179 1376.37 537.005C1335.38 512.83 1303.06 479.458 1279.41 436.89C1256.29 393.796 1244.73 344.133 1244.73 287.9C1244.73 231.668 1256.29 182.267 1279.41 139.699C1303.06 96.6048 1335.38 62.9704 1376.37 38.7958C1417.36 14.6211 1464.66 2.53372 1518.27 2.53372C1572.4 2.53372 1619.96 14.6211 1660.95 38.7958C1702.47 62.9704 1734.53 96.6048 1757.12 139.699C1780.25 182.267 1791.81 231.668 1791.81 287.9C1791.81 344.133 1780.25 393.796 1757.12 436.89C1734.53 479.458 1702.47 512.83 1660.95 537.005C1619.96 561.179 1572.4 573.267 1518.27 573.267ZM1518.27 473.94C1551.38 473.94 1580.02 466.32 1604.19 451.079C1628.37 435.839 1647.02 414.554 1660.16 387.227C1673.3 359.373 1679.87 326.264 1679.87 287.9C1679.87 249.536 1673.3 216.69 1660.16 189.362C1647.02 161.509 1628.37 139.962 1604.19 124.721C1580.02 109.48 1551.38 101.86 1518.27 101.86C1485.68 101.86 1457.31 109.48 1433.13 124.721C1409.48 139.962 1390.83 161.509 1377.16 189.362C1364.02 216.69 1357.45 249.536 1357.45 287.9C1357.45 326.264 1364.02 359.373 1377.16 387.227C1390.83 414.554 1409.48 435.839 1433.13 451.079C1457.31 466.32 1485.68 473.94 1518.27 473.94ZM1834.5 563.807V11.9934H1944.86V563.807H1834.5ZM2005.06 563.807V11.9934H2192.68C2256.27 11.9934 2309.09 23.5552 2351.13 46.6788C2393.17 69.2769 2424.18 101.335 2444.15 142.852C2464.65 183.844 2474.89 232.193 2474.89 287.9C2474.89 343.081 2464.65 391.431 2444.15 432.948C2424.18 474.466 2393.17 506.786 2351.13 529.91C2309.61 552.508 2256.53 563.807 2191.89 563.807H2005.06ZM2115.43 469.21H2186.37C2230.52 469.21 2265.21 462.116 2290.43 447.926C2316.18 433.211 2334.58 412.452 2345.61 385.65C2356.65 358.322 2362.17 325.739 2362.17 287.9C2362.17 250.061 2356.65 217.741 2345.61 190.939C2334.58 163.611 2316.18 142.589 2290.43 127.874C2265.21 113.159 2230.52 105.802 2186.37 105.802H2115.43V469.21Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M71.9134 380.855V210.131H5.37935V186.632H165.91V210.131H98.8102V380.855H71.9134ZM201.71 380.855V186.632H228.607V269.87H334.212V186.632H361.392V380.855H334.212V293.37H228.607V380.855H201.71ZM415.845 380.855V186.632H565.334V209.848H442.741V269.87H552.876V293.086H442.741V357.639H567.033V380.855H415.845Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2737.33 382.631C2726.76 382.631 2716.57 381.593 2706.75 379.516C2697.13 377.44 2688.54 374.137 2680.99 369.607C2673.44 364.888 2667.4 358.848 2662.87 351.487C2658.53 344.126 2656.36 335.066 2656.36 324.307C2656.36 323.363 2656.36 322.42 2656.36 321.476C2656.54 320.532 2656.64 319.588 2656.64 318.645H2683.82C2683.82 319.211 2683.72 320.155 2683.54 321.476C2683.54 322.608 2683.54 323.647 2683.54 324.59C2683.54 332.14 2685.8 338.558 2690.33 343.843C2694.86 349.128 2701.09 353.091 2709.02 355.734C2717.13 358.188 2726.29 359.414 2736.48 359.414C2741.01 359.414 2745.73 359.131 2750.64 358.565C2755.73 357.999 2760.54 357.055 2765.07 355.734C2769.79 354.224 2773.95 352.336 2777.53 350.071C2781.31 347.618 2784.23 344.692 2786.31 341.295C2788.57 337.708 2789.71 333.367 2789.71 328.271C2789.71 321.853 2787.82 316.568 2784.04 312.416C2780.46 308.075 2775.64 304.583 2769.6 301.94C2763.56 299.109 2756.68 296.655 2748.94 294.579C2741.39 292.314 2733.55 290.144 2725.44 288.067C2717.32 285.991 2709.39 283.632 2701.66 280.989C2694.11 278.158 2687.31 274.761 2681.27 270.797C2675.23 266.644 2670.32 261.548 2666.55 255.508C2662.96 249.468 2661.17 242.107 2661.17 233.424C2661.17 225.308 2662.77 218.041 2665.98 211.624C2669.38 205.206 2674.29 199.827 2680.7 195.486C2687.31 190.956 2695.43 187.558 2705.05 185.293C2714.68 182.84 2725.72 181.613 2738.18 181.613C2748.37 181.613 2757.81 182.745 2766.49 185.01C2775.36 187.087 2783.1 190.39 2789.71 194.92C2796.5 199.261 2801.79 204.829 2805.56 211.624C2809.34 218.419 2811.22 226.629 2811.22 236.256V239.653H2784.61V235.406C2784.61 228.989 2782.63 223.515 2778.66 218.985C2774.7 214.455 2769.23 210.963 2762.24 208.51C2755.45 206.056 2747.71 204.829 2739.03 204.829C2727.7 204.829 2718.26 205.961 2710.71 208.226C2703.17 210.303 2697.5 213.417 2693.73 217.57C2690.14 221.533 2688.35 226.063 2688.35 231.159C2688.35 237.011 2690.14 241.918 2693.73 245.882C2697.5 249.846 2702.41 253.149 2708.45 255.791C2714.49 258.245 2721.38 260.51 2729.12 262.586C2736.86 264.662 2744.69 266.833 2752.62 269.098C2760.73 271.174 2768.57 273.628 2776.12 276.459C2783.86 279.102 2790.74 282.499 2796.78 286.652C2803.01 290.615 2807.92 295.712 2811.51 301.94C2815.09 307.98 2816.89 315.436 2816.89 324.307C2816.89 338.086 2813.49 349.316 2806.69 357.999C2799.9 366.493 2790.56 372.721 2778.66 376.685C2766.77 380.649 2752.99 382.631 2737.33 382.631ZM2909.71 379.233V208.51H2843.17V185.01H3003.71V208.51H2936.61V379.233H2909.71ZM2992.53 379.233L3069.26 185.01H3104.65L3181.66 379.233H3152.5L3133.53 331.102H3038.96L3020.28 379.233H2992.53ZM3047.74 308.169H3124.47L3100.97 247.298C3100.4 245.599 3099.55 243.239 3098.42 240.219C3097.29 237.199 3096.06 233.896 3094.74 230.31C3093.42 226.535 3092.1 222.76 3090.78 218.985C3089.45 215.021 3088.23 211.435 3087.09 208.226H3085.4C3084.07 212.001 3082.56 216.343 3080.87 221.25C3079.17 226.158 3077.47 230.971 3075.77 235.689C3074.07 240.219 3072.66 244.089 3071.52 247.298L3047.74 308.169ZM3213.55 379.233V185.01H3315.76C3328.97 185.01 3339.92 187.464 3348.6 192.372C3357.47 197.09 3364.08 203.791 3368.42 212.473C3372.76 220.967 3374.93 230.782 3374.93 241.918C3374.93 255.319 3371.91 266.833 3365.87 276.459C3359.83 286.085 3351.52 292.975 3340.95 297.127L3381.72 379.233H3352.28L3314.34 301.94H3240.45V379.233H3213.55ZM3240.45 279.007H3313.21C3323.97 279.007 3332.37 275.704 3338.41 269.098C3344.64 262.492 3347.75 253.432 3347.75 241.918C3347.75 234.746 3346.43 228.706 3343.79 223.798C3341.14 218.891 3337.27 215.116 3332.18 212.473C3327.08 209.642 3320.76 208.226 3313.21 208.226H3240.45V279.007ZM3465.57 379.233V208.51H3399.04V185.01H3559.57V208.51H3492.47V379.233H3465.57Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2525.57 86.6678C2517.22 86.6678 2509.8 84.8289 2503.29 81.1512C2496.93 77.4734 2491.9 72.3811 2488.23 65.8743C2484.69 59.3674 2482.92 52.0119 2482.92 43.8076C2482.92 35.4619 2484.69 28.1063 2488.23 21.741C2491.9 15.2341 2496.93 10.1418 2503.29 6.46404C2509.8 2.64482 2517.22 0.735205 2525.57 0.735205C2533.77 0.735205 2541.06 2.64482 2547.42 6.46404C2553.79 10.1418 2558.74 15.2341 2562.28 21.741C2565.95 28.1063 2567.79 35.4619 2567.79 43.8076C2567.79 52.0119 2565.95 59.3674 2562.28 65.8743C2558.74 72.3811 2553.79 77.4734 2547.42 81.1512C2541.06 84.8289 2533.77 86.6678 2525.57 86.6678ZM2534.06 66.2986L2520.9 45.2929H2531.72L2545.94 66.2986H2534.06ZM2525.57 79.0294C2532.5 79.0294 2538.44 77.5441 2543.39 74.5736C2548.49 71.4616 2552.45 67.2888 2555.28 62.055C2558.1 56.6798 2559.52 50.5973 2559.52 43.8076C2559.52 36.8764 2558.1 30.7939 2555.28 25.5602C2552.45 20.3264 2548.49 16.2243 2543.39 13.2538C2538.44 10.1418 2532.5 8.58584 2525.57 8.58584C2518.64 8.58584 2512.56 10.1418 2507.32 13.2538C2502.23 16.2243 2498.27 20.3264 2495.44 25.5602C2492.61 30.7939 2491.2 36.8764 2491.2 43.8076C2491.2 50.5973 2492.61 56.6798 2495.44 62.055C2498.27 67.2888 2502.23 71.4616 2507.32 74.5736C2512.56 77.5441 2518.64 79.0294 2525.57 79.0294ZM2508.6 66.2986V20.6801H2528.75C2533.56 20.6801 2537.31 21.9531 2540 24.4993C2542.83 26.904 2544.24 30.2989 2544.24 34.6839C2544.24 38.9275 2542.83 42.3224 2540 44.8685C2537.31 47.2732 2533.56 48.4756 2528.75 48.4756H2518.57V66.2986H2508.6ZM2518.57 40.4127H2527.9C2529.74 40.4127 2531.23 39.9884 2532.36 39.1397C2533.63 38.2909 2534.27 36.8764 2534.27 34.8961C2534.27 32.9157 2533.63 31.5719 2532.36 30.8647C2531.23 30.0159 2529.74 29.5916 2527.9 29.5916H2518.57V40.4127Z%22 fill=%22white%22/%3E%0A%3C/svg%3E%0A"},"void-start-preto":{"arquivo":"assets/brand/svg/void-start-preto.svg","bytes":7829,"sha256":"efc0bc6b656611317b562c3225d0af7c3ee3ca23bbe251098134622063874167","viewBox":[0,0,3620,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223620%22 height=%22579%22 viewBox=%220 0 3620 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.626 563.807L726.397 11.9934H844.643L995.209 451.868L1146.56 11.9934H1263.23L1063 563.807H926.626ZM1518.27 573.267C1464.66 573.267 1417.36 561.179 1376.37 537.005C1335.38 512.83 1303.06 479.458 1279.41 436.89C1256.29 393.796 1244.73 344.133 1244.73 287.9C1244.73 231.668 1256.29 182.267 1279.41 139.699C1303.06 96.6048 1335.38 62.9704 1376.37 38.7958C1417.36 14.6211 1464.66 2.53372 1518.27 2.53372C1572.4 2.53372 1619.96 14.6211 1660.95 38.7958C1702.47 62.9704 1734.53 96.6048 1757.12 139.699C1780.25 182.267 1791.81 231.668 1791.81 287.9C1791.81 344.133 1780.25 393.796 1757.12 436.89C1734.53 479.458 1702.47 512.83 1660.95 537.005C1619.96 561.179 1572.4 573.267 1518.27 573.267ZM1518.27 473.94C1551.38 473.94 1580.02 466.32 1604.19 451.079C1628.37 435.839 1647.02 414.554 1660.16 387.227C1673.3 359.373 1679.87 326.264 1679.87 287.9C1679.87 249.536 1673.3 216.69 1660.16 189.362C1647.02 161.509 1628.37 139.962 1604.19 124.721C1580.02 109.48 1551.38 101.86 1518.27 101.86C1485.68 101.86 1457.31 109.48 1433.13 124.721C1409.48 139.962 1390.83 161.509 1377.16 189.362C1364.02 216.69 1357.45 249.536 1357.45 287.9C1357.45 326.264 1364.02 359.373 1377.16 387.227C1390.83 414.554 1409.48 435.839 1433.13 451.079C1457.31 466.32 1485.68 473.94 1518.27 473.94ZM1834.5 563.807V11.9934H1944.86V563.807H1834.5ZM2005.06 563.807V11.9934H2192.68C2256.27 11.9934 2309.09 23.5552 2351.13 46.6788C2393.17 69.2769 2424.18 101.335 2444.15 142.852C2464.65 183.844 2474.89 232.193 2474.89 287.9C2474.89 343.081 2464.65 391.431 2444.15 432.948C2424.18 474.466 2393.17 506.786 2351.13 529.91C2309.61 552.508 2256.53 563.807 2191.89 563.807H2005.06ZM2115.43 469.21H2186.37C2230.52 469.21 2265.21 462.116 2290.43 447.926C2316.18 433.211 2334.58 412.452 2345.61 385.65C2356.65 358.322 2362.17 325.739 2362.17 287.9C2362.17 250.061 2356.65 217.741 2345.61 190.939C2334.58 163.611 2316.18 142.589 2290.43 127.874C2265.21 113.159 2230.52 105.802 2186.37 105.802H2115.43V469.21Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M71.9134 380.855V210.131H5.37935V186.632H165.91V210.131H98.8102V380.855H71.9134ZM201.71 380.855V186.632H228.607V269.87H334.212V186.632H361.392V380.855H334.212V293.37H228.607V380.855H201.71ZM415.845 380.855V186.632H565.334V209.848H442.741V269.87H552.876V293.086H442.741V357.639H567.033V380.855H415.845Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2737.33 382.631C2726.76 382.631 2716.57 381.593 2706.75 379.516C2697.13 377.44 2688.54 374.137 2680.99 369.607C2673.44 364.888 2667.4 358.848 2662.87 351.487C2658.53 344.126 2656.36 335.066 2656.36 324.307C2656.36 323.363 2656.36 322.42 2656.36 321.476C2656.54 320.532 2656.64 319.588 2656.64 318.645H2683.82C2683.82 319.211 2683.72 320.155 2683.54 321.476C2683.54 322.608 2683.54 323.647 2683.54 324.59C2683.54 332.14 2685.8 338.558 2690.33 343.843C2694.86 349.128 2701.09 353.091 2709.02 355.734C2717.13 358.188 2726.29 359.414 2736.48 359.414C2741.01 359.414 2745.73 359.131 2750.64 358.565C2755.73 357.999 2760.54 357.055 2765.07 355.734C2769.79 354.224 2773.95 352.336 2777.53 350.071C2781.31 347.618 2784.23 344.692 2786.31 341.295C2788.57 337.708 2789.71 333.367 2789.71 328.271C2789.71 321.853 2787.82 316.568 2784.04 312.416C2780.46 308.075 2775.64 304.583 2769.6 301.94C2763.56 299.109 2756.68 296.655 2748.94 294.579C2741.39 292.314 2733.55 290.144 2725.44 288.067C2717.32 285.991 2709.39 283.632 2701.66 280.989C2694.11 278.158 2687.31 274.761 2681.27 270.797C2675.23 266.644 2670.32 261.548 2666.55 255.508C2662.96 249.468 2661.17 242.107 2661.17 233.424C2661.17 225.308 2662.77 218.041 2665.98 211.624C2669.38 205.206 2674.29 199.827 2680.7 195.486C2687.31 190.956 2695.43 187.558 2705.05 185.293C2714.68 182.84 2725.72 181.613 2738.18 181.613C2748.37 181.613 2757.81 182.745 2766.49 185.01C2775.36 187.087 2783.1 190.39 2789.71 194.92C2796.5 199.261 2801.79 204.829 2805.56 211.624C2809.34 218.419 2811.22 226.629 2811.22 236.256V239.653H2784.61V235.406C2784.61 228.989 2782.63 223.515 2778.66 218.985C2774.7 214.455 2769.23 210.963 2762.24 208.51C2755.45 206.056 2747.71 204.829 2739.03 204.829C2727.7 204.829 2718.26 205.961 2710.71 208.226C2703.17 210.303 2697.5 213.417 2693.73 217.57C2690.14 221.533 2688.35 226.063 2688.35 231.159C2688.35 237.011 2690.14 241.918 2693.73 245.882C2697.5 249.846 2702.41 253.149 2708.45 255.791C2714.49 258.245 2721.38 260.51 2729.12 262.586C2736.86 264.662 2744.69 266.833 2752.62 269.098C2760.73 271.174 2768.57 273.628 2776.12 276.459C2783.86 279.102 2790.74 282.499 2796.78 286.652C2803.01 290.615 2807.92 295.712 2811.51 301.94C2815.09 307.98 2816.89 315.436 2816.89 324.307C2816.89 338.086 2813.49 349.316 2806.69 357.999C2799.9 366.493 2790.56 372.721 2778.66 376.685C2766.77 380.649 2752.99 382.631 2737.33 382.631ZM2909.71 379.233V208.51H2843.17V185.01H3003.71V208.51H2936.61V379.233H2909.71ZM2992.53 379.233L3069.26 185.01H3104.65L3181.66 379.233H3152.5L3133.53 331.102H3038.96L3020.28 379.233H2992.53ZM3047.74 308.169H3124.47L3100.97 247.298C3100.4 245.599 3099.55 243.239 3098.42 240.219C3097.29 237.199 3096.06 233.896 3094.74 230.31C3093.42 226.535 3092.1 222.76 3090.78 218.985C3089.45 215.021 3088.23 211.435 3087.09 208.226H3085.4C3084.07 212.001 3082.56 216.343 3080.87 221.25C3079.17 226.158 3077.47 230.971 3075.77 235.689C3074.07 240.219 3072.66 244.089 3071.52 247.298L3047.74 308.169ZM3213.55 379.233V185.01H3315.76C3328.97 185.01 3339.92 187.464 3348.6 192.372C3357.47 197.09 3364.08 203.791 3368.42 212.473C3372.76 220.967 3374.93 230.782 3374.93 241.918C3374.93 255.319 3371.91 266.833 3365.87 276.459C3359.83 286.085 3351.52 292.975 3340.95 297.127L3381.72 379.233H3352.28L3314.34 301.94H3240.45V379.233H3213.55ZM3240.45 279.007H3313.21C3323.97 279.007 3332.37 275.704 3338.41 269.098C3344.64 262.492 3347.75 253.432 3347.75 241.918C3347.75 234.746 3346.43 228.706 3343.79 223.798C3341.14 218.891 3337.27 215.116 3332.18 212.473C3327.08 209.642 3320.76 208.226 3313.21 208.226H3240.45V279.007ZM3465.57 379.233V208.51H3399.04V185.01H3559.57V208.51H3492.47V379.233H3465.57Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2525.57 86.6678C2517.22 86.6678 2509.8 84.8289 2503.29 81.1512C2496.93 77.4734 2491.9 72.3811 2488.23 65.8743C2484.69 59.3674 2482.92 52.0119 2482.92 43.8076C2482.92 35.4619 2484.69 28.1063 2488.23 21.741C2491.9 15.2341 2496.93 10.1418 2503.29 6.46404C2509.8 2.64482 2517.22 0.735205 2525.57 0.735205C2533.77 0.735205 2541.06 2.64482 2547.42 6.46404C2553.79 10.1418 2558.74 15.2341 2562.28 21.741C2565.96 28.1063 2567.79 35.4619 2567.79 43.8076C2567.79 52.0119 2565.96 59.3674 2562.28 65.8743C2558.74 72.3811 2553.79 77.4734 2547.42 81.1512C2541.06 84.8289 2533.77 86.6678 2525.57 86.6678ZM2534.06 66.2986L2520.9 45.2929H2531.72L2545.94 66.2986H2534.06ZM2525.57 79.0294C2532.5 79.0294 2538.44 77.5441 2543.39 74.5736C2548.49 71.4616 2552.45 67.2888 2555.28 62.055C2558.1 56.6798 2559.52 50.5973 2559.52 43.8076C2559.52 36.8764 2558.1 30.7939 2555.28 25.5602C2552.45 20.3264 2548.49 16.2243 2543.39 13.2538C2538.44 10.1418 2532.5 8.58584 2525.57 8.58584C2518.64 8.58584 2512.56 10.1418 2507.32 13.2538C2502.23 16.2243 2498.27 20.3264 2495.44 25.5602C2492.61 30.7939 2491.2 36.8764 2491.2 43.8076C2491.2 50.5973 2492.61 56.6798 2495.44 62.055C2498.27 67.2888 2502.23 71.4616 2507.32 74.5736C2512.56 77.5441 2518.64 79.0294 2525.57 79.0294ZM2508.6 66.2986V20.6801H2528.75C2533.56 20.6801 2537.31 21.9531 2540 24.4993C2542.83 26.904 2544.24 30.2989 2544.24 34.6839C2544.24 38.9275 2542.83 42.3224 2540 44.8685C2537.31 47.2732 2533.56 48.4756 2528.75 48.4756H2518.57V66.2986H2508.6ZM2518.57 40.4127H2527.9C2529.74 40.4127 2531.23 39.9884 2532.36 39.1397C2533.63 38.2909 2534.27 36.8764 2534.27 34.8961C2534.27 32.9157 2533.63 31.5719 2532.36 30.8647C2531.23 30.0159 2529.74 29.5916 2527.9 29.5916H2518.57V40.4127Z%22 fill=%22black%22/%3E%0A%3C/svg%3E%0A"},"void-master-branco":{"arquivo":"assets/brand/svg/void-master-branco.svg","bytes":8885,"sha256":"3d547b8952424600bacef75648802fc1d20a15eece75a30e94dcb1ffe988cd39","viewBox":[0,0,3894,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223894%22 height=%22579%22 viewBox=%220 0 3894 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.627 563.614L726.397 11.8H844.643L995.209 451.674L1146.56 11.8H1263.23L1063 563.614H926.627ZM1518.27 573.073C1464.66 573.073 1417.36 560.986 1376.37 536.811C1335.38 512.636 1303.06 479.265 1279.41 436.696C1256.29 393.602 1244.73 343.939 1244.73 287.707C1244.73 231.474 1256.29 182.074 1279.41 139.505C1303.06 96.4114 1335.38 62.7771 1376.37 38.6024C1417.36 14.4277 1464.66 2.34036 1518.27 2.34036C1572.4 2.34036 1619.96 14.4277 1660.95 38.6024C1702.47 62.7771 1734.53 96.4114 1757.12 139.505C1780.25 182.074 1791.81 231.474 1791.81 287.707C1791.81 343.939 1780.25 393.602 1757.12 436.696C1734.53 479.265 1702.47 512.636 1660.95 536.811C1619.96 560.986 1572.4 573.073 1518.27 573.073ZM1518.27 473.747C1551.38 473.747 1580.02 466.126 1604.19 450.886C1628.37 435.645 1647.02 414.361 1660.16 387.033C1673.3 359.18 1679.87 326.071 1679.87 287.707C1679.87 249.343 1673.3 216.497 1660.16 189.169C1647.02 161.315 1628.37 139.768 1604.19 124.528C1580.02 109.287 1551.38 101.667 1518.27 101.667C1485.68 101.667 1457.31 109.287 1433.13 124.528C1409.48 139.768 1390.83 161.315 1377.16 189.169C1364.02 216.497 1357.45 249.343 1357.45 287.707C1357.45 326.071 1364.02 359.18 1377.16 387.033C1390.83 414.361 1409.48 435.645 1433.13 450.886C1457.31 466.126 1485.68 473.747 1518.27 473.747ZM1834.5 563.614V11.8H1944.86V563.614H1834.5ZM2005.06 563.614V11.8H2192.68C2256.27 11.8 2309.09 23.3618 2351.13 46.4854C2393.17 69.0835 2424.18 101.141 2444.15 142.659C2464.65 183.65 2474.89 232 2474.89 287.707C2474.89 342.888 2464.65 391.237 2444.15 432.755C2424.18 474.272 2393.17 506.593 2351.13 529.716C2309.61 552.314 2256.53 563.614 2191.89 563.614H2005.06ZM2115.43 469.017H2186.37C2230.52 469.017 2265.21 461.922 2290.43 447.733C2316.18 433.018 2334.58 412.259 2345.61 385.457C2356.65 358.129 2362.17 325.545 2362.17 287.707C2362.17 249.868 2356.65 217.548 2345.61 190.745C2334.58 163.417 2316.18 142.396 2290.43 127.681C2265.21 112.966 2230.52 105.608 2186.37 105.608H2115.43V469.017Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M71.9134 380.662V209.938H5.37935V186.439H165.91V209.938H98.8102V380.662H71.9134ZM201.71 380.662V186.439H228.607V269.677H334.212V186.439H361.392V380.662H334.212V293.176H228.607V380.662H201.71ZM415.845 380.662V186.439H565.334V209.655H442.741V269.677H552.876V292.893H442.741V357.445H567.033V380.662H415.845Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2665.98 380.662V186.439H2707.6L2751.77 312.429C2752.9 315.826 2754.03 319.601 2755.17 323.754C2756.49 327.717 2757.62 331.492 2758.56 335.079C2759.7 338.665 2760.54 341.779 2761.11 344.422H2763.09C2763.66 341.591 2764.41 338.382 2765.36 334.796C2766.3 331.021 2767.34 327.151 2768.47 323.188C2769.6 319.224 2770.64 315.638 2771.59 312.429L2815.75 186.439H2857.09V380.662H2830.19V266.846C2830.19 260.995 2830.29 254.672 2830.48 247.877C2830.67 240.893 2830.85 234.57 2831.04 228.907C2831.23 223.056 2831.33 218.904 2831.33 216.45H2829.06C2828.49 218.904 2827.55 222.395 2826.23 226.925C2824.91 231.267 2823.49 235.891 2821.98 240.799C2820.66 245.517 2819.43 249.764 2818.3 253.539L2772.72 380.662H2749.5L2703.92 253.539C2702.79 250.33 2701.56 246.65 2700.24 242.497C2699.11 238.156 2697.88 233.72 2696.56 229.19C2695.43 224.66 2694.29 220.414 2693.16 216.45H2691.18C2691.37 220.602 2691.46 225.793 2691.46 232.022C2691.65 238.062 2691.75 244.196 2691.75 250.425C2691.93 256.465 2692.03 261.938 2692.03 266.846V380.662H2665.98ZM2888.99 380.662L2965.72 186.439H3001.11L3078.12 380.662H3048.96L3029.99 332.531H2935.42L2916.74 380.662H2888.99ZM2944.2 309.598H3020.93L2997.43 248.726C2996.86 247.027 2996.01 244.668 2994.88 241.648C2993.75 238.628 2992.52 235.325 2991.2 231.739C2989.88 227.964 2988.56 224.189 2987.24 220.414C2985.91 216.45 2984.69 212.864 2983.56 209.655H2981.86C2980.54 213.43 2979.03 217.771 2977.33 222.679C2975.63 227.586 2973.93 232.399 2972.23 237.118C2970.53 241.648 2969.12 245.517 2967.98 248.726L2944.2 309.598ZM3181.36 384.059C3170.79 384.059 3160.59 383.021 3150.78 380.945C3141.15 378.869 3132.57 375.565 3125.02 371.035C3117.47 366.317 3111.43 360.277 3106.9 352.916C3102.55 345.554 3100.38 336.494 3100.38 325.736C3100.38 324.792 3100.38 323.848 3100.38 322.904C3100.57 321.961 3100.67 321.017 3100.67 320.073H3127.85C3127.85 320.639 3127.75 321.583 3127.56 322.904C3127.56 324.037 3127.56 325.075 3127.56 326.019C3127.56 333.569 3129.83 339.986 3134.36 345.271C3138.89 350.556 3145.12 354.52 3153.04 357.162C3161.16 359.616 3170.32 360.843 3180.51 360.843C3185.04 360.843 3189.76 360.56 3194.66 359.994C3199.76 359.427 3204.57 358.484 3209.1 357.162C3213.82 355.652 3217.97 353.765 3221.56 351.5C3225.34 349.046 3228.26 346.121 3230.34 342.723C3232.6 339.137 3233.74 334.796 3233.74 329.699C3233.74 323.282 3231.85 317.997 3228.07 313.844C3224.49 309.503 3219.67 306.011 3213.63 303.369C3207.59 300.538 3200.7 298.084 3192.97 296.008C3185.42 293.743 3177.58 291.572 3169.47 289.496C3161.35 287.42 3153.42 285.06 3145.68 282.418C3138.13 279.586 3131.34 276.189 3125.3 272.225C3119.26 268.073 3114.35 262.977 3110.58 256.937C3106.99 250.897 3105.2 243.535 3105.2 234.853C3105.2 226.737 3106.8 219.47 3110.01 213.052C3113.41 206.635 3118.31 201.256 3124.73 196.914C3131.34 192.384 3139.45 188.987 3149.08 186.722C3158.71 184.268 3169.75 183.041 3182.21 183.041C3192.4 183.041 3201.84 184.174 3210.52 186.439C3219.39 188.515 3227.13 191.818 3233.74 196.348C3240.53 200.689 3245.82 206.257 3249.59 213.052C3253.36 219.847 3255.25 228.058 3255.25 237.684V241.082H3228.64V236.835C3228.64 230.417 3226.66 224.944 3222.69 220.414C3218.73 215.884 3213.26 212.392 3206.27 209.938C3199.48 207.484 3191.74 206.257 3183.06 206.257C3171.73 206.257 3162.29 207.39 3154.74 209.655C3147.19 211.731 3141.53 214.846 3137.76 218.998C3134.17 222.962 3132.38 227.492 3132.38 232.588C3132.38 238.439 3134.17 243.347 3137.76 247.31C3141.53 251.274 3146.44 254.577 3152.48 257.22C3158.52 259.673 3165.41 261.938 3173.15 264.015C3180.89 266.091 3188.72 268.262 3196.65 270.527C3204.76 272.603 3212.6 275.056 3220.15 277.888C3227.88 280.53 3234.77 283.928 3240.81 288.08C3247.04 292.044 3251.95 297.14 3255.54 303.369C3259.12 309.409 3260.91 316.864 3260.91 325.736C3260.91 339.514 3257.52 350.745 3250.72 359.427C3243.93 367.921 3234.58 374.15 3222.69 378.114C3210.8 382.077 3197.02 384.059 3181.36 384.059ZM3353.74 380.662V209.938H3287.2V186.439H3447.73V209.938H3380.63V380.662H3353.74ZM3483.53 380.662V186.439H3633.02V209.655H3510.43V269.677H3620.57V292.893H3510.43V357.445H3634.72V380.662H3483.53ZM3680.8 380.662V186.439H3783.01C3796.22 186.439 3807.17 188.893 3815.85 193.8C3824.72 198.519 3831.33 205.219 3835.67 213.902C3840.01 222.395 3842.18 232.21 3842.18 243.347C3842.18 256.748 3839.16 268.262 3833.12 277.888C3827.08 287.514 3818.78 294.403 3808.21 298.556L3848.98 380.662H3819.53L3781.59 303.369H3707.7V380.662H3680.8ZM3707.7 280.436H3780.46C3791.22 280.436 3799.62 277.133 3805.66 270.527C3811.89 263.92 3815 254.86 3815 243.347C3815 236.174 3813.68 230.134 3811.04 225.227C3808.4 220.319 3804.53 216.544 3799.43 213.902C3794.34 211.071 3788.01 209.655 3780.46 209.655H3707.7V280.436Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2525.57 86.4745C2517.22 86.4745 2509.8 84.6356 2503.29 80.9578C2496.93 77.28 2491.9 72.1877 2488.23 65.6809C2484.69 59.1741 2482.92 51.8185 2482.92 43.6143C2482.92 35.2685 2484.69 27.913 2488.23 21.5476C2491.9 15.0408 2496.93 9.94846 2503.29 6.27068C2509.8 2.45146 2517.22 0.541846 2525.57 0.541846C2533.77 0.541846 2541.06 2.45146 2547.42 6.27068C2553.79 9.94846 2558.74 15.0408 2562.28 21.5476C2565.95 27.913 2567.79 35.2685 2567.79 43.6143C2567.79 51.8185 2565.95 59.1741 2562.28 65.6809C2558.74 72.1877 2553.79 77.28 2547.42 80.9578C2541.06 84.6356 2533.77 86.4745 2525.57 86.4745ZM2534.06 66.1053L2520.9 45.0995H2531.72L2545.94 66.1053H2534.06ZM2525.57 78.836C2532.5 78.836 2538.44 77.3508 2543.39 74.3802C2548.49 71.2683 2552.45 67.0954 2555.28 61.8617C2558.1 56.4865 2559.52 50.404 2559.52 43.6143C2559.52 36.6831 2558.1 30.6006 2555.28 25.3668C2552.45 20.1331 2548.49 16.0309 2543.39 13.0604C2538.44 9.94846 2532.5 8.39248 2525.57 8.39248C2518.64 8.39248 2512.56 9.94846 2507.32 13.0604C2502.23 16.0309 2498.27 20.1331 2495.44 25.3668C2492.61 30.6006 2491.2 36.6831 2491.2 43.6143C2491.2 50.404 2492.61 56.4865 2495.44 61.8617C2498.27 67.0954 2502.23 71.2683 2507.32 74.3802C2512.56 77.3508 2518.64 78.836 2525.57 78.836ZM2508.6 66.1053V20.4867H2528.75C2533.56 20.4867 2537.31 21.7598 2540 24.3059C2542.83 26.7106 2544.24 30.1055 2544.24 34.4905C2544.24 38.7341 2542.83 42.129 2540 44.6751C2537.31 47.0798 2533.56 48.2822 2528.75 48.2822H2518.57V66.1053H2508.6ZM2518.57 40.2194H2527.9C2529.74 40.2194 2531.23 39.795 2532.36 38.9463C2533.63 38.0976 2534.27 36.6831 2534.27 34.7027C2534.27 32.7224 2533.63 31.3786 2532.36 30.6713C2531.23 29.8226 2529.74 29.3982 2527.9 29.3982H2518.57V40.2194Z%22 fill=%22white%22/%3E%0A%3C/svg%3E%0A"},"void-master-preto":{"arquivo":"assets/brand/svg/void-master-preto.svg","bytes":8885,"sha256":"ad178dd3bf0cbdee28cf7f495528b4fc732bdbbf4838e23378ad2b3415376044","viewBox":[0,0,3894,579],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223894%22 height=%22579%22 viewBox=%220 0 3894 579%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.626 563.614L726.397 11.8H844.643L995.209 451.674L1146.56 11.8H1263.23L1063 563.614H926.626ZM1518.27 573.073C1464.66 573.073 1417.36 560.986 1376.37 536.811C1335.38 512.636 1303.06 479.265 1279.41 436.696C1256.29 393.602 1244.73 343.939 1244.73 287.707C1244.73 231.474 1256.29 182.074 1279.41 139.505C1303.06 96.4114 1335.38 62.7771 1376.37 38.6024C1417.36 14.4277 1464.66 2.34036 1518.27 2.34036C1572.4 2.34036 1619.96 14.4277 1660.95 38.6024C1702.47 62.7771 1734.53 96.4114 1757.12 139.505C1780.25 182.074 1791.81 231.474 1791.81 287.707C1791.81 343.939 1780.25 393.602 1757.12 436.696C1734.53 479.265 1702.47 512.636 1660.95 536.811C1619.96 560.986 1572.4 573.073 1518.27 573.073ZM1518.27 473.747C1551.38 473.747 1580.02 466.126 1604.19 450.886C1628.37 435.645 1647.02 414.361 1660.16 387.033C1673.3 359.18 1679.87 326.071 1679.87 287.707C1679.87 249.343 1673.3 216.497 1660.16 189.169C1647.02 161.315 1628.37 139.768 1604.19 124.528C1580.02 109.287 1551.38 101.667 1518.27 101.667C1485.68 101.667 1457.31 109.287 1433.13 124.528C1409.48 139.768 1390.83 161.315 1377.16 189.169C1364.02 216.497 1357.45 249.343 1357.45 287.707C1357.45 326.071 1364.02 359.18 1377.16 387.033C1390.83 414.361 1409.48 435.645 1433.13 450.886C1457.31 466.126 1485.68 473.747 1518.27 473.747ZM1834.5 563.614V11.8H1944.86V563.614H1834.5ZM2005.06 563.614V11.8H2192.68C2256.27 11.8 2309.09 23.3618 2351.13 46.4854C2393.17 69.0835 2424.18 101.141 2444.15 142.659C2464.65 183.65 2474.89 232 2474.89 287.707C2474.89 342.888 2464.65 391.237 2444.15 432.755C2424.18 474.272 2393.17 506.593 2351.13 529.716C2309.61 552.314 2256.53 563.614 2191.89 563.614H2005.06ZM2115.43 469.017H2186.37C2230.52 469.017 2265.21 461.922 2290.43 447.733C2316.18 433.018 2334.58 412.259 2345.61 385.457C2356.65 358.129 2362.17 325.545 2362.17 287.707C2362.17 249.868 2356.65 217.548 2345.61 190.745C2334.58 163.417 2316.18 142.396 2290.43 127.681C2265.21 112.966 2230.52 105.608 2186.37 105.608H2115.43V469.017Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M71.9134 380.662V209.938H5.37935V186.439H165.91V209.938H98.8102V380.662H71.9134ZM201.71 380.662V186.439H228.607V269.677H334.212V186.439H361.392V380.662H334.212V293.176H228.607V380.662H201.71ZM415.845 380.662V186.439H565.334V209.655H442.741V269.677H552.876V292.893H442.741V357.445H567.033V380.662H415.845Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2665.98 380.662V186.439H2707.6L2751.77 312.429C2752.9 315.826 2754.03 319.601 2755.17 323.754C2756.49 327.717 2757.62 331.492 2758.56 335.079C2759.7 338.665 2760.54 341.779 2761.11 344.422H2763.09C2763.66 341.591 2764.41 338.382 2765.36 334.796C2766.3 331.021 2767.34 327.151 2768.47 323.188C2769.6 319.224 2770.64 315.638 2771.59 312.429L2815.75 186.439H2857.09V380.662H2830.19V266.846C2830.19 260.995 2830.29 254.672 2830.48 247.877C2830.67 240.893 2830.85 234.57 2831.04 228.907C2831.23 223.056 2831.33 218.904 2831.33 216.45H2829.06C2828.49 218.904 2827.55 222.395 2826.23 226.925C2824.91 231.267 2823.49 235.891 2821.98 240.799C2820.66 245.517 2819.43 249.764 2818.3 253.539L2772.72 380.662H2749.5L2703.92 253.539C2702.79 250.33 2701.56 246.65 2700.24 242.497C2699.11 238.156 2697.88 233.72 2696.56 229.19C2695.43 224.66 2694.29 220.414 2693.16 216.45H2691.18C2691.37 220.602 2691.46 225.793 2691.46 232.022C2691.65 238.062 2691.75 244.196 2691.75 250.425C2691.93 256.465 2692.03 261.938 2692.03 266.846V380.662H2665.98ZM2888.99 380.662L2965.72 186.439H3001.11L3078.12 380.662H3048.96L3029.99 332.531H2935.42L2916.74 380.662H2888.99ZM2944.2 309.598H3020.93L2997.43 248.726C2996.86 247.027 2996.01 244.668 2994.88 241.648C2993.75 238.628 2992.52 235.325 2991.2 231.739C2989.88 227.964 2988.56 224.189 2987.24 220.414C2985.91 216.45 2984.69 212.864 2983.56 209.655H2981.86C2980.54 213.43 2979.03 217.771 2977.33 222.679C2975.63 227.586 2973.93 232.399 2972.23 237.118C2970.53 241.648 2969.12 245.517 2967.98 248.726L2944.2 309.598ZM3181.36 384.059C3170.79 384.059 3160.59 383.021 3150.78 380.945C3141.15 378.869 3132.57 375.565 3125.02 371.035C3117.47 366.317 3111.43 360.277 3106.9 352.916C3102.55 345.554 3100.38 336.494 3100.38 325.736C3100.38 324.792 3100.38 323.848 3100.38 322.904C3100.57 321.961 3100.67 321.017 3100.67 320.073H3127.85C3127.85 320.639 3127.75 321.583 3127.56 322.904C3127.56 324.037 3127.56 325.075 3127.56 326.019C3127.56 333.569 3129.83 339.986 3134.36 345.271C3138.89 350.556 3145.12 354.52 3153.04 357.162C3161.16 359.616 3170.32 360.843 3180.51 360.843C3185.04 360.843 3189.76 360.56 3194.66 359.994C3199.76 359.427 3204.57 358.484 3209.1 357.162C3213.82 355.652 3217.97 353.765 3221.56 351.5C3225.34 349.046 3228.26 346.121 3230.34 342.723C3232.6 339.137 3233.74 334.796 3233.74 329.699C3233.74 323.282 3231.85 317.997 3228.07 313.844C3224.49 309.503 3219.67 306.011 3213.63 303.369C3207.59 300.538 3200.7 298.084 3192.97 296.008C3185.42 293.743 3177.58 291.572 3169.47 289.496C3161.35 287.42 3153.42 285.06 3145.68 282.418C3138.13 279.586 3131.34 276.189 3125.3 272.225C3119.26 268.073 3114.35 262.977 3110.58 256.937C3106.99 250.897 3105.2 243.535 3105.2 234.853C3105.2 226.737 3106.8 219.47 3110.01 213.052C3113.41 206.635 3118.31 201.256 3124.73 196.914C3131.34 192.384 3139.45 188.987 3149.08 186.722C3158.71 184.268 3169.75 183.041 3182.21 183.041C3192.4 183.041 3201.84 184.174 3210.52 186.439C3219.39 188.515 3227.13 191.818 3233.74 196.348C3240.53 200.689 3245.82 206.257 3249.59 213.052C3253.36 219.847 3255.25 228.058 3255.25 237.684V241.082H3228.64V236.835C3228.64 230.417 3226.66 224.944 3222.69 220.414C3218.73 215.884 3213.26 212.392 3206.27 209.938C3199.48 207.484 3191.74 206.257 3183.06 206.257C3171.73 206.257 3162.29 207.39 3154.74 209.655C3147.19 211.731 3141.53 214.846 3137.76 218.998C3134.17 222.962 3132.38 227.492 3132.38 232.588C3132.38 238.439 3134.17 243.347 3137.76 247.31C3141.53 251.274 3146.44 254.577 3152.48 257.22C3158.52 259.673 3165.41 261.938 3173.15 264.015C3180.89 266.091 3188.72 268.262 3196.65 270.527C3204.76 272.603 3212.6 275.056 3220.15 277.888C3227.88 280.53 3234.77 283.928 3240.81 288.08C3247.04 292.044 3251.95 297.14 3255.54 303.369C3259.12 309.409 3260.91 316.864 3260.91 325.736C3260.91 339.514 3257.52 350.745 3250.72 359.427C3243.93 367.921 3234.58 374.15 3222.69 378.114C3210.8 382.077 3197.02 384.059 3181.36 384.059ZM3353.74 380.662V209.938H3287.2V186.439H3447.73V209.938H3380.63V380.662H3353.74ZM3483.53 380.662V186.439H3633.02V209.655H3510.43V269.677H3620.57V292.893H3510.43V357.445H3634.72V380.662H3483.53ZM3680.8 380.662V186.439H3783.01C3796.22 186.439 3807.17 188.893 3815.85 193.8C3824.72 198.519 3831.33 205.219 3835.67 213.902C3840.01 222.395 3842.18 232.21 3842.18 243.347C3842.18 256.748 3839.16 268.262 3833.12 277.888C3827.08 287.514 3818.78 294.403 3808.21 298.556L3848.98 380.662H3819.53L3781.59 303.369H3707.7V380.662H3680.8ZM3707.7 280.436H3780.46C3791.22 280.436 3799.62 277.133 3805.66 270.527C3811.89 263.92 3815 254.86 3815 243.347C3815 236.174 3813.68 230.134 3811.04 225.227C3808.4 220.319 3804.53 216.544 3799.43 213.902C3794.34 211.071 3788.01 209.655 3780.46 209.655H3707.7V280.436Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2525.57 86.4745C2517.22 86.4745 2509.8 84.6356 2503.29 80.9578C2496.93 77.28 2491.9 72.1877 2488.23 65.6809C2484.69 59.1741 2482.92 51.8185 2482.92 43.6143C2482.92 35.2685 2484.69 27.913 2488.23 21.5476C2491.9 15.0408 2496.93 9.94846 2503.29 6.27068C2509.8 2.45146 2517.22 0.541846 2525.57 0.541846C2533.77 0.541846 2541.06 2.45146 2547.42 6.27068C2553.79 9.94846 2558.74 15.0408 2562.28 21.5476C2565.96 27.913 2567.79 35.2685 2567.79 43.6143C2567.79 51.8185 2565.96 59.1741 2562.28 65.6809C2558.74 72.1877 2553.79 77.28 2547.42 80.9578C2541.06 84.6356 2533.77 86.4745 2525.57 86.4745ZM2534.06 66.1053L2520.9 45.0995H2531.72L2545.94 66.1053H2534.06ZM2525.57 78.836C2532.5 78.836 2538.44 77.3508 2543.39 74.3802C2548.49 71.2683 2552.45 67.0954 2555.28 61.8617C2558.1 56.4865 2559.52 50.404 2559.52 43.6143C2559.52 36.6831 2558.1 30.6006 2555.28 25.3668C2552.45 20.1331 2548.49 16.0309 2543.39 13.0604C2538.44 9.94846 2532.5 8.39248 2525.57 8.39248C2518.64 8.39248 2512.56 9.94846 2507.32 13.0604C2502.23 16.0309 2498.27 20.1331 2495.44 25.3668C2492.61 30.6006 2491.2 36.6831 2491.2 43.6143C2491.2 50.404 2492.61 56.4865 2495.44 61.8617C2498.27 67.0954 2502.23 71.2683 2507.32 74.3802C2512.56 77.3508 2518.64 78.836 2525.57 78.836ZM2508.6 66.1053V20.4867H2528.75C2533.56 20.4867 2537.31 21.7598 2540 24.3059C2542.83 26.7106 2544.24 30.1055 2544.24 34.4905C2544.24 38.7341 2542.83 42.129 2540 44.6751C2537.31 47.0798 2533.56 48.2822 2528.75 48.2822H2518.57V66.1053H2508.6ZM2518.57 40.2194H2527.9C2529.74 40.2194 2531.23 39.795 2532.36 38.9463C2533.63 38.0976 2534.27 36.6831 2534.27 34.7027C2534.27 32.7224 2533.63 31.3786 2532.36 30.6713C2531.23 29.8226 2529.74 29.3982 2527.9 29.3982H2518.57V40.2194Z%22 fill=%22black%22/%3E%0A%3C/svg%3E%0A"},"void-pro-branco":{"arquivo":"assets/brand/svg/void-pro-branco.svg","bytes":6804,"sha256":"9f637abd39ca5b5e75c92caccb464053e201eb5399d48a3e2cc18ee1cffd3bb0","viewBox":[0,0,3745,578],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223745%22 height=%22578%22 viewBox=%220 0 3745 578%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.627 563.42L726.397 11.6069H844.643L995.209 451.481L1146.56 11.6069H1263.23L1063 563.42H926.627ZM1518.27 572.88C1464.66 572.88 1417.36 560.793 1376.37 536.618C1335.38 512.443 1303.06 479.072 1279.41 436.503C1256.29 393.409 1244.73 343.746 1244.73 287.514C1244.73 231.281 1256.29 181.881 1279.41 139.312C1303.06 96.2183 1335.38 62.584 1376.37 38.4093C1417.36 14.2346 1464.66 2.14725 1518.27 2.14725C1572.4 2.14725 1619.96 14.2346 1660.95 38.4093C1702.47 62.584 1734.53 96.2183 1757.12 139.312C1780.25 181.881 1791.81 231.281 1791.81 287.514C1791.81 343.746 1780.25 393.409 1757.12 436.503C1734.53 479.072 1702.47 512.443 1660.95 536.618C1619.96 560.793 1572.4 572.88 1518.27 572.88ZM1518.27 473.554C1551.38 473.554 1580.02 465.933 1604.19 450.693C1628.37 435.452 1647.02 414.168 1660.16 386.84C1673.3 358.987 1679.87 325.878 1679.87 287.514C1679.87 249.149 1673.3 216.303 1660.16 188.976C1647.02 161.122 1628.37 139.575 1604.19 124.334C1580.02 109.094 1551.38 101.474 1518.27 101.474C1485.68 101.474 1457.31 109.094 1433.13 124.334C1409.48 139.575 1390.83 161.122 1377.16 188.976C1364.02 216.303 1357.45 249.149 1357.45 287.514C1357.45 325.878 1364.02 358.987 1377.16 386.84C1390.83 414.168 1409.48 435.452 1433.13 450.693C1457.31 465.933 1485.68 473.554 1518.27 473.554ZM1834.5 563.42V11.6069H1944.86V563.42H1834.5ZM2005.06 563.42V11.6069H2192.68C2256.27 11.6069 2309.09 23.1687 2351.13 46.2923C2393.17 68.8904 2424.18 100.948 2444.15 142.466C2464.65 183.457 2474.89 231.807 2474.89 287.514C2474.89 342.695 2464.65 391.044 2444.15 432.562C2424.18 474.079 2393.17 506.4 2351.13 529.523C2309.61 552.121 2256.53 563.42 2191.89 563.42H2005.06ZM2115.43 468.824H2186.37C2230.52 468.824 2265.21 461.729 2290.43 447.54C2316.18 432.825 2334.58 412.066 2345.61 385.263C2356.65 357.936 2362.17 325.352 2362.17 287.514C2362.17 249.675 2356.65 217.355 2345.61 190.552C2334.58 163.224 2316.18 142.203 2290.43 127.488C2265.21 112.773 2230.52 105.415 2186.37 105.415H2115.43V468.824Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M71.9134 380.468V209.745H5.37935V186.245H165.91V209.745H98.8102V380.468H71.9134ZM201.71 380.468V186.245H228.607V269.484H334.212V186.245H361.392V380.468H334.212V292.983H228.607V380.468H201.71ZM415.845 380.468V186.245H565.334V209.462H442.741V269.484H552.876V292.7H442.741V357.252H567.033V380.468H415.845Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2665.98 380.468V186.245H2761.96C2775.36 186.245 2786.5 188.794 2795.37 193.89C2804.24 198.797 2810.85 205.687 2815.19 214.558C2819.72 223.429 2821.98 233.716 2821.98 245.418C2821.98 257.309 2819.53 267.879 2814.62 277.128C2809.71 286.188 2802.73 293.266 2793.67 298.362C2784.8 303.459 2774.13 306.007 2761.68 306.007H2692.88V380.468H2665.98ZM2692.88 282.791H2759.98C2770.55 282.791 2778.95 279.487 2785.18 272.881C2791.59 266.275 2794.8 257.215 2794.8 245.701C2794.8 237.963 2793.48 231.451 2790.84 226.166C2788.2 220.881 2784.33 216.823 2779.23 213.992C2774.13 210.972 2767.72 209.462 2759.98 209.462H2692.88V282.791ZM2859.93 380.468V186.245H2962.14C2975.35 186.245 2986.3 188.699 2994.98 193.607C3003.85 198.325 3010.46 205.026 3014.8 213.708C3019.14 222.202 3021.31 232.017 3021.31 243.153C3021.31 256.554 3018.29 268.068 3012.25 277.694C3006.21 287.321 2997.91 294.21 2987.34 298.362L3028.11 380.468H2998.66L2960.72 303.176H2886.83V380.468H2859.93ZM2886.83 280.242H2959.59C2970.35 280.242 2978.75 276.939 2984.79 270.333C2991.02 263.727 2994.13 254.667 2994.13 243.153C2994.13 235.981 2992.81 229.941 2990.17 225.033C2987.53 220.126 2983.66 216.351 2978.56 213.708C2973.46 210.877 2967.14 209.462 2959.59 209.462H2886.83V280.242ZM3154.63 383.866C3134.44 383.866 3117.07 380.185 3102.54 372.824C3088.19 365.463 3077.06 354.327 3069.13 339.415C3061.39 324.504 3057.52 305.818 3057.52 283.357C3057.52 260.707 3061.39 242.021 3069.13 227.298C3077.06 212.387 3088.19 201.251 3102.54 193.89C3117.07 186.529 3134.44 182.848 3154.63 182.848C3174.83 182.848 3192.1 186.529 3206.44 193.89C3220.98 201.251 3232.11 212.387 3239.85 227.298C3247.78 242.021 3251.74 260.707 3251.74 283.357C3251.74 305.818 3247.78 324.504 3239.85 339.415C3232.11 354.327 3220.98 365.463 3206.44 372.824C3192.1 380.185 3174.83 383.866 3154.63 383.866ZM3154.63 360.65C3165.2 360.65 3174.73 359.234 3183.23 356.403C3191.91 353.572 3199.18 349.136 3205.03 343.096C3211.07 336.867 3215.69 329.129 3218.9 319.88C3222.11 310.442 3223.72 299.306 3223.72 286.471V280.526C3223.72 267.502 3222.11 256.366 3218.9 247.117C3215.69 237.68 3211.07 229.941 3205.03 223.901C3199.18 217.672 3191.91 213.142 3183.23 210.311C3174.73 207.48 3165.2 206.064 3154.63 206.064C3143.87 206.064 3134.25 207.48 3125.75 210.311C3117.26 213.142 3109.99 217.672 3103.95 223.901C3097.91 229.941 3093.29 237.68 3090.08 247.117C3087.06 256.366 3085.55 267.502 3085.55 280.526V286.471C3085.55 299.306 3087.06 310.442 3090.08 319.88C3093.29 329.129 3097.91 336.867 3103.95 343.096C3109.99 349.136 3117.26 353.572 3125.75 356.403C3134.25 359.234 3143.87 360.65 3154.63 360.65Z%22 fill=%22white%22/%3E%0A%3Cpath d=%22M2525.57 86.2814C2517.22 86.2814 2509.8 84.4425 2503.29 80.7647C2496.93 77.0869 2491.9 71.9946 2488.23 65.4878C2484.69 58.9809 2482.92 51.6254 2482.92 43.4211C2482.92 35.0754 2484.69 27.7199 2488.23 21.3545C2491.9 14.8476 2496.93 9.75534 2503.29 6.07756C2509.8 2.25834 2517.22 0.348731 2525.57 0.348731C2533.77 0.348731 2541.06 2.25834 2547.42 6.07756C2553.79 9.75534 2558.74 14.8476 2562.28 21.3545C2565.95 27.7199 2567.79 35.0754 2567.79 43.4211C2567.79 51.6254 2565.95 58.9809 2562.28 65.4878C2558.74 71.9946 2553.79 77.0869 2547.42 80.7647C2541.06 84.4425 2533.77 86.2814 2525.57 86.2814ZM2534.06 65.9121L2520.9 44.9064H2531.72L2545.94 65.9121H2534.06ZM2525.57 78.6429C2532.5 78.6429 2538.44 77.1576 2543.39 74.1871C2548.49 71.0752 2552.45 66.9023 2555.28 61.6686C2558.1 56.2933 2559.52 50.2109 2559.52 43.4211C2559.52 36.4899 2558.1 30.4075 2555.28 25.1737C2552.45 19.94 2548.49 15.8378 2543.39 12.8673C2538.44 9.75534 2532.5 8.19937 2525.57 8.19937C2518.64 8.19937 2512.56 9.75534 2507.32 12.8673C2502.23 15.8378 2498.27 19.94 2495.44 25.1737C2492.61 30.4075 2491.2 36.4899 2491.2 43.4211C2491.2 50.2109 2492.61 56.2933 2495.44 61.6686C2498.27 66.9023 2502.23 71.0752 2507.32 74.1871C2512.56 77.1576 2518.64 78.6429 2525.57 78.6429ZM2508.6 65.9121V20.2936H2528.75C2533.56 20.2936 2537.31 21.5667 2540 24.1128C2542.83 26.5175 2544.24 29.9124 2544.24 34.2974C2544.24 38.541 2542.83 41.9359 2540 44.482C2537.31 46.8867 2533.56 48.0891 2528.75 48.0891H2518.57V65.9121H2508.6ZM2518.57 40.0263H2527.9C2529.74 40.0263 2531.23 39.6019 2532.36 38.7532C2533.63 37.9045 2534.27 36.4899 2534.27 34.5096C2534.27 32.5293 2533.63 31.1855 2532.36 30.4782C2531.23 29.6295 2529.74 29.2051 2527.9 29.2051H2518.57V40.0263Z%22 fill=%22white%22/%3E%0A%3C/svg%3E%0A"},"void-pro-preto":{"arquivo":"assets/brand/svg/void-pro-preto.svg","bytes":6804,"sha256":"490698584335d856c457adcbe2ec0ba6694d0e522a6a9a14109619771753f375","viewBox":[0,0,3745,578],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg width=%223745%22 height=%22578%22 viewBox=%220 0 3745 578%22 fill=%22none%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath d=%22M926.626 563.42L726.397 11.6069H844.643L995.209 451.481L1146.56 11.6069H1263.23L1063 563.42H926.626ZM1518.27 572.88C1464.66 572.88 1417.36 560.793 1376.37 536.618C1335.38 512.443 1303.06 479.072 1279.41 436.503C1256.29 393.409 1244.73 343.746 1244.73 287.514C1244.73 231.281 1256.29 181.881 1279.41 139.312C1303.06 96.2183 1335.38 62.584 1376.37 38.4093C1417.36 14.2346 1464.66 2.14725 1518.27 2.14725C1572.4 2.14725 1619.96 14.2346 1660.95 38.4093C1702.47 62.584 1734.53 96.2183 1757.12 139.312C1780.25 181.881 1791.81 231.281 1791.81 287.514C1791.81 343.746 1780.25 393.409 1757.12 436.503C1734.53 479.072 1702.47 512.443 1660.95 536.618C1619.96 560.793 1572.4 572.88 1518.27 572.88ZM1518.27 473.554C1551.38 473.554 1580.02 465.933 1604.19 450.693C1628.37 435.452 1647.02 414.168 1660.16 386.84C1673.3 358.987 1679.87 325.878 1679.87 287.514C1679.87 249.149 1673.3 216.303 1660.16 188.976C1647.02 161.122 1628.37 139.575 1604.19 124.334C1580.02 109.094 1551.38 101.474 1518.27 101.474C1485.68 101.474 1457.31 109.094 1433.13 124.334C1409.48 139.575 1390.83 161.122 1377.16 188.976C1364.02 216.303 1357.45 249.149 1357.45 287.514C1357.45 325.878 1364.02 358.987 1377.16 386.84C1390.83 414.168 1409.48 435.452 1433.13 450.693C1457.31 465.933 1485.68 473.554 1518.27 473.554ZM1834.5 563.42V11.6069H1944.86V563.42H1834.5ZM2005.06 563.42V11.6069H2192.68C2256.27 11.6069 2309.09 23.1687 2351.13 46.2923C2393.17 68.8904 2424.18 100.948 2444.15 142.466C2464.65 183.457 2474.89 231.807 2474.89 287.514C2474.89 342.695 2464.65 391.044 2444.15 432.562C2424.18 474.079 2393.17 506.4 2351.13 529.523C2309.61 552.121 2256.53 563.42 2191.89 563.42H2005.06ZM2115.43 468.824H2186.37C2230.52 468.824 2265.21 461.729 2290.43 447.54C2316.18 432.825 2334.58 412.066 2345.61 385.263C2356.65 357.936 2362.17 325.352 2362.17 287.514C2362.17 249.675 2356.65 217.355 2345.61 190.552C2334.58 163.224 2316.18 142.203 2290.43 127.488C2265.21 112.773 2230.52 105.415 2186.37 105.415H2115.43V468.824Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M71.9134 380.468V209.745H5.37935V186.245H165.91V209.745H98.8102V380.468H71.9134ZM201.71 380.468V186.245H228.607V269.484H334.212V186.245H361.392V380.468H334.212V292.983H228.607V380.468H201.71ZM415.845 380.468V186.245H565.334V209.462H442.741V269.484H552.876V292.7H442.741V357.252H567.033V380.468H415.845Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2665.98 380.468V186.245H2761.96C2775.36 186.245 2786.5 188.794 2795.37 193.89C2804.24 198.797 2810.85 205.687 2815.19 214.558C2819.72 223.429 2821.98 233.716 2821.98 245.418C2821.98 257.309 2819.53 267.879 2814.62 277.128C2809.71 286.188 2802.73 293.266 2793.67 298.362C2784.8 303.459 2774.13 306.007 2761.68 306.007H2692.88V380.468H2665.98ZM2692.88 282.791H2759.98C2770.55 282.791 2778.95 279.487 2785.18 272.881C2791.59 266.275 2794.8 257.215 2794.8 245.701C2794.8 237.963 2793.48 231.451 2790.84 226.166C2788.2 220.881 2784.33 216.823 2779.23 213.992C2774.13 210.972 2767.72 209.462 2759.98 209.462H2692.88V282.791ZM2859.93 380.468V186.245H2962.14C2975.35 186.245 2986.3 188.699 2994.98 193.607C3003.85 198.325 3010.46 205.026 3014.8 213.708C3019.14 222.202 3021.31 232.017 3021.31 243.153C3021.31 256.554 3018.29 268.068 3012.25 277.694C3006.21 287.321 2997.91 294.21 2987.34 298.362L3028.11 380.468H2998.66L2960.72 303.176H2886.83V380.468H2859.93ZM2886.83 280.242H2959.59C2970.35 280.242 2978.75 276.939 2984.79 270.333C2991.02 263.727 2994.13 254.667 2994.13 243.153C2994.13 235.981 2992.81 229.941 2990.17 225.033C2987.53 220.126 2983.66 216.351 2978.56 213.708C2973.46 210.877 2967.14 209.462 2959.59 209.462H2886.83V280.242ZM3154.63 383.866C3134.44 383.866 3117.07 380.185 3102.54 372.824C3088.19 365.463 3077.06 354.327 3069.13 339.415C3061.39 324.504 3057.52 305.818 3057.52 283.357C3057.52 260.707 3061.39 242.021 3069.13 227.298C3077.06 212.387 3088.19 201.251 3102.54 193.89C3117.07 186.529 3134.44 182.848 3154.63 182.848C3174.83 182.848 3192.1 186.529 3206.44 193.89C3220.98 201.251 3232.11 212.387 3239.85 227.298C3247.78 242.021 3251.74 260.707 3251.74 283.357C3251.74 305.818 3247.78 324.504 3239.85 339.415C3232.11 354.327 3220.98 365.463 3206.44 372.824C3192.1 380.185 3174.83 383.866 3154.63 383.866ZM3154.63 360.65C3165.2 360.65 3174.73 359.234 3183.23 356.403C3191.91 353.572 3199.18 349.136 3205.03 343.096C3211.07 336.867 3215.69 329.129 3218.9 319.88C3222.11 310.442 3223.72 299.306 3223.72 286.471V280.526C3223.72 267.502 3222.11 256.366 3218.9 247.117C3215.69 237.68 3211.07 229.941 3205.03 223.901C3199.18 217.672 3191.91 213.142 3183.23 210.311C3174.73 207.48 3165.2 206.064 3154.63 206.064C3143.87 206.064 3134.25 207.48 3125.75 210.311C3117.26 213.142 3109.99 217.672 3103.95 223.901C3097.91 229.941 3093.29 237.68 3090.08 247.117C3087.06 256.366 3085.55 267.502 3085.55 280.526V286.471C3085.55 299.306 3087.06 310.442 3090.08 319.88C3093.29 329.129 3097.91 336.867 3103.95 343.096C3109.99 349.136 3117.26 353.572 3125.75 356.403C3134.25 359.234 3143.87 360.65 3154.63 360.65Z%22 fill=%22black%22/%3E%0A%3Cpath d=%22M2525.57 86.2814C2517.22 86.2814 2509.8 84.4425 2503.29 80.7647C2496.93 77.0869 2491.9 71.9946 2488.23 65.4878C2484.69 58.9809 2482.92 51.6254 2482.92 43.4211C2482.92 35.0754 2484.69 27.7199 2488.23 21.3545C2491.9 14.8476 2496.93 9.75534 2503.29 6.07756C2509.8 2.25834 2517.22 0.348731 2525.57 0.348731C2533.77 0.348731 2541.06 2.25834 2547.42 6.07756C2553.79 9.75534 2558.74 14.8476 2562.28 21.3545C2565.96 27.7199 2567.79 35.0754 2567.79 43.4211C2567.79 51.6254 2565.96 58.9809 2562.28 65.4878C2558.74 71.9946 2553.79 77.0869 2547.42 80.7647C2541.06 84.4425 2533.77 86.2814 2525.57 86.2814ZM2534.06 65.9121L2520.9 44.9064H2531.72L2545.94 65.9121H2534.06ZM2525.57 78.6429C2532.5 78.6429 2538.44 77.1576 2543.39 74.1871C2548.49 71.0752 2552.45 66.9023 2555.28 61.6686C2558.1 56.2933 2559.52 50.2109 2559.52 43.4211C2559.52 36.4899 2558.1 30.4075 2555.28 25.1737C2552.45 19.94 2548.49 15.8378 2543.39 12.8673C2538.44 9.75534 2532.5 8.19937 2525.57 8.19937C2518.64 8.19937 2512.56 9.75534 2507.32 12.8673C2502.23 15.8378 2498.27 19.94 2495.44 25.1737C2492.61 30.4075 2491.2 36.4899 2491.2 43.4211C2491.2 50.2109 2492.61 56.2933 2495.44 61.6686C2498.27 66.9023 2502.23 71.0752 2507.32 74.1871C2512.56 77.1576 2518.64 78.6429 2525.57 78.6429ZM2508.6 65.9121V20.2936H2528.75C2533.56 20.2936 2537.31 21.5667 2540 24.1128C2542.83 26.5175 2544.24 29.9124 2544.24 34.2974C2544.24 38.541 2542.83 41.9359 2540 44.482C2537.31 46.8867 2533.56 48.0891 2528.75 48.0891H2518.57V65.9121H2508.6ZM2518.57 40.0263H2527.9C2529.74 40.0263 2531.23 39.6019 2532.36 38.7532C2533.63 37.9045 2534.27 36.4899 2534.27 34.5096C2534.27 32.5293 2533.63 31.1855 2532.36 30.4782C2531.23 29.6295 2529.74 29.2051 2527.9 29.2051H2518.57V40.0263Z%22 fill=%22black%22/%3E%0A%3C/svg%3E%0A"},"favicon":{"arquivo":"assets/brand/favicon/favicon.svg","bytes":1396,"sha256":"0174d3a792f3cf2bd27ef88849ed29dd5297e0fc28af78235b698331a2982cfe","viewBox":[0,0,512,512],"uri":"data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22 width=%22512%22 height=%22512%22%3E%3Crect width=%22512%22 height=%22512%22 fill=%22%23181818%22/%3E%3Cpath transform=%22translate(-588.462 95.762) scale(0.556200)%22 d=%22M1518.27 573.46C1464.66 573.46 1417.36 561.372 1376.37 537.198C1335.38 513.023 1303.06 479.651 1279.41 437.083C1256.29 393.989 1244.73 344.326 1244.73 288.093C1244.73 231.861 1256.29 182.46 1279.41 139.892C1303.06 96.7979 1335.38 63.1636 1376.37 38.9889C1417.36 14.8142 1464.66 2.72684 1518.27 2.72684C1572.4 2.72684 1619.96 14.8142 1660.95 38.9889C1702.47 63.1636 1734.53 96.7979 1757.12 139.892C1780.25 182.46 1791.81 231.861 1791.81 288.093C1791.81 344.326 1780.25 393.989 1757.12 437.083C1734.53 479.651 1702.47 513.023 1660.95 537.198C1619.96 561.372 1572.4 573.46 1518.27 573.46ZM1518.27 474.133C1551.38 474.133 1580.02 466.513 1604.19 451.272C1628.37 436.032 1647.02 414.748 1660.16 387.42C1673.3 359.566 1679.87 326.457 1679.87 288.093C1679.87 249.729 1673.3 216.883 1660.16 189.555C1647.02 161.702 1628.37 140.155 1604.19 124.914C1580.02 109.674 1551.38 102.053 1518.27 102.053C1485.68 102.053 1457.31 109.674 1433.13 124.914C1409.48 140.155 1390.83 161.702 1377.16 189.555C1364.02 216.883 1357.45 249.729 1357.45 288.093C1357.45 326.457 1364.02 359.566 1377.16 387.42C1390.83 414.748 1409.48 436.032 1433.13 451.272C1457.31 466.513 1485.68 474.133 1518.27 474.133Z%22 fill=%22%23F8F9F4%22/%3E%3C/svg%3E"}}</script>
+<!-- lockup-datauri:fim -->
+
+<script src="vforms.js" defer></script>
+<script src="vviz.js" defer></script>
+<script>
+/* =====================================================================
+   Trechos: um único texto por trecho, três usos (prévia, código, cópia).
+   ===================================================================== */
+(function () {
+  'use strict';
+  var DATA = {};
+  try { DATA = JSON.parse(document.getElementById('lk-datauri').textContent || '{}'); } catch (e) { DATA = {}; }
+
+  var IC = {
+    copiar: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8"/><path d="M4 16V4h12"/></svg>',
+    ok: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
+    bloq: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+  };
+
+  /* troca {{uri:nome}} pelo data URI gerado do arquivo oficial */
+  function resolve(s) {
+    return s.replace(/\{\{uri:([a-z-]+)\}\}/g, function (m, n) { return DATA[n] ? DATA[n].uri : m; });
+  }
+  function kb(n) { return (n / 1024).toFixed(1).replace('.', ',') + ' KB'; }
+  function escHTML(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  /* código mostrado: o data URI aparece abreviado; o botão copia inteiro */
+  function mostrar(s) {
+    var h = escHTML(s);
+    return h.replace(/data:image\/svg\+xml;charset=utf-8,[^"]+/g, function (u) {
+      var nome = null;
+      Object.keys(DATA).forEach(function (k) { if (DATA[k].uri === u.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')) nome = k; });
+      var tam = nome ? kb(DATA[nome].bytes) + ' de ' + DATA[nome].arquivo : 'arquivo oficial';
+      return '<span class="lk-uri">data:image/svg+xml;charset=utf-8,[' + tam + ', copiado inteiro]</span>';
+    });
+  }
+
+  /* base da prévia: a mesma de uma página do sistema com tokens.css (campo, Cal, Nunito Sans) */
+  var BASE = ':host{all:initial;display:block;max-width:100%;font:400 18px/1.65 "Nunito Sans",Arial,sans-serif;color:#DCDDD8;text-align:left;-webkit-font-smoothing:antialiased}' +
+             ':host([data-fundo="tela"]){color:#181818}';
+
+  function copiar(texto) {
+    window.__lkUltimaCopia = texto;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(texto).catch(function () { return reserva(texto); });
+    }
+    return Promise.resolve(reserva(texto));
+  }
+  function reserva(texto) {
+    var t = document.createElement('textarea');
+    t.value = texto; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.top = '-1000px';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); } catch (e) { /* sem área de transferência: o texto continua visível no código */ }
+    document.body.removeChild(t);
+  }
+
+  function montarPecas(art) {
+    if (art.querySelector('.lk-codigo')) return;
+    var texto = art.getAttribute('data-formato') === 'texto';
+    var palco = document.createElement('div');
+    palco.className = 'lk-palco';
+    palco.setAttribute('data-fundo', art.getAttribute('data-fundo') || 'sala');
+    if (art.getAttribute('data-alinhar')) palco.setAttribute('data-alinhar', art.getAttribute('data-alinhar'));
+    var cod = document.createElement('div');
+    cod.className = 'lk-codigo';
+    cod.innerHTML = '<pre tabindex="0" aria-label="Código do trecho"><code></code></pre>';
+    if (texto) { cod.hidden = true; palco.setAttribute('data-texto', ''); }
+    var acoes = document.createElement('div');
+    acoes.className = 'lk-acoes';
+    var bloq = art.hasAttribute('data-bloqueado');
+    acoes.innerHTML = '<button type="button" class="lk-copiar">' + IC.copiar + (bloq ? 'Copiar para o arquivo de trabalho' : 'Copiar trecho') + '</button><span class="lk-ok" role="status" aria-live="polite"></span>' +
+      (bloq ? '<span class="lk-status" data-status="bloqueado">' + IC.bloq + 'Não publica</span>' : '');
+    var depois = art.querySelector('.lk-controles') || art.querySelector('.lk-trecho-head');
+    depois.insertAdjacentElement('afterend', palco);
+    palco.insertAdjacentElement('afterend', cod);
+    cod.insertAdjacentElement('afterend', acoes);
+    if (texto) palco.innerHTML = '<p class="lk-palco-texto"></p>';
+    else if (art.getAttribute('data-alvo') === 'head') palco.innerHTML = '<span class="lk-palco-nota">Vai no head: o que ele carrega</span>';
+    acoes.querySelector('.lk-copiar').addEventListener('click', function () {
+      var b = this, ok = acoes.querySelector('.lk-ok');
+      copiar(art.__codigo).then(function () {
+        b.setAttribute('data-copiado', ''); b.innerHTML = IC.ok + 'Copiado';
+        ok.textContent = 'Trecho copiado inteiro.';
+        setTimeout(function () { b.removeAttribute('data-copiado'); b.innerHTML = IC.copiar + (bloq ? 'Copiar para o arquivo de trabalho' : 'Copiar trecho'); ok.textContent = ''; }, 2200);
+      });
+    });
+  }
+
+  /* desenha um trecho: o mesmo texto vira prévia, código e cópia */
+  function pintar(art, fonte) {
+    montarPecas(art);
+    var codigo = resolve(fonte.replace(/^\s*\n|\n\s*$/g, '').replace(/^\s+|\s+$/g, ''));
+    art.__codigo = codigo;
+    var palco = art.querySelector('.lk-palco');
+    var texto = art.getAttribute('data-formato') === 'texto';
+    var head = art.getAttribute('data-alvo') === 'head';
+    art.querySelector('.lk-codigo code').innerHTML = mostrar(codigo);
+    if (texto) { palco.querySelector('.lk-palco-texto').textContent = codigo; return; }
+    var html = head ? resolve((art.querySelector('.lk-amostra') || { textContent: '' }).textContent.trim()) : codigo;
+    var host = palco.querySelector('.lk-host');
+    if (!host) {
+      host = document.createElement('div');
+      host.className = 'lk-host';
+      if (/(^|[;"\s])width:100%|class="tv-corrido"|<table/.test(codigo)) host.classList.add('cheio');
+      palco.appendChild(host);
+      host.attachShadow({ mode: 'open' });
+      if (window.ResizeObserver) new ResizeObserver(function () { medirPalco(palco); }).observe(host);
+    }
+    host.setAttribute('data-fundo', palco.getAttribute('data-fundo'));
+    host.setAttribute('data-alvo', head ? 'amostra' : 'trecho');
+    host.shadowRoot.innerHTML = '<style>' + BASE + '</style>' + html;
+    medirPalco(palco);
+  }
+  /* trecho mais largo que o palco no celular: rolagem local, sinalizada, nunca corte */
+  function excesso(palco, host) {
+    var pr = palco.getBoundingClientRect(), cs = getComputedStyle(palco);
+    var limite = pr.right - parseFloat(cs.borderRightWidth) - parseFloat(cs.paddingRight) + 1, maior = 0;
+    host.shadowRoot.querySelectorAll('*').forEach(function (e) {
+      if (e.closest && e.closest('.tv-corrido')) return;
+      var b = e.getBoundingClientRect(); if (b.width) maior = Math.max(maior, b.right - limite);
+    });
+    return maior;
+  }
+  function medirPalco(palco) {
+    var host = palco.querySelector('.lk-host'); if (!host) return;
+    palco.removeAttribute('data-rola'); palco.removeAttribute('data-justo');
+    if (excesso(palco, host) <= 0) return;
+    palco.setAttribute('data-justo', '');            /* primeiro: o palco cede o próprio respiro */
+    if (excesso(palco, host) <= 0) return;
+    palco.setAttribute('data-rola', 'Role para o lado: este trecho precisa de ' + Math.ceil(palco.scrollWidth) + ' px');
+  }
+  var adiar;
+  window.addEventListener('resize', function () { clearTimeout(adiar); adiar = setTimeout(function () { document.querySelectorAll('.lk-palco').forEach(medirPalco); }, 150); });
+  function remedir() { document.querySelectorAll('.lk-palco').forEach(medirPalco); }
+  if (document.fonts) {
+    if (document.fonts.ready) document.fonts.ready.then(remedir);
+    if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', remedir);
+  }
+  window.addEventListener('load', remedir);
+
+  /* ---------- trechos fixos ---------- */
+  document.querySelectorAll('.lk-trecho').forEach(function (art) {
+    var f = art.querySelector('.lk-fonte');
+    if (f) pintar(art, f.textContent);
+  });
+
+  /* ---------- 03: data URI de cada arquivo oficial ---------- */
+  var NOMES = {
+    'void-horizontal-branco': ['Horizontal branco', 'sala', 32], 'void-horizontal-preto': ['Horizontal preto', 'tela', 32],
+    'void-vertical-branco': ['Vertical branco', 'sala', 96], 'void-vertical-preto': ['Vertical preto', 'tela', 96],
+    'void-start-branco': ['Start branco', 'sala', 32], 'void-start-preto': ['Start preto', 'tela', 32],
+    'void-master-branco': ['Master branco', 'sala', 32], 'void-master-preto': ['Master preto', 'tela', 32],
+    'void-pro-branco': ['Pro branco', 'sala', 32], 'void-pro-preto': ['Pro preto', 'tela', 32]
+  };
+  var ALT = { horizontal: 'The VOID Tattoo Academy', vertical: 'The VOID Tattoo Academy', start: 'The VOID Start', master: 'The VOID Master', pro: 'The VOID Pro' };
+  var X = { horizontal: 194.22 / 579, vertical: 184.14 / 1057, start: 194.22 / 579, master: 194.22 / 579, pro: 194.22 / 578 };
+  var MIN = { horizontal: 24, vertical: 80, start: 24, master: 24, pro: 24 };
+  function vb(nome) { return DATA[nome] && DATA[nome].viewBox ? DATA[nome].viewBox : null; }
+  function imgTag(versao, cor, formato, h) {
+    var nome = 'void-' + versao + '-' + cor, v = vb(nome) || [3804, 579, 0, 0];
+    var w = Math.round(h * v[2] / v[3]), m = Math.ceil(h * X[versao]);
+    var src = formato === 'uri' ? '{{uri:' + nome + '}}' : formato === 'png' ? 'assets/brand/png/web/' + nome + '.png' : 'assets/brand/svg/' + nome + '.svg';
+    return '<img src="' + src + '" width="' + w + '" height="' + h + '" alt="' + ALT[versao] + '" style="display:block;width:' + w + 'px;max-width:100%;height:auto;margin:' + m + 'px">';
+  }
+  var grade = document.getElementById('lk-grade-uri');
+  if (grade) {
+    Object.keys(NOMES).forEach(function (nome) {
+      var p = nome.split('-'), versao = p[1], cor = p[2], n = NOMES[nome];
+      var art = document.createElement('article');
+      art.className = 'lk-trecho'; art.id = 't-uri-' + nome.replace('void-', '');
+      art.setAttribute('data-fundo', n[1]); art.setAttribute('data-uri', nome);
+      art.innerHTML = '<header class="lk-trecho-head"><h3 class="lk-trecho-t">' + n[0] + '</h3><p class="lk-trecho-uso">' +
+        (DATA[nome] ? 'Gerado de <code>' + DATA[nome].arquivo + '</code> (' + kb(DATA[nome].bytes) + ').' : 'Rode tools/gerar_lockup_datauri.py para gerar.') +
+        '</p><ul class="lk-tags"><li>' + n[2] + ' px</li><li>data URI</li></ul></header>';
+      grade.appendChild(art);
+      pintar(art, imgTag(versao, cor, 'uri', n[2]));
+    });
+  }
+
+  /* ---------- 02: gerador do logotipo ---------- */
+  var ger = document.getElementById('t-gerador-logo');
+  if (ger) {
+    var estado = { versao: 'horizontal', cor: 'branco', formato: 'svg' };
+    var campoAlt = document.getElementById('lk-altura'), aviso = document.getElementById('lk-aviso-logo');
+    var atualizar = function () {
+      var min = MIN[estado.versao], h = parseInt(campoAlt.value, 10);
+      campoAlt.min = min;
+      if (!(h >= min)) {
+        aviso.hidden = false;
+        aviso.textContent = 'Abaixo de ' + min + ' px de altura o ' + (estado.versao === 'vertical' ? 'vertical' : 'logotipo') + ' não existe. O trecho saiu no mínimo; para menos que isso, use o favicon (grupo 04).';
+        h = min;
+      } else if (h > 320) { h = 320; aviso.hidden = false; aviso.textContent = 'Para mais de 320 px, use o arquivo SVG direto: ele escala sem perda.'; }
+      else aviso.hidden = true;
+      ger.setAttribute('data-fundo', estado.cor === 'branco' ? 'sala' : 'tela');
+      var palco = ger.querySelector('.lk-palco'); if (palco) palco.setAttribute('data-fundo', ger.getAttribute('data-fundo'));
+      pintar(ger, imgTag(estado.versao, estado.cor, estado.formato, h));
+    };
+    ger.querySelectorAll('[data-controle]').forEach(function (g) {
+      g.addEventListener('click', function (ev) {
+        var b = ev.target.closest('button'); if (!b) return;
+        g.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        estado[g.getAttribute('data-controle')] = b.getAttribute('data-v');
+        if (estado.versao === 'vertical' && parseInt(campoAlt.value, 10) < 80) campoAlt.value = 96;
+        atualizar();
+      });
+    });
+    campoAlt.addEventListener('input', atualizar);
+    ger.__atualizar = atualizar;
+    atualizar();
+  }
+
+  /* ---------- 09: WhatsApp ---------- */
+  var MSG = {
+    start: ['Oi, vim pela página do Start e quero entender as próximas turmas.', 'Texto literal da especificação (12.6).'],
+    master: ['Oi, vim pela página do Master e quero entender as próximas turmas.', 'Proposta no mesmo modelo do Start.'],
+    pro: ['Oi, vim pela página do Pro e quero agendar meu diagnóstico.', 'Proposta no mesmo modelo, com o pedido do Pro (diagnóstico).'],
+    aula: ['Oi, vim pela página da aula experimental e quero saber as próximas datas.', 'Proposta no mesmo modelo.'],
+    talks: ['Oi, vim pela página do The VOID Talks e quero saber a próxima data.', 'Proposta no mesmo modelo. Página de evento não traz oferta de formação.']
+  };
+  var wa = document.getElementById('t-whatsapp');
+  if (wa) {
+    var avisoWa = document.getElementById('lk-aviso-wa');
+    var waLink = document.getElementById('t-whatsapp-link');
+    var pintarWa = function (k) {
+      var m = MSG[k][0];
+      avisoWa.textContent = MSG[k][1];
+      pintar(wa, m);
+      if (waLink) pintar(waLink, 'https://wa.me/{{WHATSAPP_OFICIAL}}?text=' + encodeURIComponent(m));
+    };
+    wa.querySelector('[data-controle="origem"]').addEventListener('click', function (ev) {
+      var b = ev.target.closest('button'); if (!b) return;
+      this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      pintarWa(b.getAttribute('data-v'));
+    });
+    pintarWa('start');
+  }
+
+  /* ---------- 08: bloqueio de exportação no vviz ---------- */
+  var DADO_VALIDACAO = { valor: 0, mede: 'alunos concluíram a formação Start', periodo: 'a definir', base: 'turmas Start', fonte: 'contagem da secretaria', origem: 'em-validacao' };
+  function iniciarViz() {
+    var alvo = document.getElementById('lk-viz-numeral');
+    if (!alvo || !window.VViz) return;
+    window.VViz.render(alvo, 'numeral', DADO_VALIDACAO);
+    document.getElementById('lk-viz-exportar').addEventListener('click', function () {
+      var msg = document.getElementById('lk-viz-msg');
+      try { window.VViz.svg('numeral', DADO_VALIDACAO); msg.textContent = 'Exportou (não deveria).'; }
+      catch (e) { msg.textContent = 'Exportação recusada: dado em validação não sai do arquivo de trabalho.'; }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciarViz); else iniciarViz();
+
+  window.LK = { resolve: resolve, pintar: pintar, dados: DATA };
+})();
+</script>
+</body>
+</html>

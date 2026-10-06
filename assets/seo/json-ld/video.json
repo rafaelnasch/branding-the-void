@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/#video",
+  "name": "{{A_CONFIRMAR}}",
+  "description": "{{A_CONFIRMAR}}",
+  "thumbnailUrl": [
+    "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-{{A_CONFIRMAR}}-capa-1280x720.webp"
+  ],
+  "uploadDate": "{{A_CONFIRMAR}}",
+  "duration": "{{A_CONFIRMAR}}",
+  "embedUrl": "{{A_CONFIRMAR}}",
+  "inLanguage": "pt-BR",
+  "transcript": "{{A_CONFIRMAR}}",
+  "publisher": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "hasPart": [
+    {
+      "@type": "Clip",
+      "name": "{{A_CONFIRMAR}}",
+      "startOffset": 0,
+      "endOffset": "{{A_CONFIRMAR}}",
+      "url": "{{A_CONFIRMAR}}"
+    }
+  ]
+}

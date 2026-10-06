@@ -1,0 +1,1368 @@
+<!--
+  F06 · Sistema e imagem: seções s26 a s30 (Parte VI, final, e Parte VII).
+  Gerado a partir das fontes do agente f06; ícones Lucide (licença ISC) copiados para o HTML.
+-->
+<style data-fragmento="f06">
+/* F06 · sistema e imagem (s26 a s30). Valores de tokens.css; só classes f06-. */
+.f06-abs{position:absolute}
+.f06-telas{display:grid;grid-template-columns:1440fr 768fr 390fr;gap:var(--e-5);align-items:start}
+.f06-telas figure,.f06-mov figure{display:grid;gap:var(--e-3);min-width:0}
+.f06-tela{position:relative;container-type:inline-size;width:100%;overflow:hidden;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f06-tela > *{--u:calc(100cqw / var(--w,1080))}
+.f06-cols,.f06-mock{position:absolute;inset:calc(var(--u) * var(--mv,0)) calc(var(--u) * var(--m,72));display:grid;grid-template-columns:repeat(var(--n,6),minmax(0,1fr));column-gap:calc(var(--u) * var(--g,24));pointer-events:none}
+.f06-cols{z-index:4}.f06-cols i{display:block;background:rgb(219 197 163 / .12);border-inline:1px solid rgb(219 197 163 / .45)}
+.f06-mock{z-index:2;align-content:start;row-gap:calc(var(--u) * var(--rg,20));padding-top:calc(var(--u) * var(--pt,48))}
+.f06-mock b{display:block;height:calc(var(--u) * var(--h,14));background:var(--fumaca)}
+.f06-mock b.f06-t,.f06-mock b.f06-btn{background:var(--tela)}
+.f06-leitura{position:absolute;z-index:3;top:0;bottom:0;left:50%;width:calc(var(--u) * 680);transform:translateX(-50%);border-inline:1px dashed var(--terracota-luz)}
+.f06-dobra{display:flex;flex-direction:column;max-width:300px}
+.f06-zona{position:relative;flex:var(--f,1);display:flex;flex-direction:column;justify-content:center;gap:calc(var(--u) * 16);padding:calc(var(--u) * 28) calc(var(--u) * 16) calc(var(--u) * 16);border-bottom:1px dashed rgb(219 197 163 / .55)}
+.f06-zona:last-child{border-bottom:0}.f06-zona .f06-r{top:calc(var(--u) * 8);right:calc(var(--u) * 8)}
+.f06-r{position:absolute;z-index:5;padding:3px 6px;background:var(--sala);font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--areia);white-space:nowrap}
+.f06-dobra .botao{width:100%;min-height:calc(var(--u) * 52);padding:0 calc(var(--u) * 12);font-size:calc(var(--u) * 16)}
+ul.f06-escala,ol.f06-pistas,ul.f06-icones,ul.f06-vetos,ol.f06-exig,ul.f06-baixar{max-width:none;padding:0;list-style:none}
+ul.f06-escala{display:grid;gap:6px}
+.f06-escala li{display:grid;grid-template-columns:88px minmax(0,1fr);align-items:center;gap:var(--e-2)}
+.f06-escala span{font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.12em;color:var(--po)}
+.f06-escala span b{color:var(--tela);font-weight:700}
+.f06-escala i{display:block;height:12px;width:var(--v);background:var(--estacao-destaque)}
+.f06-anat{display:flex;flex-direction:column;padding:var(--e-6);background:var(--bastidor);border-left:2px solid var(--estacao-grafismo)}
+.f06-med{position:relative;height:var(--h);background:rgb(219 197 163 / .16)}
+.f06-med::after{content:attr(data-v);position:absolute;right:4px;top:50%;transform:translateY(-50%);font:700 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--areia)}
+.f06-formas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-5)}
+.f06-forma{display:grid;place-items:center;aspect-ratio:4/3;background:var(--bastidor)}
+.f06-forma i{display:block;width:44%;aspect-ratio:1;border:1.5px solid var(--tela)}
+.f06-forma .f06-circ{border-radius:50%}.f06-forma .f06-pil{width:78%;aspect-ratio:3.4;border-radius:999px;border-color:var(--nevoa)}
+.f06-elev{padding:var(--e-5);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f06-elev .f06-elev{background:var(--bastidor);outline:0}.f06-elev .f06-elev .f06-elev{background:var(--coxia)}
+.f06-foco{outline:var(--foco);outline-offset:var(--foco-afastamento)}.f06-pilula{border-radius:999px;box-shadow:0 8px 24px rgb(0 0 0 / .6)}
+.f06-play{position:absolute;width:1px;height:1px;opacity:0}
+.f06-tocar{display:inline-flex;align-items:center;gap:var(--e-2);min-height:var(--alvo-toque);padding:0 var(--e-4);border:1px solid var(--fumaca);cursor:pointer;font:700 13px/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;color:var(--tela)}
+.f06-play:focus-visible + .f06-tocar{outline:var(--foco);outline-offset:var(--foco-afastamento)}.f06-play:checked + .f06-tocar{border-color:var(--areia);color:var(--areia)}
+.f06-tocar .f06-de,.f06-play:checked + .f06-tocar .f06-para{display:none}.f06-play:checked + .f06-tocar .f06-de{display:inline}
+ol.f06-pistas{display:grid;gap:0;margin-top:var(--e-5);border-top:1px solid var(--fio)}
+.f06-pistas li{display:grid;grid-template-columns:132px 64px minmax(0,1fr) minmax(0,1.15fr);gap:var(--e-4);align-items:center;padding:var(--e-3) 0;border-bottom:1px solid var(--fio);font:400 15px/1.45 var(--font-texto);color:var(--cal)}
+.f06-pistas code{color:var(--tela)}
+.f06-pistas li > span:nth-child(2){font:700 18px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--tela)}
+.f06-trilho{container-type:inline-size;height:16px;background:linear-gradient(var(--fio),var(--fio)) 0 50% / 100% 1px no-repeat}
+.f06-trilho i{display:block;width:12px;height:12px;margin-top:2px;background:var(--estacao-destaque)}
+.f06-play:checked ~ .f06-pistas .f06-trilho i{animation:f06-correr var(--d) var(--c) forwards}
+@keyframes f06-correr{to{transform:translateX(calc(100cqw - 12px))}}
+.f06-cena,.f06-curvas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5);margin-top:var(--e-6)}
+.f06-curvas{max-width:760px}
+.f06-cena > figure > div{position:relative;display:grid;place-items:center;aspect-ratio:4/3;overflow:hidden;background:var(--bastidor)}
+.f06-play:checked ~ .f06-cena .f06-a1{animation:f06-entrar var(--t-entrada) var(--curva-cena) both}
+.f06-play:checked ~ .f06-cena .f06-a2{animation:f06-focar var(--t-foco) var(--curva-foco) both}
+.f06-play:checked ~ .f06-cena .f06-a3{animation:f06-revelar var(--t-revelar) var(--curva-cena) both}
+@keyframes f06-entrar{from{opacity:0;transform:translateY(16px)}}
+@keyframes f06-focar{from{filter:blur(8px)}}
+@keyframes f06-revelar{from{opacity:0;filter:blur(10px) contrast(.7) brightness(.6)}}
+.f06-curvas svg{display:block;width:100%;height:auto;background:var(--bastidor)}
+.f06-curvas .f06-eixo{fill:none;stroke:var(--fio);stroke-width:1}
+.f06-curvas .f06-cv{fill:none;stroke:var(--estacao-destaque);stroke-width:2.5}
+ul.f06-icones{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
+.f06-icones li{display:grid;gap:6px;align-content:start;padding:var(--e-4);background:var(--sala);font:400 14px/1.4 var(--font-texto);color:var(--po)}
+.f06-icones .ic{width:24px;height:24px;margin-bottom:var(--e-2);color:var(--tela)}
+.f06-icones code{font-size:12px;color:var(--areia)}
+.f06-tam{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--e-6) var(--e-7)}
+.f06-tam figure{display:grid;justify-items:start;gap:var(--e-2);color:var(--tela)}
+.f06-ic-g{width:88px;height:88px;fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.f06-ic-g.f06-orig{stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.f06-estados{list-style:none;display:grid;gap:var(--e-3);padding:0}
+.f06-estados li{display:flex;align-items:center;gap:var(--e-2);font:700 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.f06-estados li span{font:400 15px/1.4 var(--font-texto);letter-spacing:0;text-transform:none;color:var(--cal)}
+.palco.tela .f06-estados li span{color:var(--sala)}
+ul.f06-vetos{display:flex;flex-wrap:wrap;gap:var(--e-2)}
+.f06-vetos li{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 var(--e-3);border:1px solid var(--fio);font:400 15px/1.3 var(--font-texto);color:var(--cal)}
+.f06-vetos .ic{width:16px;height:16px;color:var(--erro)}
+.f06-foto{position:relative;display:flex;align-items:flex-end;gap:var(--e-2);aspect-ratio:var(--ar,3/2);padding:var(--e-3);overflow:hidden;background:radial-gradient(80% 90% at 10% 0%,rgb(248 249 244 / .16) 0%,rgb(248 249 244 / 0) 62%),var(--coxia);outline:1px dashed var(--fumaca);outline-offset:-1px;font:400 13px/1.4 var(--font-texto);color:var(--po)}
+.f06-foto .ic{width:16px;height:16px;flex:none}
+.f06-tela .f06-foto,.peca-tela .f06-foto{position:absolute;inset:0;aspect-ratio:auto;align-items:flex-start;padding:calc(var(--u) * 40);font-size:calc(var(--u) * 26)}
+.f06-dir{position:relative;aspect-ratio:3/2;overflow:hidden;background:radial-gradient(60% 80% at 0% 0%,rgb(248 249 244 / .3) 0%,rgb(248 249 244 / 0) 60%),var(--coxia)}
+.f06-l{position:absolute;background:rgb(219 197 163 / .6)}
+.f06-neg{position:absolute;top:0;right:0;bottom:0;width:40%;background:repeating-linear-gradient(135deg,rgb(219 197 163 / .14) 0 8px,rgb(219 197 163 / 0) 8px 16px);border-left:1px dashed var(--areia)}
+.f06-poi{position:absolute;width:22px;height:22px;border:2px solid var(--areia);border-radius:50%;transform:translate(-50%,-50%)}
+.f06-tom{position:relative;height:40px;background:linear-gradient(90deg,var(--nanquim),var(--branco));outline:1px solid var(--fumaca)}
+.f06-tom i{position:absolute;top:-6px;bottom:-6px;left:var(--x);width:var(--w);border:2px solid var(--terracota-funda)}
+.f06-tom-r{display:flex;justify-content:space-between;gap:var(--e-3);margin-top:var(--e-3);font:400 13px/1.4 var(--font-texto);color:var(--penumbra)}
+.f06-regimes{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--e-5)}
+.f06-regimes svg{display:block;width:100%;height:auto}
+ol.f06-exig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-4)}
+.f06-exig li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:var(--e-2) var(--e-4);align-content:start;padding:var(--e-5);border:1px solid var(--fumaca);border-top:2px solid var(--terracota-funda)}
+.f06-exig li > span{grid-row:span 3;font:700 44px/.85 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--terracota-funda)}
+.f06-exig h4{font:700 19px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--sala)}
+.f06-exig p{font:400 15px/1.5 var(--font-texto);color:var(--sala)}
+.f06-exig p.f06-teste{color:var(--ardosia)}
+.f06-ritos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-4)}
+.f06-ritos figcaption,.f06-baixar span{display:grid;gap:4px;margin-top:var(--e-3);font:400 15px/1.45 var(--font-texto);color:var(--ardosia)}
+.f06-ritos figcaption b{font:700 17px/1.2 var(--font-letreiro);text-transform:uppercase;color:var(--sala)}
+ul.f06-baixar{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--e-4)}
+.f06-baixar a{display:grid;gap:var(--e-2);height:100%;padding:var(--e-4);border:1px solid var(--fumaca);color:var(--sala);text-decoration:none}
+.f06-baixar a:hover,.f06-baixar a:focus-visible{border-color:var(--sala)}
+.f06-baixar code{display:flex;align-items:center;gap:var(--e-2);font-size:14px;color:var(--terracota-funda)}
+.f06-linha{position:relative;height:56px;margin-bottom:40px;background:var(--bastidor)}
+.f06-linha > i{position:absolute;top:10px;bottom:10px;left:var(--x);width:1px;background:var(--po)}
+.f06-linha > b{position:absolute;top:0;bottom:0;left:var(--x);width:var(--w);background:var(--coxia);border-left:1px solid var(--fumaca);font:700 11px/56px var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--po);text-indent:6px;overflow:hidden}
+.f06-linha > em{position:absolute;top:-6px;bottom:-6px;left:var(--x);width:4px;background:var(--estacao-destaque)}
+.f06-linha > span{position:absolute;top:calc(100% + 8px);left:var(--x);font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.1em;color:var(--po);transform:translateX(var(--tx,-50%));white-space:nowrap}
+.f06-leg{position:absolute;padding:calc(var(--u) * 16) calc(var(--u) * 24);background:var(--veu-legenda);font:600 calc(var(--u) * var(--fs,64))/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);text-align:center}
+.f06-leg b{font-weight:600;color:var(--areia)}
+.f06-lt{position:absolute;padding-left:calc(var(--u) * 24);border-left:calc(var(--u) * 2) solid var(--estacao-grafismo)}
+.f06-medidor{position:relative;height:64px;margin:var(--e-7) 0 72px;background:linear-gradient(90deg,var(--bastidor),var(--coxia))}
+.f06-medidor > i{position:absolute;top:0;bottom:0;left:var(--x);width:var(--w,2px);background:var(--c,var(--tela))}
+.f06-medidor > span{position:absolute;left:var(--x);font:400 13px/1.35 var(--font-texto);color:var(--cal);transform:translateX(var(--tx,0));max-width:200px}
+.f06-medidor > .f06-dir-r{left:auto;right:0;text-align:right;white-space:nowrap}
+.f06-acervo{display:grid;gap:var(--e-3);max-width:var(--coluna-leitura);margin-bottom:var(--e-8);padding:var(--e-5) var(--e-6);border:1px solid var(--penumbra);border-left:4px solid var(--terracota-funda)}.f06-acervo .credito{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-3);color:var(--sala)}
+.f06-acervo p{font:400 var(--fs-apoio)/1.55 var(--font-texto);color:var(--sala)}.f06-acervo p b{font-weight:700}
+.f06-tf{position:absolute;margin:0;font:800 calc(var(--u) * var(--fs,104))/.92 var(--font-letreiro);font-variation-settings:"wdth" 85;text-transform:uppercase;letter-spacing:.01em;color:var(--tela);text-wrap:balance;overflow-wrap:normal}.f06-tf b{font-weight:800;color:var(--estacao-destaque)}
+.f06-mk{position:absolute;display:flex;align-items:center;gap:calc(var(--u) * 14);font:500 calc(var(--u) * 20)/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--cal)}
+@media (max-width:899px){.f06-telas{grid-template-columns:768fr 390fr}.f06-telas figure:first-child{grid-column:1 / -1}.f06-ritos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.f06-formas,ol.f06-exig,.f06-cena,.f06-curvas{grid-template-columns:minmax(0,1fr)}.f06-formas{grid-template-columns:repeat(2,minmax(0,1fr))}.f06-pistas li{grid-template-columns:minmax(0,1fr) auto}.f06-pistas li > .f06-trilho,.f06-pistas li > span:last-child{grid-column:1 / -1}.f06-cena > figure > div{aspect-ratio:16/9}.f06-curvas{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-3)}}
+@media (max-width:430px){.f06-ritos{grid-template-columns:minmax(0,1fr)}.f06-medidor > span{max-width:130px;font-size:12px}ol.f06-exig li{grid-template-columns:36px minmax(0,1fr);gap:var(--e-2) var(--e-3);padding:var(--e-4)}.f06-exig li > span{font-size:32px}.f06-exig h4{font-size:17px}}
+</style>
+
+<section class="sec" id="s26" data-parte="VI" data-nome="Grade, espaçamento, forma e movimento" aria-labelledby="s26-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>26</b> · Grade, espaçamento, forma e movimento</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">26</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Sistema</p>
+        <h2 id="s26-t" class="titulo-secao">Grade, forma e <em class="off">movimento</em></h2>
+        <p class="sec-apoio">Cada superfície tem uma grade medida, todo espaço sai de uma escala de módulo 8, a forma é reta ou redonda e o movimento é o de uma câmera. Nada aqui se ajusta a olho.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Doze colunas no computador, oito no tablet e quatro no celular, com margem de 16 px; seis colunas e margem de 72 u nas peças de 1080.</li>
+        <li>Todo espaço é um valor da escala 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 e 192. Valor fora da escala é erro.</li>
+        <li>Só existem o retângulo (raio 0) e o círculo (raio 50%). A única pílula é a Assinatura do Pro e nenhuma sombra decora.</li>
+        <li>O movimento anima opacidade, foco e enquadramento, em nove durações fechadas. Nada quica; botão, preço e número nunca se mexem.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s26-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">26.1</p>
+        <h3 class="fala">A grade de cada superfície</h3>
+        <p class="bloco-apoio">As faixas claras são as colunas, as linhas tracejadas em terracota marcam a coluna de leitura de 680 px. Tudo está em escala: cada desenho foi feito na largura real da tela e reduzido inteiro.</p>
+      </div>
+      <div class="f06-telas">
+        <figure>
+          <div class="f06-tela" style="--w:1440;aspect-ratio:1440/900" role="img" aria-label="Tela de computador de 1440 px com 12 colunas, conteúdo de até 1200 px e coluna de leitura de 680 px no centro.">
+            <div class="f06-mock" style="--n:12;--m:120;--g:24;--pt:120;--rg:28">
+              <b class="f06-t" style="grid-column:1 / 8;--h:64"></b><b class="f06-t" style="grid-column:1 / 6;--h:64"></b>
+              <b style="grid-column:4 / 10"></b><b style="grid-column:4 / 10"></b><b style="grid-column:4 / 9"></b>
+              <b class="f06-btn" style="grid-column:4 / 7;--h:56"></b>
+            </div>
+            <div class="f06-leitura"></div>
+            <div class="f06-cols" style="--n:12;--m:120;--g:24"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <figcaption class="legenda"><b>Computador:</b> 12 colunas, conteúdo até 1200 px, margem mínima de 64 px, medianiz de 24 px.</figcaption>
+        </figure>
+        <figure>
+          <div class="f06-tela" style="--w:768;aspect-ratio:768/1024" role="img" aria-label="Tela de tablet de 768 px com 8 colunas e margem de 32 px.">
+            <div class="f06-mock" style="--n:8;--m:32;--g:20;--pt:96;--rg:24">
+              <b class="f06-t" style="grid-column:1 / 8;--h:56"></b><b class="f06-t" style="grid-column:1 / 6;--h:56"></b>
+              <b style="grid-column:1 / 9"></b><b style="grid-column:1 / 9"></b><b style="grid-column:1 / 7"></b>
+              <b class="f06-btn" style="grid-column:1 / 5;--h:56"></b>
+            </div>
+            <div class="f06-cols" style="--n:8;--m:32;--g:20"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <figcaption class="legenda"><b>Tablet:</b> 8 colunas, margem de 32 px, medianiz de 20 px.</figcaption>
+        </figure>
+        <figure>
+          <div class="f06-tela" style="--w:390;aspect-ratio:390/844" role="img" aria-label="Tela de celular de 390 px com 4 colunas, margem e medianiz de 16 px, botão em largura total.">
+            <div class="f06-mock" style="--n:4;--m:16;--g:16;--pt:120;--rg:16">
+              <b class="f06-t" style="grid-column:1 / 5;--h:44"></b><b class="f06-t" style="grid-column:1 / 5;--h:44"></b><b class="f06-t" style="grid-column:1 / 4;--h:44"></b>
+              <b style="grid-column:1 / 5"></b><b style="grid-column:1 / 5"></b><b style="grid-column:1 / 4"></b>
+              <b class="f06-btn" style="grid-column:1 / 5;--h:52"></b>
+            </div>
+            <div class="f06-cols" style="--n:4;--m:16;--g:16"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <figcaption class="legenda"><b>Celular:</b> 4 colunas, margem e medianiz de 16 px.</figcaption>
+        </figure>
+      </div>
+
+      <h4 class="intertitulo">Peças em escala real</h4>
+      <p>Nas peças de 1080 a unidade é <code>u</code>, um pixel da arte final. A grade de seis colunas vale para feed e story; vídeo e deck usam doze. O botão de cada peça liga as áreas seguras da casca por cima da grade.</p>
+      <div class="pecas">
+        <div class="peca" data-formato="1080x1350" data-nome="Feed, 6 colunas">
+          <div class="peca-tela grao">
+            <p class="titulo-filme f06-abs" style="left:calc(var(--u) * 72);right:calc(var(--u) * 72);top:calc(var(--u) * 760);font-size:calc(var(--u) * 104);font-variation-settings:'wdth' 100">Todo mundo começa com um <em class="off">traço</em>.</p>
+            <p class="credito f06-abs" style="left:calc(var(--u) * 72);right:calc(var(--u) * 72);bottom:calc(var(--u) * 72);font-size:calc(var(--u) * 26);color:var(--po)">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b style="color:var(--tela)">PREENCHA O VAZIO</b></p>
+            <div class="f06-cols" style="--n:6;--m:72;--g:24;--mv:72"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="Story, 6 colunas">
+          <div class="peca-tela grao">
+            <p class="credito f06-abs" style="left:calc(var(--u) * 72);top:calc(var(--u) * 300);font-size:calc(var(--u) * 26);color:var(--po)">Aula experimental</p>
+            <p class="titulo-filme f06-abs" style="left:calc(var(--u) * 72);right:calc(var(--u) * 72);top:calc(var(--u) * 760);font-size:calc(var(--u) * 104);font-variation-settings:'wdth' 92">O vazio é um <em class="off">chamado</em>.</p>
+            <img class="f06-abs" style="left:calc(var(--u) * 72);top:calc(var(--u) * 1400);width:calc(var(--u) * 300);height:auto" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48">
+            <div class="f06-cols" style="--n:6;--m:72;--g:24;--mv:270"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="VSL, 12 colunas">
+          <div class="peca-tela grao">
+            <div class="f06-abs" style="left:calc(var(--u) * 664);right:0;top:0;bottom:0"><div class="f06-foto"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div></div>
+            <p class="titulo-filme f06-abs" style="left:calc(var(--u) * 120);width:calc(var(--u) * 500);top:calc(var(--u) * 380);font-size:calc(var(--u) * 110);font-variation-settings:'wdth' 92">Tatuar não é <em class="off">desenhar</em>.</p>
+            <div class="f06-cols" style="--n:12;--m:120;--g:24;--mv:96"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Grade por superfície</caption>
+          <thead><tr><th scope="col">Superfície</th><th scope="col">Grade</th><th scope="col">Margem</th><th scope="col">Medianiz</th><th scope="col">Notas</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Site e LP, computador</th><td>12 colunas, conteúdo até 1200 px</td><td>64 px</td><td>24 px</td><td>Coluna de leitura de 680 px</td></tr>
+            <tr><th scope="row">Tablet</th><td>8 colunas</td><td>32 px</td><td>20 px</td><td></td></tr>
+            <tr><th scope="row">Celular</th><td>4 colunas</td><td>16 px</td><td>16 px</td><td>Nada sai da tela entre 320 e 430 px; proibido esconder a rolagem horizontal da página inteira</td></tr>
+            <tr><th scope="row">Feed 1080 por 1350</th><td>6 colunas</td><td>72 u</td><td>24 u</td><td>O perfil corta a miniatura em 3:4: título, rosto e botão ficam no miolo de 1012 por 1350, longe das faixas laterais de 34 u</td></tr>
+            <tr><th scope="row">Story e Reels 1080 por 1920</th><td>6 colunas</td><td>72 u</td><td>24 u</td><td>Conteúdo entre y = 270 e y = 1500; 120 u livres à direita nos Reels</td></tr>
+            <tr><th scope="row">VSL e YouTube 1920 por 1080</th><td>12 colunas</td><td>120 px nas laterais, 96 px em cima e embaixo</td><td>24 px</td><td>Frase no terço esquerdo, imagem nos dois terços direitos</td></tr>
+            <tr><th scope="row">E-mail</th><td>1 coluna de 600 px</td><td>24 px</td><td></td><td>Ver <a href="#s35">seção 35</a></td></tr>
+            <tr><th scope="row">Deck 1440 por 900</th><td>12 colunas</td><td>96 px</td><td>24 px</td><td>Uma ideia por slide</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="intertitulo">Zonas da primeira dobra</h4>
+      <div class="grade-2">
+        <figure>
+          <div class="f06-tela f06-dobra" style="--w:360;aspect-ratio:360/640" role="img" aria-label="Primeira dobra de celular de 360 por 640 px dividida em três zonas: Vazio com o título, Encontro com a linha racional e Ação com o botão.">
+            <div class="f06-zona" style="--f:1.5"><span class="f06-r">Vazio</span><p class="titulo-filme" style="font-size:calc(var(--u) * 44);font-variation-settings:'wdth' 85">Talento é consequência de <em class="off">treino</em>.</p></div>
+            <div class="f06-zona" style="--f:.8"><span class="f06-r">Encontro</span><p style="font:400 calc(var(--u) * 18)/1.5 var(--font-texto);color:var(--cal)">Formação de tatuagem do primeiro traço à carreira, na Vila Madalena, em São Paulo.</p></div>
+            <div class="f06-zona" style="--f:.7"><span class="f06-r">Ação</span><span class="botao">Quero conversar sobre minha turma<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          </div>
+        </figure>
+        <div class="texto">
+          <p>Toda primeira dobra tem três zonas, nesta ordem: o <b>Vazio</b>, um título que nomeia a crença da persona; o <b>Encontro</b>, uma linha racional que diz o que é e onde é; e a <b>Ação</b>, o botão. No celular as três cabem em 640 px de altura, sem rolar.</p>
+          <p>Quando a dobra tem foto, vale a composição de cinema: o ponto de interesse num cruzamento dos terços e o texto no espaço negativo oposto ao olhar ou à mão, que ocupa 40% do quadro. O diagrama está na <a href="#s29-2">fotografia, 29.2</a>.</p>
+          <p class="nota">Se o título empurrar o botão para fora da dobra, a regra de largura da <a href="#s18">seção 18</a> estreita a letra antes de reduzir o tamanho.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s26-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">26.2</p>
+        <h3 class="fala">Espaço de módulo 8</h3>
+        <p class="bloco-apoio">Onze valores, do fio de 4 px ao respiro de 192 px. Cada um é um token (<code>--e-1</code> a <code>--e-11</code>); as barras abaixo estão em tamanho real.</p>
+      </div>
+      <div class="grade-2">
+        <ul class="f06-escala" aria-label="Escala de espaço em pixels">
+          <li><span><b>4</b> · e-1</span><i style="--v:4px"></i></li>
+          <li><span><b>8</b> · e-2</span><i style="--v:8px"></i></li>
+          <li><span><b>12</b> · e-3</span><i style="--v:12px"></i></li>
+          <li><span><b>16</b> · e-4</span><i style="--v:16px"></i></li>
+          <li><span><b>24</b> · e-5</span><i style="--v:24px"></i></li>
+          <li><span><b>32</b> · e-6</span><i style="--v:32px"></i></li>
+          <li><span><b>48</b> · e-7</span><i style="--v:48px"></i></li>
+          <li><span><b>64</b> · e-8</span><i style="--v:64px"></i></li>
+          <li><span><b>96</b> · e-9</span><i style="--v:96px"></i></li>
+          <li><span><b>128</b> · e-10</span><i style="--v:128px"></i></li>
+          <li><span><b>192</b> · e-11</span><i style="--v:192px"></i></li>
+        </ul>
+        <div class="f06-anat" role="img" aria-label="Bloco de exemplo com as distâncias medidas: 24 px do título ao corpo, 16 px entre parágrafos, 32 px do corpo ao botão e 12 px do botão à microcopy.">
+          <p class="credito" style="color:var(--po);margin-bottom:var(--e-3)">The VOID Start</p>
+          <p class="titulo-secao" style="font-size:clamp(28px,3vw,40px);color:var(--tela)">Do zero ao primeiro <em class="off">traço</em></p>
+          <div class="f06-med" style="--h:24px" data-v="24"></div>
+          <p style="font:400 17px/1.6 var(--font-texto);color:var(--cal)">Primeiro parágrafo: o que a pessoa aprende e como.</p>
+          <div class="f06-med" style="--h:16px" data-v="16"></div>
+          <p style="font:400 17px/1.6 var(--font-texto);color:var(--cal)">Segundo parágrafo: onde e quando.</p>
+          <div class="f06-med" style="--h:32px" data-v="32"></div>
+          <span class="botao" style="align-self:flex-start">Quero conversar sobre minha turma<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          <div class="f06-med" style="--h:12px" data-v="12"></div>
+          <p class="legenda">Microcopy logo abaixo do botão.</p>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Distâncias fixas</caption>
+          <thead><tr><th scope="col">Relação</th><th scope="col">Computador</th><th scope="col">Celular</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Entre seções de LP</th><td>128 px</td><td>96 px</td></tr>
+            <tr><th scope="row">Hero e cartela (respiro de cima e de baixo)</th><td>192 px</td><td>128 px</td></tr>
+            <tr><th scope="row">Título para corpo</th><td>24 px</td><td>24 px</td></tr>
+            <tr><th scope="row">Entre parágrafos</th><td>16 px</td><td>16 px</td></tr>
+            <tr><th scope="row">Corpo para botão</th><td>32 px</td><td>32 px</td></tr>
+            <tr><th scope="row">Botão para microcopy</th><td>12 px</td><td>12 px</td></tr>
+            <tr><th scope="row">Peça de 1080</th><td>Múltiplos de 8 u</td><td>Múltiplos de 8 u</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s26-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">26.3</p>
+        <h3 class="fala">Duas formas, nenhuma no meio</h3>
+        <p class="bloco-apoio">A lei L7 em prática: o retângulo é o letreiro, o círculo é o vazio. A profundidade vem do tom (Sala, Bastidor, Coxia), nunca de sombra.</p>
+      </div>
+      <div class="f06-formas">
+        <figure><div class="f06-forma"><i></i></div><figcaption class="legenda"><b>Raio 0.</b> Foto, vídeo, cartão, seção, campo, botão, tabela, modal, Barra de Turma, Rótulo de Produto.</figcaption></figure>
+        <figure><div class="f06-forma"><i class="f06-circ"></i></div><figcaption class="legenda"><b>Raio 50%.</b> Avatar, selo, Esfera, ponto de marco, botão flutuante do WhatsApp.</figcaption></figure>
+        <figure><div class="f06-forma"><i class="f06-pil"></i></div><figcaption class="legenda"><b>Raio 999 px, só uma vez.</b> A Assinatura de Produto do Pro, com contorno de 1,5 px (<a href="#s25">seção 25</a>).</figcaption></figure>
+        <figure><div class="f06-forma"><span class="botao f06-foco" style="font-size:13px;min-height:44px;padding:0 16px">Foco</span></div><figcaption class="legenda"><b>Contorno de foco.</b> 2 px em Areia (Sala no claro), afastado 3 px, sempre visível no teclado.</figcaption></figure>
+      </div>
+      <div class="grade-2">
+        <div class="f06-elev" role="img" aria-label="Três superfícies empilhadas: Sala por fora, Bastidor no meio e Coxia por dentro, sem sombra.">
+          <p class="rotulo">Sala · o campo</p>
+          <div class="f06-elev" style="margin-top:var(--e-3)">
+            <p class="rotulo">Bastidor · cartão e painel</p>
+            <div class="f06-elev" style="margin-top:var(--e-3)"><p class="rotulo" style="color:var(--tela)">Coxia · cartão ativo, campo de formulário</p></div>
+          </div>
+        </div>
+        <div class="texto"><p>A elevação é feita por tom: cada superfície que sobe fica um degrau mais clara (Sala, Bastidor, Coxia), sempre opaca. Sombra só existe no contorno de foco; nada flutua.</p><p class="nota">O Fio (<code>#363636</code>) separa quando o tom não basta. Ele é só linha, nunca texto.</p></div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+          <table>
+            <caption>Forma e profundidade</caption>
+            <thead><tr><th scope="col">Elemento</th><th scope="col">Raio</th><th scope="col">Borda</th><th scope="col">Profundidade</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Retângulos (lista ao lado)</th><td>0</td><td>Fio de 1 px quando precisar separar</td><td>Nenhuma sombra; elevação por tom</td></tr>
+              <tr><th scope="row">Círculos</th><td>50%</td><td></td><td></td></tr>
+              <tr><th scope="row">Assinatura do Pro</th><td>999 px</td><td>1,5 px</td><td>Única pílula</td></tr>
+              <tr><th scope="row">Contorno de foco</th><td>0</td><td>2 px Areia, afastado 3 px</td><td>Sempre visível</td></tr>
+            </tbody>
+          </table>
+        </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><span class="botao">Quero falar sobre o Master<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          <figcaption>Botão reto, o letreiro aceso: a superfície mais clara da dobra, sem sombra.</figcaption>
+        </figure>
+        <figure class="nao">
+          <div class="fn-palco"><span class="botao f06-pilula">Quero falar sobre o Master<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          <figcaption>Pílula com sombra: forma do meio e profundidade decorativa, as duas vetadas pela L7.</figcaption>
+        </figure>
+      </div>
+      <p class="pendencia" data-p="9">[P 9] O teste A/B 10, botão reto contra pílula, pode reabrir esta regra; até o resultado, o botão é reto.</p>
+    </div>
+
+    <div class="bloco" id="s26-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">26.4</p>
+        <h3 class="fala">Movimento de câmera</h3>
+        <p class="bloco-apoio">"Sempre em movimento, nunca com pressa." Anima-se opacidade, foco e enquadramento. Toque em reproduzir: cada pista corre com a duração e a curva do seu token.</p>
+      </div>
+      <div class="f06-mov">
+        <input class="f06-play" type="checkbox" id="s26-play">
+        <label class="f06-tocar" for="s26-play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg><span class="f06-para">Reproduzir</span><span class="f06-de">Voltar ao início</span></label>
+        <ol class="f06-pistas" aria-label="Tokens de movimento">
+          <li style="--d:var(--t-corte);--c:linear"><span><code>--t-corte</code></span><span>0 ms</span><span class="f06-trilho"><i></i></span><span>Troca de aba, estado de formulário</span></li>
+          <li style="--d:var(--t-micro);--c:var(--curva-cena)"><span><code>--t-micro</code></span><span>120</span><span class="f06-trilho"><i></i></span><span>Botão pressionado, link</span></li>
+          <li style="--d:var(--t-saida);--c:var(--curva-saida)"><span><code>--t-saida</code></span><span>200</span><span class="f06-trilho"><i></i></span><span>Tudo que sai, sai mais rápido (curva de saída)</span></li>
+          <li style="--d:var(--t-ui);--c:var(--curva-cena)"><span><code>--t-ui</code></span><span>240</span><span class="f06-trilho"><i></i></span><span>Acordeão, menu, barra fixa</span></li>
+          <li style="--d:var(--t-entrada);--c:var(--curva-cena)"><span><code>--t-entrada</code></span><span>480</span><span class="f06-trilho"><i></i></span><span>Bloco entrando com 16 px de deslocamento</span></li>
+          <li style="--d:var(--t-foco);--c:var(--curva-foco)"><span><code>--t-foco</code></span><span>700</span><span class="f06-trilho"><i></i></span><span>Puxada de foco, desfoque de 8 px para 0 (curva de foco)</span></li>
+          <li style="--d:var(--t-revelar);--c:var(--curva-cena)"><span><code>--t-revelar</code></span><span>900</span><span class="f06-trilho"><i></i></span><span>Revelação da imagem que surge do grão</span></li>
+          <li style="--d:var(--t-anel);--c:var(--curva-foco)"><span><code>--t-anel</code></span><span>1200</span><span class="f06-trilho"><i></i></span><span>Assentamento do Anel de Preenchimento (curva de foco)</span></li>
+          <li style="--d:var(--t-abertura);--c:var(--curva-cena)"><span><code>--t-abertura</code></span><span>1200</span><span class="f06-trilho"><i></i></span><span>Abertura de vídeo e da Esfera</span></li>
+        </ol>
+        <div class="f06-cena">
+          <figure><div><p class="titulo-secao f06-a1" style="font-size:28px;color:var(--tela)">Entrada</p></div><figcaption class="legenda"><code>--t-entrada</code> · opacidade e 16 px de deslocamento, curva Cena.</figcaption></figure>
+          <figure><div><p class="voz-off f06-a2">o foco</p></div><figcaption class="legenda"><code>--t-foco</code> · desfoque de 8 px para 0, curva de foco.</figcaption></figure>
+          <figure><div><div class="f06-a3" style="width:62%;aspect-ratio:1" data-vforms='{"forma":"esfera","diametro":0.9}'></div></div><figcaption class="legenda"><code>--t-revelar</code> · a Esfera surge do grão, como foto no revelador.</figcaption></figure>
+        </div>
+      </div>
+      <div class="f06-curvas">
+        <figure>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Curva Cena, cubic-bezier 0,2 0 0 1: arranca rápido e assenta devagar."><path class="f06-eixo" d="M10 110H110M10 110V10"/><path class="f06-cv" d="M10 110C30 110 10 10 110 10"/></svg>
+          <figcaption class="legenda"><b>Cena</b> <code>cubic-bezier(.2,0,0,1)</code> · entrada, interface, revelação, abertura.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Curva de foco, cubic-bezier 0,65 0 0,35 1: começa e termina devagar."><path class="f06-eixo" d="M10 110H110M10 110V10"/><path class="f06-cv" d="M10 110C75 110 45 10 110 10"/></svg>
+          <figcaption class="legenda"><b>Foco</b> <code>cubic-bezier(.65,0,.35,1)</code> · puxada de foco e Anel.</figcaption>
+        </figure>
+        <figure>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Curva de saída, cubic-bezier 0,4 0 1 1: começa devagar e acelera até sair."><path class="f06-eixo" d="M10 110H110M10 110V10"/><path class="f06-cv" d="M10 110C50 110 110 10 110 10"/></svg>
+          <figcaption class="legenda"><b>Saída</b> <code>cubic-bezier(.4,0,1,1)</code> · tudo que sai.</figcaption>
+        </figure>
+      </div>
+      <div class="regra">
+        <p class="regra-n" aria-hidden="true" style="font-size:40px">NÃO</p>
+        <h4 class="regra-titulo">O que nunca anima</h4>
+        <dl>
+          <dt>Nunca</dt><dd>Logotipo (só opacidade), selos (nunca giram), grão no site, números (sem contagem até o valor), preço, Barra de Turma, botão (pulso é linguagem de urgência falsa), escala acima de 1,02, paralaxe acima de 8%, confete, brilho correndo.</dd>
+          <dt>Reduzido</dt><dd>Com <code>prefers-reduced-motion: reduce</code>, na impressão e no PDF tudo vira opacidade de 120 ms ou estado final. A Revelação aparece direto.</dd>
+          <dt>Teste</dt><dd>Ative o movimento reduzido no sistema e recarregue a página: nenhuma animação passa de 120 ms e nenhum conteúdo depende dela para aparecer.</dd>
+        </dl>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>:root{
+  --curva-cena:cubic-bezier(.2,0,0,1);
+  --curva-foco:cubic-bezier(.65,0,.35,1);
+  --curva-saida:cubic-bezier(.4,0,1,1);
+  --t-corte:0ms; --t-micro:120ms; --t-ui:240ms; --t-entrada:480ms; --t-foco:700ms;
+  --t-revelar:900ms; --t-anel:1200ms; --t-abertura:1200ms; --t-saida:200ms;
+}
+@keyframes revelar{from{opacity:0;filter:blur(10px) contrast(.7) brightness(.6)}to{opacity:1;filter:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:1ms!important;
+    animation-iteration-count:1!important;transition-duration:120ms!important}
+}</code></pre>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2, L7; 4.3; 7.1 a 7.4); Brand DNA da The VOID, set/2026 (seção 1, "sempre em movimento, nunca com pressa"); tokens.css da The VOID, v1.</p>
+  </div>
+</section>
+
+
+<section class="sec" id="s27" data-parte="VI" data-nome="Ícones" aria-labelledby="s27-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>27</b> · Ícones</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">27</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Sistema</p>
+        <h2 id="s27-t" class="titulo-secao">Ícone sempre com <em class="off">palavra</em></h2>
+        <p class="sec-apoio">Um só conjunto, Lucide, em contorno de traço 1,5 com ponta reta, e um significado fixo para cada ícone. Ícone nunca aparece sozinho, nunca enfeita e nunca vira clichê de tatuagem.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Lucide em contorno, traço 1,5, ponta reta e canto vivo; 24 px é o padrão, 56 a 72 u na peça de 1080.</li>
+        <li>O mapa da casa é fechado: cada ideia tem um ícone e cada ícone tem uma ideia.</li>
+        <li>Ícone vai sempre com palavra; estado vai sempre com ícone e palavra, nunca só com cor.</li>
+        <li>Caveira, rosa, adaga, chama, sangue, neon, troféu e "level up" ficam fora, em ícone, ilustração e foto.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s27-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">27.1</p>
+        <h3 class="fala">Traço 1,5, ponta reta</h3>
+        <p class="bloco-apoio">A ponta reta e o canto vivo conversam com o raio 0 da casa. O desenho do Lucide fica intacto: muda só o acabamento do traço.</p>
+      </div>
+      <div class="f06-tam">
+        <figure><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><figcaption class="legenda"><b>16 px</b> · dentro de texto de apoio</figcaption></figure>
+        <figure><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><figcaption class="legenda"><b>20 px</b> · botão e lista</figcaption></figure>
+        <figure><svg class="ic ic-24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><figcaption class="legenda"><b>24 px</b> · padrão</figcaption></figure>
+        <figure><svg class="ic" style="width:32px;height:32px" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><figcaption class="legenda"><b>32 px</b> · destaque de cartão</figcaption></figure>
+        <figure><svg class="ic" style="width:64px;height:64px" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><figcaption class="legenda"><b>56 a 72 u</b> · peça de 1080</figcaption></figure>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><svg class="f06-ic-g" viewBox="0 0 24 24" role="img" aria-label="Ícone de bandeira com traço 1,5, ponta reta e canto vivo"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><svg class="f06-ic-g" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg></div>
+          <figcaption>Traço 1,5, <code>stroke-linecap:square</code> e <code>stroke-linejoin:miter</code>: o acabamento da casa.</figcaption>
+        </figure>
+        <figure class="nao">
+          <div class="fn-palco"><svg class="f06-ic-g f06-orig" viewBox="0 0 24 24" role="img" aria-label="O mesmo ícone com traço 2 e pontas arredondadas, o padrão de fábrica"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><svg class="f06-ic-g f06-orig" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg></div>
+          <figcaption>O padrão de fábrica do Lucide (traço 2, ponta e canto redondos) fica macio demais ao lado do letreiro.</figcaption>
+        </figure>
+      </div>
+      <div class="regra">
+        <p class="regra-n" aria-hidden="true" style="font-size:40px">COR</p>
+        <h4 class="regra-titulo">Ícone na cor do texto ao lado</h4>
+        <dl>
+          <dt>Manda</dt><dd>O ícone herda a cor da palavra que acompanha. Cor de produto (grafismo ou destaque) só a partir de 24 px. Toda vez que aparece, há uma palavra junto; a única exceção é o botão flutuante do WhatsApp, que leva rótulo acessível.</dd>
+          <dt>Por quê</dt><dd>Ícone sozinho não é lido por todo mundo nem por leitor de tela, e a L3 pede estado com ícone e palavra.</dd>
+          <dt>Teste</dt><dd>Cubra a palavra com o dedo: se o ícone sozinho tiver que explicar algo, falta a palavra.</dd>
+        </dl>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>.ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;
+  stroke-linecap:square;stroke-linejoin:miter}
+/* o SVG do Lucide é copiado para dentro do HTML: nada de CDN de ícone */</code></pre>
+    </div>
+
+    <div class="bloco" id="s27-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">27.2</p>
+        <h3 class="fala">O mapa da casa</h3>
+        <p class="bloco-apoio">Vinte e três ideias, vinte e três ícones. Uma ideia nova pede uma linha nova nesta tabela antes de ir para a peça.</p>
+      </div>
+      <ul class="f06-icones">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg><b>Turma</b><code>calendar-days</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><b>Local</b><code>map-pin</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><b>Horário</b><code>clock</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><b>Conversa</b><code>message-circle</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg><b>Traço e desenho</b><code>pen-line</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><b>Prática</b><code>hand</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg><b>Vídeo</b><code>play</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 5H3"/><path d="M10 12H3"/><path d="M10 19H3"/><path d="M15 12.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997a1 1 0 0 1-1.517-.86z"/></svg><b>Capítulo</b><code>list-video</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><b>Biossegurança</b><code>shield-check</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg><b>Portfólio</b><code>images</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M7 11h10"/><path d="M7 15h6"/><path d="M7 7h8"/></svg><b>Feedback</b><code>message-square-text</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg><b>Professor</b><code>user-round</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg><b>Comunidade</b><code>users-round</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg><b>Marco</b><code>flag</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><b>Validado</b><code>circle-check</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg><b>Pendente</b><code>circle-dashed</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><b>Bloqueado</b><code>lock</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><b>Trilha</b><code>route</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="m7.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.879.001l-1.846.85a.5.5 0 0 1-.692-.593l1.29-4.88"/><circle cx="6" cy="14" r="3"/></svg><b>Certificado</b><code>file-badge</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg><b>Dúvida</b><code>circle-help</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg><b>Fonte da prova</b><code>quote</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg><b>Indicação</b><code>share-2</code></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><b>Seguir</b><code>arrow-right</code></li>
+      </ul>
+      <p class="nota">WhatsApp não é Lucide: usa o glifo monocromático do Simple Icons, na cor do texto, nunca no verde do aplicativo. Os únicos ícones próprios da casa são os três símbolos dos selos simples, sempre pelo arquivo oficial e a partir de 96 px (<a href="#s11">seção 11</a>).</p>
+    </div>
+
+    <div class="bloco" id="s27-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">27.3</p>
+        <h3 class="fala">Estados: ícone, cor e palavra</h3>
+        <p class="bloco-apoio">Os quatro estados da casa em cores terrosas. A palavra carrega o sentido; a cor só confirma. Erro nunca é usado como urgência.</p>
+      </div>
+      <div class="grade-2">
+        <div class="palco">
+          <p class="rotulo" style="margin-bottom:var(--e-4)">No escuro</p>
+          <ul class="f06-estados">
+            <li style="--c:var(--sucesso)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Validado <span>Musgo Luz</span></li>
+            <li style="--c:var(--atencao)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Falta um passo <span>Areia</span></li>
+            <li style="--c:var(--erro)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não deu certo <span>Ferrugem Luz, mais o que fazer</span></li>
+            <li style="--c:var(--info)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Para saber <span>Névoa</span></li>
+          </ul>
+        </div>
+        <div class="palco tela">
+          <p class="rotulo" style="margin-bottom:var(--e-4);color:var(--ardosia)">No claro</p>
+          <ul class="f06-estados">
+            <li style="--c:var(--sucesso-claro)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Confirmado <span>Musgo</span></li>
+            <li style="--c:var(--atencao-claro)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>Atenção <span>Âmbar Fundo</span></li>
+            <li style="--c:var(--erro-claro)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não deu certo <span>Ferrugem, mais o que fazer</span></li>
+            <li style="--c:var(--info-claro)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>Para saber <span>Ardósia</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="nota">Na página do Pro, onde a Névoa também é o acento, o estado informativo só aparece com o ícone <code>info</code> e a palavra. Os pares de contraste de cada estado estão na <a href="#s14">seção 14</a>.</p>
+    </div>
+
+    <div class="bloco" id="s27-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">27.4</p>
+        <h3 class="fala">Clichês vedados</h3>
+        <p class="bloco-apoio">A The VOID fala de processo, não de estética de estúdio. Estes temas ficam fora em ícone, ilustração e foto, mesmo como enfeite pequeno.</p>
+      </div>
+      <ul class="f06-vetos" data-exemplo="proibido" aria-label="Temas vedados">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Caveira</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Rosa vermelha</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Adaga</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Chama realista</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Tinta respingando</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Máquina de tatuagem em vetor de banco</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Sangue</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Pele irritada</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Neon</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Vidro fosco</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Gradiente colorido</li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Estrela solta fora do selo</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Troféu</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Medalha</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>"Level up"</li>
+      </ul>
+      <p><b>Emoji:</b> nunca na arte, no site, na LP ou na área de membros. No WhatsApp vale a regra da <a href="#s35">seção 35</a>: nenhum de M1 a M4 e no máximo um, no fim, em mensagem de marco.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.1 e 7.5; 12.6 para o WhatsApp); Lucide, licença ISC, desenhos copiados para o HTML.</p>
+  </div>
+</section>
+
+
+<section class="sec" id="s28" data-parte="VI" data-nome="Dados e gráficos" aria-labelledby="s28-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>28</b> · Dados e gráficos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">28</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Sistema</p>
+        <h2 id="s28-t" class="titulo-secao">Gráfico só com <em class="off">crédito</em></h2>
+        <p class="sec-apoio">Gráfico existe quando o dado existe e tem Crédito de Prova. O motor <code>vviz.js</code> desenha seis tipos aprovados nas cores do produto e se recusa a desenhar qualquer gráfico sem a régua completa.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Seis tipos: barras, barras horizontais, linha, coluna empilhada de até 3, Numeral de Prova e comparativo de traço (só orgânico).</li>
+        <li>Todo gráfico leva título que afirma a conclusão, o que mede, período, base, fonte e marca de origem. Faltou uma parte, o motor não desenha.</li>
+        <li>Série principal em Tela, destaque no grafismo do produto, comparação e meta tracejadas em Fumaça; no máximo 3 séries.</li>
+        <li>Dado em validação ganha moldura tracejada, fica no arquivo de trabalho e não exporta.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s28-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.1</p>
+        <h3 class="fala">A régua de prova do gráfico</h3>
+        <p class="bloco-apoio">As seis partes que o motor exige, na ordem em que aparecem no desenho. É o Crédito de Prova da <a href="#s25">seção 25</a> aplicado a uma série de números.</p>
+      </div>
+      <div class="grade-2">
+        <div class="tabela-wrap" tabindex="0">
+          <table>
+            <caption>As seis partes da régua</caption>
+            <thead><tr><th scope="col">Parte</th><th scope="col">O que leva</th><th scope="col">Exemplo de forma</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Título</th><td>A conclusão, em até 6 palavras, afirmando</td><td>"Sexta concentra as inscrições"</td></tr>
+              <tr><th scope="row">O que mede</th><td>A grandeza, sem sigla solta</td><td>inscrições na aula experimental por dia da semana</td></tr>
+              <tr><th scope="row">Período</th><td>O recorte de tempo</td><td>[mês/ano] a [mês/ano]</td></tr>
+              <tr><th scope="row">Base</th><td>De onde a contagem parte</td><td>[N] inscrições de [recorte]</td></tr>
+              <tr><th scope="row">Fonte</th><td>Quem guarda o número</td><td>registro da secretaria</td></tr>
+              <tr><th scope="row">Origem</th><td>Uma de quatro marcas</td><td>medido, terceiro, mercado ou em validação</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="palco">
+          <p class="rotulo" style="margin-bottom:var(--e-4)">Marcas de origem</p>
+          <ul class="f06-estados">
+            <li style="--c:var(--tela)" data-origem="medido"><span class="origem"></span>Medido <span>registro da escola, arquivado</span></li>
+            <li style="--c:var(--tela)" data-origem="terceiro"><span class="origem"></span>Terceiro <span>Google, imprensa; exige link e data da captura</span></li>
+            <li style="--c:var(--tela)" data-origem="mercado"><span class="origem"></span>Mercado <span>estudo externo; exige link</span></li>
+            <li style="--c:var(--po);border:0" data-origem="em-validacao"><span class="origem"></span>Em validação <span>bloqueia exportação e publicação</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s28-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.2</p>
+        <h3 class="fala">Os seis tipos aprovados</h3>
+        <p class="bloco-apoio">Desenhados ao vivo pelo motor com dados fictícios, marcados como "dado de exemplo". Nenhum destes números é da The VOID; servem só para mostrar a forma.</p>
+      </div>
+      <div class="grade-2">
+        <div data-vviz='{"tipo":"barras","sobretitulo":"Barras","titulo":"Sábado lota a prática livre","mede":"pessoas na prática livre por dia, média de quatro semanas","rotulos":["Seg","Ter","Qua","Qui","Sex","Sáb"],"valores":[6,8,7,9,11,18],"destaque":5,"periodo":"quatro semanas de teste","base":"agenda fictícia de uma sala","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        <div data-vviz='{"tipo":"barras-horizontais","sobretitulo":"Barras horizontais, ranking","titulo":"Linha fina puxa a procura","mede":"estilo citado na primeira conversa, em porcentagem","rotulos":["Linha fina","Blackwork","Realismo","Old school","Lettering"],"valores":[38,24,19,12,7],"destaque":0,"unidade":"%","periodo":"um mês de teste","base":"100 conversas fictícias","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        <div data-vviz='{"tipo":"linha","sobretitulo":"Linha, com comparação","titulo":"Prática sobe no segundo mês","mede":"horas de prática registradas por aluno, média semanal","rotulos":["S1","S2","S3","S4","S5","S6","S7","S8"],"series":[{"nome":"Turma de teste","valores":[2.5,3,3.2,3.8,4.6,5.1,5.4,6]},{"nome":"Turma anterior","valores":[2.4,2.6,3,3.1,3.5,3.9,4.2,4.4]}],"periodo":"oito semanas de teste","base":"duas turmas fictícias","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        <div data-vviz='{"tipo":"coluna-empilhada","sobretitulo":"Coluna empilhada, até 3","titulo":"Indicação puxa a conversa","mede":"conversas iniciadas por canal de entrada, por trimestre","rotulos":["T1","T2","T3","T4"],"series":[{"nome":"Indicação","valores":[14,18,22,27]},{"nome":"Site","valores":[9,10,12,12]},{"nome":"Eventos","valores":[4,7,5,8]}],"periodo":"um ano de teste","base":"conversas fictícias","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        <div data-vviz='{"tipo":"numeral","sobretitulo":"Numeral de Prova","valor":12,"mede":"turmas fictícias abertas num semestre de teste","periodo":"um semestre de teste","base":"calendário fictício","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        <div data-vviz='{"tipo":"comparativo-traco","sobretitulo":"Comparativo de traço, só orgânico","titulo":"Doze semanas de traço","mede":"o mesmo exercício de linha contínua, no início e no fim","antes":{"data":"semana 1","legenda":"Primeiro traço, no Ritual do Traço"},"depois":{"data":"semana 12","legenda":"Mesmo exercício, semana 12"},"canal":"organico","autorizacao":true,"periodo":"doze semanas","base":"um aluno fictício","fonte":"arquivo de teste","origem":"medido","exemplo":true}'></div>
+      </div>
+      <p class="nota">O comparativo de traço só sai em canal orgânico ou página interna, com data e autorização do aluno; nunca lado a lado em anúncio pago (<a href="#s33">seção 33</a>). Sem a foto real, o motor mostra o espaço rotulado.</p>
+    </div>
+
+    <div class="bloco" id="s28-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.3</p>
+        <h3 class="fala">Cor por papel, não por gosto</h3>
+        <p class="bloco-apoio">O motor lê o produto do <code>data-estacao</code> mais próximo e o campo de <code>.modo-leitura</code>. Nenhuma cor sai de fora dos tokens.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Cor de cada papel no gráfico</caption>
+          <thead><tr><th scope="col">Papel</th><th scope="col">Institucional, Start, VOIDERS</th><th scope="col">Master</th><th scope="col">Pro</th><th scope="col">No Modo Leitura</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Série principal</th><td>Tela</td><td>Tela</td><td>Tela</td><td>Sala</td></tr>
+            <tr><th scope="row">Destaque (uma barra, um ponto)</th><td>Areia</td><td>Terracota; rótulo pequeno em Terracota Luz</td><td>Névoa</td><td>Terracota Funda; Start em Ouro Velho com texto Ouro Fundo; Pro em Ardósia</td></tr>
+            <tr><th scope="row">Comparação e meta</th><td>Fumaça tracejado</td><td>Fumaça tracejado</td><td>Fumaça tracejado</td><td>Fumaça tracejado</td></tr>
+            <tr><th scope="row">Terceira camada da pilha</th><td>Fumaça cheio</td><td>Fumaça cheio</td><td>Fumaça cheio</td><td>Fumaça cheio</td></tr>
+            <tr><th scope="row">Linha de grade</th><td>Fio, só em linha e barra agrupada</td><td>Fio</td><td>Fio</td><td>Fumaça, só linha</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">As cores do Modo Leitura são decisão do motor de gráficos, porque a especificação não as fixa; seguem os pares liberados da <a href="#s14">seção 14</a>.</p>
+    </div>
+
+    <div class="bloco" id="s28-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.4</p>
+        <h3 class="fala">Exemplo bloqueado em validação</h3>
+        <p class="bloco-apoio">Enquanto o número não tem prova arquivada, ele existe só no arquivo de trabalho: barras em contorno, sem valores, moldura tracejada e o selo "dado em validação".</p>
+      </div>
+      <div class="grade-2">
+        <div data-vviz='{"tipo":"barras","sobretitulo":"Arquivo de trabalho","titulo":"Turmas de sábado enchem antes","mede":"dias até fechar a turma, por turno","rotulos":["Manhã","Tarde","Noite","Sábado"],"valores":[34,29,22,12],"periodo":"a confirmar","base":"turmas a confirmar","fonte":"secretaria, conferência pendente","origem":"em-validacao","exemplo":true}'></div>
+        <div class="texto">
+          <p>Se alguém tentar exportar este gráfico, o motor responde com erro e não entrega o SVG:</p>
+          <pre class="codigo" data-rotulo="Console"><code>VViz.svg(grafico)
+// VVizExportacaoBloqueada: dado em validação
+// não sai do arquivo de trabalho</code></pre>
+          <p class="nota">Sem prova, o número sai da peça. Ele nunca vira zero e nunca vai ao ar entre colchetes.</p>
+        </div>
+      </div>
+      <p class="pendencia" data-p="15">[P 15] Alunos formados com método de contagem e data, nota e quantidade de avaliações, vagas e calendário de turmas: até a The VOID entregar cada número com prova, nenhum gráfico público usa esses dados.</p>
+    </div>
+
+    <div class="bloco" id="s28-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.5</p>
+        <h3 class="fala">O que o gráfico nunca faz</h3>
+        <p class="bloco-apoio">Barras retas, sem sombra, sem 3D. Eixo de barra começa em zero. Rótulo direto no lugar de legenda sempre que couber.</p>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco">
+            <svg viewBox="0 0 240 150" width="240" height="150" role="img" aria-label="Duas barras com eixo a partir de zero: 40 e 46, diferença pequena e honesta.">
+              <path d="M20 130H220" stroke="#363636" stroke-width="1"/>
+              <rect x="50" y="43" width="56" height="87" fill="#898989"/><rect x="134" y="30" width="56" height="100" fill="#F8F9F4"/>
+              <text x="78" y="36" fill="#B4B5B0" font-size="13" text-anchor="middle" font-family="Archivo, Arial, sans-serif">40</text>
+              <text x="162" y="23" fill="#F8F9F4" font-size="13" text-anchor="middle" font-family="Archivo, Arial, sans-serif">46</text>
+              <text x="20" y="146" fill="#B4B5B0" font-size="11" font-family="Archivo, Arial, sans-serif">0</text>
+            </svg>
+          </div>
+          <figcaption>Eixo em zero: 46 contra 40 parece o que é, uma diferença de 15%.</figcaption>
+        </figure>
+        <figure class="nao">
+          <div class="fn-palco">
+            <svg viewBox="0 0 240 150" width="240" height="150" role="img" aria-label="As mesmas barras com o eixo cortado em 38: a diferença parece quatro vezes maior.">
+              <path d="M20 130H220" stroke="#363636" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect x="50" y="102" width="56" height="28" fill="#898989"/><rect x="134" y="20" width="56" height="110" fill="#F8F9F4"/>
+              <text x="78" y="95" fill="#B4B5B0" font-size="13" text-anchor="middle" font-family="Archivo, Arial, sans-serif">40</text>
+              <text x="162" y="14" fill="#F8F9F4" font-size="13" text-anchor="middle" font-family="Archivo, Arial, sans-serif">46</text>
+              <text x="20" y="146" fill="#B4B5B0" font-size="11" font-family="Archivo, Arial, sans-serif">38</text>
+            </svg>
+          </div>
+          <figcaption>Eixo cortado em 38: a mesma diferença parece quatro vezes maior. É prova distorcida, e a L2 manda a peça de volta.</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Nada de pizza com mais de 3 fatias, 3D, sombra, gradiente ou barra arredondada.</li>
+        <li>Número nunca anima contando até o valor; o gráfico aparece pronto.</li>
+        <li>No máximo 3 séries; a quarta pede outro gráfico ou uma tabela.</li>
+        <li>Junto do desenho o motor gera uma tabela com os mesmos dados, oculta na tela e lida pelo leitor de tela.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s28-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">28.6</p>
+        <h3 class="fala">Como pedir um gráfico ao motor</h3>
+        <p class="bloco-apoio">Um atributo com os dados e a régua; o motor desenha, escolhe as cores e confere as partes. Para levar ao Figma ou ao Canva, <code>VViz.svg</code> devolve o arquivo com HEX por extenso.</p>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;div data-vviz='{
+  "tipo":"barras",
+  "titulo":"Sexta concentra as inscrições",
+  "mede":"inscrições na aula experimental por dia da semana",
+  "rotulos":["Seg","Ter","Qua","Qui","Sex"],
+  "valores":[0,0,0,0,0],
+  "destaque":4,
+  "periodo":"[mês/ano] a [mês/ano]",
+  "base":"[N] inscrições",
+  "fonte":"registro da secretaria",
+  "origem":"medido"
+}'&gt;&lt;/div&gt;
+&lt;script src="vviz.js"&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6.16 e 14; L2 e L3); motor de gráficos vviz.js v1.0 da The VOID e suas notas de construção.</p>
+  </div>
+</section>
+
+
+<section class="sec modo-leitura" id="s29" data-parte="VII" data-nome="Fotografia" aria-labelledby="s29-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>29</b> · Fotografia</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">29</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Imagem</p>
+        <h2 id="s29-t" class="titulo-secao">A foto é um <em class="off">ritual</em></h2>
+        <p class="sec-apoio">A fotografia oficial é o processo como ritual: preto e branco cinemático, documental, com as mãos como personagem. Imagem que não passa nas dez exigências não entra, por mais bonita que seja.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Só foto real da escola, com autorização por escrito para cada finalidade. Banco de imagem e imagem gerada estão fora.</li>
+        <li>Uma luz, preto denso em 30% a 50% do quadro, espaço negativo de 40% e as mãos sempre em ação.</li>
+        <li>P&amp;B "Ritual" é o padrão e "Vazio" vale para capa e topo; cor só em três regimes e no máximo 1 imagem em cada 4.</li>
+        <li>Os ritos são fotografados sempre do mesmo jeito. Predefinições de Lightroom, LUTs e o padrão de nome de arquivo estão prontos para baixar.</li>
+      </ul>
+    </div>
+
+    <aside class="f06-acervo" aria-labelledby="s29-acervo-t">
+      <p class="credito" id="s29-acervo-t">Versão sem acervo <span class="status" data-status="pendente">Bloqueio da v1 · P 22</span></p>
+      <p>Esta edição do manual não traz nenhuma fotografia. A The VOID ainda não entregou fotos reais com autorização de imagem por escrito e por finalidade, e o manual é público: publicar rosto de aluno sem esse termo quebraria a exigência 01 abaixo e a Lei Geral de Proteção de Dados.</p>
+      <p>As imagens das apresentações da agência também não servem de acervo: a ambientação de estúdio tem aparência de imagem gerada, e as demais cenas não têm origem, licença nem autorização confirmadas. Por isso, os espaços tracejados marcam onde cada foto entra, e os tratamentos de 29.3 aparecem sobre uma cena de calibração desenhada.</p>
+      <p><b>O que destrava:</b> a sessão de um dia (29.5) com os termos assinados. A primeira revisão depois dela troca os espaços pelas fotos tratadas, nesta seção e nas peças das seções 19, 22, 24, 30, 34, 35 e 36. Até lá, peça pública usa a forma da casa (Esfera, Cartela, Eco) no lugar da foto.</p>
+    </aside>
+
+    <div class="bloco" id="s29-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.1</p>
+        <h3 class="fala">As dez exigências</h3>
+        <p class="bloco-apoio">Valem para toda imagem pública: foto, frame de vídeo, capa e miniatura. A conferência de cada uma cabe em menos de um minuto.</p>
+      </div>
+      <ol class="f06-exig">
+        <li><span>01</span><h4>Real e autorizada</h4><p>Escola, aluno, professor ou evento da The VOID, com autorização por escrito e por finalidade: orgânico, site, anúncio pago, depoimento com nome, área de membros.</p><p class="f06-teste">Confira: o termo da pessoa cobre o canal desta peça?</p></li>
+        <li><span>02</span><h4>Uma luz principal</h4><p>Lateral ou de cima, com queda rápida para o preto. Contraste de 8:1 a 16:1 em retrato e de 4:1 a 8:1 em cena de processo.</p><p class="f06-teste">Confira: existe uma só direção de sombra no quadro?</p></li>
+        <li><span>03</span><h4>Preto denso</h4><p>Preto em 30% a 50% do quadro; branco estourado só na fonte de luz; pele entre 45% e 65% de luminância.</p><p class="f06-teste">Confira no histograma: a montanha das sombras é a maior?</p></li>
+        <li><span>04</span><h4>As mãos são o personagem</h4><p>Toda série tem ao menos um plano de mão em ação, com o traço e a agulha nítidos.</p><p class="f06-teste">Confira: a série tem a mão trabalhando e em foco?</p></li>
+        <li><span>05</span><h4>Espaço negativo de 40%</h4><p>No lado oposto ao olhar ou à mão. O olhar e o gesto do hero apontam para o título e o botão.</p><p class="f06-teste">Confira: o texto cabe sem cobrir rosto nem mão?</p></li>
+        <li><span>06</span><h4>Corte ousado</h4><p>Rosto cortado pela borda e mão entrando no quadro são permitidos; o corte nunca cai em articulação (punho, cotovelo, joelho).</p><p class="f06-teste">Confira as quatro bordas.</p></li>
+        <li><span>07</span><h4>P&amp;B por preset</h4><p>"Ritual" é o padrão; "Vazio" para capa e topo de funil. Cor só em três regimes (29.3) e no máximo 1 imagem colorida em cada 4.</p><p class="f06-teste">Confira: conte as coloridas da sequência.</p></li>
+        <li><span>08</span><h4>Biossegurança visível</h4><p>Em todo procedimento: luva nitrílica, filme plástico, material de uso único, descarte.</p><p class="f06-teste">Confira a lista de quadro em 29.6.</p></li>
+        <li><span>09</span><h4>O que nunca entra</h4><p>Sangue em destaque, pele lesionada em close, nudez, menor em procedimento, dinheiro, carro, vida de luxo, sorriso posado, antes e depois lado a lado em anúncio, tela com dado de aluno, logotipo de equipamento, pôster com o logotipo antigo, trabalho de terceiro.</p><p class="f06-teste">Confira a tabela de 29.6.</p></li>
+        <li><span>10</span><h4>Legível por máquina</h4><p>Nome de arquivo no padrão, texto alternativo em frase de até 125 caracteres, IPTC com criador, detentor e legenda; GPS removido de foto de pessoas.</p><p class="f06-teste">Confira o padrão em 29.8.</p></li>
+      </ol>
+    </div>
+
+    <div class="bloco" id="s29-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.2</p>
+        <h3 class="fala">Luz, tom e quadro</h3>
+        <p class="bloco-apoio">Fotografe como se a câmera fosse um aluno a mais na sala: perto o bastante para ouvir a máquina e quieto o bastante para ninguém posar.</p>
+      </div>
+      <div class="grade-2">
+        <figure>
+          <div class="f06-dir" role="img" aria-label="Diagrama de quadro 3 por 2: luz vindo do canto superior esquerdo, ponto de interesse no cruzamento dos terços à esquerda e 40% de espaço negativo à direita para o texto.">
+            <i class="f06-l" style="left:33.33%;top:0;bottom:0;width:1px"></i><i class="f06-l" style="left:66.66%;top:0;bottom:0;width:1px"></i>
+            <i class="f06-l" style="top:33.33%;left:0;right:0;height:1px"></i><i class="f06-l" style="top:66.66%;left:0;right:0;height:1px"></i>
+            <span class="f06-neg"></span>
+            <span class="f06-poi" style="left:33.33%;top:33.33%"></span><span class="f06-poi" style="left:33.33%;top:66.66%;opacity:.5"></span>
+            <span class="f06-r" style="left:8px;top:8px">Luz única</span>
+            <span class="f06-r" style="left:calc(33.33% + 16px);top:calc(33.33% - 10px)">Mão e traço</span>
+            <span class="f06-r" style="right:8px;top:50%">40% · título e botão</span>
+            <span class="f06-r" style="left:8px;right:8px;bottom:8px;width:max-content;max-width:calc(100% - 16px);white-space:normal">Foto real da escola, com autorização</span>
+          </div>
+          <figcaption class="legenda" style="margin-top:var(--e-3)">Ponto de interesse num cruzamento dos terços; texto no espaço negativo oposto ao olhar ou à mão.</figcaption>
+        </figure>
+        <div class="texto">
+          <h4 class="intertitulo">Luz</h4>
+          <p>Uma fonte grande e difusa perto do assunto (janela ou softbox de 90 cm ou mais), lateral ou de cima, nunca chapada de frente. Lâmpadas de filamento e luminária de bancada podem aparecer no quadro como parte do ambiente.</p>
+          <h4 class="intertitulo" style="margin-top:var(--e-5)">Lente e ângulo</h4>
+          <p>Detalhe de mão e agulha em macro de 90 a 105 mm; processo em 35 a 50 mm; retrato em 50 a 85 mm; ambiente em 24 a 35 mm. Câmera na altura dos olhos ou um pouco acima: quem vê olha por cima do ombro de quem tatua.</p>
+        </div>
+      </div>
+      <h4 class="intertitulo">Onde cada tom mora</h4>
+      <div class="f06-tom" role="img" aria-label="Escala de luminância do preto ao branco com a faixa da pele marcada entre 45% e 65%."><i style="--x:45%;--w:20%"></i></div>
+      <div class="f06-tom-r"><span>0% · preto denso, 30% a 50% do quadro</span><span>45% a 65% · pele</span><span>100% · só a fonte de luz</span></div>
+    </div>
+
+    <div class="bloco" id="s29-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.3</p>
+        <h3 class="fala">Tratamento: dois P&amp;B, três regimes de cor</h3>
+        <p class="bloco-apoio">A mesma cena de calibração desenhada (luz única caindo para o preto, uma esfera com volume, seis cores da paleta e uma escala de cinza de 11 passos) passada por cada tratamento. Não é foto: serve para ler o que cada receita faz com o preto, com a cor quente e com o verde e o azul do fundo. É aproximação em tela; a referência são os arquivos de 29.7.</p>
+      </div>
+      <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+        <defs>
+          <radialGradient id="s29-volume" cx=".34" cy=".28" r=".8"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity=".45"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+          <radialGradient id="s29-luz" cx="0" cy="0" r="1.25"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".35"/><stop offset="1" stop-color="#000000"/></radialGradient>
+          <filter id="s29-ritual" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".36 .5 .14 0 0  .36 .5 .14 0 0  .36 .5 .14 0 0  0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues=".030 .057 .086 .127 .188 .261 .342 .423 .500 .577 .659 .738 .807 .859 .897 .928 .960"/><feFuncG type="table" tableValues=".030 .057 .086 .127 .188 .261 .342 .423 .500 .577 .659 .738 .807 .859 .897 .928 .960"/><feFuncB type="table" tableValues=".030 .057 .086 .127 .188 .261 .342 .423 .500 .577 .659 .738 .807 .859 .897 .928 .960"/></feComponentTransfer></filter>
+          <filter id="s29-vazio" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".36 .5 .14 0 0  .36 .5 .14 0 0  .36 .5 .14 0 0  0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0 .034 .066 .103 .150 .218 .303 .391 .470 .539 .606 .670 .732 .794 .855 .917 .980"/><feFuncG type="table" tableValues="0 .034 .066 .103 .150 .218 .303 .391 .470 .539 .606 .670 .732 .794 .855 .917 .980"/><feFuncB type="table" tableValues="0 .034 .066 .103 .150 .218 .303 .391 .470 .539 .606 .670 .732 .794 .855 .917 .980"/></feComponentTransfer></filter>
+          <filter id="s29-terra" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values=".8"/><feComponentTransfer><feFuncR type="table" tableValues=".012 .510 1"/><feFuncG type="table" tableValues="0 .502 1"/><feFuncB type="table" tableValues="0 .494 .988"/></feComponentTransfer></filter>
+          <filter id="s29-dt-start" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".255 .859"/><feFuncG type="table" tableValues=".161 .773"/><feFuncB type="table" tableValues=".098 .639"/></feComponentTransfer></filter>
+          <filter id="s29-dt-master" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".129 .769"/><feFuncG type="table" tableValues=".075 .376"/><feFuncB type="table" tableValues=".047 .224"/></feComponentTransfer></filter>
+          <filter id="s29-dt-pro" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".094 .788"/><feFuncG type="table" tableValues=".094 .816"/><feFuncB type="table" tableValues=".094 .847"/></feComponentTransfer></filter>
+          <g id="s29-cena-teste"><rect width="320" height="232" fill="#000000"/><rect width="320" height="150" fill="url(#s29-luz)"/><circle cx="238" cy="80" r="44" fill="url(#s29-volume)"/><rect x="10" y="156" width="50" height="30" fill="#DBC5A3"/><rect x="60" y="156" width="50" height="30" fill="#AE8A64"/><rect x="110" y="156" width="50" height="30" fill="#6C4327"/><rect x="160" y="156" width="50" height="30" fill="#B25A32"/><rect x="210" y="156" width="50" height="30" fill="#3E6A4B"/><rect x="260" y="156" width="50" height="30" fill="#C9D0D8"/><rect x="10.00" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.0"/><rect x="37.27" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.1"/><rect x="64.55" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.2"/><rect x="91.82" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.3"/><rect x="119.09" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.4"/><rect x="146.36" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.5"/><rect x="173.64" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.6"/><rect x="200.91" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.7"/><rect x="228.18" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.8"/><rect x="255.45" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="0.9"/><rect x="282.73" y="194" width="27.27" height="30" fill="#FFFFFF" fill-opacity="1.0"/></g>
+        </defs>
+      </svg>
+      <div class="f06-regimes">
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração sem tratamento."><use href="#s29-cena-teste"/></svg><figcaption class="legenda"><b>Sem tratamento.</b> A cena de calibração, só para comparar.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no preset Ritual: preto levemente erguido e branco contido."><use href="#s29-cena-teste" filter="url(#s29-ritual)"/></svg><figcaption class="legenda"><b>P&amp;B "Ritual", o padrão.</b> Preto erguido a 0,03, branco contido em 0,96, aspecto de filme.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no preset Vazio: sombras mais fundas e mais contraste."><use href="#s29-cena-teste" filter="url(#s29-vazio)"/></svg><figcaption class="legenda"><b>P&amp;B "Vazio".</b> Sombras mais fundas; capa e topo de funil.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no regime Terra: a cor fica, um pouco mais contida e mais quente."><use href="#s29-cena-teste" filter="url(#s29-terra)"/></svg><figcaption class="legenda"><b>Cor "Terra".</b> Saturação -20%, sombras e altas luzes levemente aquecidas; depoimento e comunidade.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no duotom Start, de Café a Areia."><use href="#s29-cena-teste" filter="url(#s29-dt-start)"/></svg><figcaption class="legenda"><b>Duotom Start.</b> Café <code>#412919</code> para Areia <code>#DBC5A3</code>.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no duotom Master, de sombra quase preta a Terracota Viva."><use href="#s29-cena-teste" filter="url(#s29-dt-master)"/></svg><figcaption class="legenda"><b>Duotom Master.</b> <code>#21130C</code> para Terracota Viva <code>#C46039</code>.</figcaption></figure>
+        <figure><svg viewBox="0 0 320 232" role="img" aria-label="Cena de calibração no duotom Pro, de Sala a Névoa."><use href="#s29-cena-teste" filter="url(#s29-dt-pro)"/></svg><figcaption class="legenda"><b>Duotom Pro.</b> Sala <code>#181818</code> para Névoa <code>#C9D0D8</code>.</figcaption></figure>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Quando usar cada tratamento</caption>
+          <thead><tr><th scope="col">Tratamento</th><th scope="col">Onde entra</th><th scope="col">Onde nunca entra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">P&amp;B "Ritual"</th><td>Padrão de toda a fotografia: site, LP, feed, membros</td><td></td></tr>
+            <tr><th scope="row">P&amp;B "Vazio"</th><td>Capa, topo de funil, hero</td><td>Depoimento, que pede leitura de pele e expressão</td></tr>
+            <tr><th scope="row">Cor "Terra" (natural, aquecida e dessaturada)</th><td>Depoimento e comunidade</td><td>Peça de produto com duotom na mesma tela</td></tr>
+            <tr><th scope="row">Duotom do produto</th><td>Capa, VSL de produto, separador de módulo, story de produto</td><td>Depoimento, rosto de aluno, Primeira Pele: rosto em duotom perde verdade</td></tr>
+            <tr><th scope="row">Foto P&amp;B sobre Campo de Produto</th><td>Feed e anúncio por produto; a cor fica no layout, não na foto</td><td>Mais de uma peça a cada seis no feed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Regra da sequência: no máximo 1 imagem colorida em cada 4, contando Terra e duotom juntos.</p>
+    </div>
+
+    <div class="bloco" id="s29-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.4</p>
+        <h3 class="fala">Protocolo dos ritos</h3>
+        <p class="bloco-apoio">Os ritos são fotografados sempre do mesmo jeito, turma após turma, para formar o arquivo da comunidade. Consentimento antes do clique, em todo rito.</p>
+      </div>
+      <div class="f06-ritos">
+        <figure><div class="f06-foto" style="--ar:4/5"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div><figcaption><b>Ritual do Traço</b><span>De cima do mural, a mão entrando no quadro.</span><span>35 mm</span></figcaption></figure>
+        <figure><div class="f06-foto" style="--ar:4/5"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div><figcaption><b>Primeira Pele</b><span>Plano médio em três quartos, professor ao lado, biossegurança visível.</span><span>35 a 50 mm</span></figcaption></figure>
+        <figure><div class="f06-foto" style="--ar:4/5"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div><figcaption><b>Formatura com Pele</b><span>Retrato ambiental com o trabalho e o certificado.</span><span>50 a 85 mm</span></figcaption></figure>
+        <figure><div class="f06-foto" style="--ar:4/5"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div><figcaption><b>Workshop do Estilo</b><span>Detalhe do estêncil autoral e plano de crítica.</span><span>90 a 105 mm macro e 35 mm</span></figcaption></figure>
+      </div>
+      <p>Retrato de aluno no primeiro dia e na formatura, no mesmo enquadramento, serve só para a comunidade e a área de membros. Lado a lado em anúncio, nunca.</p>
+      <p class="pendencia" data-p="6">[P 6] Os ritos propostos além destes quatro e o registro do mural do Ritual do Traço dependem da aprovação da The VOID; até lá, não ganham protocolo nem peça.</p>
+    </div>
+
+    <div class="bloco" id="s29-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.5</p>
+        <h3 class="fala">A sessão de um dia</h3>
+        <p class="bloco-apoio">Lista de cenas para montar o acervo inicial numa aula de verdade, não numa encenação. <span class="status" data-status="proposta">Proposta</span></p>
+      </div>
+      <div class="tabela-wrap t-rola" tabindex="0">
+        <table>
+          <caption>Sessão de um dia na Vila Madalena</caption>
+          <thead><tr><th scope="col">Hora</th><th scope="col">Bloco</th><th scope="col">Cenas de foto e vídeo</th><th scope="col">Destino principal</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">07h30</th><td>Preparação</td><td>Autorizações assinadas; o espaço vazio com a luz da manhã; detalhes de parede e selos</td><td>Site, área de membros</td></tr>
+            <tr><th scope="row">09h30</th><td>Ritual de preparação</td><td>Luvas sendo calçadas (câmera lenta), filme plástico na maca e na máquina, tinta no copinho, estêncil</td><td>Reels, VSL, prova de biossegurança</td></tr>
+            <tr><th scope="row">10h00</th><td>Primeira linha</td><td>Aluno iniciante na pele sintética: a mão, a respiração e o primeiro traço, em macro e plano médio</td><td>Topo de funil, anúncio do Start</td></tr>
+            <tr><th scope="row">11h00</th><td>Mão guiando mão</td><td>Professor corrigindo postura e ângulo, com som direto da explicação</td><td>Reels, YouTube, VSL</td></tr>
+            <tr><th scope="row">12h00</th><td>Intervalo</td><td>Café, conversa, risada não posada</td><td>Feed, stories, M7 e M8</td></tr>
+            <tr><th scope="row">13h30</th><td>Retratos</td><td>Retrato ambiental de cada professor e de alunos com autorização de anúncio</td><td>Site, LP, lower thirds</td></tr>
+            <tr><th scope="row">14h30</th><td>Depoimentos</td><td>Entrevistas de 8 a 12 min com o roteiro de cinco perguntas, duas câmeras</td><td>VSL, LP, anúncio, YouTube</td></tr>
+            <tr><th scope="row">16h00</th><td>Pele real</td><td>Aluno avançado com cliente que autorizou; concentração e o trabalho final com filme</td><td>Master e Pro</td></tr>
+            <tr><th scope="row">17h30</th><td>Crítica de portfólio</td><td>Professor e aluno revisando trabalhos no papel ou na tela</td><td>Pro, YouTube</td></tr>
+            <tr><th scope="row">18h30</th><td>Luz noturna</td><td>Fachada acesa, luzes práticas, silhueta em contraluz</td><td>Capas, VSL, abertura</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pendencia" data-p="22">[P 22] O acervo real e as autorizações de imagem ainda não existem em quantidade. Até a sessão acontecer, toda peça usa a forma da casa (Esfera, Cartela, Eco) ou o espaço rotulado "foto real da escola, com autorização"; foto de banco e imagem gerada nunca entram no lugar.</p>
+    </div>
+
+    <div class="bloco" id="s29-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.6</p>
+        <h3 class="fala">O que nunca fotografar</h3>
+        <p class="bloco-apoio">Cada proibição tem um motivo: afastar o iniciante, ferir a política dos anúncios, expor dado pessoal ou contar uma verdade que não é da escola.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Fora do quadro</caption>
+          <thead><tr><th scope="col">Nunca</th><th scope="col">Por quê</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Sangue em destaque, pele lesionada em close</th><td>Afasta quem está começando e cai na regra de conteúdo chocante das plataformas. Aula técnica fica na área de membros.</td></tr>
+            <tr><th scope="row">Nudez ou área íntima, mesmo com o trabalho ali</th><td>Política de nudez dos anúncios; recorte ou fotografe só o desenho.</td></tr>
+            <tr><th scope="row">Menor de 18 anos em procedimento</th><td>Proibido por lei em São Paulo; em evento, só com autorização do responsável e sem destaque.</td></tr>
+            <tr><th scope="row">Sorriso posado, polegar para cima, grupo olhando para a câmera</th><td>A fotografia é documental; a exceção é a foto de turma na formatura, ainda assim espontânea.</td></tr>
+            <tr><th scope="row">Dinheiro, carro, vida de luxo</th><td>Vira promessa de renda, vetada pela conformidade (<a href="#s33">seção 33</a>).</td></tr>
+            <tr><th scope="row">Antes e depois lado a lado em anúncio pago</th><td>Lido como transformação corporal pela revisão automática; conte a mudança em sequência ou em palavras.</td></tr>
+            <tr><th scope="row">Tela com dado de aluno, conversa ou planilha</th><td>Lei Geral de Proteção de Dados.</td></tr>
+            <tr><th scope="row">Logotipo de equipamento em destaque</th><td>Publicidade involuntária; cubra ou desfoque.</td></tr>
+            <tr><th scope="row">Pôster com o logotipo antigo ao fundo</th><td>Mistura duas marcas no mesmo quadro (<a href="#s10">seção 10</a>).</td></tr>
+            <tr><th scope="row">Trabalho de outro tatuador como se fosse de aluno</th><td>Integridade e direito autoral do desenho.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="intertitulo">Biossegurança no quadro, antes de cada clique</h4>
+      <ul>
+        <li>Luva nitrílica nas duas mãos.</li>
+        <li>Filme plástico na máquina, no cabo e na maca.</li>
+        <li>Agulha ou cartucho descartável aberto na frente do cliente.</li>
+        <li>Tinta em copinho descartável, nunca direto do frasco.</li>
+        <li>Coletor de perfurocortante visível ou ao alcance.</li>
+        <li>Bancada limpa, sem comida, copo ou celular perto do procedimento.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s29-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.7</p>
+        <h3 class="fala">Presets e LUTs para baixar</h3>
+        <p class="bloco-apoio">Três predefinições .xmp para Lightroom e Camera Raw, a ferramenta de quem fotografa e de quem posta, e seis tabelas de cor .cube de 33 pontos para DaVinci, Premiere e Photoshop. Ritual, Vazio e Terra existem nos dois formatos; os duotons de produto, só em LUT.</p>
+      </div>
+      <h4 class="intertitulo">Lightroom e Camera Raw: predefinições</h4>
+      <ul class="f06-baixar">
+        <li><a href="assets/foto/void-ritual.xmp" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-ritual.xmp</code><span>VOID P&amp;B 01 "Ritual", o padrão. Contraste +25, realces -40, pretos -35, mistura P&amp;B com laranja +15, curva 0&gt;8 · 128&gt;128 · 255&gt;245, grão 28/20/55 e vinheta -12.</span></a></li>
+        <li><a href="assets/foto/void-vazio.xmp" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-vazio.xmp</code><span>VOID P&amp;B 02 "Vazio", capa e topo de funil. Contraste +40, pretos -55, curva 0&gt;0 · 60&gt;35 · 128&gt;120 · 255&gt;250, grão 40/25/60 e vinheta -25.</span></a></li>
+        <li><a href="assets/foto/void-terra.xmp" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-terra.xmp</code><span>VOID COR 01 "Terra", depoimento e comunidade. Saturação -20, vibração -15, verde, azul e roxo contidos, gradação de cor quente e grão 20/20/50.</span></a></li>
+      </ul>
+      <ol>
+        <li><b>Lightroom Classic:</b> módulo Revelação, painel Predefinições, botão "+" e "Importar predefinições"; escolha os três arquivos .xmp. Eles aparecem no grupo "The VOID · Sala Escura".</li>
+        <li><b>Lightroom no computador:</b> menu Arquivo e "Importar perfis e predefinições". As predefinições vão pela nuvem para o Lightroom do celular.</li>
+        <li><b>Camera Raw no Photoshop:</b> painel Predefinições, menu "..." e "Importar perfis e predefinições".</li>
+        <li><b>Depois de aplicar, em cada foto:</b> confira o perfil (Adobe Monochrome no Ritual e no Vazio, Adobe Color no Terra), ajuste a exposição entre 0 e -0,3 e, no Terra, suba a temperatura cerca de 150 K acima da neutra. A predefinição não grava esses três ajustes porque eles dependem da foto.</li>
+      </ol>
+      <h4 class="intertitulo">Vídeo e Photoshop: tabelas de cor (LUT)</h4>
+      <p>Entrada Rec.709, gama 2,4. Os duotons ficam só em LUT porque são tratamento de peça de produto, não de acervo.</p>
+      <ul class="f06-baixar">
+        <li><a href="assets/foto/void-ritual.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-ritual.cube</code><span>P&amp;B padrão. Luminância 0,36 R + 0,50 G + 0,14 B; curva 0&gt;0,03 · 0,15&gt;0,10 · 0,50&gt;0,50 · 0,80&gt;0,85 · 1&gt;0,96.</span></a></li>
+        <li><a href="assets/foto/void-vazio.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-vazio.cube</code><span>P&amp;B de capa. Curva 0&gt;0 · 0,235&gt;0,137 · 0,50&gt;0,47 · 1&gt;0,98.</span></a></li>
+        <li><a href="assets/foto/void-terra.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-terra.cube</code><span>Cor de depoimento. Saturação -20%; sombras +0,012 R e -0,010 B; altas luzes +0,008 R, +0,004 G e -0,012 B.</span></a></li>
+        <li><a href="assets/foto/void-duotom-start.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-duotom-start.cube</code><span>Café para Areia, interpolação em RGB linear.</span></a></li>
+        <li><a href="assets/foto/void-duotom-master.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-duotom-master.cube</code><span>#21130C para Terracota Viva.</span></a></li>
+        <li><a href="assets/foto/void-duotom-pro.cube" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>void-duotom-pro.cube</code><span>Sala para Névoa.</span></a></li>
+        <li><a href="assets/foto/receitas.md" download><code><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>receitas.md</code><span>As receitas completas de Lightroom e DaVinci, nó por nó, e como aplicar a LUT e o grão depois.</span></a></li>
+      </ul>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Grão depois da LUT (Lightroom: quantidade, tamanho, aspereza)</caption>
+          <thead><tr><th scope="col">Preset</th><th scope="col">Grão</th><th scope="col">Uso</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Ritual</th><td>28 / 20 / 55</td><td>Padrão</td></tr>
+            <tr><th scope="row">Vazio</th><td>40 / 25 / 60</td><td>Capa e topo de funil</td></tr>
+            <tr><th scope="row">Terra</th><td>20 / 20 / 50</td><td>Depoimento e comunidade</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Na predefinição .xmp o grão já vem incluído. Na LUT, nunca: ele entra depois, para não congelar o padrão de ruído no vídeo. O filtro de duotom em SVG da <a href="#s25">seção 25</a> trabalha em sRGB e dá meios-tons um pouco mais claros que a LUT; para arquivo final, vale a LUT.</p>
+    </div>
+
+    <div class="bloco" id="s29-8">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.8</p>
+        <h3 class="fala">Nome, texto alternativo e metadados</h3>
+        <p class="bloco-apoio">Foto original com texto legível por máquina conta para busca, para assistentes de IA e para quem usa leitor de tela.</p>
+      </div>
+      <pre class="codigo" data-rotulo="Nome de arquivo"><code>the-void-[produto ou tema]-[o que aparece]-[contexto]-[aaaa-mm].webp
+the-void-start-primeira-linha-pele-sintetica-aaaa-mm.webp</code></pre>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p style="font:400 17px/1.5 var(--font-texto);color:var(--tela)">"Aluna do Start traça a primeira linha em pele sintética na The VOID, Vila Madalena, São Paulo."</p></div>
+          <figcaption>Frase completa, sem "imagem de", com quem, o quê e onde: 94 caracteres.</figcaption>
+        </figure>
+        <figure class="nao">
+          <div class="fn-palco"><p style="font:400 17px/1.5 var(--font-texto);color:var(--tela)">"imagem de tatuagem"</p></div>
+          <figcaption>Não diz quem, nem o quê, nem onde; para o leitor de tela é ruído.</figcaption>
+        </figure>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Metadados gravados no arquivo (IPTC)</caption>
+          <thead><tr><th scope="col">Campo</th><th scope="col">Valor</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Criador</th><td>Nome de quem fotografou</td></tr>
+            <tr><th scope="row">Detentor dos direitos</th><td>The VOID Tattoo Academy</td></tr>
+            <tr><th scope="row">Legenda</th><td>A mesma frase do texto alternativo</td></tr>
+            <tr><th scope="row">Localização GPS</th><td>Removida em toda foto de pessoas</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Na página, a legenda da foto segue o padrão "Foto: [nome] · The VOID Tattoo Academy". As cópias de acervo podem manter o nome de trabalho da sessão com data; o padrão acima vale para o arquivo publicado.</p>
+    </div>
+
+    <div class="bloco" id="s29-9">
+      <div class="bloco-head">
+        <p class="bloco-n credito">29.9</p>
+        <h3 class="fala">Imagem por etapa</h3>
+        <p class="bloco-apoio">A mesma régua da <a href="#s32">seção 32</a>, vista pela câmera: em cada etapa, o que a imagem precisa fazer, o que ela mostra e com qual tratamento. <span class="status" data-status="proposta">Proposta</span></p>
+      </div>
+      <div class="tabela-wrap t-rola" tabindex="0">
+        <table>
+          <caption>Imagem e vídeo de M1 a M8</caption>
+          <thead><tr><th scope="col">Etapa</th><th scope="col">A imagem precisa</th><th scope="col">O que mostrar</th><th scope="col">Tratamento</th><th scope="col">Formato</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">M1 Lead</th><td>Parar a rolagem e criar identificação</td><td>A mão que hesita e a primeira linha; o gancho com a crença "Isso não é para mim."</td><td>Vazio</td><td>Reels, TikTok e anúncio 9 por 16</td></tr>
+            <tr><th scope="row">M2 Qualificação</th><td>Mostrar que a escola é para aquela pessoa</td><td>Depoimento de aluno real com o perfil da persona (Gabriel, Camila ou Bruno), autorizado para o canal</td><td>Terra</td><td>Carrossel, stories, YouTube</td></tr>
+            <tr><th scope="row">M3 Oportunidade</th><td>Dar segurança antes da conversa</td><td>O rosto de quem atende; um passeio de 60 s pela escola</td><td>Ritual; Terra no rosto de quem fala</td><td>Vídeo curto no WhatsApp, stories</td></tr>
+            <tr><th scope="row">M4 Proposta</th><td>Tirar a dúvida racional</td><td>A sala, a bancada e quem ensina [P 13]; a VSL. O kit só entra depois de [P 7]</td><td>Ritual; duotom do produto na capa da VSL</td><td>LP, proposta de uma página, VSL</td></tr>
+            <tr><th scope="row">M5 Ganho</th><td>Celebrar a decisão</td><td>Vídeo de boas-vindas de quem ensina; foto da turma anterior, com autorização de todos</td><td>Terra</td><td>E-mail, WhatsApp</td></tr>
+            <tr><th scope="row">M6 Ativação</th><td>Fazer a primeira semana dar certo</td><td>O ritual de preparação (luvas, filme plástico, estêncil); Ritual do Traço e Primeira Pele pelo protocolo de 29.4</td><td>Ritual</td><td>Área de membros</td></tr>
+            <tr><th scope="row">M7 Valor</th><td>Mostrar a evolução</td><td>Primeiro dia e formatura no mesmo enquadramento, só para comunidade e membros; Workshop do Estilo e Formatura com Pele</td><td>Ritual; Terra na comunidade</td><td>Comunidade, stories, área de membros</td></tr>
+            <tr><th scope="row">M8 Expansão</th><td>Transformar o aluno em voz</td><td>A formatura, o selo da formação e o aluno com o primeiro cliente, com autorização dos dois; o convite para o The VOID Talks</td><td>Ritual; duotom do próximo produto no convite</td><td>Feed, conteúdo feito pelo aluno com autorização</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">A coluna Tratamento aplica as regras de 29.3: Vazio em topo de funil, Terra em depoimento e comunidade, duotom só em peça de produto e nunca no rosto de aluno. A regra de no máximo 1 imagem colorida em cada 4 vale dentro de cada sequência. O "antes e depois" de M7 nunca vai para anúncio.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6.18, 8.1 a 8.3, 10 e 12.7); Brand DNA da The VOID, set/2026 (seção 9, fotografia); pesquisa de foto, vídeo e redes da GrowAI, out/2026 (luz, lentes, receita de edição, sessão de um dia, o que nunca fotografar, biossegurança no quadro, imagem por etapa); receitas, predefinições e LUTs da The VOID, assets/foto.</p>
+  </div>
+</section>
+
+
+<section class="sec" id="s30" data-parte="VII" data-nome="Vídeo e som" aria-labelledby="s30-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>30</b> · Vídeo e som</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">30</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Imagem</p>
+        <h2 id="s30-t" class="titulo-secao">Vídeo com <em class="off">respiro</em></h2>
+        <p class="sec-apoio">O vídeo da The VOID se monta como cinema e se lê como documento: começa no gancho, respira a cada dois minutos, tem legenda sempre e fecha com a mesma assinatura sonora.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Formato de cinema (24 quadros, abertura em 2,39 por 1) só em VSL, filme de marca e YouTube longo. Reels e TikTok são 9 por 16 cheio e começam no gancho, sem vinheta.</li>
+        <li>Planos de 2 a 4 s nos primeiros 30 s, de 4 a 8 s no miolo da VSL e um respiro a cada 90 a 120 s: som da máquina, silêncio e uma Cartela.</li>
+        <li>Legenda queimada no vertical, arquivo .srt revisado em todo vídeo público e transcrição na página.</li>
+        <li>Som final em -14 LUFS integrados e pico de -1 dBTP; trilha de 18 a 22 dB abaixo da voz; zumbido da máquina de 0,8 s no fecho de todo vídeo de marca.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s30-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.1</p>
+        <h3 class="fala">Formatos e o papel de cada um</h3>
+        <p class="bloco-apoio">O formato decide a montagem. As durações de VSL são da especificação; as demais são ponto de partida para teste.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Formatos de vídeo</caption>
+          <thead><tr><th scope="col">Formato</th><th scope="col">Duração</th><th scope="col">Etapa</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Reels e TikTok</th><td>7 a 45 s</td><td>M1 descoberta, M2 prova</td><td>9 por 16 cheio, sem vinheta; gancho em Título de Filme de até 6 palavras nos 2 s iniciais; legenda queimada</td></tr>
+            <tr><th scope="row">VSL</th><td>Start 12 a 18 min; Master 8 a 12; Pro 6 a 10; aula experimental 60 a 120 s</td><td>M3 e M4, decisão</td><td>Formato de cinema; roteiro de 9 blocos e cinco cartelas (<a href="#s34">seção 34</a>); cortes de 15, 30 e 60 s em 9 por 16</td></tr>
+            <tr><th scope="row">Filme de marca</th><td>Sem duração fixa</td><td>Institucional</td><td>Formato de cinema; fecho com Eco do VOID e Créditos Finais</td></tr>
+            <tr><th scope="row">YouTube longo</th><td>8 a 20 min <span class="status" data-status="proposta">Proposta</span></td><td>Pesquisa, busca e respostas de IA</td><td>A pergunta no título, a resposta nos 30 s iniciais, capítulos e transcrição; modelos em 30.9</td></tr>
+            <tr><th scope="row">Depoimento</th><td>30 s a 3 min <span class="status" data-status="proposta">Proposta</span></td><td>Prova em todas as etapas</td><td>Regime "Terra"; autorização por finalidade; frase-modelo de depoimento na tela</td></tr>
+            <tr><th scope="row">Boas-vindas</th><td>1 a 3 min <span class="status" data-status="proposta">Proposta</span></td><td>M5 e M6</td><td>Rosto de quem ensina, o que acontece na primeira semana e onde pedir ajuda</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s30-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.2</p>
+        <h3 class="fala">Montagem com respiro</h3>
+        <p class="bloco-apoio">"Sempre em movimento, nunca com pressa." Cada risco é um corte; as barras claras são os respiros. Os desenhos são esquemas de ritmo, não um roteiro pronto.</p>
+      </div>
+      <h4 class="intertitulo">O primeiro minuto</h4>
+      <div class="f06-linha" role="img" aria-label="Primeiro minuto da VSL: cortes a cada 2 a 4 segundos até os 30 segundos e a cada 4 a 8 segundos depois."><b style="--x:0%;--w:25%"></b><span style="--x:0%;--tx:0;top:auto;bottom:calc(100% + 6px)">GANCHO, 15 S</span><i style="--x:5%"></i><i style="--x:9.17%"></i><i style="--x:13.33%"></i><i style="--x:18.33%"></i><i style="--x:21.67%"></i><i style="--x:26.67%"></i><i style="--x:32.5%"></i><i style="--x:36.67%"></i><i style="--x:41.67%"></i><i style="--x:45.83%"></i><i style="--x:50%"></i><i style="--x:60%"></i><i style="--x:68.33%"></i><i style="--x:80%"></i><i style="--x:90%"></i><span style="--x:0%;--tx:0">0 s</span><span style="--x:50%">30 s</span><span style="--x:100%;--tx:-100%">60 s</span></div>
+      <h4 class="intertitulo">Uma VSL do Start de 15 minutos</h4>
+      <div class="f06-linha" role="img" aria-label="VSL de 15 minutos em cinco capítulos com um respiro a cada 90 a 120 segundos."><b style="--x:0%;--w:16.67%">01</b><b style="--x:16.67%;--w:23.33%">02</b><b style="--x:40%;--w:22.22%">03</b><b style="--x:62.22%;--w:24.44%">04</b><b style="--x:86.67%;--w:13.33%">05</b><em style="--x:11.67%"></em><em style="--x:23.89%"></em><em style="--x:36.11%"></em><em style="--x:48.33%"></em><em style="--x:60.56%"></em><em style="--x:72.78%"></em><em style="--x:85%"></em><span style="--x:0%;--tx:0">0</span><span style="--x:33.33%">5 min</span><span style="--x:66.67%">10 min</span><span style="--x:100%;--tx:-100%">15 min</span></div>
+      <ol class="grade-3" style="list-style:none;padding:0">
+        <li class="legenda"><b>01 O vazio.</b> Gancho em 15 s, a crença e a história real autorizada.</li>
+        <li class="legenda"><b>02 O método.</b> A virada e o Mapa da Trilha.</li>
+        <li class="legenda"><b>03 Quem já fez.</b> Prova com Crédito na mesma tela.</li>
+        <li class="legenda"><b>04 A turma.</b> Oferta na tela clara e objeções.</li>
+        <li class="legenda"><b>05 Como entrar.</b> Um pedido, dito e escrito.</li>
+        <li class="legenda"><b style="color:var(--estacao-destaque)">Respiro.</b> Som da máquina, silêncio e uma Cartela, a cada 90 a 120 s.</li>
+      </ol>
+    </div>
+
+    <div class="bloco" id="s30-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.3</p>
+        <h3 class="fala">Legenda sempre</h3>
+        <p class="bloco-apoio">Archivo 600 em caixa mista, Tela sobre caixa de Sala a 75%, duas linhas no máximo e uma palavra de destaque em Areia. A frase é do Ritual do Traço.</p>
+      </div>
+      <div class="pecas">
+        <div class="peca" data-formato="1080x1920" data-canal="reels" data-nome="Legenda no vertical">
+          <div class="peca-tela">
+            <div class="f06-foto"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div>
+            <p class="f06-leg" style="left:calc(var(--u) * 120);right:calc(var(--u) * 120);top:calc(var(--u) * 1180);--fs:64">Todo mundo começa<br>com um <b>traço</b>.</p>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Legenda no horizontal">
+          <div class="peca-tela">
+            <div class="f06-foto"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div>
+            <p class="f06-leg" style="left:calc(var(--u) * 480);right:calc(var(--u) * 480);bottom:calc(var(--u) * 110);--fs:50">Todo mundo começa com um <b>traço</b>.<br>Aqui, ele tem nome, coragem e história.</p>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Legenda queimada</caption>
+          <thead><tr><th scope="col">Medida</th><th scope="col">Vertical 1080 por 1920</th><th scope="col">Horizontal 1920 por 1080</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Tamanho</th><td>60 a 68 px (piso 60)</td><td>46 a 54 px</td></tr>
+            <tr><th scope="row">Caracteres por linha</th><td>22 a 28</td><td>32 a 42</td></tr>
+            <tr><th scope="row">Linhas</th><td>Até 2</td><td>Até 2</td></tr>
+            <tr><th scope="row">Posição</th><td>Centro, dentro da área segura</td><td>Base a 110 px da borda</td></tr>
+            <tr><th scope="row">Sincronia</th><td>Frase por frase, sem quicar</td><td>Frase por frase</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pares">
+        <div class="par" data-texto="tela" data-fundo="veu-75" data-razao="7.39" data-nivel="AAA">Aa</div>
+        <div class="par" data-texto="areia" data-fundo="veu-75" data-razao="4.66" data-nivel="AA" data-condicao="Só a palavra de destaque da legenda.">Aa</div>
+      </div>
+      <p>Sobre fundo que já é escuro, a caixa pode dar lugar a uma sombra de texto (<code>0 2px 8px rgb(0 0 0 / .6)</code>), a única sombra de texto do sistema. Todo vídeo público tem também o arquivo .srt revisado e a transcrição na página.</p>
+      <pre class="codigo" data-rotulo=".srt"><code>1
+00:00:01,000 --&gt; 00:00:03,400
+Todo mundo começa
+com um traço.
+
+2
+00:00:03,600 --&gt; 00:00:06,200
+Aqui, ele tem nome,
+coragem e história.</code></pre>
+    </div>
+
+    <div class="bloco" id="s30-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.4</p>
+        <h3 class="fala">Lower third, o nome de quem fala</h3>
+        <p class="bloco-apoio">Fio vertical de 2 px na cor do grafismo, nome em Archivo 600 largura 112, função na voz em off. Fica de 3 a 4 s e não leva selo: a 72 px o selo não existe.</p>
+      </div>
+      <div class="pecas">
+        <div class="peca" data-formato="1920x1080" data-nome="Lower third">
+          <div class="peca-tela">
+            <div class="f06-foto"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Foto real da escola, com autorização</div>
+            <div class="f06-lt" style="left:calc(var(--u) * 120);bottom:calc(var(--u) * 140)">
+              <p style="font:600 calc(var(--u) * 40)/1.1 var(--font-letreiro);font-variation-settings:'wdth' 112;letter-spacing:.08em;text-transform:uppercase;color:var(--tela)">[Nome da aluna]</p>
+              <p class="off" style="font-size:calc(var(--u) * 34);line-height:1.2;color:var(--cal)">Aluna do Start, turma de [ano]</p>
+            </div>
+            <i class="f06-l" style="left:0;width:calc(var(--u) * 120);bottom:calc(var(--u) * 330);height:2px"></i>
+            <span class="f06-r" style="left:calc(var(--u) * 140);bottom:calc(var(--u) * 310)">120 px</span>
+            <i class="f06-l" style="left:calc(var(--u) * 60);width:2px;bottom:0;height:calc(var(--u) * 140)"></i>
+            <span class="f06-r" style="left:calc(var(--u) * 140);bottom:calc(var(--u) * 4)">140 px</span>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <ul class="texto lista" style="flex:1 1 280px">
+          <li>A 120 px da lateral e a 140 px da base, no 1920 por 1080.</li>
+          <li>Nome: Archivo 600, largura 112, caixa alta, 40 px, entreletra +0,08em.</li>
+          <li>Função: voz em off, 34 px, a única linha em itálico do quadro, escrita como "Aluna do Start, turma de [ano]" e nunca "estudante".</li>
+          <li>O fio cresce em 8 quadros; o texto entra por opacidade.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bloco" id="s30-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.5</p>
+        <h3 class="fala">Abertura e fecho</h3>
+        <p class="bloco-apoio">Sem vinheta antes do gancho. Em VSL longa, depois do gancho, 1,2 s de abertura com a Esfera. Todo vídeo de marca fecha igual, em 1,5 a 2 s.</p>
+      </div>
+      <div class="pecas">
+        <div class="peca" data-formato="1920x1080" data-nome="Abertura Esfera, 1,2 s">
+          <div class="peca-tela grao">
+            <div class="f06-abs" style="top:0;height:100%;left:calc(var(--u) * 420);aspect-ratio:1" data-vforms='{"forma":"esfera","diametro":0.5}'></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Fecho de marca, 1,5 a 2 s">
+          <div class="peca-tela grao">
+            <img class="f06-abs" style="right:0;top:calc(var(--u) * 300);width:calc(var(--u) * 1600);height:auto;opacity:.12;filter:blur(calc(var(--u) * 40));transform:scale(1.6) translateX(18%)" src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="1600" height="244">
+            <img class="f06-abs" style="left:calc(var(--u) * 560);width:calc(var(--u) * 800);top:calc(var(--u) * 420);height:auto" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="800" height="122">
+            <p class="credito f06-abs" style="left:0;right:0;top:calc(var(--u) * 640);text-align:center;font-size:calc(var(--u) * 28);color:var(--po)">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b style="color:var(--tela)">PREENCHA O VAZIO</b></p>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Fecho de produto, Master" data-estacao="master">
+          <div class="peca-tela" style="background:var(--campo-master)">
+            <img class="f06-abs" style="left:calc(var(--u) * 360);width:calc(var(--u) * 820);top:calc(var(--u) * 480);height:auto" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="820" height="122">
+            <img class="f06-abs" style="left:calc(var(--u) * 1300);width:calc(var(--u) * 260);top:calc(var(--u) * 410);height:auto" src="assets/brand/svg/selo-simples-master.svg" alt="Selo da formação Master" width="260" height="260">
+          </div>
+        </div>
+      </div>
+      <p>O fecho de marca é Sala, Eco do VOID, logotipo branco, Créditos Finais e a assinatura sonora. Em vídeo de produto, o fecho vai para o Campo de Produto com o logotipo de produto e o selo. As cinco cartelas da VSL (Vazio, Virada, Prova, Oferta e Ação) estão na <a href="#s34">seção 34</a>.</p>
+    </div>
+
+    <div class="bloco" id="s30-6">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.6</p>
+        <h3 class="fala">Som e assinatura sonora</h3>
+        <p class="bloco-apoio">O som direto é protagonista: o zumbido da máquina, a respiração, o papel. A trilha fica embaixo e só entra licenciada para anúncio.</p>
+      </div>
+      <div class="f06-medidor" role="img" aria-label="Esquema de volumes de -40 a 0 dB: trilha de 18 a 22 dB abaixo da voz, voz e mixagem em -14 LUFS integrados, pico verdadeiro máximo em -1 dBTP.">
+        <i style="--x:10%;--w:10%;--c:var(--fumaca)"></i>
+        <i style="--x:65%;--w:3px;--c:var(--estacao-destaque)"></i>
+        <i style="--x:97.5%;--w:2px;--c:var(--erro)"></i>
+        <span style="--x:10%;top:calc(100% + 8px)">Trilha: 18 a 22 dB abaixo da voz</span>
+        <span style="--x:65%;bottom:calc(100% + 8px);--tx:-50%">-14 LUFS integrados</span>
+        <span class="f06-dir-r" style="top:calc(100% + 8px)">Pico máximo -1 dBTP</span>
+      </div>
+      <div class="grade-2">
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true" style="font-size:44px">0,8 s</p>
+          <h4 class="regra-titulo">Assinatura sonora</h4>
+          <dl>
+            <dt>O quê</dt><dd>Zumbido curto da máquina, gravado na escola, 0,8 s, seguido de silêncio. O mesmo som em todo fecho de vídeo de marca.</dd>
+            <dt>Teste</dt><dd>Feche os olhos no fim do vídeo: o último som é a máquina e depois nada.</dd>
+          </dl>
+        </div>
+        <div class="tabela-wrap" tabindex="0">
+          <table>
+            <caption>Volumes de entrega</caption>
+            <thead><tr><th scope="col">Medida</th><th scope="col">Valor</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Volume integrado</th><td>-14 LUFS (unidade de volume percebido)</td></tr>
+              <tr><th scope="row">Pico verdadeiro</th><td>-1 dBTP no máximo</td></tr>
+              <tr><th scope="row">Trilha sob a voz</th><td>18 a 22 dB abaixo</td></tr>
+              <tr><th scope="row">Respiro</th><td>Som da máquina e silêncio, a cada 90 a 120 s</td></tr>
+              <tr><th scope="row">Licença</th><td>Comercial para todo vídeo que vira anúncio</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s30-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.7</p>
+        <h3 class="fala">Captação e cor do vídeo</h3>
+        <p class="bloco-apoio">Para que o vídeo case com a foto, ele passa pelos mesmos tratamentos de 29.3. <span class="status" data-status="proposta">Proposta</span></p>
+      </div>
+      <ul>
+        <li><b>Captação:</b> perfil log da câmera; 4K a 24 ou 25 quadros por segundo em depoimento e VSL; 60 ou 120 quadros para câmera lenta das mãos; obturador no dobro do quadro.</li>
+        <li><b>Correção no DaVinci:</b> conversão do log para Rec.709, balanço e exposição, LUT "Ritual" ou "Terra" a 60% a 80% de intensidade, ajuste fino de pele, vinheta suave e grão por último.</li>
+        <li><b>Depoimento:</b> regime "Terra", com o microfone de lapela visível sem problema; reforça o tom documental.</li>
+        <li><b>Grão no vídeo:</b> troca a cada 2 quadros a 24 por segundo; a Revelação dissolve em 12 quadros através de grão a 30%.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s30-8">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.8</p>
+        <h3 class="fala">Formatos de rede</h3>
+        <p class="bloco-apoio">As medidas das plataformas mudam com frequência: confira no aplicativo na véspera de cada campanha. Os 13 modelos de peça estão na <a href="#s35">seção 35</a>.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Medidas de produção, out/2026</caption>
+          <thead><tr><th scope="col">Formato</th><th scope="col">Produção</th><th scope="col">Proporção</th><th scope="col">Área segura</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Instagram feed e carrossel</th><td>1080 por 1350</td><td>4:5</td><td>Miniatura do perfil em 3:4: título, rosto e botão no miolo central; carrossel com o mesmo formato em todos os cartões</td></tr>
+            <tr><th scope="row">Stories</th><td>1080 por 1920</td><td>9:16</td><td>Conteúdo entre y = 270 e y = 1500</td></tr>
+            <tr><th scope="row">Reels</th><td>1080 por 1920</td><td>9:16</td><td>Entre y = 270 e y = 1500 e 120 u livres à direita para os ícones do aplicativo</td></tr>
+            <tr><th scope="row">Capa de Reels</th><td>1080 por 1920</td><td>9:16</td><td>Título dentro do miolo 3:4, que é o que aparece no perfil</td></tr>
+            <tr><th scope="row">Capas de destaque</th><td>1080 por 1920</td><td>Círculo</td><td>Símbolo do selo em linha ou a Esfera sobre Sala, num círculo central</td></tr>
+            <tr><th scope="row">TikTok</th><td>1080 por 1920</td><td>9:16</td><td>Cerca de 150 px livres em cima, 450 embaixo e 140 à direita</td></tr>
+            <tr><th scope="row">YouTube, miniatura</th><td>1280 por 720</td><td>16:9</td><td>Canto inferior direito livre: ali entra a duração; vídeo do guia em 30.9</td></tr>
+            <tr><th scope="row">YouTube Shorts</th><td>1080 por 1920</td><td>9:16</td><td>Mesmas regras dos Reels</td></tr>
+            <tr><th scope="row">LinkedIn</th><td>1080 por 1350 ou 1200 por 627</td><td>4:5 ou 1,91:1</td><td>Carrossel como documento PDF em 1080 por 1350</td></tr>
+            <tr><th scope="row">Prévia de link</th><td>1200 por 630</td><td>1,91:1</td><td>Sala, título da página, selo ou logotipo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s30-9">
+      <div class="bloco-head">
+        <p class="bloco-n credito">30.9</p>
+        <h3 class="fala">YouTube: um vídeo por pergunta</h3>
+        <p class="bloco-apoio">Cada vídeo do guia responde uma pergunta real que a pessoa digita na busca. O texto em volta do vídeo (título, descrição, capítulos e legenda) é o que buscadores e assistentes de IA leem, e por isso ele segue modelo fixo. <span class="status" data-status="proposta">Proposta</span></p>
+      </div>
+      <div class="pecas" data-estacao="start">
+        <div class="peca" data-formato="1280x720" data-nome="Miniatura, vídeo do guia">
+          <div class="peca-tela grao">
+            <div class="f06-foto" style="left:42%"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg>Mãos ou rosto, foto real com autorização</div>
+            <div class="f06-abs" style="inset:0 0 0 42%;background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / 0) 45%)"></div>
+            <div class="f06-abs janela-luz" style="inset:0 58% 0 0"></div>
+            <p class="f06-mk" style="left:calc(var(--u) * 64);top:calc(var(--u) * 64)"><span data-vforms='{"forma":"marcador-estacao","tamanho":22}'></span>Start · Guia</p>
+            <p class="f06-tf" style="--fs:78;left:calc(var(--u) * 64);top:calc(var(--u) * 190);width:calc(var(--u) * 480)">Preciso saber <b>desenhar?</b></p>
+            <img class="f06-abs" style="left:calc(var(--u) * 64);bottom:calc(var(--u) * 64);width:calc(var(--u) * 120);height:auto" src="assets/brand/svg/selo-simples-start.svg" alt="Selo da formação Start" width="120" height="120">
+            <span class="f06-r" style="right:calc(var(--u) * 24);bottom:calc(var(--u) * 24)">Duração</span>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <ul class="texto lista" style="flex:1 1 280px">
+          <li>Painel Sala com grão no terço esquerdo; foto real de mãos ou rosto, em P&amp;B "Ritual", nos dois terços da direita, com véu na emenda.</li>
+          <li>A pergunta em Título de Filme, até 6 palavras (prefira 3 ou 4), com uma palavra no destaque do produto. O título do vídeo traz a pergunta inteira.</li>
+          <li>Marcador de Estação com o produto que o artigo recebe (<code>chamado</code>, <code>start</code>, <code>master</code> ou <code>pro</code>) e "Guia"; o selo do produto, ou o logotipo no <code>chamado</code>.</li>
+          <li>Sem rótulo de venda, preço, prazo ou botão: o vídeo do guia responde, não vende. Canto inferior direito livre para a duração.</li>
+        </ul>
+      </div>
+      <pre class="codigo" data-rotulo="Título"><code>[Pergunta real, como a pessoa digita]? | The VOID Tattoo Academy
+Preciso saber desenhar para ser tatuador? | The VOID Tattoo Academy</code></pre>
+      <p>A pergunta vem primeiro e cabe em até 70 caracteres para não ser cortada na busca; a marca fica no fim, depois da barra. Sem caixa alta no título, sem emoji, sem "imperdível".</p>
+      <pre class="codigo" data-rotulo="Descrição do vídeo"><code>[Resposta direta em até 150 caracteres, com sujeito explícito: "Na The VOID Tattoo Academy, ..."]
+
+[Resumo em 2 ou 3 frases: o que o vídeo mostra e para quem ele é.]
+
+Capítulos
+00:00 [A pergunta]
+00:40 [Primeira parte da resposta, também em forma de pergunta]
+03:10 [Segunda parte]
+06:30 [O que fazer agora]
+
+Quem responde: [nome], [função na The VOID], tatua há [n] anos, estilo [estilo]
+Guia completo, com a transcrição: {{A_CONFIRMAR}}/guia/[pilar]/[pergunta]/
+
+The VOID Tattoo Academy
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
++55 11 92481-8712</code></pre>
+      <h4 class="intertitulo">Capítulos e legenda</h4>
+      <ul class="lista">
+        <li>Todo vídeo com mais de 3 minutos tem capítulos na descrição: o primeiro em 00:00, pelo menos três, cada um com 10 s ou mais.</li>
+        <li>Cada capítulo tem nome de pergunta ou de passo, nunca "parte 2". Na VSL valem os cinco capítulos da <a href="#s34">seção 34</a>.</li>
+        <li>Legenda em português revisada (arquivo .srt de 30.3), não só a automática: a transcrição é o texto que as máquinas leem.</li>
+        <li>Todo vídeo importante vive também no site, numa página com a transcrição completa e os dados estruturados de vídeo (<a href="#s36">seção 36</a>).</li>
+      </ul>
+      <h4 class="intertitulo">Descrição do canal</h4>
+      <p>Nome do canal: The VOID Tattoo Academy. A descrição usa o texto oficial palavra por palavra, porque a repetição idêntica é o que ensina a IA a descrever a escola sempre do mesmo jeito.</p>
+      <pre class="codigo" data-rotulo="Canal"><code>A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.
+
+[Versão de 50 palavras: {{A_CONFIRMAR}} depois de P 5 e P 15]
+
+The VOID Tattoo Academy
+Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
++55 11 92481-8712
+Site: {{A_CONFIRMAR}}</code></pre>
+      <p class="pendencia" data-p="13">[P 13] Nome, função, anos de prática e estilo de quem responde só entram com o currículo validado e a autorização de uso de nome e imagem. O domínio do site espera [P 18], e a versão de 50 palavras da descrição espera o ano de fundação [P 5] e os dados de oferta [P 15].</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 4.4, 6.1, 6.17, 7.1, 8.4, 12.2, 12.6, 12.7 e 13.1 a 13.3); Brand DNA da The VOID, set/2026 (seções 1 e 3); pesquisa de foto, vídeo e redes da GrowAI, out/2026, com as medidas publicadas pelas plataformas e consultadas em out/2026; pesquisa de SEO, GEO e AEO da GrowAI, out/2026 (seções 2.2, 6.1 e 6.4, regras do canal no YouTube).</p>
+  </div>
+</section>

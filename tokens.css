@@ -1,0 +1,146 @@
+/* =====================================================================
+   THE VOID · tokens do sistema Sala Escura · v1 · 06/10/2026
+   Fonte única: especificação do sistema Sala Escura v1, 06/10/2026 (documento de
+   trabalho, fora deste repositório). Valores iguais a tokens.json.
+   Fontes: carregar pelo link do Google Fonts publicado no manual (brand-book.html,
+   bloco 17.2); este arquivo não declara @font-face. Contraste de todos os pares:
+   brand-book.html, seção 14 (Contraste calculado).
+   ===================================================================== */
+
+:root{
+  /* ---------- neutros: a sala e a luz ---------- */
+  --nanquim:#000000;          /* logotipo preto oficial, base do selo Pro, barras de vídeo. Nunca campo */
+  --sala:#181818;             /* o campo da marca */
+  --bastidor:#212121;         /* cartão e painel sobre Sala, Barra de Turma */
+  --coxia:#2B2B2B;            /* cartão ativo, campo de formulário, disco do selo Pro */
+  --fio:#363636;              /* só linha no escuro */
+  --chumbo:#474747;           /* faixa do selo Pro; texto forte no claro */
+  --penumbra:#5F5F5C;         /* legenda no Modo Leitura */
+  --fumaca:#898989;           /* auxiliar 14 px+ no escuro; borda de campo; linha no claro */
+  --po:#B4B5B0;               /* apoio no escuro (8,61:1) */
+  --cal:#DCDDD8;              /* corpo longo no escuro (13,00:1) */
+  --cinza-100:#ECEDE7;        /* zebra e cabeçalho de tabela no Modo Leitura */
+  --tela:#F8F9F4;             /* a luz: título e botão no escuro; campo do Modo Leitura */
+  --branco:#FFFFFF;           /* só logotipo branco oficial e linhas dos selos */
+  --nevoa:#C9D0D8;            /* acento frio do Pro; informação no escuro */
+  --ardosia:#3F4E4F;          /* miolo do selo Pro; apoio no claro. Nunca texto sobre Sala */
+
+  /* ---------- quentes: terracota ---------- */
+  --terracota:#B25A32;        /* acento quente; selo Master; texto só 24 px+ */
+  --terracota-viva:#C46039;   /* faixa do selo Master; alta luz do duotom Master */
+  --terracota-funda:#8C4529;  /* link e filete no Modo Leitura */
+  --terracota-luz:#DE8C66;    /* a única terracota de texto pequeno no escuro (6,81:1) */
+  --terracota-noite:#4A2416;  /* cartela opcional do Master */
+
+  /* ---------- quentes: terras (Start) e campos de produto ---------- */
+  --areia:#DBC5A3;            /* destaque no escuro; anel de foco */
+  --campo-start:#B5966B;      /* campo do Start (S31): texto Sala, logotipo branco */
+  --caramelo:#AE8A64;         /* grafismo do Start sobre Sala */
+  --ouro-velho:#93693B;       /* base do selo Start; grafismo e barra do Start */
+  --ouro-fundo:#734120;       /* faixa do selo Start; texto do Start no claro */
+  --campo-master:#76432B;     /* campo do Master (S31): texto Tela, logotipo branco */
+  --couro:#6C4327;            /* superfície quente secundária */
+  --cafe:#412919;             /* sombra do duotom Start */
+  --duotom-master-sombra:#21130C;
+
+  /* ---------- estados (sempre com ícone e palavra) ---------- */
+  --sucesso:#9DB79B;  --sucesso-claro:#3E6A4B;
+  --atencao:#DBC5A3;  --atencao-claro:#7A5418;
+  --erro:#EF8A80;     --erro-claro:#A8322C;
+  --info:#C9D0D8;     --info-claro:#3F4E4F;
+
+  /* ---------- véu sobre foto (pior pixel branco) ---------- */
+  --veu:rgb(24 24 24 / .70);        /* padrão: Tela 6,22:1 */
+  --veu-minimo:rgb(24 24 24 / .62); /* sob texto abaixo de 24 px: 4,68:1 */
+  --veu-titulo:rgb(24 24 24 / .55); /* só título 24 px+: 3,73:1 */
+  --veu-legenda:rgb(24 24 24 / .75);/* caixa de legenda de vídeo: 7,39:1 */
+
+  /* ---------- tema por produto (troca com [data-estacao]) ---------- */
+  --estacao-destaque:var(--areia);
+  --estacao-grafismo:rgb(248 249 244 / .32);
+  --estacao-seta:var(--sala);
+  --estacao-campo:var(--sala);
+  --estacao-campo-texto:var(--tela);
+
+  /* ---------- tipografia ---------- */
+  --font-letreiro:"Archivo","Arial Narrow",Arial,sans-serif;
+  --font-off:"Alga","Newsreader",Georgia,serif;
+  --font-texto:"Nunito Sans",Arial,sans-serif;
+  --wdth-filme:112; --wdth-secao:100; --wdth-credito:125; --wdth-estreito:68; --wdth-numeral:75; --wdth-botao:106;
+  --fs-filme:96px; --fs-secao:56px; --fs-sub:32px; --fs-inter:22px; --fs-off:44px;
+  --fs-chamada:22px; --fs-corpo:18px; --fs-apoio:15px; --fs-legenda:13px; --fs-credito:12px;
+  --fs-numeral:80px; --fs-botao:16px;
+  --lh-corpo:1.65; --lh-apoio:1.5;
+  --ls-filme:-.02em; --ls-secao:-.012em; --ls-credito:.18em; --ls-botao:.06em;
+
+  /* ---------- espaço, grade, forma ---------- */
+  --e-1:4px; --e-2:8px; --e-3:12px; --e-4:16px; --e-5:24px; --e-6:32px; --e-7:48px; --e-8:64px; --e-9:96px; --e-10:128px; --e-11:192px;
+  --conteudo:1200px; --coluna-leitura:680px; --margem:64px; --medianiz:24px;
+  --raio:0; --raio-circulo:50%; --raio-pilula:999px;  /* pílula: só a Assinatura do Pro */
+  --foco:2px solid var(--areia); --foco-afastamento:3px;
+  --alvo-toque:44px; --botao-altura:56px;
+
+  /* ---------- movimento ---------- */
+  --curva-cena:cubic-bezier(.2,0,0,1);
+  --curva-foco:cubic-bezier(.65,0,.35,1);
+  --curva-saida:cubic-bezier(.4,0,1,1);
+  --t-corte:0ms; --t-micro:120ms; --t-ui:240ms; --t-entrada:480ms; --t-foco:700ms;
+  --t-revelar:900ms; --t-anel:1200ms; --t-abertura:1200ms; --t-saida:200ms;
+
+  /* ---------- grão ---------- */
+  --grao-opacidade:.06;
+  --grao-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* ---------- produto ---------- */
+[data-estacao="chamado"]{--estacao-destaque:var(--areia);--estacao-grafismo:rgb(248 249 244 / .32);--estacao-seta:var(--sala);--estacao-campo:var(--sala);--estacao-campo-texto:var(--tela)}
+[data-estacao="start"]{--estacao-destaque:var(--areia);--estacao-grafismo:var(--ouro-velho);--estacao-seta:var(--ouro-velho);--estacao-campo:var(--campo-start);--estacao-campo-texto:var(--sala)}
+[data-estacao="master"]{--estacao-destaque:var(--terracota-luz);--estacao-grafismo:var(--terracota);--estacao-seta:var(--terracota);--estacao-campo:var(--campo-master);--estacao-campo-texto:var(--tela)}
+[data-estacao="pro"]{--estacao-destaque:var(--nevoa);--estacao-grafismo:var(--nevoa);--estacao-seta:var(--ardosia);--estacao-campo:var(--sala);--estacao-campo-texto:var(--tela)}
+[data-estacao="voiders"]{--estacao-destaque:var(--areia);--estacao-grafismo:rgb(248 249 244 / .32);--estacao-seta:var(--sala);--estacao-campo:var(--sala);--estacao-campo-texto:var(--tela)}
+
+/* ---------- base ---------- */
+html{color-scheme:dark}
+body{margin:0;background:var(--sala);color:var(--cal);font:400 var(--fs-corpo)/var(--lh-corpo) var(--font-texto);-webkit-font-smoothing:antialiased}
+.modo-leitura{background:var(--tela);color:var(--sala);color-scheme:light;--grao-opacidade:.04;--foco:2px solid var(--sala)}
+.modo-leitura a{color:var(--terracota-funda);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:var(--foco);outline-offset:var(--foco-afastamento)}
+img,svg,video{max-width:100%;height:auto}
+
+/* ---------- utilitários de tipografia ---------- */
+.titulo-filme{font:800 clamp(40px,7vw,var(--fs-filme))/.92 var(--font-letreiro);font-variation-settings:"wdth" var(--wdth-filme);text-transform:uppercase;letter-spacing:var(--ls-filme);color:var(--tela);text-wrap:balance}
+.titulo-secao{font:700 clamp(34px,5vw,var(--fs-secao))/.98 var(--font-letreiro);font-variation-settings:"wdth" var(--wdth-secao);text-transform:uppercase;letter-spacing:var(--ls-secao);color:var(--tela)}
+.fala{font:600 var(--fs-sub)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.005em}
+.credito{font:500 var(--fs-credito)/1.2 var(--font-letreiro);font-variation-settings:"wdth" var(--wdth-credito);text-transform:uppercase;letter-spacing:var(--ls-credito);color:var(--po)}
+.off{font-family:var(--font-off);font-style:italic;font-weight:300;font-variation-settings:"opsz" 72;font-size:1.2em;text-transform:none;letter-spacing:0;color:var(--estacao-destaque,inherit)}
+.numeral-prova{font:700 clamp(56px,7vw,var(--fs-numeral))/.9 var(--font-letreiro);font-variation-settings:"wdth" var(--wdth-numeral);font-variant-numeric:lining-nums tabular-nums;color:var(--tela)}
+@media (max-width:430px){
+  .titulo-filme{font-variation-settings:"wdth" 100}
+  .titulo-filme[data-largura="92"]{font-variation-settings:"wdth" 92}
+  .titulo-filme[data-largura="85"]{font-variation-settings:"wdth" 85}
+  body{font-size:17px}
+}
+
+/* ---------- utilitários de recursos ---------- */
+.grao{position:relative;isolation:isolate}
+.grao::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:var(--grao-opacidade);mix-blend-mode:screen;background-image:var(--grao-img)}
+.modo-leitura .grao::after{mix-blend-mode:multiply}
+.janela-luz{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.veu-esquerda{background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,rgb(24 24 24 / 0) 72%)}
+.veu-base{background:linear-gradient(0deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 38%,rgb(24 24 24 / 0) 70%)}
+.campo-produto{background:var(--estacao-campo);color:var(--estacao-campo-texto)}
+.fio-produto{border-left:2px solid var(--estacao-grafismo);padding-left:var(--e-4)}
+
+/* ---------- botão Letreiro Aceso ---------- */
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:var(--botao-altura);padding:0 28px;border:0;border-radius:var(--raio);background:var(--tela);color:var(--sala);font:700 var(--fs-botao)/1 var(--font-letreiro);font-variation-settings:"wdth" var(--wdth-botao);text-transform:uppercase;letter-spacing:var(--ls-botao);text-decoration:none;cursor:pointer;transition:background var(--t-micro) var(--curva-cena)}
+.botao svg{width:20px;height:20px;fill:none;stroke:var(--estacao-seta);stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
+.botao:hover{background:var(--branco)}
+.botao:active{background:var(--cal)}
+.modo-leitura .botao{background:var(--sala);color:var(--tela)}
+.modo-leitura .botao svg{stroke:var(--tela)}
+@media (max-width:430px){.botao{width:100%;min-height:52px;font-size:17px}}
+
+/* ---------- movimento reduzido ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:120ms!important;scroll-behavior:auto!important}
+}

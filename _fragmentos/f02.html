@@ -1,0 +1,1150 @@
+<!--
+  Fragmento F2 do manual da The VOID: seções s06 a s12 (Parte II, As leis; Parte III, Marca).
+  Fonte normativa: especificação Sala Escura, seções 2, 5, 11.3 e 16. CSS próprio só no bloco abaixo (classes f02-).
+-->
+<style data-fragmento="f02">
+.bloco > .f02-leis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-3);max-width:none;padding:0;list-style:none}
+.f02-lei{display:grid;align-content:start;gap:var(--e-2);padding:var(--e-5) var(--e-4);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f02-lei .f02-n{font:700 44px/.85 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--estacao-destaque)}
+.f02-lei b{font:700 17px/1.1 var(--font-letreiro);text-transform:uppercase;letter-spacing:-.005em}
+.f02-lei span:last-child{font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f02-cena{display:grid;gap:var(--e-4);justify-items:start;width:100%;container-type:inline-size}
+.f02-cena .titulo-secao{max-width:none;font-size:clamp(17px,8.6cqi,40px);overflow-wrap:normal;word-break:normal;hyphens:none}
+.f02-cena .botao{max-width:100%}
+.f02-cena .status{white-space:normal;min-height:28px;height:auto;padding-top:4px;padding-bottom:4px;line-height:1.3}
+.f02-cena .f02-sec{min-height:44px;padding:0 var(--e-4);border:1px solid var(--fumaca);color:var(--tela);font:700 13px/1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.06em;display:inline-flex;align-items:center}
+.f02-apoio{font:400 15px/1.5 var(--font-texto)}
+.f02-mini{display:flex;gap:var(--e-4);align-items:flex-end}
+.f02-tela{width:112px;aspect-ratio:4/5;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .14) 0%,rgb(248 249 244 / 0) 62%),var(--sala);outline:1px solid var(--fio)}
+.f02-tela i{display:block;height:7px;background:var(--tela)}
+.f02-tela i:nth-child(2){width:70%}
+.f02-tela i:last-child{width:46%;height:12px;margin-top:6px}
+.f02-tela.f02-clara{background:var(--tela)}
+.f02-tela.f02-clara i{background:var(--sala)}
+.f02-tela.f02-64{width:64px;filter:blur(3px)}
+.f02-seq{display:flex;flex-wrap:wrap;gap:3px;list-style:none}
+.f02-seq li{display:grid;gap:4px;justify-items:center;font:500 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--po)}
+.f02-seq li::before{content:"";width:17px;height:26px;background:var(--fumaca);outline:1px solid var(--fio)}
+.f02-seq [data-t="cartela"]::before{background:linear-gradient(var(--tela),var(--tela)) 3px 15px/11px 2px no-repeat,var(--sala)}
+.f02-seq [data-t="doc"]::before{background:var(--tela)}
+.f02-seq [data-t="pedido"]::before{background:var(--sala);outline:2px solid var(--areia)}
+.f02-seq .f02-ruim{color:var(--erro)}
+.f02-seq .f02-ruim::before{outline:2px dashed var(--erro)}
+.f02-legenda-seq{font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.f02-ck{display:grid;gap:var(--e-5)}
+.f02-ck-cab{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--e-4)}
+.f02-ck-cab label{display:grid;gap:var(--e-2)}
+.f02-ck input[type=text],.f02-ck select{min-height:44px;width:100%;padding:0 12px;background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 16px/1 var(--font-texto)}
+.f02-ck fieldset{margin:0;padding:var(--e-5);border:0;background:var(--bastidor);min-width:0}
+.f02-ck legend{float:left;width:100%;display:flex;justify-content:space-between;gap:var(--e-3);margin-bottom:var(--e-3);font:700 18px/1.2 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}
+.f02-ck legend span{font:500 12px/1.6 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;color:var(--po)}
+.f02-ck fieldset label{clear:both;display:grid;grid-template-columns:24px minmax(0,1fr);gap:var(--e-3);align-items:start;min-height:44px;padding:10px 0;border-top:1px solid var(--fio);font:400 16px/1.5 var(--font-texto);color:var(--cal);cursor:pointer}
+.f02-ck input[type=checkbox]{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:1px 0 0;border:1px solid var(--fumaca);border-radius:0;background:var(--coxia) center/16px no-repeat;cursor:pointer}
+.f02-ck input[type=checkbox]:checked{background-color:var(--areia);border-color:var(--areia);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23181818' stroke-width='3' stroke-linecap='square'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")}
+.f02-ck label:has(:checked){color:var(--po)}
+.f02-ck-placar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--e-3) var(--e-5);padding:var(--e-5);background:var(--coxia);border-left:2px solid var(--estacao-destaque)}
+.f02-ck-placar output{font:700 40px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela)}
+.f02-ck-placar p{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f02-ck-barra{flex-basis:100%;height:4px;background:var(--fio)}
+.f02-ck-barra span{display:block;height:100%;width:0;background:var(--estacao-destaque);transition:width var(--t-ui) var(--curva-cena)}
+.f02-ck-acoes{display:flex;flex-wrap:wrap;gap:var(--e-3)}
+pre.f02-quebra code{white-space:pre-wrap;overflow-wrap:anywhere}
+.f02-logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f02-logos.f02-tres{grid-template-columns:repeat(3,minmax(0,1fr))}
+.f02-logo{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f02-logo > div{display:flex;align-items:center;justify-content:center;min-height:200px;padding:var(--e-7) var(--e-6);background:var(--f,var(--sala));outline:1px solid var(--fio);outline-offset:-1px}
+.f02-logo img{width:100%;height:auto}
+.f02-logo figcaption{display:grid;gap:4px;padding:var(--e-3) var(--e-4) var(--e-4);font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f02-logo figcaption b{font:700 16px/1.2 var(--font-letreiro);color:var(--tela)}
+.f02-rola{overflow-x:auto;background:var(--bastidor);outline:1px solid var(--fio);scrollbar-width:thin;scrollbar-color:var(--chumbo) transparent}
+.f02-rola svg{display:block;width:100%;min-width:800px;height:auto}
+.f02-trava{display:flex;align-items:flex-start;gap:var(--e-3);grid-column:1/-1;max-width:none;padding:var(--e-4) var(--e-5);border:1px solid var(--erro);font:400 var(--fs-apoio)/1.5 var(--font-texto);color:var(--cal)}.f02-trava .ic{flex:none;margin-top:3px;color:var(--erro)}.modo-leitura .f02-trava{color:var(--sala)}@media (max-width:860px){.f02-dica{display:block!important}}
+.f02-dica{display:none;font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--areia)}
+.f02-regua{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--e-6) var(--e-7);padding:var(--e-6);background:var(--bastidor)}
+.f02-regua figure{display:grid;gap:var(--e-3);justify-items:start}
+.f02-regua figcaption{font:400 13px/1.4 var(--font-texto);color:var(--po)}
+.f02-regua figcaption b{display:block;font:700 22px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela)}
+.f02-fundos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--e-3)}
+.f02-fundo{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f02-fundo > div{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:3/2;padding:var(--e-4);background:var(--f);outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}
+.f02-fundo img{position:relative;width:84%;height:auto}
+.f02-fundo figcaption{display:flex;align-items:flex-start;gap:6px;padding:var(--e-2) var(--e-3) var(--e-3);font:400 13px/1.4 var(--font-texto);color:var(--cal)}
+.f02-fundo figcaption .ic{margin-top:1px;color:var(--sucesso)}
+.f02-fundo[data-exemplo] figcaption .ic{color:var(--erro)}
+.f02-foto{position:absolute;inset:0;display:flex;align-items:flex-end;padding:8px;background:var(--cal);color:var(--sala);font:600 12px/1.25 var(--font-texto)}
+.f02-foto + .f02-veu{position:absolute;inset:0;background:rgb(24 24 24 / .55)}
+.f02-trama{position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgb(248 249 244 / .5) 0 3px,transparent 3px 14px)}
+.f02-erros{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:var(--e-4)}
+.f02-erro{display:flex;flex-direction:column;min-width:0;background:var(--bastidor);border-top:2px solid var(--erro)}
+.f02-erro > div{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;padding:var(--e-5);background:var(--sala);overflow:hidden}
+.f02-erro > div img,.f02-erro > div svg{width:100%;height:auto}
+.f02-erro figcaption{display:grid;gap:4px;padding:var(--e-3) var(--e-4) var(--e-4);font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f02-erro figcaption b{display:flex;align-items:center;gap:6px;font:700 15px/1.2 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}
+.f02-erro figcaption b .ic{color:var(--erro)}
+.f02-digitado{font:800 34px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.01em;color:var(--tela);white-space:nowrap}
+.f02-digitado small{font-size:.42em;font-weight:400;font-variation-settings:"wdth" 100;letter-spacing:0;vertical-align:.3em}
+.f02-corte{position:relative;width:100%;overflow:hidden}
+.f02-falta{display:inline-block;width:.62em;height:.74em;margin:0 .04em;border:2px dashed var(--erro);vertical-align:-.04em}
+.f02-dupla{display:grid;place-items:center;align-content:space-between;width:46%;aspect-ratio:4/5;padding:10px;background:var(--bastidor)}
+.f02-selos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5)}
+.f02-selos figure{display:grid;gap:var(--e-3);justify-items:center;align-content:start;padding:var(--e-6) var(--e-4) var(--e-5);background:var(--bastidor);text-align:center;min-width:0}
+.f02-selos figcaption{font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f02-selos figcaption b{display:block;font:700 16px/1.3 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}
+.f02-orb{width:100%;max-width:200px;aspect-ratio:1}
+.f02-par-selo{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-5);padding:var(--e-6);background:var(--sala);outline:1px solid var(--fio)}
+.f02-campos{display:grid;gap:2px}
+.f02-campo{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--e-5);min-height:220px;padding:var(--e-6) var(--e-7);background:var(--f);overflow:hidden}
+.f02-campo > img{position:relative;width:clamp(200px,44%,420px);height:auto}
+.f02-campo > div{position:relative;width:clamp(96px,22vw,200px);flex:none}
+.f02-agua{position:absolute;left:30%;top:50%;transform:translateY(-50%);font:300 italic 240px/.8 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela);opacity:.08;white-space:nowrap;pointer-events:none}
+.f02-niveis{display:grid;border-top:1px solid var(--fio)}
+.f02-nivel{display:grid;grid-template-columns:150px minmax(0,1.3fr) minmax(0,1fr);gap:var(--e-3) var(--e-6);padding:var(--e-5) 0;border-bottom:1px solid var(--fio)}
+.f02-nivel h4{font:700 22px/1.15 var(--font-letreiro);color:var(--tela);margin-bottom:var(--e-2)}
+.f02-nivel p{font:400 15px/1.55 var(--font-texto);color:var(--cal);max-width:60ch}
+.f02-nivel p + p{margin-top:var(--e-2)}
+.f02-ass{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-3);align-content:center}
+.f02-ass img{height:24px;width:auto}
+.f02-ass .f02-v{height:80px}
+.f02-ass .rotulo{padding:6px 10px;border:1px solid var(--fumaca)}
+.f02-coas{display:grid;gap:var(--e-6);padding:var(--e-7) var(--e-6);background:var(--sala);outline:1px solid var(--fio)}
+.f02-coas svg{display:block;width:100%;height:auto}
+@media (max-width:1180px){.bloco > .f02-leis{grid-template-columns:repeat(2,minmax(0,1fr))}.f02-nivel{grid-template-columns:120px minmax(0,1fr)}.f02-nivel .f02-ass{grid-column:2}}
+@media (max-width:640px){.f02-ck-cab,.f02-logos,.f02-logos.f02-tres,.f02-selos{grid-template-columns:minmax(0,1fr)}.f02-nivel{grid-template-columns:minmax(0,1fr)}.f02-nivel .f02-ass{grid-column:1}.f02-dica{display:block}.f02-campo{padding:var(--e-5);min-height:180px}.f02-agua{font-size:150px;left:12%}.f02-coas{padding:var(--e-5) var(--e-4)}.f02-logo > div{min-height:150px;padding:var(--e-6) var(--e-5)}}
+@media (max-width:430px){.bloco > .f02-leis{grid-template-columns:minmax(0,1fr)}.f02-cena .botao{padding-left:16px;padding-right:16px}.f02-cena .titulo-secao{font-variation-settings:"wdth" 85}.f02-coas{padding:var(--e-5) var(--e-3)}.f02-coas svg{width:100%!important}.f02-par-selo{padding:var(--e-4)}.f02-fundo > div{aspect-ratio:5/2}.f02-lei{grid-template-columns:52px minmax(0,1fr);column-gap:var(--e-3)}.f02-lei .f02-n{grid-row:span 2}.f02-ck fieldset{padding:var(--e-4)}.f02-ck legend{flex-direction:column;gap:2px}.f02-erros{grid-template-columns:minmax(0,1fr)}.f02-regua{padding:var(--e-5);gap:var(--e-5)}}
+@media (prefers-reduced-motion:reduce){.f02-ck-barra span{transition:none}}
+</style>
+<section class="sec" id="s06" data-parte="II" data-nome="As oito leis" aria-labelledby="s06-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>06</b> · As oito leis</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">06</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>As leis</p>
+        <h2 id="s06-t" class="titulo-secao">Oito leis. Vence a <em class="off">menor</em>.</h2>
+        <p class="sec-apoio">Toda peça da marca, de um story a uma página de venda, passa por oito leis com teste de menos de um minuto. Quando duas brigam, vence a de número menor.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>As leis valem para qualquer canal e qualquer produto: são o filtro antes da revisão de gosto.</li>
+        <li>Cada lei tem o que manda, o porquê, o teste e um par de exemplos: assim e assim não.</li>
+        <li>Ordem de precedência: L1 manda em L2, L2 manda em L3, e assim por diante até L8.</li>
+        <li>Lei sem teste aprovado devolve a peça. O checklist da <a href="#s07">seção 07</a> junta os oito testes num só lugar.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s06-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">06.1</p>
+        <h3 class="fala">As oito, em ordem de força</h3>
+        <p class="bloco-apoio">Leia da esquerda para a direita e de cima para baixo: quanto menor o número, maior a força no desempate.</p>
+      </div>
+      <ol class="f02-leis" aria-label="As oito leis em ordem de precedência">
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L1</span><b>Um vazio, uma ação.</b><span>Uma crença, um fato, um pedido.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L2</span><b>Toda prova tem crédito.</b><span>Número sem as cinco partes da régua não sai.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L3</span><b>AA ou não sai.</b><span>Contraste calculado, toque de 44 px, legenda e foco.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L4</span><b>O preto é a sala.</b><span>Campo escuro em 60% ou mais da peça.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L5</span><b>Uma luz por cena.</b><span>Um acento; o ponto mais claro é o botão.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L6</span><b>Título é letreiro.</b><span>Até 6 palavras em caixa alta; voz em off em uma linha.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L7</span><b>Duas formas, nenhuma no meio.</b><span>Retângulo e círculo; sem sombra decorativa.</span></li>
+        <li class="f02-lei"><span class="f02-n" aria-hidden="true">L8</span><b>Montagem com ritmo.</b><span>Cena, cartela e documento alternados; um pedido no fim.</span></li>
+      </ol>
+      <h4 class="intertitulo">Três desempates resolvidos</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Quando duas leis brigam, vence a de número menor</caption>
+          <thead><tr><th scope="col">O conflito</th><th scope="col">Vence</th><th scope="col">Como a peça fica</th></tr></thead>
+          <tbody>
+            <tr><td>A prova declarada por terceiro pede link para a fonte (L2) e a página só pode ter um destino clicável (L1).</td><td>L1</td><td>A fonte entra na régua como texto (nome e data da captura), sem link; o link completo mora na Ficha de Fatos do site.</td></tr>
+            <tr><td>O título de prova precisa do número e do que ele mede (L2) e passa de 6 palavras (L6).</td><td>L2</td><td>O número e o que ele mede ficam; quem encurta é o título. Recorte, data e fonte descem para a régua de prova.</td></tr>
+            <tr><td>O rosto iluminado do hero quer foto limpa (L5) e a linha de apoio por cima dele não passa no contraste (L3).</td><td>L3</td><td>O véu de 62% entra sob a linha de apoio; o rosto passa para o lado oposto ao texto e continua sendo a luz da cena.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota"><span class="status" data-status="proposta">Proposta</span> A regra de desempate está decidida; os três casos são a aplicação dela, escrita pela GrowAI para que ninguém precise reinventar a decisão no meio de uma entrega.</p>
+    </div>
+
+    <div class="bloco" id="s06-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">06.2</p>
+        <h3 class="fala">A mensagem: L1 e L2</h3>
+        <p class="bloco-apoio">O que a peça diz e com que prova. São as duas leis mais fortes porque erram a pessoa antes de errar o desenho.</p>
+      </div>
+      <div class="regras">
+        <div class="regra" data-lei="L1">
+          <p class="regra-n" aria-hidden="true">L1</p>
+          <h4 class="regra-titulo">Um vazio, uma ação.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Toda peça nomeia uma única crença falsa ou um único fato e pede uma única ação. Em fundo de funil, todos os botões levam ao mesmo destino com o mesmo rótulo.</dd>
+            <dt>Por quê</dt><dd>Conteúdo genérico não converte e vários pedidos diluem a decisão (regras R03 e R06 do Brand DNA). Na Sala Escura, cada peça é uma cena com um vazio só.</dd>
+            <dt>Teste</dt><dd>Liste os destinos clicáveis, sem contar privacidade e descadastro: o resultado é 1. Escreva numa linha a crença que a peça ataca.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-cena"><p class="titulo-secao">Talento é consequência de <em class="off">treino</em>.</p><span class="botao">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></div>
+              <figcaption>Uma crença (não tenho talento), um botão, um destino. O rótulo sai da biblioteca da <a href="#s34">seção 34</a>.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-cena"><p class="titulo-secao">Talento é consequência de <em class="off">treino</em>.</p><span class="botao">Saiba mais</span><span class="f02-sec">Fale no WhatsApp</span></div></div>
+              <figcaption>Dois pedidos com destinos diferentes na mesma dobra dividem a decisão. "Saiba mais" está na lista de rótulos proibidos.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="regra" data-lei="L2">
+          <p class="regra-n" aria-hidden="true">L2</p>
+          <h4 class="regra-titulo">Toda prova tem crédito.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Nenhum número, depoimento, avaliação ou dado de mercado aparece sem o Crédito de Prova: o que mede, recorte, data, fonte e marca de origem. Superlativo conta como número sem crédito.</dd>
+            <dt>Por quê</dt><dd>Resultado exige número conservador e verificável, e nenhuma promessa sai sem qualificação (R02 e R07). Exagero quebra a confiança justamente de quem ainda duvida das próprias mãos.</dd>
+            <dt>Teste</dt><dd>Aponte cada número e leia as cinco partes. Faltou uma, a peça volta.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><figure class="prova" data-origem="medido"><data class="prova-n" value="0">[N]</data><figcaption class="prova-o-que">alunos concluíram a formação Start</figcaption><p class="prova-regua"><span class="origem"></span>contagem da secretaria · turmas até [mês/ano] · registro interno</p></figure></div>
+              <figcaption>Modelo da régua completa. O número real só entra com registro arquivado e método de contagem [P 15]; até lá, o bloco não vai ao ar.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><p class="numeral-prova" style="font-size:clamp(44px,5vw,64px)">+1.234 <span style="display:block;font:600 18px/1.3 var(--font-letreiro);color:var(--cal)">alunos formados</span><span class="credito" style="display:block;margin-top:8px;color:var(--penumbra)">dado de exemplo</span></p></div>
+              <figcaption>Número solto (dado de exemplo): sem o que mede, sem recorte, sem data, sem fonte. Número de alunos sem método de contagem publicado não vai ao ar.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s06-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">06.3</p>
+        <h3 class="fala">A leitura: L3 e L4</h3>
+        <p class="bloco-apoio">Quem não consegue ler não decide. E quem não reconhece o escuro não reconhece a marca.</p>
+      </div>
+      <div class="regras">
+        <div class="regra" data-lei="L3">
+          <p class="regra-n" aria-hidden="true">L3</p>
+          <h4 class="regra-titulo">AA ou não sai.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Texto com contraste de 4,5:1 ou mais (3:1 só a partir de 24 px, ou 19 px em peso 700); área de toque de 44 por 44 px; legenda em todo vídeo; estado com ícone e palavra; foco visível. Par de cores fora da tabela de contraste não é usado.</dd>
+            <dt>Por quê</dt><dd>AA é o nível de acessibilidade das diretrizes internacionais de conteúdo web (WCAG): o mínimo para ler no celular, na rua, com o sol na tela. A atmosfera escura só funciona se o texto continua legível; por isso cada par foi calculado (<a href="#s14">seção 14</a>).</dd>
+            <dt>Teste</dt><dd>Confira cada par na tabela de contraste. Com texto sobre foto, amostre o pixel mais claro sob a letra.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-cena"><p class="f02-apoio" style="color:var(--po)">Turma de [mês] · começa em [data] · inscrições até [data]</p><span class="status" data-status="decidido">Pó sobre Sala · 8,61:1</span></div></div>
+              <figcaption>Linha de apoio em Pó sobre Sala: 8,61:1, nível AAA. Serve para crédito, legenda e microcopy do botão.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-cena"><p class="f02-apoio" style="color:var(--penumbra)">Turma de [mês] · começa em [data] · inscrições até [data]</p></div></div>
+              <figcaption>A mesma linha em Penumbra sobre Sala: 2,77:1. Bonita na tela do designer, invisível no celular. Penumbra no escuro é decoração, nunca texto.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="regra" data-lei="L4">
+          <p class="regra-n" aria-hidden="true">L4</p>
+          <h4 class="regra-titulo">O preto é a sala.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Toda peça de marca tem campo escuro (Sala, Nanquim ou foto em preto e branco tratada) em pelo menos 60% da área. A Tela só é campo no Modo Leitura (<a href="#s16">seção 16</a>).</dd>
+            <dt>Por quê</dt><dd>O preto é o lugar onde a imagem ainda vai aparecer: "esse vazio não é uma fraqueza, é um chamado" (manifesto, slide 10). O Brand DNA chama o preto profundo de base onipresente e o off-white de respiro, nunca fundo principal.</dd>
+            <dt>Teste</dt><dd>Reduza a peça a 64 px de largura e desfoque: o que sobra é majoritariamente escuro.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-mini"><div class="f02-tela" aria-hidden="true"><i></i><i></i><i></i></div><div class="f02-tela f02-64" aria-hidden="true"><i></i><i></i><i></i></div></div></div>
+              <figcaption>A peça e a mesma peça reduzida a 64 px e desfocada: sobra a sala, com uma luz no canto e o botão.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-mini"><div class="f02-tela f02-clara" aria-hidden="true"><i></i><i></i><i></i></div><div class="f02-tela f02-clara f02-64" aria-hidden="true"><i></i><i></i><i></i></div></div></div>
+              <figcaption>Campo claro em post, story ou hero: parece outra marca. A Tela como campo só existe no Modo Leitura, e nunca em peça de topo.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s06-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">06.4</p>
+        <h3 class="fala">A luz e o letreiro: L5 e L6</h3>
+        <p class="bloco-apoio">Uma luz dirige o olho; um letreiro curto diz para onde. As duas leis fazem a peça ser lida no tempo de um gancho.</p>
+      </div>
+      <div class="regras">
+        <div class="regra" data-lei="L5">
+          <p class="regra-n" aria-hidden="true">L5</p>
+          <h4 class="regra-titulo">Uma luz por cena.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Um único ponto de ênfase e uma única cor de acento. Em campo escuro, a superfície clara mais forte da dobra é o botão (ou um rosto cujo olhar aponta para ele). Luz de cima ou da esquerda.</dd>
+            <dt>Por quê</dt><dd>Na sala escura, uma única luz entra e revela uma mão que fica firme (<a href="#s05">seção 05</a>). Dois focos dividem o olhar e tiram o botão do centro da cena.</dd>
+            <dt>Teste</dt><dd>Desfoque 12 px a captura da dobra: o primeiro ponto claro é o botão. Conte acentos: até 1 palavra ou 1 título, mais o botão.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco janela-luz"><div class="f02-cena"><p class="titulo-secao">Sua experiência é um <em class="off">diferencial</em>.</p><span class="botao">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></div>
+              <figcaption>Luz do canto superior esquerdo, um acento na palavra que sente e o botão como o ponto mais claro da dobra.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-cena"><p class="titulo-secao"><span style="color:var(--terracota-luz)">Sua</span> experiência é um <em class="off">diferencial</em>.</p><span class="botao" style="background:var(--terracota);color:var(--tela)">Quero conversar sobre minha turma</span></div></div>
+              <figcaption>Dois acentos no título e o botão apagado em terracota: o olho para no título e não chega ao pedido.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="regra" data-lei="L6">
+          <p class="regra-n" aria-hidden="true">L6</p>
+          <h4 class="regra-titulo">Título é letreiro.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Archivo em caixa alta, até 6 palavras por título ou por tela. A voz em off entra em uma linha por bloco, nunca em botão, número, preço, instrução, legenda funcional ou texto legal.</dd>
+            <dt>Por quê</dt><dd>O Brand DNA define o Archivo como voz ativa e a Alga como voz sensível, "uma linha por bloco". Letreiro curto se lê nos dois segundos de um gancho.</dd>
+            <dt>Teste</dt><dd>Conte palavras e linhas em itálico. Exceções nomeadas: o título de artigo em forma de pergunta (<a href="#s36">seção 36</a>) e a composição da tagline (<a href="#s31">seção 31</a>).</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-cena"><p class="titulo-secao">Técnica sem posicionamento é <em class="off">invisível</em>.</p></div></div>
+              <figcaption>Cinco palavras, uma em voz em off, em uma linha. É o hero da persona Bruno (<a href="#s31">seção 31</a>).</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><p style="font:600 22px/1.3 var(--font-letreiro);color:var(--tela)">Venha descobrir como a técnica certa pode <em class="off">mudar a forma como o mercado enxerga o seu trabalho</em></p></div>
+              <figcaption>Dezessete palavras em caixa mista e a voz em off ocupando duas linhas: vira parágrafo, e parágrafo não é letreiro.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s06-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">06.5</p>
+        <h3 class="fala">A forma e o ritmo: L7 e L8</h3>
+        <p class="bloco-apoio">Duas formas e três tipos de tela. É pouco de propósito: a contenção é o que faz a marca parecer cinema e não modelo pronto.</p>
+      </div>
+      <div class="regras">
+        <div class="regra" data-lei="L7">
+          <p class="regra-n" aria-hidden="true">L7</p>
+          <h4 class="regra-titulo">Duas formas, nenhuma no meio.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Só o retângulo (raio 0) e o círculo (raio 50%). A única pílula do sistema é a Assinatura de Produto do Pro. Nenhuma sombra decorativa: a elevação é feita por tom (Sala, Bastidor, Coxia).</dd>
+            <dt>Por quê</dt><dd>Os três círculos da trilha (slide 30) e o corte reto da sala são as duas formas da marca. O botão reto é o letreiro aceso; a pílula fica reservada à assinatura do Pro (slide 37). O teste do botão reto contra a pílula está previsto e pode reabrir a regra [P 9].</dd>
+            <dt>Teste</dt><dd>Inspecione o arredondamento de canto e a sombra: só 0, 50% ou a pílula nomeada; sombra só no contorno de foco.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-cena" style="padding:var(--e-4);background:var(--bastidor)"><span style="display:flex;align-items:center;gap:var(--e-3)"><span style="display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--coxia)"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span><span class="f02-apoio">Professor da formação [nome]</span></span><span class="botao">Agendar minha conversa</span></div></div>
+              <figcaption>Cartão reto em Bastidor, avatar em círculo, botão reto. A elevação vem do tom, não da sombra.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-cena" style="padding:var(--e-4);background:var(--bastidor);border-radius:16px;box-shadow:0 12px 32px rgb(0 0 0 / .6)"><span class="f02-apoio">Professor da formação [nome]</span><span class="botao" style="border-radius:999px">Agendar minha conversa</span></div></div>
+              <figcaption>Canto arredondado, sombra projetada e botão em pílula: três formas que a marca não tem.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="regra" data-lei="L8">
+          <p class="regra-n" aria-hidden="true">L8</p>
+          <h4 class="regra-titulo">Montagem com ritmo.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Toda sequência (carrossel, landing page, VSL, régua de e-mails) alterna cena (imagem), cartela (texto sobre preto) e documento (leitura ou prova). Nunca três do mesmo tipo seguidos; o fim é sempre um pedido.</dd>
+            <dt>Por quê</dt><dd>A marca é "sempre em movimento, nunca com pressa" (Brand DNA). A alternância dá respiro a quem rola e prepara o único pedido do fim.</dd>
+            <dt>Teste</dt><dd>Rotule cada tela ou seção como cena, cartela ou documento; três iguais seguidas reprovam.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><div class="f02-cena"><ol class="f02-seq" aria-label="Ordem da landing page do Start">
+                <li data-t="cena">03</li><li data-t="cartela">04</li><li data-t="cartela">05</li><li data-t="cena">06</li><li data-t="doc">08</li><li data-t="doc">09</li><li data-t="cena">10</li><li data-t="cena">11</li><li data-t="doc">07</li><li data-t="doc">12</li><li data-t="cena">13</li><li data-t="doc">14</li><li data-t="doc">15</li><li data-t="pedido">16</li>
+              </ol><p class="f02-legenda-seq">Cinza: cena · Preto com linha: cartela · Claro: documento · Contorno: o pedido final</p></div></div>
+              <figcaption>A ordem da landing page do Start, componente a componente (<a href="#s34">seção 34</a>): nunca três iguais seguidos, e a última tela é o único pedido.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><div class="f02-cena"><ol class="f02-seq" aria-label="Sequência reprovada">
+                <li data-t="cena">01</li><li data-t="cartela" class="f02-ruim">02</li><li data-t="cartela" class="f02-ruim">03</li><li data-t="cartela" class="f02-ruim">04</li><li data-t="doc">05</li><li data-t="doc">06</li><li data-t="cena">07</li>
+              </ol><p class="f02-legenda-seq">Três cartelas seguidas, marcadas em tracejado</p></div></div>
+              <figcaption>Três cartelas em sequência: o carrossel vira um texto quebrado em telas, e não há pedido no fim.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; Brand DNA da The VOID, set/2026 (seções 1, 3, 8 e 9); Plataforma de Branding, aureadesign, 2025 (slides 10, 30 e 37).</p>
+  </div>
+</section>
+
+<section class="sec" id="s07" data-parte="II" data-nome="Checklist de aprovação" aria-labelledby="s07-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>07</b> · Checklist de aprovação</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">07</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>As leis</p>
+        <h2 id="s07-t" class="titulo-secao">Nada sai sem <em class="off">conferir</em>.</h2>
+        <p class="sec-apoio">Trinta e cinco perguntas de sim ou não, em cinco grupos. Um único "não" devolve a peça; o resumo copiado vai junto com o arquivo para quem aprova.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Quem produz responde antes de mandar para aprovação; quem aprova confere o resumo, não a peça inteira de novo.</li>
+        <li>Marque quando a resposta é sim, ou quando o item não se aplica: a condição vem escrita no começo do item ("Se há preço...").</li>
+        <li>O resumo sai pronto para colar no card, no e-mail ou no grupo, com o que falta listado item a item.</li>
+        <li>Nada fica salvo: a lista recomeça a cada peça, de propósito.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s07-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">07.1</p>
+        <h3 class="fala">Conferir uma peça</h3>
+        <p class="bloco-apoio">Escreva o nome da peça, escolha a etapa da jornada e a persona, e responda os cinco grupos. O placar e o resumo atualizam a cada marcação.</p>
+      </div>
+      <form class="f02-ck" id="s07-form" autocomplete="off" onsubmit="return false">
+        <div class="f02-ck-cab">
+          <label class="rotulo" for="s07-peca">Peça<input type="text" id="s07-peca" name="s07-peca" placeholder="Ex.: Reels de topo, aula experimental, out/26"></label>
+          <label class="rotulo" for="s07-etapa">Etapa<select id="s07-etapa" name="s07-etapa"><option>M1 · Lead</option><option>M2 · Qualificação</option><option>M3 · Oportunidade</option><option>M4 · Proposta</option><option>M5 · Ganho</option><option>M6 · Ativação</option><option>M7 · Valor</option><option>M8 · Expansão</option></select></label>
+          <label class="rotulo" for="s07-persona">Persona<select id="s07-persona" name="s07-persona"><option>Gabriel (Start)</option><option>Camila (Start, transição)</option><option>Bruno (Master e Pro)</option><option>Institucional, sem persona única</option></select></label>
+        </div>
+
+        <fieldset>
+          <legend><b>Marca</b><span>0 de 8</span></legend>
+          <label><input type="checkbox"><span>O logotipo é o arquivo oficial, preto ou branco, nunca redigitado nem recolorido.</span></label>
+          <label><input type="checkbox"><span>O logotipo tem 1 X livre em volta e está acima do mínimo (24 px de altura no horizontal, 80 px no vertical).</span></label>
+          <label><input type="checkbox"><span>O logotipo nítido aparece uma vez só na peça (o Eco do VOID não conta).</span></label>
+          <label><input type="checkbox"><span>Se há selo: tem 96 px ou mais (completo só a partir de 200 px), é de um produto e não está sobre rosto.</span></label>
+          <label><input type="checkbox"><span>A grafia é TATTOO, com dois T, em todo texto, legenda e nome de arquivo.</span></label>
+          <label><input type="checkbox"><span>No máximo três recursos assinatura (o Grão conta como um) e nunca dois dispositivos de cinema na mesma peça estática.</span></label>
+          <label><input type="checkbox"><span>Só retângulo e círculo; nenhuma sombra decorativa (L7).</span></label>
+          <label><input type="checkbox"><span>Se há tagline: o contexto é de peso (home, lançamento de turma, boas-vindas da matrícula, Formatura com Pele, campanha institucional) e ela aparece uma vez.</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend><b>Voz</b><span>0 de 7</span></legend>
+          <label><input type="checkbox"><span>A persona e a crença falsa que a peça ataca cabem numa linha escrita (L1).</span></label>
+          <label><input type="checkbox"><span>Um só pedido: todos os botões levam ao mesmo destino, com o mesmo rótulo da biblioteca de rótulos.</span></label>
+          <label><input type="checkbox"><span>Título em caixa alta com até 6 palavras; a voz em off ocupa uma linha e não está em botão, número, preço ou instrução (L6).</span></label>
+          <label><input type="checkbox"><span>Vocabulário dentro do território: nenhuma palavra da lista "fora" (seção 31).</span></label>
+          <label><input type="checkbox"><span>Zero travessão em título, legenda, assunto de e-mail e texto alternativo.</span></label>
+          <label><input type="checkbox"><span>Copy pública em português, e nenhum concorrente citado, nem por insinuação.</span></label>
+          <label><input type="checkbox"><span>A última linha é uma frase completa, sem oferta, que dá para repetir de memória depois de uma leitura.</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend><b>Prova</b><span>0 de 5</span></legend>
+          <label><input type="checkbox"><span>Todo número, depoimento ou avaliação tem Crédito de Prova completo: o que mede, recorte, data, fonte e marca de origem (L2).</span></label>
+          <label><input type="checkbox"><span>Nenhum superlativo e nenhum claim da lista proibida (seção 33).</span></label>
+          <label><input type="checkbox"><span>Se há prova de resultado: a frase "Resultados individuais variam conforme prática e dedicação." está na peça.</span></label>
+          <label><input type="checkbox"><span>Se há depoimento: é real, autorizado, sem edição que mude o sentido, com a frase-modelo de depoimento.</span></label>
+          <label><input type="checkbox"><span>Nenhum dado marcado "em validação" na versão que vai ao ar.</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend><b>Conformidade</b><span>0 de 10</span></legend>
+          <label><input type="checkbox"><span>Autorização de imagem por escrito de cada pessoa identificável, cobrindo o canal da peça (orgânico, site ou anúncio pago).</span></label>
+          <label><input type="checkbox"><span>Se há procedimento: biossegurança visível (luva, filme plástico, material de uso único, descarte).</span></label>
+          <label><input type="checkbox"><span>Nenhum menor de 18 anos como modelo ou em procedimento; mídia paga com público de 18 anos ou mais.</span></label>
+          <label><input type="checkbox"><span>Nenhuma promessa de renda com número ou prazo, e nada de "garantido" como resultado.</span></label>
+          <label><input type="checkbox"><span>Nenhuma menção a <span data-exemplo="proibido">MEC, diploma, curso técnico, habilitação ou credenciamento</span>.</span></label>
+          <label><input type="checkbox"><span>Se há preço: valor total, parcelas e condições iguais às do checkout.</span></label>
+          <label><input type="checkbox"><span>Se há vagas ou prazo: são reais e saem da Barra de Turma ligada ao calendário.</span></label>
+          <label><input type="checkbox"><span>Se é venda pela internet: o direito de arrependimento de 7 dias está informado.</span></label>
+          <label><input type="checkbox"><span>O texto não presume condição pessoal de quem lê (dívida, renda, saúde).</span></label>
+          <label><input type="checkbox"><span>Anúncio e página de destino fazem a mesma promessa.</span></label>
+        </fieldset>
+
+        <fieldset>
+          <legend><b>Acessibilidade</b><span>0 de 5</span></legend>
+          <label><input type="checkbox"><span>Todo par de cor está na tabela de contraste (seção 14); texto sobre foto conferido no pixel mais claro (L3).</span></label>
+          <label><input type="checkbox"><span>O campo escuro ocupa 60% ou mais (L4) e, na dobra, o ponto mais claro é o botão (L5).</span></label>
+          <label><input type="checkbox"><span>Alvo de toque de 44 por 44 px, foco visível e estados com ícone e palavra.</span></label>
+          <label><input type="checkbox"><span>Se há vídeo: legenda queimada no vertical e arquivo de legenda revisado.</span></label>
+          <label><input type="checkbox"><span>Texto alternativo em frase de até 125 caracteres, sem começar por "imagem de".</span></label>
+        </fieldset>
+
+        <div class="f02-ck-placar" aria-live="polite">
+          <output id="s07-conta" for="s07-form">0 de 35</output>
+          <p id="s07-estado">Volta para ajuste: 35 itens ainda sem "sim".</p>
+          <div class="f02-ck-barra" aria-hidden="true"><span id="s07-barra"></span></div>
+        </div>
+        <pre class="codigo f02-quebra" id="s07-saida" data-rotulo="Resumo para colar" style="max-height:30em"><code>Marque os itens para gerar o resumo.</code></pre>
+        <div class="f02-ck-acoes"><button class="topo-botao" type="button" id="s07-limpar">Recomeçar a lista</button></div>
+      </form>
+      <script>
+      (function(){
+        var f=document.getElementById("s07-form");if(!f)return;
+        var caixas=f.querySelectorAll("input[type=checkbox]"),total=caixas.length;
+        var conta=document.getElementById("s07-conta"),estado=document.getElementById("s07-estado"),barra=document.getElementById("s07-barra"),saida=document.getElementById("s07-saida");
+        function txt(el){return el.textContent.replace(/\s+/g," ").trim();}
+        function z(n){return (n<10?"0":"")+n;}
+        function atualizar(){
+          var ok=0,faltam=[];
+          Array.prototype.forEach.call(f.querySelectorAll("fieldset"),function(fs){
+            var cs=fs.querySelectorAll("input[type=checkbox]"),n=0,grupo=txt(fs.querySelector("legend b"));
+            Array.prototype.forEach.call(cs,function(c){if(c.checked){n++;ok++;}else{faltam.push("- ["+grupo+"] "+txt(c.parentNode));}});
+            fs.querySelector("legend span").textContent=n+" de "+cs.length;
+          });
+          var aprovada=ok===total,resto=total-ok;
+          conta.textContent=ok+" de "+total;
+          estado.textContent=aprovada?"Aprovada: a peça pode seguir para publicação.":"Volta para ajuste: "+resto+(resto===1?" item ainda sem \"sim\".":" itens ainda sem \"sim\".");
+          barra.style.width=(100*ok/total)+"%";
+          var d=new Date(),peca=f.elements["s07-peca"].value.trim()||"(sem nome)";
+          var linhas=["Checklist de aprovação · The VOID","Peça: "+peca,"Etapa: "+f.elements["s07-etapa"].value+" · Persona: "+f.elements["s07-persona"].value,"Resultado: "+(aprovada?"APROVADA":"VOLTA PARA AJUSTE")+" ("+ok+" de "+total+")"];
+          if(faltam.length){linhas.push("","Faltam:");linhas=linhas.concat(faltam);}
+          linhas.push("","Conferido em "+z(d.getDate())+"/"+z(d.getMonth()+1)+"/"+d.getFullYear()+" pelo manual de marca, seção 07.");
+          var c=saida.querySelector("code")||saida;c.textContent=linhas.join("\n");
+        }
+        f.addEventListener("change",atualizar);f.addEventListener("input",atualizar);
+        document.getElementById("s07-limpar").addEventListener("click",function(){f.reset();setTimeout(atualizar,0);});
+        atualizar();
+      })();
+      </script>
+    </div>
+
+    <div class="bloco" id="s07-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">07.2</p>
+        <h3 class="fala">O que trava na hora</h3>
+        <p class="bloco-apoio">Cinco respostas "não" que nenhum prazo justifica. Com elas, a peça não vai nem para a revisão de arte.</p>
+      </div>
+      <div class="grade-2">
+        <p class="f02-trava"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span><b>Promessa de renda com número ou prazo, ou menor de 18 anos em procedimento:</b> a peça não sai, sem exceção. Nenhuma validação libera esses dois casos (<a href="#s33">seção 33</a>).</span></p>
+        <p class="pendencia" data-p="20">[P 20] Menção a <span data-exemplo="proibido">credenciamento de ensino</span>: a peça volta antes de qualquer outra conversa e só sai com validação de advogado.</p>
+        <p class="pendencia" data-p="22">[P 22] Foto sem autorização por escrito para o canal: a peça espera a autorização ou troca a imagem. Banco de imagem e imagem gerada nunca substituem a foto real.</p>
+        <p class="pendencia" data-p="15">[P 15] Número sem registro arquivado: sai da peça. Nunca vira zero e nunca vai com colchete.</p>
+        <p class="pendencia" data-p="8">[P 8] Página de destino sem razão social e CNPJ no rodapé: falta um item obrigatório das regras de prova (<a href="#s33">seção 33</a>), e a página espera o dado.</p>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; Brand DNA da The VOID, set/2026 (seção 8, checklist antes de publicar).</p>
+  </div>
+</section>
+
+<section class="sec" id="s08" data-parte="III" data-nome="O logotipo" aria-labelledby="s08-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>08</b> · O logotipo</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">08</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Marca</p>
+        <h2 id="s08-t" class="titulo-secao">O logotipo é <em class="off">desenho</em>.</h2>
+        <p class="sec-apoio">Três desenhos (horizontal, vertical e de produto), cada um em preto e em branco oficiais, sempre pelo arquivo. O VOID é letreiro ajustado à mão e nenhuma fonte o reproduz.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Use sempre os arquivos da pasta de marca do repositório; nunca digite THE VOID em fonte nenhuma.</li>
+        <li>O horizontal (THE VOID® TATTOO) é a assinatura padrão; o vertical (TATTOO ACADEMY) entra em avatar, capa e peças altas.</li>
+        <li>Os logotipos de produto trocam só o descritor: START, MASTER ou PRO, na mesma letra e na mesma altura do TATTOO.</li>
+        <li>Preto <code>#000000</code> e branco <code>#FFFFFF</code> são as únicas versões oficiais. A cor da marca mora no selo e no campo, nunca no logotipo.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s08-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">08.1</p>
+        <h3 class="fala">Os desenhos oficiais</h3>
+        <p class="bloco-apoio">Todos vieram da pasta "Nova IDV" entregue pela aureadesign, em contornos, sem texto vivo. Cada arquivo tem quatro partes: VOID, THE, ® e o descritor.</p>
+      </div>
+      <div class="f02-logos">
+        <figure class="f02-logo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="The VOID Tattoo Academy, logotipo horizontal branco"></div><figcaption><b>Horizontal, branco</b><code>svg/void-horizontal-branco.svg</code><span>3804 por 579 · a assinatura padrão sobre Sala</span></figcaption></figure>
+        <figure class="f02-logo"><div style="--f:var(--tela)"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt="The VOID Tattoo Academy, logotipo horizontal preto"></div><figcaption><b>Horizontal, preto</b><code>svg/void-horizontal-preto.svg</code><span>3804 por 579 · sobre Tela, Branco, Cinza 100, Areia e Névoa</span></figcaption></figure>
+        <figure class="f02-logo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-vertical-branco.svg" width="1937" height="1057" alt="The VOID Tattoo Academy, logotipo vertical branco" style="max-width:62%"></div><figcaption><b>Vertical, branco</b><code>svg/void-vertical-branco.svg</code><span>1937 por 1057 · THE / VOID® / TATTOO ACADEMY</span></figcaption></figure>
+        <figure class="f02-logo"><div style="--f:var(--tela)"><img src="assets/brand/svg/void-vertical-preto.svg" width="1937" height="1057" alt="The VOID Tattoo Academy, logotipo vertical preto" style="max-width:62%"></div><figcaption><b>Vertical, preto</b><code>svg/void-vertical-preto.svg</code><span>1937 por 1057 · avatar, capa de PDF, peças altas</span></figcaption></figure>
+      </div>
+      <div class="f02-logos f02-tres">
+        <figure class="f02-logo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-start-branco.svg" width="3620" height="579" alt="The VOID Start"></div><figcaption><b>Start</b><code>svg/void-start-*.svg</code><span>3620 por 579</span></figcaption></figure>
+        <figure class="f02-logo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-master-branco.svg" width="3894" height="579" alt="The VOID Master"></div><figcaption><b>Master</b><code>svg/void-master-*.svg</code><span>3894 por 579</span></figcaption></figure>
+        <figure class="f02-logo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-pro-branco.svg" width="3745" height="578" alt="The VOID Pro"></div><figcaption><b>Pro</b><code>svg/void-pro-*.svg</code><span>3745 por 578</span></figcaption></figure>
+      </div>
+      <p class="nota">Cada desenho existe também em PNG de alta resolução, PNG para web e WebP com fundo transparente (pastas <code>png/alta</code>, <code>png/web</code> e <code>webp</code>). Use SVG na web e em vídeo; PNG só onde o programa não aceita vetor.</p>
+    </div>
+
+    <div class="bloco" id="s08-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">08.2</p>
+        <h3 class="fala">A construção, medida no vetor</h3>
+        <p class="bloco-apoio">A unidade é H, a altura das maiúsculas do VOID. Tudo no logotipo se relaciona com ela, e a área de proteção (<a href="#s09">seção 09</a>) sai daqui.</p>
+      </div>
+      <div class="f02-rola" tabindex="0" role="region" aria-label="Diagrama de construção do logotipo horizontal">
+        <svg viewBox="-580 -260 4880 1100" role="img" aria-labelledby="s08-cons-t"><title id="s08-cons-t">Construção do logotipo horizontal: H do VOID, X igual a 0,352 H, haste do I com 0,2 H, registro com 0,156 H, vão do THE ao V com 0,289 H e vão do D ao TATTOO com 0,312 H.</title>
+          <g fill="none" stroke="#DBC5A3" stroke-width="1" stroke-dasharray="6 8" stroke-opacity=".6" vector-effect="non-scaling-stroke"><path d="M-300 12.19H4060M-300 564H4060" vector-effect="non-scaling-stroke"/><path d="M-300 186.82H3800M-300 381.05H3800" vector-effect="non-scaling-stroke"/></g>
+          <image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/>
+          <g fill="none" stroke="#DBC5A3" stroke-width="1.5" vector-effect="non-scaling-stroke">
+            <path d="M3900 12.19V564M3870 12.19H3930M3870 564H3930" vector-effect="non-scaling-stroke"/>
+            <path d="M-160 186.82V381.05M-190 186.82H-130M-190 381.05H-130" vector-effect="non-scaling-stroke"/>
+            <path d="M1834 -70H1945M1834 -100V-40M1945 -100V-40" vector-effect="non-scaling-stroke"/>
+            <path d="M2600 0.93V86.86M2580 0.93H2620M2580 86.86H2620" vector-effect="non-scaling-stroke"/>
+            <path d="M567 690H726M567 660V720M726 660V720" vector-effect="non-scaling-stroke"/>
+            <path d="M2475 690H2647M2475 660V720M2647 660V720" vector-effect="non-scaling-stroke"/>
+          </g>
+          <g fill="#DBC5A3" font-family="Archivo, Arial, sans-serif" font-size="78" font-weight="600">
+            <text x="3960" y="270">H</text><text x="3960" y="368" font-weight="400">551,81</text>
+            <text x="-210" y="270" text-anchor="end">X</text><text x="-210" y="368" text-anchor="end" font-weight="400">0,352 H</text>
+            <text x="1890" y="-135" text-anchor="middle">0,2 H</text>
+            <text x="2650" y="72">0,156 H</text>
+            <text x="646" y="800" text-anchor="middle">0,289 H</text>
+            <text x="2561" y="800" text-anchor="middle">0,312 H</text>
+          </g>
+        </svg>
+      </div>
+      <p class="f02-dica">Deslize o diagrama para ver todas as cotas</p>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Horizontal, 3804 por 579 unidades</caption>
+          <thead><tr><th scope="col">Medida</th><th scope="col">Valor no vetor</th><th scope="col">Relação</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">H, maiúsculas do VOID</th><td>551,81</td><td>1 H</td></tr>
+            <tr><th scope="row">Haste do I e do D</th><td>110,36</td><td>0,2 H</td></tr>
+            <tr><th scope="row">X, maiúsculas do THE e do TATTOO</th><td>194,22</td><td>0,352 H; cerca de um terço da altura do arquivo</td></tr>
+            <tr><th scope="row">Altura do ®</th><td>85,93</td><td>0,156 H, alinhado ao topo do VOID, a 8 unidades do D</td></tr>
+            <tr><th scope="row">Vão do THE ao V</th><td>159,37</td><td>0,289 H</td></tr>
+            <tr><th scope="row">Vão do D ao TATTOO</th><td>172,10</td><td>0,312 H (o ® mora nesse vão)</td></tr>
+            <tr><th scope="row">Largura do VOID</th><td>1748,49</td><td>3,17 H</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Vertical e logotipos de produto</caption>
+          <thead><tr><th scope="col">Medida</th><th scope="col">Valor no vetor</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Vertical: THE e VOID</th><td>X = 184,14; H = 523,17</td><td>Mesma relação de 0,352 H do horizontal</td></tr>
+            <tr><th scope="row">Vertical: TATTOO ACADEMY</th><td>103,5</td><td>0,198 H</td></tr>
+            <tr><th scope="row">Vertical: respiros entre linhas</th><td>107,5 e 109,0</td><td>Cerca de 0,2 H, a largura da haste do I</td></tr>
+            <tr><th scope="row">Produto: START, MASTER, PRO</th><td>194,22</td><td>Mesma letra e mesma altura do TATTOO</td></tr>
+            <tr><th scope="row">Produto: vão do D ao descritor</th><td>191,1</td><td>Um pouco maior que no TATTOO (172,1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s08-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">08.3</p>
+        <h3 class="fala">Por que nunca redigitar</h3>
+        <p class="bloco-apoio">O THE e o TATTOO são Archivo de peso 400. O VOID não é: é um letreiro desenhado a partir do Archivo e ajustado letra a letra.</p>
+      </div>
+      <p>O VOID tem peso perto de 650 e largura perto de 97,5, com o V mais largo, o D mais estreito e as letras bem mais juntas que em qualquer fonte: o V e o O chegam a se sobrepor 18,5 unidades, o O e o I ficam a 42,7 e o I e o D a 60,2. O Archivo mais pesado e mais largo que existe coincide com só 48% do desenho. Digitado, o logotipo vira outra marca, mesmo que pareça igual de longe.</p>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="The VOID Tattoo Academy, logotipo oficial" style="width:88%"></div>
+          <figcaption>O arquivo oficial, com o texto alternativo "The VOID Tattoo Academy" (nos de produto, "The VOID Start", "The VOID Master", "The VOID Pro").</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><span class="f02-digitado" role="img" aria-label="Logotipo redigitado em fonte, exemplo proibido">THE VOID<small>®</small> <small>TATTOO</small></span></div>
+          <figcaption>O mesmo nome digitado em Archivo: espaçamento aberto, pesos errados, ® solto. É o erro mais comum e o mais caro.</figcaption>
+        </figure>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt="The VOID Tattoo Academy"&gt;
+&lt;img src="assets/brand/svg/void-start-branco.svg" width="150" height="24" alt="The VOID Start"&gt;
+&lt;img src="assets/brand/svg/void-master-branco.svg" width="161" height="24" alt="The VOID Master"&gt;
+&lt;img src="assets/brand/svg/void-pro-branco.svg" width="156" height="24" alt="The VOID Pro"&gt;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p class="nota">Medidas acima no tamanho mínimo de tela (24 px de altura). Em peça de redes, o horizontal branco entra com 300 u de largura no rodapé.</p>
+    </div>
+
+    <div class="bloco" id="s08-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">08.4</p>
+        <h3 class="fala">Preto e branco, e mais nada</h3>
+        <p class="bloco-apoio">O cinza entra na marca só como Eco do VOID, o logotipo ampliado e desfocado atrás da cena (<a href="#s21">seção 21</a>). Nunca como cor de assinatura.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Versões de cor do logotipo</caption>
+          <thead><tr><th scope="col">Versão</th><th scope="col">Uso</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Branco <code>#FFFFFF</code></th><td>Oficial. Sobre Sala, Nanquim, Bastidor, Coxia, campos de produto e foto com véu</td><td><span class="status" data-status="decidido">Decidido</span></td></tr>
+            <tr><th scope="row">Preto <code>#000000</code></th><td>Oficial. Sobre Tela, Branco, Cinza 100, Areia e Névoa</td><td><span class="status" data-status="decidido">Decidido</span></td></tr>
+            <tr><th scope="row">Grafite <code>#181818</code> e offwhite <code>#F8F9F4</code></th><td>Só uso interno e técnico (favicon, avatar, placa de e-mail): trocam apenas o preenchimento</td><td><span class="status" data-status="pendente">Pendente</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pendencia" data-p="11">[P 11] Uso das versões grafite e offwhite no lugar das oficiais, com a The VOID e a aureadesign. Até a validação, peça pública sai só em preto ou branco.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; medidas do arquivo marca.json do repositório; vetores da pasta "Nova IDV", aureadesign, 2025.</p>
+  </div>
+</section>
+
+<section class="sec" id="s09" data-parte="III" data-nome="Área de proteção, mínimos e fundos" aria-labelledby="s09-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>09</b> · Área de proteção, mínimos e fundos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">09</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Marca</p>
+        <h2 id="s09-t" class="titulo-secao">Respiro, mínimo e <em class="off">fundo</em>.</h2>
+        <p class="sec-apoio">Quanto espaço o logotipo e o selo pedem, de que tamanho para baixo eles deixam de existir e sobre quais fundos podem entrar.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Área de proteção: 1 X livre em todos os lados do logotipo (X é a altura das maiúsculas do THE); 12,5% do diâmetro em volta do selo.</li>
+        <li>Mínimos de tela: 24 px de altura no horizontal e nos de produto, 80 px no vertical, 200 px no selo completo e 96 px no selo simples.</li>
+        <li>Abaixo de 96 px não existe selo: entra o Rótulo de Produto em texto. Abaixo do mínimo do logotipo, o favicon.</li>
+        <li>Branco oficial sobre o escuro e os campos de produto; preto oficial sobre os claros; nunca sobre Terracota, Ouro Velho ou Caramelo.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s09-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">09.1</p>
+        <h3 class="fala">Área de proteção</h3>
+        <p class="bloco-apoio">Medida a partir do desenho, não da caixa do arquivo. No horizontal, X vale 194 unidades, cerca de um terço da altura do arquivo. Diagramas gerados pelo motor de formas com as medidas do marca.json.</p>
+      </div>
+      <div class="palco" data-vforms='{"forma":"area-protecao","versao":"horizontal"}'></div>
+      <div class="grade-2">
+        <div class="palco" data-vforms='{"forma":"area-protecao","versao":"vertical"}'></div>
+        <div class="palco" data-vforms='{"forma":"area-protecao","versao":"selo","produto":"master"}'></div>
+      </div>
+      <p><span class="status" data-status="proposta">Proposta</span> A apresentação de rebranding não define área de proteção nem tamanhos mínimos. Os valores desta seção foram derivados dos vetores pela GrowAI e aguardam validação.</p>
+      <p class="pendencia" data-p="11">[P 11] Área de proteção e tamanhos mínimos, com a The VOID e a aureadesign.</p>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;div data-vforms='{"forma":"area-protecao","versao":"horizontal"}'&gt;&lt;/div&gt;
+&lt;div data-vforms='{"forma":"area-protecao","versao":"selo","produto":"pro"}'&gt;&lt;/div&gt;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+    </div>
+
+    <div class="bloco" id="s09-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">09.2</p>
+        <h3 class="fala">Tamanhos mínimos, em tamanho real</h3>
+        <p class="bloco-apoio">Os desenhos abaixo estão exatamente no mínimo de tela. Abaixo disso, a haste do THE passa de 1 px e o texto dos selos deixa de ser lido.</p>
+      </div>
+      <div class="f02-regua">
+        <figure><img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt="Logotipo horizontal em 24 px de altura"><figcaption><b>24 px</b>horizontal e de produto</figcaption></figure>
+        <figure><img src="assets/brand/svg/void-vertical-branco.svg" width="147" height="80" alt="Logotipo vertical em 80 px de altura"><figcaption><b>80 px</b>vertical</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"start","tamanho":96}'></div><figcaption><b>96 px</b>selo simples</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"start","tamanho":200}'></div><figcaption><b>200 px</b>selo completo</figcaption></figure>
+        <figure><img src="assets/brand/favicon/favicon.svg" width="32" height="32" alt="Favicon, o O do VOID"><figcaption><b>Favicon</b>abaixo do mínimo do logotipo</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"master","tamanho":72}'></div><figcaption><b>Rótulo</b>pedido de selo com 72 px: o motor devolve o texto</figcaption></figure>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Mínimos de tela e de impressão</caption>
+          <thead><tr><th scope="col">Peça</th><th scope="col">Tela</th><th scope="col">Impresso</th><th scope="col">Critério</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Horizontal e de produto</th><td>24 px de altura (cerca de 158 px de largura)</td><td>6 mm de altura</td><td>Haste do THE com 1 px e maiúscula do THE com 8 px; no impresso, 2 mm</td></tr>
+            <tr><th scope="row">Vertical</th><td>80 px de altura (cerca de 147 px de largura)</td><td>16 mm de altura</td><td>TATTOO ACADEMY com maiúscula de 7,8 px; no impresso, 1,5 mm</td></tr>
+            <tr><th scope="row">Selo completo</th><td>200 px de diâmetro</td><td>40 mm</td><td>TATTOO e ACADEMY têm cerca de 2,9% do diâmetro; abaixo disso, selo simples</td></tr>
+            <tr><th scope="row">Selo simples</th><td>96 px</td><td>20 mm</td><td>Texto circular com cerca de 6,5% do diâmetro; abaixo disso, não existe selo</td></tr>
+            <tr><th scope="row">Abaixo dos mínimos</th><td>Favicon (O do VOID) ou Rótulo de Produto</td><td>Rótulo de Produto</td><td>Barra fixa e lower third nunca levam selo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s09-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">09.3</p>
+        <h3 class="fala">Fundos permitidos</h3>
+        <p class="bloco-apoio">Logotipo e selo são isentos do critério de contraste de texto (as diretrizes de acessibilidade excluem logotipos), por isso o branco oficial fica sobre o Campo Start, como no slide 31. Mesmo assim, há fundos onde nenhum dos dois oficiais fica firme.</p>
+      </div>
+      <h4 class="intertitulo">Branco oficial</h4>
+      <div class="f02-fundos">
+        <figure class="f02-fundo"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Sala</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--nanquim)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Nanquim</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--bastidor)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Bastidor</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--coxia)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Coxia</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--campo-start)"><img src="assets/brand/svg/void-start-branco.svg" width="3620" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Campo Start</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--campo-master)"><img src="assets/brand/svg/void-master-branco.svg" width="3894" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Campo Master</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--terracota-noite)"><img src="assets/brand/svg/void-master-branco.svg" width="3894" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Terracota Noite</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--cafe)"><img src="assets/brand/svg/void-start-branco.svg" width="3620" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Café</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--sala)"><span class="f02-foto">Foto real da escola, com autorização</span><span class="f02-veu"></span><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · foto com véu de 55% ou mais</figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Preto oficial</h4>
+      <div class="f02-fundos">
+        <figure class="f02-fundo"><div style="--f:var(--tela)"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Tela</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--branco)"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Branco</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--cinza-100)"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Cinza 100</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--areia)"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Areia</figcaption></figure>
+        <figure class="f02-fundo"><div style="--f:var(--nevoa)"><img src="assets/brand/svg/void-pro-preto.svg" width="3745" height="578" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Pode · Névoa</figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Nunca</h4>
+      <div class="f02-fundos">
+        <figure class="f02-fundo" data-exemplo="proibido"><div style="--f:var(--terracota);flex-direction:column;gap:10px"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:80%"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt="" style="width:80%"></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca · Terracota: os dois oficiais ficam ambíguos</figcaption></figure>
+        <figure class="f02-fundo" data-exemplo="proibido"><div style="--f:var(--ouro-velho);flex-direction:column;gap:10px"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:80%"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt="" style="width:80%"></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca · Ouro Velho</figcaption></figure>
+        <figure class="f02-fundo" data-exemplo="proibido"><div style="--f:var(--caramelo);flex-direction:column;gap:10px"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:80%"><img src="assets/brand/svg/void-horizontal-preto.svg" width="3804" height="579" alt="" style="width:80%"></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca · Caramelo</figcaption></figure>
+        <figure class="f02-fundo" data-exemplo="proibido"><div style="--f:var(--sala)"><span class="f02-foto">Foto real da escola, com autorização</span><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca · foto sem véu</figcaption></figure>
+        <figure class="f02-fundo" data-exemplo="proibido"><div style="--f:var(--sala)"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""><span class="f02-trama"></span></div><figcaption><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca · textura que atravessa o desenho</figcaption></figure>
+      </div>
+      <p class="nota">Sobre foto, o véu de 55% é calculado no pior pixel possível, o branco puro (<a href="#s22">seção 22</a>). O Grão do Vazio nunca vai por cima do logotipo.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; medidas do arquivo marca.json do repositório; Plataforma de Branding, aureadesign, 2025 (slide 31).</p>
+  </div>
+</section>
+
+<section class="sec" id="s10" data-parte="III" data-nome="Usos proibidos" aria-labelledby="s10-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>10</b> · Usos proibidos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">10</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Marca</p>
+        <h2 id="s10-t" class="titulo-secao">Doze jeitos de <em class="off">errar</em>.</h2>
+        <p class="sec-apoio">Os erros mais comuns em peças e apresentações, desenhados para serem reconhecidos de longe. Qualquer um deles devolve a peça.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>O logotipo não muda: nem fonte, nem cor, nem efeito, nem proporção, nem ângulo.</li>
+        <li>O descritor só existe nos arquivos oficiais; qualquer outro nome entra pela co-assinatura (<a href="#s12">seção 12</a>).</li>
+        <li>A grafia é sempre TATTOO, com dois T, inclusive em legenda, nome de arquivo e texto alternativo.</li>
+        <li>Um logotipo nítido por peça. O Eco do VOID, desfocado ao fundo, não conta.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s10-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">10.1</p>
+        <h3 class="fala">A galeria dos erros</h3>
+        <p class="bloco-apoio">Cada quadro é o erro aplicado ao arquivo oficial, nunca uma imitação dele. Os exemplos ficam marcados como proibidos e não podem ser copiados para peça alguma.</p>
+      </div>
+      <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
+        <filter id="s10-recolor" color-interpolation-filters="sRGB"><feFlood flood-color="#B25A32"/><feComposite in2="SourceAlpha" operator="in"/></filter>
+        <filter id="s10-contorno" color-interpolation-filters="sRGB" x="-5%" y="-20%" width="110%" height="140%"><feMorphology in="SourceAlpha" operator="dilate" radius="22" result="d"/><feComposite in="d" in2="SourceAlpha" operator="out" result="o"/><feFlood flood-color="#F8F9F4"/><feComposite in2="o" operator="in"/></filter>
+        <linearGradient id="s10-gradiente" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#DBC5A3"/><stop offset="1" stop-color="#B25A32"/></linearGradient>
+        <mask id="s10-mascara" maskUnits="userSpaceOnUse" x="0" y="0" width="3804" height="579"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/></mask>
+      </defs></svg>
+      <div class="f02-erros" data-exemplo="proibido">
+        <figure class="f02-erro"><div><span class="f02-digitado" style="font-size:22px">THE VOID<small>®</small> <small>TATTOO</small></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>01 · Redigitar</b>THE VOID digitado em qualquer fonte, inclusive no Archivo.</figcaption></figure>
+        <figure class="f02-erro"><div><svg viewBox="0 0 3804 579" aria-hidden="true" focusable="false"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" filter="url(#s10-recolor)"/></svg></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>02 · Recolorir</b>Terracota, ocre, cinza ou qualquer cor. A cor mora no selo e no campo (decisão na <a href="#s36-4">seção 36.4</a>).</figcaption></figure>
+        <figure class="f02-erro"><div><svg viewBox="0 0 3804 579" aria-hidden="true" focusable="false"><rect width="3804" height="579" fill="url(#s10-gradiente)" mask="url(#s10-mascara)"/></svg></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>03 · Gradiente</b>Nenhum gradiente de cor existe no sistema, muito menos dentro do logotipo.</figcaption></figure>
+        <figure class="f02-erro"><div><svg viewBox="-40 -40 3884 659" aria-hidden="true" focusable="false"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" filter="url(#s10-contorno)"/></svg></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>04 · Contorno</b>O logotipo vazado, só com o contorno, está vetado.</figcaption></figure>
+        <figure class="f02-erro"><div><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:86%;filter:drop-shadow(0 0 10px rgb(248 249 244 / .85)) drop-shadow(0 10px 6px rgb(0 0 0 / .9))"></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>05 · Sombra e brilho</b>Nem sombra, nem brilho, nem luz neon em volta.</figcaption></figure>
+        <figure class="f02-erro"><div><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:58%;transform:scale(1.6,.55)"></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>06 · Distorcer</b>Esticar ou achatar. A largura nunca muda fora da proporção do arquivo.</figcaption></figure>
+        <figure class="f02-erro"><div><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:82%;transform:rotate(-12deg)"></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>07 · Girar</b>O logotipo fica sempre na horizontal, inclusive em peça vertical.</figcaption></figure>
+        <figure class="f02-erro"><div><span style="display:flex;align-items:center;gap:6px;width:100%"><span class="f02-corte" style="width:72%;aspect-ratio:2610/579"><img src="assets/brand/svg/void-start-branco.svg" width="3620" height="579" alt="" style="width:138.7%;max-width:none"></span><span style="font:500 clamp(12px,1.25vw,16px)/1 var(--font-letreiro);color:var(--tela)">TALKS</span></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>08 · Descritor digitado</b>Trocar o descritor por texto montado à mão. Outros nomes entram pela co-assinatura.</figcaption></figure>
+        <figure class="f02-erro"><div><span style="position:relative;display:block;width:100%"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt=""><img src="assets/brand/svg/selo-simples-master.svg" width="770" height="770" alt="" style="position:absolute;left:32.4%;top:-2%;width:15%"></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>09 · Selo no lugar do O</b>Montagem feita à mão sobre o arquivo. Só existe com arquivo composto e aprovado [P 10].</figcaption></figure>
+        <figure class="f02-erro"><div><p class="f02-digitado" style="font-size:28px">TAT<span class="f02-falta"></span>OO <small>ACADEMY</small></p></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>10 · Grafia sem o segundo T</b>Sempre TATTOO, com dois T, em qualquer texto (decisão na <a href="#s36-4">seção 36.4</a>).</figcaption></figure>
+        <figure class="f02-erro"><div><span class="f02-corte" style="aspect-ratio:1885/579"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:201.8%;max-width:none;margin-left:-33.95%"></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>11 · Cortar o ®</b>No Corte do Logo, a borda passa entre letras inteiras; o ® nunca é cortado.</figcaption></figure>
+        <figure class="f02-erro"><div><span class="f02-dupla"><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:84%"><span style="display:block;width:70%;height:6px;background:var(--fio)"></span><img src="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579" alt="" style="width:84%"></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>12 · Logotipo duas vezes</b>Dois logotipos nítidos na mesma peça. Um assina; o Eco, desfocado, pode acompanhar.</figcaption></figure>
+      </div>
+      <p class="nota">Também fica fora: o logotipo antigo, serifado, inclusive em pôster ao fundo de uma foto; e o logotipo em cinza como assinatura. O cinza só entra como Eco do VOID (<a href="#s21">seção 21</a>).</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; Plataforma de Branding, aureadesign, 2025 (slides 13, 33, 34, 38 e 41).</p>
+  </div>
+</section>
+
+<section class="sec" id="s11" data-parte="III" data-nome="Os selos" aria-labelledby="s11-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>11</b> · Os selos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">11</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Marca</p>
+        <h2 id="s11-t" class="titulo-secao">O selo é <em class="off">conquista</em>.</h2>
+        <p class="sec-apoio">Cada formação tem um selo completo e um simples, na cor do produto. O selo é onde a cor da marca mora: o logotipo continua preto ou branco.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Selo completo a partir de 200 px; selo simples de 96 a 199 px; abaixo de 96 px, Rótulo de Produto em texto.</li>
+        <li>Posição: canto superior direito da peça, ou à direita do logotipo de produto, a 1 X de distância.</li>
+        <li>O selo simples do Pro sobre Sala ganha um disco Coxia; o completo não precisa.</li>
+        <li>Selo só existe em peça de produto: nunca em peça institucional, sobre rosto ou como "selo de garantia".</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s11-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">11.1</p>
+        <h3 class="fala">Completo e simples</h3>
+        <p class="bloco-apoio">Os seis arquivos oficiais, renderizados pelo motor de formas com os mínimos aplicados. As cores são as dos vetores, sem ajuste.</p>
+      </div>
+      <h4 class="intertitulo">Selo completo, 200 px</h4>
+      <div class="f02-selos">
+        <figure><div data-vforms='{"forma":"selo","produto":"start","tamanho":200}'></div><figcaption><b>Start</b>Base Ouro Velho <code>#93693B</code>, faixa de cima Ouro Fundo <code>#734120</code></figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"master","tamanho":200}'></div><figcaption><b>Master</b>Base Terracota <code>#B25A32</code>, faixas Terracota Funda e Terracota Viva</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"pro","tamanho":200}'></div><figcaption><b>Pro</b>Base Nanquim, faixas Sala e Chumbo, miolo Ardósia <code>#3F4E4F</code></figcaption></figure>
+      </div>
+      <p>O completo tem anel branco duplo, THE VOID em arco na faixa de cima (com TATTOO menor), o nome do produto na faixa de baixo (com ACADEMY menor), duas estrelas de quatro pontas no horizonte e o símbolo no miolo. O simples é um círculo de cor única com VOID TATTOO ACADEMY em volta, o nome do produto entre dois arcos e o símbolo no centro.</p>
+      <h4 class="intertitulo">Selo simples, 120 px</h4>
+      <div class="f02-selos">
+        <figure><div data-vforms='{"forma":"selo","produto":"start","tamanho":120}'></div><figcaption><b>Start</b>De 96 a 199 px</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"master","tamanho":120}'></div><figcaption><b>Master</b>De 96 a 199 px</figcaption></figure>
+        <figure><div data-vforms='{"forma":"selo","produto":"pro","tamanho":120}'></div><figcaption><b>Pro</b>Com o disco Coxia sobre Sala</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s11-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">11.2</p>
+        <h3 class="fala">Os símbolos do miolo</h3>
+        <p class="bloco-apoio">Duas faixas elípticas em cada selo, medidas no vetor. Levadas para a composição, viram as Órbitas da Trilha (<a href="#s23">seção 23</a>).</p>
+      </div>
+      <div class="f02-selos">
+        <figure><div class="f02-orb" data-vforms='{"forma":"orbita","estacao":"start","cor":"grafismo"}'></div><figcaption><b>Start · horizontal</b>Duas faixas horizontais empilhadas; o conjunto tem cerca de 1,13 de largura para 1 de altura. Leitura: a base.</figcaption></figure>
+        <figure><div class="f02-orb" data-vforms='{"forma":"orbita","estacao":"master","cor":"grafismo"}'></div><figcaption><b>Master · vertical</b>Duas faixas verticais lado a lado, cerca de 0,89 para 1. Leitura: o crescimento.</figcaption></figure>
+        <figure><div class="f02-orb" data-vforms='{"forma":"orbita","estacao":"pro","cor":"grafismo"}'></div><figcaption><b>Pro · entrelaçado</b>Duas faixas com o eixo maior a 32° da vertical, uma por cima e outra por baixo. Leitura: o domínio.</figcaption></figure>
+      </div>
+      <p><span class="status" data-status="proposta">Proposta</span> A leitura base, crescimento e domínio é interpretação da GrowAI; a agência não declarou um significado para os símbolos. Pode ser usada em texto interno e em apresentação, nunca como fato da marca.</p>
+    </div>
+
+    <div class="bloco" id="s11-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">11.3</p>
+        <h3 class="fala">Posição e mínimos</h3>
+        <p class="bloco-apoio">Duas posições possíveis, e uma área de proteção de 12,5% do diâmetro em volta do círculo.</p>
+      </div>
+      <div class="grade-2">
+        <div>
+          <h4 class="intertitulo">À direita do logotipo de produto</h4>
+          <div class="f02-par-selo"><span style="display:flex;flex-wrap:wrap;align-items:center;row-gap:12px"><img src="assets/brand/svg/void-master-branco.svg" width="215" height="32" alt="The VOID Master" style="height:32px;width:auto"><span aria-hidden="true" style="width:11px;height:32px;border:1px dashed var(--areia)"></span><span data-vforms='{"forma":"selo","produto":"master","tamanho":96}'></span></span></div>
+          <p class="nota" style="margin-top:var(--e-3)">Logotipo de produto, 1 X de distância (tracejado) e o selo simples. É a assinatura do Start e do Master; o Pro assina com a pílula da <a href="#s25">seção 25</a>.</p>
+        </div>
+        <div>
+          <h4 class="intertitulo">No canto superior direito</h4>
+          <div class="pecas"><div class="peca" data-formato="1080x1350" data-nome="Campo de Produto, Master" data-estacao="master">
+            <div class="peca-tela" style="background:var(--campo-master)">
+              <span aria-hidden="true" style="position:absolute;left:calc(var(--u)*-40);top:calc(var(--u)*520);font:300 italic calc(var(--u)*420)/.8 var(--font-off);color:var(--tela);opacity:.08;white-space:nowrap">MASTER</span>
+              <img src="assets/brand/svg/selo-completo-master.svg" width="869" height="870" alt="Selo The VOID Master" style="position:absolute;right:calc(var(--u)*72);top:calc(var(--u)*72);width:calc(var(--u)*240)">
+              <p style="position:absolute;left:calc(var(--u)*72);right:calc(var(--u)*72);top:calc(var(--u)*640);margin:0;font:800 calc(var(--u)*104)/.92 var(--font-letreiro);font-variation-settings:'wdth' 100;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)">Descubra sua identidade <em class="off" style="color:var(--tela)">artística</em>.</p>
+              <img src="assets/brand/svg/void-master-branco.svg" width="3894" height="579" alt="The VOID Master" style="position:absolute;left:calc(var(--u)*72);bottom:calc(var(--u)*96);width:calc(var(--u)*420)">
+              <div class="area-segura"></div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Mínimos e área de proteção do selo</caption>
+          <thead><tr><th scope="col">Item</th><th scope="col">Tela</th><th scope="col">Impresso</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Selo completo</th><td>200 px ou mais</td><td>40 mm ou mais</td></tr>
+            <tr><th scope="row">Selo simples</th><td>96 a 199 px</td><td>20 a 39 mm</td></tr>
+            <tr><th scope="row">Abaixo de 96 px</th><td>Rótulo de Produto em texto ou favicon</td><td>Rótulo de Produto</td></tr>
+            <tr><th scope="row">Área de proteção</th><td>12,5% do diâmetro em volta</td><td>12,5% do diâmetro em volta</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s11-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">11.4</p>
+        <h3 class="fala">O disco do selo Pro</h3>
+        <p class="bloco-apoio">A base do selo Pro é Nanquim, quase igual à Sala (1,18:1). O simples some no fundo; por isso ganha um disco Coxia com folga de 4% do diâmetro, sem tocar no vetor.</p>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><span data-vforms='{"forma":"selo","produto":"pro","tamanho":140}'></span></div>
+          <figcaption>Selo simples do Pro assentado no disco Coxia <code>#2B2B2B</code>. Teste: o contorno do disco precisa ser percebido com a tela a 50% de zoom.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><span data-vforms='{"forma":"selo","produto":"pro","tamanho":140,"disco":false}'></span></div>
+          <figcaption>Sem o disco, a borda do selo se perde na Sala. O selo completo do Pro não precisa de disco: o anel branco externo fica inteiro visível.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s11-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">11.5</p>
+        <h3 class="fala">Onde o selo nunca entra</h3>
+        <p class="bloco-apoio">O selo marca uma formação. Fora disso, ele vira enfeite ou promessa, e as duas coisas a marca não faz.</p>
+      </div>
+      <ul>
+        <li>Girar, recolorir, deformar, sombrear ou animar (selos nunca giram, nem em vídeo).</li>
+        <li>Como "selo de garantia" ou "selo de qualidade".</li>
+        <li>Sobre rosto, em peça institucional sem produto, na barra fixa da página ou no lower third do vídeo.</li>
+        <li>Abaixo de 96 px, em qualquer versão.</li>
+      </ul>
+      <div class="f02-erros" data-exemplo="proibido">
+        <figure class="f02-erro"><div><img src="assets/brand/svg/selo-simples-start.svg" width="770" height="770" alt="" style="width:96px;height:96px;transform:rotate(28deg)"></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Girar</b>O selo fica sempre de pé.</figcaption></figure>
+        <figure class="f02-erro"><div><img src="assets/brand/svg/selo-simples-master.svg" width="770" height="770" alt="" style="width:96px;height:96px;filter:hue-rotate(150deg) saturate(1.6)"></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Recolorir</b>Cada selo tem a cor do seu produto, e só ela.</figcaption></figure>
+        <figure class="f02-erro"><div><span style="display:flex;align-items:center;gap:12px"><img src="assets/brand/svg/selo-simples-start.svg" width="770" height="770" alt="" style="width:96px;height:96px"><span style="font:700 16px/1.15 var(--font-letreiro);text-transform:uppercase;color:var(--tela)">Garantia de qualidade</span></span></div><figcaption><b><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Selo de garantia</b>O selo não certifica nada: marca a formação.</figcaption></figure>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; medidas do arquivo marca.json do repositório; Plataforma de Branding, aureadesign, 2025 (slides 31 e 37).</p>
+  </div>
+</section>
+
+<section class="sec" id="s12" data-parte="III" data-nome="Arquitetura de marca e co-assinatura" aria-labelledby="s12-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>12</b> · Arquitetura de marca e co-assinatura</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">12</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Marca</p>
+        <h2 id="s12-t" class="titulo-secao">Uma casa, muitos <em class="off">nomes</em>.</h2>
+        <p class="sec-apoio">Quem ganha logotipo, quem ganha selo, quem assina só em texto e como um evento ou a comunidade aparecem ao lado do logotipo sem redesenhá-lo.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Só a marca-mãe e as três formações têm desenho próprio. Todo o resto assina em texto ou por co-assinatura.</li>
+        <li>Nome canônico: The VOID no texto; The VOID Tattoo Academy em dados estruturados, imprensa, rodapé e primeira menção; a Void só em texto corrido.</li>
+        <li>Co-assinatura: logotipo horizontal oficial, fio de 1 px, nome em Archivo 700, tudo medido em X.</li>
+        <li>Ritos, Método ARTE e VOIDERS nunca ganham logotipo próprio.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s12-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">12.1</p>
+        <h3 class="fala">Os níveis da marca</h3>
+        <p class="bloco-apoio">Do nome da escola ao nome de um material, cada nível tem um jeito de assinar. A coluna da direita mostra a assinatura real de cada um.</p>
+      </div>
+      <div class="f02-niveis">
+        <div class="f02-nivel">
+          <p class="credito">Marca-mãe</p>
+          <div><h4>The VOID · The VOID Tattoo Academy · a Void</h4><p>"The VOID" no texto; "The VOID Tattoo Academy" em dados estruturados, Google, imprensa, rodapé e primeira menção; "a Void" só em texto corrido, no tom coloquial.</p><p>Primeira menção em bio, vídeo e release: "The VOID Tattoo Academy, escola de tatuagem na Vila Madalena, em São Paulo".</p></div>
+          <div class="f02-ass"><img src="assets/brand/svg/void-horizontal-branco.svg" width="158" height="24" alt="The VOID Tattoo Academy, horizontal"><img class="f02-v" src="assets/brand/svg/void-vertical-branco.svg" width="147" height="80" alt="The VOID Tattoo Academy, vertical"></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Formações</p>
+          <div><h4>The VOID Start · The VOID Master · The VOID Pro</h4><p>No texto: "formação Start", "formação Master" e "programa Pro". "The VOID" vai na frente na primeira menção da página. Formação, nunca "curso", exceto onde a natureza legal pede "curso livre".</p></div>
+          <div class="f02-ass"><img src="assets/brand/svg/void-start-branco.svg" width="150" height="24" alt="The VOID Start"><img src="assets/brand/svg/void-master-branco.svg" width="161" height="24" alt="The VOID Master"><img src="assets/brand/svg/void-pro-branco.svg" width="156" height="24" alt="The VOID Pro"></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Método</p>
+          <div><h4>Método ARTE</h4><p>Artista, Tatuador, Empreendedor. A sigla é explicada na primeira menção. Nunca ganha logotipo nem selo.</p></div>
+          <div class="f02-ass"><span class="rotulo">Só texto</span></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Porta de entrada</p>
+          <div><h4>Aula experimental</h4><p>"Aula aberta" como alternativa. Assina com o logotipo do Start, como está no ar, e mostra o selo Start como próxima etapa, sem campo de cor. "Gratuita" é informação, nunca o argumento principal.</p></div>
+          <div class="f02-ass"><img src="assets/brand/svg/void-start-branco.svg" width="150" height="24" alt="The VOID Start, assinatura da aula experimental"></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Eventos</p>
+          <div><h4>The VOID Talks · Convenção The VOID</h4><p>"The VOID Talks" tem grafia única. Assinam por co-assinatura. Página de evento não traz oferta de formação.</p></div>
+          <div class="f02-ass"><svg viewBox="0 0 5200 579" role="img" aria-label="Co-assinatura The VOID Tattoo e TALKS" style="width:100%;max-width:260px;height:auto"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/><path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">TALKS</text></svg></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Rituais</p>
+          <div><h4>Ritual do Traço · Primeira Pele · Workshop do Estilo · Formatura com Pele</h4><p>Nome em Título de Seção, a frase do slide na voz em off e o selo da formação do aluno. Nunca logotipo próprio; "na The VOID" na primeira menção pública. Ritos novos só entram depois de aprovados [P 6].</p></div>
+          <div class="f02-ass"><span class="rotulo">Nome em letreiro + selo da formação</span></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Comunidade</p>
+          <div><h4>VOIDERS · VOIDER</h4><p>Plural para a comunidade, singular para a pessoa, sempre em caixa alta. Assina por co-assinatura, sem logotipo próprio.</p></div>
+          <div class="f02-ass"><svg viewBox="0 0 5620 579" role="img" aria-label="Co-assinatura The VOID Tattoo e VOIDERS" style="width:100%;max-width:280px;height:auto"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/><path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">VOIDERS</text></svg></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Materiais</p>
+          <div><h4>Business Playbook · <span style="white-space:nowrap">Kit Boas-Vindas</span> · <span style="white-space:nowrap">Kit Start</span></h4><p>Nome em texto, só depois de confirmar que existem [P 7]. Nome de produto, desafio ou evento nunca traz valor em dinheiro.</p></div>
+          <div class="f02-ass"><span class="rotulo">Só texto, após confirmação</span></div>
+        </div>
+        <div class="f02-nivel">
+          <p class="credito">Descritores pendentes</p>
+          <div><h4>CAST · STUDIO</h4><p>Aparecem no sistema modular da apresentação (slide 13), mas não vieram como arquivo e não têm uso definido. Não usar até decisão [P 7].</p></div>
+          <div class="f02-ass"><span class="status" data-status="pendente">Pendente</span></div>
+        </div>
+      </div>
+      <p class="pendencia" data-p="14">[P 14] Manter a aula experimental com o logotipo Start (decisão atual) ou passar para o institucional.</p>
+    </div>
+
+    <div class="bloco" id="s12-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">12.2</p>
+        <h3 class="fala">O campo de cada formação</h3>
+        <p class="bloco-apoio">O slide 31 da apresentação, reconstruído com os arquivos oficiais e os tokens: o campo na cor do produto, o logotipo branco, o selo e o nome do produto na voz em off, gigante, a 8%.</p>
+      </div>
+      <div class="f02-campos">
+        <div class="f02-campo" style="--f:var(--campo-start)"><span class="f02-agua" aria-hidden="true">START</span><img src="assets/brand/svg/void-start-branco.svg" width="3620" height="579" alt="The VOID Start"><div data-vforms='{"forma":"selo","produto":"start"}'></div></div>
+        <div class="f02-campo" style="--f:var(--campo-master)"><span class="f02-agua" aria-hidden="true">MASTER</span><img src="assets/brand/svg/void-master-branco.svg" width="3894" height="579" alt="The VOID Master"><div data-vforms='{"forma":"selo","produto":"master"}'></div></div>
+        <div class="f02-campo" style="--f:var(--sala);border-bottom:8px solid var(--ardosia)"><span class="f02-agua" aria-hidden="true">PRO</span><img src="assets/brand/svg/void-pro-branco.svg" width="3745" height="578" alt="The VOID Pro"><div data-vforms='{"forma":"selo","produto":"pro"}'></div></div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Regra do campo por formação</caption>
+          <thead><tr><th scope="col">Formação</th><th scope="col">Campo e texto</th><th scope="col">Logotipo e selo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Start</th><td>Campo Start <code>#B5966B</code>, texto em Sala (6,38:1)</td><td>Logotipo branco oficial, como no slide 31; selo Start</td></tr>
+            <tr><th scope="row">Master</th><td>Campo Master <code>#76432B</code>, texto em Tela (7,61:1); cartela opcional em Terracota Noite</td><td>Logotipo branco; selo Master</td></tr>
+            <tr><th scope="row">Pro</th><td>Sala com faixa Ardósia ou Chumbo; o Pro é monocromático</td><td>Logotipo branco; selo Pro (simples com disco Coxia)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">O Campo de Produto é exceção nomeada ao orçamento de cor: no máximo uma tela a cada cinco num carrossel e uma peça a cada seis no feed (<a href="#s15">seção 15</a>). Os marrons dos campos foram amostrados por pixel no slide 31 e aguardam o arquivo de tokens do cliente [P 4].</p>
+    </div>
+
+    <div class="bloco" id="s12-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">12.3</p>
+        <h3 class="fala">Co-assinatura, medida</h3>
+        <p class="bloco-apoio">O descritor fundido ao logotipo só existe nos arquivos oficiais (TATTOO, TATTOO ACADEMY, START, MASTER, PRO). Qualquer outro nome entra ao lado, separado por um fio.</p>
+      </div>
+      <div class="f02-rola" tabindex="0" role="region" aria-label="Diagrama da co-assinatura com cotas">
+        <svg viewBox="-220 -230 5740 1120" role="img" aria-labelledby="s12-cota-t"><title id="s12-cota-t">Co-assinatura medida: logotipo horizontal oficial, 1 X de espaço, fio de 1 px com a altura do VOID, 1 X de espaço e o nome em Archivo 700 com a altura das maiúsculas igual à do THE.</title>
+          <g fill="none" stroke="#DBC5A3" stroke-width="1" stroke-dasharray="6 8" stroke-opacity=".6" vector-effect="non-scaling-stroke"><path d="M-60 186.82H5240M-60 381.05H5240" vector-effect="non-scaling-stroke"/><path d="M2700 12.19H3990M2700 564H3990" stroke-opacity=".45" vector-effect="non-scaling-stroke"/><path d="M3754 400V720M4142.44 400V720M3948.22 590V720" vector-effect="non-scaling-stroke"/></g>
+          <g fill="#DBC5A3" fill-opacity=".16" stroke="#DBC5A3" stroke-width="1" vector-effect="non-scaling-stroke"><rect x="3754" y="186.82" width="194.22" height="194.22" vector-effect="non-scaling-stroke"/><rect x="3948.22" y="186.82" width="194.22" height="194.22" vector-effect="non-scaling-stroke"/></g>
+          <image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/>
+          <path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">TALKS</text>
+          <g fill="none" stroke="#DBC5A3" stroke-width="1.5" vector-effect="non-scaling-stroke">
+            <path d="M3754 680H4142.44M3754 650V710M3948.22 650V710M4142.44 650V710" vector-effect="non-scaling-stroke"/>
+            <path d="M3948.22 -6V-96H3912" vector-effect="non-scaling-stroke"/>
+            <path d="M5300 186.82V381.05M5270 186.82H5330M5270 381.05H5330" vector-effect="non-scaling-stroke"/>
+          </g>
+          <g fill="#DBC5A3" font-family="Archivo, Arial, sans-serif" font-size="88" font-weight="600">
+            <text x="3851.11" y="800" text-anchor="middle">1 X</text><text x="4045.33" y="800" text-anchor="middle">1 X</text>
+            <text x="3890" y="-66" text-anchor="end" font-weight="400">fio de 1 px, altura do VOID</text>
+            <text x="5360" y="314">X</text>
+            <text x="4300" y="800" font-weight="400">maiúsculas = X, como no THE</text>
+            <text x="-40" y="314" text-anchor="end">X</text>
+          </g>
+        </svg>
+      </div>
+      <p class="f02-dica">Deslize o diagrama para ver todas as cotas</p>
+      <div class="f02-coas">
+        <svg viewBox="0 0 5200 579" role="img" aria-label="Co-assinatura The VOID Tattoo e TALKS" style="width:82.7%"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/><path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">TALKS</text></svg>
+        <svg viewBox="0 0 5620 579" role="img" aria-label="Co-assinatura The VOID Tattoo e VOIDERS" style="width:89.3%"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/><path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">VOIDERS</text></svg>
+        <svg viewBox="0 0 6290 579" role="img" aria-label="Co-assinatura The VOID Tattoo e CONVENÇÃO" style="width:100%"><image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/><path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif" font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112">CONVENÇÃO</text></svg>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Medidas da co-assinatura, em unidades do logotipo horizontal</caption>
+          <thead><tr><th scope="col">Parte</th><th scope="col">Regra</th><th scope="col">Valor no vetor</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Logotipo</th><td>Horizontal oficial, branco ou preto, inteiro</td><td>3804 por 579</td></tr>
+            <tr><th scope="row">Espaço antes do fio</th><td>1 X, medido a partir do fim do TATTOO</td><td>194,22</td></tr>
+            <tr><th scope="row">Fio</th><td>1 px na cor do texto, com a altura do VOID</td><td>de 12,19 a 564</td></tr>
+            <tr><th scope="row">Espaço depois do fio</th><td>1 X</td><td>194,22</td></tr>
+            <tr><th scope="row">Nome</th><td>Archivo 700, largura 112, caixa alta, maiúsculas com a altura das do THE, na mesma linha de base</td><td>corpo 283 (maiúscula 194,22), linha de base 381,05</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <pre class="codigo" data-rotulo="SVG"><code>&lt;svg viewBox="0 0 5200 579" role="img" aria-label="The VOID Tattoo, TALKS"&gt;
+  &lt;image href="assets/brand/svg/void-horizontal-branco.svg" width="3804" height="579"/&gt;
+  &lt;path d="M3948.22 12.19V564" stroke="#F8F9F4" stroke-width="1" vector-effect="non-scaling-stroke"/&gt;
+  &lt;text x="4142.44" y="381.05" fill="#F8F9F4" font-family="Archivo, Arial, sans-serif"
+        font-size="283" font-weight="700" style="font-variation-settings:'wdth' 112"&gt;TALKS&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p class="nota">Para outro nome, troque o texto e alargue o <code>viewBox</code> pela largura do nome (TALKS ocupa cerca de 1042 unidades; VOIDERS, 1464; CONVENÇÃO, 2130). O corpo 283 vem da maiúscula do Archivo, que mede 0,686 do corpo.</p>
+    </div>
+
+    <div class="bloco" id="s12-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">12.4</p>
+        <h3 class="fala">As frases de identificação</h3>
+        <p class="bloco-apoio">Duas frases literais, iguais em bio, vídeo, release, rodapé e dados estruturados. Copie; não reescreva.</p>
+      </div>
+      <h4 class="intertitulo">Primeira menção</h4>
+      <pre class="codigo f02-quebra" data-rotulo="Texto"><code>The VOID Tattoo Academy, escola de tatuagem na Vila Madalena, em São Paulo</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <h4 class="intertitulo">Descrição de uma linha</h4>
+      <pre class="codigo f02-quebra" data-rotulo="Texto"><code>A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <p>A cidade e o bairro vão sempre na primeira menção porque existem outras marcas chamadas Void, no Brasil e fora dele. As versões de 50 e de 150 palavras da descrição dependem do ano de fundação, ainda em aberto, e ficam na <a href="#s36">seção 36</a>.</p>
+      <p class="pendencia" data-p="5">[P 5] Ano de fundação a confirmar com a The VOID. Até a confirmação, nenhuma peça usa "EST", "desde" ou a contagem de anos.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura v1 e estudos de apoio, GrowAI, out/2026; Plataforma de Branding, aureadesign, 2025 (slides 13, 31 e 59 a 63).</p>
+  </div>
+</section>

@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Teste do VViz</title>
+<meta name="description" content="Página de teste do motor de gráficos VViz da The VOID: os seis tipos com dado de exemplo, a recusa sem régua de prova e os testes automáticos.">
+<link rel="icon" href="../assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{background:var(--sala)}
+  .topo{position:relative;overflow:hidden;border-bottom:1px solid var(--fio)}
+  .topo .wrap{padding-top:var(--e-6);padding-bottom:var(--e-9)}
+  .wrap{max-width:calc(var(--conteudo) + 2 * var(--margem));margin:0 auto;padding-left:var(--margem);padding-right:var(--margem)}
+  .barra-topo{display:flex;justify-content:space-between;align-items:center;gap:var(--e-4);flex-wrap:wrap}
+  .barra-topo img{height:24px;width:auto;display:block}
+  .eco{position:absolute;right:0;top:50%;width:90%;max-width:none;height:auto;transform:translate(30%,-50%);filter:blur(clamp(18px,2.6vw,40px));opacity:.12;pointer-events:none;z-index:0}
+  .topo .wrap{position:relative;z-index:2}
+  .abre{margin-top:var(--e-9);max-width:860px}
+  .abre .titulo-filme{margin:var(--e-4) 0 var(--e-5)}
+  .abre p.apoio{max-width:var(--coluna-leitura);margin:0;color:var(--cal);font-size:var(--fs-chamada);line-height:1.5}
+  .marcador{display:flex;align-items:center;gap:10px;margin:0}
+  .marcador::before{content:"";width:24px;height:1px;background:var(--po)}
+  .placar{display:flex;align-items:center;gap:var(--e-3);margin-top:var(--e-7);padding:var(--e-4) 0;border-top:1px solid var(--fio);border-bottom:1px solid var(--fio);flex-wrap:wrap}
+  .placar svg{width:24px;height:24px;flex:none;fill:none;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+  .placar b{font:700 20px/1 var(--font-letreiro);font-stretch:100%;text-transform:uppercase;letter-spacing:-.005em;color:var(--tela)}
+  .placar span.credito{margin-left:auto}
+  [data-testes="ok"] .placar svg{stroke:var(--sucesso)}
+  [data-testes="falhou"] .placar svg{stroke:var(--erro)}
+
+  .sec{padding:var(--e-9) 0;border-bottom:1px solid var(--fio)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr;gap:var(--e-5);align-items:start;margin-bottom:var(--e-7)}
+  .sec-num{font:700 64px/.8 var(--font-letreiro);font-stretch:75%;color:var(--fumaca);font-variant-numeric:lining-nums tabular-nums}
+  .sec-head h2{margin:var(--e-2) 0 var(--e-3)}
+  .sec-head p.sec-apoio{margin:0;max-width:var(--coluna-leitura);color:var(--cal)}
+  .grade{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-8) var(--e-7)}
+  .grade .largo{grid-column:1/-1}
+  .caso{min-width:0}
+  .caso > .credito{display:flex;gap:10px;align-items:center;margin:0 0 var(--e-4);padding-bottom:var(--e-3);border-bottom:1px solid var(--fio)}
+  .caso > .credito code{font:500 12px/1 ui-monospace,Menlo,monospace;letter-spacing:0;text-transform:none;color:var(--fumaca);margin-left:auto}
+  .chip{display:inline-flex;align-items:center;gap:6px}
+  .chip i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--estacao-grafismo)}
+  [data-estacao="chamado"] .chip i,[data-estacao="voiders"] .chip i{background:var(--areia)}
+
+  .leitura{padding:var(--e-8) var(--e-7);margin-top:var(--e-2)}
+  .leitura .sec-apoio{color:var(--ardosia)}
+  .leitura .caso > .credito{border-color:var(--fumaca);color:var(--ardosia)}
+  .leitura .caso > .credito code{color:var(--penumbra)}
+
+  .regras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 var(--e-8);padding:0;list-style:none;border-top:1px solid var(--fio)}
+  .regras li{padding:var(--e-5) var(--e-5) var(--e-5) 0;border-bottom:1px solid var(--fio);min-width:0}
+  .regras li + li{padding-left:var(--e-5);border-left:1px solid var(--fio)}
+  .regras b{display:block;font:600 18px/1.2 var(--font-letreiro);color:var(--tela);margin-bottom:var(--e-2)}
+  .regras span{font-size:var(--fs-apoio);line-height:1.5;color:var(--po)}
+  .origens{display:flex;flex-wrap:wrap;gap:var(--e-3) var(--e-6);margin:0 0 var(--e-7);padding:0;list-style:none}
+  .origens li{display:flex;align-items:center;gap:10px;font:500 12px/1.2 var(--font-letreiro);font-stretch:125%;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+  .origens li::before{content:"";width:16px;border-top:2px solid var(--po)}
+  .origens li.t::before{border-top-style:dashed}.origens li.m::before{border-top-style:dotted}.origens li.v::before{border-top:2px dashed var(--fumaca)}
+
+  .testes{list-style:none;margin:0;padding:0;border-top:1px solid var(--fio);columns:2;column-gap:var(--e-7)}
+  .testes li{display:flex;gap:var(--e-3);align-items:flex-start;padding:var(--e-3) 0;border-bottom:1px solid var(--fio);break-inside:avoid;font-size:var(--fs-apoio);line-height:1.45;color:var(--cal)}
+  .testes svg{width:20px;height:20px;flex:none;fill:none;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;margin-top:1px}
+  .testes li[data-ok="1"] svg{stroke:var(--sucesso)}.testes li[data-ok="0"] svg{stroke:var(--erro)}
+  .testes small{display:block;color:var(--po);font-size:13px}
+  .testes .palavra{font:500 12px/1.4 var(--font-letreiro);font-stretch:125%;letter-spacing:.18em;text-transform:uppercase;margin-right:6px}
+  .testes li[data-ok="1"] .palavra{color:var(--sucesso)}.testes li[data-ok="0"] .palavra{color:var(--erro)}
+  .codigo{margin:var(--e-5) 0 0;padding:var(--e-4);background:var(--bastidor);border-left:2px solid var(--fio);overflow:auto;font:400 13px/1.55 ui-monospace,Menlo,monospace;color:var(--cal);max-width:100%}
+
+  .creditos{padding:var(--e-8) 0 var(--e-7);text-align:center}
+  .creditos p{margin:0}
+  .creditos b{color:var(--tela);font-weight:700}
+  .creditos .sep{margin:0 .9em}
+
+  @media (max-width:900px){
+    .grade{grid-template-columns:minmax(0,1fr)}
+    .regras{grid-template-columns:minmax(0,1fr)}
+    .regras li + li{padding-left:0;border-left:0}
+    .testes{columns:1}
+  }
+  @media (max-width:430px){
+    .wrap{padding-left:16px;padding-right:16px}
+    .sec{padding:var(--e-8) 0}
+    .sec-head{grid-template-columns:minmax(0,1fr);gap:var(--e-2)}
+    .sec-num{font-size:48px}
+    .leitura{padding:var(--e-6) 16px}
+    .caso > .credito{flex-wrap:wrap}
+    .caso > .credito code{margin-left:0;flex-basis:100%}
+    .creditos .quebra{display:block;height:6px}
+    .creditos .sep.q{display:none}
+    .abre{margin-top:var(--e-8)}
+  }
+</style>
+</head>
+<body class="grao" data-testes="rodando">
+
+<header class="topo janela-luz">
+  <img class="eco" src="../assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="barra-topo">
+      <img src="../assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo" width="158" height="24">
+      <p class="credito">Ferramenta interna · motor VViz 1.0</p>
+    </div>
+    <div class="abre">
+      <p class="marcador credito">Dados e gráficos</p>
+      <h1 class="titulo-filme">Todo número tem <em class="off">crédito</em></h1>
+      <p class="apoio">Página de conferência do <code>vviz.js</code>. Todos os números aqui são dado de exemplo, inventado para testar o desenho. Nenhum deles fala da The VOID.</p>
+    </div>
+    <div class="placar" role="status" aria-live="polite">
+      <svg viewBox="0 0 24 24" aria-hidden="true" id="placar-icone"><path d="M10.1 2.182a10 10 0 0 1 3.8 0"/><path d="M13.9 21.818a10 10 0 0 1-3.8 0"/><path d="M17.609 3.721a10 10 0 0 1 2.69 2.7"/><path d="M2.182 13.9a10 10 0 0 1 0-3.8"/><path d="M20.279 17.609a10 10 0 0 1-2.7 2.69"/><path d="M21.818 10.1a10 10 0 0 1 0 3.8"/><path d="M3.721 6.391a10 10 0 0 1 2.7-2.69"/><path d="M6.391 20.279a10 10 0 0 1-2.69-2.7"/></svg>
+      <b id="placar-texto">Testes rodando</b>
+      <span class="credito" id="placar-n"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sec" id="s1" aria-labelledby="s1-t">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-num" aria-hidden="true">01</span>
+        <div>
+          <p class="marcador credito">A régua manda</p>
+          <h2 id="s1-t" class="titulo-secao">Sem régua, <em class="off">sem desenho</em></h2>
+          <p class="sec-apoio">O motor só desenha com as seis partes da régua de prova. A marca de origem diz de onde o número veio, por traço e por palavra.</p>
+        </div>
+      </header>
+      <ul class="regras">
+        <li><b>Seis partes ou nada</b><span>Título-afirmação, o que mede, período, base, fonte e origem. Faltou uma, o motor mostra o aviso no lugar do gráfico.</span></li>
+        <li><b>Em validação não sai</b><span>Desenha só no arquivo de trabalho, com moldura tracejada. A exportação lança erro.</span></li>
+        <li><b>Três séries, eixo em zero</b><span>No máximo três séries. Barra sempre começa no zero. Tabela acessível gerada junto, para leitor de tela.</span></li>
+      </ul>
+      <ul class="origens" aria-label="Marcas de origem">
+        <li>Medido</li><li class="t">Declarado por terceiro</li><li class="m">Mercado</li><li class="v">Em validação</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="s2" aria-labelledby="s2-t">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-num" aria-hidden="true">02</span>
+        <div>
+          <p class="marcador credito">Os seis tipos</p>
+          <h2 id="s2-t" class="titulo-secao">Uma luz <em class="off">por gráfico</em></h2>
+          <p class="sec-apoio">Série principal em Tela, um destaque no grafismo do produto, comparação tracejada em Fumaça. O produto troca com o atributo do contêiner.</p>
+        </div>
+      </header>
+      <div class="grade">
+        <div class="caso" data-estacao="chamado">
+          <p class="credito"><span class="chip"><i></i>Chamado</span> · Barras<code>barras</code></p>
+          <div id="g-barras"></div>
+        </div>
+        <div class="caso" data-estacao="start">
+          <p class="credito"><span class="chip"><i></i>Start</span> · Barras horizontais<code>barras-horizontais</code></p>
+          <div id="g-barrash"></div>
+        </div>
+        <div class="caso largo" data-estacao="master">
+          <p class="credito"><span class="chip"><i></i>Master</span> · Linha com comparação<code>linha</code></p>
+          <div id="g-linha"></div>
+        </div>
+        <div class="caso" data-estacao="pro">
+          <p class="credito"><span class="chip"><i></i>Pro</span> · Coluna empilhada<code>coluna-empilhada</code></p>
+          <div id="g-empilhada"></div>
+        </div>
+        <div class="caso" data-estacao="master">
+          <p class="credito"><span class="chip"><i></i>Master</span> · Barras com meta e comparação<code>barras</code></p>
+          <div id="g-barras2"></div>
+        </div>
+        <div class="caso" data-estacao="start">
+          <p class="credito"><span class="chip"><i></i>Start</span> · Numeral de Prova<code>numeral</code></p>
+          <div id="g-numeral"></div>
+        </div>
+        <div class="caso" data-estacao="pro">
+          <p class="credito"><span class="chip"><i></i>Pro</span> · Numeral de terceiro<code>numeral</code></p>
+          <div id="g-numeral2"></div>
+        </div>
+        <div class="caso largo" data-estacao="chamado">
+          <p class="credito"><span class="chip"><i></i>Chamado</span> · Comparativo de traço, só orgânico<code>comparativo-traco</code></p>
+          <div id="g-comparativo"></div>
+        </div>
+        <div class="caso largo" data-estacao="start">
+          <p class="credito"><span class="chip"><i></i>Start</span> · Montagem declarativa<code>data-vviz</code></p>
+          <div id="g-declarativo" data-vviz='{"tipo":"barras","sobretitulo":"Montagem declarativa","titulo":"Sábado lota a prática livre","mede":"pessoas na prática livre por dia da semana, média de quatro semanas","rotulos":["Seg","Ter","Qua","Qui","Sex","Sáb"],"valores":[6,8,7,9,11,18],"destaque":5,"periodo":"set/2026","base":"agenda fictícia de uma sala","fonte":"planilha de teste","origem":"medido","exemplo":true}'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s3" aria-labelledby="s3-t">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-num" aria-hidden="true">03</span>
+        <div>
+          <p class="marcador credito">Modo Leitura</p>
+          <h2 id="s3-t" class="titulo-secao">No claro, <em class="off">a mesma régua</em></h2>
+          <p class="sec-apoio">Dentro de <code>.modo-leitura</code> a série principal vira Sala e o destaque usa a cor de texto do produto no claro.</p>
+        </div>
+      </header>
+      <div class="modo-leitura grao leitura" data-estacao="master">
+        <div class="grade">
+          <div class="caso">
+            <p class="credito">Master · Barras horizontais<code>barras-horizontais</code></p>
+            <div id="g-leitura1"></div>
+          </div>
+          <div class="caso">
+            <p class="credito">Master · Numeral de mercado<code>numeral</code></p>
+            <div id="g-leitura2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s4" aria-labelledby="s4-t">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-num" aria-hidden="true">04</span>
+        <div>
+          <p class="marcador credito">Recusa e bloqueio</p>
+          <h2 id="s4-t" class="titulo-secao">Quando o motor <em class="off">diz não</em></h2>
+          <p class="sec-apoio">Dado em validação aparece só no arquivo de trabalho. Régua incompleta, quatro séries, claim vetado ou antes e depois em anúncio pago: o gráfico não sai.</p>
+        </div>
+      </header>
+      <div class="grade">
+        <div class="caso" data-estacao="start">
+          <p class="credito">Em validação · barras<code>origem: em-validacao</code></p>
+          <div id="g-valid1"></div>
+        </div>
+        <div class="caso" data-estacao="start">
+          <p class="credito">Em validação · numeral<code>origem: em-validacao</code></p>
+          <div id="g-valid2"></div>
+        </div>
+        <div class="caso">
+          <p class="credito">Sem origem<code>origem ausente</code></p>
+          <div id="g-rec1"></div>
+        </div>
+        <div class="caso">
+          <p class="credito">Sem fonte e terceiro sem link<code>fonte ausente</code></p>
+          <div id="g-rec2"></div>
+        </div>
+        <div class="caso">
+          <p class="credito">Quatro séries<code>séries &gt; 3</code></p>
+          <div id="g-rec3"></div>
+        </div>
+        <div class="caso" data-exemplo="proibido">
+          <p class="credito">Claim vetado e anúncio pago<code>spec 11.1</code></p>
+          <div id="g-rec4"></div>
+          <div id="g-rec5" style="margin-top:16px"></div>
+        </div>
+      </div>
+      <pre class="codigo" id="erro-export" aria-label="Mensagem de erro da exportação de dado em validação"></pre>
+    </div>
+  </section>
+
+  <section class="sec" id="s5" aria-labelledby="s5-t">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-num" aria-hidden="true">05</span>
+        <div>
+          <p class="marcador credito">Testes automáticos</p>
+          <h2 id="s5-t" class="titulo-secao">O que a página <em class="off">confere</em></h2>
+          <p class="sec-apoio">Cada teste roda ao abrir a página. O resultado fica em <code>window.__vvizTestes</code> e no atributo <code>data-testes</code> do corpo, para o Playwright.</p>
+        </div>
+      </header>
+      <ul class="testes" id="testes"></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="creditos">
+  <p class="credito">TATTOO ACADEMY<span class="sep">·</span>® 2025<span class="sep">·</span>SÃO PAULO<span class="sep">·</span>BRAZIL<span class="sep q">·</span><span class="quebra"></span><b>PREENCHA O VAZIO</b></p>
+</footer>
+
+<script src="../vviz.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  /* ---------- dados de exemplo (fictícios) ---------- */
+  var EX = { exemplo: true };
+  function ex(o) { var r = {}; for (var k in EX) r[k] = EX[k]; for (var q in o) r[q] = o[q]; return r; }
+
+  var D = {
+    barras: ex({ sobretitulo: 'Inscrições na aula experimental', titulo: 'Sexta concentra as inscrições', mede: 'inscrições na aula experimental por dia da semana', rotulos: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'], valores: [42, 38, 47, 51, 86, 33, 21], destaque: 4, periodo: 'jul/2026 a set/2026', base: '318 inscrições fictícias', fonte: 'planilha de teste', origem: 'medido' }),
+    barrash: ex({ titulo: 'Linha fina puxa a procura', mede: 'pedidos de informação por estilo de tatuagem citado na conversa', rotulos: ['Linha fina', 'Blackwork', 'Realismo', 'Old school', 'Aquarela', 'Lettering'], valores: [64, 41, 37, 22, 15, 9], destaque: 0, unidade: '%', periodo: 'ago/2026', base: '120 conversas fictícias', fonte: 'planilha de teste', origem: 'medido', vrotulos: ['64%', '41%', '37%', '22%', '15%', '9%'] }),
+    linha: ex({ titulo: 'Prática semanal sobe no segundo mês', mede: 'horas de prática registradas por aluno, média semanal', rotulos: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11', 'S12'], series: [{ nome: 'Turma atual', valores: [2.5, 3, 3.2, 3.8, 4.6, 5.1, 5.4, 6, 6.3, 6.8, 7.1, 7.4] }, { nome: 'Turma anterior', valores: [2, 2.4, 2.8, 3, 3.3, 3.9, 4.2, 4.4, 4.9, 5, 5.3, 5.6] }], unidade: 'h', casas: 1, periodo: 'semanas 1 a 12', base: 'duas turmas fictícias', fonte: 'planilha de teste', origem: 'medido' }),
+    empilhada: ex({ titulo: 'Diagnóstico vem por indicação', mede: 'pedidos de diagnóstico por canal de entrada, por trimestre', rotulos: ['T1', 'T2', 'T3', 'T4'], series: [{ nome: 'Indicação', valores: [14, 18, 22, 27] }, { nome: 'Site', valores: [9, 10, 12, 12] }, { nome: 'Eventos', valores: [4, 7, 5, 8] }], periodo: 'jan/2026 a dez/2026', base: '148 pedidos fictícios', fonte: 'planilha de teste', origem: 'medido' }),
+    barras2: ex({ titulo: 'Setembro passa da meta', mede: 'aulas práticas concluídas por mês, contra o mesmo mês do ano anterior', rotulos: ['Jun', 'Jul', 'Ago', 'Set'], series: [{ nome: '2026', valores: [31, 36, 40, 47] }, { nome: '2025', valores: [28, 30, 35, 37] }], meta: 42, periodo: 'jun/2026 a set/2026', base: 'uma sala fictícia', fonte: 'planilha de teste', origem: 'medido' }),
+    numeral: ex({ valor: 47, mede: 'alunos fictícios concluíram a formação Start', periodo: 'turmas de jan/2026 a jun/2026', base: 'três turmas fictícias', fonte: 'planilha de teste', origem: 'medido' }),
+    numeral2: ex({ vrotulo: '4,9', mede: 'nota média em avaliações públicas de uma escola fictícia', periodo: 'consulta única', base: '212 avaliações fictícias', fonte: 'perfil público fictício', link: 'https://exemplo.invalid/avaliacoes', captura: '06/10/2026', origem: 'terceiro' }),
+    comparativo: ex({ titulo: 'Doze semanas de traço', mede: 'mesmo exercício de linha contínua, repetido no início e no fim da formação', antes: { data: 'mar/2026', legenda: 'Primeiro traço, no Ritual do Traço' }, depois: { data: 'jun/2026', legenda: 'Mesmo exercício, semana 12' }, canal: 'organico', autorizacao: true, periodo: 'mar/2026 a jun/2026', base: 'um aluno fictício', fonte: 'arquivo de teste', origem: 'medido', aviso: 'Resultados individuais variam conforme prática e dedicação.' }),
+    leitura1: ex({ titulo: 'Estilo autoral pesa na escolha', mede: 'motivo principal citado ao escolher o Master, em porcentagem das respostas', rotulos: ['Estilo autoral', 'Portfólio', 'Agenda própria', 'Preço por peça'], valores: [46, 27, 17, 10], vrotulos: ['46%', '27%', '17%', '10%'], destaque: 0, periodo: 'set/2026', base: '90 respostas fictícias', fonte: 'questionário de teste', origem: 'medido' }),
+    leitura2: ex({ vrotulo: '2,3x', mede: 'crescimento fictício de buscas por cursos de tatuagem em cinco anos', periodo: '2021 a 2026', base: 'termos de busca fictícios', fonte: 'estudo de mercado fictício', link: 'https://exemplo.invalid/estudo', origem: 'mercado' }),
+    valid1: ex({ titulo: 'Turmas de sábado enchem antes', mede: 'dias até fechar a turma, por turno', rotulos: ['Manhã', 'Tarde', 'Noite', 'Sábado'], valores: [34, 29, 22, 12], periodo: '2026', base: 'turmas fictícias', fonte: 'secretaria (conferência pendente)', origem: 'em-validacao' }),
+    valid2: ex({ valor: 312, mede: 'alunos fictícios formados desde a abertura', periodo: 'até set/2026', base: 'todas as formações', fonte: 'contagem pendente', origem: 'em-validacao' }),
+    rec1: ex({ titulo: 'Gráfico sem origem', mede: 'qualquer coisa', rotulos: ['A', 'B'], valores: [1, 2], periodo: '2026', base: 'teste', fonte: 'teste' }),
+    rec2: ex({ titulo: 'Gráfico sem fonte', mede: 'qualquer coisa', rotulos: ['A', 'B'], valores: [1, 2], periodo: '2026', base: 'teste', origem: 'terceiro' }),
+    rec3: ex({ titulo: 'Quatro séries não cabem', mede: 'qualquer coisa', rotulos: ['A', 'B'], series: [{ nome: 'um', valores: [1, 2] }, { nome: 'dois', valores: [2, 3] }, { nome: 'três', valores: [3, 1] }, { nome: 'quatro', valores: [1, 1] }], periodo: '2026', base: 'teste', fonte: 'teste', origem: 'medido' }),
+    rec4: ex({ titulo: 'Claim vetado (exemplo)', mede: 'rótulo com claim vetado sem prova pública', rotulos: ['Maior escola', 'B'], valores: [1, 2], periodo: '2026', base: 'teste', fonte: 'teste', origem: 'medido' }),
+    rec5: ex({ titulo: 'Antes e depois em anúncio', mede: 'teste de canal vetado', antes: { data: 'mar/2026' }, depois: { data: 'jun/2026' }, canal: 'anuncio', autorizacao: true, periodo: '2026', base: 'teste', fonte: 'teste', origem: 'medido' })
+  };
+  var MAPA = {
+    'g-barras': ['barras', D.barras], 'g-barrash': ['barras-horizontais', D.barrash], 'g-linha': ['linha', D.linha],
+    'g-empilhada': ['coluna-empilhada', D.empilhada], 'g-barras2': ['barras', D.barras2], 'g-numeral': ['numeral', D.numeral],
+    'g-numeral2': ['numeral', D.numeral2], 'g-comparativo': ['comparativo-traco', D.comparativo],
+    'g-leitura1': ['barras-horizontais', D.leitura1], 'g-leitura2': ['numeral', D.leitura2],
+    'g-valid1': ['barras', D.valid1], 'g-valid2': ['numeral', D.valid2],
+    'g-rec1': ['barras', D.rec1], 'g-rec2': ['barras', D.rec2], 'g-rec3': ['barras', D.rec3], 'g-rec4': ['barras', D.rec4], 'g-rec5': ['comparativo-traco', D.rec5]
+  };
+  Object.keys(MAPA).forEach(function (id) { VViz.render(document.getElementById(id), MAPA[id][0], MAPA[id][1]); });
+
+  try { VViz.svg(document.getElementById('g-valid1')); document.getElementById('erro-export').textContent = 'A exportação não foi bloqueada.'; }
+  catch (e) { document.getElementById('erro-export').textContent = 'VViz.svg(dado em validação)\n' + e.message; }
+
+  /* ---------- testes automáticos ---------- */
+  var resultados = [];
+  function t(nome, fn) {
+    var ok = false, det = '';
+    try { var r = fn(); ok = r === true || (r && r.ok === true); det = r && r.det ? r.det : ''; }
+    catch (e) { ok = false; det = 'erro: ' + e.message; }
+    resultados.push({ nome: nome, ok: ok, det: det });
+  }
+  function $(id) { return document.getElementById(id); }
+  function tolera(a, b, tol) { return Math.abs(a - b) <= (tol || 0.6); }
+  function caixa() { var d = document.createElement('div'); d.style.cssText = 'position:absolute;left:-9999px;top:0;width:720px'; document.body.appendChild(d); return d; }
+  var TOKENS = Object.keys(VViz.hex).map(function (k) { return VViz.hex[k]; }).concat(['#FFFFFF']);
+
+  t('Sem origem: o motor não desenha e mostra o aviso', function () {
+    var el = $('g-rec1'); return !el.querySelector('svg.vviz-svg') && !!el.querySelector('.vviz-aviso') && el.getAttribute('data-vviz-estado') === 'recusado';
+  });
+  t('Sem fonte: o motor não desenha', function () {
+    var v = VViz.valida('barras', D.rec2); return !$('g-rec2').querySelector('svg.vviz-svg') && v.faltas.some(function (f) { return /fonte/.test(f); });
+  });
+  t('Origem inexistente ("estimado") é recusada', function () {
+    var o = JSON.parse(JSON.stringify(D.barras)); o.origem = 'estimado'; return VViz.valida('barras', o).faltas.length > 0;
+  });
+  t('Terceiro sem link e sem data de captura é recusado', function () {
+    var v = VViz.valida('barras', D.rec2); return v.faltas.some(function (f) { return /link/.test(f); }) && v.faltas.some(function (f) { return /captura/.test(f); });
+  });
+  t('Falta de qualquer parte da régua recusa (título, mede, período, base)', function () {
+    return ['titulo', 'mede', 'periodo', 'base'].every(function (k) { var o = JSON.parse(JSON.stringify(D.barras)); delete o[k]; return VViz.valida('barras', o).faltas.length > 0; });
+  });
+  t('Em validação: desenha com moldura tracejada e selo de trabalho', function () {
+    var el = $('g-valid1'), m = el.querySelector('[data-papel="moldura-validacao"]');
+    return !!m && !!m.getAttribute('stroke-dasharray') && !!el.querySelector('[data-papel="selo-validacao"]') && el.getAttribute('data-vviz-estado') === 'em-validacao';
+  });
+  t('Em validação: VViz.svg(el) lança erro (exportação bloqueada)', function () {
+    try { VViz.svg($('g-valid1')); return false; } catch (e) { return /bloqueada/.test(e.message); }
+  });
+  t('Em validação: VViz.svg(tipo, dados) lança erro', function () {
+    try { VViz.svg('numeral', D.valid2); return false; } catch (e) { return /bloqueada/.test(e.message); }
+  });
+  t('Numeral em validação troca o número por "dado em validação"', function () {
+    var n = $('g-valid2').querySelector('[data-papel="numero"]'); return !!n && n.textContent === 'dado em validação' && $('g-valid2').textContent.indexOf('312') < 0;
+  });
+  t('Quatro séries são recusadas; três são aceitas', function () {
+    return !$('g-rec3').querySelector('svg.vviz-svg') && !!$('g-empilhada').querySelector('svg.vviz-svg');
+  });
+  t('Barras: eixo começa em zero (altura proporcional ao valor)', function () {
+    var d = caixa();
+    VViz.render(d, 'barras', ex({ titulo: 'Teste de eixo', mede: 'x', rotulos: ['a', 'b', 'c'], valores: [950, 1000, 500], periodo: 'p', base: 'b', fonte: 'f', origem: 'medido' }));
+    var b = d.querySelectorAll('[data-papel="barra"]'), h = [].map.call(b, function (r) { return +r.getAttribute('height'); });
+    d.remove();
+    return { ok: tolera(h[0] / h[1], 0.95, 0.01) && tolera(h[2] / h[1], 0.5, 0.01), det: 'razões ' + (h[0] / h[1]).toFixed(3) + ' e ' + (h[2] / h[1]).toFixed(3) };
+  });
+  t('Barras horizontais: comprimento proporcional a partir do zero', function () {
+    var b = $('g-barrash').querySelectorAll('[data-papel="barra"]'), w = [].map.call(b, function (r) { return +r.getAttribute('width'); });
+    return { ok: tolera(w[1] / w[0], 41 / 64, 0.01) && tolera(w[5] / w[0], 9 / 64, 0.01), det: (w[1] / w[0]).toFixed(3) };
+  });
+  t('Linha: o valor zero cai na linha de base', function () {
+    var d = caixa();
+    VViz.render(d, 'linha', ex({ titulo: 'Teste de zero', mede: 'x', rotulos: ['a', 'b', 'c'], valores: [0, 5, 10], periodo: 'p', base: 'b', fonte: 'f', origem: 'medido' }));
+    var z = +d.querySelector('[data-papel="zero"]').getAttribute('data-y'), p = d.querySelector('[data-papel="linha"]').getAttribute('d');
+    var y0 = +p.split('M')[1].split('L')[0].split(' ')[1];
+    d.remove();
+    return { ok: tolera(z, y0, 0.01), det: 'zero ' + z + ', primeiro ponto ' + y0 };
+  });
+  t('Coluna empilhada: segmentos somam o total', function () {
+    var seg = $('g-empilhada').querySelectorAll('[data-papel="segmento"]');
+    return seg.length === 12;
+  });
+  t('Tabela acessível gerada com cabeçalho e uma linha por categoria', function () {
+    var tb = $('g-barras').querySelector('table.vviz-tabela');
+    return !!tb && tb.querySelectorAll('tbody tr').length === 7 && tb.querySelectorAll('th[scope="col"]').length === 2 && tb.querySelector('caption').textContent.indexOf('Sexta concentra') === 0;
+  });
+  t('SVG com role="img" e nome acessível que existe', function () {
+    var s = $('g-linha').querySelector('svg'), ids = s.getAttribute('aria-labelledby').split(' ');
+    return s.getAttribute('role') === 'img' && ids.every(function (i) { return !!document.getElementById(i); });
+  });
+  t('Exportação: SVG válido, com xmlns, largura e altura, sem var()', function () {
+    var x = VViz.svg('barras', D.barras), doc = new DOMParser().parseFromString(x, 'image/svg+xml');
+    var raiz = doc.documentElement;
+    return !doc.querySelector('parsererror') && raiz.getAttribute('xmlns') === 'http://www.w3.org/2000/svg' && +raiz.getAttribute('width') === 960 && +raiz.getAttribute('height') > 0 && x.indexOf('var(') < 0 && !!doc.querySelector('[data-papel="fundo"]');
+  });
+  t('Exportação: toda cor HEX pertence aos tokens', function () {
+    var todas = [], fora = [];
+    ['barras', 'linha', 'coluna-empilhada', 'barras-horizontais', 'numeral', 'comparativo-traco'].forEach(function (tp) {
+      var src = { 'barras': D.barras2, 'linha': D.linha, 'coluna-empilhada': D.empilhada, 'barras-horizontais': D.barrash, 'numeral': D.numeral, 'comparativo-traco': D.comparativo }[tp];
+      ['chamado', 'start', 'master', 'pro'].forEach(function (es) {
+        ['sala', 'leitura'].forEach(function (cp) { var o = JSON.parse(JSON.stringify(src)); o.estacao = es; o.campo = cp; todas = todas.concat(VViz.svg(tp, o).match(/#[0-9A-Fa-f]{6}\b/g) || []); });
+      });
+    });
+    todas.forEach(function (h) { if (TOKENS.indexOf(h.toUpperCase()) < 0 && fora.indexOf(h) < 0) fora.push(h); });
+    return { ok: fora.length === 0, det: fora.length ? 'fora: ' + fora.join(', ') : todas.length + ' cores conferidas' };
+  });
+  t('Exportação determinística: mesma entrada, mesmo SVG', function () {
+    return VViz.svg('linha', D.linha) === VViz.svg('linha', D.linha);
+  });
+  t('Nenhum travessão no que o motor escreve', function () {
+    var txt = document.querySelector('main').innerHTML + VViz.svg('barras', D.barras);
+    return !/[\u2014\u2013]/.test(txt);
+  });
+  t('Travessão no texto de entrada é recusado', function () {
+    var o = JSON.parse(JSON.stringify(D.barras)); o.titulo = 'Sexta \u2014 concentra'; return VViz.valida('barras', o).faltas.length > 0;
+  });
+  t('Claim vetado (spec 11.1) é recusado', function () {
+    return !$('g-rec4').querySelector('svg.vviz-svg') && VViz.valida('barras', D.rec4).faltas.some(function (f) { return /vetad/.test(f); });
+  });
+  t('Antes e depois em anúncio pago é recusado; orgânico com autorização desenha', function () {
+    return !$('g-rec5').querySelector('svg.vviz-svg') && !!$('g-comparativo').querySelector('svg.vviz-svg');
+  });
+  t('Produto: destaque do Master em Terracota; do Pro em Névoa', function () {
+    var m = $('g-barras2').querySelector('[data-papel="barra"][data-serie="0"]');
+    var o = JSON.parse(JSON.stringify(D.barras)); o.estacao = 'pro';
+    var x = VViz.svg('barras', o);
+    var d = caixa(); d.setAttribute('data-estacao', 'master');
+    VViz.render(d, 'barras', D.barras);
+    var dm = d.querySelectorAll('[data-papel="barra"]')[4].getAttribute('fill'); d.remove();
+    return { ok: dm === '#B25A32' && x.indexOf('fill="#C9D0D8" data-papel="barra"') > -1 && m.getAttribute('fill') === '#F8F9F4', det: 'master ' + dm };
+  });
+  t('Modo Leitura: série principal em Sala, destaque em Terracota', function () {
+    var b = $('g-leitura1').querySelectorAll('[data-papel="barra"]');
+    return b[1].getAttribute('fill') === '#181818' && b[0].getAttribute('fill') === '#B25A32';
+  });
+  t('Comparação tracejada em Fumaça', function () {
+    var c = $('g-barras2').querySelector('[data-papel="barra"][data-serie="1"]');
+    return c.getAttribute('stroke') === '#898989' && !!c.getAttribute('stroke-dasharray') && c.getAttribute('fill') === 'none';
+  });
+  t('Marca de origem: cheia, tracejada e pontilhada', function () {
+    var a = $('g-barras').querySelector('[data-papel="marca-origem"]').getAttribute('stroke-dasharray');
+    var b = $('g-numeral2').querySelector('[data-papel="marca-origem"]').getAttribute('stroke-dasharray');
+    var c = $('g-leitura2').querySelector('[data-papel="marca-origem"]').getAttribute('stroke-dasharray');
+    return !a && b === '4 2' && c === '2 2';
+  });
+  t('Montagem declarativa por data-vviz', function () { return !!$('g-declarativo').querySelector('svg.vviz-svg'); });
+  t('Dado de exemplo rotulado em todos os gráficos desta página', function () {
+    return [].every.call(document.querySelectorAll('main svg.vviz-svg'), function (s) { return s.querySelector('desc').textContent.indexOf('Dado de exemplo') > -1; });
+  });
+  t('Números em pt-BR', function () {
+    return VViz.fmt(1234.5) === '1.234,5' && VViz.fmt(64, { unidade: '%' }) === '64%' && VViz.fmt(2997, { prefixo: 'R$ ', casas: 2 }) === 'R$ 2.997,00';
+  });
+  t('Sem rolagem horizontal da página', function () {
+    return { ok: document.documentElement.scrollWidth <= window.innerWidth, det: document.documentElement.scrollWidth + ' de ' + window.innerWidth };
+  });
+
+  /* ---------- placar ---------- */
+  var ICO = { ok: '<circle cx="12" cy="12" r="10"/><path d="m16 9-5.5 5.5L8 12"/>', nao: '<circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>' };
+  var lista = $('testes'), html = '', ok = 0;
+  resultados.forEach(function (r) {
+    if (r.ok) ok++;
+    html += '<li data-ok="' + (r.ok ? 1 : 0) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (r.ok ? ICO.ok : ICO.nao) + '</svg><div><span class="palavra">' + (r.ok ? 'Passou' : 'Falhou') + '</span>' + r.nome.replace(/</g, '&lt;') + (r.det ? '<small>' + r.det.replace(/</g, '&lt;') + '</small>' : '') + '</div></li>';
+  });
+  lista.innerHTML = html;
+  var tudo = ok === resultados.length;
+  document.body.setAttribute('data-testes', tudo ? 'ok' : 'falhou');
+  $('placar-icone').innerHTML = tudo ? ICO.ok : ICO.nao;
+  $('placar-texto').textContent = tudo ? 'Todos os testes passaram' : (resultados.length - ok) + ' teste(s) falharam';
+  $('placar-n').textContent = ok + ' de ' + resultados.length;
+  window.__vvizTestes = resultados;
+});
+</script>
+</body>
+</html>

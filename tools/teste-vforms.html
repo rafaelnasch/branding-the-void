@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="pt-BR" data-estacao="chamado">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Teste do vforms</title>
+<meta name="description" content="Todas as formas da casa da The VOID em Sala e em Modo Leitura, com a suíte de testes do motor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@1,6..72,300&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tokens.css">
+<style>
+  body{background:var(--sala);margin:0}
+  .livro{max-width:var(--conteudo);margin:0 auto;padding:0 var(--margem) var(--e-10)}
+  @media (max-width:900px){.livro{padding:0 32px var(--e-9)}}
+  @media (max-width:430px){.livro{padding:0 16px var(--e-9)}}
+
+  .topo-campo{position:relative}
+  .topo{max-width:var(--conteudo);margin:0 auto;padding:var(--e-9) var(--margem) var(--e-8);box-sizing:content-box;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--e-5)}
+  .topo .marca{width:220px;height:auto;display:block}
+  .topo .titulo-filme{margin:0;font-size:clamp(40px,7vw,88px)}
+  .topo p{margin:0;max-width:680px;color:var(--cal)}
+  .topo .credito{color:var(--po)}
+
+  .resultado{background:var(--bastidor);padding:var(--e-6);margin:0 0 var(--e-8);border-left:2px solid var(--fio)}
+  .resultado[data-estado="ok"]{border-left-color:var(--sucesso)}
+  .resultado[data-estado="falha"]{border-left-color:var(--erro)}
+  .resultado h2{margin:0 0 var(--e-3);font:700 clamp(24px,3vw,32px)/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela)}
+  .resultado .resumo-teste{display:flex;align-items:center;gap:var(--e-3);margin:0 0 var(--e-5);font:600 18px/1.3 var(--font-letreiro);color:var(--tela)}
+  .resultado ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;font:400 15px/1.45 var(--font-texto);color:var(--cal)}
+  .resultado li{display:grid;grid-template-columns:20px auto 1fr;gap:10px;align-items:start}
+  .resultado li b{font-weight:600;white-space:nowrap}
+  .resultado li[data-ok="true"]{--c:var(--sucesso)}
+  .resultado li[data-ok="false"]{--c:var(--erro)}
+  .resultado li b,.resultado li svg{color:var(--c)}
+  .resultado li small{display:block;color:var(--po);font-size:13px;overflow-wrap:anywhere}
+  .ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+
+  .forma{border-top:1px solid var(--fio);padding:var(--e-8) 0 var(--e-7)}
+  .forma-head{display:grid;grid-template-columns:auto 1fr;gap:4px var(--e-5);align-items:baseline;margin-bottom:var(--e-5)}
+  .forma-n{grid-row:span 2;font:700 48px/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--fumaca)}
+  .forma h2{margin:0;font:700 clamp(28px,3.4vw,40px)/.98 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.012em;text-transform:uppercase;color:var(--tela)}
+  .forma h2 .off{font-size:1.15em}
+  .forma-head p{margin:0;color:var(--po);font-size:15px;line-height:1.5;max-width:680px}
+  .forma code{font-size:13px;color:var(--areia);overflow-wrap:anywhere}
+  .pares{display:grid;grid-template-columns:1fr 1fr;gap:var(--e-5)}
+  .pares.um{grid-template-columns:1fr}
+  .pares.tres{grid-template-columns:repeat(3,1fr)}
+  .pares.quatro{grid-template-columns:repeat(4,1fr)}
+  @media (max-width:900px){.pares,.pares.tres,.pares.quatro{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.pares,.pares.tres,.pares.quatro{grid-template-columns:1fr}}
+  .painel{background:var(--sala);border:1px solid var(--fio);padding:var(--e-5);min-width:0;display:flex;flex-direction:column;gap:var(--e-4)}
+  .painel.modo-leitura{background:var(--tela);border-color:var(--cinza-100)}
+  .painel>.credito:first-child{margin:0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .modo-leitura .credito{color:var(--ardosia)}
+  .nota{margin:0;font:400 13px/1.45 var(--font-texto);color:var(--po)}
+  .modo-leitura .nota{color:var(--penumbra)}
+  .nota[data-tipo="recusa"]{display:flex;gap:8px;align-items:flex-start}
+  .quadro{position:relative;width:100%;aspect-ratio:1/1;background:var(--sala);overflow:hidden}
+  .modo-leitura .quadro{background:var(--tela)}
+  .quadro.largo{aspect-ratio:16/9}
+  .quadro.peca{aspect-ratio:4/5}
+  .quadro.faixa{aspect-ratio:2/1}
+  .quadro>[data-vforms]{position:absolute;inset:0}
+  .quadro .rotulo-demo{position:absolute;left:16px;bottom:12px;z-index:3}
+  .quadro.branco{background:var(--branco)}
+  .demo-texto{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;gap:8px}
+  .demo-texto .t{font:800 clamp(24px,3.2vw,40px)/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase;letter-spacing:-.02em;color:var(--tela);margin:0}
+  .demo-texto .a{font:400 15px/1.5 var(--font-texto);color:var(--cal);margin:0;max-width:30ch}
+  .grao-demo{position:relative;min-height:180px;padding:24px;display:flex;align-items:flex-end}
+  .grao-demo p{margin:0}
+  .linha-selos{display:flex;flex-wrap:wrap;gap:var(--e-5);align-items:center;min-height:120px}
+  .linha-selos>div{min-width:0;max-width:100%}
+  [data-vforms-aviso]::after{content:attr(data-vforms-aviso);display:block;margin-top:8px;font:400 13px/1.45 var(--font-texto);color:var(--areia)}
+  .modo-leitura [data-vforms-aviso]::after{color:var(--atencao-claro)}
+  .quadro>[data-vforms-aviso]::after{position:absolute;left:12px;right:12px;bottom:12px;margin:0;background:var(--bastidor);color:var(--areia);padding:8px 10px;z-index:4}
+  .modo-leitura .quadro>[data-vforms-aviso]::after{background:var(--cinza-100);color:var(--atencao-claro)}
+  [data-vforms-recusa]::before{content:"Recusado · " attr(data-vforms-recusa);display:block;font:400 13px/1.45 var(--font-texto);color:var(--areia);padding:12px}
+  .modo-leitura [data-vforms-recusa]::before{color:var(--atencao-claro)}
+  .marcadores{display:grid;gap:var(--e-4);color:var(--po)}
+  .marcadores>span{display:block}
+  .modo-leitura .marcadores{color:var(--ardosia)}
+  .rodape-demo{min-height:48px}
+  .rodape-pagina{border-top:1px solid var(--fio);padding-top:var(--e-6);margin-top:var(--e-8)}
+  .sumario{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 var(--e-7);padding:0;list-style:none}
+  .sumario a{color:var(--areia);font:500 12px/1.6 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+  .sumario a:hover{text-decoration:underline}
+  @media (max-width:900px){.topo{padding:var(--e-8) 32px var(--e-7);min-height:0}}
+  @media (max-width:430px){.topo{padding:var(--e-8) 16px var(--e-7)}}
+</style>
+</head>
+<body class="grao">
+<header class="topo-campo" data-vforms="janela"><div class="topo">
+    <img class="marca" src="../assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="220" height="33">
+    <p class="credito">Motor de formas · vforms.js v1 · 06/10/2026</p>
+    <h1 class="titulo-filme">As formas <em class="off">da casa</em></h1>
+    <p>Cada forma do sistema Sala Escura desenhada pelo motor, em Sala e em Modo Leitura, com a suíte de testes que roda no carregamento: tangência do Mapa da Trilha, órbitas do Pro, recusas e determinismo.</p>
+  </div></header>
+<main class="livro">
+
+  <section class="resultado" id="resultado" aria-live="polite" data-estado="rodando">
+    <h2>Suíte de testes</h2>
+    <p class="resumo-teste" id="resumo">Rodando os testes</p>
+    <ol id="lista-testes"></ol>
+  </section>
+
+  <nav aria-label="Formas nesta página"><ul class="sumario">
+    <li><a href="#f-grao">Grão</a></li><li><a href="#f-esfera">Esfera</a></li><li><a href="#f-eco">Eco</a></li>
+    <li><a href="#f-janela">Janela</a></li><li><a href="#f-veu">Véu</a></li><li><a href="#f-cinemascope">Cinemascope</a></li>
+    <li><a href="#f-corte">Corte do Logo</a></li><li><a href="#f-orbita">Órbitas</a></li><li><a href="#f-mapa">Mapa da Trilha</a></li>
+    <li><a href="#f-marcadores">Marcadores</a></li><li><a href="#f-anel">Anel</a></li><li><a href="#f-selo">Selo</a></li>
+    <li><a href="#f-protecao">Área de proteção</a></li><li><a href="#f-rodape">Rodapé</a></li>
+  </ul></nav>
+
+  <!-- 01 Grão -->
+  <section class="forma" id="f-grao" aria-labelledby="f-grao-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">01</span><h2 id="f-grao-t">Grão do <em class="off">vazio</em></h2>
+      <p>Película sobre o campo: 6% em tela no escuro, 4% em multiplicação no claro. <code>data-vforms="grao"</code></p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Sala</span><span>6%</span></p>
+        <div class="grao-demo" data-vforms="grao"><p class="nota">O preto vira matéria.</p></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span><span>4%</span></p>
+        <div class="grao-demo" data-vforms="grao"><p class="nota">A página de leitura também tem película.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 02 Esfera -->
+  <section class="forma" id="f-esfera" aria-labelledby="f-esfera-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">02</span><h2 id="f-esfera-t">Esfera do <em class="off">vazio</em></h2>
+      <p>Borda de aerógrafo com grão real (filtro SVG, sem máscara CSS). Preta no claro; Penumbra a 60% no escuro. Diâmetro do corpo entre 40% e 60% do lado menor. <code>data-vforms="esfera"</code></p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Sala</span><span>Penumbra a 60%</span></p><div class="quadro"><div data-vforms="esfera"></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span><span>Nanquim</span></p><div class="quadro"><div data-vforms="esfera"></div></div></div>
+    </div>
+    <div class="pares quatro" style="margin-top:24px">
+      <div class="painel"><p class="credito"><span>Estado vazio</span><span>128 px</span></p><div style="width:128px;height:128px" data-vforms='{"forma":"esfera","diametro":0.6}'></div><p class="nota">Este círculo começa a se preencher no seu primeiro marco.</p></div>
+      <div class="painel"><p class="credito"><span>Estado vazio</span><span>96 px</span></p><div style="width:96px;height:96px" data-vforms='{"forma":"esfera","diametro":0.6}'></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Diâmetro 0,4</span></p><div class="quadro"><div data-vforms='{"forma":"esfera","diametro":0.4}'></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Diâmetro 0,6</span></p><div class="quadro"><div data-vforms='{"forma":"esfera","diametro":0.6}'></div></div></div>
+    </div>
+  </section>
+
+  <!-- 03 Eco -->
+  <section class="forma" id="f-eco" aria-labelledby="f-eco-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">03</span><h2 id="f-eco-t">Eco do <em class="off">logotipo</em></h2>
+      <p>O arquivo oficial do logotipo ampliado 1,6 vez, desfocado e a 12%, sangrando à direita. Abaixo de 600 px de largura o motor recusa. <code>data-vforms="eco"</code></p></div>
+    <div class="pares um">
+      <div class="painel"><p class="credito"><span>Sala</span><span>logotipo branco oficial</span></p><div class="quadro largo"><div data-vforms="eco"></div>
+        <div class="demo-texto"><p class="t">Preencha <em class="off">o vazio</em></p></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span><span>logotipo preto oficial</span></p><div class="quadro largo"><div data-vforms="eco"></div></div></div>
+    </div>
+  </section>
+
+  <!-- 04 Janela -->
+  <section class="forma" id="f-janela" aria-labelledby="f-janela-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">04</span><h2 id="f-janela-t">Janela de <em class="off">luz</em></h2>
+      <p>A única fonte de luz da cena, do canto superior esquerdo, Tela a 9% caindo a zero em 62%. Não existe no Modo Leitura. <code>data-vforms="janela"</code></p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Sala</span></p><div class="quadro largo"><div data-vforms="janela"></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span><span>recusa</span></p><div class="quadro largo"><div data-vforms="janela"></div></div></div>
+    </div>
+  </section>
+
+  <!-- 05 Véu -->
+  <section class="forma" id="f-veu" aria-labelledby="f-veu-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">05</span><h2 id="f-veu-t">Véu de <em class="off">leitura</em></h2>
+      <p>Sobre o pior pixel possível (branco puro, no lugar da foto): degradê de 78% a 70% até 42% da largura e zero em 72%. Véu fora da tabela 3.4 cai para 70%. <code>data-vforms='{"forma":"veu","direcao":"esquerda"}'</code></p></div>
+    <div class="pares tres">
+      <div class="painel"><p class="credito"><span>Esquerda</span></p><div class="quadro peca branco"><div data-vforms='{"forma":"veu","direcao":"esquerda"}'></div>
+        <div class="demo-texto" style="right:50%"><p class="t">A arte <em class="off">que preenche</em></p><p class="a">Tela sobre véu de 70%: 6,22 para 1 no pior pixel.</p></div></div></div>
+      <div class="painel"><p class="credito"><span>Base</span></p><div class="quadro peca branco"><div data-vforms='{"forma":"veu","direcao":"base"}'></div>
+        <div class="demo-texto"><p class="t">O primeiro <em class="off">traço</em></p></div></div></div>
+      <div class="painel"><p class="credito"><span>Uniforme 62%</span><span>mínimo sob texto pequeno</span></p><div class="quadro peca branco"><div data-vforms='{"forma":"veu","direcao":"uniforme","opacidade":0.62}'></div>
+        <div class="demo-texto"><p class="a" style="color:var(--tela)">Texto de 15 px sobre véu de 62%: 4,68 para 1.</p></div></div></div>
+    </div>
+  </section>
+
+  <!-- 06 Cinemascope -->
+  <section class="forma" id="f-cinemascope" aria-labelledby="f-cinemascope-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">06</span><h2 id="f-cinemascope-t">Faixa <em class="off">cinemascope</em></h2>
+      <p>Peça de 1080 por 1350 com a faixa de 1080 por 452 (2,39 para 1) a partir de y = 449; título na faixa de cima e Crédito na de baixo. Sem foto real, o motor desenha o espaço rotulado. Exemplo de texto, não é copy aprovada.</p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Peça 4:5</span><span>exemplo</span></p><div class="quadro peca"><div data-vforms='{"forma":"cinemascope","titulo":"Esse vazio\né um chamado","credito":"Ritual do Traço · turma [mês/ano]","ajuste":"xMidYMid meet"}'></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Faixa sozinha</span><span>cabeçalho de artigo</span></p><div class="quadro faixa" style="aspect-ratio:2.39/1"><div data-vforms='{"forma":"cinemascope","formato":"faixa","ajuste":"xMidYMid meet"}'></div></div></div>
+    </div>
+  </section>
+
+  <!-- 07 Corte do Logo -->
+  <section class="forma" id="f-corte" aria-labelledby="f-corte-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">07</span><h2 id="f-corte-t">Corte do <em class="off">logo</em></h2>
+      <p>O arquivo oficial gigante, com a borda da peça sempre no vão entre letras inteiras (nunca no meio de uma letra, nunca no ®). No modo automático, o motor escolhe o corte que deixa o VOID entre 70% e 110% da altura; quando a proporção não permite, ele avisa. <code>data-vforms='{"forma":"corte-logo","mostra":"VOI"}'</code></p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>16:9 · VOI</span></p><div class="quadro largo"><div data-vforms='{"forma":"corte-logo","mostra":"VOI"}'></div></div></div>
+      <div class="painel"><p class="credito"><span>16:9 · VO</span></p><div class="quadro largo"><div data-vforms='{"forma":"corte-logo","mostra":"VO"}'></div></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>4:5 · automático</span></p><div class="quadro peca"><div data-vforms='{"forma":"corte-logo"}'></div></div></div>
+      <div class="painel"><p class="credito"><span>Textura a 8%</span><span>VOID</span></p><div class="quadro largo"><div data-vforms='{"forma":"corte-logo","mostra":"VOID","textura":true}'></div></div></div>
+    </div>
+  </section>
+
+  <!-- 08 Órbitas -->
+  <section class="forma" id="f-orbita" aria-labelledby="f-orbita-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">08</span><h2 id="f-orbita-t">Órbitas da <em class="off">trilha</em></h2>
+      <p>Os símbolos dos selos simples como trajetórias de luz: Start com duas faixas horizontais empilhadas (1,13 para 1), Master com duas verticais (0,89 para 1), Pro entrelaçado a 32 graus da vertical para cada lado com interrupção de 6 px no cruzamento, VOIDERS com três círculos. Traço de 1,5 px. O institucional não tem órbita. <code>data-vforms='{"forma":"orbita","cor":"grafismo"}'</code></p></div>
+    <div class="pares quatro">
+      <div class="painel" data-estacao="start"><p class="credito"><span>Start</span><span>grafismo</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel" data-estacao="master"><p class="credito"><span>Master</span><span>grafismo</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel" data-estacao="pro"><p class="credito"><span>Pro</span><span>grafismo</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel" data-estacao="voiders"><p class="credito"><span>VOIDERS</span><span>Tela a 28%</span></p><div class="quadro"><div data-vforms='{"forma":"orbita"}'></div></div></div>
+      <div class="painel modo-leitura" data-estacao="start"><p class="credito"><span>Start</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel modo-leitura" data-estacao="master"><p class="credito"><span>Master</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel modo-leitura" data-estacao="pro"><p class="credito"><span>Pro</span></p><div class="quadro"><div data-vforms='{"forma":"orbita","cor":"grafismo"}'></div></div></div>
+      <div class="painel modo-leitura" data-estacao="chamado"><p class="credito"><span>Institucional</span><span>recusa</span></p><div class="quadro"><div data-vforms='{"forma":"orbita"}'></div></div></div>
+    </div>
+    <div class="pares um" style="margin-top:24px">
+      <div class="painel" data-estacao="master"><p class="credito"><span>Composição de peça</span><span>Master sangrando à direita, Tela a 28%</span></p>
+        <div class="quadro largo"><div data-vforms='{"forma":"orbita","escala":1.5,"cx":0.82,"cy":0.5}'></div>
+          <div class="demo-texto"><p class="t">A sua <em class="off">identidade</em></p></div></div></div>
+    </div>
+  </section>
+
+  <!-- 09 Mapa da Trilha -->
+  <section class="forma" id="f-mapa" aria-labelledby="f-mapa-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">09</span><h2 id="f-mapa-t">Mapa da <em class="off">trilha</em></h2>
+      <p>Três círculos tangentes em x = 250, raios 65, 150 e 232 (1 para 2,3 para 3,6, como no slide 30). O ativo ganha o grafismo do produto; até 430 px o motor desenha a versão vertical nativa. As duas frases ficam em texto real, fora do SVG. <code>data-vforms='{"forma":"mapa-trilha","ativa":"master","voceEstaAqui":true}'</code></p></div>
+    <div class="pares um">
+      <div class="painel" data-estacao="master"><p class="credito"><span>Sala</span><span>Master ativo, você está aqui</span></p><div data-vforms='{"forma":"mapa-trilha","ativa":"master","voceEstaAqui":true}'></div></div>
+      <div class="painel" data-estacao="chamado"><p class="credito"><span>Sala</span><span>institucional, todos em contorno</span></p><div data-vforms='{"forma":"mapa-trilha"}'></div></div>
+    </div>
+    <div class="pares" style="margin-top:24px">
+      <div class="painel modo-leitura" data-estacao="start"><p class="credito"><span>Modo Leitura</span><span>Start ativo</span></p><div data-vforms='{"forma":"mapa-trilha","ativa":"start","voceEstaAqui":true,"orientacao":"horizontal"}'></div></div>
+      <div class="painel" data-estacao="pro"><p class="credito"><span>Vertical nativo</span><span>Pro ativo</span></p><div style="max-width:300px" data-vforms='{"forma":"mapa-trilha","ativa":"pro","voceEstaAqui":true,"orientacao":"vertical"}'></div></div>
+    </div>
+  </section>
+
+  <!-- 10 Marcadores -->
+  <section class="forma" id="f-marcadores" aria-labelledby="f-marcadores-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">10</span><h2 id="f-marcadores-t">Marcadores</h2>
+      <p>Marcador de Estação: mini Mapa da Trilha de 14 px com o nome do produto ou do rito, nunca a palavra estação. Marcador de Capítulo: fio de 24 por 1 px, dois dígitos, total na primeira e na última tela.</p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Sala</span></p><div class="marcadores">
+        <span class="credito" data-estacao="start" data-vforms='{"forma":"marcador-estacao","rotulo":"Start · Ritual do Traço"}'></span>
+        <span class="credito" data-estacao="master" data-vforms='{"forma":"marcador-estacao","rotulo":"Master"}'></span>
+        <span class="credito" data-estacao="pro" data-vforms='{"forma":"marcador-estacao","rotulo":"Pro"}'></span>
+        <span class="credito" data-estacao="chamado" data-vforms='{"forma":"marcador-estacao","rotulo":"Aula experimental"}'></span>
+        <span data-vforms='{"forma":"marcador-capitulo","numero":2,"titulo":"O vazio"}'></span>
+        <span data-vforms='{"forma":"marcador-capitulo","formato":"carrossel","numero":2,"total":7,"titulo":"A virada"}'></span>
+        <span data-vforms='{"forma":"marcador-capitulo","formato":"carrossel","numero":7,"total":7,"titulo":"O pedido"}'></span>
+      </div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span></p><div class="marcadores">
+        <span class="credito" data-estacao="start" data-vforms='{"forma":"marcador-estacao","rotulo":"Start · Primeira Pele"}'></span>
+        <span class="credito" data-estacao="master" data-vforms='{"forma":"marcador-estacao","rotulo":"Master"}'></span>
+        <span class="credito" data-estacao="pro" data-vforms='{"forma":"marcador-estacao","rotulo":"Pro"}'></span>
+        <span class="credito" data-estacao="chamado" data-vforms='{"forma":"marcador-estacao","rotulo":"The VOID Talks"}'></span>
+        <span data-vforms='{"forma":"marcador-capitulo","numero":5,"titulo":"O método"}'></span>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 11 Anel -->
+  <section class="forma" id="f-anel" aria-labelledby="f-anel-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">11</span><h2 id="f-anel-t">Anel de <em class="off">preenchimento</em></h2>
+      <p>O Mapa da Trilha pessoal da área de membros. Formação concluída fica cheia com a cor do selo e grão; os marcos da formação em curso são pontos no perímetro, e só enchem com <code>validado: true</code> (validação do professor). Ângulos na convenção do SVG (sentido horário a partir da direita; 180° é o ponto de tangência). Dados de exemplo.</p></div>
+    <div class="pares tres">
+      <div class="painel"><p class="credito"><span>Start em curso</span><span>exemplo</span></p>
+        <div data-vforms='{"forma":"anel","atual":"start","marcos":[{"nome":"Ritual do Traço","angulo":200,"validado":true},{"nome":"Primeira Pele","angulo":250,"validado":false},{"nome":"Formatura com Pele","angulo":300,"validado":false}]}'></div></div>
+      <div class="painel"><p class="credito"><span>Master em curso</span><span>exemplo</span></p>
+        <div data-vforms='{"forma":"anel","concluidas":["start"],"atual":"master"}'></div>
+        <p class="nota">Os marcos do Master e do Pro ainda não foram definidos pela escola [P 17]; sem eles, o anel mostra só o círculo em curso.</p></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span><span>exemplo</span></p>
+        <div data-vforms='{"forma":"anel","atual":"start","marcos":[{"nome":"Ritual do Traço","angulo":200,"validado":true},{"nome":"Primeira Pele","angulo":250,"validado":true},{"nome":"Formatura com Pele","angulo":300,"validado":"sim"}]}'></div>
+        <p class="nota">O terceiro marco veio como "sim", não como validado: true. O motor não enche.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 Selo -->
+  <section class="forma" id="f-selo" aria-labelledby="f-selo-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">12</span><h2 id="f-selo-t">Selo como <em class="off">carimbo</em></h2>
+      <p>Arquivo oficial. Completo a partir de 200 px, simples de 96 a 199 px, e abaixo de 96 px não existe selo: o motor devolve o Rótulo de Produto. O Pro simples sobre Sala assenta num disco Coxia com folga de 4% do diâmetro. <code>data-vforms='{"forma":"selo","produto":"pro","tamanho":120}'</code></p></div>
+    <div class="pares um">
+      <div class="painel"><p class="credito"><span>Sala</span></p><div class="linha-selos">
+        <div data-vforms='{"forma":"selo","produto":"start","tamanho":200}'></div>
+        <div data-vforms='{"forma":"selo","produto":"master","tamanho":200}'></div>
+        <div data-vforms='{"forma":"selo","produto":"pro","tamanho":200}'></div>
+        <div data-vforms='{"forma":"selo","produto":"pro","tamanho":120}'></div>
+        <div data-vforms='{"forma":"selo","produto":"start","tamanho":96}'></div>
+        <div data-vforms='{"forma":"selo","produto":"master","tamanho":80}'></div>
+      </div><p class="nota">Da esquerda para a direita: completos de 200 px, Pro simples de 120 px com disco, Start simples de 96 px (o mínimo) e o pedido de Master com 80 px, que vira Rótulo de Produto.</p></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span></p><div class="linha-selos">
+        <div data-vforms='{"forma":"selo","produto":"pro","tamanho":120}'></div>
+        <div data-vforms='{"forma":"selo","produto":"start","tipo":"completo","tamanho":150}'></div>
+        <div data-vforms='{"forma":"selo","produto":"pro","tamanho":64}'></div>
+      </div><p class="nota">No claro, o Pro simples dispensa o disco. Selo completo pedido com 150 px sai simples; Pro com 64 px vira Rótulo.</p></div>
+    </div>
+  </section>
+
+  <!-- 13 Área de proteção -->
+  <section class="forma" id="f-protecao" aria-labelledby="f-protecao-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">13</span><h2 id="f-protecao-t">Área de <em class="off">proteção</em></h2>
+      <p>1 X livre em volta do desenho, com X igual à altura das maiúsculas do THE (0,352 H; 194 unidades no horizontal). Selo: 12,5% do diâmetro. Medidas derivadas dos vetores, a validar com a The VOID e a aureadesign.co [P 11].</p></div>
+    <div class="pares">
+      <div class="painel"><p class="credito"><span>Horizontal</span></p><div data-vforms='{"forma":"area-protecao","versao":"horizontal"}'></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Horizontal</span><span>preto oficial</span></p><div data-vforms='{"forma":"area-protecao","versao":"horizontal"}'></div></div>
+      <div class="painel"><p class="credito"><span>Vertical</span></p><div data-vforms='{"forma":"area-protecao","versao":"vertical"}'></div></div>
+      <div class="painel"><p class="credito"><span>Selo Pro simples</span><span>com disco</span></p><div style="max-width:300px" data-vforms='{"forma":"area-protecao","versao":"selo","produto":"pro"}'></div></div>
+    </div>
+  </section>
+
+  <!-- 14 Rodapé -->
+  <section class="forma" id="f-rodape" aria-labelledby="f-rodape-t">
+    <div class="forma-head"><span class="forma-n" aria-hidden="true">14</span><h2 id="f-rodape-t">Créditos <em class="off">finais</em></h2>
+      <p>Texto literal e único, sem variante por produto; quebra depois de BRAZIL no celular. O Letreiro Corrido é só para evento e para com movimento reduzido.</p></div>
+    <div class="pares um">
+      <div class="painel"><p class="credito"><span>Sala</span></p><div class="rodape-demo" data-vforms="rodape"></div></div>
+      <div class="painel modo-leitura"><p class="credito"><span>Modo Leitura</span></p><div class="rodape-demo" data-vforms="rodape"></div></div>
+      <div class="painel"><p class="credito"><span>Letreiro Corrido</span><span>evento</span></p><div data-vforms='{"forma":"rodape","variante":"corrido"}'></div></div>
+    </div>
+  </section>
+
+  <footer class="rodape-pagina" data-vforms="rodape"></footer>
+</main>
+
+<script src="../vforms.js"></script>
+<script>
+window.addEventListener('load', function () { (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { V.redesenhar(); rodar(); }); });
+const V = window.VForms;
+function rodar() {
+  'use strict';
+  const testes = [];
+  function teste(nome, fn) {
+    let ok = false, det = '';
+    try { const r = fn(); ok = r === true || (r && r.ok === true); det = r && r.det ? r.det : ''; if (!ok && !det && r && r.det == null && typeof r === 'string') det = r; }
+    catch (e) { ok = false; det = 'erro: ' + e.message; }
+    testes.push({ nome: nome, ok: ok, det: det });
+  }
+  const res = (ok, det) => ({ ok: !!ok, det: det || '' });
+  const TOKENS = Object.keys(V.tokens).map(k => V.tokens[k].toUpperCase());
+
+  /* ---------- tangência ---------- */
+  const circulos = s => [...s.matchAll(/<circle\b[^>]*>/g)].map(m => m[0]).filter(t => /class="c-\w+"/.test(t))
+    .map(t => [t, t.match(/class="c-(\w+)"/)[1], t.match(/ cx="([\d.]+)"/)[1], t.match(/ cy="([\d.]+)"/)[1], t.match(/ r="([\d.]+)"/)[1]]);
+  teste('Mapa da Trilha horizontal: três círculos tangentes em x = 250', () => {
+    const s = V.svg('mapa-trilha', {});
+    const cs = circulos(s);
+    const bordas = cs.map(m => +m[2] - +m[4]);
+    return res(cs.length === 3 && bordas.every(b => b === 250), 'cx menos r: ' + bordas.join(', '));
+  });
+  teste('Mapa da Trilha: raios 65, 150 e 232 (1 : 2,3 : 3,6)', () => {
+    const r = V.geometria.mapa(false).c;
+    const ok = r.start.r === 65 && r.master.r === 150 && r.pro.r === 232 && Math.abs(r.master.r / r.start.r - 2.3) < 0.05 && Math.abs(r.pro.r / r.start.r - 3.6) < 0.05;
+    return res(ok, 'razões ' + (r.master.r / r.start.r).toFixed(2) + ' e ' + (r.pro.r / r.start.r).toFixed(2));
+  });
+  teste('Mapa da Trilha vertical nativo: tangentes no mesmo ponto de cima', () => {
+    const s = V.svg('mapa-trilha', { orientacao: 'vertical' });
+    const cs = circulos(s);
+    const topo = cs.map(m => +m[3] - +m[4]), x = cs.map(m => +m[2]);
+    return res(cs.length === 3 && topo.every(t => t === 110) && x.every(v => v === 280), 'cy menos r: ' + topo.join(', '));
+  });
+  teste('Mapa da Trilha: o ativo usa o grafismo do produto e anuncia "você está no"', () => {
+    const s = V.svg('mapa-trilha', { ativa: 'master' });
+    return res(/class="c-master"[^>]*stroke="#B25A32"[^>]*stroke-width="2.5"/.test(s) && /Você está no Master/.test(s));
+  });
+
+  /* ---------- órbitas ---------- */
+  teste('Órbitas do Pro: eixo maior a ±32° da vertical, menor/maior 0,63', () => {
+    const g = V.geometria.orbita('pro');
+    const ang = g.elipses.map(e => Math.round((e.rot - 90) * 100) / 100);
+    const ok = ang.filter(a => a === 32).length === 2 && ang.filter(a => a === -32).length === 2 && g.elipses.every(e => Math.abs(e.b / e.a - 0.63) < 0.001);
+    return res(ok, 'ângulos ' + ang.join(', '));
+  });
+  teste('Órbitas do Pro: entrelaçado (cada fio passa por baixo em 4 cruzamentos)', () => {
+    const s = V.svg('orbita', { estacao: 'pro' });
+    const ps = (s.match(/<path\b[^>]* d="[^"]*"/g) || []).map(p => (p.match(/M/g) || []).length);
+    return res(ps.length === 4 && ps.every(n => n === 4), 'trechos por fio: ' + ps.join(', '));
+  });
+  teste('Órbitas: Start 1,13 para 1, Master 0,89 para 1', () => {
+    const s = V.geometria.orbita('start'), m = V.geometria.orbita('master');
+    const rs = s.meiaLargura / s.meiaAltura, rm = m.meiaLargura / m.meiaAltura;
+    return res(Math.abs(rs - 1.13) < 0.02 && Math.abs(rm - 0.885) < 0.02, 'Start ' + rs.toFixed(3) + ', Master ' + rm.toFixed(3));
+  });
+  teste('Órbitas: institucional (chamado) não tem órbita', () => res(V.svg('orbita', { estacao: 'chamado' }) === ''));
+
+  /* ---------- recusas ---------- */
+  teste('Selo abaixo de 96 px vira Rótulo de Produto em texto', () => {
+    const s = V.svg('selo', { produto: 'master', tamanho: 95 });
+    return res(/vf-rotulo/.test(s) && !/<image/.test(s) && /THE VOID MASTER/.test(s));
+  });
+  teste('Selo de 96 px existe (simples)', () => res(/selo-simples-start\.svg/.test(V.svg('selo', { produto: 'start', tamanho: 96 }))));
+  teste('Selo completo pedido abaixo de 200 px sai simples; com 200 px, completo', () =>
+    res(/selo-simples-pro/.test(V.svg('selo', { produto: 'pro', tipo: 'completo', tamanho: 199 })) && /selo-completo-pro/.test(V.svg('selo', { produto: 'pro', tamanho: 200 }))));
+  teste('Pro simples sobre Sala: disco Coxia com folga de 4%; no claro e no completo, sem disco', () => {
+    const s = V.svg('selo', { produto: 'pro', tamanho: 100 });
+    const m = s.match(/class="vf-disco" cx="([\d.]+)" cy="[\d.]+" r="([\d.]+)" fill="#2B2B2B"/);
+    const okR = m && Math.abs(+m[2] - (50 + 4)) < 0.01;
+    return res(okR && !/vf-disco/.test(V.svg('selo', { produto: 'pro', tamanho: 100, tema: 'leitura' })) && !/vf-disco/.test(V.svg('selo', { produto: 'pro', tamanho: 240 })), m ? 'raio do disco ' + m[2] : 'sem disco');
+  });
+  teste('Selo em peça institucional é recusado', () => res(V.svg('selo', { estacao: 'chamado', tamanho: 200 }) === ''));
+  teste('Logotipo redigitado é recusado; o motor só referencia o arquivo', () => {
+    const r = V.svg('logotipo', { texto: 'THE VOID' }), ok = V.svg('logotipo', { versao: 'horizontal' });
+    return res(r === '' && /void-horizontal-branco\.svg/.test(ok) && !/<text/.test(ok));
+  });
+  teste('Eco do VOID: recusado abaixo de 600 px, desenhado a partir de 600 px', () =>
+    res(V.svg('eco', { largura: 599 }) === '' && /<image[^>]+void-horizontal-branco\.svg/.test(V.svg('eco', { largura: 600 }))));
+  teste('Eco do VOID aceita data URI passado em opts', () => /href="data:image\/svg\+xml;base64,AAA"/.test(V.svg('eco', { largura: 800, src: 'data:image/svg+xml;base64,AAA' })));
+  teste('Janela de Luz é recusada no Modo Leitura', () => V.svg('janela', { tema: 'leitura' }) === '');
+  teste('Véu fora da tabela 3.4 cai para 70%', () => /fill-opacity="0.7"/.test(V.svg('veu', { direcao: 'uniforme', opacidade: 0.3 })));
+  teste('Corte do Logo: as bordas caem só no vão entre letras inteiras', () => {
+    const vaos = [[567, 726], [1792, 1834], [1945, 2005], [2568, 2647]];
+    const noVao = x => vaos.some(v => x > v[0] && x < v[1]);
+    const r = Object.keys(V.geometria.recortes).every(k => V.geometria.recortes[k].every(noVao));
+    const s = V.svg('corte-logo', { largura: 1920, altura: 1080, mostra: 'VOI' });
+    const x = +s.match(/<image[^>]+x="(-?[\d.]+)"/)[1], w = +s.match(/<image[^>]+width="([\d.]+)"/)[1];
+    const esq = -x / (w / 3804), dir = (1920 - x) / (w / 3804);
+    return res(r && Math.abs(esq - 646) < 0.5 && Math.abs(dir - 1975) < 0.5, 'borda esquerda em ' + esq.toFixed(1) + ', direita em ' + dir.toFixed(1) + ' (unidades do vetor)');
+  });
+  teste('Corte do Logo em 16:9 com VOI: VOID entre 70% e 110% da altura', () => {
+    const g = V.geometria.corte(1920, 1080, 'VOI');
+    return res(g.fracao >= 0.7 && g.fracao <= 1.1, Math.round(g.fracao * 100) + '% da altura');
+  });
+
+  /* ---------- Anel ---------- */
+  teste('Anel: só enche marco com validado === true', () => {
+    const s = V.svg('anel', { atual: 'start', marcos: [{ nome: 'A', validado: true }, { nome: 'B', validado: 'sim' }, { nome: 'C', validado: 1 }] });
+    return res(/data-validados="1"/.test(s) && (s.match(/data-validado="true"/g) || []).length === 1);
+  });
+  teste('Anel: marcos do Start a 200°, 250° e 300° no perímetro', () => {
+    const s = V.svg('anel', { atual: 'start' });
+    const pts = [...s.matchAll(/<circle\b[^>]*class="vf-marco[^"]*"[^>]*>/g)].map(m => [0, m[0].match(/ cx="([\d.]+)"/)[1], m[0].match(/ cy="([\d.]+)"/)[1]]);
+    const ds = pts.map(m => Math.hypot(+m[1] - 315, +m[2] - 280));
+    return res(pts.length === 3 && ds.every(d => Math.abs(d - 65) < 0.02), 'distâncias ao centro: ' + ds.map(d => d.toFixed(2)).join(', '));
+  });
+
+  /* ---------- rodapé ---------- */
+  const RODAPE = 'TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · PREENCHA O VAZIO';
+  teste('Rodapé literal, com PREENCHA O VAZIO em 700', () => {
+    const el = document.querySelector('.rodape-pagina .vf-rodape');
+    const txt = el ? el.textContent.replace(/\s+/g, ' ').replace(/·/g, ' · ').replace(/\s+/g, ' ').trim() : '';
+    const fim = el && el.querySelector('.vf-fim');
+    return res(V.rodapeTexto === RODAPE && txt === RODAPE && fim && getComputedStyle(fim).fontWeight === '700', txt);
+  });
+
+  /* ---------- acessibilidade ---------- */
+  teste('Com aria: role="img" e <title>; sem aria: aria-hidden', () => {
+    const a = V.svg('esfera', { aria: 'Esfera do vazio' }), b = V.svg('esfera', {});
+    return res(/role="img"/.test(a) && /<title id="[^"]+">Esfera do vazio<\/title>/.test(a) && /aria-hidden="true"/.test(b) && !/role="img"/.test(b));
+  });
+  teste('Marcador de Estação tem 14 px', () => /width="14" height="14"/.test(V.svg('marcador-estacao', { estacao: 'start' })));
+
+  /* ---------- determinismo e higiene das saídas ---------- */
+  const CASOS = [
+    ['grao', {}], ['grao', { tema: 'leitura' }], ['esfera', {}], ['esfera', { tema: 'leitura', diametro: 0.4 }], ['eco', {}], ['janela', {}],
+    ['veu', {}], ['veu', { direcao: 'base' }], ['cinemascope', { titulo: 'Esse vazio\né um chamado', credito: 'exemplo' }], ['cinemascope', { formato: 'faixa' }],
+    ['corte-logo', {}], ['corte-logo', { largura: 1920, altura: 1080, mostra: 'VO' }],
+    ['orbita', { estacao: 'start' }], ['orbita', { estacao: 'master', cor: 'grafismo' }], ['orbita', { estacao: 'pro' }], ['orbita', { estacao: 'voiders', tema: 'leitura' }],
+    ['mapa-trilha', { ativa: 'pro', voceEstaAqui: true }], ['mapa-trilha', { orientacao: 'vertical', ativa: 'start', voceEstaAqui: true, tema: 'leitura' }],
+    ['marcador-estacao', { estacao: 'master' }], ['marcador-capitulo', { numero: 2, titulo: 'O vazio' }],
+    ['anel', { atual: 'start', concluidas: [] }], ['anel', { concluidas: ['start', 'master'], atual: 'pro' }],
+    ['selo', { produto: 'start', tamanho: 240 }], ['selo', { produto: 'pro', tamanho: 120 }], ['logotipo', { versao: 'vertical' }],
+    ['area-protecao', {}], ['area-protecao', { versao: 'vertical', tema: 'leitura' }], ['area-protecao', { versao: 'selo', produto: 'pro' }],
+    ['rodape', {}], ['rodape', { peca: true, tema: 'leitura' }]
+  ];
+  let chamadasAleatorias = 0;
+  const randomOriginal = Math.random, DateOriginal = window.Date;
+  Math.random = function () { chamadasAleatorias++; return randomOriginal(); };
+  window.Date = function () { chamadasAleatorias++; return new (Function.prototype.bind.apply(DateOriginal, [null].concat([].slice.call(arguments))))(); };
+  window.Date.now = function () { chamadasAleatorias++; return DateOriginal.now(); };
+  const SAIDAS = CASOS.map(c => V.svg(c[0], c[1]));
+  const SAIDAS2 = CASOS.map(c => V.svg(c[0], c[1]));
+  Math.random = randomOriginal; window.Date = DateOriginal;
+  teste('Determinismo: mesma entrada, mesma saída (' + CASOS.length + ' casos, todas as formas)', () => {
+    const dif = CASOS.filter((c, i) => SAIDAS[i] !== SAIDAS2[i]).map(c => c[0]);
+    const cobre = V.formas.every(n => CASOS.some(c => c[0] === n));
+    return res(dif.length === 0 && cobre, dif.length ? 'diferem: ' + dif.join(', ') : 'cobre as ' + V.formas.length + ' formas');
+  });
+  teste('Determinismo: nenhuma chamada a Math.random ou Date', () => res(chamadasAleatorias === 0, chamadasAleatorias + ' chamadas'));
+  teste('Nenhum var() em atributo de SVG e nenhuma máscara CSS por id', () => {
+    const tudo = SAIDAS.join('') + document.querySelector('main').innerHTML;
+    return res(!/="[^"]*var\(/.test(tudo.replace(/style="[^"]*"/g, '')) && !/mask\s*:\s*url\(#/.test(tudo) && !/\b(fill|stroke|stop-color|flood-color)="var\(/.test(tudo));
+  });
+  teste('Toda cor das saídas é token da spec', () => {
+    const hex = new Set((SAIDAS.join('').match(/#[0-9A-Fa-f]{6}\b/g) || []).map(h => h.toUpperCase()));
+    const fora = [...hex].filter(h => TOKENS.indexOf(h) < 0);
+    return res(fora.length === 0, fora.length ? 'fora: ' + fora.join(', ') : hex.size + ' cores, todas da spec');
+  });
+  teste('Sem travessão e sem a grafia errada de TATTOO nas saídas e na página', () => {
+    const tudo = SAIDAS.join('') + document.body.innerText + [...document.querySelectorAll('[alt],[title],[aria-label]')].map(e => (e.getAttribute('alt') || '') + (e.getAttribute('title') || '') + (e.getAttribute('aria-label') || '')).join('');
+    return res(!/[\u2013\u2014]/.test(tudo) && tudo.indexOf('TA' + 'TOO') < 0);
+  });
+  teste('Ids únicos na página montada', () => {
+    const ids = [...document.querySelectorAll('[id]')].map(e => e.id), rep = ids.filter((v, i) => ids.indexOf(v) !== i);
+    return res(rep.length === 0, rep.length ? 'repetidos: ' + rep.slice(0, 5).join(', ') : ids.length + ' ids');
+  });
+  teste('Página sem rolagem horizontal', () => res(document.documentElement.scrollWidth <= window.innerWidth, document.documentElement.scrollWidth + ' de ' + window.innerWidth + ' px'));
+  teste('Todas as formas montadas pela via declarativa data-vforms', () => {
+    const montadas = new Set([...document.querySelectorAll('[data-vforms-montado]')].map(e => e.getAttribute('data-vforms-montado')));
+    const faltam = V.formas.filter(n => n !== 'logotipo' && !montadas.has(n));
+    return res(faltam.length === 0, faltam.length ? 'faltam: ' + faltam.join(', ') : montadas.size + ' formas');
+  });
+
+  /* ---------- relatório ---------- */
+  const ic = n => n === 'ok'
+    ? '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>'
+    : '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>';
+  const passou = testes.filter(t => t.ok).length;
+  const lista = document.getElementById('lista-testes');
+  lista.innerHTML = testes.map(t => '<li data-ok="' + t.ok + '">' + ic(t.ok ? 'ok' : 'x') + '<b>' + (t.ok ? 'Passou' : 'Falhou') + '</b><span>' + t.nome.replace(/</g, '&lt;') + (t.det ? '<small>' + t.det.replace(/</g, '&lt;') + '</small>' : '') + '</span></li>').join('');
+  const caixa = document.getElementById('resultado');
+  caixa.setAttribute('data-estado', passou === testes.length ? 'ok' : 'falha');
+  document.getElementById('resumo').innerHTML = ic(passou === testes.length ? 'ok' : 'x') + '<span>' + passou + ' de ' + testes.length + ' testes passaram</span>';
+  window.__vformsTestes = { total: testes.length, passou: passou, falhas: testes.filter(t => !t.ok) };
+}
+</script>
+</body>
+</html>

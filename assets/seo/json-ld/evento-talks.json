@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "@id": "https://thevoidtattoo.com.br/talks/#evento-{{A_CONFIRMAR}}",
+  "name": "The VOID Talks com {{A_CONFIRMAR}}",
+  "description": "{{A_CONFIRMAR}}",
+  "startDate": "{{A_CONFIRMAR}}",
+  "endDate": "{{A_CONFIRMAR}}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "{{A_CONFIRMAR}}",
+  "location": {
+    "@type": "Place",
+    "name": "The VOID Tattoo Academy",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Jericó, 217",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "05435-040",
+      "addressCountry": "BR"
+    }
+  },
+  "image": [
+    "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-talks-{{A_CONFIRMAR}}.webp"
+  ],
+  "organizer": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "isAccessibleForFree": "{{A_CONFIRMAR}}",
+  "offers": {
+    "@type": "Offer",
+    "price": "{{A_CONFIRMAR}}",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "{{A_CONFIRMAR}}",
+    "url": "https://thevoidtattoo.com.br/talks/"
+  },
+  "performer": {
+    "@type": "Person",
+    "name": "{{A_CONFIRMAR}}",
+    "sameAs": "{{A_CONFIRMAR}}"
+  }
+}

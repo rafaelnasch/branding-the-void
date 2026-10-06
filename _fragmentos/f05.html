@@ -1,0 +1,1166 @@
+<style data-fragmento="f05">
+.f05-recurso{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--e-6);align-items:start}
+.f05-recurso + .f05-recurso{margin-top:var(--e-7)}
+.f05-ficha{border-top:1px solid var(--fio)}
+.f05-ficha > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--e-3);padding:var(--e-3) 0;border-bottom:1px solid var(--fio)}
+.f05-ficha dt{display:flex;align-items:flex-start;gap:6px;font:500 11px/1.75 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f05-ficha dt .ic{width:16px;height:16px;margin-top:2px}
+.f05-ficha .f05-sim{color:var(--sucesso)}
+.f05-ficha .f05-nao{color:var(--erro)}
+.f05-ficha dd{margin:0;font:400 15px/1.55 var(--font-texto);color:var(--cal)}
+.f05-palco{position:relative;overflow:hidden;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f05-palco.f05-claro{background:var(--tela);outline-color:var(--cinza-100)}
+.f05-q{aspect-ratio:1}
+.f05-vazio-palco{container-type:inline-size}
+@container (max-width:300px){.f05-vazio-palco .f05-centro{gap:var(--e-3);padding:var(--e-4)}.f05-vazio-palco .f05-centro > [data-vforms]{width:72px;margin:-10px 0}.f05-vazio-palco .f05-vazio1{font-size:15px}.f05-vazio-palco .botao{min-height:40px;padding:8px 14px;font-size:12px}}
+.f05-quebra .off{white-space:normal}
+.f05-mapas .vf-mapa[data-orientacao="horizontal"] .vf-caminho{top:auto;bottom:calc(50% + 14px)}
+.f05-r43{aspect-ratio:4/3}
+.f05-cena{display:grid;gap:var(--e-3);align-content:start}
+.peca-tela.f05-campo{background:var(--estacao-campo);color:var(--estacao-campo-texto)}
+.f05-cena figcaption{font:400 var(--fs-legenda)/1.45 var(--font-texto);color:var(--po)}
+.f05-cena figcaption b{font-weight:600;color:var(--cal)}
+.f05-lupa{background:url(assets/textura/grao-240.webp) 0 0/480px 480px;image-rendering:pixelated}
+.f05-lupa.f05-claro{background-image:url(assets/textura/grao-240-claro.webp)}
+.f05-centro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--e-4);padding:var(--e-5);text-align:center}
+.f05-centro > [data-vforms]{width:clamp(120px,46%,200px);aspect-ratio:1;margin:-24px 0}
+.f05-vazio1{font:600 18px/1.3 var(--font-letreiro);color:var(--tela);max-width:24ch}
+.f05-vazio2{font:400 15px/1.5 var(--font-texto);color:var(--po);max-width:30ch}
+.f05-centro .botao{width:auto}
+.f05-at{position:absolute;left:calc(var(--u)*var(--x,72));top:calc(var(--u)*var(--y,72));width:calc(var(--u)*var(--w,936));margin:0}
+.f05-tf{font:800 calc(var(--u)*var(--fs,120))/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela);text-wrap:balance;overflow-wrap:normal;hyphens:manual}
+.f05-tf .off{color:var(--estacao-destaque)}
+.f05-tf[data-largura="92"]{font-variation-settings:"wdth" 92}
+.f05-tf[data-largura="85"]{font-variation-settings:"wdth" 85}
+.f05-tx{font:400 calc(var(--u)*var(--fs,36))/1.3 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}
+.f05-cr{font:500 calc(var(--u)*var(--fs,26))/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f05-cr b{font-weight:700;color:var(--tela)}
+.f05-cr .f05-fio{display:inline-block;width:calc(var(--u)*24);height:max(1px,calc(var(--u)*1));margin-right:calc(var(--u)*14);vertical-align:middle;background:currentColor}
+.f05-bt{display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*28);min-height:calc(var(--u)*150);background:var(--tela);color:var(--sala);font:700 calc(var(--u)*44)/1.1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;text-align:center}
+.f05-bt svg{width:calc(var(--u)*52);height:calc(var(--u)*52);flex:none;fill:none;stroke:var(--estacao-seta);stroke-width:2;stroke-linecap:square}
+.f05-janela{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f05-desfoque > *:not(.area-segura){filter:blur(calc(var(--u)*33))}
+.f05-foto{position:absolute;background:var(--bastidor);display:flex;align-items:flex-start;justify-content:flex-end;text-align:center;padding:calc(var(--u)*40)}
+.f05-foto::before{content:"";position:absolute;inset:calc(var(--u)*14);border:max(1px,calc(var(--u)*2)) dashed var(--fumaca)}
+.f05-foto span{position:relative;font:500 calc(var(--u)*26)/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f05-eco{position:absolute;right:0;top:50%;width:calc(var(--u)*1500);height:auto;opacity:.12;filter:blur(calc(var(--u)*40));transform:translateY(-50%) scale(1.6) translateX(18%);pointer-events:none}
+.f05-logo{position:absolute;height:auto}
+.f05-veu-demo{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:var(--e-6);align-items:start;margin-bottom:var(--e-6)}
+.f05-veu-quadro{position:relative;outline:1px solid var(--fio)}
+.f05-veu-quadro canvas{display:block;width:100%;height:auto}
+.f05-veu-texto{position:absolute;margin:0;color:var(--tela)}
+.f05-veu-texto[data-pos="clara"]{left:6%;bottom:9%;max-width:58%}
+.f05-veu-texto[data-pos="escura"]{right:7%;top:30%;max-width:34%;text-align:right}
+.f05-veu-texto[data-tam="apoio"]{font:400 17px/1.45 var(--font-texto)}
+.f05-veu-texto[data-tam="t24"]{font:700 24px/1 var(--font-letreiro);text-transform:uppercase}
+.f05-veu-texto[data-tam="t32"]{font:800 34px/.95 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase}
+.f05-controles{display:grid;gap:var(--e-4)}
+.f05-controles .seletor{margin-top:var(--e-2)}
+.f05-leitura{display:grid;gap:var(--e-2);padding:var(--e-5);background:var(--bastidor);border-left:2px solid var(--estacao-grafismo)}
+.f05-leitura p{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f05-leitura code{color:var(--areia)}
+.f05-leitura .f05-razao{font:700 44px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums;color:var(--tela)}
+.f05-veredito{display:flex;align-items:center;gap:var(--e-2);font:700 13px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.1em;text-transform:uppercase}
+.f05-veredito[data-ok="sim"]{color:var(--sucesso)}
+.f05-veredito[data-ok="nao"]{color:var(--erro)}
+.f05-recusa:empty::after,.f05-recusa[data-vforms-recusa]::after{content:attr(data-vforms-recusa);display:block;padding:var(--e-4);font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.f05-orbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--e-4)}
+.f05-orbs figure{display:grid;gap:var(--e-2);align-content:start}
+.f05-orbs b{font:700 15px/1.2 var(--font-letreiro);color:var(--tela)}
+.f05-orbs span{font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.f05-planta circle,.f05-planta path{fill:none;stroke:var(--fumaca);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.f05-planta .f05-cota{stroke:var(--areia);stroke-width:1;stroke-dasharray:4 5}
+.f05-planta text{fill:var(--areia);font:600 26px var(--font-letreiro);letter-spacing:.06em}
+.f05-planta .f05-centro-pt{fill:var(--areia);stroke:none}
+.f05-mapas{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,1fr);gap:var(--e-6);align-items:center}
+.f05-marcadores{display:grid;gap:var(--e-3);list-style:none}
+.f05-marcadores li{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-3);padding:var(--e-3) var(--e-4);background:var(--bastidor);color:var(--po);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase}
+.f05-marcadores li em{margin-left:auto;font:400 13px/1.4 var(--font-texto);font-style:normal;letter-spacing:0;text-transform:none;color:var(--fumaca)}
+.f05-pdp{position:absolute;left:calc(var(--u)*-30);top:calc(var(--u)*420);font:300 italic calc(var(--u)*420)/.8 var(--font-off);font-variation-settings:"opsz" 72;text-transform:uppercase;color:var(--tela);opacity:.08;white-space:nowrap;pointer-events:none}
+.f05-vazada{position:absolute;left:calc(var(--u)*40);top:calc(var(--u)*330);font:800 calc(var(--u)*440)/.8 var(--font-letreiro);font-variation-settings:"wdth" 125;color:transparent;-webkit-text-stroke:calc(var(--u)*2) var(--tela);white-space:nowrap;pointer-events:none}
+.f05-faixa{position:absolute;left:0;right:0;bottom:0;height:calc(var(--u)*24);background:var(--ardosia)}
+.f05-assina{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-6) var(--e-7)}
+.f05-assina > div{display:flex;align-items:center;gap:var(--e-5)}
+.f05-assina img{height:28px;width:auto}
+.f05-provas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-7) var(--e-6)}
+.f05-anatomia{counter-reset:f05n;list-style:none;display:grid;gap:var(--e-3)}
+.f05-anatomia li{counter-increment:f05n;position:relative;padding-left:40px;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f05-anatomia li::before{content:counter(f05n,decimal-leading-zero);position:absolute;left:0;top:1px;font:700 15px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}
+.f05-quadro{background:url(assets/textura/esfera-1080.webp) 64% 46%/78% auto no-repeat,radial-gradient(90% 95% at 18% 8%,var(--branco) 0%,var(--cal) 28%,var(--fumaca) 58%,var(--chumbo) 82%,var(--sala) 100%)}
+.f05-rampa{height:28px;background:linear-gradient(90deg,var(--nanquim),var(--branco))}
+.f05-duo-start{filter:url(#duotom-f05-start)}
+.f05-duo-master{filter:url(#duotom-f05-master)}
+.f05-duo-pro{filter:url(#duotom-f05-pro)}
+.f05-rotulo-quadro{position:absolute;left:var(--e-3);bottom:var(--e-3);padding:4px 8px;background:var(--sala);font:500 11px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f05-revela{animation:f05-revelar var(--t-revelar) var(--curva-cena) both}
+@keyframes f05-revelar{from{opacity:0;filter:blur(10px) contrast(.7) brightness(.6)}to{opacity:1;filter:none}}
+.f05-aneis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-6)}
+.f05-aneis > figure{display:grid;gap:var(--e-3);align-content:start}
+.f05-pilula{display:flex;align-items:center;gap:calc(var(--u)*26);height:calc(var(--u)*172);padding:0 calc(var(--u)*44) 0 calc(var(--u)*16);border:max(1px,calc(var(--u)*3)) solid var(--tela);border-radius:999px}
+.f05-disco{display:block;width:calc(var(--u)*140);height:calc(var(--u)*140);padding:calc(var(--u)*5.6);border-radius:50%;background:var(--coxia);box-sizing:content-box}
+.f05-disco img{width:100%;height:100%}
+.f05-pilula p{font:600 calc(var(--u)*30)/1.25 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.08em;text-transform:uppercase;color:var(--tela);white-space:nowrap}
+.f05-recorte{display:block;flex:none;overflow:hidden;height:calc(var(--u)*140)}
+.f05-recorte img{height:100%;width:auto;max-width:none}
+.f05-lockup{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;gap:calc(var(--u)*40)}
+@media (max-width:1100px){.f05-recurso,.f05-veu-demo,.f05-mapas{grid-template-columns:minmax(0,1fr)}.f05-orbs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.f05-provas,.f05-aneis{grid-template-columns:minmax(0,1fr)}.f05-orbs{grid-template-columns:repeat(2,minmax(0,1fr))}.f05-ficha > div{grid-template-columns:minmax(0,1fr);gap:2px}.f05-marcadores li em{margin-left:0;flex-basis:100%}}
+@media (max-width:430px){.f05-so-largo{display:none}}
+@media (prefers-reduced-motion:reduce){.f05-revela{animation:none}}
+@media print{.f05-revela{animation:none}}
+</style>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
+ <filter id="duotom-f05-start" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".255 .859"/><feFuncG type="table" tableValues=".161 .773"/><feFuncB type="table" tableValues=".098 .639"/></feComponentTransfer></filter>
+ <filter id="duotom-f05-master" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".129 .769"/><feFuncG type="table" tableValues=".075 .376"/><feFuncB type="table" tableValues=".047 .224"/></feComponentTransfer></filter>
+ <filter id="duotom-f05-pro" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".094 .788"/><feFuncG type="table" tableValues=".094 .816"/><feFuncB type="table" tableValues=".094 .847"/></feComponentTransfer></filter>
+</defs></svg>
+
+<!-- ================================================================== s21 -->
+<section class="sec" id="s21" data-parte="VI" data-nome="Grão, Esfera, Eco e Janela de Luz" aria-labelledby="s21-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>21</b> · Grão, Esfera, Eco e Janela de Luz</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">21</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Recursos assinatura</p>
+        <h2 id="s21-t" class="titulo-secao">A matéria do <em class="off">escuro</em></h2>
+        <p class="sec-apoio">Os quatro recursos que fazem da Sala um lugar, e não um fundo preto: a película (Grão), o símbolo do vazio (Esfera), a marca que ecoa ao fundo (Eco do VOID) e a única luz da cena (Janela de Luz).</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Toda peça usa no máximo três recursos desta parte, e o Grão já conta como um.</li>
+        <li>O Grão fica em todo campo escuro a 6% (4% no claro); a Janela de Luz vem sempre do alto à esquerda e nunca entra sobre foto.</li>
+        <li>A Esfera é a única ilustração da marca: uma por peça, nunca atrás de rosto ou de texto corrido, nunca junto do Eco.</li>
+        <li>O Eco do VOID é o arquivo oficial desfocado a 12%: o único jeito de o cinza entrar na marca sem virar logotipo cinza.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s21-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">21.1</p>
+        <h3 class="fala">Os vinte recursos e as duas travas</h3>
+        <p class="bloco-apoio">Cada recurso tem uma construção única e mora num lugar só: no motor de formas (<code>vforms.js</code>), nos utilitários de <code>tokens.css</code> ou num arquivo de <code>assets/</code>. Ninguém redesenha um recurso à mão.</p>
+      </div>
+      <div class="regras">
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">3</p>
+          <h4 class="regra-titulo">No máximo três recursos por peça.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Grão, Esfera, Eco, Janela, Véu, Cinemascope, Corte do Logo, Cartela, Palavra Sensível, Órbitas, Mapa, Marcadores, Carimbo, Ficha Técnica, Créditos Finais, Prova, Revelação, Duotom, Anel e Assinatura Pro: some até três. O Grão conta como um.</dd>
+            <dt>Por quê</dt><dd>A L5 pede uma luz por cena. Recurso demais vira fantasia de marca e apaga a mão, que é o personagem.</dd>
+            <dt>Teste</dt><dd>Liste os recursos visíveis na peça. Passou de três, tire o que menos serve à crença atacada.</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">1</p>
+          <h4 class="regra-titulo">Um dispositivo de cinema por peça estática.</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Faixa Cinemascope, Marcador de Capítulo, Corte do Logo e Revelação contam como dispositivos de cinema. Nunca dois na mesma peça estática.</dd>
+            <dt>Por quê</dt><dd>A metáfora da sala escura gera regras; ela não é decoração. Claquete, rolo de filme, contagem regressiva e as palavras de set de filmagem ficam fora de toda peça pública.</dd>
+            <dt>Teste</dt><dd>Circule os dispositivos de cinema. Mais de um, a peça volta.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Os vinte recursos assinatura</caption>
+          <thead><tr><th scope="col">Recurso</th><th scope="col">O que faz</th><th scope="col">Onde mora</th><th scope="col">Cinema</th><th scope="col">Seção</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Grão do Vazio</th><td>O preto vira película</td><td><code>.grao</code> · <code>grao-240.webp</code></td><td>não</td><td><a href="#s21">21</a></td></tr>
+            <tr><th scope="row">Esfera do Vazio</th><td>O símbolo do vazio, a única ilustração</td><td><code>esfera</code> · <code>esfera-1080.webp</code></td><td>não</td><td><a href="#s21">21</a></td></tr>
+            <tr><th scope="row">Eco do VOID</th><td>O logotipo oficial desfocado ao fundo</td><td><code>eco</code></td><td>não</td><td><a href="#s21">21</a></td></tr>
+            <tr><th scope="row">Janela de Luz</th><td>A única luz, do alto à esquerda</td><td><code>.janela-luz</code> · <code>janela</code></td><td>não</td><td><a href="#s21">21</a></td></tr>
+            <tr><th scope="row">Véu de Leitura</th><td>Sala entre a foto e o texto</td><td><code>.veu-esquerda</code> · <code>.veu-base</code> · <code>veu</code></td><td>não</td><td><a href="#s22">22</a></td></tr>
+            <tr><th scope="row">Faixa Cinemascope</th><td>Foto em 2,39 por 1 entre faixas pretas</td><td><code>cinemascope</code></td><td>sim</td><td><a href="#s22">22</a></td></tr>
+            <tr><th scope="row">Corte do Logo</th><td>O logotipo gigante sangrando pela borda</td><td><code>corte-logo</code></td><td>sim</td><td><a href="#s22">22</a></td></tr>
+            <tr><th scope="row">Cartela</th><td>O intertítulo em Sala</td><td>modelo R2 do <code>kit-social.html</code></td><td>não</td><td><a href="#s22">22</a></td></tr>
+            <tr><th scope="row">Palavra Sensível</th><td>A voz em off dentro do letreiro</td><td><code>.off</code></td><td>não</td><td><a href="#s23">23</a></td></tr>
+            <tr><th scope="row">Órbitas da Trilha</th><td>Os símbolos dos selos como trajetória</td><td><code>orbita</code></td><td>não</td><td><a href="#s23">23</a></td></tr>
+            <tr><th scope="row">Mapa da Trilha</th><td>Três círculos tangentes: o caminho</td><td><code>mapa-trilha</code></td><td>não</td><td><a href="#s23">23</a></td></tr>
+            <tr><th scope="row">Marcador de Estação e de Capítulo</th><td>Produto ou rito em 14 px; capítulo da VSL e cartão do carrossel</td><td><code>marcador-estacao</code> · <code>marcador-capitulo</code></td><td>só o de Capítulo</td><td><a href="#s24">24</a></td></tr>
+            <tr><th scope="row">Selo como Carimbo e Palavra de Produto</th><td>O selo assina; o nome vira marca d'água</td><td><code>selo</code> · composição da peça</td><td>não</td><td><a href="#s24">24</a></td></tr>
+            <tr><th scope="row">Ficha Técnica</th><td>O crédito de peça premium</td><td>texto em Crédito</td><td>não</td><td><a href="#s24">24</a></td></tr>
+            <tr><th scope="row">Créditos Finais e Letreiro Corrido</th><td>O rodapé literal, único</td><td><code>rodape</code></td><td>não</td><td><a href="#s24">24</a></td></tr>
+            <tr><th scope="row">Crédito de Prova</th><td>A régua com marca de origem</td><td><code>.prova</code> · <code>vviz.js</code></td><td>não</td><td><a href="#s25">25</a></td></tr>
+            <tr><th scope="row">Revelação</th><td>A imagem que surge do grão</td><td>animação de 900 ms</td><td>sim</td><td><a href="#s25">25</a></td></tr>
+            <tr><th scope="row">Duotom de Produto</th><td>A cor do produto na foto de produto</td><td>filtro SVG · LUT <code>.cube</code></td><td>não</td><td><a href="#s25">25</a></td></tr>
+            <tr><th scope="row">Anel de Preenchimento</th><td>A trilha pessoal na área de membros</td><td><code>anel</code></td><td>não</td><td><a href="#s25">25</a></td></tr>
+            <tr><th scope="row">Assinatura de Produto do Pro</th><td>A única pílula do sistema</td><td>arquivos oficiais do logotipo e do selo</td><td>não</td><td><a href="#s25">25</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Os nomes de forma entre códigos (<code>esfera</code>, <code>orbita</code> e os demais) são chamados ao motor por <code>data-vforms</code> ou por <code>VForms.svg(forma, opções)</code>, que devolve o SVG pronto para levar ao Figma ou ao Canva. Toda cor sai em HEX de token; o motor recusa logotipo digitado e selo abaixo de 96 px.</p>
+    </div>
+
+    <div class="bloco" id="s21-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">21.2</p>
+        <h3 class="fala">Grão do Vazio</h3>
+        <p class="bloco-apoio">Ruído monocromático fino sobre todo campo escuro, como película. É o que transforma o preto em matéria. Está ligado neste manual inteiro.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Opacidade de <b>6% no escuro</b> (mistura em tela, <code>screen</code>) e <b>4% no claro</b> (mistura multiplicada). Ladrilho de 240 px sem emenda.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Todo campo Sala, Bastidor e Nanquim; toda foto; o Modo Leitura, mais leve.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Dentro de campo de formulário; sobre o logotipo; com mistura que reduza o contraste de texto pequeno.</dd></div>
+          <div><dt>Movimento</dt><dd>Parado no site. No vídeo, troca a cada 2 quadros a 24 quadros por segundo.</dd></div>
+          <div><dt>Produção</dt><dd>Arquivo <code>assets/textura/grao-240.webp</code> (escuro) e <code>grao-240-claro.webp</code>. O SVG de ruído é a referência e a reserva.</dd></div>
+        </dl>
+        <div class="grade-2">
+          <figure class="f05-cena">
+            <div class="f05-palco f05-r43 grao" style="--grao-img:url(assets/textura/grao-240.webp)"></div>
+            <figcaption><b>Sala com Grão a 6%.</b> Em uso real: quase invisível, só tira o preto do digital.</figcaption>
+          </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-r43 f05-lupa" aria-hidden="true"></div>
+            <figcaption><b>O ladrilho a 100%, ampliado duas vezes.</b> Só para ver o desenho do ruído; nunca vai assim para a peça.</figcaption>
+          </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-claro f05-r43 modo-leitura grao" style="--grao-img:url(assets/textura/grao-240-claro.webp)"></div>
+            <figcaption><b>Tela com Grão a 4%.</b> No Modo Leitura, a página de papel ganha a mesma película.</figcaption>
+          </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-claro f05-r43 f05-lupa f05-claro" aria-hidden="true"></div>
+            <figcaption><b>O ladrilho claro a 100%, ampliado.</b> Pontos escuros, multiplicados sobre a Tela.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>/* tokens.css já traz .grao; em produção, troque a imagem de reserva pelo ladrilho */
+.grao{position:relative;isolation:isolate}
+.grao::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  opacity:var(--grao-opacidade,.06);mix-blend-mode:screen;
+  background-image:url("assets/textura/grao-240.webp")}
+.modo-leitura .grao::after{--grao-opacidade:.04;mix-blend-mode:multiply;
+  background-image:url("assets/textura/grao-240-claro.webp")}</code></pre>
+    </div>
+
+    <div class="bloco" id="s21-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">21.3</p>
+        <h3 class="fala">Esfera do Vazio</h3>
+        <p class="bloco-apoio">O círculo de borda de aerógrafo do slide 16: o símbolo do vazio e a única ilustração da marca. Ela aparece onde ainda não há nada, para dizer que ali vai haver.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Diâmetro de <b>40% a 60% do lado menor</b> da peça; de <b>96 a 160 px</b> em estado vazio. No escuro, Penumbra a 60%; no claro, Nanquim.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Abertura de vídeo, estado vazio da área de membros, página de obrigado (Pós-Créditos), página 404, carregamento, capa de manifesto, fundo de cartela de pergunta.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Atrás de rosto ou de texto corrido; mais de uma por peça; colorida; junto com o Eco do VOID.</dd></div>
+          <div><dt>Construção</dt><dd>SVG inline com filtro de ruído, que funciona nos três motores de navegador. Proibida a máscara CSS apontando para um <code>&lt;mask&gt;</code> SVG. Para impressão e vídeo, <code>esfera-3000.png</code>; na web, <code>esfera-1080.webp</code>.</dd></div>
+        </dl>
+        <div class="grade-2">
+          <figure class="f05-cena">
+            <div class="f05-palco f05-q f05-vazio-palco grao">
+              <div class="f05-centro">
+                <div data-vforms="esfera"></div>
+                <p class="f05-vazio1">Aqui ainda é vazio. Todo mundo começa com um traço.</p>
+                <span class="botao">Registrar meu primeiro traço</span>
+              </div>
+            </div>
+            <figcaption><b>Estado vazio do Meu Traço.</b> Esfera em Penumbra a 60%, a linha que nomeia o vazio, a linha que convida e um botão.</figcaption>
+          </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-claro f05-q modo-leitura" data-vforms='{"forma":"esfera","tema":"leitura","diametro":0.5}'></div>
+            <figcaption><b>No claro, Nanquim.</b> Capa de manifesto impressa ou página de obrigado no Modo Leitura; a borda continua de spray, nunca um círculo duro.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;!-- pelo motor (escolhe a cor pelo tema e o tamanho do grão pelo tamanho na tela) --&gt;
+&lt;div data-vforms="esfera" style="width:140px;aspect-ratio:1"&gt;&lt;/div&gt;
+&lt;!-- arquivo pré-renderizado, com o grão real --&gt;
+&lt;img src="assets/textura/esfera-1080.webp" width="1080" height="1080" alt=""&gt;</code></pre>
+    </div>
+
+    <div class="bloco" id="s21-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">21.4</p>
+        <h3 class="fala">Eco do VOID</h3>
+        <p class="bloco-apoio">O logotipo oficial ampliado e desfocado atrás da composição, como nos slides 14 e 15. É assim que o cinza entra na marca sem existir logotipo cinza.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Arquivo <code>void-horizontal-branco.svg</code> (no claro, o preto) com desfoque de 18 a 40 px, opacidade de 12%, escala de 1,6 e deslocado 18% para a direita, sangrando.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Capa institucional, fecho de vídeo, cabeçalho do site, cartaz de evento, Créditos Finais da LP, página de obrigado.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Em Campo de Produto; atrás de texto corrido; em superfície com menos de 600 px de largura; junto com a Esfera.</dd></div>
+          <div><dt>Contagem</dt><dd>O Eco não conta como segunda aparição do logotipo: a regra "logotipo nítido uma vez por peça" continua valendo para a assinatura.</dd></div>
+        </dl>
+        <figure class="f05-cena">
+          <div class="peca" data-formato="1920x1080" data-nome="Fecho de vídeo">
+            <div class="peca-tela grao">
+              <img class="f05-eco" src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="1500" height="228">
+              <img class="f05-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="760" height="116" style="left:calc(var(--u)*580);top:calc(var(--u)*430);width:calc(var(--u)*760)">
+              <p class="f05-at f05-cr" style="--x:120;--y:930;--w:1680;text-align:center">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Fecho de vídeo de marca, 1,5 a 2 segundos.</b> Sala, Eco, logotipo branco e Créditos Finais, seguidos da assinatura sonora. Recursos: Grão, Eco e Créditos Finais (três de três).</figcaption>
+        </figure>
+      </div>
+      <pre class="codigo" data-rotulo="HTML e CSS"><code>&lt;img class="eco" src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true"&gt;
+.eco{position:absolute;right:0;top:50%;width:min(1100px,90%);opacity:.12;pointer-events:none;
+  filter:blur(clamp(18px,2.6vw,40px));transform:translateY(-50%) scale(1.6) translateX(18%)}
+@media (max-width:599px){.eco{display:none}} /* abaixo de 600 px não existe Eco */</code></pre>
+    </div>
+
+    <div class="bloco" id="s21-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">21.5</p>
+        <h3 class="fala">Janela de Luz</h3>
+        <p class="bloco-apoio">A única fonte de luz da cena, entrando pelo canto superior esquerdo como no slide 12. Materializa a lei "uma luz por cena" sem usar sombra.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Gradiente radial de 110% por 75%, centrado em 12% da largura e no topo, saindo de Tela a 9% e sumindo em 62%. É gradiente de luz, nunca de cor.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Hero sem foto, cartela, cabeçalho de e-mail, capa de VSL, tela Hoje da área de membros.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Sobre foto; no Modo Leitura; duas por peça; colorida.</dd></div>
+          <div><dt>Teste da L5</dt><dd>Desfoque a captura da primeira dobra em 12 px, como um olho semicerrado: o primeiro ponto claro tem que ser o botão. A Janela ilumina o campo, nunca disputa com ele.</dd></div>
+        </dl>
+        <div class="pecas">
+          <div class="peca" data-formato="1080x1920" data-nome="Primeira dobra" data-estacao="start">
+            <div class="peca-tela grao f05-janela">
+              <p class="f05-at f05-cr" style="--y:300">The VOID Start</p>
+              <p class="f05-at f05-tf" data-largura="92" style="--y:620;--fs:100">Talento é consequência de <em class="off">treino.</em></p>
+              <p class="f05-at f05-tx" style="--y:1060;--w:820">Formação de tatuagem do zero, na Vila Madalena, em São Paulo.</p>
+              <div class="f05-at f05-bt" style="--y:1290"><span>Quero conversar sobre minha turma</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <div class="peca" data-formato="1080x1920" data-nome="A mesma, com 12 px de desfoque" data-estacao="start">
+            <div class="peca-tela grao f05-janela f05-desfoque">
+              <p class="f05-at f05-cr" style="--y:300">The VOID Start</p>
+              <p class="f05-at f05-tf" data-largura="92" style="--y:620;--fs:100">Talento é consequência de <em class="off">treino.</em></p>
+              <p class="f05-at f05-tx" style="--y:1060;--w:820">Formação de tatuagem do zero, na Vila Madalena, em São Paulo.</p>
+              <div class="f05-at f05-bt" style="--y:1290"><span>Quero conversar sobre minha turma</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="nota">Na dobra desfocada, o título vira mancha clara, mas a superfície clara mais forte e mais compacta é o botão, e a luz da Janela só aquece o canto de onde a leitura começa. Recursos usados: Grão, Janela de Luz e Palavra Sensível (três de três).</p>
+      <pre class="codigo" data-rotulo="CSS"><code>.janela-luz{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}</code></pre>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6.1 a 6.4, 2 e 7.4); Plataforma de Branding, aureadesign, 2025 (slides 12, 14, 15, 16, 19 e 21); Brand DNA da The VOID, set/2026 (seção 9); pesquisa de ativos técnicos da marca, GrowAI, out/2026.</p>
+  </div>
+</section>
+
+<!-- ================================================================== s22 -->
+<section class="sec" id="s22" data-parte="VI" data-nome="Véu, Cinemascope, Corte do Logo e Cartela" aria-labelledby="s22-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>22</b> · Véu, Cinemascope, Corte do Logo e Cartela</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">22</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Recursos assinatura</p>
+        <h2 id="s22-t" class="titulo-secao">Quem divide o <em class="off">quadro</em></h2>
+        <p class="sec-apoio">Os recursos que decidem como a imagem e o texto dividem o quadro: o Véu que garante a leitura sobre foto, a faixa de cinema, o logotipo cortado pela borda e a Cartela, o intertítulo da montagem.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Véu padrão de 70%; nunca menos de 62% sob texto abaixo de 24 px. O valor é conferido no pixel mais claro sob o texto, não no meio da foto.</li>
+        <li>Cinemascope e Corte do Logo são dispositivos de cinema: um por peça estática, nunca os dois juntos.</li>
+        <li>O Corte do Logo usa sempre o arquivo oficial e corta só entre letras inteiras, com o logotipo completo assinando em outro ponto.</li>
+        <li>A Cartela tem até 6 palavras no letreiro, uma linha na voz em off e nenhuma foto; nunca duas seguidas.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s22-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">22.1</p>
+        <h3 class="fala">Véu de Leitura, conferido no pior pixel</h3>
+        <p class="bloco-apoio">A camada de Sala entre foto e texto. A razão de contraste é calculada contra o branco puro, o pixel mais claro que uma foto pode ter. Mexa no quadro abaixo: ele mede de verdade o pixel mais claro debaixo do texto.</p>
+      </div>
+      <div class="f05-veu-demo" id="f05-veu">
+        <figure class="f05-cena">
+          <div class="f05-veu-quadro">
+            <canvas id="f05-veu-canvas" width="540" height="675" role="img" aria-label="Quadro de teste com uma região clara à esquerda e uma região escura à direita, com o véu aplicado sob o texto."></canvas>
+            <p class="f05-veu-texto" id="f05-veu-texto" data-pos="clara" data-tam="apoio">Formação de tatuagem do zero, na Vila Madalena, em São Paulo.</p>
+          </div>
+          <figcaption><b>Quadro de teste, não é foto.</b> Branco puro na luz da esquerda (o pior caso) e uma massa escura à direita. Use uma foto real da escola, com autorização, na ferramenta de peças.</figcaption>
+        </figure>
+        <div class="f05-controles">
+          <div>
+            <p class="rotulo">Véu sob o texto</p>
+            <div class="seletor" role="group" aria-label="Opacidade do véu">
+              <button type="button" data-f05-veu="0" aria-pressed="false">Sem</button>
+              <button type="button" data-f05-veu="48" aria-pressed="false">48%</button>
+              <button type="button" data-f05-veu="55" aria-pressed="false">55%</button>
+              <button type="button" data-f05-veu="62" aria-pressed="false">62%</button>
+              <button type="button" data-f05-veu="70" aria-pressed="true">70%</button>
+              <button type="button" data-f05-veu="75" aria-pressed="false">75%</button>
+            </div>
+          </div>
+          <div>
+            <p class="rotulo">Texto</p>
+            <div class="seletor" role="group" aria-label="Tamanho do texto">
+              <button type="button" data-f05-tam="apoio" aria-pressed="true">Apoio 17 px</button>
+              <button type="button" data-f05-tam="t24" aria-pressed="false">Título 24 px</button>
+              <button type="button" data-f05-tam="t32" aria-pressed="false">Título 32 px</button>
+            </div>
+          </div>
+          <div>
+            <p class="rotulo">Onde o texto cai</p>
+            <div class="seletor" role="group" aria-label="Posição do texto">
+              <button type="button" data-f05-pos="clara" aria-pressed="true">Região clara</button>
+              <button type="button" data-f05-pos="escura" aria-pressed="false">Região escura</button>
+            </div>
+          </div>
+          <div class="f05-leitura" aria-live="polite">
+            <p class="rotulo">Leitura do pior pixel</p>
+            <p class="f05-razao" id="f05-veu-razao">6,22:1</p>
+            <p id="f05-veu-pixel">Pixel mais claro sob o texto: <code>#5D5D5D</code> (antes do véu: <code>#FFFFFF</code>).</p>
+            <p class="f05-veredito" id="f05-veu-veredito" data-ok="sim"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Liberado</span></p>
+            <p id="f05-veu-motivo">Tela sobre o véu de 70% passa de 4,5:1: qualquer texto pode ir.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Os cinco véus, medidos sobre branco puro</caption>
+          <thead><tr><th scope="col">Véu</th><th scope="col">Cor no pior pixel</th><th scope="col">Tela sobre ele</th><th scope="col">O que pode ir em cima</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">75%</th><td><code>#525252</code></td><td>7,39:1</td><td>Caixa de legenda de vídeo; Areia como palavra de destaque (4,66:1)</td></tr>
+            <tr><th scope="row">70% (padrão)</th><td><code>#5D5D5D</code></td><td>6,22:1</td><td>Qualquer texto. É o ponto de partida de toda foto com texto</td></tr>
+            <tr><th scope="row">62% (mínimo)</th><td><code>#707070</code></td><td>4,68:1</td><td>Piso sob qualquer texto abaixo de 24 px</td></tr>
+            <tr><th scope="row">55%</th><td><code>#808080</code></td><td>3,73:1</td><td>Só título de 24 px ou mais</td></tr>
+            <tr><th scope="row">48%</th><td><code>#909090</code></td><td>3,02:1</td><td>Só título de 32 px ou mais, sobre região da foto já escura e com amostragem conferida</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Como o quadro decide: o texto abaixo de 24 px precisa de 4,5:1 e de véu de 62% ou mais; o título de 24 px precisa de véu de 55% ou mais e 3:1 medido; o título de 32 px pode descer a 48% só quando o pixel mais claro da região, antes do véu, já é escuro (até o cinza médio). O degradê é localizado: rosto e mão continuam vivos fora da área do texto.</p>
+      <pre class="codigo" data-rotulo="CSS"><code>--veu:rgb(24 24 24 / .70);
+.veu-esquerda{background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,rgb(24 24 24 / 0) 72%)}
+.veu-base{background:linear-gradient(0deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 38%,rgb(24 24 24 / 0) 70%)}</code></pre>
+    </div>
+
+    <div class="bloco" id="s22-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">22.2</p>
+        <h3 class="fala">Faixa Cinemascope</h3>
+        <p class="bloco-apoio">A foto recortada em 2,39 por 1 entre faixas pretas, com o título na faixa de cima e o Crédito na de baixo. Dá peso de filme a um bastidor comum.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Em 1080 por 1350: faixa de foto de 1080 por 452 com topo em y = 449, sobre campo Nanquim. No vídeo, as faixas fecham do quadro cheio até 2,39 em 600 ms.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Post de bastidor e de manifesto, cabeçalho de artigo, capa de capítulo da VSL, e-mail e cartão de marco.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Depoimento; story e Reels; thumbnail; junto com outro dispositivo de cinema.</dd></div>
+          <div><dt>Foto</dt><dd>Real e autorizada, P&amp;B pelo preset Ritual. A faixa recorta: o ponto de interesse fica num cruzamento dos terços.</dd></div>
+        </dl>
+        <figure class="f05-cena">
+          <div class="peca" data-formato="1080x1350" data-nome="Cinemascope, feed">
+            <div class="peca-tela">
+              <div style="position:absolute;inset:0" data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Start · Ritual do Traço"}'></div>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Modelo R3.</b> Frase do Ritual do Traço no letreiro, Marcador de Estação em texto na faixa de baixo. A foto entra no lugar marcado.</figcaption>
+        </figure>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;div data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Start · Ritual do Traço","foto":"foto-autorizada.webp"}'&gt;&lt;/div&gt;
+&lt;!-- ou, em página: --&gt;
+&lt;img class="cinemascope" src="foto-autorizada.webp" alt="..."&gt;
+.cinemascope{aspect-ratio:2.39/1;object-fit:cover;width:100%}</code></pre>
+    </div>
+
+    <div class="bloco" id="s22-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">22.3</p>
+        <h3 class="fala">Corte do Logo</h3>
+        <p class="bloco-apoio">O logotipo gigante sangrando pela borda, como nos slides 17, 33, 38 e 41. Sempre o arquivo oficial dentro de uma janela que corta, e só entre letras inteiras.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Altura do VOID entre <b>70% e 110% da altura da peça</b>. Opacidade de 100% ou de 8% como textura. Cortes possíveis: VO, VOI, VOID, I, ID e D (medidos no vetor: entre o V e o O não há vão).</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Cartaz de evento, capa institucional, Campo de Produto, capa de carrossel, página 404.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Sem o logotipo completo em tamanho de assinatura em outro ponto; em anúncio de conversão; sobre rosto; em cor; com letra cortada ao meio ou o ® cortado.</dd></div>
+          <div><dt>Formato</dt><dd>Em 16:9 o corte VOI ocupa cerca de 76% da altura. Em 4:5 e 1:1 nenhum corte entre letras inteiras chega a 70%; o motor desenha o maior possível e avisa. <span class="status" data-status="proposta">Proposta</span> aceitar de 50% a 110% em peça vertical, a confirmar com a direção de arte.</dd></div>
+        </dl>
+        <figure class="f05-cena">
+          <div class="peca" data-formato="1920x1080" data-nome="Letreiro, cartaz de evento">
+            <div class="peca-tela grao">
+              <div style="position:absolute;inset:0" data-vforms='{"forma":"corte-logo","mostra":"VOI","ancora":"topo","largura":1920,"altura":1080}'></div>
+              <p class="f05-at f05-cr" style="--x:120;--y:930;--w:1300">Convenção The VOID · [data real] · [local real]</p>
+              <img class="f05-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="300" height="46" style="right:calc(var(--u)*120);top:calc(var(--u)*918);width:calc(var(--u)*300)">
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Modelo R6, Letreiro.</b> Corte VOI a 100% preso ao topo; o logotipo completo assina no rodapé. Data e local só entram confirmados; até lá, o colchete marca o lugar e a peça não sai.</figcaption>
+        </figure>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><div class="f05-palco" style="width:100%;aspect-ratio:16/9;background:var(--sala)" data-vforms='{"forma":"corte-logo","mostra":"VO","textura":true,"largura":1600,"altura":900}'></div></div>
+          <figcaption>Corte VO a 8%, como textura de fundo de capa. O corte cai no vão entre o O e o I.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="" width="3804" height="579" style="position:absolute;height:90%;width:auto;max-width:none;top:5%;left:-87%"></div></div>
+          <figcaption>Corte no meio do V e do D. Letra pela metade deixa de ser letreiro e vira forma solta.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s22-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">22.4</p>
+        <h3 class="fala">Cartela</h3>
+        <p class="bloco-apoio">O intertítulo da montagem: uma tela em Sala com grão e Janela de Luz, uma frase em Archivo e uma linha na voz em off. É a respiração entre uma cena e um documento.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Frase de até 14 palavras; Título de Filme em até 3 linhas e 6 palavras; voz em off em 1 linha; Crédito no pé; margem de 72 u. Nenhuma foto, nenhum ícone.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Carrossel (abertura, virada, fecho), VSL, Reels de manifesto, separador de seção da LP, e-mail de marco.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Duas seguidas num carrossel; para preço e condição de oferta (isso é documento, em Modo Leitura).</dd></div>
+          <div><dt>Na VSL</dt><dd>Cinco tipos: Vazio (a crença), Virada (a verdade, com Palavra Sensível), Prova (Numeral de Prova com Crédito na mesma tela), Oferta (a única tela clara, um item por tela) e Ação (o rótulo do botão dito e escrito).</dd></div>
+        </dl>
+        <div class="pecas">
+          <div class="peca" data-formato="1080x1350" data-nome="Cartela de virada, carrossel">
+            <div class="peca-tela grao f05-janela">
+              <p class="f05-at f05-tf" data-largura="92" style="--y:420;--fs:108">Talento é consequência de <em class="off">treino.</em></p>
+              <p class="f05-at f05-cr" style="--y:1220"><span class="f05-fio"></span>02 · A virada</p>
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <div class="peca" data-formato="1920x1080" data-nome="Cartela do Vazio, VSL">
+            <div class="peca-tela grao f05-janela">
+              <p class="f05-at f05-cr" style="--x:120;--y:96;--w:1000"><span class="f05-fio"></span>Capítulo 01 · O vazio</p>
+              <p class="f05-at f05-tf" style="--x:120;--y:400;--w:1100;--fs:140">Isso não é <em class="off">para mim.</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 1, 3.4, 6.5 a 6.8, 12.2 e 12.3); Plataforma de Branding, aureadesign, 2025 (slides 17, 33, 38, 41 e 60); Brand DNA da The VOID, set/2026 (seções 6 e 9); motor de formas <code>vforms.js</code>, medidas de corte tiradas do vetor oficial.</p>
+  </div>
+</section>
+
+<!-- ================================================================== s23 -->
+<section class="sec" id="s23" data-parte="VI" data-nome="Palavra Sensível, Órbitas e Mapa da Trilha" aria-labelledby="s23-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>23</b> · Palavra Sensível, Órbitas e Mapa da Trilha</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">23</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Recursos assinatura</p>
+        <h2 id="s23-t" class="titulo-secao">A palavra e o <em class="off">caminho</em></h2>
+        <p class="sec-apoio">A voz em off dentro do letreiro, as trajetórias tiradas dos selos e o diagrama-mãe da escola: três círculos tangentes que mostram o vazio e o caminho para preenchê-lo.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>A Palavra Sensível é a única palavra em itálico do título: uma linha por bloco, até 7 palavras, nunca em botão, número ou instrução.</li>
+        <li>Cada produto tem sua palavra de assinatura e sua órbita; o institucional não tem órbita, só a Esfera.</li>
+        <li>O Mapa da Trilha tem raios 65, 150 e 232 tangentes em x = 250 (proporção 1 : 2,3 : 3,6) e vira vertical nativo no celular.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s23-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">23.1</p>
+        <h3 class="fala">Palavra Sensível</h3>
+        <p class="bloco-apoio">A voz em off entra no letreiro para dizer a palavra que sente. Escolha o produto: a palavra de assinatura e a cor de destaque trocam juntas, com um único atributo.</p>
+      </div>
+      <div class="demo-estacao" data-estacao="chamado">
+        <p class="titulo-filme" style="font-size:clamp(30px,4.6vw,64px);max-width:16ch">O seu chamado para a arte <em class="off">acabou de chegar</em></p>
+        <div class="grade-3">
+          <div><p class="rotulo">Palavra de assinatura</p><p class="voz-off" style="color:var(--estacao-destaque)"><span data-so="chamado">o primeiro passo</span><span data-so="start">o primeiro traço</span><span data-so="master">a sua identidade</span><span data-so="pro">o seu plano</span><span data-so="voiders">família</span></p></div>
+          <div><p class="rotulo">Destaque no escuro</p><p class="nota"><span data-so="chamado start voiders">Areia <code>#DBC5A3</code>, 10,59:1 sobre Sala.</span><span data-so="master">Terracota Luz <code>#DE8C66</code> no texto pequeno (6,81:1); Terracota Viva só a partir de 24 px.</span><span data-so="pro">Névoa <code>#C9D0D8</code>, 11,41:1 sobre Sala. O Pro é monocromático.</span></p></div>
+          <div><p class="rotulo">Onde a cor mora</p><p class="nota">Na palavra, no selo, no campo, no grafismo e na seta do botão. Nunca no logotipo, que fica preto ou branco.</p></div>
+        </div>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">É sobre <em class="off">continuar,</em> mesmo sem <em class="off">certeza</em></p></div>
+          <figcaption>No máximo duas palavras soltas na mesma linha, como no slide 24. Tamanho de 1,2 vez o Archivo da linha, entreletra 0.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao f05-quebra"><em class="off">Turma começa em 06/10</em></p></div>
+          <figcaption>Data, preço, número, instrução, nome de pessoa e texto legal nunca vão na voz em off. Abaixo de 24 px, nunca em terracota pura.</figcaption>
+        </figure>
+      </div>
+      <pre class="codigo" data-rotulo="HTML e CSS"><code>&lt;h1 class="titulo-filme"&gt;O SEU CHAMADO PARA A ARTE &lt;em class="off"&gt;acabou de chegar&lt;/em&gt;&lt;/h1&gt;
+.off{font-family:var(--font-off);font-style:italic;font-weight:300;font-variation-settings:"opsz" 72;
+  font-size:1.2em;text-transform:none;letter-spacing:0;color:var(--estacao-destaque,inherit)}</code></pre>
+      <p class="nota">As oito regras da voz em off e as duas exceções em caixa alta estão em <a href="#s20">20 · A voz em off e regras gerais</a>.</p>
+      <p class="pendencia" data-p="3">[P 3] Licença da Alga para web, aplicativo e vídeo. Até a licença existir, todo material público usa Newsreader Italic 300, como este manual.</p>
+    </div>
+
+    <div class="bloco" id="s23-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">23.2</p>
+        <h3 class="fala">Órbitas da Trilha</h3>
+        <p class="bloco-apoio">Os símbolos dos selos simples levados para a composição como trajetórias de luz, medidos nos vetores oficiais. São linhas paradas: movimento só na abertura de vídeo.</p>
+      </div>
+      <div class="f05-orbs">
+        <figure><div class="f05-palco f05-q" data-vforms='{"forma":"esfera","diametro":0.5}'></div><b>Institucional</b><span>Nenhuma órbita: o motor recusa. O institucional fala com a Esfera.</span></figure>
+        <figure><div class="f05-palco f05-q" data-vforms='{"forma":"orbita","estacao":"start","cor":"grafismo","traco":2}'></div><b>Start</b><span>Duas elipses horizontais empilhadas; o conjunto mede cerca de 1,13 de largura para 1 de altura.</span></figure>
+        <figure><div class="f05-palco f05-q" data-vforms='{"forma":"orbita","estacao":"master","cor":"grafismo","traco":2}'></div><b>Master</b><span>Duas elipses verticais lado a lado; cerca de 0,89 de largura para 1.</span></figure>
+        <figure><div class="f05-palco f05-q" data-vforms='{"forma":"orbita","estacao":"pro","cor":"grafismo","traco":2}'></div><b>Pro</b><span>Duas elipses entrelaçadas a ±32° da vertical, menor sobre maior de 0,63, com interrupção de 6 px nos cruzamentos.</span></figure>
+        <figure><div class="f05-palco f05-q" data-vforms='{"forma":"orbita","estacao":"voiders","traco":2}'></div><b>VOIDERS</b><span>Três círculos concêntricos, em Tela a 28%.</span></figure>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Traço</dt><dd>1,5 px no documento, 2 u na peça, espessura fixa em qualquer escala. Cor: Tela a 28% ou o grafismo do produto. Nunca preenchidas.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Fundo de peça de produto, capa de módulo na área de membros, abertura de VSL de produto, cabeçalho de e-mail de marco.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>No institucional; sobre rosto ou texto; mais de um conjunto por peça; preenchidas.</dd></div>
+          <div><dt>Leitura</dt><dd>Horizontal é base, vertical é crescimento, entrelaçado é domínio. <span class="status" data-status="proposta">Proposta</span> interpretação da GrowAI, não declarada pela agência.</dd></div>
+        </dl>
+        <figure class="f05-cena">
+          <div class="peca" data-formato="1080x1350" data-nome="Peça do Pro" data-estacao="pro">
+            <div class="peca-tela grao">
+              <div style="position:absolute;inset:0" data-vforms='{"forma":"orbita","estacao":"pro","escala":0.62,"cx":0.7,"cy":0.27}'></div>
+              <p class="f05-at f05-tf" data-largura="85" style="--y:700;--fs:100">Técnica sem posicionamento é <em class="off">invisível.</em></p>
+              <img class="f05-logo" src="assets/brand/svg/void-pro-branco.svg" alt="The VOID Pro" width="400" height="62" style="left:calc(var(--u)*72);top:calc(var(--u)*1200);width:calc(var(--u)*400)">
+              <div class="area-segura"></div>
+            </div>
+          </div>
+          <figcaption><b>Órbita do Pro como trajetória ao fundo.</b> Em Tela a 28%, longe do texto. Recursos: Grão, Órbitas e Palavra Sensível.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s23-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">23.3</p>
+        <h3 class="fala">Mapa da Trilha</h3>
+        <p class="bloco-apoio">O diagrama-mãe do slide 30: três círculos tangentes no mesmo ponto à esquerda, Start, Master e Pro, e uma seta saindo do ponto de tangência. Escolha o produto para acender o círculo.</p>
+      </div>
+      <div class="demo-estacao" data-estacao="master">
+        <div class="f05-mapas">
+          <div data-vforms='{"forma":"mapa-trilha","voceEstaAqui":true}'></div>
+          <div data-vforms='{"forma":"mapa-trilha","orientacao":"vertical","voceEstaAqui":true,"frases":false}' class="f05-so-largo" style="max-width:240px;margin:0 auto;width:100%"></div>
+        </div>
+        <p class="legenda">A versão horizontal serve ao documento e ao computador. Abaixo de 430 px o motor troca pela versão vertical nativa, sem girar o desenho (no computador, ela aparece ao lado). As duas frases ficam em texto real, fora do SVG, para leitura por máquina.</p>
+      </div>
+      <div class="f05-recurso">
+        <figure class="f05-cena">
+          <div class="f05-palco">
+            <svg class="f05-planta" viewBox="0 0 1000 560" role="img" aria-labelledby="f05-planta-t"><title id="f05-planta-t">Construção do Mapa da Trilha: círculos de raio 65, 150 e 232, com centros em x igual a 315, 400 e 482, todos tangentes em x igual a 250.</title>
+              <circle cx="482" cy="280" r="232"/><circle cx="400" cy="280" r="150"/><circle cx="315" cy="280" r="65"/>
+              <path class="f05-cota" d="M250 30V530"/><path class="f05-cota" d="M315 280V215M400 280V130M482 280V48"/>
+              <circle class="f05-centro-pt" cx="315" cy="280" r="4"/><circle class="f05-centro-pt" cx="400" cy="280" r="4"/><circle class="f05-centro-pt" cx="482" cy="280" r="4"/>
+              <text x="262" y="30">X = 250, TANGÊNCIA</text><text x="325" y="245">R 65</text><text x="410" y="165">R 150</text><text x="492" y="95">R 232</text>
+              <text x="740" y="290">1 : 2,3 : 3,6</text>
+            </svg>
+          </div>
+          <figcaption><b>Planta.</b> Medida no slide 30 (raios de cerca de 61, 141 e 218 px) e arredondada para o SVG de raios 65, 150 e 232. Centro menos raio dá 250 nos três: é isso que os faz tangentes.</figcaption>
+        </figure>
+        <dl class="f05-ficha">
+          <div><dt>Círculo ativo</dt><dd>Institucional: nenhum, todos em contorno. Start: o menor. Master: o médio. Pro: o maior. VOIDERS: os que a pessoa concluiu. Ativo em traço de 2,5 no grafismo do produto.</dd></div>
+          <div><dt>Nomes</dt><dd>START, MASTER e PRO na voz em off, em caixa alta: uma das duas exceções nomeadas da regra da voz em off.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Seção de trilha de toda LP, comparativo, página <code>/trilha/</code>, Minha Trilha nos membros (com "você está aqui"), VSL no bloco Método, certificado, artigo.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Sem os nomes; fora de proporção ou sem tangência; com mais de três círculos; com eventos dentro dos círculos.</dd></div>
+        </dl>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;!-- o motor gera a versão horizontal ou a vertical nativa conforme a largura --&gt;
+&lt;div data-estacao="master"&gt;
+  &lt;div data-vforms='{"forma":"mapa-trilha","voceEstaAqui":true}'&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- referência estática (cor por classe, nunca var() em atributo) --&gt;
+&lt;svg class="mapa-trilha" viewBox="0 0 1000 560" data-ativa="master" role="img" aria-label="Trilha da The VOID: Start, Master e Pro. Você está no Master."&gt;
+ &lt;g class="mt-linhas"&gt;&lt;circle class="c-pro" cx="482" cy="280" r="232"/&gt;&lt;circle class="c-master" cx="400" cy="280" r="150"/&gt;&lt;circle class="c-start" cx="315" cy="280" r="65"/&gt;
+ &lt;path d="M250 280H940"/&gt;&lt;path d="M928 272L940 280L928 288"/&gt;&lt;/g&gt;
+ &lt;g class="mt-nomes"&gt;&lt;text x="315" y="270"&gt;START&lt;/text&gt;&lt;text x="465" y="270"&gt;MASTER&lt;/text&gt;&lt;text x="632" y="270"&gt;PRO&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;</code></pre>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.5, 4.6, 6.9 a 6.11 e 16); Plataforma de Branding, aureadesign, 2025 (slides 21, 23, 24, 30, 31, 33, 35, 36 e 38); vetores oficiais dos selos simples Start, Master e Pro; Brand DNA da The VOID, set/2026 (seção 9).</p>
+  </div>
+</section>
+
+<!-- ================================================================== s24 -->
+<section class="sec" id="s24" data-parte="VI" data-nome="Marcadores, Selo como Carimbo, Ficha Técnica e Créditos Finais" aria-labelledby="s24-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>24</b> · Marcadores, Carimbo, Ficha e Créditos</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">24</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Recursos assinatura</p>
+        <h2 id="s24-t" class="titulo-secao">Os créditos da <em class="off">peça</em></h2>
+        <p class="sec-apoio">O que diz onde a pessoa está, quem assina e como a peça termina: os marcadores, o selo usado como carimbo, a Palavra de Produto, a Ficha Técnica e o rodapé literal, igual em toda parte.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>O Marcador de Estação mostra o nome do produto ou do rito, nunca a palavra "estação"; uma vez por tela.</li>
+        <li>O selo carimba no canto superior direito: completo a partir de 200 px, simples de 96 a 199 px, e abaixo disso não existe selo.</li>
+        <li>Os Créditos Finais são um texto literal e único, sem variante por produto; a Ficha Técnica vai no topo de peça premium, nunca na mesma borda.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s24-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">24.1</p>
+        <h3 class="fala">Marcador de Estação e Marcador de Capítulo</h3>
+        <p class="bloco-apoio">O Marcador de Estação é um Mapa da Trilha de 14 px com o círculo do produto cheio, seguido do nome em Crédito. O Marcador de Capítulo organiza VSL e carrossel com dois dígitos e um fio de 24 por 1 px.</p>
+      </div>
+      <div class="grade-2">
+        <div>
+          <h4 class="intertitulo">De Estação, em tamanho real</h4>
+          <ul class="f05-marcadores">
+            <li><span data-vforms='{"forma":"marcador-estacao","estacao":"chamado","rotulo":"Aula experimental"}'></span><em>institucional: todos em contorno</em></li>
+            <li><span data-vforms='{"forma":"marcador-estacao","estacao":"chamado","rotulo":"The VOID Talks"}'></span><em>evento, também institucional</em></li>
+            <li><span data-vforms='{"forma":"marcador-estacao","estacao":"start","rotulo":"Start · Ritual do Traço"}'></span><em>produto e rito</em></li>
+            <li><span data-vforms='{"forma":"marcador-estacao","estacao":"master","rotulo":"The VOID Master"}'></span><em>círculo médio cheio</em></li>
+            <li><span data-vforms='{"forma":"marcador-estacao","estacao":"pro","rotulo":"The VOID Pro"}'></span><em>círculo maior em Névoa</em></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="intertitulo">Ampliado a 64 px, para ver a construção</h4>
+          <div class="grade-3">
+            <figure class="f05-cena"><div class="f05-palco f05-q f05-centro" style="position:relative" data-vforms='{"forma":"marcador-estacao","estacao":"start","tamanho":64}'></div><figcaption><b>Start</b></figcaption></figure>
+            <figure class="f05-cena"><div class="f05-palco f05-q f05-centro" style="position:relative" data-vforms='{"forma":"marcador-estacao","estacao":"master","tamanho":64}'></div><figcaption><b>Master</b></figcaption></figure>
+            <figure class="f05-cena"><div class="f05-palco f05-q f05-centro" style="position:relative" data-vforms='{"forma":"marcador-estacao","estacao":"pro","tamanho":64}'></div><figcaption><b>Pro</b></figcaption></figure>
+          </div>
+          <h4 class="intertitulo" style="margin-top:var(--e-6)">De Capítulo</h4>
+          <ul class="f05-marcadores">
+            <li><span data-vforms='{"forma":"marcador-capitulo","numero":2,"titulo":"O vazio"}'></span><em>VSL</em></li>
+            <li><span data-vforms='{"forma":"marcador-capitulo","formato":"carrossel","numero":1,"total":7,"titulo":"O vazio"}'></span><em>carrossel, primeira tela com total</em></li>
+            <li><span data-vforms='{"forma":"marcador-capitulo","formato":"carrossel","numero":2,"total":7,"titulo":"A virada"}'></span><em>telas do meio sem total</em></li>
+          </ul>
+        </div>
+      </div>
+      <p class="nota">O Marcador de Estação vai no sobretítulo de seção de LP, no e-mail, no artigo e nos cartões da área de membros. O Marcador de Capítulo é dispositivo de cinema: só VSL e carrossel. Capítulos da VSL, sempre estes: O vazio, O método, Quem já fez, A turma e Como entrar.</p>
+    </div>
+
+    <div class="bloco" id="s24-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">24.2</p>
+        <h3 class="fala">Selo como Carimbo e Palavra de Produto</h3>
+        <p class="bloco-apoio">No Campo de Produto do slide 31, o selo assina no canto e o nome do produto vira marca d'água gigante na voz em off, em caixa alta, a 8%. No Pro, a variante vazada em Archivo.</p>
+      </div>
+      <div class="pecas">
+        <div class="peca" data-formato="1080x1350" data-nome="Campo de Produto, Start" data-estacao="start">
+          <div class="peca-tela f05-campo">
+            <p class="f05-pdp">Start</p>
+            <img class="f05-logo" src="assets/brand/svg/selo-completo-start.svg" alt="Selo The VOID Start" width="240" height="240" style="right:calc(var(--u)*72);top:calc(var(--u)*72);width:calc(var(--u)*240)">
+            <p class="f05-at f05-tf" style="--y:760;--fs:120;color:var(--sala)">Sempre faça <em class="off" style="color:var(--sala)">arte.</em></p>
+            <img class="f05-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="520" height="83" style="left:calc(var(--u)*72);top:calc(var(--u)*1180);width:calc(var(--u)*520)">
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Campo de Produto, Master" data-estacao="master">
+          <div class="peca-tela f05-campo">
+            <p class="f05-pdp">Master</p>
+            <img class="f05-logo" src="assets/brand/svg/selo-completo-master.svg" alt="Selo The VOID Master" width="240" height="240" style="right:calc(var(--u)*72);top:calc(var(--u)*72);width:calc(var(--u)*240)">
+            <p class="f05-at f05-tf" style="--y:640;--fs:120">Descubra sua identidade <em class="off" style="color:var(--tela)">artística.</em></p>
+            <img class="f05-logo" src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="540" height="80" style="left:calc(var(--u)*72);top:calc(var(--u)*1180);width:calc(var(--u)*540)">
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1350" data-nome="Peça do Pro, Sala com faixa" data-estacao="pro">
+          <div class="peca-tela grao">
+            <p class="f05-vazada" aria-hidden="true" style="top:calc(var(--u)*300)">PRO</p>
+            <span class="f05-faixa" aria-hidden="true"></span>
+            <img class="f05-logo" src="assets/brand/svg/selo-completo-pro.svg" alt="Selo The VOID Pro" width="240" height="240" style="right:calc(var(--u)*72);top:calc(var(--u)*72);width:calc(var(--u)*240)">
+            <p class="f05-at f05-tf" style="--y:740;--fs:104">A arte é sua.<br><em class="off">O plano é nosso.</em></p>
+            <img class="f05-logo" src="assets/brand/svg/void-pro-branco.svg" alt="The VOID Pro" width="480" height="74" style="left:calc(var(--u)*72);top:calc(var(--u)*1160);width:calc(var(--u)*480)">
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <p class="nota">Start: campo <code>#B5966B</code>, texto Sala (6,38:1), logotipo branco como no slide 31. Master: campo <code>#76432B</code>, texto Tela (7,61:1). Pro: Sala com faixa Ardósia e o selo completo, que dispensa disco porque o anel branco externo fica inteiro visível. Campo de Produto é exceção nomeada: uma peça a cada seis no feed, uma tela a cada cinco num carrossel.</p>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Selo</dt><dd>Canto superior direito, ou à direita do logotipo de produto a 1 X. Usa no hero e na oferta da LP de produto, Campo de Produto, capa de VSL de produto, certificado, marco e capa de destaque.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Nunca</dt><dd>Girar, recolorir, deformar, sombrear, animar; usar como "selo de garantia" ou "de qualidade"; sobre rosto; em peça institucional sem produto.</dd></div>
+          <div><dt>Palavra</dt><dd>Voz em off 300 itálico a 420 u, entrelinha 0,8, Tela a 8%. Vazada só no Pro: Archivo 800 largura 125, contorno de 2 u em Tela. Nunca com a palavra VOID, que é sempre o arquivo.</dd></div>
+        </dl>
+        <div>
+          <h4 class="intertitulo">Os três tamanhos, pelo motor</h4>
+          <div class="f05-assina">
+            <div data-vforms='{"forma":"selo","produto":"master","tamanho":200}'></div>
+            <div data-vforms='{"forma":"selo","produto":"pro","tamanho":120}'></div>
+            <div class="f05-recusa" data-vforms='{"forma":"selo","produto":"start","tamanho":80}'></div>
+          </div>
+          <p class="legenda" style="margin-top:var(--e-4)">Master completo a 200 px; Pro simples a 120 px, assentado no disco Coxia com folga de 4% (sobre Sala, a base Nanquim some: 1,18:1); Start pedido a 80 px, que o motor recusa e troca pelo Rótulo de Produto em texto.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloco" id="s24-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">24.3</p>
+        <h3 class="fala">Ficha Técnica</h3>
+        <p class="bloco-apoio">Uma linha de crédito no canto superior das peças premium, como a ficha de um filme. Diz quem é e onde é, e nada mais.</p>
+      </div>
+      <figure class="f05-cena">
+        <div class="peca" data-formato="1280x720" data-nome="Capa de VSL do Pro" data-estacao="pro" style="--peca-max:100%">
+          <div class="peca-tela grao">
+            <div class="f05-foto" style="left:calc(var(--u)*430);top:calc(var(--u)*96);right:0;bottom:0"><span>Foto real da escola, com autorização</span></div>
+            <div class="veu-esquerda" style="position:absolute;left:calc(var(--u)*430);top:0;bottom:0;width:calc(var(--u)*520)"></div>
+            <img class="f05-logo" src="assets/brand/svg/void-pro-branco.svg" alt="The VOID Pro" width="300" height="46" style="left:calc(var(--u)*64);top:calc(var(--u)*64);width:calc(var(--u)*300)">
+            <p class="f05-at f05-cr" style="--x:520;--y:64;--w:696;--fs:16;text-align:right;white-space:nowrap">The VOID Tattoo Academy · São Paulo · Brazil</p>
+            <p class="f05-at f05-tf" data-largura="85" style="--x:64;--y:300;--w:334;--fs:40">Técnica sem posicionamento é <em class="off">invisível</em></p>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <figcaption><b>Ficha Técnica no topo, à direita do logotipo de produto.</b> Frase no terço esquerdo, em Sala, com a Palavra Sensível na voz em off; foto nos dois terços da direita com véu; canto inferior direito livre para a duração. Recursos: Grão, Véu e Ficha Técnica.</figcaption>
+      </figure>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Texto fixo</dt><dd><code>THE VOID TATTOO ACADEMY · SÃO PAULO · BRAZIL</code> em Crédito, 12 px no documento e 26 u na peça, em Pó.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Pro, capa de LP, capa de VSL, convite de evento, certificado, capa de PDF.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Post de conversão de topo de funil; na mesma borda do rodapé-assinatura.</dd></div>
+        </dl>
+        <p class="pendencia" data-p="5">[P 5] Ano de fundação a confirmar com a The VOID. Até a confirmação, a Ficha Técnica sai sem "EST", sem "desde" e sem contagem de anos.</p>
+      </div>
+    </div>
+
+    <div class="bloco" id="s24-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">24.4</p>
+        <h3 class="fala">Créditos Finais e Letreiro Corrido</h3>
+        <p class="bloco-apoio">O rodapé-assinatura dos slides 14 e 30, literal e único. Vale para a escola, para os três produtos e para os eventos: frase de produto vai em outra linha, nunca dentro dele.</p>
+      </div>
+      <div class="palco"><div data-vforms="rodape"></div></div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Anatomia dos Créditos Finais</caption>
+          <thead><tr><th scope="col">Termo</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">TATTOO ACADEMY</th><td>Sempre com dois T no meio, como no logotipo. A grafia errada que aparece no slide 14 não se repete.</td></tr>
+            <tr><th scope="row">® 2025</th><td>Literal dos slides 14 e 30. Não vira ano de fundação nem "desde" [P 5].</td></tr>
+            <tr><th scope="row">SÃO PAULO · BRAZIL</th><td>Em Pó, Archivo Crédito 500 largura 125, entreletra de 0,18em; separador ponto médio com 0,9em de cada lado. No celular, quebra depois de BRAZIL.</td></tr>
+            <tr><th scope="row">PREENCHA O VAZIO</th><td>O último termo, em 700 e em Tela. É a frase institucional da escola e a última linha que fica.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Rodapé de peça institucional e de marca, cartaz, fecho de vídeo, rodapé de site, LP e e-mail, capa e contracapa de PDF.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Anúncio 9:16, onde a interface da rede cobre o pé; duas vezes na mesma peça.</dd></div>
+          <div><dt>Corrido</dt><dd>Variante de evento: <code>THE VOID TATTOO · ® 2025 · SÃO PAULO · BRAZIL</code> em loop, faixa de 48 a 64 px, 40 px por segundo, pausa ao passar o cursor, parado com movimento reduzido. Só em peça de Talks, Convenção e Formatura e no topo da LP de evento; nunca em LP de venda.</dd></div>
+        </dl>
+        <div>
+          <p class="rotulo">Letreiro Corrido, ao vivo</p>
+          <div class="palco" style="padding:0 var(--e-4)"><div data-vforms='{"forma":"rodape","variante":"corrido"}'></div></div>
+          <div class="faca-nao" style="margin-top:var(--e-5)">
+            <figure class="faca">
+              <div class="fn-palco" style="flex-direction:column;align-items:flex-start;gap:var(--e-4)"><p class="fala" style="color:var(--tela);font-size:20px">Descubra sua identidade artística.</p><p class="credito">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p></div>
+              <figcaption>A frase do produto em outra linha; o rodapé literal, igual.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><p class="credito">START · ® 2025 · SÃO PAULO · <b>PREENCHA O PRIMEIRO TRAÇO</b></p></div>
+              <figcaption>Rodapé por produto está vetado. A frase do produto vai em outra linha da peça.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 3.3, 5.2, 5.6, 6.12 a 6.15 e 12.2); Plataforma de Branding, aureadesign, 2025 (slides 14, 19, 21, 30, 31, 38 e 41); vetores oficiais dos selos; Brand DNA da The VOID, set/2026.</p>
+  </div>
+</section>
+
+<!-- ================================================================== s25 -->
+<section class="sec" id="s25" data-parte="VI" data-nome="Crédito de Prova, Revelação, Duotom, Anel e Assinatura Pro" aria-labelledby="s25-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>25</b> · Prova, Revelação, Duotom, Anel e Assinatura Pro</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">25</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Recursos assinatura</p>
+        <h2 id="s25-t" class="titulo-secao">O que se <em class="off">conquista</em></h2>
+        <p class="sec-apoio">Os recursos que só aparecem quando há algo de verdade para mostrar: a prova com crédito, a imagem que se revela, a cor do produto na foto, o anel que enche com cada marco validado e a assinatura do Pro.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Toda prova leva o que mede, recorte, data, fonte e marca de origem. Em validação, o número some e a publicação fica bloqueada.</li>
+        <li>Revelação e Duotom são para foto: nunca em botão, texto ou logotipo, e o duotom nunca toca rosto de aluno nem depoimento.</li>
+        <li>O Anel de Preenchimento só enche quando professor ou coordenação valida o marco. Assistir aula não enche nada.</li>
+        <li>A Assinatura do Pro é a única pílula do sistema; Start e Master assinam com logotipo de produto e selo lado a lado.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s25-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">25.1</p>
+        <h3 class="fala">Crédito de Prova</h3>
+        <p class="bloco-apoio">A régua que acompanha todo número, depoimento, avaliação ou dado de mercado. A marca de origem, um fio de 16 por 2 px, diz de onde o número veio antes mesmo da leitura.</p>
+      </div>
+      <p class="pendencia" data-p="15">[P 15] Nenhum número da The VOID está validado ainda: alunos formados, avaliações, vagas e preços dependem de método de contagem e data. Por isso os exemplos abaixo mostram marcadores de modelo, e nenhum deles vai ao ar com colchete.</p>
+      <div class="f05-provas">
+        <figure class="prova" data-origem="medido">
+          <data class="prova-n" value="">[N]</data>
+          <figcaption class="prova-o-que">alunos concluíram a formação Start</figcaption>
+          <p class="prova-regua"><span class="origem"></span>contagem da secretaria · turmas até [mês/ano] · registro interno</p>
+          <p class="legenda" style="margin-top:var(--e-3)">Fio cheio: <b>medido</b>, registro da escola arquivado.</p>
+        </figure>
+        <figure class="prova" data-origem="terceiro">
+          <data class="prova-n" value="">[N]</data>
+          <figcaption class="prova-o-que">nota média no Perfil da Empresa no Google</figcaption>
+          <p class="prova-regua"><span class="origem"></span>[N] avaliações · capturado em [dd/mm/aaaa] · link da página</p>
+          <p class="legenda" style="margin-top:var(--e-3)">Fio tracejado: <b>declarado por terceiro</b>, com link e data da captura.</p>
+        </figure>
+        <figure class="prova" data-origem="mercado">
+          <data class="prova-n" value="">[N]</data>
+          <figcaption class="prova-o-que">estúdios de tatuagem com cadastro ativo em São Paulo</figcaption>
+          <p class="prova-regua"><span class="origem"></span>base pública de empresas · atividade de tatuagem · consulta em [mês/ano] · link</p>
+          <p class="legenda" style="margin-top:var(--e-3)">Fio pontilhado: <b>mercado</b>, estudo ou base externa com link.</p>
+        </figure>
+        <figure class="prova" data-origem="em-validacao">
+          <data class="prova-n" value="">[N]</data>
+          <figcaption class="prova-o-que">alunos formados pela escola</figcaption>
+          <p class="prova-regua"><span class="origem"></span>método de contagem a definir · ano de fundação a definir</p>
+          <p class="legenda" style="margin-top:var(--e-3)">Fio Fumaça tracejado: <b>em validação</b>. Existe só no arquivo de trabalho.</p>
+        </figure>
+      </div>
+      <div class="f05-recurso">
+        <div>
+          <h4 class="intertitulo">As cinco partes da régua</h4>
+          <ol class="f05-anatomia">
+            <li><b>O que mede</b>, em frase: "alunos concluíram a formação Start".</li>
+            <li><b>Recorte</b>: turma, período e base contada.</li>
+            <li><b>Data</b> da contagem ou da captura.</li>
+            <li><b>Fonte</b>: registro interno, link da página ou estudo.</li>
+            <li><b>Marca de origem</b>: cheio, tracejado, pontilhado ou em validação.</li>
+          </ol>
+        </div>
+        <dl class="f05-ficha">
+          <div><dt>Sem prova</dt><dd>O número sai da peça. Nunca vira zero e nunca vai com colchete.</dd></div>
+          <div><dt>Movimento</dt><dd>Número nunca anima contando até o valor.</dd></div>
+          <div><dt>Superlativo</dt><dd>Conta como número sem crédito: os claims da lista de conformidade estão em <a href="#s33">33 · Conformidade e prova</a>.</dd></div>
+          <div><dt>Gráfico</dt><dd>O motor <code>vviz.js</code> exige a régua inteira e recusa exportar dado em validação: <a href="#s28">28 · Dados e gráficos</a>.</dd></div>
+        </dl>
+      </div>
+      <pre class="codigo" data-rotulo="Depoimento, frase-modelo">Depoimento real de [nome], aluno da formação [Start/Master/Pro], turma [mês/ano], usado com autorização.</pre>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;figure class="prova" data-origem="medido"&gt;
+ &lt;data class="prova-n" value="0"&gt;[N]&lt;/data&gt;
+ &lt;figcaption class="prova-o-que"&gt;alunos concluíram a formação Start&lt;/figcaption&gt;
+ &lt;p class="prova-regua"&gt;&lt;span class="origem"&gt;&lt;/span&gt;contagem da secretaria · turmas até [mês/ano] · registro interno&lt;/p&gt;
+&lt;/figure&gt;
+&lt;!-- data-origem: medido · terceiro · mercado · em-validacao --&gt;</code></pre>
+    </div>
+
+    <div class="bloco" id="s25-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">25.2</p>
+        <h3 class="fala">Revelação</h3>
+        <p class="bloco-apoio">A imagem que surge do grão, como foto no revelador. Reinterpreta a pixelização dos slides 32 e 37 sem quebrar a imagem em quadrados.</p>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>900 ms na curva Cena, de transparente, desfocado em 10 px, com contraste a 70% e brilho a 60%, até a imagem inteira. No vídeo, dissolve de 12 quadros através de grão a 30%.</dd></div>
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Entrada de foto no site, uma vez por imagem; transição de bloco na VSL; abertura de Reels institucional; marco validado na área de membros.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Em botão, texto ou logotipo. Com movimento reduzido, a imagem aparece direto.</dd></div>
+        </dl>
+        <figure class="f05-cena">
+          <div class="f05-palco f05-r43">
+            <div class="f05-quadro" id="f05-revela" style="position:absolute;inset:0"></div>
+            <span class="f05-rotulo-quadro">Quadro de teste, não é foto</span>
+          </div>
+          <button type="button" class="copiar" id="f05-revelar-de-novo" style="justify-self:start"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Revelar de novo</button>
+        </figure>
+      </div>
+      <pre class="codigo" data-rotulo="CSS"><code>@keyframes revelar{from{opacity:0;filter:blur(10px) contrast(.7) brightness(.6)}to{opacity:1;filter:none}}
+.revelar{animation:revelar var(--t-revelar) var(--curva-cena) both}
+@media (prefers-reduced-motion:reduce){.revelar{animation:none}}</code></pre>
+    </div>
+
+    <div class="bloco" id="s25-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">25.3</p>
+        <h3 class="fala">Duotom de Produto</h3>
+        <p class="bloco-apoio">A foto P&amp;B ganha a cor do produto: a sombra vai para o tom escuro do produto e a luz para o tom claro. É a forma de a cor do produto entrar na imagem sem pintar a pessoa.</p>
+      </div>
+      <div class="grade-4">
+        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Original</span></div><div class="f05-rampa"></div><figcaption><b>Quadro de teste</b> e rampa de Nanquim a Branco.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-start" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Start</span></div><div class="f05-rampa f05-duo-start"></div><figcaption><b>Start.</b> Café <code>#412919</code> para Areia <code>#DBC5A3</code>.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-master" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Master</span></div><div class="f05-rampa f05-duo-master"></div><figcaption><b>Master.</b> <code>#21130C</code> (cor de imagem, não de interface) para Terracota Viva <code>#C46039</code>.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-pro" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Pro</span></div><div class="f05-rampa f05-duo-pro"></div><figcaption><b>Pro.</b> Sala <code>#181818</code> para Névoa <code>#C9D0D8</code>.</figcaption></figure>
+      </div>
+      <div>
+        <dl class="f05-ficha">
+          <div><dt><svg class="ic f05-sim" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Usa</dt><dd>Só em peça de produto: capa, VSL de produto, separador de módulo, story de produto.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Em depoimento, rosto de aluno ou Primeira Pele: rosto em duotom perde verdade. Institucional e VOIDERS não têm duotom.</dd></div>
+          <div><dt>Cota</dt><dd>Duotom é um dos três regimes de cor da fotografia; no máximo uma imagem colorida a cada quatro numa peça ou sequência.</dd></div>
+          <div><dt>Produção</dt><dd>Na página, o filtro SVG do código abaixo. Em foto e vídeo, as LUTs de 33 pontos: <a href="assets/foto/void-duotom-start.cube" download>Start</a>, <a href="assets/foto/void-duotom-master.cube" download>Master</a> e <a href="assets/foto/void-duotom-pro.cube" download>Pro</a>. A LUT mistura em luz linear e dá meios-tons um pouco mais escuros que o filtro de página.</dd></div>
+        </dl>
+
+      </div>
+      <pre class="codigo" data-rotulo="SVG"><code>&lt;svg width="0" height="0" aria-hidden="true" style="position:absolute"&gt;&lt;defs&gt;
+ &lt;filter id="duotom-start" color-interpolation-filters="sRGB"&gt;&lt;feColorMatrix type="saturate" values="0"/&gt;&lt;feComponentTransfer&gt;
+  &lt;feFuncR type="table" tableValues=".255 .859"/&gt;&lt;feFuncG type="table" tableValues=".161 .773"/&gt;&lt;feFuncB type="table" tableValues=".098 .639"/&gt;&lt;/feComponentTransfer&gt;&lt;/filter&gt;
+ &lt;filter id="duotom-master" color-interpolation-filters="sRGB"&gt;&lt;feColorMatrix type="saturate" values="0"/&gt;&lt;feComponentTransfer&gt;
+  &lt;feFuncR type="table" tableValues=".129 .769"/&gt;&lt;feFuncG type="table" tableValues=".075 .376"/&gt;&lt;feFuncB type="table" tableValues=".047 .224"/&gt;&lt;/feComponentTransfer&gt;&lt;/filter&gt;
+ &lt;filter id="duotom-pro" color-interpolation-filters="sRGB"&gt;&lt;feColorMatrix type="saturate" values="0"/&gt;&lt;feComponentTransfer&gt;
+  &lt;feFuncR type="table" tableValues=".094 .788"/&gt;&lt;feFuncG type="table" tableValues=".094 .816"/&gt;&lt;feFuncB type="table" tableValues=".094 .847"/&gt;&lt;/feComponentTransfer&gt;&lt;/filter&gt;
+&lt;/defs&gt;&lt;/svg&gt;
+&lt;img src="foto-autorizada.webp" style="filter:url(#duotom-master)" alt="..."&gt;</code></pre>
+    </div>
+
+    <div class="bloco" id="s25-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">25.4</p>
+        <h3 class="fala">Anel de Preenchimento</h3>
+        <p class="bloco-apoio">O Mapa da Trilha pessoal, só na área de membros: a formação concluída fica cheia com a cor da formação e grão; os marcos da formação em curso são pontos no perímetro.</p>
+      </div>
+      <div class="f05-aneis">
+        <figure class="f05-cena">
+          <div class="palco" data-vforms='{"forma":"anel","atual":"start","marcos":[{"nome":"Ritual do Traço","angulo":200,"validado":true},{"nome":"Primeira Pele","angulo":250,"validado":false},{"nome":"Formatura com Pele","angulo":300,"validado":false}]}'></div>
+          <figcaption><b>Start em curso.</b> Ritual do Traço validado pelo professor; Primeira Pele e Formatura com Pele em contorno tracejado.</figcaption>
+        </figure>
+        <figure class="f05-cena">
+          <div class="palco" data-vforms='{"forma":"anel","concluidas":["start"],"atual":"master"}'></div>
+          <figcaption><b>Start concluído, Master em curso.</b> O círculo do Start cheio em Ouro Velho com grão. Os marcos do Master ainda não existem [P 17].</figcaption>
+        </figure>
+        <figure class="f05-cena">
+          <div class="palco" data-vforms='{"forma":"anel","atual":"start","marcos":[{"nome":"Ritual do Traço","angulo":200,"validado":false},{"nome":"Primeira Pele","angulo":250,"validado":false},{"nome":"Formatura com Pele","angulo":300,"validado":false}]}'></div>
+          <figcaption><b>Formação nova, estado vazio.</b> "Este círculo começa a se preencher no seu primeiro marco." Botão: Ver os marcos do Start.</figcaption>
+        </figure>
+      </div>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Regra de verdade</dt><dd>O ponto só enche quando professor ou coordenação valida o marco no sistema. Assistir aula não enche nada. Marco pendente: contorno tracejado de 2 por 3.</dd></div>
+          <div><dt>Marcos do Start</dt><dd>Ritual do Traço, Primeira Pele e Formatura com Pele, a 200°, 250° e 300° do perímetro, subindo a partir do ponto de tangência.</dd></div>
+          <div><dt><svg class="ic f05-nao" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Não usa</dt><dd>Em anúncio; no topo de funil; como percentual de vídeo assistido; para comparar alunos.</dd></div>
+          <div><dt>Movimento</dt><dd>Assentamento de 1.200 ms ao validar um marco; desligado com movimento reduzido.</dd></div>
+        </dl>
+        <p class="pendencia" data-p="17">[P 17] Código de turma, marcos do Master e do Pro e selos de formação concluída no perfil: até a escola definir, o Anel mostra só o círculo da formação em curso, sem pontos.</p>
+      </div>
+    </div>
+
+    <div class="bloco" id="s25-5">
+      <div class="bloco-head">
+        <p class="bloco-n credito">25.5</p>
+        <h3 class="fala">Assinatura de Produto do Pro</h3>
+        <p class="bloco-apoio">A composição do slide 37: o THE VOID® oficial, uma pílula de contorno com o selo simples do Pro e a frase do programa, e o PRO do arquivo de produto. É a única pílula de todo o sistema.</p>
+      </div>
+      <figure class="f05-cena">
+        <div class="peca" data-formato="1920x1080" data-nome="Assinatura do Pro" data-estacao="pro" style="--peca-max:100%">
+          <div class="peca-tela grao f05-janela">
+            <div class="f05-lockup">
+              <span class="f05-recorte" style="width:calc(var(--u)*634)"><img src="assets/brand/svg/void-pro-branco.svg" alt="The VOID" width="907" height="140"></span>
+              <div class="f05-pilula">
+                <span class="f05-disco"><img src="assets/brand/svg/selo-simples-pro.svg" alt="Selo The VOID Pro" width="140" height="140"></span>
+                <p>Seja um estrategista da<br>sua carreira profissional.</p>
+              </div>
+              <span class="f05-recorte" style="width:calc(var(--u)*160)"><img src="assets/brand/svg/void-pro-branco.svg" alt="Pro" width="907" height="140" style="margin-left:calc(var(--u)*-634)"></span>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <figcaption><b>Recorte do arquivo oficial, nunca texto digitado.</b> O THE VOID® e o PRO saem do mesmo <code>void-pro-branco.svg</code>, cortados no vão depois do ®; o selo simples entra no disco Coxia porque está sobre Sala.</figcaption>
+      </figure>
+      <div class="f05-recurso">
+        <dl class="f05-ficha">
+          <div><dt>Medida</dt><dd>Pílula de contorno de 1,5 px em Tela, raio de 999 px; selo simples do Pro a 96 px ou mais. A frase em Archivo caixa alta, em duas linhas.</dd></div>
+          <div><dt>Regra</dt><dd>Não é clicável e não é recurso livre: não vira botão, etiqueta, filtro ou moldura de outra coisa.</dd></div>
+          <div><dt>Start e Master</dt><dd>Assinam com o logotipo de produto e o selo lado a lado, sem pílula.</dd></div>
+          <div><dt>Status</dt><dd><span class="status" data-status="proposta">Proposta</span> o recorte do arquivo de produto reproduz o slide 37 sem redesenho; o arquivo composto aprovado pela agência substitui este recorte quando existir [P 11].</dd></div>
+        </dl>
+        <div>
+          <h4 class="intertitulo">Start e Master: logotipo e selo</h4>
+          <div class="palco f05-assina">
+            <div style="gap:10px"><img src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="175" height="28"><span data-vforms='{"forma":"selo","produto":"start","tamanho":96}'></span></div>
+            <div style="gap:10px"><img src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="188" height="28"><span data-vforms='{"forma":"selo","produto":"master","tamanho":96}'></span></div>
+          </div>
+          <p class="legenda" style="margin-top:var(--e-3)">Logotipo de produto a 28 px de altura (mínimo de 24) e selo simples a 96 px, a 1 X de distância (cerca de 10 px nesse tamanho).</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6.16 a 6.20, 8.1, 11.1 e 12.4); Plataforma de Branding, aureadesign, 2025 (slides 32, 35, 37, 59 a 61); relatório de foto, vídeo e redes, GrowAI, out/2026 (duotons); relatório de conformidade, GrowAI, out/2026 (frase de depoimento); LUTs de <code>assets/foto/</code>.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+  var doc=document;
+  /* 1. redesenha as formas do motor quando o produto troca (demonstrações e seletor global) */
+  doc.addEventListener("click",function(e){
+    if(!e.target.closest||!e.target.closest("[data-estacao-botao]"))return;
+    requestAnimationFrame(function(){
+      if(!window.VForms)return;
+      ["s21","s22","s23","s24","s25"].forEach(function(id){var s=doc.getElementById(id);if(s)window.VForms.redesenhar(s);});
+    });
+  });
+
+  /* 2. véu conferido no pior pixel */
+  function lum(c){c=c/255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);}
+  function L(r,g,b){return 0.2126*lum(r)+0.7152*lum(g)+0.0722*lum(b);}
+  function razao(a,b){var x=Math.max(a,b),y=Math.min(a,b);return (x+0.05)/(y+0.05);}
+  function hex(r,g,b){return "#"+[r,g,b].map(function(v){var h=Math.round(v).toString(16).toUpperCase();return h.length<2?"0"+h:h;}).join("");}
+  function virgula(n){return n.toFixed(2).replace(".",",");}
+  var TELA=L(248,249,244);
+  function iniciarVeu(){
+    var cv=doc.getElementById("f05-veu-canvas"), txt=doc.getElementById("f05-veu-texto");
+    if(!cv||!cv.getContext||!txt)return;
+    var W=cv.width,H=cv.height,ctx=cv.getContext("2d");
+    /* quadro de teste: luz branca à esquerda, massa escura à direita, grão determinístico */
+    var g=ctx.createLinearGradient(0,0,W,H*0.6);g.addColorStop(0,"rgb(255,255,255)");g.addColorStop(0.5,"rgb(220,221,216)");g.addColorStop(1,"rgb(95,95,92)");
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    var l=ctx.createRadialGradient(W*0.2,H*0.82,4,W*0.2,H*0.82,W*0.62);l.addColorStop(0,"rgba(255,255,255,1)");l.addColorStop(0.45,"rgba(255,255,255,.9)");l.addColorStop(1,"rgba(255,255,255,0)");
+    ctx.fillStyle=l;ctx.fillRect(0,0,W,H);
+    var d=ctx.createRadialGradient(W*0.78,H*0.38,6,W*0.78,H*0.38,W*0.56);d.addColorStop(0,"rgba(0,0,0,.97)");d.addColorStop(0.6,"rgba(0,0,0,.9)");d.addColorStop(1,"rgba(0,0,0,0)");
+    ctx.fillStyle=d;ctx.fillRect(0,0,W,H);
+    var img=ctx.getImageData(0,0,W,H),p=img.data,s=7;
+    for(var i=0;i<p.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;var n=((s>>8)%25)-12;for(var k=0;k<3;k++){p[i+k]=Math.max(0,Math.min(255,p[i+k]+n));}}
+    var cena=img;
+    var estado={veu:70,tam:"apoio",pos:"clara"};
+    var mascara=doc.createElement("canvas");mascara.width=W;mascara.height=H;var mc=mascara.getContext("2d");
+    function desenhar(){
+      txt.textContent=estado.tam==="apoio"?"Formação de tatuagem do zero, na Vila Madalena, em São Paulo.":"Preencha o vazio.";txt.setAttribute("data-tam",estado.tam);txt.setAttribute("data-pos",estado.pos);
+      var rc=cv.getBoundingClientRect(),rt=txt.getBoundingClientRect();
+      if(!rc.width)return;
+      var k=W/rc.width,pad=6;
+      var x0=Math.max(0,Math.floor((rt.left-rc.left)*k)-pad),y0=Math.max(0,Math.floor((rt.top-rc.top)*k)-pad);
+      var x1=Math.min(W,Math.ceil((rt.right-rc.left)*k)+pad),y1=Math.min(H,Math.ceil((rt.bottom-rc.top)*k)+pad);
+      var a=estado.veu/100;
+      ctx.putImageData(cena,0,0);
+      if(a>0){
+        mc.clearRect(0,0,W,H);mc.filter="blur(28px)";mc.fillStyle="rgb(24,24,24)";mc.fillRect(x0-56,y0-56,(x1-x0)+112,(y1-y0)+112);
+        mc.filter="none";mc.fillRect(x0,y0,x1-x0,y1-y0);
+        ctx.globalAlpha=a;ctx.drawImage(mascara,0,0);ctx.globalAlpha=1;
+      }
+      /* pior pixel: o mais claro da cena sob o texto, com o véu aplicado por conta */
+      var q=cena.data,mx=-1,mr=0,mg=0,mb=0;
+      for(var y=y0;y<y1;y++)for(var x=x0;x<x1;x++){var j=(y*W+x)*4,v=L(q[j],q[j+1],q[j+2]);if(v>mx){mx=v;mr=q[j];mg=q[j+1];mb=q[j+2];}}
+      var r=Math.round(mr*(1-a)+24*a),gg=Math.round(mg*(1-a)+24*a),b=Math.round(mb*(1-a)+24*a);
+      var rz=razao(TELA,L(r,gg,b));
+      var ok,motivo,escura=mx<=0.216;
+      if(estado.tam==="apoio"){ok=rz>=4.5&&estado.veu>=62;motivo=ok?"Texto abaixo de 24 px com 4,5:1 ou mais e véu de pelo menos 62%.":"Texto abaixo de 24 px precisa de 4,5:1 no pior pixel e de véu de 62% ou mais.";}
+      else if(estado.tam==="t24"){ok=rz>=3&&estado.veu>=55;motivo=ok?"Título de 24 px com véu de 55% ou mais e 3:1 medido.":"Título de 24 px precisa de véu de 55% ou mais e de 3:1 no pior pixel.";}
+      else{ok=rz>=3&&(estado.veu>=55||(estado.veu>=48&&escura));motivo=ok?(estado.veu<55?"Título de 32 px a 48%: a região já é escura e a amostra confere.":"Título de 32 px com véu de 55% ou mais e 3:1 medido."):(estado.veu===48&&!escura?"Véu de 48% só sobre região já escura da foto. Aqui o pixel mais claro, antes do véu, passa do cinza médio.":"Título de 32 px sobre foto leva véu: 55% ou mais, ou 48% em região já escura, com 3:1 medido.");}
+      doc.getElementById("f05-veu-razao").textContent=virgula(rz)+":1";
+      doc.getElementById("f05-veu-pixel").innerHTML="Pixel mais claro sob o texto: <code>"+hex(r,gg,b)+"</code> (antes do véu: <code>"+hex(mr,mg,mb)+"</code>).";
+      var vd=doc.getElementById("f05-veu-veredito");vd.setAttribute("data-ok",ok?"sim":"nao");
+      vd.innerHTML=(ok?'<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Liberado</span>':'<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg><span>Não passa</span>');
+      doc.getElementById("f05-veu-motivo").textContent=motivo;
+    }
+    var raiz=doc.getElementById("f05-veu");
+    raiz.addEventListener("click",function(e){
+      var b=e.target.closest("button");if(!b)return;
+      var chave=b.hasAttribute("data-f05-veu")?"veu":b.hasAttribute("data-f05-tam")?"tam":b.hasAttribute("data-f05-pos")?"pos":null;if(!chave)return;
+      var at="data-f05-"+chave,v=b.getAttribute(at);estado[chave]=chave==="veu"?parseInt(v,10):v;
+      Array.prototype.forEach.call(raiz.querySelectorAll("["+at+"]"),function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+      desenhar();
+    });
+    desenhar();
+    var ultimo=0;window.addEventListener("resize",function(){if(ultimo)cancelAnimationFrame(ultimo);ultimo=requestAnimationFrame(desenhar);});
+    if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(desenhar);
+  }
+
+  /* 3. Revelação: repetir */
+  function iniciarRevelacao(){
+    var b=doc.getElementById("f05-revelar-de-novo"),q=doc.getElementById("f05-revela");if(!b||!q)return;
+    if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){q.classList.add("f05-revela");io.disconnect();}});},{threshold:.4});io.observe(q);}else q.classList.add("f05-revela");
+    b.addEventListener("click",function(){q.classList.remove("f05-revela");void q.offsetWidth;q.classList.add("f05-revela");});
+  }
+  function iniciar(){iniciarVeu();iniciarRevelacao();}
+  if(doc.readyState==="loading")doc.addEventListener("DOMContentLoaded",iniciar);else iniciar();
+})();
+</script>

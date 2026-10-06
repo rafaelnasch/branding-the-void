@@ -1,0 +1,72 @@
+# Repositório PÚBLICO (GitHub Pages). Tudo o que não pode circular fica fora daqui.
+
+# Arquivos-mestre da agência (exportação do Figma da aureadesign.co) e thumbs antigas da LP
+# Start com rostos de alunos e claim de renda. Ficam só na máquina de quem regenera os assets
+# (tools/build_assets.py); os derivados oficiais estão em assets/brand/.
+assets/referencia-original/
+
+# Fonte comercial: a Alga é paga e não pode ser redistribuída
+*Alga*
+*alga*
+# Arquivos de fonte de desktop (comerciais ou não, ficam fora; o sistema carrega pelo Google Fonts)
+*.otf
+*.ttf
+*.OTF
+*.TTF
+# Fonte web: só entra o cache OFL do autocontido.py (Archivo, Newsreader, Nunito Sans)
+*.woff
+*.woff2
+!assets/fontes/google/*.woff2
+
+# Arquivos de trabalho de design (fonte de agência, nunca publicados)
+*.psd
+*.ai
+*.fig
+*.sketch
+*.indd
+
+# Fotos reais de aluno: entram só no site do cliente, com termo de imagem
+foto-*.webp
+foto-*.jpg
+foto-*.jpeg
+foto-*.png
+
+# Padrões locais do gate de claims (casos concretos do cliente; nunca no repositório público)
+tools/claims-locais.txt
+
+# Segredos e ambiente
+.env
+.env.*
+*.pem
+*.key
+
+# Configuração de agentes e editores
+.claude/
+.codex/
+.vscode/
+.idea/
+
+# Dependências
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# Renders, capturas e relatórios de verificação
+_render*/
+_render*
+_capturas/
+_workspace/
+.lighthouseci/
+lh*.json
+*.log
+
+# Prévias e modelos de montagem (descartáveis, fora do manual)
+_preview-*.html
+_previa-*.html
+_fragmentos/exemplo-secao.html
+
+# Pacotes e lixo do sistema
+*.zip
+.DS_Store
+Thumbs.db

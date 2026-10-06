@@ -1,0 +1,110 @@
+{
+  "oficiais": {
+    "void-horizontal-preto.svg": {
+      "origem": "SVG/LOGO-HORIZONTAL-PRETO.svg",
+      "sha256": "003177c7d88cb52fc1aaf3f190b5afaf274a99d73756c8a8b4f15ea936430782"
+    },
+    "void-horizontal-branco.svg": {
+      "origem": "SVG/LOGO-HORIZONTAL-BRANCO.svg",
+      "sha256": "516e5234167e6c92b7e94cc34611a1c7d552575096380970bc55a6fec7880143"
+    },
+    "void-vertical-preto.svg": {
+      "origem": "SVG/LOGO-VERTICAL-PRETO.svg",
+      "sha256": "9eeb95422543fb72995ac3d9e832d23486af211ca88ec28ad666ff13f5dfb927"
+    },
+    "void-vertical-branco.svg": {
+      "origem": "SVG/LOGO-VERTICAL-BRANCO.svg",
+      "sha256": "e7c617cc51d62cb4e685cfaac62b69434fc06257f0ee3d47e22567d3c67d3510"
+    },
+    "void-start-preto.svg": {
+      "origem": "SVG/LOGO-VOID-START-PRETO.svg",
+      "sha256": "efc0bc6b656611317b562c3225d0af7c3ee3ca23bbe251098134622063874167"
+    },
+    "void-start-branco.svg": {
+      "origem": "SVG/LOGO-VOID-START-BRANCO.svg",
+      "sha256": "bffd0a4b8e923f5ff9e6ed277281d6916c2f2672ec25e98fcaef40a9bb45a106"
+    },
+    "void-master-preto.svg": {
+      "origem": "SVG/LOGO-VOID-MASTER-PRETO.svg",
+      "sha256": "ad178dd3bf0cbdee28cf7f495528b4fc732bdbbf4838e23378ad2b3415376044"
+    },
+    "void-master-branco.svg": {
+      "origem": "SVG/LOGO-VOID-MASTER-BRANCO.svg",
+      "sha256": "3d547b8952424600bacef75648802fc1d20a15eece75a30e94dcb1ffe988cd39"
+    },
+    "void-pro-preto.svg": {
+      "origem": "SVG/LOGO-VOID-PRO-PRETO.svg",
+      "sha256": "490698584335d856c457adcbe2ec0ba6694d0e522a6a9a14109619771753f375"
+    },
+    "void-pro-branco.svg": {
+      "origem": "SVG/LOGO-VOID-PRO-BRANCO.svg",
+      "sha256": "9f637abd39ca5b5e75c92caccb464053e201eb5399d48a3e2cc18ee1cffd3bb0"
+    },
+    "selo-completo-start.svg": {
+      "origem": "ICONES/SVG/ICONE-COMPLETO-START.svg",
+      "sha256": "9645978e46d4503f76b641dc6699fc53ee0bf1bf5c06fd03aa8cb7ee2e0d1b31"
+    },
+    "selo-completo-master.svg": {
+      "origem": "ICONES/SVG/ICONE-COMPLETO-MASTER.svg",
+      "sha256": "ee00e0de12d15d77ee5675b2b7d2380114a7ae524551d0af45c89aaff47e1936"
+    },
+    "selo-completo-pro.svg": {
+      "origem": "ICONES/SVG/ICONE-COMPLETO-PRO.svg",
+      "sha256": "f02e261ae4ef7eef97bd4638f233c74acb078c574843dcea4386665471702606"
+    },
+    "selo-simples-start.svg": {
+      "origem": "ICONES/SVG/ICONE-SIMPLES-START.svg",
+      "sha256": "f8992ae0a31cb317368053f962c2fd41f39658455ecb2e02a63e3e5493b64dcc"
+    },
+    "selo-simples-master.svg": {
+      "origem": "ICONES/SVG/ICONE-SIMPLES-MASTER.svg",
+      "sha256": "a82b9347c6155b1ef6c51ff0208b9d58ec4e31e93430058058e400d98cfd7afa"
+    },
+    "selo-simples-pro.svg": {
+      "origem": "ICONES/SVG/ICONE-SIMPLES-PRO.svg",
+      "sha256": "354e3cf899740c044ccb782e8465d6725640544899798871238f1ec07a382876"
+    }
+  },
+  "cor": {
+    "void-horizontal-grafite.svg": {
+      "base": "void-horizontal-preto.svg",
+      "fill": "#181818"
+    },
+    "void-horizontal-offwhite.svg": {
+      "base": "void-horizontal-preto.svg",
+      "fill": "#F8F9F4"
+    },
+    "void-vertical-grafite.svg": {
+      "base": "void-vertical-preto.svg",
+      "fill": "#181818"
+    },
+    "void-vertical-offwhite.svg": {
+      "base": "void-vertical-preto.svg",
+      "fill": "#F8F9F4"
+    },
+    "void-start-grafite.svg": {
+      "base": "void-start-preto.svg",
+      "fill": "#181818"
+    },
+    "void-start-offwhite.svg": {
+      "base": "void-start-preto.svg",
+      "fill": "#F8F9F4"
+    },
+    "void-master-grafite.svg": {
+      "base": "void-master-preto.svg",
+      "fill": "#181818"
+    },
+    "void-master-offwhite.svg": {
+      "base": "void-master-preto.svg",
+      "fill": "#F8F9F4"
+    },
+    "void-pro-grafite.svg": {
+      "base": "void-pro-preto.svg",
+      "fill": "#181818"
+    },
+    "void-pro-offwhite.svg": {
+      "base": "void-pro-preto.svg",
+      "fill": "#F8F9F4"
+    }
+  }
+}

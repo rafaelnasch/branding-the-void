@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/#pessoa",
+  "name": "{{A_CONFIRMAR}}",
+  "jobTitle": "{{A_CONFIRMAR}}",
+  "description": "{{A_CONFIRMAR}}",
+  "image": "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-professor-{{A_CONFIRMAR}}-retrato.webp",
+  "worksFor": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "knowsAbout": [
+    "{{A_CONFIRMAR}}"
+  ],
+  "sameAs": [
+    "{{A_CONFIRMAR}}"
+  ],
+  "url": "https://thevoidtattoo.com.br/professores/{{A_CONFIRMAR}}/"
+}

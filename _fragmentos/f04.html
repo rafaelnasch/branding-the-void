@@ -1,0 +1,1079 @@
+<style data-fragmento="f04">
+/* F4 · Tipografia (s17 a s20). Valores: spec 4.1 a 4.7 e tokens.css. */
+.f04-vozes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5)}
+.f04-voz{display:flex;flex-direction:column;gap:var(--e-4);min-width:0;padding:var(--e-6) var(--e-5) var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
+.f04-voz-aa{min-height:120px;display:flex;align-items:flex-end;color:var(--tela);overflow-wrap:normal}
+.f04-voz-alfa{font-size:20px;line-height:1.45;color:var(--cal);overflow-wrap:anywhere}
+.f04-voz dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px var(--e-4);padding-top:var(--e-4);border-top:1px solid var(--fio);margin-top:auto}
+.f04-voz dt,.f04-reg-meta dt{font:500 11px/1.9 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f04-voz dd,.f04-reg-meta dd{margin:0;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f04-letreiro{font:800 76px/.9 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase}
+.f04-offg{font:300 italic 104px/.9 var(--font-off);font-variation-settings:"opsz" 72}
+.f04-textog{font:600 84px/.9 var(--font-texto)}
+.f04-anat{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--e-6);align-items:center}
+.f04-anat-cena{position:relative;padding:var(--e-7) var(--e-6) var(--e-7) 64px;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f04-anat-cena .titulo-filme{position:relative;font-size:clamp(30px,3.2vw,46px);margin:var(--e-4) 0 var(--e-5);overflow-wrap:normal;hyphens:none}
+.f04-anat-cena > *{position:relative}
+.f04-anat-cena .f04-g{position:absolute;left:-44px;top:2px;margin:0}.f04-anat-cena .f04-g-meio{top:50%;transform:translateY(-50%)}
+.f04-anat-cena :is(.f04-g-titulo,.f04-g-linha){top:auto;margin-top:calc(clamp(30px,3.2vw,46px) * .24 - 1px);font-style:normal;text-transform:none;letter-spacing:0}
+.f04-anat-cena .f04-corpo{max-width:46ch;margin-bottom:var(--e-6);font:400 17px/1.6 var(--font-texto);color:var(--cal)}
+.f04-pino{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:var(--e-2);background:var(--areia);color:var(--sala);font:700 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;vertical-align:middle;flex:none}
+.f04-legenda-anat{list-style:none;display:grid;gap:var(--e-4)}
+.f04-legenda-anat li{display:flex;gap:var(--e-3);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f04-legenda-anat b{display:block}
+.f04-par-corpo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f04-par-corpo figure{padding:var(--e-6);background:var(--bastidor);min-width:0}
+.f04-par-corpo p.f04-amostra-corpo{margin-top:var(--e-4);color:var(--cal);font-size:18px;hyphens:auto}
+.f04-regs{display:grid;border-top:1px solid var(--fio)}
+.f04-reg{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:var(--e-4) var(--e-7);padding:var(--e-6) 0;border-bottom:1px solid var(--fio);align-items:center}
+.f04-reg-meta h4{margin-bottom:var(--e-3)}
+.f04-reg-meta dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px var(--e-4)}
+.f04-reg-amostra{min-width:0;color:var(--tela);overflow-wrap:break-word}
+.f04-r-filme{font:800 clamp(40px,5.4vw,76px)/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase}
+.f04-r-secao{font:700 clamp(34px,4.2vw,56px)/.98 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.012em;text-transform:uppercase}
+.f04-r-fala{font:600 clamp(24px,2.6vw,32px)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.005em}
+.f04-r-credito{font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f04-r-credito b{color:var(--tela);font-weight:700}
+.f04-r-estreito{font:800 clamp(64px,8vw,112px)/.9 var(--font-letreiro);font-variation-settings:"wdth" 68;text-transform:uppercase}
+.f04-r-numeral{font:700 clamp(56px,7vw,80px)/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;letter-spacing:-.01em;font-variant-numeric:lining-nums tabular-nums}
+.f04-r-data{font:300 clamp(28px,3.4vw,44px)/1 var(--font-letreiro);font-variation-settings:"wdth" 125;font-variant-numeric:lining-nums tabular-nums}
+.f04-eixo{display:grid;gap:var(--e-5);padding:var(--e-6);background:var(--bastidor)}
+.f04-eixo-palco{min-height:180px;display:flex;align-items:center;padding:var(--e-5);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}
+.f04-eixo-amostra{font:800 clamp(36px,5.6vw,80px)/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela);overflow-wrap:break-word;min-width:0}
+.f04-controles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
+.f04-controle label{display:flex;justify-content:space-between;gap:var(--e-3);margin-bottom:var(--e-2)}
+.f04-controle output{font:700 15px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--tela);font-variant-numeric:tabular-nums}
+.f04-controle input[type=range]{width:100%;min-height:var(--alvo-toque);accent-color:var(--areia);margin:0}
+.f04-regua{position:relative;height:14px;margin:0 10px;font:500 10px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.08em;color:var(--fumaca);text-transform:uppercase}
+.f04-regua span{position:absolute;top:0;transform:translateX(-50%)}
+.f04-chips{display:flex;flex-wrap:wrap;gap:6px}
+.f04-chip{min-height:var(--alvo-toque);padding:0 var(--e-3);background:transparent;border:1px solid var(--fio);border-radius:0;cursor:pointer;font:600 12px/1 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.04em;text-transform:uppercase;color:var(--po)}
+.f04-chip:hover{color:var(--tela);border-color:var(--fumaca)}
+.f04-chip[aria-pressed="true"]{background:var(--tela);border-color:var(--tela);color:var(--sala)}
+.f04-leitura{display:flex;flex-wrap:wrap;align-items:center;gap:var(--e-3);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
+.f04-leitura code{color:var(--areia)}
+.f04-ok,.f04-alerta{display:inline-flex;align-items:center;gap:6px;font:700 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase}
+.f04-ok{color:var(--sucesso)}
+.f04-alerta{color:var(--atencao)}
+.f04-erro{color:var(--erro)}
+.f04-largs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-4)}
+.f04-larg{min-width:0;overflow:hidden;padding:var(--e-4);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
+.f04-larg-cel{width:358px;margin:var(--e-3) 5px 0;outline:1px dashed var(--fumaca);outline-offset:4px}
+.f04-larg .titulo-filme{font-size:48px;overflow-wrap:normal;hyphens:none;text-wrap:wrap}
+.f04-larg-st{display:flex;margin-top:var(--e-4)}
+.f04-sim{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:var(--e-6);padding:var(--e-6);background:var(--bastidor)}
+.f04-sim-ctl{display:grid;gap:var(--e-5);align-content:start}
+.f04-sim-ctl input[type=text]{width:100%;min-height:var(--alvo-toque);padding:0 var(--e-3);background:var(--coxia);border:1px solid var(--fumaca);border-radius:0;color:var(--tela);font:400 15px/1 var(--font-texto)}
+.f04-sim-palco{position:relative;min-width:0;overflow:hidden}
+.f04-sim-cel{position:relative;height:700px;transform-origin:0 0;background:var(--sala);outline:1px solid var(--fumaca);outline-offset:-1px;overflow:hidden}
+.f04-sim-topo{display:flex;align-items:center;height:56px;padding:0 16px;border-bottom:1px solid var(--fio)}
+.f04-sim-topo img{height:24px;width:auto}
+.f04-sim-miolo{padding:40px 16px 0}
+.f04-sim-miolo .titulo-filme{margin:var(--e-4) 0 var(--e-4);hyphens:none;overflow-wrap:normal;text-wrap:wrap}
+.f04-sim-miolo .titulo-filme .off{white-space:normal}
+.f04-sim-apoio{margin-bottom:var(--e-6);font:400 17px/1.5 var(--font-texto);color:var(--cal)}
+.f04-sim-cel .botao{width:100%;min-height:52px;font-size:17px}
+.f04-dobra{position:absolute;left:0;right:0;top:640px;border-top:2px dashed var(--areia)}
+.f04-dobra span{position:absolute;right:8px;top:6px;font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--areia)}
+.f04-passos{list-style:none;display:grid;gap:6px;font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f04-passos li{display:flex;gap:var(--e-2);align-items:baseline}
+.f04-passos li b{color:var(--tela);font-weight:600}
+.f04-esc{display:grid;border-top:1px solid var(--fio)}
+.f04-esc > div{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:var(--e-3) var(--e-6);align-items:baseline;padding:var(--e-5) 0;border-bottom:1px solid var(--fio)}
+.f04-esc .f04-esc-a{min-width:0;color:var(--tela);overflow-wrap:break-word}
+.f04-e-filme{font:800 96px/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase}
+.f04-e-secao{font:700 56px/.98 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.012em;text-transform:uppercase}
+.f04-e-sub{font:600 32px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.f04-e-inter{font:600 22px/1.25 var(--font-letreiro);font-variation-settings:"wdth" 100}
+.f04-e-off{font:300 italic 44px/1.1 var(--font-off);font-variation-settings:"opsz" 72}
+.f04-e-chamada{font:400 22px/1.5 var(--font-texto);color:var(--cal)}
+.f04-e-corpo{font:400 18px/1.65 var(--font-texto);color:var(--cal);max-width:680px}
+.f04-e-apoio{font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.f04-e-leg{font:400 13px/1.45 var(--font-texto);color:var(--po)}
+.f04-e-num{font:700 80px/.9 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:lining-nums tabular-nums}
+.f04-pc{position:absolute;inset:0;display:flex;flex-direction:column;padding:calc(var(--u)*72);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
+.f04-pr{font:500 calc(var(--u)*26)/1.25 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f04-pr b{color:var(--tela);font-weight:700}
+.f04-pr i{font-style:normal;color:var(--fumaca)}
+.f04-pf{font:800 calc(var(--u)*120)/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)}
+.f04-pf .off{color:var(--estacao-destaque)}
+.f04-ps{font:600 calc(var(--u)*52)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f04-pt{font:400 calc(var(--u)*36)/1.3 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}
+.f04-pb{align-self:flex-start;display:inline-flex;align-items:center;gap:calc(var(--u)*16);padding:calc(var(--u)*28) calc(var(--u)*40);background:var(--tela);color:var(--sala);font:700 calc(var(--u)*30)/1 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase}
+.f04-videos{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:var(--e-6);align-items:start}
+.f04-videos-h{display:grid;gap:var(--e-6)}
+.f04-gap{height:calc(var(--u)*40);flex:none}
+.f04-foto{position:absolute;display:flex;align-items:flex-end;padding:calc(var(--u)*24);outline:calc(var(--u)*2) dashed var(--fumaca);outline-offset:calc(var(--u)*-2);background:var(--bastidor)}
+.f04-vleg{position:absolute;left:50%;transform:translateX(-50%);padding:calc(var(--u)*10) calc(var(--u)*24);background:rgb(24 24 24 / .75);font:600 calc(var(--u)*50)/1.25 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela);text-align:center;white-space:nowrap}
+.f04-vleg em{font-style:normal;color:var(--areia)}
+.f04-lt{position:absolute;left:calc(var(--u)*120);bottom:calc(var(--u)*140);padding-left:calc(var(--u)*28);border-left:calc(var(--u)*2) solid var(--estacao-grafismo)}
+.f04-lt-n{font:600 calc(var(--u)*40)/1.1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.08em;text-transform:uppercase;color:var(--tela)}
+.f04-lt-f{font:300 italic calc(var(--u)*34)/1.2 var(--font-off);font-variation-settings:"opsz" 72;color:var(--cal)}
+.f04-campo{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:var(--e-4);min-height:200px;padding:var(--e-5);background:var(--estacao-campo);overflow:hidden}
+.f04-campo-marca{position:absolute;left:-.04em;top:50%;transform:translateY(-58%);font:300 italic 132px/.8 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela);opacity:.08;white-space:nowrap;pointer-events:none}
+.f04-campo img{position:relative;width:min(240px,70%);height:auto}
+.f04-georgia{font:italic 400 34px/1.2 Georgia,serif;color:var(--tela)}
+.fn-palco .f04-efeitos{max-width:78%;transform:scaleX(1.25);transform-origin:center;text-shadow:0 6px 18px rgb(0 0 0 / .9);-webkit-text-stroke:1px var(--areia)}
+.f04-traco{display:inline-block;width:1em;height:.08em;margin:0 .25em;vertical-align:.3em;background:var(--erro)}
+.f04-vazio-com{font:800 64px/.9 var(--font-letreiro);font-variation-settings:"wdth" 97.5;font-weight:650;letter-spacing:-.06em;text-transform:uppercase;color:var(--tela)}
+@media (max-width:1180px){.f04-vozes{grid-template-columns:minmax(0,1fr)}.f04-voz-aa{min-height:0}.f04-largs{grid-template-columns:repeat(2,minmax(0,1fr))}.f04-sim{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.f04-videos,.f04-anat,.f04-par-corpo,.f04-reg{grid-template-columns:minmax(0,1fr)}.f04-reg{gap:var(--e-4)}}
+@media (max-width:640px){.f04-controles,.f04-largs{grid-template-columns:minmax(0,1fr)}.f04-esc > div{grid-template-columns:minmax(0,1fr);gap:var(--e-2)}.f04-e-filme{font-size:48px}.f04-e-secao{font-size:34px}.f04-e-sub{font-size:24px}.f04-e-inter{font-size:20px}.f04-e-off{font-size:30px}.f04-e-chamada{font-size:19px}.f04-e-corpo{font-size:17px}.f04-e-num{font-size:56px}.f04-letreiro{font-size:72px}.f04-offg{font-size:84px}.f04-textog{font-size:68px}.f04-eixo,.f04-sim{padding:var(--e-4)}.f04-campo-marca{font-size:84px}.f04-anat-cena{padding:32px 16px 32px 44px}.f04-anat-cena .f04-g{left:-34px}.f04-anat-cena .titulo-filme{font-size:30px;font-variation-settings:"wdth" 85}}
+</style>
+
+<!-- ===================== s17 · As três vozes ===================== -->
+<section class="sec" id="s17" data-parte="V" data-nome="As três vozes" aria-labelledby="s17-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>17</b> · As três vozes</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">17</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Tipografia</p>
+        <h2 id="s17-t" class="titulo-secao">Três vozes, uma <em class="off">cena</em></h2>
+        <p class="sec-apoio">A The VOID fala com três famílias e cada uma tem um único trabalho: o Archivo é o letreiro que manda, a voz em off é a palavra que sente e a Nunito Sans é o texto que se lê sem esforço.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Letreiro em Archivo variável (peso de 100 a 900, largura de 62 a 125), sempre em romano: título, botão, crédito, número e rótulo.</li>
+        <li>Voz em off em Alga Italic onde houver licença; até a licença sair, Newsreader Italic 300 com tamanho óptico 72 em todo material público.</li>
+        <li>Texto longo em Nunito Sans 400 e 600, padrão provisório até a decisão do corpo com a The VOID.</li>
+        <li>As três entram por um único link do Google Fonts, copiado daqui sem mudar nada. Nenhuma outra família entra no sistema.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s17-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">17.1</p>
+        <h3 class="fala">Três vozes, três trabalhos</h3>
+        <p class="bloco-apoio">O sistema não escolhe fonte por gosto em cada peça: escolhe pelo papel. Quem grita é o letreiro, quem sente é a voz em off, quem explica é o texto.</p>
+      </div>
+      <div class="f04-vozes">
+        <article class="f04-voz">
+          <p class="rotulo">Voz ativa · Letreiro</p>
+          <p class="f04-voz-aa f04-letreiro" aria-hidden="true">Ação</p>
+          <h4 class="intertitulo">Archivo</h4>
+          <p class="f04-voz-alfa" style="font-family:var(--font-letreiro);font-variation-settings:'wdth' 100">ABCDEFGHIJKLM NOPQRSTUVWXYZ ÁÂÃÇÉÊÍÓÔÕÚ 0123456789</p>
+          <dl>
+            <dt>Papel</dt><dd>Título em caixa alta, botão, crédito, número, rótulo, legenda de vídeo, texto curto dentro da arte.</dd>
+            <dt>Eixos</dt><dd>Peso 100 a 900 e largura 62 a 125. Só romano: o eixo itálico não entra.</dd>
+            <dt>Status</dt><dd><span class="status" data-status="decidido">Decidido</span></dd>
+          </dl>
+        </article>
+        <article class="f04-voz">
+          <p class="rotulo">Voz sensível · Voz em off</p>
+          <p class="f04-voz-aa f04-offg" aria-hidden="true">traço</p>
+          <h4 class="intertitulo">Alga Italic, ou Newsreader Italic 300</h4>
+          <p class="f04-voz-alfa" style="font:300 italic 22px/1.45 var(--font-off);font-variation-settings:'opsz' 72">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Xx Yy Zz · ação, coração, pé</p>
+          <dl>
+            <dt>Papel</dt><dd>A palavra que sente, uma linha por bloco; nome de rito em destaque; marca d'água do nome do produto.</dd>
+            <dt>Eixos</dt><dd>Newsreader no peso 300, itálico, tamanho óptico 72 (o desenho de título, de traço fino).</dd>
+            <dt>Status</dt><dd><span class="status" data-status="pendente">Pendente</span> licença da Alga [P 3]</dd>
+          </dl>
+        </article>
+        <article class="f04-voz">
+          <p class="rotulo">Leitura longa · Texto</p>
+          <p class="f04-voz-aa f04-textog" aria-hidden="true">Aa</p>
+          <h4 class="intertitulo">Nunito Sans</h4>
+          <p class="f04-voz-alfa" style="font-family:var(--font-texto);font-size:18px">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Xx Yy Zz Çç Ãã Éé 0123456789</p>
+          <dl>
+            <dt>Papel</dt><dd>Corpo de landing page, artigo, e-mail, área de membros e PDF. Fora da arte: na peça de 1080, quem escreve o texto curto é o Archivo.</dd>
+            <dt>Pesos</dt><dd>400 para ler, 600 para destacar. Nada além disso.</dd>
+            <dt>Status</dt><dd><span class="status" data-status="proposta">Proposta</span> padrão provisório [P 1]</dd>
+          </dl>
+        </article>
+      </div>
+
+      <h4 class="intertitulo">Anatomia de uma primeira dobra</h4>
+      <div class="f04-anat">
+        <div class="f04-anat-cena grao" data-estacao="start">
+          <p class="marcador credito"><span class="f04-pino f04-g f04-g-meio" aria-hidden="true">1</span><span data-vforms="marcador-estacao"></span>Start · Ritual do Traço</p>
+          <p class="titulo-filme"><span class="f04-pino f04-g f04-g-titulo" aria-hidden="true">2</span>Todo mundo começa com um <em class="off">traço<span class="f04-pino f04-g f04-g-linha" aria-hidden="true">3</span></em>.</p>
+          <p class="f04-corpo"><span class="f04-pino f04-g" aria-hidden="true">4</span>A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</p>
+          <div><span class="f04-pino f04-g f04-g-meio" aria-hidden="true">5</span><span class="botao">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+        </div>
+        <ol class="f04-legenda-anat">
+          <li><span class="f04-pino" aria-hidden="true">1</span><span><b>Crédito (Archivo 500, largura 125).</b> O sobretítulo com o Marcador de Estação: produto e rito, caixa alta, entreletra aberta.</span></li>
+          <li><span class="f04-pino" aria-hidden="true">2</span><span><b>Título de Filme (Archivo 800, largura 112).</b> A frase inteira, em caixa alta e em até 3 linhas; no celular, a regra de largura leva o título a 85 (<a href="#s18-3">bloco 18.3</a>).</span></li>
+          <li><span class="f04-pino" aria-hidden="true">3</span><span><b>Voz em off.</b> A palavra "traço", dentro do título, 1,2 vez maior, na cor de destaque do produto. Uma linha por bloco, nunca mais.</span></li>
+          <li><span class="f04-pino" aria-hidden="true">4</span><span><b>Texto (Nunito Sans).</b> A linha racional: o que é e onde é. Caixa mista, entrelinha folgada, cor Cal.</span></li>
+          <li><span class="f04-pino" aria-hidden="true">5</span><span><b>Botão (Archivo 700, largura 106).</b> O CTA no estilo Letreiro Aceso, o ponto mais claro da tela.</span></li>
+          <li><span class="nota">Os marcadores 1, 2 e 5 são a mesma família em três registros: é o Archivo que dá ordem à cena. O título é a frase do Ritual do Traço (Plataforma de Branding, slides 59 a 61); a frase de apoio é a descrição oficial da escola, igual em todo lugar.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="bloco" id="s17-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">17.2</p>
+        <h3 class="fala">O link exato e a pilha de fontes</h3>
+        <p class="bloco-apoio">Copie o link como está. Ele traz só os eixos que o sistema usa e foi testado com resposta 200 em 06/10/2026.</p>
+      </div>
+      <pre class="codigo" data-rotulo="HTML"><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Newsreader:ital,opsz,wght@1,6..72,300&amp;family=Nunito+Sans:wght@400;600&amp;display=swap" rel="stylesheet"&gt;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <pre class="codigo" data-rotulo="CSS"><code>--font-letreiro: "Archivo", "Arial Narrow", Arial, sans-serif;
+--font-off: "Alga", "Newsreader", Georgia, serif;   /* Alga só onde a licença estiver instalada */
+--font-texto: "Nunito Sans", Arial, sans-serif;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>O que o link carrega e o que deixa de fora</caption>
+          <thead><tr><th scope="col">Família</th><th scope="col">Entra</th><th scope="col">Fica de fora, e por quê</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Archivo</th><td>Largura 62 a 125 e peso 100 a 900, romano</td><td>O eixo itálico: o sistema não inclina o letreiro. Itálico é só da voz em off.</td></tr>
+            <tr><th scope="row">Newsreader</th><td>Itálico, peso 300, tamanho óptico de 6 a 72</td><td>Romano e outros pesos: a voz em off tem um único desenho.</td></tr>
+            <tr><th scope="row">Nunito Sans</th><td>Pesos 400 e 600</td><td>Os eixos de largura e de tamanho óptico: não há uso para eles no corpo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No site publicado, as fontes saem do próprio servidor em <code>woff2</code>, com o subconjunto latino e <code>font-display: swap</code>. Só o Archivo é pré-carregado, porque o maior elemento visível da página é um título. O link do Google Fonts fica como reserva no arquivo autocontido.</p>
+    </div>
+
+    <div class="bloco" id="s17-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">17.3</p>
+        <h3 class="fala">Licenças e substituições</h3>
+        <p class="bloco-apoio">Três famílias são livres e circulam com o sistema. A Alga é comercial: o arquivo dela nunca entra no repositório, no Drive compartilhado ou em material enviado a fornecedor.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Licença, onde usar e quem substitui</caption>
+          <thead><tr><th scope="col">Família</th><th scope="col">Origem e licença</th><th scope="col">Onde entra</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Archivo</th><td>Omnibus-Type, no Google Fonts. Licença livre (SIL Open Font License).</td><td>Todo material, inclusive peça, vídeo, e-mail e impresso.</td><td><span class="status" data-status="decidido">Decidido</span></td></tr>
+            <tr><th scope="row">Alga Italic</th><td>Nova Type Foundry (Porto, Portugal), desenho de Joana Correia, 2020. Licença paga por uso (computador, web, aplicativo); também no Adobe Fonts, com assinatura.</td><td>Só onde a The VOID tiver licença instalada para aquele uso.</td><td><span class="status" data-status="pendente">Pendente</span> [P 3]</td></tr>
+            <tr><th scope="row">Newsreader Italic 300</th><td>Google Fonts, licença livre (SIL Open Font License). Escolhida entre 12 candidatas livres: mesmo peso leve, curvas próximas, "a" e "g" de um andar e acentos corretos.</td><td>Todo material público enquanto a licença da Alga não sair; Canva e Google Slides sempre.</td><td><span class="status" data-status="decidido">Decidido</span></td></tr>
+            <tr><th scope="row">Nunito Sans</th><td>Google Fonts, licença livre (SIL Open Font License).</td><td>Corpo de texto fora da arte.</td><td><span class="status" data-status="proposta">Proposta</span> [P 1]</td></tr>
+            <tr><th scope="row">Georgia itálico</th><td>Fonte de sistema, presente nos clientes de e-mail.</td><td>Só reserva da voz em off no e-mail. Nunca escolhida de propósito.</td><td><span class="status" data-status="decidido">Decidido</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pendencia" data-p="3">[P 3] Licença da Alga para web, aplicativo e vídeo. Até a confirmação, Newsreader Italic 300 em todo material público. Quando a licença sair, nada muda no layout: a Alga entra na frente da mesma pilha.</p>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">A arte <em class="off">que preenche</em></p></div>
+          <figcaption>Voz em off sempre pela pilha: Alga onde houver licença, Newsreader no resto, Georgia só no e-mail.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao">A arte <span style="font-family:Didot,'Bodoni 72','Times New Roman',serif;font-style:italic;font-weight:700;text-transform:none;font-size:1.2em">que preenche</span></p></div>
+          <figcaption>Nenhuma outra serifada entra: Playfair, Bodoni e similares saíram com a marca antiga. Itálico pesado não é voz em off.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s17-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">17.4</p>
+        <h3 class="fala">O corpo de texto: decisão provisória</h3>
+        <p class="bloco-apoio">O Brand DNA pede "Nunito para corpo longo"; a marca antiga citava a Nunito Sans. O sistema adota a Nunito Sans até a decisão da The VOID.</p>
+      </div>
+      <p>A Nunito Sans é a família irmã da Nunito no mesmo projeto, com terminais retos que conversam com o Archivo. Não é "a mesma fonte" da Nunito clássica, de terminais arredondados: por isso a escolha está pendente. A alternativa registrada é usar o próprio Archivo no corpo (peso 400, largura 100, 18 px, entrelinha 1,7), com uma família a menos. As duas cabem na mesma escala, então nenhum material público depende da decisão.</p>
+      <div class="f04-par-corpo">
+        <figure>
+          <p class="rotulo">Padrão provisório · Nunito Sans 400, 18/1,65</p>
+          <p class="f04-amostra-corpo" lang="pt-BR" style="font-family:var(--font-texto);line-height:1.65">Se a The VOID fosse uma pessoa, seria um artista que virou professor, alguém que carregou o peso de não saber se era capaz e hoje dedica a vida a provar que outros também podem. Inspira sem intimidar, ensina sem condescendência, acolhe sem perder a firmeza.</p>
+        </figure>
+        <figure>
+          <p class="rotulo">Alternativa · Archivo 400, largura 100, 18/1,7</p>
+          <p class="f04-amostra-corpo" lang="pt-BR" style="font-family:var(--font-letreiro);font-variation-settings:'wdth' 100;line-height:1.7">Se a The VOID fosse uma pessoa, seria um artista que virou professor, alguém que carregou o peso de não saber se era capaz e hoje dedica a vida a provar que outros também podem. Inspira sem intimidar, ensina sem condescendência, acolhe sem perder a firmeza.</p>
+        </figure>
+      </div>
+      <p class="legenda">Texto de amostra: Brand DNA da The VOID, seção 1, com a pontuação ajustada à regra de zero travessão. A terceira opção, a Nunito clássica, não é carregada por este manual porque não está no link de fontes do sistema.</p>
+      <p class="pendencia" data-p="1">[P 1] Corpo de texto: Nunito Sans (padrão provisório), Nunito clássica ou Archivo. A decisão é da The VOID.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 4.1, 4.5 e 4.6); Brand DNA da The VOID, set/2026 (seções 1 e 9); Plataforma de Branding, aureadesign, 2025 (slides 3, 23, 24 e 25); relatório de ativos técnicos da GrowAI, 06/10/2026 (seção 3, com as páginas públicas da MyFonts, Fontspring e Adobe Fonts); site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<!-- ===================== s18 · Registros do Archivo ===================== -->
+<section class="sec" id="s18" data-parte="V" data-nome="Registros do Archivo e regra de largura" aria-labelledby="s18-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>18</b> · Registros do Archivo e regra de largura</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">18</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Tipografia</p>
+        <h2 id="s18-t" class="titulo-secao">Oito registros, uma <em class="off">família</em></h2>
+        <p class="sec-apoio">O Archivo vira oito vozes diferentes só pelos eixos de peso e de largura. Cada combinação tem nome, valores fixos e um uso; o que fica fora da lista não é usado.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Oito registros com peso, largura, caixa, entreletra e entrelinha travados: Título de Filme, Título de Seção, Fala, Crédito, Estreito, Numeral de Prova, Numeral de Data e Botão.</li>
+        <li>Nenhuma peça usa mais de dois registros de largura além do texto.</li>
+        <li>No celular, antes de diminuir o título, estreite a letra: largura 112, depois 100, 92 e 85. Só então reduza o tamanho, até 34 px. Se ainda não couber, reescreva.</li>
+        <li>Nenhum título digitado imita o VOID do logotipo: o Título de Filme é mais largo e mais pesado de propósito.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s18-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">18.1</p>
+        <h3 class="fala">Os oito registros</h3>
+        <p class="bloco-apoio">Cada amostra abaixo está renderizada com os valores exatos da tabela. Copie os valores, nunca a aparência.</p>
+      </div>
+      <div class="f04-regs">
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Título de Filme</h4><dl><dt>Eixos</dt><dd>peso 800 · largura 112</dd><dt>Forma</dt><dd>caixa alta · entreletra -0,02em · entrelinha 0,92</dd><dt>Uso</dt><dd>Hero, capa, cartela, gancho</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-filme">Preencha o vazio</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Título de Seção</h4><dl><dt>Eixos</dt><dd>peso 700 · largura 100</dd><dt>Forma</dt><dd>caixa alta · entreletra -0,012em · entrelinha 0,98</dd><dt>Uso</dt><dd>Seção de landing page, cartão de carrossel</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-secao">Para quem é</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Fala</h4><dl><dt>Eixos</dt><dd>peso 600 · largura 100</dd><dt>Forma</dt><dd>caixa mista · entreletra -0,005em · entrelinha 1,15</dd><dt>Uso</dt><dd>Subtítulo, pergunta de FAQ, H1 e H2 de artigo, legenda de vídeo</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-fala">Preciso saber desenhar para ser tatuador?</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Crédito</h4><dl><dt>Eixos</dt><dd>peso 500 · largura 125</dd><dt>Forma</dt><dd>caixa alta · entreletra +0,18em · entrelinha 1,2</dd><dt>Uso</dt><dd>Rodapé-assinatura, sobretítulo, Ficha Técnica, rótulos, Marcadores</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-credito">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Estreito</h4><dl><dt>Eixos</dt><dd>peso 800 · largura 68</dd><dt>Forma</dt><dd>caixa alta · entreletra 0 · entrelinha 0,9</dd><dt>Uso</dt><dd>Palavra vertical ("MASTER" de pé, como no slide 36) e título que não cabe em 320 px</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-estreito">Master</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Numeral de Prova</h4><dl><dt>Eixos</dt><dd>peso 700 · largura 75</dd><dt>Forma</dt><dd>algarismos alinhados e tabulares · entreletra -0,01em · entrelinha 0,9</dd><dt>Uso</dt><dd>Número de prova, sempre com o Crédito de Prova ao lado (<a href="#s25">seção 25</a>)</dd></dl></div>
+          <p class="f04-reg-amostra f04-r-numeral">0123456789</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Numeral de Data</h4><dl><dt>Eixos</dt><dd>peso 300 · largura 125</dd><dt>Forma</dt><dd>algarismos alinhados · entreletra 0 · entrelinha 1</dd><dt>Uso</dt><dd>Data e horário de turma, minutagem. <strong>Nunca prova.</strong></dd></dl></div>
+          <p class="f04-reg-amostra f04-r-data">06/10/2026 · 18h30</p>
+        </div>
+        <div class="f04-reg">
+          <div class="f04-reg-meta"><h4 class="intertitulo">Botão</h4><dl><dt>Eixos</dt><dd>peso 700 · largura 106</dd><dt>Forma</dt><dd>caixa alta · entreletra +0,06em · entrelinha 1</dd><dt>Uso</dt><dd>Todo CTA, sempre no estilo Letreiro Aceso</dd></dl></div>
+          <p class="f04-reg-amostra"><span class="botao">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></p>
+        </div>
+      </div>
+      <pre class="codigo" data-rotulo="CSS · registros"><code>/* Título de Filme */  font: 800 96px/.92 var(--font-letreiro); font-variation-settings: "wdth" 112; letter-spacing: -.02em;  text-transform: uppercase;
+/* Título de Seção */  font: 700 56px/.98 var(--font-letreiro); font-variation-settings: "wdth" 100; letter-spacing: -.012em; text-transform: uppercase;
+/* Fala */             font: 600 32px/1.15 var(--font-letreiro); font-variation-settings: "wdth" 100; letter-spacing: -.005em;
+/* Crédito */          font: 500 12px/1.2 var(--font-letreiro);  font-variation-settings: "wdth" 125; letter-spacing: .18em;   text-transform: uppercase;
+/* Estreito */         font: 800 1em/.9 var(--font-letreiro);    font-variation-settings: "wdth" 68;  letter-spacing: 0;       text-transform: uppercase;
+/* Numeral de Prova */ font: 700 80px/.9 var(--font-letreiro);   font-variation-settings: "wdth" 75;  letter-spacing: -.01em;  font-variant-numeric: lining-nums tabular-nums;
+/* Numeral de Data */  font: 300 1em/1 var(--font-letreiro);     font-variation-settings: "wdth" 125; letter-spacing: 0;       font-variant-numeric: lining-nums;
+/* Botão */            font: 700 16px/1 var(--font-letreiro);    font-variation-settings: "wdth" 106; letter-spacing: .06em;   text-transform: uppercase;</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+      <div class="regra">
+        <p class="regra-n" aria-hidden="true">2</p>
+        <h4 class="regra-titulo">Dois registros de largura por peça</h4>
+        <dl>
+          <dt>O que manda</dt><dd>Além do texto, a peça usa no máximo dois registros de largura. Exemplo: Título de Filme (112) com Crédito (125); ou Título de Seção (100) com Botão (106).</dd>
+          <dt>Por quê</dt><dd>Larguras demais viram catálogo de fonte e a peça perde a cena. A largura é a ferramenta de hierarquia; o tamanho vem depois.</dd>
+          <dt>Teste</dt><dd>Liste os valores de largura usados na peça, sem contar o texto corrido: o resultado é 2 ou menos.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="bloco" id="s18-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">18.2</p>
+        <h3 class="fala">O eixo de largura, ao vivo</h3>
+        <p class="bloco-apoio">Mova os eixos ou escolha um registro. A ferramenta diz se a combinação é um dos oito registros ou se está fora do sistema.</p>
+      </div>
+      <div class="f04-eixo" id="f04-eixo">
+        <div class="f04-eixo-palco"><p class="f04-eixo-amostra" id="f04-eixo-amostra">Tatuar não é desenhar</p></div>
+        <div class="f04-chips" role="group" aria-label="Registros do Archivo">
+          <button class="f04-chip" type="button" data-reg="filme" aria-pressed="true">Título de Filme</button>
+          <button class="f04-chip" type="button" data-reg="secao" aria-pressed="false">Título de Seção</button>
+          <button class="f04-chip" type="button" data-reg="fala" aria-pressed="false">Fala</button>
+          <button class="f04-chip" type="button" data-reg="credito" aria-pressed="false">Crédito</button>
+          <button class="f04-chip" type="button" data-reg="estreito" aria-pressed="false">Estreito</button>
+          <button class="f04-chip" type="button" data-reg="numeral" aria-pressed="false">Numeral de Prova</button>
+          <button class="f04-chip" type="button" data-reg="data" aria-pressed="false">Numeral de Data</button>
+          <button class="f04-chip" type="button" data-reg="botao" aria-pressed="false">Botão</button>
+        </div>
+        <div class="f04-controles">
+          <div class="f04-controle">
+            <label class="rotulo" for="f04-wdth">Largura (wdth)<output id="f04-wdth-v" for="f04-wdth">112</output></label>
+            <input type="range" id="f04-wdth" min="62" max="125" step="0.5" value="112">
+            <div class="f04-regua" aria-hidden="true"><span style="left:0.0%">62</span><span style="left:9.5%">68</span><span style="left:20.6%">75</span><span style="left:36.5%">85</span><span style="left:47.6%">92</span><span style="left:60.3%">100</span><span style="left:79.4%">112</span><span style="left:100.0%">125</span></div>
+          </div>
+          <div class="f04-controle">
+            <label class="rotulo" for="f04-wght">Peso (wght)<output id="f04-wght-v" for="f04-wght">800</output></label>
+            <input type="range" id="f04-wght" min="100" max="900" step="10" value="800">
+            <div class="f04-regua" aria-hidden="true"><span style="left:0.0%">100</span><span style="left:25.0%">300</span><span style="left:50.0%">500</span><span style="left:75.0%">700</span><span style="left:100.0%">900</span></div>
+          </div>
+        </div>
+        <div class="f04-leitura" aria-live="polite"><span id="f04-eixo-status" class="f04-ok"><svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Registro: Título de Filme</span><code id="f04-eixo-css">font-weight: 800; font-variation-settings: "wdth" 112;</code></div>
+      </div>
+      <h4 class="intertitulo">Por que nenhum título imita o VOID</h4>
+      <p>O "THE", o "TATTOO" e os descritores do logotipo são Archivo 400 na largura 100. O VOID não é: é um letreiro derivado do Archivo e ajustado à mão, com peso perto de 650, largura perto de 97,5 e letras que quase se tocam. Um título digitado com esses valores parece um logotipo falsificado. Por isso o Título de Filme vai para 800 e 112: mais pesado e mais largo, sem disputar com a marca.</p>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco" style="flex-direction:column;align-items:flex-start;gap:24px"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo, logotipo horizontal oficial" width="220" height="34"><p class="f04-r-filme" style="font-size:clamp(32px,11vw,44px);color:var(--tela)">Preencha o vazio</p></div>
+          <figcaption>Logotipo sempre pelo arquivo oficial; o título ao lado em Título de Filme, visivelmente outra voz.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco" style="flex-direction:column;align-items:flex-start;gap:24px"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo, logotipo horizontal oficial" width="220" height="34"><p class="f04-vazio-com">Vazio</p></div>
+          <figcaption>Título digitado em 650 e 97,5, com letras coladas: imita o VOID e confunde a marca com o texto.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s18-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">18.3</p>
+        <h3 class="fala">Regra de largura, de 320 a 430 px</h3>
+        <p class="bloco-apoio">Antes de reduzir o tamanho, estreite a letra. A meta é título, linha de apoio e botão na primeira dobra do celular (até 640 px de altura) sem rolar.</p>
+      </div>
+      <ol class="lista">
+        <li>Se o Título de Filme passar de 3 linhas entre 320 e 430 px, ou empurrar o botão para fora da primeira dobra, troque a largura de 112 para <strong>100</strong>; se ainda passar, <strong>92</strong>; se ainda passar, <strong>85</strong>.</li>
+        <li>Só então reduza o tamanho, de 48 px até o piso de <strong>34 px</strong>.</li>
+        <li>Abaixo da largura 85 ou do piso de 34 px, <strong>reescreva o título</strong> (lei 6: até 6 palavras).</li>
+      </ol>
+      <div class="f04-largs">
+        <figure class="f04-larg"><p class="rotulo">wdth 112 · 48 px · coluna de 358 px</p><div class="f04-larg-cel"><p class="titulo-filme" style="font-variation-settings:'wdth' 112">Descubra sua identidade <em class="off">artística</em>.</p></div><p class="f04-larg-st legenda"></p></figure>
+        <figure class="f04-larg"><p class="rotulo">wdth 100 · 48 px · coluna de 358 px</p><div class="f04-larg-cel"><p class="titulo-filme" style="font-variation-settings:'wdth' 100">Descubra sua identidade <em class="off">artística</em>.</p></div><p class="f04-larg-st legenda"></p></figure>
+        <figure class="f04-larg"><p class="rotulo">wdth 92 · 48 px · coluna de 358 px</p><div class="f04-larg-cel"><p class="titulo-filme" style="font-variation-settings:'wdth' 92">Descubra sua identidade <em class="off">artística</em>.</p></div><p class="f04-larg-st legenda"></p></figure>
+        <figure class="f04-larg"><p class="rotulo">wdth 85 · 48 px · coluna de 358 px</p><div class="f04-larg-cel"><p class="titulo-filme" style="font-variation-settings:'wdth' 85">Descubra sua identidade <em class="off">artística</em>.</p></div><p class="f04-larg-st legenda"></p></figure>
+      </div>
+      <p class="legenda">A frase do Master (Plataforma de Branding, slide 63) no tamanho de celular (48 px), na coluna de um celular de 390 px (358 px úteis, com 16 px de margem de cada lado). Só a largura muda; a palavra na voz em off fica igual, porque não tem eixo de largura. Nas larguras 112, 100 e 92 o título passa de 3 linhas; só a 85 ele cabe, sem precisar reduzir o tamanho. O fio tracejado marca a borda da coluna: o que passa dele sai da tela. Em tela estreita, as quatro colunas encolhem na mesma proporção, para a comparação continuar inteira.</p>
+
+      <h4 class="intertitulo">Simulador da primeira dobra</h4>
+      <div class="f04-sim" id="f04-sim">
+        <div class="f04-sim-ctl">
+          <div class="f04-controle">
+            <label class="rotulo" for="f04-sim-w">Largura da tela<output id="f04-sim-wv" for="f04-sim-w">390 px</output></label>
+            <input type="range" id="f04-sim-w" min="320" max="430" step="1" value="390">
+            <div class="f04-chips" role="group" aria-label="Larguras de teste">
+              <button class="f04-chip" type="button" data-w="320" aria-pressed="false">320</button>
+              <button class="f04-chip" type="button" data-w="360" aria-pressed="false">360</button>
+              <button class="f04-chip" type="button" data-w="390" aria-pressed="true">390</button>
+              <button class="f04-chip" type="button" data-w="430" aria-pressed="false">430</button>
+            </div>
+          </div>
+          <div>
+            <p class="rotulo" id="f04-sim-tr">Título</p>
+            <div class="f04-chips" role="group" aria-labelledby="f04-sim-tr">
+              <button class="f04-chip" type="button" data-t="gabriel" aria-pressed="true">Gabriel · Start</button>
+              <button class="f04-chip" type="button" data-t="bruno" aria-pressed="false">Bruno · Master</button>
+              <button class="f04-chip" type="button" data-t="longo" aria-pressed="false">Título longo</button>
+            </div>
+          </div>
+          <div>
+            <label class="rotulo" for="f04-sim-txt">Ou escreva o seu</label>
+            <input type="text" id="f04-sim-txt" maxlength="80" placeholder="Palavra sensível entre *asteriscos*" style="margin-top:8px">
+          </div>
+          <ol class="f04-passos" id="f04-sim-passos" aria-live="polite"><li>Os passos aparecem aqui quando a página carrega as fontes.</li></ol>
+        </div>
+        <div class="f04-sim-palco" id="f04-sim-palco">
+          <div class="f04-sim-cel" id="f04-sim-cel" style="width:390px" data-estacao="start">
+            <div class="f04-sim-topo"><img id="f04-sim-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="150" height="24"></div>
+            <div class="f04-sim-miolo">
+              <p class="marcador credito" id="f04-sim-marc">The VOID Start</p>
+              <p class="titulo-filme" id="f04-sim-t">Talento é consequência de <em class="off">treino</em>.</p>
+              <p class="f04-sim-apoio">Escola de tatuagem na Vila Madalena, em São Paulo.</p>
+              <span class="botao" id="f04-sim-b">Quero conversar sobre minha turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </div>
+            <div class="f04-dobra" aria-hidden="true"><span>Primeira dobra · 640 px</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="legenda">Títulos do simulador: heros por persona prontos para teste (especificação, seção 9.5) e, como título longo, a frase do slide 24 da apresentação de rebranding, que passa de seis palavras: mesmo quando a largura e o tamanho resolvem o espaço, o simulador lembra a lei 6 e pede outro título.</p>
+      <pre class="codigo" data-rotulo="CSS · largura"><code>.titulo-filme{font:800 clamp(40px,7vw,96px)/.92 var(--font-letreiro);font-variation-settings:"wdth" 112;text-transform:uppercase;letter-spacing:-.02em;text-wrap:balance}
+@media (max-width:430px){
+  .titulo-filme{font-variation-settings:"wdth" 100}
+  .titulo-filme[data-largura="92"]{font-variation-settings:"wdth" 92}
+  .titulo-filme[data-largura="85"]{font-variation-settings:"wdth" 85}
+}</code></pre>
+      <button class="copiar" type="button">Copiar</button>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 4.2, 4.3, 9.5 e lei L6); relatório de ativos técnicos da GrowAI, 06/10/2026 (seção 3.2 e 3.3, medida do VOID contra o Archivo); Plataforma de Branding, aureadesign, 2025 (slides 24 e 36).</p>
+  </div>
+</section>
+
+<!-- ===================== s19 · Escalas ===================== -->
+<section class="sec" id="s19" data-parte="V" data-nome="Escalas: documento, peça e vídeo" aria-labelledby="s19-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>19</b> · Escalas: documento, peça e vídeo</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">19</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Tipografia</p>
+        <h2 id="s19-t" class="titulo-secao">Três escalas, um <em class="off">ritmo</em></h2>
+        <p class="sec-apoio">A mesma hierarquia em três superfícies: a tela que se rola (documento e site), a peça de 1080 que se vê no feed e o quadro de vídeo. Os tamanhos estão travados; o que muda de uma para outra é a unidade.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>No site, corpo de 18 px no computador e 17 px no celular, em coluna de 680 px (60 a 72 caracteres por linha). Nada de leitura abaixo de 13 px.</li>
+        <li>Na peça de 1080, tudo é medido em unidades (u): título de 96 a 140 u, e nenhum texto abaixo de 26 u, o piso absoluto.</li>
+        <li>No vídeo, legenda queimada em Archivo 600, duas linhas no máximo, 60 a 68 px no vertical e 46 a 54 px no horizontal.</li>
+        <li>As amostras abaixo estão em tamanho real para a tela onde você lê: no celular, aparecem os valores de celular.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s19-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">19.1</p>
+        <h3 class="fala">Documento e site</h3>
+        <p class="bloco-apoio">Doze papéis, dois tamanhos cada (computador e celular). Botão com 56 px de altura no computador e 52 px no celular, em largura total.</p>
+      </div>
+      <div class="f04-esc">
+        <div><p class="rotulo">Título de Filme · 96 / 48</p><p class="f04-esc-a f04-e-filme">O vazio</p></div>
+        <div><p class="rotulo">Título de Seção · 56 / 34</p><p class="f04-esc-a f04-e-secao">O método</p></div>
+        <div><p class="rotulo">Subtítulo · 32 / 24</p><p class="f04-esc-a f04-e-sub">Do primeiro traço à carreira profissional</p></div>
+        <div><p class="rotulo">Intertítulo · 22 / 20</p><p class="f04-esc-a f04-e-inter">O que você sabe fazer no fim</p></div>
+        <div><p class="rotulo">Voz em off isolada · 44 / 30</p><p class="f04-esc-a f04-e-off">o primeiro traço</p></div>
+        <div><p class="rotulo">Chamada · 22 / 19</p><p class="f04-esc-a f04-e-chamada">Escola de tatuagem na Vila Madalena, em São Paulo.</p></div>
+        <div><p class="rotulo">Corpo · 18 / 17</p><p class="f04-esc-a f04-e-corpo">A The VOID Tattoo Academy é uma escola de tatuagem na Vila Madalena, em São Paulo, que forma tatuadores do primeiro traço à carreira profissional.</p></div>
+        <div><p class="rotulo">Apoio · 15</p><p class="f04-esc-a f04-e-apoio">Resultados individuais variam conforme prática e dedicação.</p></div>
+        <div><p class="rotulo">Legenda e Crédito de Prova · 13</p><p class="f04-esc-a f04-e-leg">Foto: [nome] · The VOID Tattoo Academy</p></div>
+        <div><p class="rotulo">Crédito em caixa alta · 12</p><p class="f04-esc-a credito">Turma de [mês] · começa em [data] · inscrições até [data]</p></div>
+        <div><p class="rotulo">Numeral de Prova · 80 / 56</p><p class="f04-esc-a f04-e-num">0123</p></div>
+        <div><p class="rotulo">Botão · 16 / 17</p><p class="f04-esc-a"><span class="botao">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></p></div>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Escala de documento e site, em px</caption>
+          <thead><tr><th scope="col">Papel</th><th scope="col">Computador</th><th scope="col">Celular</th><th scope="col">Família e registro</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Título de Filme</th><td>96</td><td>48 (piso 34)</td><td>Archivo, Título de Filme</td></tr>
+            <tr><th scope="row">Título de Seção</th><td>56</td><td>34</td><td>Archivo, Título de Seção</td></tr>
+            <tr><th scope="row">Subtítulo</th><td>32</td><td>24</td><td>Archivo, Fala</td></tr>
+            <tr><th scope="row">Intertítulo</th><td>22</td><td>20</td><td>Archivo, Fala</td></tr>
+            <tr><th scope="row">Voz em off isolada</th><td>44</td><td>30</td><td>Alga ou Newsreader</td></tr>
+            <tr><th scope="row">Chamada</th><td>22</td><td>19</td><td>Nunito Sans 400, entrelinha 1,5</td></tr>
+            <tr><th scope="row">Corpo</th><td>18</td><td>17</td><td>Nunito Sans 400, entrelinha 1,65, coluna de 680 px</td></tr>
+            <tr><th scope="row">Apoio</th><td>15</td><td>15</td><td>Nunito Sans 400, entrelinha 1,5</td></tr>
+            <tr><th scope="row">Legenda e Crédito de Prova</th><td>13</td><td>13</td><td>Nunito Sans 400 (piso de texto de leitura)</td></tr>
+            <tr><th scope="row">Crédito em caixa alta</th><td>12</td><td>12</td><td>Archivo Crédito, em Tela, Cal, Pó ou Areia (7:1 ou mais)</td></tr>
+            <tr><th scope="row">Numeral de Prova</th><td>80</td><td>56</td><td>Archivo, Numeral de Prova</td></tr>
+            <tr><th scope="row">Botão</th><td>16, altura 56</td><td>17, altura 52, largura total</td><td>Archivo, Botão</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Crédito de 12 px em caixa alta só nas quatro cores com contraste de 7:1 ou mais sobre Sala (<a href="#s14">seção 14</a>). Fumaça nunca escreve abaixo de 14 px.</p>
+    </div>
+
+    <div class="bloco" id="s19-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">19.2</p>
+        <h3 class="fala">Peça de 1080 px</h3>
+        <p class="bloco-apoio">Feed de 1080 por 1350, story de 1080 por 1920 e quadrado de 1080 por 1080. A unidade u vale 1/1080 da largura da peça, então o mesmo número serve em qualquer tamanho de tela.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Escala da peça, em unidades de 1080</caption>
+          <thead><tr><th scope="col">Papel</th><th scope="col">Tamanho</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Título de Filme</th><td>96 a 140 u, padrão 120</td><td>Até 3 linhas, até 6 palavras</td></tr>
+            <tr><th scope="row">Voz em off dentro do título</th><td>1,2 vez o Archivo da linha</td><td>Uma linha</td></tr>
+            <tr><th scope="row">Subtítulo e citação</th><td>48 a 56 u</td><td>Archivo Fala</td></tr>
+            <tr><th scope="row">Texto curto</th><td>34 a 38 u</td><td>Archivo 400 largura 100 (na peça, a Nunito Sans não entra)</td></tr>
+            <tr><th scope="row">Botão desenhado</th><td>30 u</td><td>Registro Botão</td></tr>
+            <tr><th scope="row">Crédito, rodapé-assinatura, Crédito de Prova</th><td>26 u</td><td>Piso absoluto da peça</td></tr>
+            <tr><th scope="row">Numeral de Prova</th><td>160 a 220 u</td><td>Sempre com a régua de prova na mesma tela</td></tr>
+            <tr><th scope="row">Margens</th><td>72 u</td><td>Story e Reels: conteúdo entre y = 270 e y = 1500; 120 u livres à direita nos Reels</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pecas">
+        <div class="peca" data-formato="1080x1350" data-nome="Régua da peça, feed">
+          <div class="peca-tela grao">
+            <div class="f04-pc">
+              <p class="f04-pr">Título de Filme · <i>120 u</i></p>
+              <p class="f04-pf" style="margin-top:calc(var(--u)*16)">Sempre faça <em class="off">arte</em>.</p>
+              <div class="f04-gap"></div>
+              <p class="f04-pr">Subtítulo · <i>52 u</i></p>
+              <p class="f04-ps" style="margin-top:calc(var(--u)*12)">Todo mundo começa com um traço.</p>
+              <div class="f04-gap"></div>
+              <p class="f04-pr">Texto curto · <i>36 u</i></p>
+              <p class="f04-pt" style="margin-top:calc(var(--u)*12)">Aqui, ele tem nome, coragem e história. Ritual do Traço, na The VOID.</p>
+              <div class="f04-gap"></div>
+              <p class="f04-pr" style="margin-bottom:calc(var(--u)*12)">Botão desenhado · <i>30 u</i></p>
+              <p class="f04-pb">Quero conversar sobre minha turma</p>
+              <div class="f04-gap"></div>
+              <p class="f04-pr">Numeral de Prova · <i>180 u</i></p>
+              <p class="f04-pf" style="font-size:calc(var(--u)*180);font-weight:700;font-variation-settings:'wdth' 75;line-height:.9;margin-top:calc(var(--u)*12)">0123</p>
+              <p class="f04-pr" style="margin-top:auto">Tattoo Academy · ® 2025 · São Paulo · Brazil · <b>Preencha o vazio</b></p>
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="Story" data-estacao="start">
+          <div class="peca-tela grao">
+            <div class="f04-pc" style="padding-top:calc(var(--u)*270)">
+              <p class="f04-pr" style="display:flex;align-items:center;gap:calc(var(--u)*16)"><span data-vforms="marcador-estacao" data-vforms-opts='{"tamanho":26}'></span>Start · Ritual do Traço</p>
+              <p class="f04-pf" style="font-size:calc(var(--u)*112);font-variation-settings:'wdth' 92;margin-top:calc(var(--u)*240)">Talento é consequência de <em class="off">treino</em>.</p>
+              <p class="f04-pt" style="margin-top:calc(var(--u)*48)">Formação Start, na Vila Madalena, em São Paulo.</p>
+              <img src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="300" height="48" style="width:calc(var(--u)*300);height:auto;margin-top:auto;margin-bottom:calc(var(--u)*348)">
+            </div>
+            <div class="area-segura"></div>
+          </div>
+        </div>
+      </div>
+      <p class="legenda">Feed: régua de escala, peça de demonstração e não de publicação; título com a frase de apoio do Start (site oficial) e texto com a frase do Ritual do Traço (Plataforma de Branding, slides 59 a 61). Story: o título usa a regra de largura (92) para caber em três linhas a 112 u, e o logotipo de 300 u fica acima de y = 1500.</p>
+    </div>
+
+    <div class="bloco" id="s19-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">19.3</p>
+        <h3 class="fala">Vídeo</h3>
+        <p class="bloco-apoio">No vídeo a unidade é o pixel do quadro (1080 por 1920 ou 1920 por 1080). A legenda queimada é texto de leitura: tem tamanho mínimo, linha máxima e caixa de fundo calculada.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Escala de vídeo, em px do quadro</caption>
+          <thead><tr><th scope="col">Papel</th><th scope="col">Vertical 1080 por 1920</th><th scope="col">Horizontal 1920 por 1080</th><th scope="col">Regra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Gancho em tela (2 s iniciais)</th><td>Título de Filme 96 a 120</td><td>110 a 150</td><td>Até 6 palavras</td></tr>
+            <tr><th scope="row">Cartela</th><td>96 a 120, voz em off 120 a 150</td><td>110 a 150, voz em off 130 a 170</td><td>Tipos de cartela na <a href="#s34">seção 34</a></td></tr>
+            <tr><th scope="row">Legenda queimada</th><td>Archivo 600, largura 100, 60 a 68 px, 22 a 28 caracteres por linha</td><td>46 a 54 px, 32 a 42 caracteres</td><td>2 linhas, caixa mista; piso de 60 px no vertical</td></tr>
+            <tr><th scope="row">Nome no lower third</th><td>Archivo 600, largura 112, 40 px, caixa alta, +0,08em</td><td>40 px</td><td>Sem selo</td></tr>
+            <tr><th scope="row">Função no lower third</th><td>Voz em off, 34 px</td><td>34 px</td><td>A única linha em itálico do quadro</td></tr>
+            <tr><th scope="row">Crédito no fecho</th><td>28 px</td><td>28 px</td><td>Archivo Crédito</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="f04-videos">
+        <div class="f04-videos-h">
+        <div class="peca" data-formato="1920x1080" data-nome="Legenda queimada" style="--peca-max:100%">
+          <div class="peca-tela grao">
+            <div class="f04-pc"></div>
+            <div class="f04-foto" style="left:calc(var(--u)*640);top:0;right:0;bottom:0"><p class="f04-pr">Foto real da escola, com autorização</p></div>
+            <p class="f04-vleg" style="bottom:calc(var(--u)*110)">Todo mundo começa com um <em>traço</em>. Aqui,<br>ele tem nome, coragem e história.</p>
+          </div>
+        </div>
+        <div class="peca" data-formato="1920x1080" data-nome="Lower third" data-estacao="start" style="--peca-max:100%">
+          <div class="peca-tela grao">
+            <div class="f04-pc"></div>
+            <div class="f04-foto" style="left:calc(var(--u)*640);top:0;right:0;bottom:0"><p class="f04-pr">Foto real da escola, com autorização</p></div>
+            <div class="f04-lt"><p class="f04-lt-n">[Nome e sobrenome]</p><p class="f04-lt-f">Aluna do Start, turma de [ano]</p></div>
+          </div>
+        </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="Reels, gancho e legenda" style="--peca-max:100%">
+          <div class="peca-tela grao">
+            <div class="f04-foto" style="inset:0"><p class="f04-pr">Vídeo real da escola, com autorização</p></div>
+            <p class="f04-pf" style="position:absolute;left:calc(var(--u)*72);right:calc(var(--u)*192);top:calc(var(--u)*300);font-size:calc(var(--u)*108)">Tatuar não é <em class="off">desenhar</em>.</p>
+            <p class="f04-vleg" style="font-size:calc(var(--u)*64);bottom:calc(var(--u)*460)">É uma técnica nova,<br>com <em>fundamento</em>.</p>
+          </div>
+        </div>
+      </div>
+      <p class="legenda">Legenda horizontal a 50 px, 37 e 33 caracteres por linha, base a 110 px, caixa Sala a 75% (Tela a 7,39:1, palavra de destaque em Areia a 4,66:1). Lower third a 120 px da lateral e 140 px da base. Reels com o gancho entre y = 270 e y = 1500 e 120 px livres à direita. Frases: Ritual do Traço (slides 59 a 61) e aula experimental (site oficial); "com fundamento" é texto de exemplo.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 4.4, 6.5, 7.1, 8.4 e 12.2); Plataforma de Branding, aureadesign, 2025 (slides 59 a 61); site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<!-- ===================== s20 · Voz em off e regras gerais ===================== -->
+<section class="sec" id="s20" data-parte="V" data-nome="A voz em off e regras gerais" aria-labelledby="s20-t">
+  <div class="wrap">
+    <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>20</b> · A voz em off e regras gerais</span></p>
+    <header class="sec-head">
+      <span class="sec-num numeral-prova" aria-hidden="true">20</span>
+      <div>
+        <p class="marcador credito"><span data-vforms="marcador-estacao"></span>Tipografia</p>
+        <h2 id="s20-t" class="titulo-secao">A palavra que <em class="off">sente</em></h2>
+        <p class="sec-apoio">A voz em off é o recurso mais reconhecível da marca, e por isso o mais fácil de gastar. Oito regras a mantêm rara; as regras gerais cuidam de caixa, itálico, número e pontuação em todo o resto.</p>
+      </div>
+    </header>
+
+    <div class="resumo">
+      <p class="credito">Em um minuto</p>
+      <ul>
+        <li>Uma linha de voz em off por bloco, até 7 palavras, 1,2 vez o Archivo da mesma linha, em minúscula.</li>
+        <li>Caixa alta na voz em off só em duas exceções nomeadas: START, MASTER e PRO no Mapa da Trilha, e a marca d'água do nome do produto no Campo de Produto.</li>
+        <li>Nunca em botão, número, preço, data, instrução, legenda funcional, texto legal, formulário, tabela ou nome de pessoa.</li>
+        <li>Caixa alta só em título, botão, crédito e rótulo; itálico só na voz em off; zero travessão em qualquer texto.</li>
+      </ul>
+    </div>
+
+    <div class="bloco" id="s20-1">
+      <div class="bloco-head">
+        <p class="bloco-n credito">20.1</p>
+        <h3 class="fala">As oito regras da voz em off</h3>
+        <p class="bloco-apoio">O Brand DNA define a voz em off como a voz sensível, com uma linha por bloco. As regras abaixo transformam isso em teste.</p>
+      </div>
+      <div class="regras">
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">01</p>
+          <h4 class="regra-titulo">Uma linha por bloco</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Bloco é título com subtítulo, uma tela de story ou um cartão de carrossel. Cabe uma linha de voz em off; no máximo duas palavras soltas na mesma linha, como no slide 24.</dd>
+            <dt>Teste</dt><dd>Conte as linhas em itálico do bloco: o resultado é 1.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><p class="titulo-secao" style="font-size:26px">É sobre <em class="off">continuar,</em> mesmo sem <em class="off">certeza</em></p></div>
+              <figcaption>Duas palavras soltas na mesma linha de leitura, dentro do letreiro.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><p class="titulo-secao" style="font-size:26px"><em class="off">O seu chamado</em><br>para a arte<br><em class="off">acabou de chegar</em></p></div>
+              <figcaption>Duas linhas inteiras na voz em off: a palavra que sente vira frase decorada e perde a força.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">02</p>
+          <h4 class="regra-titulo">Só a palavra que sente</h4>
+          <dl>
+            <dt>O que manda</dt><dd>A voz em off marca a palavra emocional da frase, com até 7 palavras. O resto da frase fica no letreiro.</dd>
+            <dt>Teste</dt><dd>Leia só o itálico: ele precisa ser a parte que dá vontade de sublinhar.</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">03</p>
+          <h4 class="regra-titulo">1,2 vez o letreiro</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Tamanho de 1,2 vez o Archivo da mesma linha; entreletra 0; entrelinha 1. A classe <code>.off</code> já faz isso.</dd>
+            <dt>Por quê</dt><dd>O traço 300 da voz em off é fino; sem o aumento, ela some ao lado do Archivo 800.</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">04</p>
+          <h4 class="regra-titulo">Minúscula, com duas exceções</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Minúscula, com inicial maiúscula só quando abre a frase. Caixa alta apenas nas duas exceções nomeadas, mostradas abaixo.</dd>
+            <dt>Teste</dt><dd>Achou itálico em caixa alta? Ele está no Mapa da Trilha ou numa marca d'água de produto. Se não está, volta.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><p class="titulo-secao">O seu <em class="off">plano</em></p></div>
+              <figcaption>Minúscula, dentro do letreiro em caixa alta.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><p class="titulo-secao">O seu <em class="off" style="text-transform:uppercase">plano</em></p></div>
+              <figcaption>Voz em off em caixa alta fora das exceções: vira cartaz de cinema antigo.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">05</p>
+          <h4 class="regra-titulo">A cor do título ou do produto</h4>
+          <dl>
+            <dt>O que manda</dt><dd>A voz em off usa a cor do título ou o destaque do produto (Areia, Terracota Luz, Névoa). Nunca Terracota pura abaixo de 24 px.</dd>
+            <dt>Por quê</dt><dd>Terracota sobre Sala dá 3,72:1: só passa em texto grande (<a href="#s14">seção 14</a>).</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">06</p>
+          <h4 class="regra-titulo">Piso de tamanho</h4>
+          <dl>
+            <dt>O que manda</dt><dd>20 px em tela, 56 u na peça, 64 px no vídeo. Abaixo disso o traço 300 some.</dd>
+            <dt>Exceção da tabela de vídeo</dt><dd>A função no lower third é voz em off de 34 px e a única linha em itálico do quadro (19.3).</dd>
+          </dl>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">07</p>
+          <h4 class="regra-titulo">Nunca em funções</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Nunca em botão, número, preço, data, instrução, legenda funcional, texto legal, formulário, tabela ou nome de pessoa.</dd>
+            <dt>Teste</dt><dd>Se a palavra serve para fazer algo (clicar, pagar, chegar, entender uma regra), ela é letreiro ou texto.</dd>
+          </dl>
+          <div class="faca-nao">
+            <figure class="faca">
+              <div class="fn-palco"><span class="botao">Agendar meu diagnóstico<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+              <figcaption>Botão no registro Botão: Archivo 700, largura 106, caixa alta.</figcaption>
+            </figure>
+            <figure class="nao" data-exemplo="proibido">
+              <div class="fn-palco"><span class="botao" style="font-family:var(--font-off);font-style:italic;font-weight:300;text-transform:none;letter-spacing:0;font-size:22px">agendar meu diagnóstico</span></div>
+              <figcaption>Botão em itálico: perde a leitura de ação e mistura emoção com instrução.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="regra">
+          <p class="regra-n" aria-hidden="true">08</p>
+          <h4 class="regra-titulo">Reserva sem imagem</h4>
+          <dl>
+            <dt>O que manda</dt><dd>Em ferramenta sem fonte variável (Canva, Google Slides), Newsreader Italic Light. No e-mail, a pilha cai para Georgia itálico, e a voz em off <strong>nunca vira imagem</strong>.</dd>
+            <dt>Teste</dt><dd>Selecione a frase com o cursor: se não dá para selecionar, ela virou imagem e volta.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <h4 class="intertitulo">As duas exceções em caixa alta</h4>
+      <div class="regras">
+        <figure class="palco coxia">
+          <p class="rotulo" style="margin-bottom:16px">Exceção 1 · rótulos do Mapa da Trilha</p>
+          <div style="max-width:820px;margin:0 auto" data-vforms="mapa-trilha" data-vforms-opts='{"frases":false,"orientacao":"horizontal","aria":"Mapa da Trilha: Start, Master e Pro, nomes em caixa alta na voz em off"}'></div>
+          <figcaption class="legenda" style="margin-top:12px">START, MASTER e PRO na voz em off, em caixa alta, como no slide 30. O desenho completo está na <a href="#s23">seção 23</a>.</figcaption>
+        </figure>
+        <figure class="palco coxia" data-estacao="master">
+          <p class="rotulo" style="margin-bottom:16px">Exceção 2 · marca d'água no Campo de Produto</p>
+          <div class="f04-campo"><span class="f04-campo-marca" aria-hidden="true">MASTER</span><img src="assets/brand/svg/void-master-branco.svg" alt="The VOID Master" width="240" height="36"></div>
+          <figcaption class="legenda" style="margin-top:12px">O nome do produto gigante, em caixa alta, Tela a 8% sobre o campo do produto, como no slide 31. Nunca com a palavra VOID: o VOID é sempre o arquivo.</figcaption>
+        </figure>
+      </div>
+
+      <h4 class="intertitulo">Onde cada versão da voz em off aparece</h4>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Reserva da voz em off por meio</caption>
+          <thead><tr><th scope="col">Meio</th><th scope="col">Família que aparece</th><th scope="col">Amostra</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Site, landing page, área de membros</th><td>Alga (com licença) ou Newsreader Italic 300, tamanho óptico 72</td><td><span class="voz-off" style="font-size:30px">o primeiro passo</span></td></tr>
+            <tr><th scope="row">Canva e Google Slides</th><td>Newsreader Italic Light (as ferramentas não leem o eixo óptico)</td><td><span style="font:300 italic 28px/1.1 'Newsreader',Georgia,serif;color:var(--tela)">o primeiro passo</span></td></tr>
+            <tr><th scope="row">E-mail</th><td>Georgia itálico, como reserva da pilha; nunca imagem</td><td><span class="f04-georgia" style="font-size:28px">o primeiro passo</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bloco" id="s20-2">
+      <div class="bloco-head">
+        <p class="bloco-n credito">20.2</p>
+        <h3 class="fala">Caixa, itálico e acabamento</h3>
+        <p class="bloco-apoio">Cada efeito tipográfico tem um único lugar. Fora dele, não existe.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Regras gerais de tipografia</caption>
+          <thead><tr><th scope="col">Recurso</th><th scope="col">Onde vale</th><th scope="col">Onde nunca vale</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Caixa alta</th><td>Título, botão, crédito e rótulo</td><td>Corpo, condição de oferta, aviso legal</td></tr>
+            <tr><th scope="row">Itálico</th><td>Só na voz em off</td><td>Ênfase em corpo, citação, nome de curso</td></tr>
+            <tr><th scope="row">Sublinhado</th><td>Só link no Modo Leitura: 1 px, afastado 3 px</td><td>Ênfase, título, link sobre Sala</td></tr>
+            <tr><th scope="row">Contorno de texto</th><td>Só a Palavra de Produto vazada do Pro (<a href="#s24">seção 24</a>)</td><td>Qualquer outro texto e, sempre, o logotipo</td></tr>
+            <tr><th scope="row">Sombra de texto</th><td>Só legenda de vídeo sobre fundo já escuro: <code>0 2px 8px rgb(0 0 0 / .6)</code></td><td>Título, botão, peça estática</td></tr>
+            <tr><th scope="row">Degradê e escala horizontal</th><td>Nunca. A largura muda só pelo eixo <code>wdth</code></td><td>Todo texto</td></tr>
+            <tr><th scope="row">Hifenização</th><td>Ligada em corpo de coluna estreita (<code>hyphens:auto</code> com <code>lang="pt-BR"</code>)</td><td>Desligada em título</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco"><p class="titulo-secao">Da sala pra <em class="off">cena</em>.</p></div>
+          <figcaption>A largura muda pelo eixo; a ênfase vem da voz em off, não de efeito.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><p class="titulo-secao f04-efeitos">Da sala pra cena.</p></div>
+          <figcaption>Escala horizontal, sombra e contorno no mesmo título: três efeitos proibidos e nenhuma hierarquia.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="bloco" id="s20-3">
+      <div class="bloco-head">
+        <p class="bloco-n credito">20.3</p>
+        <h3 class="fala">Números</h3>
+        <p class="bloco-apoio">Número é letreiro: sempre Archivo, com algarismos alinhados. A voz em off nunca escreve número, preço ou data.</p>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>Formato de número (valores ilustrativos, não são dados da escola)</caption>
+          <thead><tr><th scope="col">Tipo</th><th scope="col">Assim</th><th scope="col">Nunca</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Dinheiro</th><td><code>R$ 0.000,00</code></td><td><code>R$0000</code>, <code>0.000 reais</code></td></tr>
+            <tr><th scope="row">Parcelas</th><td><code>12x</code></td><td><code>12 X</code>, <code>12vezes</code></td></tr>
+            <tr><th scope="row">Quantidade</th><td><code>15 aulas</code></td><td><code>quinze aulas</code> em ficha ou tabela</td></tr>
+            <tr><th scope="row">Horário</th><td><code>18h30</code></td><td><code>18:30h</code>, <code>6h30 da tarde</code></td></tr>
+            <tr><th scope="row">Data</th><td><code>06/10/2026</code> · <code>out/2026</code></td><td><code>6/10/26</code>, <code>Outubro/2026</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grade-2">
+        <div class="palco">
+          <p class="rotulo">Numeral de Prova · prova</p>
+          <p class="f04-r-numeral" style="color:var(--tela);margin:12px 0 8px">0123</p>
+          <p class="legenda">700, largura 75, tabular. Só com o Crédito de Prova completo; nunca anima contando até o valor (<a href="#s25">seção 25</a>).</p>
+        </div>
+        <div class="palco">
+          <p class="rotulo">Numeral de Data · agenda</p>
+          <p class="f04-r-data" style="color:var(--tela);margin:12px 0 8px">06/10 · 18h30</p>
+          <p class="legenda">300, largura 125. Data, horário, minutagem. Nunca escreve prova: a leveza do traço diz "informação", não "resultado".</p>
+        </div>
+      </div>
+      <p class="pendencia" data-p="15">[P 15] Preços, parcelas, carga horária, vagas e calendário das turmas: nenhum valor real aparece em peça antes de a The VOID confirmar e o checkout bater.</p>
+    </div>
+
+    <div class="bloco" id="s20-4">
+      <div class="bloco-head">
+        <p class="bloco-n credito">20.4</p>
+        <h3 class="fala">Zero travessão</h3>
+        <p class="bloco-apoio">O travessão não aparece em nenhum texto da marca: título, corpo, legenda, assunto de e-mail, texto alternativo ou rodapé. A verificação automática do manual procura os dois caracteres (U+2014 e U+2013) e reprova a peça.</p>
+      </div>
+      <div class="faca-nao">
+        <figure class="faca">
+          <div class="fn-palco" style="text-align:left;justify-content:flex-start"><p class="f04-e-chamada" style="color:var(--tela)">Tatuar não é desenhar. É uma técnica nova.</p></div>
+          <figcaption>Duas frases curtas. Também servem vírgula, dois-pontos ou parênteses.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco" style="text-align:left;justify-content:flex-start"><p class="f04-e-chamada" style="color:var(--tela)">Tatuar não é desenhar<span class="f04-traco" role="img" aria-label="travessão"></span>é uma técnica nova.</p></div>
+          <figcaption>A pausa marcada com traço longo (desenhado aqui, para não entrar no texto). Reescreva com ponto.</figcaption>
+        </figure>
+      </div>
+      <div class="tabela-wrap" tabindex="0">
+        <table>
+          <caption>O que usar no lugar do travessão</caption>
+          <thead><tr><th scope="col">Quando a frase pede</th><th scope="col">Use</th><th scope="col">Exemplo</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Uma virada</th><td>Ponto e frase nova</td><td>"Tatuar não é desenhar. É uma técnica nova."</td></tr>
+            <tr><th scope="row">Uma explicação</th><td>Dois-pontos</td><td>"O Método ARTE tem três pilares: Artista, Tatuador e Empreendedor."</td></tr>
+            <tr><th scope="row">Um aparte</th><td>Vírgulas ou parênteses</td><td>"A formação Start, a porta de entrada da trilha, começa pelo traço."</td></tr>
+            <tr><th scope="row">Separar itens no crédito</th><td>Ponto médio com espaço: <code>·</code></td><td><code>TATTOO ACADEMY · SÃO PAULO · BRAZIL</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Na grafia, a marca é sempre TATTOO, com dois T. O checklist de aprovação confere as duas coisas antes de qualquer publicação (<a href="#s07">seção 7</a>).</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 4.4, 4.6, 4.7, 6.13 e 9.2); Brand DNA da The VOID, set/2026 (seção 9); Plataforma de Branding, aureadesign, 2025 (slides 24, 30 e 31); site oficial, consultado em 06/10/2026.</p>
+  </div>
+</section>
+
+<script data-fragmento="f04">
+(function () {
+  'use strict';
+  var REG = {
+    filme: { n: 'Título de Filme', w: 800, d: 112, ls: '-.02em', lh: '.92', up: true },
+    secao: { n: 'Título de Seção', w: 700, d: 100, ls: '-.012em', lh: '.98', up: true },
+    fala: { n: 'Fala', w: 600, d: 100, ls: '-.005em', lh: '1.15', up: false },
+    credito: { n: 'Crédito', w: 500, d: 125, ls: '.18em', lh: '1.2', up: true },
+    estreito: { n: 'Estreito', w: 800, d: 68, ls: '0', lh: '.9', up: true },
+    numeral: { n: 'Numeral de Prova', w: 700, d: 75, ls: '-.01em', lh: '.9', up: true, txt: '0123456789' },
+    data: { n: 'Numeral de Data', w: 300, d: 125, ls: '0', lh: '1', up: true, txt: '06/10/2026 · 18h30' },
+    botao: { n: 'Botão', w: 700, d: 106, ls: '.06em', lh: '1', up: true }
+  };
+  var ICO = {
+    ok: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>',
+    alerta: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
+    erro: '<svg class="ic ic-16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>'
+  };
+  function $(id) { return document.getElementById(id); }
+  function pressiona(grupo, alvo) {
+    Array.prototype.forEach.call(grupo, function (b) { b.setAttribute('aria-pressed', b === alvo ? 'true' : 'false'); });
+  }
+
+  /* ---------- 18.2 eixo de largura ---------- */
+  var amostra = $('f04-eixo-amostra'), rW = $('f04-wdth'), rP = $('f04-wght');
+  if (amostra && rW && rP) {
+    var chips = document.querySelectorAll('#f04-eixo [data-reg]');
+    var TXT = 'Tatuar não é desenhar';
+    var atual = 'filme';
+    var aplica = function () {
+      var d = parseFloat(rW.value), w = parseInt(rP.value, 10);
+      amostra.style.fontVariationSettings = '"wdth" ' + d;
+      amostra.style.fontWeight = w;
+      $('f04-wdth-v').textContent = String(d).replace('.', ',');
+      $('f04-wght-v').textContent = w;
+      var achado = null;
+      Object.keys(REG).forEach(function (k) { if (REG[k].d === d && REG[k].w === w) { achado = k; } });
+      var st = $('f04-eixo-status');
+      if (achado) {
+        st.className = 'f04-ok';
+        st.innerHTML = ICO.ok + 'Registro: ' + REG[achado].n;
+      } else {
+        st.className = 'f04-alerta';
+        st.innerHTML = ICO.alerta + 'Fora dos oito registros: não use em peça';
+      }
+      $('f04-eixo-css').textContent = 'font-weight: ' + w + '; font-variation-settings: "wdth" ' + d + ';';
+      pressiona(chips, achado ? document.querySelector('#f04-eixo [data-reg="' + achado + '"]') : null);
+    };
+    var escolhe = function (k) {
+      var r = REG[k]; atual = k;
+      rW.value = r.d; rP.value = r.w;
+      amostra.style.letterSpacing = r.ls;
+      amostra.style.lineHeight = r.lh;
+      amostra.style.textTransform = r.up ? 'uppercase' : 'none';
+      amostra.textContent = r.txt || TXT;
+      aplica();
+    };
+    Array.prototype.forEach.call(chips, function (b) { b.addEventListener('click', function () { escolhe(b.getAttribute('data-reg')); }); });
+    rW.addEventListener('input', aplica);
+    rP.addEventListener('input', aplica);
+    escolhe(atual);
+  }
+
+  /* ---------- 18.3 quatro larguras na coluna do celular ---------- */
+  var larg = function () {
+    var figs = document.querySelectorAll('#s18 .f04-larg'), dados = [], precisa = 368, cabe = Infinity;
+    Array.prototype.forEach.call(figs, function (fig) {
+      var cx = fig.querySelector('.f04-larg-cel'), tt = cx.querySelector('.titulo-filme'), cs = getComputedStyle(fig);
+      cx.style.zoom = '';
+      precisa = Math.max(precisa, tt.scrollWidth + 10);
+      cabe = Math.min(cabe, fig.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
+      dados.push({ cx: cx, sai: tt.scrollWidth > tt.clientWidth + 1, ln: Math.round(tt.offsetHeight / (48 * 0.92)), st: fig.querySelector('.f04-larg-st') });
+    });
+    var z = cabe < precisa ? (cabe / precisa).toFixed(3) : '';
+    dados.forEach(function (d) {
+      d.cx.style.zoom = z;
+      d.st.innerHTML = d.sai ? '<span class="f04-alerta">' + ICO.alerta + 'Uma palavra sai da coluna</span>' : (d.ln > 3 ? '<span class="f04-alerta">' + ICO.alerta + d.ln + ' linhas: passa de 3</span>' : '<span class="f04-ok">' + ICO.ok + d.ln + ' linhas: cabe</span>');
+    });
+  };
+  larg();
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(larg); }
+  window.addEventListener('resize', larg);
+
+  /* ---------- 18.3 simulador da primeira dobra ---------- */
+  var cel = $('f04-sim-cel'), palco = $('f04-sim-palco'), t = $('f04-sim-t'), bt = $('f04-sim-b');
+  if (!cel || !palco || !t || !bt) { return; }
+  var TITULOS = {
+    gabriel: { html: 'Talento é consequência de <em class="off">treino</em>.', est: 'start', marc: 'The VOID Start', logo: 'void-start-branco.svg', alt: 'The VOID Start', w: 150, cta: 'Quero conversar sobre minha turma' },
+    bruno: { html: 'Técnica sem posicionamento é <em class="off">invisível</em>.', est: 'master', marc: 'The VOID Master', logo: 'void-master-branco.svg', alt: 'The VOID Master', w: 161, cta: 'Quero falar sobre o Master' },
+    longo: { html: 'O seu chamado para a arte <em class="off">acabou de chegar</em>.', est: 'chamado', marc: 'Aula experimental', logo: 'void-start-branco.svg', alt: 'The VOID Start', w: 150, cta: 'Garantir minha vaga na aula' }
+  };
+  var SETA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+  var largura = 390, chave = 'gabriel', livre = '';
+  var wChips = document.querySelectorAll('#f04-sim [data-w]'), tChips = document.querySelectorAll('#f04-sim [data-t]');
+  var esc = function (s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+  var palavras = function () { return (t.textContent || '').trim().split(/\s+/).filter(function (p) { return /[0-9A-Za-zÀ-ÿ]/.test(p); }).length; };
+  var mede = function () {
+    var linhas = Math.round(t.offsetHeight / (parseFloat(t.style.fontSize) * 0.92));
+    var base = bt.offsetTop + bt.offsetHeight;
+    var no = bt.offsetParent;
+    while (no && no !== cel) { base += no.offsetTop; no = no.offsetParent; }
+    return { linhas: linhas, base: base, larga: t.scrollWidth > t.clientWidth + 1 };
+  };
+  var escala = 1;
+  var roda = function () {
+    var T = TITULOS[chave];
+    cel.style.width = largura + 'px';
+    var disp = palco.clientWidth || largura;
+    escala = Math.min(1, disp / largura);
+    cel.style.transform = escala < 1 ? 'scale(' + escala + ')' : '';
+    palco.style.height = Math.ceil(700 * escala) + 'px';
+    cel.setAttribute('data-estacao', T.est);
+    $('f04-sim-marc').textContent = T.marc;
+    var lg = $('f04-sim-logo'); lg.src = 'assets/brand/svg/' + T.logo; lg.alt = T.alt; lg.width = T.w;
+    bt.innerHTML = esc(T.cta) + SETA;
+    t.innerHTML = livre ? esc(livre).replace(/\*([^*]+)\*/g, '<em class="off">$1</em>') : T.html;
+    var tentativas = [[112, 48], [100, 48], [92, 48], [85, 48]];
+    for (var s = 46; s >= 34; s -= 2) { tentativas.push([85, s]); }
+    var passos = [], ok = null;
+    for (var i = 0; i < tentativas.length; i++) {
+      var d = tentativas[i][0], f = tentativas[i][1];
+      t.style.fontVariationSettings = '"wdth" ' + d;
+      t.style.fontSize = f + 'px';
+      var m = mede();
+      var passa = m.linhas <= 3 && m.base <= 640 && !m.larga;
+      if (i < 4 || passa || i === tentativas.length - 1) {
+        passos.push('<li>' + (passa ? '<span class="f04-ok">' + ICO.ok + '</span>' : '<span class="f04-alerta">' + ICO.alerta + '</span>') + '<span><b>wdth ' + d + ', ' + f + ' px</b>: ' + (m.larga ? 'uma palavra passa da tela, ' : '') + m.linhas + (m.linhas === 1 ? ' linha' : ' linhas') + ', botão termina em ' + Math.round(m.base) + ' px' + (passa ? '. Cabe.' : '.') + '</span></li>');
+      }
+      if (passa) { ok = tentativas[i]; break; }
+    }
+    if (!ok) {
+      passos.push('<li><span class="f04-erro">' + ICO.erro + '</span><span><b>Reescreva o título.</b> Nem a largura 85 nem o piso de 34 px resolvem.</span></li>');
+    } else {
+      var attr = ok[0] === 112 || ok[0] === 100 ? 'sem data-largura' : 'data-largura="' + ok[0] + '"';
+      passos.push('<li><span class="f04-ok">' + ICO.ok + '</span><span><b>Resultado:</b> ' + attr + (ok[1] < 48 ? ', tamanho ' + ok[1] + ' px' : '') + '.</span></li>');
+    }
+    var n = palavras();
+    if (n > 6) { passos.push('<li><span class="f04-alerta">' + ICO.alerta + '</span><span><b>Lei 6:</b> o título tem ' + n + ' palavras; o limite é 6.</span></li>'); }
+    $('f04-sim-passos').innerHTML = passos.join('');
+    $('f04-sim-wv').textContent = largura + ' px';
+  };
+  $('f04-sim-w').addEventListener('input', function (e) { largura = parseInt(e.target.value, 10); pressiona(wChips, null); roda(); });
+  Array.prototype.forEach.call(wChips, function (b) { b.addEventListener('click', function () { largura = parseInt(b.getAttribute('data-w'), 10); $('f04-sim-w').value = largura; pressiona(wChips, b); roda(); }); });
+  Array.prototype.forEach.call(tChips, function (b) { b.addEventListener('click', function () { chave = b.getAttribute('data-t'); livre = ''; $('f04-sim-txt').value = ''; pressiona(tChips, b); roda(); }); });
+  $('f04-sim-txt').addEventListener('input', function (e) { livre = e.target.value.trim(); pressiona(tChips, livre ? null : document.querySelector('#f04-sim [data-t="' + chave + '"]')); roda(); });
+  var adia;
+  window.addEventListener('resize', function () { clearTimeout(adia); adia = setTimeout(roda, 120); });
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(roda); } else { roda(); }
+  roda();
+})();
+</script>

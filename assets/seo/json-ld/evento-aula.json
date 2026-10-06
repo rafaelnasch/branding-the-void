@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "@id": "https://thevoidtattoo.com.br/aula-experimental/#evento-{{A_CONFIRMAR}}",
+  "name": "Aula experimental da The VOID",
+  "description": "Aula presencial para conhecer a técnica da tatuagem, a sala e quem ensina antes de escolher uma formação. A aula é gratuita.",
+  "startDate": "{{A_CONFIRMAR}}",
+  "endDate": "{{A_CONFIRMAR}}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "The VOID Tattoo Academy",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Jericó, 217",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "05435-040",
+      "addressCountry": "BR"
+    }
+  },
+  "image": [
+    "https://thevoidtattoo.com.br/{{A_CONFIRMAR}}/the-void-aula-experimental-{{A_CONFIRMAR}}.webp"
+  ],
+  "organizer": {
+    "@id": "https://thevoidtattoo.com.br/#organizacao"
+  },
+  "isAccessibleForFree": true,
+  "typicalAgeRange": "18-",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "{{A_CONFIRMAR}}",
+    "url": "https://thevoidtattoo.com.br/aula-experimental/"
+  }
+}

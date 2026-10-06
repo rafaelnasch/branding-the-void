@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#perguntas",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Preciso saber desenhar para fazer o The VOID Start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Tatuar é uma técnica diferente de desenhar. O The VOID Start começa do zero e não exige saber desenhar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Desenhar bem ajuda quem está aprendendo a tatuar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ajuda a criar arte própria, mas não é pré-requisito. A técnica de tatuar se aprende com prática supervisionada, e o desenho evolui junto com ela."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que eu treino antes de tatuar uma pessoa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No The VOID Start, o aluno passa pelos fundamentos e pela biossegurança e treina em pele artificial antes de tatuar em pele humana, sob supervisão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como saber se a tatuagem é para mim antes de escolher uma formação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fazendo a aula experimental da The VOID, na Vila Madalena, em São Paulo. Você conhece a sala, quem ensina e o caminho para começar. A aula é gratuita."
+      }
+    }
+  ]
+}
