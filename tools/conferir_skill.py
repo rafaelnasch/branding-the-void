@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
-"""Confere os valores do SKILL.md contra tokens.json (e, se existir, contra a especificação).
+"""Confere a skill (SKILL.md + references/*.md) contra tokens.json, a especificação Agent Skills
+e, se o caminho for passado, a especificação Sala Escura.
 
-O que compara:
-  1. todo HEX citado no SKILL.md existe no tokens.json (ou é um véu calculado da tabela de contraste);
+Limites (Agent Skills, agentskills.io/specification, e Claude):
+  0. frontmatter só com campos da especificação; name = nome da pasta, minúsculas e hífen, até 64;
+     description de 1 a 1.024 caracteres (meta 600 a 900) começando pelo caso de uso e com os gatilhos;
+     SKILL.md com menos de 500 linhas; toda referência em references/ citada no SKILL.md; todo link
+     relativo de SKILL.md e references/ aponta para arquivo que existe; nenhum travessão.
+
+O que compara (no texto somado de SKILL.md e references/):
+  1. todo HEX citado existe no tokens.json (ou é um véu calculado da tabela de contraste);
   2. todo par "Nome `#HEX`" e toda linha "`--token` Nome | `#HEX`" bate com o token de mesmo nome;
   3. os registros do Archivo (peso, largura, entreletra, entrelinha);
   4. a escala de documento (computador e celular);
@@ -22,7 +29,10 @@ import unicodedata
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-SKILL = (RAIZ / "SKILL.md").read_text(encoding="utf-8")
+SKILL_MD = (RAIZ / "SKILL.md").read_text(encoding="utf-8")
+REFS = sorted((RAIZ / "references").glob("*.md"))
+# o texto conferido é o SKILL.md seguido das referências (a ordem importa só para achar blocos)
+SKILL = SKILL_MD + "\n" + "\n".join(r.read_text(encoding="utf-8") for r in REFS)
 TOK = json.loads((RAIZ / "tokens.json").read_text(encoding="utf-8"))
 falhas, ok = [], 0
 
@@ -42,6 +52,41 @@ def val(o):
 def sem_acento(t):
     return "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn").lower()
 
+
+# ---------- 0. limites da especificação Agent Skills ----------
+CAMPOS_SPEC = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
+fm = re.match(r"^---\n(.*?)\n---\n", SKILL_MD, re.S)
+conf(bool(fm), "SKILL.md sem frontmatter YAML no topo")
+campos = {}
+if fm:
+    for linha in fm.group(1).split("\n"):
+        m = re.match(r"^([A-Za-z0-9_-]+):\s*(.*)$", linha)
+        if m:
+            campos[m.group(1)] = m.group(2).strip()
+for c in campos:
+    conf(c in CAMPOS_SPEC, f"frontmatter: campo '{c}' fora da especificação")
+nome = campos.get("name", "").strip('"\'')
+conf(nome == "branding-the-void", f"name '{nome}' diferente de branding-the-void")
+conf(re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", nome or "-") is not None and len(nome) <= 64, "name fora do padrão (minúsculas, hífen, até 64)")
+desc = campos.get("description", "")
+if desc[:1] in "\"'" and desc[-1:] == desc[:1]:
+    desc = desc[1:-1]
+DESC_LEN = len(desc)
+conf(1 <= DESC_LEN <= 1024, f"description com {DESC_LEN} caracteres (limite 1.024)")
+conf(600 <= DESC_LEN <= 900, f"description com {DESC_LEN} caracteres (meta 600 a 900)")
+conf(desc.startswith("Identidade da The VOID") and "Use em todo material" in desc[:400] and "Gatilhos:" in desc[:600],
+     "description deve abrir com o caso de uso e trazer os gatilhos nos primeiros 600 caracteres")
+LINHAS = SKILL_MD.count("\n") + (0 if SKILL_MD.endswith("\n") else 1)
+conf(LINHAS < 500, f"SKILL.md com {LINHAS} linhas (limite: menos de 500)")
+for r in REFS:
+    conf(f"references/{r.name}" in SKILL_MD, f"references/{r.name} não é citada no SKILL.md")
+for arq, texto in [(RAIZ / "SKILL.md", SKILL_MD)] + [(r, r.read_text(encoding="utf-8")) for r in REFS]:
+    for alvo in re.findall(r"\]\(([^)\s]+)\)", texto):
+        if re.match(r"(https?:|mailto:|#)", alvo):
+            continue
+        destino = (arq.parent / alvo.split("#")[0]).resolve()
+        conf(destino.exists(), f"{arq.name}: link relativo para arquivo ausente: {alvo}")
+    conf(chr(0x2014) not in texto and chr(0x2013) not in texto, f"{arq.name}: travessão")
 
 # ---------- nome visível -> HEX ----------
 NOMES = {}
@@ -80,7 +125,7 @@ for m in padrao.finditer(SKILL):
 for m in re.finditer(r"`--([a-z0-9-]+)` [^|]+\| `(#[0-9A-Fa-f]{6})`", SKILL):
     t, hx = m.group(1), m.group(2).upper()
     conf(NOMES.get(t) == hx, f"--{t} citado como {hx}, token é {NOMES.get(t)}")
-conf(len(re.findall(r"`--[a-z0-9-]+` [^|]+\| `#", SKILL)) == 28, "tabela de tokens não tem as 28 cores de interface")
+conf(len(set(re.findall(r"`--([a-z0-9-]+)` [^|]+\| `#", SKILL))) == 28, "as tabelas de tokens não cobrem as 28 cores de interface")
 
 # 3. registros
 REG = {"Título de Filme": "titulo-filme", "Título de Seção": "titulo-secao", "Fala": "fala", "Crédito": "credito",
@@ -177,6 +222,7 @@ if "--spec" in args:
     for nivel, nome, r in (("100", "Tela", "16,78"), ("86", "Cal", "13,00"), ("68", "Pó", "8,61"), ("55", "Fumaça", "5,08")):
         conf(f"{nivel} {nome}, {r}" in SKILL, f"hierarquia de luz {nivel}")
 
+print(f"SKILL.md: {LINHAS} linhas · description: {DESC_LEN} caracteres · referências: {len(REFS)}")
 print(f"{ok} verificações certas, {len(falhas)} divergências")
 for f in falhas:
     print("  DIVERGE:", f)

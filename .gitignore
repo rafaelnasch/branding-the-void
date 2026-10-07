@@ -71,3 +71,6 @@ _fragmentos/exemplo-secao.html
 *.zip
 .DS_Store
 Thumbs.db
+
+# Pacote da skill para claude.ai e ChatGPT (sobe como anexo do Release, não no repositório)
+dist-skill/

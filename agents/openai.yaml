@@ -1,0 +1,9 @@
+# Metadados de exibição para Codex e ChatGPT (formato de https://learn.chatgpt.com/docs/build-skills).
+# Opcional: o Claude ignora este arquivo; as regras da skill estão no SKILL.md.
+interface:
+  display_name: "The VOID · Sala Escura"
+  short_description: "Identidade da The VOID Tattoo Academy: cor, tipografia, marca, leis, voz M1 a M8, prova e kits por canal."
+  icon_small: "./assets/brand/favicon/favicon.svg"
+  icon_large: "./assets/brand/favicon/favicon-512.png"
+  brand_color: "#181818"
+  default_prompt: "No padrão da The VOID, faça a peça a seguir. Antes, confirme peça, etapa M1 a M8, persona e produto."
