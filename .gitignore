@@ -25,7 +25,8 @@ assets/referencia-original/
 *.sketch
 *.indd
 
-# Fotos reais de aluno: entram só no site do cliente, com termo de imagem
+# Fotos soltas de aluno (foto-*) ficam fora. O acervo com uso autorizado pela The VOID (10/2026)
+# vive em assets/foto/acervo/ com nome void_*, catálogo e alertas.
 foto-*.webp
 foto-*.jpg
 foto-*.jpeg

@@ -77,6 +77,7 @@ body{background:var(--sala);min-height:100vh}
 .em-carta .credito{color:var(--po)}
 .em-carta b{font:700 22px/1.1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.005em;color:var(--tela)}
 .em-carta span.em-carta-a{font-size:15px;line-height:1.5;color:var(--cal)}
+.em-carta-foto{display:block;width:calc(100% + 48px);max-width:none;height:auto;aspect-ratio:2/1;object-fit:cover;margin:-24px -24px 4px;background:var(--coxia)}
 .em-carta span.em-carta-cta{margin-top:auto;font:700 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 106;letter-spacing:.06em;text-transform:uppercase;color:var(--areia)}
 
 /* estúdio */
@@ -239,6 +240,7 @@ body{background:var(--sala);min-height:100vh}
     <ul class="em-ficha-topo" aria-label="Medidas do modelo">
       <li><span>Largura</span><span>600 px, uma coluna, 24 px de margem</span></li>
       <li><span>Cabeçalho</span><span>Faixa Sala de 64 px, logotipo a 200 px</span></li>
+      <li><span>Foto</span><span>Real, do acervo, em JPG 2x com alt e fundo Coxia</span></li>
       <li><span>Corpo</span><span>Sala com texto Cal até a aprovação do Modo Leitura [P&nbsp;2]</span></li>
       <li><span>Botão</span><span>Reto, 48 px, um destino por <span class="em-nq">e-mail</span></span></li>
       <li><span>Assina</span><span>Pessoa real com cargo, nunca a equipe</span></li>
@@ -364,6 +366,7 @@ body{background:var(--sala);min-height:100vh}
           <tr><th scope="row">Assunto e pré-cabeçalho</th><td data-rotulo="Regra">Assunto até 45 caracteres, pré-cabeçalho até 80, contados com o nome mais longo provável. Sem caixa alta inteira, sem travessão, sem emoji no lugar de palavra.</td><td data-rotulo="Por quê">O celular corta o assunto perto dos 45 caracteres; o pré-cabeçalho completa a frase em vez de repetir.</td></tr>
           <tr><th scope="row">Técnica</th><td data-rotulo="Regra"><code>color-scheme</code> e <code>supported-color-schemes</code> em light; toda célula com <code>bgcolor</code> explícito; tabela de 600 px com <code>role="presentation"</code>; estilos em linha.</td><td data-rotulo="Por quê">Programas de e-mail apagam estilos de página e invertem cores por conta própria. Fundo declarado em cada célula resiste aos dois.</td></tr>
           <tr><th scope="row">Cabeçalho</th><td data-rotulo="Regra">Placa Sala de 600 por 64 px com Janela de Luz e o logotipo branco a 200 px (imagem em 2x). No celular, o logotipo oficial a 200 px. No marco, o selo da formação no lugar do logotipo; no Talks, a co-assinatura.</td><td data-rotulo="Por quê">O logotipo nunca fica abaixo do mínimo de 158 px de largura e aparece uma vez só.</td></tr>
+          <tr><th scope="row">Foto</th><td data-rotulo="Regra">Uma foto real do acervo logo abaixo do cabeçalho, em 2 por 1 (600 por 300 px, arquivo de 1200 px em JPG), com a linha "Foto: acervo The VOID". No marco, a foto oficial do rito entra na Faixa Cinemascope em 2,39 por 1. Sem texto sobre a foto.</td><td data-rotulo="Por quê">A escola é de arte: a primeira coisa que a pessoa vê é o estúdio. Se a imagem não carregar, o texto alternativo aparece em Tela sobre Coxia e o e-mail continua inteiro.</td></tr>
           <tr><th scope="row">Marcador</th><td data-rotulo="Regra">Nome do produto ou do rito em Crédito, em texto, logo abaixo do cabeçalho.</td><td data-rotulo="Por quê">Diz em um segundo de que parte da trilha a mensagem fala.</td></tr>
           <tr><th scope="row">Abertura</th><td data-rotulo="Regra">Título em Archivo, até 6 palavras, com uma linha na voz em off em itálico Georgia. No marco, a Faixa Cinemascope com a foto do rito.</td><td data-rotulo="Por quê">A voz em off nunca vira imagem: cai para Georgia e continua texto.</td></tr>
           <tr><th scope="row">Corpo</th><td data-rotulo="Regra">"Oi, {nome}." e a ideia numa frase; até três parágrafos; 17 px com entrelinha 1,6; no máximo uma prova, sempre com Crédito de Prova.</td><td data-rotulo="Por quê">Uma ideia por e-mail. Prova sem crédito não sai.</td></tr>
@@ -549,7 +552,7 @@ body{background:var(--sala);min-height:100vh}
       pre: 'O seu professor validou o marco. Ele já está na sua trilha.',
       marcador: function (p) { return p.nome.toUpperCase() + ' · PRIMEIRA PELE'; },
       faixa: ['VOCÊ NUNCA ESQUECE SUA PRIMEIRA PELE.', 'Aqui, ela é celebrada.'],
-      legendaFoto: 'FOTO OFICIAL DO RITO · {data_marco}',
+      legendaFoto: 'PRIMEIRA PELE · {data_marco} · FOTO: ACERVO THE VOID',
       corpo: function () { return [
         'Hoje você fez a sua primeira pele, e o seu professor validou esse marco na sua trilha.',
         'Um ponto forte de hoje: {ponto_forte}. Um ponto para a próxima: {ponto_ajuste}.',
@@ -566,7 +569,7 @@ body{background:var(--sala);min-height:100vh}
       pre: '{data_formatura}, às {horario}. Confirme a sua presença.',
       marcador: function (p) { return p.nome.toUpperCase() + ' · FORMATURA COM PELE'; },
       faixa: ['SUA FORMATURA COM PELE.', 'Um novo capítulo na pele.'],
-      legendaFoto: 'FORMATURA COM PELE · TURMA ANTERIOR',
+      legendaFoto: 'FORMATURA COM PELE · TURMA ANTERIOR · FOTO: ACERVO THE VOID',
       corpo: function () { return [
         'Sua Formatura com Pele é em {data_formatura}, às {horario}, na escola. Você pode levar {{A_CONFIRMAR}} convidados.',
         'É o dia de mostrar o trabalho que você construiu, receber o certificado de conclusão da escola e fechar este capítulo com a turma.',
@@ -577,6 +580,15 @@ body{background:var(--sala);min-height:100vh}
       motivo: function (p) { return 'Você recebe este e-mail porque faz ' + p.a + ' na The VOID.'; },
       foto: 'Foto real de uma Formatura com Pele anterior, com autorização de quem aparece'
     }
+  };
+  /* fotos reais do acervo The VOID (uso autorizado pela The VOID, 10/2026), em JPG 2x para e-mail:
+     assets/aplicacoes/email-foto/, recortadas de assets/foto/acervo/ (ver catalogo.json). */
+  var FOTOS = {
+    'boas-vindas': { src: 'assets/aplicacoes/email-foto/boas-vindas-1200.jpg', w: 600, h: 300, alt: 'Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva' },
+    'primeiro-dia': { src: 'assets/aplicacoes/email-foto/primeiro-dia-1200.jpg', w: 600, h: 300, alt: 'Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente' },
+    'talks': { src: 'assets/aplicacoes/email-foto/talks-1200.jpg', w: 600, h: 300, alt: 'Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista' },
+    'primeira-pele': { src: 'assets/aplicacoes/email-foto/primeira-pele-1200.jpg', w: 600, h: 251, alt: 'Aluna de máscara tatuando a perna de um cliente deitado na maca, com filme plástico na bancada' },
+    'formatura': { src: 'assets/aplicacoes/email-foto/formatura-1200.jpg', w: 600, h: 251, alt: 'Turma de formatura reunida sob a faixa Parabéns Voiders no terraço da escola à noite' }
   };
   var VARIAVEIS = [
     ['{nome}', 'Primeiro nome da pessoa', 'campo de primeiro nome do contato'],
@@ -591,7 +603,8 @@ body{background:var(--sala);min-height:100vh}
     ['{nome_remetente}', 'Pessoa real que assina', 'nome do usuário da conta que envia'],
     ['{link_descadastro} · {link_privacidade}', 'Sair da lista e política de privacidade', 'link de descadastro do programa e link fixo'],
     ['{{A_CONFIRMAR}}', 'Dado da escola ainda sem confirmação', 'reprova a conferência e desliga o download; a cópia sai como arquivo de trabalho'],
-    ['{{URL_PUBLICA_IMAGENS}}', 'Pasta publicada do repositório, para as imagens', 'trocado pelo campo do painel']
+    ['{{URL_PUBLICA_IMAGENS}}', 'Pasta publicada do repositório, para as imagens', 'trocado pelo campo do painel'],
+    ['foto do cabeçalho', 'Foto real do acervo, uma por mensagem; no marco, a foto oficial do rito da pessoa, com autorização', 'troque o src pelo arquivo do rito; o alt descreve a cena']
   ];
   var VETADOS = [/incr[ií]vel/i, /maravilhos/i, /\bf[aá]cil\b/i, /simples assim/i, /jornada/i, /\bn[ií]vel\b/i, /\bXP\b/, /desbloque/i, /ranking/i,
     /curso r[aá]pido/i, /\bmaior\b/i, /#\s?1\b/, /\bn[ºo°]\s?1\b/i, /\bmelhor\b/i, /\bMEC\b/, /\b[uú]nic[ao]\b/i, /l[ií]der/i, new RegExp('TAT' + 'OO'),
@@ -684,6 +697,10 @@ body{background:var(--sala);min-height:100vh}
     L.push('<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" align="center"><tr><td><![endif]-->');
     L.push('<table role="presentation" class="vd-casca" width="600" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="' + C.sala + '" style="width:600px;max-width:600px;background:' + C.sala + '">');
 
+    /* foto real: largura cheia, fundo Coxia e alt em Tela quando a imagem não carrega (fallback) */
+    function foto(f) {
+      return '<img class="vd-foto" src="' + src(f.src) + '" width="' + f.w + '" height="' + f.h + '" alt="' + esc(f.alt) + '" style="display:block;width:100%;max-width:600px;height:auto;border:0;color:' + C.tela + ';font:400 15px/1.5 ' + F.texto + ';background:' + C.coxia + '">';
+    }
     /* ---- cabeçalho ---- */
     var altImg = 'color:' + C.tela + ';font:600 16px/1.3 ' + F.letreiro + ';background:' + C.sala;
     if (m.cabecalho === 'placa') {
@@ -709,6 +726,11 @@ body{background:var(--sala);min-height:100vh}
       L.push('</td></tr>');
     }
 
+    /* ---- foto do cabeçalho (o marco leva a foto dentro da Faixa Cinemascope) ---- */
+    if (estado.variante !== 'marco' && FOTOS[estado.variante]) {
+      L.push('<tr><td bgcolor="' + C.coxia + '" style="padding:0;background:' + C.coxia + '">' + foto(FOTOS[estado.variante]) + '</td></tr>');
+      L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:8px 24px 0;background:' + C.sala + ';color:' + C.po + ';font:400 12px/1.5 ' + F.texto + '">Foto: acervo The VOID</td></tr>');
+    }
     /* ---- marcador ---- */
     L.push('<tr><td class="vd-pad" bgcolor="' + C.sala + '" style="padding:' + (m.cabecalho === 'selo' ? '0' : '20px') + ' 24px 0;background:' + C.sala + ';color:' + C.po + ';font:500 12px/1.5 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">' + esc(m.marcador(p)) + '</td></tr>');
 
@@ -720,8 +742,8 @@ body{background:var(--sala);min-height:100vh}
       L.push('<h1 class="vd-faixa-t" style="margin:0;color:' + C.tela + ';font:800 28px/1 ' + F.letreiro + ';letter-spacing:-.02em;text-transform:uppercase">' + esc(m.faixa[0]) + '</h1>');
       L.push('<p style="margin:10px 0 0;line-height:1.1">' + off(m.faixa[1], '28px') + '</p>');
       L.push('</td></tr>');
-      L.push('<!-- Foto do rito em 2,39 por 1 (1200 por 502 px). Troque esta célula por: <img src="{url_foto_do_rito}" width="600" height="251" alt="{texto_alternativo_da_foto}" style="display:block;width:100%;max-width:600px;height:auto;border:0"> -->');
-      L.push('<tr><td align="center" valign="middle" height="251" bgcolor="' + C.coxia + '" style="height:251px;padding:24px;background:' + C.coxia + ';color:' + C.po + ';font:500 12px/1.6 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">FOTO REAL DA ESCOLA, COM AUTORIZAÇÃO<br><span style="font:400 13px/1.5 ' + F.texto + ';letter-spacing:0;text-transform:none;color:' + C.po + '">' + esc(m.foto) + '. 1200 por 502 px.</span></td></tr>');
+      L.push('<!-- Foto do rito em 2,39 por 1 (1200 por 502 px). No envio real, troque o src pela foto oficial do rito desta pessoa, com autorização dela e de quem foi tatuado. -->');
+      L.push('<tr><td bgcolor="' + C.coxia + '" style="padding:0;background:' + C.coxia + '">' + foto(FOTOS[estado.marco]) + '</td></tr>');
       L.push('<tr><td class="vd-pad" bgcolor="' + C.nanquim + '" style="padding:14px 24px 18px;background:' + C.nanquim + ';color:' + C.po + ';font:500 12px/1.5 ' + F.letreiro + ';letter-spacing:.18em;text-transform:uppercase">' + esc(m.legendaFoto) + '</td></tr>');
       L.push('</table>');
       L.push('</td></tr>');
@@ -854,7 +876,8 @@ body{background:var(--sala);min-height:100vh}
       var m = MENSAGENS[k];
       var cta = k === 'marco' ? MARCOS['primeira-pele'].cta : m.cta;
       var li = document.createElement('li');
-      li.innerHTML = '<button type="button" class="em-carta" data-variante="' + k + '"><span class="credito">' + esc(m.etapa) + '</span><b>' + esc(m.rotulo) + '</b><span class="em-carta-a">' + esc(m.resumo) + ' Crença: "' + esc(m.crenca) + '"</span><span class="em-carta-cta">' + esc(maiusc(cta)) + '</span></button>';
+      var ft = FOTOS[k === 'marco' ? 'primeira-pele' : k];
+      li.innerHTML = '<button type="button" class="em-carta" data-variante="' + k + '"><img class="em-carta-foto" src="' + ft.src + '" width="600" height="300" alt="" loading="lazy" decoding="async"><span class="credito">' + esc(m.etapa) + '</span><b>' + esc(m.rotulo) + '</b><span class="em-carta-a">' + esc(m.resumo) + ' Crença: "' + esc(m.crenca) + '"</span><span class="em-carta-cta">' + esc(maiusc(cta)) + '</span></button>';
       ul.appendChild(li);
       var b = document.createElement('button');
       b.type = 'button'; b.setAttribute('data-v', k); b.textContent = m.rotulo;

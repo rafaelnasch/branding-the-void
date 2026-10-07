@@ -688,6 +688,44 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
   .revela{animation:none}
 }
 </style>
+<style data-fotos="membros">
+/* fotos reais do acervo The VOID (assets/foto/acervo, uso autorizado pela The VOID, 10/2026). Classes mf-. */
+.m-foto.mf-real{padding:0;overflow:hidden;background:var(--coxia)}
+.m-foto.mf-real>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mf-futuro>img{opacity:.42}
+.mf-rotulo{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;padding:6px 10px;background:var(--veu-legenda);font:400 13px/1.35 var(--font-texto);color:var(--tela)}
+.mf-capa{position:relative;margin:-24px -24px 4px;aspect-ratio:16/9;overflow:hidden;background:var(--coxia)}
+.mf-capa img{width:100%;height:100%;object-fit:cover}
+.m-aula[data-estado="validada"] .mf-capa{margin-left:-24px}
+@media (min-width:861px){.m-abertura .m-wrap:not(.m-wrap-bloco):not(.mf-faixa){grid-template-columns:minmax(0,1fr) minmax(0,400px);align-items:center}}
+.mf-abertura{position:relative;margin:0;justify-self:end;width:100%}
+.mf-abertura img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.mf-credito{margin-top:10px;font:400 13px/1.4 var(--font-texto);color:var(--m-apoio)}
+.m-abertura .m-wrap.mf-faixa{display:grid;max-width:1200px;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:start;margin-top:64px}
+.mf-faixa figure{margin:0;position:relative;min-width:0}
+.mf-faixa img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover}
+.mf-faixa-legenda{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-top:6px}
+.mf-faixa-legenda p{font:400 14px/1.45 var(--font-texto);color:var(--m-apoio)}
+.mf-modulo-foto{flex:none;width:56px;height:56px;object-fit:cover}
+.mf-banner{position:relative;margin-bottom:16px;aspect-ratio:21/9;overflow:hidden;background:var(--coxia)}
+.mf-banner img{width:100%;height:100%;object-fit:cover}
+.mf-banner p{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 16px;background:linear-gradient(0deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 45%,rgb(24 24 24 / 0) 100%);font:600 18px/1.3 var(--font-letreiro);color:var(--tela)}
+.comunidade{align-items:start}
+.mf-post-foto{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--coxia)}
+.mf-post-foto img{width:100%;height:100%;object-fit:cover}
+.player-tela>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.player-tela>.mf-veu{position:absolute;inset:0;background:linear-gradient(0deg,rgb(24 24 24 / .62) 0%,rgb(24 24 24 / .2) 45%,rgb(24 24 24 / .35) 100%)}
+.player-tela>.player-play,.player-tela>.player-legenda{z-index:1}
+.mf-passagem-foto{grid-column:1/-1;position:relative;margin:-48px -40px 8px;aspect-ratio:2.39/1;overflow:hidden;background:var(--nanquim)}
+.mf-passagem-foto img{width:100%;height:100%;object-fit:cover}
+.cert-trabalho{grid-template-rows:minmax(0,1fr) auto}
+.cert-trabalho .m-foto.mf-real{padding:0;background:var(--cinza-100);min-height:calc(var(--mm)*66)}
+.cert-foto-legenda{font:400 calc(var(--mm)*2.4)/1.3 var(--font-texto);color:var(--penumbra)}
+@media (max-width:860px){.mf-abertura{justify-self:start;max-width:none;order:-1}.mf-abertura img{aspect-ratio:16/9}.mf-passagem-foto{margin:-32px -16px 8px}}
+@media (max-width:760px){.m-abertura .m-wrap.mf-faixa{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.mf-modulo-foto{width:44px;height:44px}.mf-banner{aspect-ratio:4/3}}
+@media print{.mf-futuro>img{opacity:.42}}
+</style>
 </head>
 <body class="grao">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -783,7 +821,14 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
         <span class="m-pill"><svg class="ic ic-16"><use href="#i-circle-dashed"/></svg>Plataforma {{A_CONFIRMAR}}</span>
       </div>
     </div>
-    <div class="m-abertura-esfera" data-vforms="esfera" data-vforms-opts='{"diametro":0.56}'></div>
+    <figure class="mf-abertura"><picture><source media="(max-width:860px)" srcset="assets/foto/acervo/void_concentracao_10_16x9.webp 1920w" sizes="100vw" width="1920" height="1080"><img src="assets/foto/acervo/void_concentracao_10_4x5.webp" width="1080" height="1350" alt="Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço" loading="eager" fetchpriority="high" decoding="async" style="object-position:45% 45%"></picture><figcaption class="mf-credito">Concentração sob a luminária. Foto: acervo The VOID</figcaption></figure>
+  </div>
+  <div class="m-wrap mf-faixa" role="group" aria-label="A formação acontece no estúdio">
+    <figure><img src="assets/foto/acervo/void_escola_03_4x5.webp" width="1080" height="1350" alt="Sala da escola The VOID com janelas em arco e várias macas em uso durante a aula prática" loading="lazy" decoding="async" style="object-position:45% 60%"></figure>
+    <figure><img src="assets/foto/acervo/void_aula_01_4x5.webp" width="1080" height="1350" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" loading="lazy" decoding="async" style="object-position:50% 50%"></figure>
+    <figure><img src="assets/foto/acervo/void_professor_02_4x5.webp" srcset="assets/foto/acervo/void_professor_02_thumb.webp 427w, assets/foto/acervo/void_professor_02_4x5.webp 1080w" sizes="(max-width:760px) 50vw, 280px" width="1080" height="1350" alt="Professor conversando com aluno sentado na sala ampla de janelas em arco da escola" loading="lazy" decoding="async" style="object-position:50% 55%"></figure>
+    <figure><img src="assets/foto/acervo/void_maos_05_4x5.webp" width="1080" height="1350" alt="Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão" loading="lazy" decoding="async" style="object-position:50% 42%"></figure>
+    <div class="mf-faixa-legenda"><p>A formação acontece no estúdio; a área de membros organiza, registra e celebra o que acontece lá.</p><p class="credito">Fotos: acervo The VOID</p></div>
   </div>
   <div class="m-wrap m-wrap-bloco">
     <div class="m-resumo">
@@ -846,7 +891,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Tom de mentor que acompanha:</b> "Oi, {nome}." e uma ideia por bloco.</span></li>
     </ul>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração · conteúdo ilustrativo</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · conteúdo ilustrativo · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo sem-pad">
         <div class="app">
           <div class="app-grade">
@@ -884,6 +929,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
                 </div>
                 <div class="hoje-cartoes">
                   <article class="m-cartao m-aula" data-estado="andamento">
+                    <div class="mf-capa"><img src="assets/foto/acervo/void_materiais_02_16x9.webp" width="1920" height="1080" alt="Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino" loading="lazy" decoding="async" style="object-position:50% 55%"></div>
                     <p class="m-marcador"><span data-vforms="marcador-estacao"></span>Aula de hoje</p>
                     <h3 class="m-h4">Linha e pressão em pele artificial</h3>
                     <p class="m-meta"><span><svg class="ic ic-16"><use href="#i-clock"/></svg><span class="m-var">{duração}</span></span><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span><span><svg class="ic ic-16"><use href="#i-map-pin"/></svg>Rua Jericó, 217</span></p>
@@ -923,7 +969,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Módulo recolhível,</b> com o objetivo numa frase e o termo técnico explicado na primeira vez.</span></li>
     </ul>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração · números fictícios</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · números fictícios · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="trilha">
           <div class="trilha-mapa" id="trilha-mapa"></div>
@@ -935,17 +981,17 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
         </div>
         <div class="m-modulos">
           <details class="m-modulo" open>
-            <summary><span class="m-modulo-n">Módulo 01</span><span class="m-modulo-t">Fundamento do traço</span><svg class="ic"><use href="#i-chevron-down"/></svg></summary>
+            <summary><img class="mf-modulo-foto" src="assets/foto/acervo/void_concentracao_02_1x1.webp" width="1080" height="1080" alt="" loading="lazy" decoding="async" style="object-position:55% 45%"><span class="m-modulo-n">Módulo 01</span><span class="m-modulo-t">Fundamento do traço</span><svg class="ic"><use href="#i-chevron-down"/></svg></summary>
             <div class="m-modulo-corpo">
               <p>No fim do módulo, você faz linha contínua e de espessura constante em pele artificial. <b>Pele artificial:</b> superfície sintética usada para treinar antes da pele de verdade.</p>
               <div class="m-aulas">
-                <article class="m-cartao m-aula" data-estado="validada"><h3 class="m-h4">Postura e apoio da mão</h3><p class="m-meta"><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p><p class="m-estado" data-tipo="validado"><svg class="ic"><use href="#i-circle-check"/></svg>Validada pelo professor</p></article>
-                <article class="m-cartao m-aula" data-estado="andamento"><h3 class="m-h4">Linha e pressão</h3><p class="m-meta"><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p><p class="m-estado" data-tipo="andamento"><svg class="ic"><use href="#i-circle-dot"/></svg>Em andamento</p></article>
+                <article class="m-cartao m-aula" data-estado="validada"><div class="mf-capa"><img src="assets/foto/acervo/void_maos_05_16x9.webp" width="1216" height="684" alt="Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão" loading="lazy" decoding="async" style="object-position:50% 42%"></div><h3 class="m-h4">Postura e apoio da mão</h3><p class="m-meta"><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p><p class="m-estado" data-tipo="validado"><svg class="ic"><use href="#i-circle-check"/></svg>Validada pelo professor</p></article>
+                <article class="m-cartao m-aula" data-estado="andamento"><div class="mf-capa"><img src="assets/foto/acervo/void_traco_01_16x9.webp" srcset="assets/foto/acervo/void_traco_01_thumb.webp 640w, assets/foto/acervo/void_traco_01_16x9.webp 1920w" sizes="(max-width:640px) 100vw, 400px" width="1920" height="1080" alt="Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa" loading="lazy" decoding="async" style="object-position:60% 40%"></div><h3 class="m-h4">Linha e pressão</h3><p class="m-meta"><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p><p class="m-estado" data-tipo="andamento"><svg class="ic"><use href="#i-circle-dot"/></svg>Em andamento</p></article>
               </div>
             </div>
           </details>
           <details class="m-modulo">
-            <summary><span class="m-modulo-n">Módulo 02</span><span class="m-modulo-t">Biossegurança na prática</span><svg class="ic"><use href="#i-chevron-down"/></svg></summary>
+            <summary><img class="mf-modulo-foto" src="assets/foto/acervo/void_materiais_01_1x1.webp" width="1080" height="1080" alt="" loading="lazy" decoding="async" style="object-position:55% 50%"><span class="m-modulo-n">Módulo 02</span><span class="m-modulo-t">Biossegurança na prática</span><svg class="ic"><use href="#i-chevron-down"/></svg></summary>
             <div class="m-modulo-corpo">
               <p>No fim do módulo, você monta e desmonta a bancada com o protocolo: luva nitrílica, filme plástico, material de uso único e descarte.</p>
             </div>
@@ -1036,28 +1082,32 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       </div>
     </header>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="m-grade-4">
           <article class="m-cartao m-aula" data-estado="nao-iniciada">
+            <div class="mf-capa"><img src="assets/foto/acervo/void_concentracao_07_pb.webp" srcset="assets/foto/acervo/void_concentracao_07_thumb.webp 360w, assets/foto/acervo/void_concentracao_07_pb.webp 900w" sizes="(max-width:560px) 100vw, (max-width:1100px) 50vw, 270px" width="900" height="1600" alt="Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola" loading="lazy" decoding="async" style="object-position:50% 55%"></div>
             <p class="m-marcador"><span data-vforms="marcador-estacao"></span><span data-demo="produto-cx">Start</span></p>
             <h3 class="m-h4">Sombra e preenchimento</h3>
             <p class="m-meta"><span><svg class="ic ic-16"><use href="#i-clock"/></svg><span class="m-var">{duração}</span></span><span><svg class="ic ic-16"><use href="#i-book-open"/></svg>Teoria</span></p>
             <p class="m-estado" data-tipo="nao-iniciada"><svg class="ic"><use href="#i-circle-dashed"/></svg>Não iniciada</p>
           </article>
           <article class="m-cartao m-aula" data-estado="andamento">
+            <div class="mf-capa"><img src="assets/foto/acervo/void_traco_01_16x9.webp" srcset="assets/foto/acervo/void_traco_01_thumb.webp 640w, assets/foto/acervo/void_traco_01_16x9.webp 1920w" sizes="(max-width:560px) 100vw, (max-width:1100px) 50vw, 270px" width="1920" height="1080" alt="Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa" loading="lazy" decoding="async" style="object-position:60% 40%"></div>
             <p class="m-marcador"><span data-vforms="marcador-estacao"></span><span data-demo="produto-cx">Start</span></p>
             <h3 class="m-h4">Linha e pressão</h3>
             <p class="m-meta"><span><svg class="ic ic-16"><use href="#i-clock"/></svg><span class="m-var">{duração}</span></span><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p>
             <p class="m-estado" data-tipo="andamento"><svg class="ic"><use href="#i-circle-dot"/></svg>Em andamento</p>
           </article>
           <article class="m-cartao m-aula" data-estado="concluida">
+            <div class="mf-capa"><img src="assets/foto/acervo/void_materiais_01_16x9.webp" srcset="assets/foto/acervo/void_materiais_01_thumb.webp 640w, assets/foto/acervo/void_materiais_01_16x9.webp 1920w" sizes="(max-width:560px) 100vw, (max-width:1100px) 50vw, 270px" width="1920" height="1080" alt="Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente" loading="lazy" decoding="async" style="object-position:55% 50%"></div>
             <p class="m-marcador"><span data-vforms="marcador-estacao"></span><span data-demo="produto-cx">Start</span></p>
             <h3 class="m-h4">Montagem da bancada</h3>
             <p class="m-meta"><span><svg class="ic ic-16"><use href="#i-clock"/></svg><span class="m-var">{duração}</span></span><span><svg class="ic ic-16"><use href="#i-play"/></svg>Demonstração</span></p>
             <p class="m-estado" data-tipo="concluida"><svg class="ic"><use href="#i-check"/></svg>Concluída</p>
           </article>
           <article class="m-cartao m-aula" data-estado="validada">
+            <div class="mf-capa"><img src="assets/foto/acervo/void_maos_05_16x9.webp" width="1216" height="684" alt="Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão" loading="lazy" decoding="async" style="object-position:50% 42%"></div>
             <p class="m-marcador"><span data-vforms="marcador-estacao"></span><span data-demo="produto-cx">Start</span></p>
             <h3 class="m-h4">Postura e apoio da mão</h3>
             <p class="m-meta"><span><svg class="ic ic-16"><use href="#i-clock"/></svg><span class="m-var">{duração}</span></span><span><svg class="ic ic-16"><use href="#i-hand"/></svg>Prática</span></p>
@@ -1092,21 +1142,21 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       </div>
     </header>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <ol class="traco-linha" aria-label="Linha do tempo do traço">
-          <li class="traco-primeiro"><div class="m-foto" data-formato="1x1"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Ritual do Traço</span></li>
-          <li><div class="m-foto" data-formato="1x1"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Prática em pele artificial</span></li>
-          <li><div class="m-foto" data-formato="1x1"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Primeira Pele</span></li>
-          <li><div class="m-foto" data-formato="1x1"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Trabalho autoral</span></li>
+          <li class="traco-primeiro"><div class="m-foto mf-real" data-formato="1x1"><img src="assets/foto/acervo/void_traco_03_1x1.webp" width="1080" height="1080" alt="Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa" loading="lazy" decoding="async" style="object-position:50% 50%"></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Ritual do Traço</span></li>
+          <li><div class="m-foto mf-real" data-formato="1x1"><img src="assets/foto/acervo/void_materiais_03_1x1.webp" srcset="assets/foto/acervo/void_materiais_03_thumb.webp 640w, assets/foto/acervo/void_materiais_03_1x1.webp 1080w" sizes="(max-width:900px) 50vw, 260px" width="1080" height="1080" alt="Pele artificial com andorinha tatuada vista de cima na bancada de treino da escola" loading="lazy" decoding="async" style="object-position:50% 50%"></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Prática em pele artificial</span></li>
+          <li><div class="m-foto mf-real" data-formato="1x1"><img src="assets/foto/acervo/void_pele_10_1x1.webp" srcset="assets/foto/acervo/void_pele_10_thumb.webp 524w, assets/foto/acervo/void_pele_10_1x1.webp 1080w" sizes="(max-width:900px) 50vw, 260px" width="1080" height="1080" alt="Vaso com costela-de-adão tatuado nas costas, trabalho da aluna Karina na The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Primeira Pele</span></li>
+          <li><div class="m-foto mf-real" data-formato="1x1"><img src="assets/foto/acervo/void_pele_11_1x1.webp" width="1080" height="1080" alt="Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID" loading="lazy" decoding="async" style="object-position:50% 40%"></div><span class="traco-data"><span class="m-var">{dd/mm/aaaa}</span></span><span class="traco-nome">Trabalho autoral</span></li>
         </ol>
         <div class="traco-compara">
           <div class="traco-compara-topo">
             <h3 class="m-h3">O primeiro traço e o de hoje</h3>
             <p class="m-estado" data-tipo="info"><svg class="ic"><use href="#i-lock"/></svg>Só você vê esta comparação</p>
           </div>
-          <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">primeiro traço: foto real da escola, com autorização</span></div>
-          <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">trabalho atual: foto real da escola, com autorização</span></div>
+          <div class="m-foto mf-real" data-formato="3x2"><img src="assets/foto/acervo/void_traco_03_pb.webp" srcset="assets/foto/acervo/void_traco_03_thumb.webp 360w, assets/foto/acervo/void_traco_03_pb.webp 900w" sizes="(max-width:420px) 100vw, 540px" width="900" height="1600" alt="Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+          <div class="m-foto mf-real" data-formato="3x2"><img src="assets/foto/acervo/void_pele_11_16x9.webp" width="1200" height="675" alt="Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID" loading="lazy" decoding="async" style="object-position:50% 40%"></div>
         </div>
       </div>
     </div>
@@ -1125,11 +1175,11 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       </div>
     </header>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração · texto ilustrativo</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · texto ilustrativo · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="pratica">
           <div class="pratica-aluno">
-            <div class="m-foto" data-formato="1x1"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div>
+            <div class="m-foto mf-real" data-formato="1x1"><img src="assets/foto/acervo/void_materiais_02_1x1.webp" srcset="assets/foto/acervo/void_materiais_02_thumb.webp 640w, assets/foto/acervo/void_materiais_02_1x1.webp 1080w" sizes="(max-width:860px) 320px, 420px" width="1080" height="1080" alt="Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino" loading="lazy" decoding="async" style="object-position:50% 55%"></div>
             <p class="pratica-pergunta"><b>O que você quer que olhem:</b> a curva do contorno, que eu sinto que engrossa no fim.</p>
           </div>
           <div class="pratica-resposta">
@@ -1171,13 +1221,14 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
     <ul class="m-regras">
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Só os quatro ritos</b> que existem nas fontes: Ritual do Traço, Primeira Pele, Workshop do Estilo e Formatura com Pele.</span></li>
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Foto oficial do rito,</b> pelo protocolo da seção 8.2, com consentimento do aluno e de quem foi tatuado.</span></li>
+      <li><svg class="ic"><use href="#i-check"/></svg><span><b>Marco futuro mostra o rito de outra turma</b> apagado a 42%, com o aviso "a sua foto chega no dia do rito"; nunca a foto de outra pessoa como se fosse do aluno.</span></li>
     </ul>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><button type="button" class="m-botao-vazado" data-acao="revelar"><svg class="ic"><use href="#i-eye"/></svg><span>Ver a Revelação</span></button></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><button type="button" class="m-botao-vazado" data-acao="revelar"><svg class="ic"><use href="#i-eye"/></svg><span>Ver a Revelação</span></button></div>
       <div class="m-palco-corpo">
         <div class="marcos">
           <article class="marco" data-validado="true" id="marco-ritual">
-            <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">foto real da escola, com autorização</span></div>
+            <div class="m-foto mf-real" data-formato="3x2"><img src="assets/foto/acervo/void_traco_02_16x9.webp" width="1152" height="648" alt="Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
             <div class="marco-corpo">
               <p class="m-estado" data-tipo="validado"><svg class="ic"><use href="#i-circle-check"/></svg>Validado em <span class="m-var">{dd/mm/aaaa}</span></p>
               <h3>Ritual do Traço</h3>
@@ -1186,7 +1237,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
             </div>
           </article>
           <article class="marco" data-validado="false">
-            <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-flag"/></svg><span class="m-foto-rotulo">a foto chega no dia do rito</span></div>
+            <div class="m-foto mf-real mf-futuro" data-formato="3x2"><img src="assets/foto/acervo/void_professor_03_16x9.webp" width="1067" height="600" alt="" loading="lazy" decoding="async" style="object-position:55% 60%"><span class="mf-rotulo"><svg class="ic ic-16"><use href="#i-flag"/></svg>a sua foto chega no dia do rito</span></div>
             <div class="marco-corpo">
               <p class="m-estado" data-tipo="nao-iniciada"><svg class="ic"><use href="#i-circle-dashed"/></svg>Pendente · <span class="m-var">{data_do_rito}</span></p>
               <h3>Primeira Pele</h3>
@@ -1195,7 +1246,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
             </div>
           </article>
           <article class="marco" data-validado="false">
-            <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-flag"/></svg><span class="m-foto-rotulo">a foto chega no dia do rito</span></div>
+            <div class="m-foto mf-real mf-futuro" data-formato="3x2"><img src="assets/foto/acervo/void_traco_03_pb.webp" srcset="assets/foto/acervo/void_traco_03_thumb.webp 360w, assets/foto/acervo/void_traco_03_pb.webp 900w" sizes="(max-width:760px) 100vw, 540px" width="900" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 50%"><span class="mf-rotulo"><svg class="ic ic-16"><use href="#i-flag"/></svg>a sua foto chega no dia do rito</span></div>
             <div class="marco-corpo">
               <p class="m-estado" data-tipo="nao-iniciada"><svg class="ic"><use href="#i-circle-dashed"/></svg>Pendente · <span class="m-var">{data_do_rito}</span></p>
               <h3>Workshop do Estilo</h3>
@@ -1204,7 +1255,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
             </div>
           </article>
           <article class="marco" data-validado="false">
-            <div class="m-foto" data-formato="3x2"><svg class="ic"><use href="#i-flag"/></svg><span class="m-foto-rotulo">a foto chega no dia do rito</span></div>
+            <div class="m-foto mf-real mf-futuro" data-formato="3x2"><img src="assets/foto/acervo/void_retrato_05_16x9.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="mf-rotulo"><svg class="ic ic-16"><use href="#i-flag"/></svg>a sua foto chega no dia do rito</span></div>
             <div class="marco-corpo">
               <p class="m-estado" data-tipo="nao-iniciada"><svg class="ic"><use href="#i-circle-dashed"/></svg>Pendente · <span class="m-var">{data_do_rito}</span></p>
               <h3>Formatura com Pele</h3>
@@ -1231,7 +1282,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       </div>
     </header>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="comunidade">
           <form class="m-form" id="form-publicar" novalidate>
@@ -1249,15 +1300,18 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
             <p class="m-ok-msg" id="pub-ok" hidden><svg class="ic"><use href="#i-circle-check"/></svg><span>Publicado. A turma vê agora; o professor também.</span></p>
           </form>
           <div class="posts">
+            <div class="mf-banner"><img src="assets/foto/acervo/void_comunidade_02_16x9.webp" srcset="assets/foto/acervo/void_comunidade_02_thumb.webp 640w, assets/foto/acervo/void_comunidade_02_16x9.webp 1920w" sizes="(max-width:900px) 100vw, 560px" width="1920" height="1080" alt="Pessoa de costas vestindo camiseta com o símbolo da The VOID no corredor da convenção" loading="lazy" decoding="async" style="object-position:50% 55%"><p>Aqui não existem estranhos.</p></div>
             <article class="m-cartao">
               <div class="post-topo"><span class="m-avatar" aria-hidden="true"><svg class="ic"><use href="#i-user-round"/></svg></span><p class="post-quem"><b><span class="m-var">{nome}</span></b><span>Turma <span class="m-var">{código_de_turma}</span></span></p></div>
               <p>Primeira sombra em pele artificial. Ainda pesada no meio.</p>
+              <div class="mf-post-foto"><img src="assets/foto/acervo/void_concentracao_07_4x5.webp" width="1080" height="1350" alt="Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola" loading="lazy" decoding="async" style="object-position:50% 55%"></div>
               <p class="post-olhar"><b>Quer que olhem:</b> a transição do escuro para o claro.</p>
               <div><a class="m-link" href="#feedback"><svg class="ic ic-16"><use href="#i-message-circle"/></svg>Comentar</a></div>
             </article>
             <article class="m-cartao">
               <div class="post-topo"><span class="m-avatar" aria-hidden="true"><svg class="ic"><use href="#i-user-round"/></svg></span><p class="post-quem"><b><span class="m-var">{nome}</span></b><span>Ex-aluno do Start</span></p><span class="m-etiqueta">Mentor</span></div>
               <p>Uma coisa que me ajudou: treinar a mesma curva antes de mudar de desenho.</p>
+              <div class="mf-post-foto"><img src="assets/foto/acervo/void_retrato_14_4x5.webp" srcset="assets/foto/acervo/void_retrato_14_thumb.webp 480w, assets/foto/acervo/void_retrato_14_4x5.webp 1080w" sizes="(max-width:900px) 100vw, 500px" width="1080" height="1350" alt="Aluna de perfil mostrando tatuagem em preto e cinza no braço, fundo de folhagem" loading="lazy" decoding="async" style="object-position:55% 30%"></div>
               <div><a class="m-link" href="#feedback"><svg class="ic ic-16"><use href="#i-message-circle"/></svg>Comentar</a></div>
             </article>
           </div>
@@ -1316,12 +1370,12 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       </div>
     </header>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="biblio">
           <article class="m-cartao">
             <p class="m-marcador"><svg class="ic ic-16"><use href="#i-play"/></svg>The VOID Talks · gravação</p>
-            <div class="m-foto" data-formato="16x9"><svg class="ic"><use href="#i-play"/></svg><span class="m-foto-rotulo">capa da gravação, foto real da escola, com autorização</span></div>
+            <div class="m-foto mf-real" data-formato="16x9"><img src="assets/foto/acervo/void_evento_04_16x9.webp" width="1920" height="1080" alt="Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
             <h3 class="m-h4"><span class="m-var">{título_do_encontro}</span></h3>
             <ol class="capitulos" aria-label="Capítulos">
               <li><span class="tempo"><span class="m-var">{mm:ss}</span></span>Abertura</li>
@@ -1512,7 +1566,8 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
                 <p class="cert-legenda" data-cert="legenda">Trilha da The VOID: Start concluído.</p>
               </div>
               <div class="cert-trabalho">
-                <div class="m-foto"><svg class="ic"><use href="#i-images"/></svg><span class="m-foto-rotulo">trabalho final: foto real da escola, com autorização</span></div>
+                <div class="m-foto mf-real"><img src="assets/foto/acervo/void_pele_11_4x5.webp" srcset="assets/foto/acervo/void_pele_11_thumb.webp 427w, assets/foto/acervo/void_pele_11_4x5.webp 1080w" sizes="(max-width:794px) 45vw, 360px" width="1080" height="1350" alt="Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID" loading="eager" decoding="async" style="object-position:50% 40%"></div>
+                <p class="cert-foto-legenda">Trabalho final. Foto: acervo The VOID</p>
               </div>
             </div>
             <div class="cert-dados">
@@ -1597,7 +1652,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Um botão cheio:</b> "Enviar meu trabalho". "Marcar como feita" é vazado e leva a Concluída, nunca a Validada.</span></li>
     </ul>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração · conteúdo ilustrativo</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · conteúdo ilustrativo · fotos: acervo The VOID</p><p class="credito" data-mostra="campo">Campo Sala</p></div>
       <div class="m-palco-corpo">
         <div class="aula">
           <div class="aula-topo">
@@ -1612,7 +1667,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
           <div class="aula-video">
             <div class="player" role="group" aria-label="Vídeo de apoio da aula Linha e pressão">
               <div class="player-tela">
-                <span class="player-capa">capa da aula: foto real da escola, com autorização</span>
+                <img src="assets/foto/acervo/void_traco_01_16x9.webp" srcset="assets/foto/acervo/void_traco_01_thumb.webp 640w, assets/foto/acervo/void_traco_01_16x9.webp 1920w" sizes="(max-width:1000px) 100vw, 720px" width="1920" height="1080" alt="" loading="lazy" decoding="async"><span class="mf-veu" aria-hidden="true"></span>
                 <button type="button" class="player-play" data-player="play" aria-pressed="false" aria-label="Reproduzir o vídeo"><svg class="ic"><use href="#i-play"/></svg></button>
                 <p class="player-legenda" data-player="legenda">Na curva, a mão mantém a mesma velocidade da reta.</p>
               </div>
@@ -2040,7 +2095,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
       <li><svg class="ic"><use href="#i-check"/></svg><span><b>Com movimento reduzido</b> e na impressão, o Anel e a Revelação aparecem no estado final.</span></li>
     </ul>
     <div class="m-palco">
-      <div class="m-palco-barra"><p class="credito">Conta de demonstração</p><button type="button" class="m-botao-vazado" data-acao="ver-voiders"><svg class="ic"><use href="#i-eye"/></svg><span>Ver o kit como VOIDERS</span></button></div>
+      <div class="m-palco-barra"><p class="credito">Conta de demonstração · fotos: acervo The VOID</p><button type="button" class="m-botao-vazado" data-acao="ver-voiders"><svg class="ic"><use href="#i-eye"/></svg><span>Ver o kit como VOIDERS</span></button></div>
       <div class="m-palco-corpo">
         <ol class="passagem-passos">
           <li><b>Formatura com Pele validada</b><span>O professor ou a coordenação registra o marco; o cartão faz a Revelação em Marcos.</span></li>
@@ -2048,6 +2103,7 @@ body:not(.modo-leitura) .glossario div{border-top-color:var(--coxia)}
           <li><b>A casa vira VOIDERS</b><span>O tema troca para <code>voiders</code> e Hoje passa a mostrar o próximo círculo, sem cobrança.</span></li>
         </ol>
         <div class="passagem janela-luz" data-estacao="voiders">
+          <div class="mf-passagem-foto"><img src="assets/foto/acervo/void_evento_01_16x9.webp" srcset="assets/foto/acervo/void_evento_01_thumb.webp 640w, assets/foto/acervo/void_evento_01_16x9.webp 1920w" sizes="(max-width:860px) 100vw, 1060px" width="1920" height="1080" alt="Turma de formatura reunida sob a faixa Parabéns Voiders no terraço da escola à noite" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
           <div class="passagem-texto">
             <p class="m-marcador"><span data-vforms="marcador-estacao"></span><span>VOIDERS · Formatura com Pele</span></p>
             <p class="m-barra-txt"><span class="m-var">{nome}</span>, sua Formatura com Pele foi validada.</p>

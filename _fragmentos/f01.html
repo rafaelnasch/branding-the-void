@@ -1,115 +1,62 @@
 <!-- F1 · Fundamento · Parte I (s01 a s05). Estrutura e classes da casca; CSS próprio só abaixo, classes f01-. -->
 <style data-fragmento="f01">
-.f01-capa{position:relative;overflow:hidden;display:grid;align-content:space-between;gap:var(--e-8);min-height:min(88vh,840px);padding:var(--e-7);margin-bottom:var(--e-10);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
-.f01-capa > :not(.eco){position:relative;z-index:1}
-.f01-capa .eco{width:min(1200px,96%)}
-.f01-capa-topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--e-3) var(--e-6);color:var(--po)}
-.f01-capa-logo{width:clamp(200px,30vw,420px);height:auto}
-.f01-capa-tag{display:grid;gap:.08em;font:700 clamp(26px,3.4vw,50px)/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela)}
-.f01-capa-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--fio)}
-.f01-capa-meta div{padding:var(--e-4) var(--e-4) 0 0;min-width:0}
-.f01-capa-meta dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
-.f01-capa-meta dd{margin:6px 0 0;font:600 16px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
+.f01-capa{position:relative;overflow:hidden;display:grid;align-content:space-between;gap:var(--e-8);min-height:min(88vh,840px);padding:var(--e-7);margin-bottom:var(--e-10);background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}.f01-capa > :not(.eco){position:relative;z-index:1}.f01-capa .eco{width:min(1200px,96%)}.f01-capa-topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--e-3) var(--e-6);color:var(--po)}.f01-capa-logo{width:clamp(200px,30vw,420px);height:auto}.f01-capa-tag{display:grid;gap:.08em;font:700 clamp(26px,3.4vw,50px)/1 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela)}.f01-capa-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--fio)}.f01-capa-meta div{padding:var(--e-4) var(--e-4) 0 0;min-width:0}.f01-capa-meta dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}.f01-capa-meta dd{margin:6px 0 0;font:600 16px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
 .f01-cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:var(--e-5)}
-.f01-cartao{display:flex;flex-direction:column;gap:var(--e-3);min-width:0;padding:var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
-.f01-cartao > .ic{color:var(--estacao-destaque)}
-.f01-cartao h4{font:700 20px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
-.f01-cartao p{font:400 15px/1.5 var(--font-texto);color:var(--cal)}
-.f01-cartao .f01-cita{font:400 15px/1.5 var(--font-texto);color:var(--po)}
-.f01-links{list-style:none;display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:auto;padding-top:var(--e-2)}
-.f01-links a{display:inline-flex;align-items:center;min-height:var(--alvo-toque);padding:0 var(--e-3);border:1px solid var(--fio);font:600 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}
-.f01-links a:hover{border-color:var(--fumaca);color:var(--tela)}
-.f01-links b{margin-right:6px;color:var(--estacao-destaque);font-weight:700}
-.bloco > ol.f01-anatomia{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-6) var(--e-5);max-width:none;padding-left:0;counter-reset:f01a}
-.f01-anatomia li{position:relative;padding:var(--e-5) 0 0;border-top:1px solid var(--fio);counter-increment:f01a;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
-.f01-anatomia li::before{content:counter(f01a,decimal-leading-zero);display:block;margin-bottom:var(--e-2);font:700 32px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}
-.f01-anatomia b{display:block;margin-bottom:4px;font:600 17px/1.25 var(--font-letreiro);color:var(--tela)}
+.f01-cartao{display:flex;flex-direction:column;gap:var(--e-3);min-width:0;padding:var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}.f01-cartao > .ic{color:var(--estacao-destaque)}.f01-cartao h4{font:700 20px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}.f01-cartao p{font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f01-cartao .f01-cita{font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.f01-links{list-style:none;display:flex;flex-wrap:wrap;gap:var(--e-2);margin-top:auto;padding-top:var(--e-2)}.f01-links a{display:inline-flex;align-items:center;min-height:var(--alvo-toque);padding:0 var(--e-3);border:1px solid var(--fio);font:600 13px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--cal)}.f01-links a:hover{border-color:var(--fumaca);color:var(--tela)}.f01-links b{margin-right:6px;color:var(--estacao-destaque);font-weight:700}
+.bloco > ol.f01-anatomia{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-6) var(--e-5);max-width:none;padding-left:0;counter-reset:f01a}.f01-anatomia li{position:relative;padding:var(--e-5) 0 0;border-top:1px solid var(--fio);counter-increment:f01a;font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f01-anatomia li::before{content:counter(f01a,decimal-leading-zero);display:block;margin-bottom:var(--e-2);font:700 32px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}.f01-anatomia b{display:block;margin-bottom:4px;font:600 17px/1.25 var(--font-letreiro);color:var(--tela)}
 .f01-partes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--fio);border:1px solid var(--fio)}
-.f01-parte{display:flex;flex-direction:column;gap:var(--e-2);min-height:184px;padding:var(--e-5);background:var(--sala);border:0;color:var(--cal)}
-.f01-parte:hover{background:var(--bastidor);color:var(--tela)}
-.f01-parte-n{font:700 44px/.85 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--fumaca)}
-.f01-parte:hover .f01-parte-n{color:var(--estacao-destaque)}
-.f01-parte strong{font:700 17px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:.02em}
-.f01-parte span:last-child{margin-top:auto;font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f01-parte{display:flex;flex-direction:column;gap:var(--e-2);min-height:184px;padding:var(--e-5);background:var(--sala);border:0;color:var(--cal)}.f01-parte:hover{background:var(--bastidor);color:var(--tela)}.f01-parte-n{font:700 44px/.85 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--fumaca)}.f01-parte:hover .f01-parte-n{color:var(--estacao-destaque)}.f01-parte strong{font:700 17px/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:.02em}.f01-parte span:last-child{margin-top:auto;font:400 14px/1.45 var(--font-texto);color:var(--po)}
 .f01-frase{max-width:22ch;margin:var(--e-3) 0 var(--e-4);font:600 clamp(30px,3.6vw,48px)/1.12 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.008em;color:var(--tela);text-wrap:balance}
 .f01-quatro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-5)}
 .f01-dois{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-5)}
 .f01-palavra{display:block;font:800 clamp(24px,2.9vw,44px)/1 var(--font-letreiro);font-variation-settings:"wdth" 85;text-transform:uppercase;letter-spacing:-.01em;color:var(--tela);overflow-wrap:normal}
 .f01-manifesto{display:grid;gap:0;padding:var(--e-8) var(--e-7);background:radial-gradient(110% 60% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
-.f01-ato{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--e-6);padding:var(--e-7) 0;border-top:1px solid var(--fio)}
-.f01-ato:first-child{border-top:0;padding-top:0}
-.f01-ato > .credito{color:var(--estacao-destaque);font-weight:700;padding-top:6px}
-.f01-ato > .credito span{display:block;margin-top:6px;color:var(--po);font-weight:500}
-.f01-estrofes{display:grid;gap:var(--e-5);max-width:640px}
-.f01-estrofes p{font:400 20px/1.6 var(--font-texto);color:var(--cal)}
-.f01-estrofes strong{display:block;margin-top:var(--e-3);font:600 clamp(24px,2.4vw,32px)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
-.f01-estrofes p > strong:first-child{margin-top:0}
-.f01-estrofes .f01-fecho{font:800 clamp(30px,3.6vw,52px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.015em;color:var(--tela)}
-.f01-assina{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--e-4) var(--e-6)}
-.f01-assina img{width:clamp(200px,24vw,300px);height:auto}
-.f01-assina p{font:700 18px/1.1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.02em;color:var(--tela)}
-.f01-assina .off{white-space:nowrap}
-.f01-cartela{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--u)*72);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
-.f01-cartela-topo{font:500 calc(var(--u)*26)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
-.f01-titulo{font:800 calc(var(--u)*100)/.92 var(--font-letreiro);font-variation-settings:"wdth" 92;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)}
-.f01-titulo .off{color:var(--estacao-destaque)}
-.f01-titulo-off{margin-top:calc(var(--u)*24);font:300 italic calc(var(--u)*112)/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
-.f01-faixa{font:500 calc(var(--u)*62)/1.08 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.01em;text-transform:uppercase;color:var(--cal)}
-.f01-faixa .off{color:var(--estacao-destaque)}
-.f01-pe{display:grid;gap:calc(var(--u)*40)}
-.f01-pe img{width:calc(var(--u)*300);height:auto}
-.f01-rodape{font:500 calc(var(--u)*26)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
-.f01-rodape b{color:var(--tela);font-weight:700}
-.f01-tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5)}
-.f01-tres > figure{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
-.f01-quadro{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;overflow:hidden;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}
-.f01-quadro [data-vforms="esfera"]{width:76%;aspect-ratio:1}
-.f01-quadro .f01-mapa{width:88%}
+.f01-ato{display:grid;grid-template-columns:200px minmax(0,1fr);gap:var(--e-6);padding:var(--e-7) 0;border-top:1px solid var(--fio)}.f01-ato:first-child{border-top:0;padding-top:0}.f01-ato > .credito{color:var(--estacao-destaque);font-weight:700;padding-top:6px}.f01-ato > .credito span{display:block;margin-top:6px;color:var(--po);font-weight:500}
+.f01-estrofes{display:grid;gap:var(--e-5);max-width:640px}.f01-estrofes p{font:400 20px/1.6 var(--font-texto);color:var(--cal)}.f01-estrofes strong{display:block;margin-top:var(--e-3);font:600 clamp(24px,2.4vw,32px)/1.15 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}.f01-estrofes p > strong:first-child{margin-top:0}.f01-estrofes .f01-fecho{font:800 clamp(30px,3.6vw,52px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.015em;color:var(--tela)}
+.f01-assina{display:flex;flex-wrap:wrap;align-items:flex-end;gap:var(--e-4) var(--e-6)}.f01-assina img{width:clamp(200px,24vw,300px);height:auto}.f01-assina p{font:700 18px/1.1 var(--font-letreiro);text-transform:uppercase;letter-spacing:.02em;color:var(--tela)}.f01-assina .off{white-space:nowrap}
+.f01-cartela{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--u)*72);background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}.f01-cartela-topo{font:500 calc(var(--u)*26)/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
+.f01-titulo{font:800 calc(var(--u)*100)/.92 var(--font-letreiro);font-variation-settings:"wdth" 92;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela)}.f01-titulo .off{color:var(--estacao-destaque)}.f01-titulo-off{margin-top:calc(var(--u)*24);font:300 italic calc(var(--u)*112)/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
+.f01-faixa{font:500 calc(var(--u)*62)/1.08 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:.01em;text-transform:uppercase;color:var(--cal)}.f01-faixa .off{color:var(--estacao-destaque)}
+.f01-pe{display:grid;gap:calc(var(--u)*40)}.f01-pe img{width:calc(var(--u)*300);height:auto}
+.f01-rodape{font:500 calc(var(--u)*26)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}.f01-rodape b{color:var(--tela);font-weight:700}
+.f01-tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-5)}.f01-tres > figure{display:flex;flex-direction:column;min-width:0;background:var(--bastidor)}
+.f01-quadro{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;overflow:hidden;background:var(--sala);outline:1px solid var(--fio);outline-offset:-1px}.f01-quadro [data-vforms="esfera"]{width:76%;aspect-ratio:1}.f01-quadro .f01-mapa{width:88%}
 .f01-luz{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
-.f01-tres > figure > figcaption{padding:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--cal)}
-.f01-tres > figure > figcaption b{display:block;font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--estacao-destaque)}
+.f01-tres > figure > figcaption{padding:var(--e-4);font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f01-tres > figure > figcaption b{display:block;font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--estacao-destaque)}
 .f01-guia{display:grid;gap:.1em;font:300 italic clamp(30px,4vw,56px)/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}
-.bloco > ul.f01-papeis{list-style:none;display:grid;gap:0;max-width:none;padding-left:0;border-top:1px solid var(--fio)}
-.f01-papeis li{display:grid;grid-template-columns:184px minmax(0,220px) minmax(0,1fr);gap:var(--e-5);align-items:center;padding:var(--e-4) 0;border-bottom:1px solid var(--fio)}
-.f01-papeis b{font:700 18px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
-.f01-papeis b code{display:block;margin-top:4px;font-weight:400;color:var(--po)}
-.f01-papeis p{font:400 16px/1.5 var(--font-texto);color:var(--cal)}
-.f01-sw{display:flex;align-items:center;justify-content:center;gap:6px;height:72px;background:var(--c,var(--sala));outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}
-.f01-sw i{display:block;flex:1;align-self:stretch;background:var(--c)}
-.f01-sw-letreiro{font:800 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;color:var(--tela)}
-.f01-sw-off{font:300 italic 30px/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}
-.f01-sw-grao{background:var(--sala) url("assets/textura/grao-240.webp") 0 0/120px}
+.bloco > ul.f01-papeis{list-style:none;display:grid;gap:0;max-width:none;padding-left:0;border-top:1px solid var(--fio)}.f01-papeis li{display:grid;grid-template-columns:184px minmax(0,220px) minmax(0,1fr);gap:var(--e-5);align-items:center;padding:var(--e-4) 0;border-bottom:1px solid var(--fio)}.f01-papeis b{font:700 18px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}.f01-papeis b code{display:block;margin-top:4px;font-weight:400;color:var(--po)}.f01-papeis p{font:400 16px/1.5 var(--font-texto);color:var(--cal)}
+.f01-sw{display:flex;align-items:center;justify-content:center;gap:6px;height:72px;background:var(--c,var(--sala));outline:1px solid var(--fio);outline-offset:-1px;overflow:hidden}.f01-sw i{display:block;flex:1;align-self:stretch;background:var(--c)}.f01-sw-letreiro{font:800 30px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:-.02em;color:var(--tela)}.f01-sw-off{font:300 italic 30px/1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}.f01-sw-grao{background:var(--sala) url("assets/textura/grao-240.webp") 0 0/120px}
 .f01-persona{display:flex;flex-direction:column;gap:var(--e-4);min-width:0;padding:var(--e-6) var(--e-5) var(--e-5);background:var(--bastidor);border-top:2px solid var(--estacao-grafismo)}
-.f01-p-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--e-4)}
-.f01-p-topo > div{flex:none}
-.f01-p-nome{font:700 clamp(30px,2.8vw,40px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela)}
-.f01-p-epiteto{display:block;margin-top:6px;text-transform:none;letter-spacing:0;font:300 italic 26px/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}
-.f01-p-frase{padding-left:var(--e-4);border-left:2px solid var(--estacao-grafismo);font:600 18px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}
-.f01-p-dados{display:grid;gap:var(--e-3)}
-.f01-p-dados dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}
-.f01-p-dados dd{margin:2px 0 0;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
-.f01-p-dados .f01-hero{font:700 17px/1.15 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}
-.f01-p-dados .f01-hero .off{color:var(--estacao-destaque)}
+.f01-p-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--e-4)}.f01-p-topo > div{flex:none}.f01-p-nome{font:700 clamp(30px,2.8vw,40px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;letter-spacing:-.012em;color:var(--tela)}.f01-p-epiteto{display:block;margin-top:6px;text-transform:none;letter-spacing:0;font:300 italic 26px/1.05 var(--font-off);font-variation-settings:"opsz" 72;color:var(--estacao-destaque)}.f01-p-frase{padding-left:var(--e-4);border-left:2px solid var(--estacao-grafismo);font:600 18px/1.35 var(--font-letreiro);font-variation-settings:"wdth" 100;color:var(--tela)}.f01-p-dados{display:grid;gap:var(--e-3)}.f01-p-dados dt{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.18em;color:var(--po)}.f01-p-dados dd{margin:2px 0 0;font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f01-p-dados .f01-hero{font:700 17px/1.15 var(--font-letreiro);text-transform:uppercase;color:var(--tela)}.f01-p-dados .f01-hero .off{color:var(--estacao-destaque)}
 .f01-dispositivos{list-style:none;display:grid;gap:var(--e-3)}
-.f01-nunca{display:flex;gap:var(--e-2);align-items:flex-start;color:var(--erro)}
-.f01-nunca .ic{margin-top:2px;width:16px;height:16px}
-.f01-dispositivos li{display:flex;gap:var(--e-3);align-items:flex-start;font:400 16px/1.5 var(--font-texto);color:var(--cal)}
-.f01-dispositivos .ic{margin-top:3px;color:var(--estacao-destaque)}
-.f01-set{font:800 clamp(22px,2vw,30px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela);text-align:center}
-.f01-set small{display:block;margin-bottom:var(--e-3);font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;color:var(--po)}
-.f01-demo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--e-6);align-items:center}
-.f01-demo .voz-off{margin:var(--e-2) 0 var(--e-4)}
-.f01-amplia{width:min(540px,calc(100vw - 32px),calc((100vh - 120px) * .8));max-width:none;max-height:none;margin:auto;padding:0;overflow:visible;background:var(--sala);border:1px solid var(--fio);color:var(--tela)}
-.f01-amplia::backdrop{background:rgb(24 24 24 / .9)}
-.f01-amplia-topo{display:flex;justify-content:space-between;align-items:center;gap:var(--e-3);padding:var(--e-2) var(--e-2) var(--e-2) var(--e-4);font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.16em;color:var(--po)}
-.f01-amplia .f01-amplia-peca{--peca-max:100%;display:block;max-width:100%}
+.f01-nunca{display:flex;gap:var(--e-2);align-items:flex-start;color:var(--erro)}.f01-nunca .ic{margin-top:2px;width:16px;height:16px}
+.f01-dispositivos li{display:flex;gap:var(--e-3);align-items:flex-start;font:400 16px/1.5 var(--font-texto);color:var(--cal)}.f01-dispositivos .ic{margin-top:3px;color:var(--estacao-destaque)}
+.f01-set{font:800 clamp(22px,2vw,30px)/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela);text-align:center}.f01-set small{display:block;margin-bottom:var(--e-3);font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;color:var(--po)}
+.f01-demo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--e-6);align-items:center}.f01-demo .voz-off{margin:var(--e-2) 0 var(--e-4)}
+.f01-amplia{width:min(540px,calc(100vw - 32px),calc((100vh - 120px) * .8));max-width:none;max-height:none;margin:auto;padding:0;overflow:visible;background:var(--sala);border:1px solid var(--fio);color:var(--tela)}.f01-amplia::backdrop{background:rgb(24 24 24 / .9)}.f01-amplia-topo{display:flex;justify-content:space-between;align-items:center;gap:var(--e-3);padding:var(--e-2) var(--e-2) var(--e-2) var(--e-4);font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;text-transform:uppercase;letter-spacing:.16em;color:var(--po)}.f01-amplia .f01-amplia-peca{--peca-max:100%;display:block;max-width:100%}
 .f01-corresp thead th{white-space:normal;overflow-wrap:normal;word-break:normal;hyphens:manual}
+.f01-capa > .f01-capa-foto{position:absolute;inset:0;z-index:0;margin:0}.f01-capa-foto img{display:block;width:100%;height:100%;object-fit:cover}
+.f01-capa-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgb(24 24 24 / .8) 0%,rgb(24 24 24 / .62) 11%,rgb(24 24 24 / 0) 26%),linear-gradient(0deg,rgb(24 24 24 / .92) 0%,rgb(24 24 24 / .74) 24%,rgb(24 24 24 / 0) 48%),linear-gradient(90deg,rgb(24 24 24 / .9) 0%,rgb(24 24 24 / .74) 34%,rgb(24 24 24 / .62) 50%,rgb(24 24 24 / 0) 78%)}.f01-capa-cred{justify-self:end;color:var(--po)}
+.f01-foto{display:grid;gap:var(--e-2);margin:0;min-width:0}.f01-foto img,.f01-par img,.f01-ensaio img,.f01-luzes img{display:block;width:100%;height:auto;background:var(--bastidor)}.f01-foto figcaption,.f01-par figcaption,.f01-ensaio figcaption{font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.f01-ensaio{display:grid;grid-template-columns:minmax(0,2.25fr) minmax(0,1fr) minmax(0,1fr);gap:var(--e-3);margin:var(--e-6) 0 0}.f01-ensaio img{height:100%;object-fit:cover}.f01-ensaio figcaption{grid-column:1 / -1}
+.f01-cfoto{display:block;width:calc(100% + 2 * var(--e-5));max-width:none;height:auto;aspect-ratio:3/2;margin:calc(-1 * var(--e-5)) calc(-1 * var(--e-5)) var(--e-2);object-fit:cover}
+.f01-ato.f01-ato-foto{position:relative;isolation:isolate;align-content:end;min-height:clamp(440px,46vw,600px);margin:calc(-1 * var(--e-8)) calc(-1 * var(--e-7)) 0;padding:var(--e-8) var(--e-7) var(--e-7);border-top:0}.f01-ato-foto > picture{position:absolute;inset:0;z-index:-2}.f01-ato-foto > picture img{display:block;width:100%;height:100%;object-fit:cover}
+.f01-ato-foto::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgb(24 24 24 / .9) 0%,rgb(24 24 24 / .76) 46%,rgb(24 24 24 / .28) 78%,rgb(24 24 24 / .4) 100%),linear-gradient(90deg,rgb(24 24 24 / .5) 0%,rgb(24 24 24 / 0) 60%)}.f01-estrofes .f01-cred{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.f01-par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-3);margin:var(--e-2) 0}.f01-par figcaption{grid-column:1 / -1}
+.f01-pfoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.f01-cartela.f01-sobre{justify-content:flex-end;gap:calc(var(--u)*48);background:linear-gradient(180deg,rgb(24 24 24 / .74) 0%,rgb(24 24 24 / .62) 12%,rgb(24 24 24 / .24) 28%,rgb(24 24 24 / .3) 40%,rgb(24 24 24 / .8) 57%,rgb(24 24 24 / .9) 100%)}.f01-sobre .f01-cartela-topo{position:absolute;top:calc(var(--u)*72);left:calc(var(--u)*72)}
+.f01-ilus{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--e-4);margin-bottom:var(--e-5)}.f01-ilus figure{display:grid;gap:var(--e-2);align-content:start;margin:0;min-width:0}.f01-ilus img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.05);outline:1px dashed var(--fumaca);outline-offset:-1px}.f01-ilus figcaption{font:400 14px/1.45 var(--font-texto);color:var(--po)}.f01-ilus figcaption b{display:block;font:700 16px/1.2 var(--font-letreiro);color:var(--tela)}
+.f01-luzes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--e-4)}.f01-luzes figure{display:grid;gap:var(--e-3);align-content:start;margin:0;min-width:0}.f01-luzes figcaption{display:grid;gap:4px;font:400 15px/1.5 var(--font-texto);color:var(--cal)}.f01-luzes figcaption em{font:300 italic 26px/1.1 var(--font-off);font-variation-settings:"opsz" 72;color:var(--tela)}
 @media (max-width:599px){.f01-ampliar{display:none}}
 @media (min-width:900px){.tabela-wrap.f01-corresp table{min-width:0}.f01-corresp th:nth-child(5){width:34%}}
 @media (max-width:1180px){.f01-quatro{grid-template-columns:repeat(2,minmax(0,1fr))}.bloco > ol.f01-anatomia{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:899px){.f01-capa{padding:var(--e-6) var(--e-5);gap:var(--e-7);min-height:0}.f01-capa-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.f01-ato{grid-template-columns:minmax(0,1fr);gap:var(--e-4)}.f01-manifesto{padding:var(--e-7) var(--e-5)}.f01-tres{grid-template-columns:minmax(0,1fr)}.f01-papeis li{grid-template-columns:120px minmax(0,1fr)}.f01-papeis li p{grid-column:1 / -1}.f01-demo{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){.bloco > ol.f01-anatomia,.f01-quatro,.f01-dois,.f01-partes{grid-template-columns:minmax(0,1fr)}.f01-parte{min-height:0}.f01-estrofes p{font-size:18px}}
 @media (max-width:430px){.f01-capa{padding:var(--e-5) var(--e-4)}.f01-capa-meta{grid-template-columns:minmax(0,1fr)}.f01-papeis li{grid-template-columns:minmax(0,1fr);gap:var(--e-3)}.f01-sw{height:56px}.f01-p-topo{flex-direction:column-reverse}}
+@media (max-width:899px){.f01-capa > .f01-capa-foto{position:relative;inset:auto;aspect-ratio:4/5;margin:calc(-1 * var(--e-6)) calc(-1 * var(--e-5)) 0}.f01-capa-foto::after{background:linear-gradient(0deg,var(--sala) 0%,rgb(24 24 24 / 0) 38%)}.f01-capa-cred{justify-self:start}.f01-ato.f01-ato-foto{margin:calc(-1 * var(--e-7)) calc(-1 * var(--e-5)) 0;padding:var(--e-7) var(--e-5) var(--e-6);min-height:clamp(560px,150vw,680px)}.f01-ato-foto::before{background:linear-gradient(0deg,rgb(24 24 24 / .9) 0%,rgb(24 24 24 / .76) 55%,rgb(24 24 24 / .62) 100%)}.f01-ensaio{grid-template-columns:repeat(2,minmax(0,1fr))}.f01-ensaio > img:first-child{grid-column:1 / -1}.f01-ilus{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.f01-luzes{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:430px){.f01-capa > .f01-capa-foto{margin:calc(-1 * var(--e-5)) calc(-1 * var(--e-4)) 0}}
+@media print{.f01-capa{min-height:250mm}.f01-capa > .f01-capa-foto{position:absolute;inset:0;aspect-ratio:auto;margin:0}.f01-capa-foto img{object-position:0% 45% !important}.f01-capa-foto::after{background:linear-gradient(180deg,rgb(24 24 24 / .82) 0%,rgb(24 24 24 / 0) 22%),linear-gradient(0deg,rgb(24 24 24 / .94) 0%,rgb(24 24 24 / .8) 38%,rgb(24 24 24 / 0) 62%)}}
 </style>
 
 <!-- ============================== s01 · Capa e como usar ============================== -->
@@ -118,7 +65,7 @@
     <p class="folio credito"><span>The VOID · Manual de marca</span><span><b>01</b> · Capa e como usar este manual</span></p>
 
     <div class="f01-capa">
-      <img class="eco" src="assets/brand/svg/void-horizontal-branco.svg" alt="" aria-hidden="true" width="3804" height="579">
+      <figure class="f01-capa-foto"><picture><source media="screen and (max-width:899px)" srcset="assets/foto/acervo/void_concentracao_02_4x5.webp 1080w" sizes="(max-width:899px) 100vw, 1200px" width="1080" height="1350"><img src="assets/foto/acervo/void_concentracao_02_16x9.webp" srcset="assets/foto/acervo/void_concentracao_02_thumb.webp 640w, assets/foto/acervo/void_concentracao_02_16x9.webp 1920w" sizes="(max-width:899px) 100vw, 1200px" width="1920" height="1080" alt="Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária" fetchpriority="high" decoding="async" style="object-position:14% 45%"></picture></figure>
       <div class="f01-capa-topo">
         <p class="credito">The VOID Tattoo Academy · São Paulo · Brazil</p>
         <p class="credito">Manual de marca · Versão 1</p>
@@ -131,6 +78,7 @@
         <div><dt>Conteúdo</dt><dd>36 seções em 9 partes</dd></div>
         <div><dt>Situação</dt><dd>Aguarda aprovação da The VOID</dd></div>
       </dl>
+      <p class="credito f01-capa-cred">Foto: acervo The VOID · aula prática, mesa coletiva</p>
     </div>
 
     <header class="sec-head">
@@ -360,6 +308,12 @@
           <p class="f01-cita">Brand DNA da The VOID, set/2026.</p>
         </article>
       </div>
+      <figure class="f01-ensaio">
+        <img src="assets/foto/acervo/void_professor_05_16x9.webp" width="1404" height="790" alt="Professor de boné orientando uma aluna de máscara durante a prática na The VOID" loading="lazy" decoding="async">
+        <img src="assets/foto/acervo/void_concentracao_07_4x5.webp" width="1080" height="1350" alt="Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola" loading="lazy" decoding="async">
+        <img src="assets/foto/acervo/void_materiais_02_4x5.webp" width="1080" height="1350" alt="Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino" loading="lazy" decoding="async">
+        <figcaption>O herói na imagem: a mão de quem aprende, com o professor ao lado como guia e o trabalho na mesa como prova do método. Foto: acervo The VOID.</figcaption>
+      </figure>
     </div>
 
     <div class="bloco" id="s02-2">
@@ -384,26 +338,31 @@
       </div>
       <div class="f01-dois">
         <article class="f01-cartao">
+          <img class="f01-cfoto" src="assets/foto/acervo/void_retrato_05_pb.webp" srcset="assets/foto/acervo/void_retrato_05_thumb.webp 561w, assets/foto/acervo/void_retrato_05_pb.webp 2085w" sizes="(max-width:640px) 100vw, 560px" width="2085" height="2378" alt="Aluna e tatuadora sorrindo com tatuagem cicatrizada na coxa, adesivo VOID na parede" loading="lazy" decoding="async" style="object-position:50% 6%">
           <p class="rotulo">Acolhimento e inclusão</p>
           <h4>"Celebramos as pessoas por trás das máquinas."</h4>
           <p>Onde aparece: boas-vindas da matrícula (M5), estados vazios da área de membros, fotografia de pessoas reais com autorização.</p>
         </article>
         <article class="f01-cartao">
+          <img class="f01-cfoto" src="assets/foto/acervo/void_comunidade_01_terra.webp" srcset="assets/foto/acervo/void_comunidade_01_thumb.webp 640w, assets/foto/acervo/void_comunidade_01_terra.webp 1920w" sizes="(max-width:640px) 100vw, 560px" width="1920" height="1280" alt="Grupo de alunos reunidos no terraço da escola no evento Liberdade com Tatuagem" loading="lazy" decoding="async" style="object-position:50% 50%">
           <p class="rotulo">Comunidade e pertencimento</p>
           <h4>"Aqui não existem estranhos, apenas família que ainda não se conheceu."</h4>
           <p>Onde aparece: VOIDERS, The VOID Talks, Formatura com Pele e a etapa M8.</p>
         </article>
         <article class="f01-cartao">
+          <img class="f01-cfoto" src="assets/foto/acervo/void_maos_01_pb.webp" srcset="assets/foto/acervo/void_maos_01_thumb.webp 640w, assets/foto/acervo/void_maos_01_pb.webp 1920w" sizes="(max-width:640px) 100vw, 560px" width="1920" height="1079" alt="Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID" loading="lazy" decoding="async" style="object-position:42% 42%">
           <p class="rotulo">Excelência e profissionalismo</p>
           <h4>"Onde sonhos encontram propósito e talentos se tornam carreira."</h4>
           <p>Onde aparece: Crédito de Prova em todo número, roteiro de módulos, biossegurança visível na foto.</p>
         </article>
         <article class="f01-cartao">
+          <img class="f01-cfoto" src="assets/foto/acervo/void_pele_06_pb.webp" srcset="assets/foto/acervo/void_pele_06_thumb.webp 512w, assets/foto/acervo/void_pele_06_pb.webp 1080w" sizes="(max-width:640px) 100vw, 560px" width="1080" height="1350" alt="Braço fechado em estilo oriental com carpas, trabalho do professor Ayelo Padalino" loading="lazy" decoding="async" style="object-position:50% 50%">
           <p class="rotulo">Liberdade e autonomia</p>
           <h4>"Uma vida vivida nos seus próprios termos."</h4>
           <p>Onde aparece: o pilar Arte como liberdade, o programa Pro e o fecho do manifesto.</p>
         </article>
       </div>
+      <p class="legenda">Fotos: acervo The VOID. Três em P&amp;B (Ritual) e uma em cor contida (Terra), dentro da regra de no máximo uma imagem colorida a cada quatro.</p>
       <p class="nota"><span class="status" data-status="decidido">Regra</span> Inclusão é valor, não argumento de venda. Frase sobre públicos atendidos só entra em peça com casos reais e programa existente (conflito C23); até lá, fica no material interno.</p>
     </div>
 
@@ -495,12 +454,14 @@
         <p class="bloco-apoio">Manifesto Completo Atualizado (slide 10 da Plataforma de Branding). A divisão em três atos é leitura deste manual, para orientar os recortes. O original fecha com a linha "THE VOID TATTOO." sobre a assinatura; aqui, como em toda peça, essa linha é o logotipo em arquivo (seção 08).</p>
       </div>
       <article class="f01-manifesto" aria-label="Manifesto da The VOID">
-        <div class="f01-ato">
+        <div class="f01-ato f01-ato-foto">
+          <picture><source media="(max-width:899px)" srcset="assets/foto/acervo/void_concentracao_05_4x5.webp 1080w" sizes="(max-width:899px) 100vw, 1200px" width="1080" height="1350"><img src="assets/foto/acervo/void_concentracao_05_16x9.webp" srcset="assets/foto/acervo/void_concentracao_05_thumb.webp 640w, assets/foto/acervo/void_concentracao_05_16x9.webp 1920w" sizes="(max-width:899px) 100vw, 1200px" width="1920" height="1080" alt="Tatuadora de camiseta The VOID concentrada no trabalho, vista de cima" loading="lazy" decoding="async" style="object-position:60% 50%"></picture>
           <p class="credito">Ato 1<span>O vazio</span></p>
           <div class="f01-estrofes">
             <p><strong>Existe um vazio dentro de você.</strong></p>
             <p>Um espaço sem nome, uma inquietação que não se acalma entre as paredes dos trabalhos convencionais e rotinas extremamente comuns.</p>
             <p>Esse vazio não é uma fraqueza. É um chamado.</p>
+            <p class="f01-cred">Foto: acervo The VOID · véu de 76% sob o texto</p>
           </div>
         </div>
         <div class="f01-ato">
@@ -511,6 +472,11 @@
             <p>Não importa de onde você vem. Não importa se você nunca tocou em uma máquina. Não importa se o mundo disse que seu sonho era pequeno demais para ser perseguido.</p>
             <p>O que importa é a coragem de começar.</p>
             <p>Venha como você é. Com seus medos, suas inseguranças, suas mãos trêmulas. Nós as transformaremos em mãos firmes que desenham caminhos para a liberdade financeira, para o orgulho profissional, para uma vida onde trabalho e paixão são a mesma coisa.</p>
+            <figure class="f01-par">
+              <img src="assets/foto/acervo/void_maos_05_4x5.webp" width="1080" height="1350" alt="Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão" loading="lazy" decoding="async">
+              <img src="assets/foto/acervo/void_professor_04_4x5.webp" width="1080" height="1350" alt="Professora orientando de perto um aluno que tatua o antebraço de outra pessoa" loading="lazy" decoding="async">
+              <figcaption>A mão que aprende e a mão que guia. Foto: acervo The VOID.</figcaption>
+            </figure>
             <p><strong>Mas você não estará só.</strong></p>
             <p>Na Void, você encontra uma comunidade que caminha com você. Pessoas que acreditam nas mesmas verdades invisíveis. Que te inspiram, te acolhem, te desafiam. <strong>Aqui não existem estranhos, apenas família que ainda não se conheceu.</strong></p>
             <p>Acreditamos que a verdadeira transformação da tatuagem não está nas máquinas, mas nas mãos que as seguram. E nas histórias que se cruzam durante o processo.</p>
@@ -523,6 +489,10 @@
           <div class="f01-estrofes">
             <p>A cada linha que você traça na pele, você reescreve sua própria história. A cada cliente transformado por sua arte, você preenche não apenas o vazio da tela em branco, mas o vazio dentro de si mesmo.</p>
             <p>A tatuagem não é apenas uma profissão. É um ato de rebeldia contra o comum, contra o medíocre, contra o "contentar-se com menos".</p>
+            <figure class="f01-foto">
+              <img src="assets/foto/acervo/void_pele_13_16x9.webp" width="1920" height="1080" alt="Águia com flor em estilo tradicional tatuada em preto e cinza" loading="lazy" decoding="async">
+              <figcaption>O traço firme na pele: o fim do primeiro ato vira o começo de uma carreira. Foto: acervo The VOID.</figcaption>
+            </figure>
             <p class="f01-fecho">Preencha o vazio. Pertença. Cresça. Conquiste sua liberdade.</p>
             <div class="f01-assina">
               <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo" width="300" height="46">
@@ -537,7 +507,7 @@
       <div class="bloco-head">
         <p class="bloco-n credito">03.2</p>
         <h3 class="fala">Trechos prontos para peça</h3>
-        <p class="bloco-apoio">Três recortes no tamanho do feed. A regra serve para qualquer outro trecho: frase literal, uma única palavra na voz em off e Créditos Finais no pé.</p>
+        <p class="bloco-apoio">Três recortes no tamanho do feed, alternando Cartela e foto (lei L8). A regra serve para qualquer outro trecho: frase literal, uma única palavra na voz em off e Créditos Finais no pé. Sobre foto, o texto fica no terço de baixo, com véu de 80% a 90%, e o rótulo do topo com 62% no mínimo.</p>
       </div>
       <div class="pecas f01-ampliavel">
         <div class="peca" data-formato="1080x1350" data-nome="Cartela de manifesto, feed">
@@ -553,9 +523,10 @@
             <div class="area-segura"></div>
           </div>
         </div>
-        <div class="peca" data-formato="1080x1350" data-nome="Faixa de Manifesto, feed">
+        <div class="peca" data-formato="1080x1350" data-nome="Faixa de Manifesto sobre foto, feed">
           <div class="peca-tela grao">
-            <div class="f01-cartela">
+            <img class="f01-pfoto" src="assets/foto/acervo/void_maos_04_4x5.webp" width="1080" height="1350" alt="Tatuadora de máscara e luvas nitrílicas tatuando o braço de um cliente na escola The VOID" loading="lazy" decoding="async">
+            <div class="f01-cartela f01-sobre">
               <p class="f01-cartela-topo">Manifesto</p>
               <p class="f01-faixa">Venha como você é. Com seus medos, suas dúvidas, suas mãos trêmulas. Aqui, elas se tornarão <em class="off">firmes</em>.</p>
               <p class="f01-rodape">TATTOO ACADEMY · ® 2025 · SÃO PAULO · BRAZIL · <b>PREENCHA O VAZIO</b></p>
@@ -563,9 +534,10 @@
             <div class="area-segura"></div>
           </div>
         </div>
-        <div class="peca" data-formato="1080x1350" data-nome="Cartela VOIDERS, feed" data-estacao="voiders">
+        <div class="peca" data-formato="1080x1350" data-nome="VOIDERS sobre foto, feed" data-estacao="voiders">
           <div class="peca-tela grao">
-            <div class="f01-cartela">
+            <img class="f01-pfoto" src="assets/foto/acervo/void_aula_01_4x5.webp" width="1080" height="1350" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" loading="lazy" decoding="async">
+            <div class="f01-cartela f01-sobre">
               <p class="f01-cartela-topo">VOIDERS</p>
               <p class="f01-titulo">Aqui não existem <em class="off">estranhos</em>.</p>
               <div class="f01-pe">
@@ -577,6 +549,7 @@
           </div>
         </div>
       </div>
+      <p class="legenda">Fotos das peças: acervo The VOID (mãos em sessão; mesa coletiva de prática). Na peça publicada, o crédito vai na legenda do post.</p>
       <p class="nota">A Faixa de Manifesto usa a versão curta da frase, da Plataforma de Branding ("suas dúvidas", "Aqui, elas se tornarão firmes"); a versão longa do manifesto ("suas inseguranças") também vale, desde que inteira.</p>
     </div>
 
@@ -671,7 +644,7 @@
         <li>Três personas canônicas: Gabriel (Start), Camila (Start, depois Master) e Bruno (Master e Pro).</li>
         <li>Cada uma tem falsa convicção, inimigo, desejo essencial e tom de conversão. A peça ataca uma crença por vez (lei L1).</li>
         <li>Joana, Lucas, Rafael e Sylvia, da Plataforma de Branding, viram subperfis; Sylvia cobre o programa Pro.</li>
-        <li>Persona não tem rosto: nunca ilustrar com foto de banco ou imagem gerada.</li>
+        <li>Persona não tem rosto em peça: os retratos da agência são ilustração gerada por IA, ficam só no material interno e sempre rotulados.</li>
       </ul>
     </div>
 
@@ -738,12 +711,13 @@
       <div class="bloco-head">
         <p class="bloco-n credito">04.2</p>
         <h3 class="fala">Os heros por persona, em peça</h3>
-        <p class="bloco-apoio">Os três títulos prontos para teste A/B, no campo de cada produto. A persona nunca aparece escrita na peça: ela está na crença que o título derruba.</p>
+        <p class="bloco-apoio">Os três títulos prontos para teste A/B, como Plano de Abertura: foto P&amp;B real da escola, véu calculado e o logotipo do produto. A persona nunca aparece escrita nem retratada na peça: ela está na crença que o título derruba. A foto mostra a prática, não a persona.</p>
       </div>
       <div class="pecas f01-ampliavel">
         <div class="peca" data-formato="1080x1350" data-nome="Para Gabriel · crença: não tenho talento" data-estacao="start">
           <div class="peca-tela grao">
-            <div class="f01-cartela">
+            <img class="f01-pfoto" src="assets/foto/acervo/void_traco_02_4x5.webp" width="1080" height="1350" alt="Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID" loading="lazy" decoding="async">
+            <div class="f01-cartela f01-sobre">
               <p class="f01-cartela-topo">The VOID Start</p>
               <p class="f01-titulo">Talento é consequência de <em class="off">treino</em>.</p>
               <div class="f01-pe">
@@ -756,7 +730,8 @@
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="Para Camila · crença: já passei da hora" data-estacao="start">
           <div class="peca-tela grao">
-            <div class="f01-cartela">
+            <img class="f01-pfoto" src="assets/foto/acervo/void_aula_04_4x5.webp" width="1080" height="1350" alt="Aluna de máscara tatuando a perna de um cliente deitado na maca, sala com murais da escola" loading="lazy" decoding="async">
+            <div class="f01-cartela f01-sobre">
               <p class="f01-cartela-topo">The VOID Start</p>
               <p class="f01-titulo">Sua experiência é um <em class="off">diferencial</em>, não um atraso.</p>
               <div class="f01-pe">
@@ -769,7 +744,8 @@
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="Para Bruno · crença: preciso de mais técnica" data-estacao="master">
           <div class="peca-tela grao">
-            <div class="f01-cartela">
+            <img class="f01-pfoto" src="assets/foto/acervo/void_concentracao_10_4x5.webp" width="1080" height="1350" alt="Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço" loading="lazy" decoding="async">
+            <div class="f01-cartela f01-sobre">
               <p class="f01-cartela-topo">The VOID Master</p>
               <p class="f01-titulo">Técnica sem posicionamento é <em class="off">invisível</em>.</p>
               <div class="f01-pe">
@@ -781,6 +757,7 @@
           </div>
         </div>
       </div>
+      <p class="legenda">Fotos: acervo The VOID (projeto desenhado na mesa; aluna em sessão; tatuador em sessão na convenção).</p>
       <div class="faca-nao">
         <figure class="faca">
           <div class="fn-palco"><p class="titulo-secao">Talento é consequência de <em class="off">treino</em>.</p></div>
@@ -842,7 +819,13 @@
       <div class="bloco-head">
         <p class="bloco-n credito">04.3</p>
         <h3 class="fala">Subperfis da agência</h3>
-        <p class="bloco-apoio">As quatro personas da Plataforma de Branding ajudam a afinar a mensagem dentro de cada persona canônica. Os retratos dos slides de persona não são de alunos e saem do sistema.</p>
+        <p class="bloco-apoio">As quatro personas da Plataforma de Branding ajudam a afinar a mensagem dentro de cada persona canônica. Os retratos dos slides de persona foram gerados por IA: aparecem aqui em P&amp;B, com contorno tracejado e rótulo, só como referência de briefing.</p>
+      </div>
+      <div class="f01-ilus">
+        <figure><img src="assets/foto/personas/void_ilustracao_persona-determinada.webp" srcset="assets/foto/personas/void_ilustracao_persona-determinada_thumb.webp 607w, assets/foto/personas/void_ilustracao_persona-determinada.webp 1096w" sizes="(max-width:899px) 50vw, 280px" width="1096" height="1156" alt="Ilustração gerada por IA da persona determinada, não é foto real" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><span class="rotulo">Ilustração de IA</span><b>Joana, a Determinada</b>Ilustração: persona fictícia, não é aluno da The VOID. Nunca usar como foto da escola nem em peça pública.</figcaption></figure>
+        <figure><img src="assets/foto/personas/void_ilustracao_persona-persistente.webp" srcset="assets/foto/personas/void_ilustracao_persona-persistente_thumb.webp 607w, assets/foto/personas/void_ilustracao_persona-persistente.webp 1096w" sizes="(max-width:899px) 50vw, 280px" width="1096" height="1156" alt="Ilustração gerada por IA da persona persistente, não é foto real" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><span class="rotulo">Ilustração de IA</span><b>Lucas, o Persistente</b>Ilustração: persona fictícia, não é aluno da The VOID. Nunca usar como foto da escola nem em peça pública.</figcaption></figure>
+        <figure><img src="assets/foto/personas/void_ilustracao_persona-buscador.webp" srcset="assets/foto/personas/void_ilustracao_persona-buscador_thumb.webp 607w, assets/foto/personas/void_ilustracao_persona-buscador.webp 1096w" sizes="(max-width:899px) 50vw, 280px" width="1096" height="1156" alt="Ilustração gerada por IA da persona buscador, não é foto real" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><span class="rotulo">Ilustração de IA</span><b>Rafael, o Buscador</b>Ilustração: persona fictícia, não é aluno da The VOID. Nunca usar como foto da escola nem em peça pública.</figcaption></figure>
+        <figure><img src="assets/foto/personas/void_ilustracao_persona-visionaria.webp" srcset="assets/foto/personas/void_ilustracao_persona-visionaria_thumb.webp 607w, assets/foto/personas/void_ilustracao_persona-visionaria.webp 1096w" sizes="(max-width:899px) 50vw, 280px" width="1096" height="1156" alt="Ilustração gerada por IA da persona visionária, não é foto real" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><span class="rotulo">Ilustração de IA</span><b>Sylvia, a Visionária</b>Ilustração: persona fictícia, não é aluno da The VOID. Nunca usar como foto da escola nem em peça pública.</figcaption></figure>
       </div>
       <div class="tabela-wrap f01-corresp" tabindex="0">
         <table>
@@ -961,6 +944,13 @@ Prova usada: [número com Crédito de Prova, ou nenhuma]</code></pre>
         <p class="rotulo">Frase-guia interna · não é copy</p>
         <p class="f01-guia"><span>No escuro, uma luz.</span><span>Na luz, uma mão.</span><span>Na mão, um traço.</span></p>
       </div>
+      <h4 class="intertitulo">A ideia nas fotos da escola</h4>
+      <div class="f01-luzes">
+        <figure><img src="assets/foto/acervo/void_concentracao_03_4x5.webp" width="1080" height="1350" alt="Tatuador debruçado sobre o trabalho sob a luz da luminária, visto de cima" loading="lazy" decoding="async"><figcaption><em>No escuro, uma luz.</em>A luminária de cima é a única fonte. O resto do quadro cai para o preto, que ocupa mais da metade da cena.</figcaption></figure>
+        <figure><img src="assets/foto/acervo/void_maos_02_4x5.webp" width="1080" height="1350" alt="Vista de cima de sessão de tatuagem com perna, máquina e bancada de tintas no estande da The VOID" loading="lazy" decoding="async"><figcaption><em>Na luz, uma mão.</em>A luz encontra as mãos e a pele; luva e material de uso único ficam visíveis, porque a biossegurança também é imagem.</figcaption></figure>
+        <figure><img src="assets/foto/acervo/void_traco_01_4x5.webp" width="1080" height="1350" alt="Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa" loading="lazy" decoding="async"><figcaption><em>Na mão, um traço.</em>O traço fica nítido onde a luz bate. É o plano que toda série de fotos precisa ter.</figcaption></figure>
+      </div>
+      <p class="legenda">Fotos: acervo The VOID, tratadas no P&amp;B Ritual e no Vazio (seção 29). Nenhuma foi iluminada para o manual: a luz única já é a luz da escola.</p>
     </div>
 
     <div class="bloco" id="s05-2">

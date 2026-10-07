@@ -63,6 +63,30 @@ img{display:block}
 @media (max-width:480px){
   .i-creditos .sep-g{display:block;height:0;margin:0;overflow:hidden}
 }
+/* mosaico de fotos reais (assets/foto/acervo, uso autorizado pela The VOID, 10/2026) e aplicações do rebranding */
+.i-mosaico{position:relative;z-index:1;padding:0 0 var(--e-8)}
+.i-mos{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:120px;gap:8px}
+.i-mos figure{position:relative;margin:0;overflow:hidden;background:var(--bastidor);min-width:0}
+.i-mos img{width:100%;height:100%;object-fit:cover}
+.i-m1{grid-column:1/6;grid-row:1/5}
+.i-m2{grid-column:6/9;grid-row:1/3}
+.i-m3{grid-column:9/13;grid-row:1/3}
+.i-m4{grid-column:6/10;grid-row:3/5}
+.i-m5{grid-column:10/13;grid-row:3/5}
+.i-mos-legenda{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-top:var(--e-3)}
+.i-mos-legenda p{font:400 var(--fs-apoio)/1.5 var(--font-texto);color:var(--po)}
+.i-apl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:var(--e-7)}
+.i-apl figure{margin:0;min-width:0}
+.i-apl .i-apl-q{aspect-ratio:4/3;overflow:hidden;background:var(--bastidor)}
+.i-apl img{width:100%;height:100%;object-fit:cover}
+.i-apl figcaption{margin-top:8px;font:400 14px/1.4 var(--font-texto);color:var(--po)}
+@media (max-width:760px){
+  .i-mos{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+  .i-mos figure{grid-column:auto;grid-row:auto;aspect-ratio:4/5}
+  .i-m1{grid-column:1/-1!important;aspect-ratio:4/5}
+  .i-m3{aspect-ratio:4/5}
+  .i-apl{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 </head>
 <body class="grao">
@@ -75,6 +99,28 @@ img{display:block}
       <h1 class="titulo-filme" id="i-titulo">Tudo da marca, <em class="off">num lugar</em></h1>
       <p class="i-apoio">O manual de marca manda; o guia de uso leva o pedido até a regra; os modelos produzem a peça. Abra pelo manual quando a dúvida for de regra e pelo modelo quando já souber o que vai fazer.</p>
       <a class="botao" href="brand-book.html">Abrir o manual de marca<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+  </section>
+
+
+  <section class="i-mosaico" aria-labelledby="i-g0">
+    <div class="i-wrap">
+      <h2 class="credito" id="i-g0" style="margin-bottom:var(--e-4)">A escola em imagem</h2>
+      <div class="i-mos">
+        <figure class="i-m1"><img src="assets/foto/acervo/void_concentracao_10_4x5.webp" srcset="assets/foto/acervo/void_concentracao_10_thumb.webp 512w, assets/foto/acervo/void_concentracao_10_4x5.webp 1080w" sizes="(max-width:760px) 100vw, 430px" width="1080" height="1350" alt="Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço" loading="eager"  decoding="async" style="object-position:45% 45%"></figure>
+        <figure class="i-m2"><img src="assets/foto/acervo/void_pele_13_4x5.webp" srcset="assets/foto/acervo/void_pele_13_thumb.webp 512w, assets/foto/acervo/void_pele_13_4x5.webp 1080w" sizes="(max-width:760px) 50vw, 260px" width="1080" height="1350" alt="Águia com flor em estilo tradicional tatuada em preto e cinza" loading="lazy" decoding="async" style="object-position:50% 50%"></figure>
+        <figure class="i-m3"><img src="assets/foto/acervo/void_aula_01_16x9.webp" srcset="assets/foto/acervo/void_aula_01_thumb.webp 640w, assets/foto/acervo/void_aula_01_16x9.webp 1920w" sizes="(max-width:760px) 50vw, 350px" width="1920" height="1080" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" loading="lazy" decoding="async" style="object-position:50% 50%"></figure>
+        <figure class="i-m4"><img src="assets/foto/acervo/void_maos_05_1x1.webp" width="1080" height="1080" alt="Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão" loading="lazy" decoding="async" style="object-position:50% 42%"></figure>
+        <figure class="i-m5"><img src="assets/foto/acervo/void_professor_02_4x5.webp" srcset="assets/foto/acervo/void_professor_02_thumb.webp 427w, assets/foto/acervo/void_professor_02_4x5.webp 1080w" sizes="(max-width:760px) 50vw, 260px" width="1080" height="1350" alt="Professor conversando com aluno sentado na sala ampla de janelas em arco da escola" loading="lazy" decoding="async" style="object-position:50% 55%"></figure>
+      </div>
+      <div class="i-mos-legenda"><p>Processo, aula, professor e o trabalho na pele: a fotografia da marca é a escola de verdade, em preto e branco.</p><p class="credito">Fotos: acervo The VOID</p></div>
+      <div class="i-apl" role="group" aria-label="Aplicações do rebranding">
+        <figure><div class="i-apl-q"><img src="assets/aplicacoes/mockups/void_mockup_caixa-kit-start.webp" srcset="assets/aplicacoes/mockups/void_mockup_caixa-kit-start_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_caixa-kit-start.webp 2400w" sizes="(max-width:760px) 50vw, 260px" width="2400" height="1350" alt="Caixa do Kit Start The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div><figcaption>Caixa do Kit Start</figcaption></figure>
+        <figure><div class="i-apl-q"><img src="assets/aplicacoes/mockups/void_mockup_lambe-lambe.webp" srcset="assets/aplicacoes/mockups/void_mockup_lambe-lambe_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_lambe-lambe.webp 2400w" sizes="(max-width:760px) 50vw, 260px" width="2400" height="1214" alt="Muro com lambe-lambes da campanha The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div><figcaption>Lambe-lambe da campanha</figcaption></figure>
+        <figure><div class="i-apl-q"><img src="assets/aplicacoes/mockups/void_mockup_moletom.webp" srcset="assets/aplicacoes/mockups/void_mockup_moletom_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_moletom.webp 2400w" sizes="(max-width:760px) 50vw, 260px" width="2400" height="1350" alt="Moletom branco com capuz e logotipo The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div><figcaption>Moletom com o logotipo</figcaption></figure>
+        <figure><div class="i-apl-q"><img src="assets/aplicacoes/mockups/void_mockup_banca-de-jornal.webp" srcset="assets/aplicacoes/mockups/void_mockup_banca-de-jornal_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_banca-de-jornal.webp 2400w" sizes="(max-width:760px) 50vw, 260px" width="2400" height="1350" alt="Banca de jornal envelopada com a campanha The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div><figcaption>Banca envelopada</figcaption></figure>
+      </div>
+      <p class="credito" style="margin-top:var(--e-3)">Aplicações: rebranding The VOID, mockups da agência</p>
     </div>
   </section>
 

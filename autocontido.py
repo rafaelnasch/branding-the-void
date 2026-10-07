@@ -17,6 +17,10 @@ O que faz, em cada HTML:
    (o e-mail). Os SVG oficiais de assets/brand/svg entram sempre nas páginas com motor, porque
    o vforms.js monta o caminho do selo e do logotipo na hora;
 5. url(assets/...) dentro de <style> vira data URI direto;
+5b. limite de 16 MB por arquivo: se as fotos do acervo (assets/foto/acervo, personas, demo,
+   aplicacoes/mockups e email-foto) em resolução cheia estourarem, refaz com elas reduzidas
+   (lado maior 1600, 1280, 1024, 800 e 640 px, WebP 74, na memória) até caber; o lado usado
+   aparece na linha "fotos=" da saída. A resolução cheia fica no repositório e no site;
 6. link entre arquivos da marca (brand-book.html#s22, lockup.html...) passa a apontar para o
    nome que o arquivo ganha em dist/; link para outro arquivo do repositório (tokens.json,
    assets/foto/receitas.md) ganha "../", para continuar abrindo a partir de dist/.
@@ -155,6 +159,29 @@ def aviso_ofl():
             % ("; ".join(avisos) or "Copyright dos autores de cada projeto"))
 
 
+RE_FOTO = re.compile(r"assets/(?:foto/(?:acervo|personas|demo)|aplicacoes/(?:mockups|email-foto))/[^/]+\.(?:webp|jpe?g|png)$")
+LADOS = (None, 1600, 1280, 1024, 800, 640)
+_CACHE_LEVE = {}
+
+
+def data_uri_leve(rel, caminho, lado):
+    """Foto do acervo, mockup ou demo reduzida para o lado maior `lado` (WebP 74), só na memória.
+    O arquivo do repositório não muda; a proporção se mantém, então o layout não mexe."""
+    chave = (rel, lado)
+    if chave not in _CACHE_LEVE:
+        from io import BytesIO
+        from PIL import Image
+        im = Image.open(caminho)
+        if max(im.size) <= lado:
+            _CACHE_LEVE[chave] = data_uri(caminho)
+        else:
+            im.thumbnail((lado, lado), Image.LANCZOS)
+            buf = BytesIO()
+            im.save(buf, "WEBP", quality=74, method=6)
+            _CACHE_LEVE[chave] = "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
+    return _CACHE_LEVE[chave]
+
+
 def data_uri(caminho):
     tipo = mimetypes.guess_type(caminho)[0] or "application/octet-stream"
     if caminho.endswith(".svg"):
@@ -206,6 +233,17 @@ def ajusta_links(trecho, nome_origem):
 
 
 def autocontido(origem, destino):
+    """Monta o arquivo único. Se passar de 16 MB com as fotos em resolução cheia, refaz com as
+    fotos do acervo, mockups e demonstrações reduzidas (lado maior 1600, 1280, 1024, 800, 640 px)
+    até caber. Logotipo, selos, texturas e SVG entram sempre como estão."""
+    for lado in LADOS:
+        r = _monta(origem, destino, lado)
+        if r is not None or lado == LADOS[-1]:
+            break
+    return r is not None
+
+
+def _monta(origem, destino, lado):
     html = open(origem, encoding="utf-8").read()
     nome = os.path.basename(origem)
     # 0. tokens.css dentro do arquivo, no mesmo lugar
@@ -236,6 +274,14 @@ def autocontido(origem, destino):
             tem_motor = True
             codigo = open(os.path.join(RAIZ, js), encoding="utf-8").read().replace("</script", "<\\/script")
             html = rx.sub(lambda m: "<script>/* %s */\n%s\n</script>" % (js, codigo), html, count=1)
+    # 2b. modo reduzido: srcset de foto fica só com a maior opção (todas já cabem no lado reduzido)
+    if lado:
+        def so_maior(m):
+            cands = [c.strip() for c in m.group(2).split(",") if c.strip()]
+            if len(cands) < 2 or not any(RE_FOTO.match(c.split()[0]) for c in cands):
+                return m.group(0)
+            return m.group(1) + cands[-1] + m.group(3)
+        html = fora_de_codigo(html, lambda t: re.sub(r'(\ssrcset=")([^"]*)(")', so_maior, t))
     # 3. dicionário de imagens (cada arquivo uma vez só)
     usados = set(m.group(0) for m in RE_ASSET.finditer(html))
     # caminho montado na hora pelo script ('assets/aplicacoes/selo-email-' + p + '.png'):
@@ -252,7 +298,7 @@ def autocontido(origem, destino):
     for p in sorted(usados):
         c = os.path.join(RAIZ, p)
         if os.path.isfile(c):
-            mapa[p] = data_uri(c)
+            mapa[p] = data_uri_leve(p, c, lado) if (lado and RE_FOTO.match(p)) else data_uri(c)
         else:
             faltando.append(p)
 
@@ -267,10 +313,13 @@ def autocontido(origem, destino):
     while i < len(partes):
         trecho = partes[i]
         if i % 3 == 0:
+            # no modo reduzido a foto fica só no dicionário (uma cópia); o script troca na carga
+            def em_linha(c):
+                return mapa.get(c, c) if not (lado and RE_FOTO.match(c)) else c
             trecho = re.sub(r'(<(?:img|source|image|link|video)\b[^>]*?\s)(src|href|poster)="(assets/[^"]*)"',
-                            lambda m: '%s%s="%s"' % (m.group(1), m.group(2), mapa.get(m.group(3), m.group(3))), trecho)
+                            lambda m: '%s%s="%s"' % (m.group(1), m.group(2), em_linha(m.group(3))), trecho)
             trecho = re.sub(r'(\ssrcset=")([^"]*assets/[^"]*)(")',
-                            lambda m: m.group(1) + re.sub(r"assets/[^\s,]+", lambda u: mapa.get(u.group(0), u.group(0)), m.group(2)) + m.group(3), trecho)
+                            lambda m: m.group(1) + re.sub(r"assets/[^\s,]+", lambda u: em_linha(u.group(0)), m.group(2)) + m.group(3), trecho)
             trecho = ajusta_links(trecho, nome)
             saida.append(trecho)
             i += 1
@@ -281,16 +330,19 @@ def autocontido(origem, destino):
     # 6. o script de troca entra logo depois do <meta charset>
     bloco = TROCA % json.dumps(mapa, separators=(",", ":"))
     html = re.sub(r"(<meta charset=[^>]*>)", lambda m: m.group(1) + "\n" + bloco, html, count=1)
+    tamanho = len(html.encode())
+    if tamanho > LIMITE and lado != LADOS[-1]:
+        return None
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     with open(destino, "w", encoding="utf-8") as f:
         f.write(html)
-    tamanho = len(html.encode())
-    print("ok %-40s %6d KB  imagens=%-3d fontes=%d%s" % (
+    print("ok %-40s %6d KB  imagens=%-3d fontes=%d  fotos=%s%s" % (
         os.path.relpath(destino, RAIZ), tamanho // 1024, len(mapa), len(blocos),
+        ("até %d px" % lado) if lado else "cheias",
         ("  sem arquivo (ficam como estão): " + ", ".join(faltando)) if faltando else ""))
     if tamanho > LIMITE:
         print("ERRO: %s passou de 16 MB" % destino)
-        return False
+        return None
     return True
 
 

@@ -33,7 +33,7 @@ Instale uma vez e peça o material em português. O Claude passa a produzir post
 | `vforms.js` · `vviz.js` | Os motores: formas da casa (grão, Esfera, Eco, Mapa da Trilha, órbitas, selo, rodapé...) e gráficos com régua de prova, em SVG puro, sem dependências. |
 | `autocontido.py` · `exportar_pdf.py` | Arquivo único para enviar (em `dist/`) e PDF. |
 | `tools/` | Geradores e conferências (comandos abaixo). |
-| `assets/` | Marca oficial, texturas, LUTs, SEO, aplicações de e-mail, leia-me das fontes, exemplo de legenda e a pasta original da agência intacta. |
+| `assets/` | Marca oficial, **acervo fotográfico** (`foto/acervo/`, 78 fotos reais da escola com catálogo), mockups do rebranding (`aplicacoes/mockups/`), texturas, LUTs, SEO, aplicações de e-mail, leia-me das fontes, exemplo de legenda e a pasta original da agência intacta. |
 | `dist/` | **Para enviar a alguém.** Os 12 HTML em arquivo único (abrem sozinhos no e-mail, WhatsApp, Drive e celular) e os PDF do manual e da apresentação. |
 
 ## Instalar
@@ -107,6 +107,29 @@ O logotipo da The VOID **nunca** é redigitado, redesenhado, contornado ou recol
 
 Títulos em **Archivo** (variável, peso e largura), voz em off em **Newsreader Italic 300** (a **Alga**, comercial, entra só onde houver licença e nunca neste repositório) e texto em **Nunito Sans** (provisória). As três livres vêm de um único link do Google Fonts, que está no `SKILL.md` e no `lockup.html`.
 
+## Acervo fotográfico
+
+A The VOID é uma escola de arte que vende tatuagem: toda peça leva foto real da escola. O acervo está em `assets/foto/acervo/`, com **uso autorizado pela The VOID em 10/2026** (Lucas Tengan, sócio; confirmado pela GrowAI). Os arquivos estão sem metadados de câmera e sem GPS.
+
+| O quê | Onde |
+|---|---|
+| 78 fotos reais em 13 temas: pele tatuada finalizada (18), retratos de alunos e professores (14), concentração (10), mãos e máquina (6), aula (5), professor ensinando (5), escola (4), eventos (4), comunidade (3), traço (3), materiais de treino (3), marca no ambiente (3) | `assets/foto/acervo/` |
+| Catálogo: descrição, texto alternativo, tema, regime, versão principal, onde usar, alerta, ponto de foco e origem de cada foto | `assets/foto/acervo/catalogo.json` |
+| Visão geral em uma imagem e guia curto | `_folha-de-contato.webp` e `LEIA-ME.md`, na mesma pasta |
+| 27 mockups das aplicações do rebranding (referência, nunca foto da escola) | `assets/aplicacoes/mockups/` |
+| 4 personas geradas por IA, só com o rótulo "Ilustração: persona fictícia, não é aluno da The VOID" | `assets/foto/personas/` |
+| Fotos de e-mail em 1200 px e demonstração das LUTs | `assets/aplicacoes/email-foto/` e `assets/foto/demo/` |
+
+**Nome e variantes.** `void_<tema>_<nn>_<variante>.webp`: `pb` (P&B Ritual), `vazio`, `terra`, `original`, recortes `4x5`, `9x16`, `16x9` e `1x1` com o foco no assunto, e `thumb` de 640 px.
+
+**Regimes.** `pb-ritual` é o padrão (processo, aula, professor, marca); `pb-vazio` vai em capa, hero e topo de funil; `cor-terra` em depoimento, comunidade e evento; `cor-arte` só em tatuagem colorida, com a cor real do trabalho. Use a `versao_principal` do catálogo e no máximo uma imagem colorida a cada quatro. O grão é aplicado no layout, nunca no arquivo.
+
+**Como escolher.** Por tema: método e prática pedem `maos`, `traco` e `materiais`; prova de resultado, `pele`; autoridade, `professor` e `retrato` em P&B; pertencimento, `comunidade`, `evento` e `retrato` em Terra; lugar, `escola` e `marca`. Por canal: hero de LP e capa em `vazio` 16x9 (4x5 no celular); feed e carrossel em 4x5; story, Reels e capa vertical em 9x16; VSL e YouTube em 16x9; e-mail com as fotos de 1200 px; avatar e grade em 1x1; prévias e PDF com a `thumb`. Na página, use `srcset` com a `thumb`, `width` e `height`, `loading="lazy"` fora da primeira dobra e o `alt` do catálogo.
+
+**Cuidados.** Confira o campo `alerta` antes de usar: decalque vermelho sai só em P&B; placa de premiação só em comunidade e membros; boné com marca de terceiro e trabalho em andamento ficam fora de anúncio pago. Antes de impulsionar, confirme se a autorização de imagem cobre anúncio pago [P 22]. Nada de sangue em destaque, pele lesionada em close, pessoa que pareça menor de 18 anos, tela com dado de aluno ou cartão com telefone (o mockup do cartão de visita já vem com os dados borrados).
+
+**Crédito.** Foto: "Foto: acervo The VOID", na legenda ou no pé, com contexto quando ajudar ("Foto: acervo The VOID · aula prática"). Mockup: "Aplicação do rebranding, Plataforma de Branding, aureadesign, 2025". Persona: o rótulo de ilustração. Nome de professor só depois da confirmação de grafia e autorização [P 13].
+
 ## Comandos
 
 Todos rodam da raiz do repositório com `python3` (os que renderizam precisam de Playwright com Chromium; os de imagem, de Pillow). Os marcados com ✓ foram rodados em 06/10/2026 e passaram.
@@ -123,22 +146,23 @@ Todos rodam da raiz do repositório com `python3` (os que renderizam precisam de
 | Conferir os pares de contraste | `python3 tools/contraste.py --check` ✓ (40 livres, 10 condicionados, 33 HEX iguais ao `tokens.json`) |
 | Conferir os valores do `SKILL.md` | `python3 tools/conferir_skill.py --spec <caminho da especificação>` ✓ (261 verificações, 59 pares de contraste; sem `--spec`, só contra o `tokens.json`) |
 | Gate de aceite dos HTML | `python3 tools/verificar.py` ✓ (completo, com Lighthouse) · só o arquivo: `--rapido` ✓ · sem desempenho: `--sem-lighthouse` · com `dist/`: `--dist` ✓ |
-| Arquivo único para enviar | `python3 autocontido.py` (todos) ou `python3 autocontido.py arquivo.html` → `dist/` ✓ |
-| PDF | `python3 exportar_pdf.py` → `dist/brand-book.pdf` (A4) e `dist/apresentacao-the-void.pdf` (1440 por 900) ✓ |
+| Arquivo único para enviar | `python3 autocontido.py` (todos) ou `python3 autocontido.py arquivo.html` → `dist/` ✓ (se passar de 16 MB, refaz com as fotos reduzidas; ver abaixo) |
+| PDF | `python3 exportar_pdf.py` → `dist/brand-book.pdf` (A4) e `dist/apresentacao-the-void.pdf` (1440 por 900) ✓ (fotos em JPEG de até 1000 px e miniaturas onde houver) |
 
 ### Última verificação: 06/10/2026
 
 | Conferência | Resultado |
 |---|---|
-| Montagem do manual (`tools/montar_brand_book.py`) | Aprovada: 36 de 36 seções, 340 ids, 206 links internos, 0 erros e 0 avisos |
+| Montagem do manual (`tools/montar_brand_book.py`) | Aprovada: 36 de 36 seções, 348 ids, 209 links internos, 0 erros e 0 avisos |
 | Gate de aceite (`tools/verificar.py`, itens 1 a 10) | Aprovado: 17 arquivos HTML, 0 falhas e 0 avisos; largura sem rolagem em 320, 390 e 1440 px; movimento reduzido conferido |
 | Lighthouse de acessibilidade (item 10) | Manual 97; modelo de LP 100; modelo de artigo 100; área de membros 100 (mínimo exigido: 95) |
 | Gate sobre `dist/` (`--dist --sem-lighthouse`) | Aprovado: 29 arquivos HTML, 0 falhas |
 | Contraste (`tools/contraste.py --check`) | Aprovado: 40 pares livres com 4,5:1 ou mais, 10 condicionados com 3:1 ou mais, 33 HEX iguais ao `tokens.json` |
 | Valores do `SKILL.md` (`tools/conferir_skill.py`) | Aprovado: 197 verificações contra o `tokens.json`; 261 com `--spec` (59 de 59 pares de contraste), 0 divergências |
-| Arquivos únicos (`autocontido.py`) | 12 HTML em `dist/`, com imagens e fontes livres dentro |
-| PDF (`exportar_pdf.py`) | Manual: 232 páginas A4, nenhuma em branco; apresentação: 9 páginas de 1440 por 900, nenhuma em branco |
-| Olhar humano (item 11) | Manual renderizado seção a seção em 1440 e 390 px, com amostra conferida a olho em cada uma das nove partes; cada modelo renderizado uma vez em 1440 px |
+| Arquivos únicos (`autocontido.py`) | 12 HTML em `dist/`, com imagens e fontes livres dentro, todos abaixo de 16 MB. O manual (15,5 MB) leva as fotos reduzidas a 1024 px no lado maior; os outros levam as fotos em resolução cheia. O kit social e o kit de VSL embutem as fotos de partida; o resto do acervo abre no site publicado |
+| PDF (`exportar_pdf.py`) | Manual: 267 páginas A4, 27 MB, nenhuma em branco; apresentação: 10 páginas de 1440 por 900, 8 MB, nenhuma em branco (fotos em JPEG de até 1000 px) |
+| Olhar humano (item 11) | Manual renderizado seção a seção em 1440 e 390 px, com amostra conferida a olho; cada modelo renderizado uma vez em 1440 px; nenhuma imagem quebrada |
+| Peso do manual no site | Abertura: cerca de 2 MB em 29 pedidos; rolando até o fim: cerca de 12 MB em 1440 px e 11 MB em 390 px (fotos fora da primeira dobra com `loading="lazy"`) |
 
 ## Conformidade
 
@@ -159,6 +183,7 @@ Material publicado em 06/10/2026 no GitHub Pages pela GrowAI para a The VOID, em
 - 06/10/2026: manual renderizado em 1440 e 390 px por seção; guia, entrada e modelos em 1440, 390 e 320 px; amostras do PDF A4 conferidas a olho.
 - 06/10/2026 (fechamento): manual renderizado de novo em 1440 e 390 px por seção depois das últimas correções; entrada, guia, trechos, kit social, LP, VSL, área de membros, M1 a M8, e-mail, artigo e apresentação renderizados uma vez em 1440 px.
 - 06/10/2026 (publicação): casos concretos do cliente trocados por regras genéricas; seções alteradas do manual (objeções, régua de prova, cores fora do sistema, claims vetados e pendências) renderizadas em 1440 e 390 px, sem rolagem lateral; imagem de compartilhamento regerada.
+- 06/10/2026 (acervo fotográfico): manual com fotos reais renderizado por seção em 1440 e 390 px e cada modelo uma vez em 1440 px; leitura de texto nas 119 imagens do acervo, mockups, personas, e-mail e canal, sem telefone nem dado pessoal (o mockup do cartão de visita já vem borrado); a faixa de texto da arte original de uma foto de concentração foi cortada; capa do PDF com a foto atrás do título.
 
 ---
 

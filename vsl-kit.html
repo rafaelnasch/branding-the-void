@@ -356,9 +356,54 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
 }
 @media print{.topo,.acoes,.seletor,.indice{display:none}}
 </style>
+<style data-fragmento="acervo">
+/* =====================================================================
+   ACERVO FOTOGRÁFICO no kit de VSL (prefixo vk-ac-). Fotos reais da
+   escola; uso autorizado pela The VOID, 10/2026. Legenda de crédito:
+   "Foto: acervo The VOID" (não é Crédito de Prova).
+   ===================================================================== */
+.vk-ac-cr{font:400 13px/1.4 var(--font-texto);color:var(--po)}
+.vk-ac-nota{margin-top:16px;max-width:var(--coluna-leitura);font:400 15px/1.5 var(--font-texto);color:var(--po)}
+.vk-ac-nota b{color:var(--cal);font-weight:600}
+.modo-leitura .vk-ac-nota{color:var(--ardosia)}
+.modo-leitura .vk-ac-nota b{color:var(--sala)}
+.vk-ac-hero{margin-top:56px;display:grid;gap:12px}
+.vk-ac-hero img{display:block;width:100%;height:auto;aspect-ratio:2.39/1;object-fit:cover;background:var(--nanquim);border-top:1px solid var(--fio);border-bottom:1px solid var(--fio)}
+.vk-ac-hero figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px}
+.vk-ac-broll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.vk-ac-broll figure{display:grid;gap:10px;align-content:start;min-width:0}
+.vk-ac-broll img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--nanquim)}
+.vk-ac-broll figcaption{font:400 14px/1.45 var(--font-texto);color:var(--po)}
+.vk-ac-broll figcaption b{display:block;margin-bottom:2px;font:500 12px/1.2 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--tela)}
+.vk-ac-montagem{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.vk-ac-montagem figure{display:grid;gap:8px;min-width:0}
+.vk-ac-montagem img,.vk-ac-montagem canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--nanquim);border:1px solid var(--fio)}
+.vk-ac-montagem figcaption{font:500 11px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.vk-ac-painel{padding:12px;background:var(--bastidor);border:1px solid var(--fio)}
+.vk-ac-temas{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.vk-ac-temas button{min-height:36px;padding:0 10px;border:1px solid var(--fio);border-radius:0;background:transparent;color:var(--cal);cursor:pointer;font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.1em;text-transform:uppercase}
+.vk-ac-temas button[aria-pressed="true"]{background:var(--tela);border-color:var(--tela);color:var(--sala)}
+.vk-ac-grade{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;max-height:320px;overflow-y:auto}
+.vk-ac-grade button{display:block;width:100%;aspect-ratio:1;padding:0;border:2px solid transparent;border-radius:0;background:var(--nanquim);cursor:pointer;overflow:hidden}
+.vk-ac-grade button:hover{border-color:var(--fumaca)}
+.vk-ac-grade button[aria-pressed="true"]{border-color:var(--areia)}
+.vk-ac-grade img{display:block;width:100%;height:100%;object-fit:cover}
+.vk-ac-abre[aria-expanded="true"]{background:var(--tela);color:var(--sala);border-color:var(--tela)}
+.vk-ac-quadro{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vk-ac-sob{margin-top:0}
+.blocos .vk-ac-broll-r{display:block;margin-top:12px}
+.blocos .vk-ac-broll-r img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--cinza-100)}
+.blocos .vk-ac-broll-r span{display:block;margin-top:6px;font:400 13px/1.4 var(--font-texto);color:var(--penumbra)}
+@media (max-width:1100px){.vk-ac-broll{grid-template-columns:repeat(2,minmax(0,1fr))}.vk-ac-montagem{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.vk-ac-montagem{grid-template-columns:repeat(2,minmax(0,1fr))}.vk-ac-grade{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:430px){.vk-ac-hero img{aspect-ratio:16/10}.vk-ac-broll{gap:12px}}
+</style>
 </head>
 <body class="grao">
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<script type="application/json" id="void-acervo">{"autorizacao":"uso autorizado pela The VOID, 10/2026","temas":[["todos","Todas"],["maos","Mãos e máquina"],["traco","Traço"],["concentracao","Concentração"],["aula","Aula"],["professor","Professor"],["retrato","Retratos"],["pele","Pele tatuada"],["escola","Escola"],["comunidade","Comunidade e eventos"],["marca","Marca"],["materiais","Pele artificial e kit"]],"fotos":[{"id":"void_maos_01","t":"maos","g":"pb-ritual","v":"pb","fx":0.42,"fy":0.42,"alt":"Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID","al":"Decalque vermelho na cor original: usar a versão P&B como principal.","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_maos_01_thumb.webp","tw":[640,360]},{"id":"void_maos_02","t":"maos","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.5,"alt":"Vista de cima de sessão de tatuagem com perna, máquina e bancada de tintas no estande da The VOID","al":"Decalque vermelho na cor original: usar a versão P&B.","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_maos_02_thumb.webp","tw":[640,360]},{"id":"void_maos_03","t":"maos","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Dois tatuadores vistos de cima trabalhando lado a lado na maca, com equipamentos e luvas","al":"","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_maos_03_thumb.webp","tw":[640,360]},{"id":"void_maos_04","t":"maos","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.42,"alt":"Tatuadora de máscara e luvas nitrílicas tatuando o braço de um cliente na escola The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1600],"th":"assets/foto/acervo/void_maos_04_thumb.webp","tw":[360,640]},{"id":"void_maos_05","t":"maos","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.42,"alt":"Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1216,684],"1x1":[1080,1080]},"m":[1216,2160],"th":"assets/foto/acervo/void_maos_05_thumb.webp","tw":[360,640]},{"id":"void_maquina_01","t":"maos","g":"cor-arte","v":"original","fx":0.5,"fy":0.4,"alt":"Máquina de tatuagem preenchendo um peixe colorido em laranja e azul na pele, mão com luva","al":"Trabalho em andamento: evitar close grande em anúncio.","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1349,759],"1x1":[1080,1080]},"m":[1349,2400],"th":"assets/foto/acervo/void_maquina_01_thumb.webp","tw":[360,640]},{"id":"void_materiais_01","t":"materiais","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.5,"alt":"Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_materiais_01_thumb.webp","tw":[640,360]},{"id":"void_traco_01","t":"traco","g":"pb-ritual","v":"pb","fx":0.6,"fy":0.4,"alt":"Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa","al":"Decalque vermelho na cor original: usar a versão P&B.","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_traco_01_thumb.webp","tw":[640,360]},{"id":"void_traco_02","t":"traco","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1152,648],"1x1":[1080,1080]},"m":[1152,2048],"th":"assets/foto/acervo/void_traco_02_thumb.webp","tw":[360,640]},{"id":"void_traco_03","t":"traco","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1600],"th":"assets/foto/acervo/void_traco_03_thumb.webp","tw":[360,640]},{"id":"void_materiais_02","t":"materiais","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2400,2400],"th":"assets/foto/acervo/void_materiais_02_thumb.webp","tw":[640,640]},{"id":"void_materiais_03","t":"materiais","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Pele artificial com andorinha tatuada vista de cima na bancada de treino da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2400,2400],"th":"assets/foto/acervo/void_materiais_03_thumb.webp","tw":[640,640]},{"id":"void_marca_01","t":"marca","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.38,"alt":"Mão tatuada segurando caderno preto com o logotipo da The VOID Tattoo Academy","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1600,2400],"th":"assets/foto/acervo/void_marca_01_thumb.webp","tw":[427,640]},{"id":"void_marca_02","t":"marca","g":"pb-vazio","v":"vazio","fx":0.4,"fy":0.42,"alt":"Letreiro iluminado THE VOID TATTOO ACADEMY no estande da convenção, visto de baixo","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_marca_02_thumb.webp","tw":[640,360]},{"id":"void_marca_03","t":"marca","g":"pb-ritual","v":"pb","fx":0.62,"fy":0.4,"alt":"Estande da The VOID na convenção visto de baixo, com letreiro e estrutura metálica","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_marca_03_thumb.webp","tw":[640,360]},{"id":"void_escola_01","t":"escola","g":"pb-ritual","v":"pb","fx":0.4,"fy":0.5,"alt":"Estande da The VOID na convenção com sessão de tatuagem em andamento e letreiro iluminado","al":"","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_escola_01_thumb.webp","tw":[640,360]},{"id":"void_escola_02","t":"escola","g":"pb-ritual","v":"pb","fx":0.45,"fy":0.5,"alt":"Estande da The VOID com logotipo grande e várias sessões de tatuagem acontecendo na convenção","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_escola_02_thumb.webp","tw":[640,360]},{"id":"void_escola_03","t":"escola","g":"pb-ritual","v":"pb","fx":0.45,"fy":0.6,"alt":"Sala da escola The VOID com janelas em arco e várias macas em uso durante a aula prática","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1600],"th":"assets/foto/acervo/void_escola_03_thumb.webp","tw":[360,640]},{"id":"void_escola_04","t":"escola","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Sala de aula da The VOID cheia de alunos em mesas longas, professor ao fundo","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1600],"th":"assets/foto/acervo/void_escola_04_thumb.webp","tw":[360,640]},{"id":"void_aula_01","t":"aula","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_aula_01_thumb.webp","tw":[640,360]},{"id":"void_aula_02","t":"aula","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Mesa longa de alunos praticando tatuagem em pele sintética sob luminárias","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_aula_02_thumb.webp","tw":[640,360]},{"id":"void_aula_03","t":"aula","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Alunos tatuando sob luminárias durante imersão da The VOID, em ambiente escuro","al":"","r":{"4x5":[1080,1350],"9x16":[569,1012],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1800,1012],"th":"assets/foto/acervo/void_aula_03_thumb.webp","tw":[640,360]},{"id":"void_aula_04","t":"aula","g":"pb-ritual","v":"pb","fx":0.45,"fy":0.6,"alt":"Aluna de máscara tatuando a perna de um cliente deitado na maca, sala com murais da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1067,600],"1x1":[1080,1080]},"m":[1067,1600],"th":"assets/foto/acervo/void_aula_04_thumb.webp","tw":[427,640]},{"id":"void_aula_05","t":"aula","g":"pb-ritual","v":"pb","fx":0.38,"fy":0.42,"alt":"Aluno de máscara tatuando o antebraço de um cliente sob luminária, janelas em arco ao fundo","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,2400],"th":"assets/foto/acervo/void_aula_05_thumb.webp","tw":[512,640]},{"id":"void_professor_01","t":"professor","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.3,"alt":"Professor Lucas Tengan em pé falando para alunas sentadas na sala da escola The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1600,2400],"th":"assets/foto/acervo/void_professor_01_thumb.webp","tw":[427,640]},{"id":"void_professor_02","t":"professor","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Professor conversando com aluno sentado na sala ampla de janelas em arco da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1600,2400],"th":"assets/foto/acervo/void_professor_02_thumb.webp","tw":[427,640]},{"id":"void_professor_03","t":"professor","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.6,"alt":"Professor e aluna de máscara tatuando juntos um cliente deitado de lado na escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1067,600],"1x1":[1080,1080]},"m":[1067,1600],"th":"assets/foto/acervo/void_professor_03_thumb.webp","tw":[427,640]},{"id":"void_professor_04","t":"professor","g":"pb-ritual","v":"pb","fx":0.6,"fy":0.45,"alt":"Professora orientando de perto um aluno que tatua o antebraço de outra pessoa","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[818,1448],"th":"assets/foto/acervo/void_professor_04_thumb.webp","tw":[362,640]},{"id":"void_professor_05","t":"professor","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.35,"alt":"Professor de boné orientando uma aluna de máscara durante a prática na The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[618,1098],"16x9":[1404,790],"1x1":[1080,1080]},"m":[1404,1098],"th":"assets/foto/acervo/void_professor_05_thumb.webp","tw":[640,501]},{"id":"void_concentracao_01","t":"concentracao","g":"pb-vazio","v":"vazio","fx":0.55,"fy":0.4,"alt":"Tatuador de boné e máscara concentrado sob a luz da luminária, camiseta The VOID","al":"Boné com logotipo de marca de terceiro: evitar em anúncio pago sem acordo.","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_concentracao_01_thumb.webp","tw":[640,360]},{"id":"void_concentracao_02","t":"concentracao","g":"pb-vazio","v":"vazio","fx":0.55,"fy":0.45,"alt":"Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_concentracao_02_thumb.webp","tw":[640,360]},{"id":"void_concentracao_03","t":"concentracao","g":"pb-vazio","v":"vazio","fx":0.45,"fy":0.5,"alt":"Tatuador debruçado sobre o trabalho sob a luz da luminária, visto de cima","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_concentracao_03_thumb.webp","tw":[640,360]},{"id":"void_concentracao_04","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.45,"alt":"Tatuador de máscara trabalhando nas costas de um cliente no estande, público observando","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_concentracao_04_thumb.webp","tw":[640,360]},{"id":"void_concentracao_05","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Tatuadora de camiseta The VOID concentrada no trabalho, vista de cima","al":"","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_concentracao_05_thumb.webp","tw":[640,360]},{"id":"void_concentracao_06","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.4,"fy":0.45,"alt":"Tatuador de boné tatuando sob luminária durante a convenção","al":"","r":{"4x5":[1080,1350],"9x16":[720,1280],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1280],"th":"assets/foto/acervo/void_concentracao_06_thumb.webp","tw":[640,427]},{"id":"void_concentracao_07","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1600],"th":"assets/foto/acervo/void_concentracao_07_thumb.webp","tw":[360,640]},{"id":"void_concentracao_08","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.45,"alt":"Professor da The VOID tatuando de máscara na convenção","al":"","r":{"4x5":[787,984],"9x16":[787,1399],"16x9":null,"1x1":[787,787]},"m":[787,1400],"th":"assets/foto/acervo/void_concentracao_08_thumb.webp","tw":[360,640]},{"id":"void_concentracao_09","t":"concentracao","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.45,"alt":"Professor Ayelo Padalino tatuando de máscara, concentrado no traço","al":"","r":{"4x5":[787,984],"9x16":[787,1399],"16x9":null,"1x1":[787,787]},"m":[787,1400],"th":"assets/foto/acervo/void_concentracao_09_thumb.webp","tw":[360,640]},{"id":"void_concentracao_10","t":"concentracao","g":"pb-vazio","v":"vazio","fx":0.45,"fy":0.45,"alt":"Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,2400],"th":"assets/foto/acervo/void_concentracao_10_thumb.webp","tw":[512,640]},{"id":"void_pele_01","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.42,"alt":"Perna inteira tatuada com arara colorida, trabalho do professor Denis Mota no estande The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1800,2400],"th":"assets/foto/acervo/void_pele_01_thumb.webp","tw":[480,640]},{"id":"void_pele_02","t":"pele","g":"pb-ritual","v":"pb","fx":0.6,"fy":0.45,"alt":"Ombro com tatuagem blackwork de rosto demoníaco em preto e cinza","al":"","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_pele_02_thumb.webp","tw":[640,360]},{"id":"void_pele_03","t":"pele","g":"pb-ritual","v":"pb","fx":0.55,"fy":0.5,"alt":"Close de antebraço com tatuagem blackwork sob luz lateral dramática","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_pele_03_thumb.webp","tw":[640,360]},{"id":"void_pele_04","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Tornozelos com tatuagens pequenas e tênis, sessão de tatuagem ao fundo","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_pele_04_thumb.webp","tw":[640,360]},{"id":"void_pele_05","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.4,"alt":"Costas fechadas com tigre realista em preto e cinza, trabalho de um professor da The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[788,1400],"16x9":[1139,641],"1x1":[1080,1080]},"m":[1139,1400],"th":"assets/foto/acervo/void_pele_05_thumb.webp","tw":[521,640]},{"id":"void_pele_06","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Braço fechado em estilo oriental com carpas, trabalho do professor Ayelo Padalino","al":"","r":{"4x5":[1080,1350],"9x16":[759,1350],"16x9":[1080,608],"1x1":[1080,1080]},"m":[1080,1350],"th":"assets/foto/acervo/void_pele_06_thumb.webp","tw":[512,640]},{"id":"void_pele_07","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.5,"alt":"Arara realista tatuada na panturrilha, trabalho da aluna Açucena na The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1350,759],"1x1":[1080,1080]},"m":[1350,1800],"th":"assets/foto/acervo/void_pele_07_thumb.webp","tw":[480,640]},{"id":"void_pele_08","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.45,"alt":"Ave-do-paraíso colorida tatuada na panturrilha, trabalho da aluna Isis na The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_pele_08_thumb.webp","tw":[427,640]},{"id":"void_pele_09","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.42,"alt":"Costas fechadas com divindade e flor de lótus em vermelho, trabalho do aluno Matias","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_pele_09_thumb.webp","tw":[427,640]},{"id":"void_pele_10","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Vaso com costela-de-adão tatuado nas costas, trabalho da aluna Karina na The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1274,717],"1x1":[1080,1080]},"m":[1274,1556],"th":"assets/foto/acervo/void_pele_10_thumb.webp","tw":[524,640]},{"id":"void_pele_11","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.4,"alt":"Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_pele_11_thumb.webp","tw":[427,640]},{"id":"void_pele_12","t":"pele","g":"cor-arte","v":"original","fx":0.5,"fy":0.45,"alt":"Máscara oni japonesa tatuada na panturrilha, fotografada sob luz rosa","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1800,2400],"th":"assets/foto/acervo/void_pele_12_thumb.webp","tw":[480,640]},{"id":"void_pele_13","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Águia com flor em estilo tradicional tatuada em preto e cinza","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,2400],"th":"assets/foto/acervo/void_pele_13_thumb.webp","tw":[512,640]},{"id":"void_pele_14","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Cavalo-marinho pontilhado em blackwork tatuado no braço","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,2400],"th":"assets/foto/acervo/void_pele_14_thumb.webp","tw":[512,640]},{"id":"void_pele_15","t":"pele","g":"pb-ritual","v":"pb","fx":0.45,"fy":0.4,"alt":"Rosto feminino tatuado em preto e cinza no antebraço","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1905],"th":"assets/foto/acervo/void_pele_15_thumb.webp","tw":[484,640]},{"id":"void_pele_16","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.4,"alt":"Criatura alada tatuada em preto e cinza nas costas e no ombro","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_pele_16_thumb.webp","tw":[480,640]},{"id":"void_pele_17","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.5,"alt":"Rosto feminino com asas tatuado na coxa, mostrado na noite de formatura","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_pele_17_thumb.webp","tw":[480,640]},{"id":"void_pele_18","t":"pele","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.4,"alt":"Figura feminina com lua em pontilhismo tatuada no ombro","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_pele_18_thumb.webp","tw":[480,640]},{"id":"void_retrato_01","t":"retrato","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.28,"alt":"Lucas Tengan, sócio da The VOID, de braços cruzados e camiseta da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1349,759],"1x1":[1080,1080]},"m":[1349,2400],"th":"assets/foto/acervo/void_retrato_01_thumb.webp","tw":[360,640]},{"id":"void_retrato_02","t":"retrato","g":"pb-ritual","v":"pb","fx":0.42,"fy":0.4,"alt":"Retrato de Lucas Tengan no estande da The VOID com letreiro iluminado ao fundo","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_retrato_02_thumb.webp","tw":[640,360]},{"id":"void_retrato_03","t":"retrato","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.32,"alt":"Professor Denis Mota de braços cruzados vestindo camiseta The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[799,1421],"16x9":null,"1x1":[1080,1080]},"m":[900,1421],"th":"assets/foto/acervo/void_retrato_03_thumb.webp","tw":[405,640]},{"id":"void_retrato_04","t":"retrato","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.38,"alt":"Retrato em preto e branco de um professor da The VOID","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":null,"1x1":[1080,1080]},"m":[900,1481],"th":"assets/foto/acervo/void_retrato_04_thumb.webp","tw":[389,640]},{"id":"void_retrato_05","t":"retrato","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.3,"alt":"Aluna e tatuadora sorrindo com tatuagem cicatrizada na coxa, adesivo VOID na parede","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2085,2378],"th":"assets/foto/acervo/void_retrato_05_thumb.webp","tw":[561,640]},{"id":"void_retrato_06","t":"retrato","g":"cor-terra","v":"terra","fx":0.5,"fy":0.4,"alt":"Aluna Açucena apontando para a arara que tatuou na panturrilha da cliente","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1206,678],"1x1":[1080,1080]},"m":[1206,1564],"th":"assets/foto/acervo/void_retrato_06_thumb.webp","tw":[494,640]},{"id":"void_retrato_07","t":"retrato","g":"cor-terra","v":"terra","fx":0.5,"fy":0.4,"alt":"Aluna Karina ao lado da cliente de costas tatuadas com vaso e costela-de-adão","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_retrato_07_thumb.webp","tw":[427,640]},{"id":"void_retrato_08","t":"retrato","g":"cor-terra","v":"terra","fx":0.5,"fy":0.38,"alt":"Aluno Matias sorrindo ao lado do cliente com as costas fechadas que ele tatuou","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_retrato_08_thumb.webp","tw":[427,640]},{"id":"void_retrato_09","t":"retrato","g":"cor-terra","v":"terra","fx":0.5,"fy":0.5,"alt":"Aluna Isis agachada ao lado da cliente com a ave-do-paraíso tatuada, corredor da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1200,675],"1x1":[1080,1080]},"m":[1200,1800],"th":"assets/foto/acervo/void_retrato_09_thumb.webp","tw":[427,640]},{"id":"void_retrato_10","t":"retrato","g":"cor-terra","v":"terra","fx":0.4,"fy":0.38,"alt":"Aluno sorrindo e apontando a tatuagem em preto e cinza que fez na perna da cliente","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,2400],"th":"assets/foto/acervo/void_retrato_10_thumb.webp","tw":[512,640]},{"id":"void_retrato_11","t":"retrato","g":"cor-terra","v":"terra","fx":0.38,"fy":0.4,"alt":"Aluna sorrindo e apontando o vaso com flores que tatuou na perna da cliente","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1600,2000],"th":"assets/foto/acervo/void_retrato_11_thumb.webp","tw":[512,640]},{"id":"void_retrato_12","t":"retrato","g":"cor-terra","v":"terra","fx":0.38,"fy":0.4,"alt":"Aluna sorrindo ao lado da tatuagem finalizada na coxa, fundo de folhagem da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_retrato_12_thumb.webp","tw":[480,640]},{"id":"void_retrato_13","t":"retrato","g":"cor-terra","v":"terra","fx":0.5,"fy":0.35,"alt":"Duas alunas posando com a tatuagem finalizada no braço, fundo de folhagem da escola","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_retrato_13_thumb.webp","tw":[480,640]},{"id":"void_retrato_14","t":"retrato","g":"cor-terra","v":"terra","fx":0.55,"fy":0.3,"alt":"Aluna de perfil mostrando tatuagem em preto e cinza no braço, fundo de folhagem","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1440,1920],"th":"assets/foto/acervo/void_retrato_14_thumb.webp","tw":[480,640]},{"id":"void_comunidade_01","t":"comunidade","g":"cor-terra","v":"terra","fx":0.5,"fy":0.5,"alt":"Grupo de alunos reunidos no terraço da escola no evento Liberdade com Tatuagem","al":"","r":{"4x5":[1080,1350],"9x16":[720,1280],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1280],"th":"assets/foto/acervo/void_comunidade_01_thumb.webp","tw":[640,427]},{"id":"void_comunidade_02","t":"comunidade","g":"pb-ritual","v":"pb","fx":0.5,"fy":0.55,"alt":"Pessoa de costas vestindo camiseta com o símbolo da The VOID no corredor da convenção","al":"","r":{"4x5":[1080,1350],"9x16":[647,1151],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[2048,1151],"th":"assets/foto/acervo/void_comunidade_02_thumb.webp","tw":[640,360]},{"id":"void_comunidade_03","t":"comunidade","g":"cor-terra","v":"terra","fx":0.5,"fy":0.5,"alt":"Turma grande da The VOID comemorando de braços erguidos sob o telão da escola","al":"","r":{"4x5":[720,900],"9x16":null,"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1600,900],"th":"assets/foto/acervo/void_comunidade_03_thumb.webp","tw":[640,360]},{"id":"void_evento_01","t":"comunidade","g":"cor-terra","v":"terra","fx":0.5,"fy":0.5,"alt":"Turma de formatura reunida sob a faixa Parabéns Voiders no terraço da escola à noite","al":"","r":{"4x5":[1080,1350],"9x16":[607,1079],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1079],"th":"assets/foto/acervo/void_evento_01_thumb.webp","tw":[640,360]},{"id":"void_evento_04","t":"comunidade","g":"cor-terra","v":"terra","fx":0.6,"fy":0.5,"alt":"Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista","al":"","r":{"4x5":[1080,1350],"9x16":[1080,1920],"16x9":[1920,1080],"1x1":[1080,1080]},"m":[1920,1497],"th":"assets/foto/acervo/void_evento_04_thumb.webp","tw":[640,499]}]}</script>
+<!-- arquivos de partida do acervo: a versão autocontida (dist/) embute estes em resolução cheia; o resto do acervo abre em resolução cheia no site publicado ou no servidor local -->
+<script type="application/json" id="void-acervo-partida">["assets/foto/acervo/void_concentracao_03_vazio.webp", "assets/foto/acervo/void_concentracao_10_vazio.webp", "assets/foto/acervo/void_retrato_02_pb.webp", "assets/foto/acervo/void_aula_01_pb.webp", "assets/foto/acervo/void_materiais_01_pb.webp", "assets/foto/acervo/void_professor_01_16x9.webp", "assets/foto/acervo/void_professor_01_9x16.webp", "assets/foto/acervo/void_retrato_14_16x9.webp", "assets/foto/acervo/void_retrato_14_9x16.webp"]</script>
 
 <header class="topo" role="banner">
   <a class="topo-marca" href="#k00" aria-label="The VOID Tattoo Academy, início do kit"><img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="158" height="24"></a>
@@ -386,6 +431,10 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
       <span class="credito">Versão 1 · 06/10/2026</span>
       <span class="credito">Status: proposta GrowAI, aguarda aprovação da The VOID</span>
     </div>
+    <figure class="vk-ac-hero">
+      <img src="assets/foto/acervo/void_aula_03_16x9.webp" srcset="assets/foto/acervo/void_aula_03_thumb.webp 640w, assets/foto/acervo/void_aula_03_16x9.webp 1920w" sizes="(max-width:1100px) 100vw, 1100px" width="1920" height="1080" alt="Alunos tatuando sob luminárias durante imersão da The VOID, em ambiente escuro" decoding="async" style="object-position:50% 50%" fetchpriority="high">
+      <figcaption><span class="credito">Imersão na escola · o tipo de quadro que abre uma VSL</span><span class="vk-ac-cr">Foto: acervo The VOID</span></figcaption>
+    </figure>
     <nav class="indice" aria-label="Peças do kit">
       <a href="#k01"><span class="n">01</span>Como usar</a>
       <a href="#k02"><span class="n">02</span>Capa</a>
@@ -415,7 +464,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
       <li>Escolha o produto no alto. A peça muda de cor, de texto de partida e de rótulo do botão.</li>
       <li>Edite o texto à esquerda de cada peça. A peça é desenhada no tamanho real e só exporta quando passa nas regras (prova com crédito, nada de valor em reais na capa, zero travessão).</li>
       <li>O que ainda depende da escola aparece entre chaves, como <code>{{A_CONFIRMAR}}</code>, ou com o número da pendência, como [P 15]. Peça com pendência não exporta.</li>
-      <li>Fotos de banco ou geradas por IA não entram. Onde vai imagem, o kit desenha o espaço da foto real, com autorização.</li>
+      <li>Fotos de banco ou geradas por IA não entram. Onde vai imagem, o kit traz uma foto real do acervo da escola, que você troca por tema ou pela sua, sempre com autorização.</li>
     </ul></div>
     <div class="bloco" id="k01-1">
       <div class="bloco-head"><p class="bloco-n credito">01.1</p><h3 class="fala">O fluxo de uma VSL</h3><p class="bloco-apoio">Do roteiro à publicação, nesta ordem.</p></div>
@@ -425,6 +474,20 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
         <p><b>3. Legenda.</b> Cole o texto falado na seção 04. O kit quebra em blocos de no máximo duas linhas e baixa o arquivo <code>.srt</code>. A legenda vai queimada no vídeo vertical e em arquivo em todo vídeo público.</p>
         <p><b>4. Publicação.</b> Passe pelo checklist (seção 08) e copie o resumo para quem aprova.</p>
       </div>
+    </div>
+    <div class="bloco" id="k01-2">
+      <div class="bloco-head"><p class="bloco-n credito">01.2</p><h3 class="fala">B-roll do acervo</h3><p class="bloco-apoio">Planos reais da escola para cobrir a fala. Preto e branco Ritual por padrão; cor Terra só em comunidade e depoimento, no máximo um plano colorido a cada quatro.</p></div>
+      <div class="vk-ac-broll">
+          <figure><img src="assets/foto/acervo/void_concentracao_02_16x9.webp" srcset="assets/foto/acervo/void_concentracao_02_thumb.webp 640w, assets/foto/acervo/void_concentracao_02_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária" loading="lazy" decoding="async" style="object-position:55% 45%"><figcaption><b>Gancho</b>rosto em concentração, 2 a 4 s</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_traco_01_16x9.webp" srcset="assets/foto/acervo/void_traco_01_thumb.webp 640w, assets/foto/acervo/void_traco_01_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa" loading="lazy" decoding="async" style="object-position:60% 40%"><figcaption><b>Processo</b>o traço sobre o estêncil, mão nítida</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_aula_01_16x9.webp" srcset="assets/foto/acervo/void_aula_01_thumb.webp 640w, assets/foto/acervo/void_aula_01_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><b>Aula</b>a mesa de prática, a turma trabalhando</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_professor_01_16x9.webp" srcset="assets/foto/acervo/void_professor_01_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Professor Lucas Tengan em pé falando para alunas sentadas na sala da escola The VOID" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption><b>Método</b>o professor falando para a turma</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_pele_13_16x9.webp" srcset="assets/foto/acervo/void_pele_13_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Águia com flor em estilo tradicional tatuada em preto e cinza" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><b>Prova</b>trabalho finalizado, preto e cinza</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_materiais_01_16x9.webp" srcset="assets/foto/acervo/void_materiais_01_thumb.webp 640w, assets/foto/acervo/void_materiais_01_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente" loading="lazy" decoding="async" style="object-position:55% 50%"><figcaption><b>Respiro</b>bancada e máquina, com o som da sala</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_comunidade_01_16x9.webp" srcset="assets/foto/acervo/void_comunidade_01_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Grupo de alunos reunidos no terraço da escola no evento Liberdade com Tatuagem" loading="lazy" decoding="async" style="object-position:50% 50%"><figcaption><b>Comunidade</b>a turma junta, cor Terra</figcaption></figure>
+          <figure><img src="assets/foto/acervo/void_evento_04_16x9.webp" srcset="assets/foto/acervo/void_evento_04_16x9.webp 1920w" sizes="(max-width:640px) 50vw, (max-width:1100px) 25vw, 280px" width="1920" height="1080" alt="Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista" loading="lazy" decoding="async" style="object-position:60% 50%"><figcaption><b>Evento</b>palco do Talks, cor Terra</figcaption></figure>
+      </div>
+      <p class="vk-ac-nota"><b>Foto: acervo The VOID.</b> Fotos reais da escola, tratadas nos regimes Ritual, Vazio e Terra. Uso autorizado pela The VOID, 10/2026; antes de usar em anúncio pago, confira se a autorização de quem aparece cobre essa finalidade. As mãos são o personagem: toda VSL tem ao menos um plano de mão em ação, com luva e biossegurança visíveis.</p>
     </div>
     <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 06 (leis L1, L6 e L8) e 34 (VSL); relatório de conversão GrowAI para LP e VSL, out/2026.</p>
   </div>
@@ -461,8 +524,9 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
           </div>
           <div class="campo">
             <span class="rotulo" id="capa-foto-r">Foto real da escola</span>
-            <div class="arquivo"><input type="file" id="capa-foto" accept="image/*" class="so-leitor" aria-labelledby="capa-foto-r capa-foto-nome"><label for="capa-foto" class="acao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Escolher foto</label><span id="capa-foto-nome">Nenhuma foto escolhida</span><button type="button" class="acao" id="capa-foto-tirar" hidden>Tirar foto</button></div>
-            <p class="dica">Rosto ou mãos, com autorização de imagem para este canal. A foto fica só no seu navegador. Sem foto, a prévia mostra o espaço reservado e a exportação fica travada: o espaço reservado nunca sai no arquivo.</p>
+            <div class="arquivo"><button type="button" class="acao vk-ac-abre" id="capa-acervo-abre" aria-expanded="false" aria-controls="capa-acervo"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Acervo</button><input type="file" id="capa-foto" accept="image/*" class="so-leitor" aria-labelledby="capa-foto-r capa-foto-nome"><label for="capa-foto" class="acao">Enviar foto</label><button type="button" class="acao" id="capa-foto-tirar" hidden>Tirar foto</button><span id="capa-foto-nome">Nenhuma foto escolhida</span></div>
+            <div class="vk-ac-painel" id="capa-acervo" hidden></div>
+            <p class="dica">Rosto ou mãos, com autorização de imagem para este canal. A capa já abre com uma foto do acervo da escola; troque por tema no Acervo ou envie a sua (fica só no seu navegador). Sem foto, a exportação fica travada: o espaço reservado nunca sai no arquivo.</p>
           </div>
           <label class="marcar"><input type="checkbox" id="capa-aut" disabled><span>Tenho a autorização de imagem por escrito de quem aparece, cobrindo este canal e esta finalidade (orgânico ou anúncio)</span></label>
           <label class="marcar"><input type="checkbox" id="capa-selo"><span>Usar o selo do produto no lugar do logotipo de produto</span></label>
@@ -475,7 +539,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
           </div>
         </form>
         <div class="vitrine">
-          <figure class="peca-fig"><canvas id="cv-capa-h" width="1280" height="720" role="img" aria-label="Capa 1280 por 720"></canvas><figcaption><span class="credito">1280 por 720 · player e YouTube</span></figcaption></figure>
+          <figure class="peca-fig"><canvas id="cv-capa-h" width="1280" height="720" role="img" aria-label="Capa 1280 por 720"></canvas><figcaption><span class="credito">1280 por 720 · player e YouTube</span><span class="vk-ac-cr" data-ac-cr="capa"></span></figcaption></figure>
           <div class="vitrine-par">
             <figure class="peca-fig"><canvas id="cv-capa-v" width="1080" height="1920" role="img" aria-label="Capa 1080 por 1920"></canvas><figcaption><span class="credito">1080 por 1920 · Stories e Reels</span></figcaption></figure>
             <figure class="peca-fig"><canvas id="cv-capa-f" width="1080" height="1350" role="img" aria-label="Capa 1080 por 1350"></canvas><figcaption><span class="credito">1080 por 1350 · feed</span></figcaption></figure>
@@ -586,6 +650,17 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
         </div>
       </div>
     </div>
+    <div class="bloco" id="k03-3">
+      <div class="bloco-head"><p class="bloco-n credito">03.3</p><h3 class="fala">Na montagem</h3><p class="bloco-apoio">A cartela não leva foto: ela respira entre duas cenas reais. Cena, cartela, cena: nunca três do mesmo tipo seguidas (L8).</p></div>
+      <ol class="vk-ac-montagem" aria-label="Trecho de montagem com cenas do acervo e cartelas">
+          <li><figure><img src="assets/foto/acervo/void_maos_01_16x9.webp" srcset="assets/foto/acervo/void_maos_01_thumb.webp 640w, assets/foto/acervo/void_maos_01_16x9.webp 1920w" sizes="(max-width:640px) 100vw, 220px" width="1920" height="1080" alt="Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID" loading="lazy" decoding="async" style="object-position:42% 42%"><figcaption>Cena</figcaption></figure></li>
+          <li><figure><canvas data-montagem="vazio" width="1920" height="1080" role="img" aria-label="Cartela Vazio"></canvas><figcaption>Cartela Vazio</figcaption></figure></li>
+          <li><figure><img src="assets/foto/acervo/void_concentracao_10_16x9.webp" srcset="assets/foto/acervo/void_concentracao_10_16x9.webp 1920w" sizes="(max-width:640px) 100vw, 220px" width="1920" height="1080" alt="Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço" loading="lazy" decoding="async" style="object-position:45% 45%"><figcaption>Cena</figcaption></figure></li>
+          <li><figure><canvas data-montagem="virada" width="1920" height="1080" role="img" aria-label="Cartela Virada"></canvas><figcaption>Cartela Virada</figcaption></figure></li>
+          <li><figure><img src="assets/foto/acervo/void_professor_02_16x9.webp" srcset="assets/foto/acervo/void_professor_02_16x9.webp 1920w" sizes="(max-width:640px) 100vw, 220px" width="1920" height="1080" alt="Professor conversando com aluno sentado na sala ampla de janelas em arco da escola" loading="lazy" decoding="async" style="object-position:50% 55%"><figcaption>Cena</figcaption></figure></li>
+      </ol>
+      <p class="vk-ac-nota"><b>Foto: acervo The VOID.</b> As cartelas acompanham o produto escolhido no alto.</p>
+    </div>
     <p class="fontes"><b>Fontes desta seção</b>Manual de marca da The VOID, seções 22 (Cartela), 24 (Marcador de Capítulo), 25 (Crédito de Prova), 16 (Modo Leitura), 19 (escala de vídeo) e 33 (frases-modelo); crenças das personas: Personas, set/2026, e Brand DNA da The VOID, set/2026; "Tatuar não é desenhar. É uma técnica nova.": site oficial, consultado em 06/10/2026.</p>
   </div>
 </section>
@@ -617,6 +692,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
             <textarea id="lg-texto" rows="7"></textarea>
           </div>
           <div class="abas" role="group" aria-label="Formato da legenda"><button type="button" data-formato-legenda="h" aria-pressed="true">16:9</button><button type="button" data-formato-legenda="v" aria-pressed="false">9:16</button></div>
+          <div class="campo"><label for="lg-quadro">Quadro de exemplo (acervo)</label><select id="lg-quadro"></select><p class="dica">Só para ver a legenda sobre um quadro real. O PNG da legenda sai com fundo transparente.</p></div>
           <div class="estado" id="lg-estado" aria-live="polite"></div>
           <div class="acoes">
             <button type="button" class="botao" id="lg-srt">Baixar .srt<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>
@@ -625,7 +701,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
           </div>
         </form>
         <div class="vitrine">
-          <figure class="peca-fig" id="lg-fig"><canvas id="cv-legenda" width="1920" height="1080" role="img" aria-label="Legenda queimada sobre o quadro do vídeo"></canvas><figcaption><span class="credito" id="lg-legenda">Bloco 1</span></figcaption></figure>
+          <figure class="peca-fig" id="lg-fig"><canvas id="cv-legenda" width="1920" height="1080" role="img" aria-label="Legenda queimada sobre o quadro do vídeo"></canvas><figcaption><span class="credito" id="lg-legenda">Bloco 1</span><span class="vk-ac-cr">Foto: acervo The VOID</span></figcaption></figure>
           <ol class="cues" id="lg-cues" aria-label="Blocos de legenda"></ol>
         </div>
       </div>
@@ -660,6 +736,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
           <div class="campo"><label for="lt-funcao">Função ou ponto de partida</label><input type="text" id="lt-funcao" autocomplete="off"><p class="dica">A única linha em itálico do quadro. Ano da turma só com a confirmação do aluno.</p></div>
           <div class="campo"><label for="lt-dur">Duração na tela: <span id="lt-dur-v">3,5 s</span></label><input type="range" id="lt-dur" min="3" max="4" step="0.5" value="3.5"></div>
           <div class="abas" role="group" aria-label="Formato do lower third"><button type="button" data-formato-lt="h" aria-pressed="true">16:9 · 1920 por 1080</button><button type="button" data-formato-lt="v" aria-pressed="false">9:16 · 1080 por 1920</button></div>
+          <div class="campo"><label for="lt-quadro">Quadro de exemplo (acervo)</label><select id="lt-quadro"></select><p class="dica">Nome e função de exemplo não identificam a pessoa da foto. Na VSL, o lower third vai sobre a fala real de quem autorizou nome e imagem [P 13].</p></div>
           <label class="marcar"><input type="checkbox" id="lt-veu" checked><span>Véu de leitura de 70% atrás do crédito (use sempre que o fundo do vídeo for claro ou movimentado)</span></label>
           <div class="estado" id="lt-estado" aria-live="polite"></div>
           <div class="acoes">
@@ -670,9 +747,10 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
         </form>
         <div class="vitrine">
           <div class="lt-palco" id="lt-palco" data-formato="h">
-            <div class="lt-quadro" aria-hidden="true"><span>Quadro do vídeo · foto real da escola, com autorização</span></div>
+            <img class="vk-ac-quadro" id="lt-quadro-img" alt="" decoding="async">
             <div class="lt anima" id="lt-demo"><span class="lt-fio" aria-hidden="true"></span><div><p class="lt-nome" id="lt-demo-nome"></p><p class="lt-funcao" id="lt-demo-funcao"></p></div></div>
           </div>
+          <p class="vk-ac-nota vk-ac-sob"><span id="lt-quadro-alt"></span> <b>Foto: acervo The VOID.</b></p>
           <div class="tempos" aria-label="Tempos do lower third a 24 quadros por segundo">
             <div><b>8 q</b><span>fio cresce (333 ms)</span></div>
             <div><b>480 ms</b><span>nome entra, 16 px de subida</span></div>
@@ -844,6 +922,24 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var KIT = window.VSLKit = {};
 
+  /* ---------- acervo fotográfico real (resumo de assets/foto/acervo/catalogo.json) ---------- */
+  var ACERVO = JSON.parse($('#void-acervo').textContent), AC = {};
+  ACERVO.fotos.forEach(function (a) { AC[a.id] = a; });
+  /* caminho montado por partes: a versão autocontida só embute o que está escrito por inteiro */
+  var AC_DIR = ['assets', 'foto', 'acervo', ''].join('/');
+  function acArq(id, v) { return AC_DIR + id + '_' + v + '.webp'; }
+  function temArquivo(p) { var m = window.__VOID_ASSETS; return !m || !!m[p]; }
+  function acCor(a) { return a.g === 'cor-terra' || a.g === 'cor-arte'; }
+  function acFonte(a, prefs) {
+    for (var i = 0; i < prefs.length; i++) { var v = prefs[i]; if ((v === a.v || v === 'original' || a.r[v]) && temArquivo(acArq(a.id, v))) return acArq(a.id, v); }
+    return a.th;
+  }
+  function acPos(a) { return Math.round(a.fx * 100) + '% ' + Math.round(a.fy * 100) + '%'; }
+  var CAPA_PADRAO = { start: 'void_concentracao_03', master: 'void_concentracao_10', pro: 'void_retrato_02', aula: 'void_aula_01' };
+  var LG_QUADROS = ['void_professor_01', 'void_concentracao_10', 'void_aula_01', 'void_retrato_14'];
+  var LT_QUADROS = ['void_retrato_14', 'void_retrato_11', 'void_professor_02', 'void_concentracao_02'];
+  var BROLL = {"gancho": {"src": "assets/foto/acervo/void_concentracao_02_16x9.webp", "srcset": "assets/foto/acervo/void_concentracao_02_thumb.webp 640w, assets/foto/acervo/void_concentracao_02_16x9.webp 1920w", "w": 1920, "h": 1080, "alt": "Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária", "pos": "55% 45%"}, "historia": {"src": "assets/foto/acervo/void_retrato_07_16x9.webp", "srcset": "assets/foto/acervo/void_retrato_07_16x9.webp 1200w", "w": 1200, "h": 675, "alt": "Aluna Karina ao lado da cliente de costas tatuadas com vaso e costela-de-adão", "pos": "50% 40%"}, "metodo": {"src": "assets/foto/acervo/void_maos_05_16x9.webp", "srcset": "assets/foto/acervo/void_maos_05_16x9.webp 1216w", "w": 1216, "h": 684, "alt": "Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão", "pos": "50% 42%"}, "prova": {"src": "assets/foto/acervo/void_pele_15_16x9.webp", "srcset": "assets/foto/acervo/void_pele_15_16x9.webp 1920w", "w": 1920, "h": 1080, "alt": "Rosto feminino tatuado em preto e cinza no antebraço", "pos": "45% 40%"}, "oferta": {"src": "assets/foto/acervo/void_aula_02_16x9.webp", "srcset": "assets/foto/acervo/void_aula_02_thumb.webp 640w, assets/foto/acervo/void_aula_02_16x9.webp 1920w", "w": 1920, "h": 1080, "alt": "Mesa longa de alunos praticando tatuagem em pele sintética sob luminárias", "pos": "50% 50%"}, "objecoes": {"src": "assets/foto/acervo/void_professor_02_16x9.webp", "srcset": "assets/foto/acervo/void_professor_02_16x9.webp 1920w", "w": 1920, "h": 1080, "alt": "Professor conversando com aluno sentado na sala ampla de janelas em arco da escola", "pos": "50% 55%"}};
+
   /* ---------- produtos (spec 3.5, 9.5, 12.1, 12.2) ---------- */
   var PROD = {
     start: {
@@ -898,8 +994,8 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
   var estado = {
     produto: 'start', capa: { texto: '', selo: false, guias: true, foto: null, aut: false },
     formatoCartela: 'h', cartela: 'vazio', cartelas: {},
-    legenda: { texto: '', formato: 'h', atual: 0 },
-    lt: { nome: '', funcao: '', dur: 3.5, formato: 'h', veu: true },
+    legenda: { texto: '', formato: 'h', atual: 0, quadro: 'void_professor_01' },
+    lt: { nome: '', funcao: '', dur: 3.5, formato: 'h', veu: true, quadro: 'void_retrato_14' },
     fecho: 'produto', duracao: 15
   };
 
@@ -1094,9 +1190,21 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     texto(ctx, 'FOTO REAL DA ESCOLA, COM AUTORIZAÇÃO', cx, cy, { peso: 500, tam: tam, wdth: 125, ls: 0.18 }, T.po, 'center');
     if (linhas2) texto(ctx, linhas2, cx, cy + tam * 1.8, { peso: 500, tam: tam * 0.86, wdth: 125, ls: 0.18 }, T.po, 'center');
   }
-  function cobre(ctx, fonteImg, x, y, w, h) {
-    var iw = fonteImg.width, ih = fonteImg.height, e = Math.max(w / iw, h / ih), sw = w / e, sh = h / e;
-    ctx.drawImage(fonteImg, (iw - sw) / 2, (ih - sh) / 2, sw, sh, x, y, w, h);
+  function cobre(ctx, fonteImg, x, y, w, h, foco) {
+    var iw = fonteImg.naturalWidth || fonteImg.width, ih = fonteImg.naturalHeight || fonteImg.height, e = Math.max(w / iw, h / ih), sw = w / e, sh = h / e;
+    var fx = foco ? foco[0] : 0.5, fy = foco ? foco[1] : 0.5;
+    var sx = Math.min(iw - sw, Math.max(0, fx * iw - sw / 2)), sy = Math.min(ih - sh, Math.max(0, fy * ih - sh / 2));
+    ctx.drawImage(fonteImg, sx, sy, sw, sh, x, y, w, h);
+  }
+  /* foto do acervo pronta para a capa: P&B como está; cor passa pelo Ritual (no disco, sem servidor, entra como está) */
+  var cacheAc = {};
+  function acFotoCapa(id) {
+    var a = AC[id];
+    if (!cacheAc[id]) cacheAc[id] = img(acFonte(a, [a.v, 'original'])).then(function (im) {
+      if (!acCor(a)) return im;
+      try { return ritual(im); } catch (e) { return im; }
+    });
+    return cacheAc[id];
   }
   /* P&B Ritual (spec 8.3): 0,36 R + 0,50 G + 0,14 B e curva monótona pelos cinco pontos */
   function curvaMonotona(xs, ys) {
@@ -1200,7 +1308,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
       var res, x0, yTopo, area;
       if (fmt === 'h') {
         var m = 120 * u, fx = Math.round(W / 3);
-        if (foto) cobre(ctx, foto, fx, 0, W - fx, H); else espacoFoto(ctx, fx, 0, W - fx, H, u * 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.6, 0.2]);
+        if (foto) cobre(ctx, foto, fx, 0, W - fx, H, opts.foco); else espacoFoto(ctx, fx, 0, W - fx, H, u * 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.6, 0.2]);
         res = ajustaTitulo(ctx, toks, 0.6 * W - m, 96, 56, 3, 0);
         var lh = res.tam * 0.92, alt = lh * (res.linhas.length - 1) + res.tam * 0.74;
         yTopo = Math.round(H / 2 - alt / 2 + 24 * u);
@@ -1222,7 +1330,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
         var lh2 = res.tam * 0.92, alt2 = lh2 * (res.linhas.length - 1) + res.tam * 0.74;
         yTopo = baseSegura - alt2;
         area = { x: mg, y: yTopo - 24, w: maxW, h: alt2 + 48 };
-        if (foto) cobre(ctx, foto, 0, 0, W, H); else espacoFoto(ctx, 0, 0, W, H, 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.5, fmt === 'v' ? 0.4 : 0.36]);
+        if (foto) cobre(ctx, foto, 0, 0, W, H, opts.foco); else espacoFoto(ctx, 0, 0, W, H, 1.2, 'ROSTO OU MÃOS, LUZ DA ESQUERDA', [0.5, fmt === 'v' ? 0.4 : 0.36]);
         /* véu de base: 78% embaixo, 70% até 48 px acima do título, some 360 px acima (6.5) */
         var yv = Math.max(0, yTopo - 72), gb = ctx.createLinearGradient(0, H, 0, 0);
         gb.addColorStop(0, rgbaSala(0.78)); gb.addColorStop(Math.min(0.98, (H - yv) / H), rgbaSala(0.70)); gb.addColorStop(Math.min(1, (H - yv + 360) / H), rgbaSala(0));
@@ -1469,10 +1577,13 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
   function desenhaLegenda(cv, fmt, cue, transparente) {
     var cfg = LEG[fmt]; cv.width = cfg.W; cv.height = cfg.H;
     var ctx = cv.getContext('2d');
-    return fontes().then(function () {
+    var quadroA = transparente ? null : AC[estado.legenda.quadro], quadro = null;
+    var pQuadro = quadroA ? img(acFonte(quadroA, [fmt === 'h' ? '16x9' : '9x16', quadroA.v])).then(function (im) { quadro = im; }, function () { quadro = null; }) : null;
+    return Promise.all([fontes(), pQuadro]).then(function () {
       ctx.clearRect(0, 0, cfg.W, cfg.H);
       if (!transparente) {
         espacoFoto(ctx, 0, 0, cfg.W, cfg.H, fmt === 'h' ? 1.4 : 1.4, 'QUADRO DO VÍDEO');
+        if (quadro) cobre(ctx, quadro, 0, 0, cfg.W, cfg.H, [quadroA.fx, quadroA.fy]);
         if (fmt === 'v') { ctx.save(); ctx.strokeStyle = T.areia; ctx.lineWidth = 2; ctx.setLineDash([10, 8]); ctx.strokeRect(0, 270, cfg.W, 1230); ctx.strokeRect(cfg.W - 120, 0, 120, cfg.H); ctx.restore(); }
       }
       if (!cue) return;
@@ -1624,7 +1735,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     var vez = ++capaVez, t = estado.capa.texto, r = validaCapa(t);
     $('#capa-selo').disabled = !P().selo;
     var feitos = ['h', 'v', 'f'].map(function (fmt) {
-      return desenhaCapa($('#cv-capa-' + fmt), fmt, t, { guias: estado.capa.guias, selo: estado.capa.selo, foto: estado.capa.foto });
+      return desenhaCapa($('#cv-capa-' + fmt), fmt, t, { guias: estado.capa.guias, selo: estado.capa.selo, foto: estado.capa.foto, foco: estado.capa.foco });
     });
     Promise.all(feitos).then(function (rs) {
       if (vez !== capaVez) return;
@@ -1641,7 +1752,30 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
       $$('[data-exportar^="capa-"]').forEach(function (b) { b.disabled = r.faltas.length > 0; });
       ['h', 'v', 'f'].forEach(function (fmt) { $('#cv-capa-' + fmt).setAttribute('aria-label', 'Capa ' + FORMATOS_CAPA[fmt].join(' por ') + ': ' + t.replace(/\*/g, '')); });
     });
-    desenhaCapa($('#cv-capa-assim'), 'h', P().capa, {});
+    var idAssim = CAPA_PADRAO[estado.produto];
+    acFotoCapa(idAssim).then(function (f) { var a = AC[idAssim]; return desenhaCapa($('#cv-capa-assim'), 'h', P().capa, { foto: f, foco: [a.fx, a.fy] }); }, function () { return desenhaCapa($('#cv-capa-assim'), 'h', P().capa, {}); });
+    var cr = $('[data-ac-cr="capa"]'); if (cr) cr.textContent = estado.capa.acervo ? 'Foto: acervo The VOID' : '';
+  }
+  /* --- capa: acervo --- */
+  function nomeCapa(a) { return a.alt + ' · Foto: acervo The VOID, ' + ACERVO.autorizacao + (acCor(a) ? ' · passada para o preto e branco Ritual' : '') + (a.al ? ' · Atenção: ' + a.al : ''); }
+  function escolheCapa(id, manual) {
+    var a = AC[id]; if (!a) return Promise.resolve();
+    return acFotoCapa(id).then(function (f) {
+      estado.capa.foto = f; estado.capa.acervo = id; estado.capa.foco = [a.fx, a.fy];
+      if (manual) estado.capa.manual = true;
+      $('#capa-foto-nome').textContent = nomeCapa(a); $('#capa-foto-tirar').hidden = false;
+      $('#capa-aut').checked = false; $('#capa-aut').disabled = false;
+      if (!$('#capa-acervo').hidden) gradeCapa();
+      atualizaCapa();
+    }).catch(function () { /* sem a foto, a capa mostra o espaço reservado e não exporta */ });
+  }
+  var temaCapa = null;
+  function gradeCapa() {
+    var atual = estado.capa.acervo ? AC[estado.capa.acervo] : null, tema = temaCapa || (atual ? atual.t : 'todos');
+    var lista = ACERVO.fotos.filter(function (x) { return tema === 'todos' || x.t === tema; });
+    $('#capa-acervo').innerHTML = '<div class="vk-ac-temas" role="group" aria-label="Temas do acervo">' + ACERVO.temas.map(function (t) { return '<button type="button" data-ac-tema="' + t[0] + '" aria-pressed="' + (t[0] === tema) + '">' + esc(t[1]) + '</button>'; }).join('') + '</div>' +
+      '<ul class="vk-ac-grade" aria-label="Fotos do acervo">' + lista.map(function (x) { return '<li><button type="button" data-ac-id="' + x.id + '" aria-pressed="' + (!!atual && atual.id === x.id) + '" title="' + esc(x.alt) + '"><img src="' + x.th + '" alt="' + esc(x.alt) + '" width="' + x.tw[0] + '" height="' + x.tw[1] + '" loading="lazy" decoding="async" style="object-position:' + acPos(x) + '"></button></li>'; }).join('') + '</ul>' +
+      '<p class="dica" style="margin-top:10px">' + lista.length + ' fotos reais da escola. Na capa, a cor vira preto e branco Ritual.' + (window.__VOID_ASSETS ? ' Nesta versão autocontida, só as fotos de partida vêm em resolução cheia.' : '') + '</p>';
   }
   function exportaCapa(fmt) {
     lerCampos();
@@ -1713,6 +1847,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
       cv.setAttribute('aria-label', 'Cartela ' + id);
     });
     montaTira();
+    $$('canvas[data-montagem]').forEach(function (cv) { var id = cv.getAttribute('data-montagem'); desenhaCartela(cv, id, 'h', estado.cartelas[id]); });
   }
   function exportaCartelas(ids) {
     var st = $('#ct-estado'), fmt = estado.formatoCartela, dims = fmt === 'h' ? '1920x1080' : '1080x1920';
@@ -1778,6 +1913,9 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     demo.setAttribute('data-veu', lt.veu ? 'sim' : 'nao');
     demo.style.setProperty('--lt-saida', Math.round(lt.dur * 1000 - 200) + 'ms');
     $('#lt-palco').setAttribute('data-formato', lt.formato);
+    var qa = AC[lt.quadro], qi = $('#lt-quadro-img'), qs = acFonte(qa, [lt.formato === 'h' ? '16x9' : '9x16', qa.v]);
+    if (qi.getAttribute('src') !== qs) { qi.setAttribute('src', qs); qi.style.objectPosition = acPos(qa); }
+    $('#lt-quadro-alt').textContent = 'Quadro de exemplo: ' + qa.alt + '. Nome e função são de exemplo.';
     if (reanima) { demo.classList.remove('anima'); void demo.offsetWidth; demo.classList.add('anima'); }
     var r = validaLT(lt);
     mostraEstado($('#lt-estado'), r, 'pronto: ' + Math.round(lt.dur * 24) + ' quadros PNG de ' + (lt.formato === 'h' ? '1920 por 1080' : '1080 por 1920') + ', fundo transparente.');
@@ -1873,7 +2011,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     l8.innerHTML = ic(ok ? 'circle-check' : 'circle-x') + '<span><b>' + (ok ? 'L8 confere.' : 'L8 não confere.') + '</b> ' + tipos.join(', ') + '. Nenhum tipo aparece três vezes seguidas; o fim é um único pedido.</span>';
     $('#rt-persona').textContent = 'Persona: ' + p.persona + '. Rótulo do botão: ' + p.rotulo + '.';
     $('#rt-blocos').innerHTML = m.map(function (x, i) {
-      return '<li><div class="quando"><b>' + mmss(x.ini) + '</b><span>até ' + mmss(x.fim) + ' · ' + mmss(x.fim - x.ini) + '</span></div><div><h4><small>Bloco ' + (i + 1) + ' · capítulo "' + x.b.cap + '"</small>' + esc(x.b.nome) + '</h4><p>' + esc(x.b.funcao(p)) + '</p><span class="tag">' + x.b.tipo + '</span></div><p class="na-tela"><b>Na tela</b>' + esc(x.b.tela) + '<br><br><b>Peça do kit</b>' + esc(x.b.peca) + '</p></li>';
+      return '<li><div class="quando"><b>' + mmss(x.ini) + '</b><span>até ' + mmss(x.fim) + ' · ' + mmss(x.fim - x.ini) + '</span></div><div><h4><small>Bloco ' + (i + 1) + ' · capítulo "' + x.b.cap + '"</small>' + esc(x.b.nome) + '</h4><p>' + esc(x.b.funcao(p)) + '</p><span class="tag">' + x.b.tipo + '</span></div><p class="na-tela"><b>Na tela</b>' + esc(x.b.tela) + '<br><br><b>Peça do kit</b>' + esc(x.b.peca) + (BROLL[x.b.id] ? '<span class="vk-ac-broll-r"><img src="' + BROLL[x.b.id].src + '" srcset="' + BROLL[x.b.id].srcset + '" sizes="(max-width:900px) 80vw, 280px" width="' + BROLL[x.b.id].w + '" height="' + BROLL[x.b.id].h + '" alt="' + esc(BROLL[x.b.id].alt) + '" loading="lazy" decoding="async" style="object-position:' + BROLL[x.b.id].pos + '"><span>Plano de exemplo · Foto: acervo The VOID</span></span>' : '') + '</p></li>';
     }).join('');
     estado.duracao = total;
   }
@@ -1957,6 +2095,7 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     $$('.rotulo-produto').forEach(function (s) { s.textContent = p.label; });
     $('#capa-texto').value = p.capa;
     if (!p.selo) $('#capa-selo').checked = false;
+    if (!estado.capa.manual) escolheCapa(CAPA_PADRAO[chave], false);
     estado.cartelas = padraoCartelas(p);
     preencheEditorCartela();
     $('#lt-funcao').value = p.funcao;
@@ -1973,11 +2112,21 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
     $('#capa-foto').addEventListener('change', function (e) {
       var f = e.target.files && e.target.files[0]; if (!f) { tiraFoto(); return; }
       var leitor = new FileReader();
-      leitor.onload = function () { var i = new Image(); i.onload = function () { estado.capa.foto = ritual(i); $('#capa-foto-nome').textContent = f.name + ' · preto e branco Ritual'; $('#capa-foto-tirar').hidden = false; $('#capa-aut').checked = false; $('#capa-aut').disabled = false; atualizaCapa(); }; i.src = leitor.result; };
+      leitor.onload = function () { var i = new Image(); i.onload = function () { estado.capa.foto = ritual(i); estado.capa.acervo = null; estado.capa.foco = null; estado.capa.manual = true; $('#capa-foto-nome').textContent = f.name + ' · preto e branco Ritual'; $('#capa-foto-tirar').hidden = false; $('#capa-aut').checked = false; $('#capa-aut').disabled = false; atualizaCapa(); }; i.src = leitor.result; };
       leitor.readAsDataURL(f);
     });
     $('#capa-foto-tirar').addEventListener('click', tiraFoto);
-    function tiraFoto() { estado.capa.foto = null; $('#capa-foto').value = ''; $('#capa-foto-nome').textContent = 'Nenhuma foto escolhida'; $('#capa-foto-tirar').hidden = true; $('#capa-aut').checked = false; $('#capa-aut').disabled = true; atualizaCapa(); }
+    $('#capa-acervo-abre').addEventListener('click', function () { var pn = $('#capa-acervo'), abre = pn.hidden; pn.hidden = !abre; this.setAttribute('aria-expanded', String(abre)); if (abre) gradeCapa(); });
+    $('#capa-acervo').addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.getAttribute('data-ac-tema')) { temaCapa = b.getAttribute('data-ac-tema'); gradeCapa(); var f = $('[data-ac-tema="' + temaCapa + '"]', this); if (f) f.focus(); return; }
+      var id = b.getAttribute('data-ac-id'); if (id) escolheCapa(id, true).then(function () { var f = $('[data-ac-id="' + id + '"]', $('#capa-acervo')); if (f) f.focus(); });
+    });
+    $('#lg-quadro').innerHTML = LG_QUADROS.map(function (id) { return '<option value="' + id + '">' + esc(AC[id].alt) + '</option>'; }).join('');
+    $('#lg-quadro').addEventListener('change', function (e) { estado.legenda.quadro = e.target.value; atualizaLegenda(); });
+    $('#lt-quadro').innerHTML = LT_QUADROS.map(function (id) { return '<option value="' + id + '">' + esc(AC[id].alt) + '</option>'; }).join('');
+    $('#lt-quadro').addEventListener('change', function (e) { estado.lt.quadro = e.target.value; atualizaLT(true); });
+    function tiraFoto() { estado.capa.foto = null; estado.capa.acervo = null; estado.capa.manual = true; $('#capa-foto').value = ''; $('#capa-foto-nome').textContent = 'Nenhuma foto escolhida'; $('#capa-foto-tirar').hidden = true; $('#capa-aut').checked = false; $('#capa-aut').disabled = true; atualizaCapa(); }
     $$('[data-exportar^="capa-"]').forEach(function (b) { b.addEventListener('click', function () { exportaCapa(b.getAttribute('data-exportar').slice(5)); }); });
     $$('[data-formato-cartela]').forEach(function (b) { b.addEventListener('click', function () { estado.formatoCartela = b.getAttribute('data-formato-cartela'); $$('[data-formato-cartela]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); atualizaCartela(); }); });
     ['#ct-titulo', '#ct-off', '#pv-valor', '#pv-mede', '#pv-periodo', '#pv-base', '#pv-fonte', '#pv-link', '#pv-captura', '#of-valor', '#of-cond'].forEach(function (s) { $(s).addEventListener('input', atualizaCartela); });
@@ -2019,8 +2168,8 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
 
   /* exemplo proibido (só para ensinar; não exporta) */
   function exemploProibido() {
-    var t = 'GANHE R$ 10 MIL EM *3* MESES';
-    desenhaCapa($('#cv-capa-nao'), 'h', t, {}).then(function () {
+    var t = 'GANHE R$ 10 MIL EM *3* MESES', an = AC.void_materiais_01;
+    acFotoCapa(an.id).then(function (f) { return { foto: f, foco: [an.fx, an.fy] }; }, function () { return {}; }).then(function (o) { return desenhaCapa($('#cv-capa-nao'), 'h', t, o); }).then(function () {
       var r = validaCapa(t);
       $('#capa-nao-estado').innerHTML = r.faltas.map(function (f) { return linha('erro', 'Não exporta', f); }).join('');
     });

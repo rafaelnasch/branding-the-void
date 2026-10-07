@@ -1,0 +1,4041 @@
+{
+ "titulo": "Acervo fotográfico The VOID Tattoo Academy, sistema Sala Escura",
+ "versao": "2026-10",
+ "autorizacao": "uso autorizado pela The VOID, 10/2026 (Lucas Tengan, sócio; confirmado pela GrowAI)",
+ "regimes": {
+  "pb-ritual": "P&B pela LUT void-ritual.cube",
+  "pb-vazio": "P&B dramático pela LUT void-vazio.cube (também traz a versão pb Ritual)",
+  "cor-terra": "cor contida pela LUT void-terra.cube",
+  "cor-arte": "cor real da tatuagem, só correção leve"
+ },
+ "variantes": {
+  "original": "cor original tratada, lado maior até 2400 px",
+  "pb": "Ritual",
+  "vazio": "Vazio",
+  "terra": "Terra",
+  "4x5": "1080x1350",
+  "9x16": "1080x1920",
+  "16x9": "1920x1080",
+  "1x1": "1080x1080",
+  "thumb": "miniatura de 640 px",
+  "nota": "recortes saem da versão principal do regime; quando a fonte é menor que o alvo, o recorte fica no tamanho nativo; null = fonte pequena demais para aquele formato"
+ },
+ "grao": "não aplicado nos arquivos; aplicar no layout (Grão do Vazio) ou no editor, conforme a receita",
+ "fotos": [
+  {
+   "id": "void_maos_01",
+   "tema": "maos",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.42,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maos_01_original.webp",
+    "pb": "assets/foto/acervo/void_maos_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_maos_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maos_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_maos_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_maos_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maos_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Mãos de luva preta conduzem a máquina sobre o estêncil na coxa, estande da The VOID na convenção.",
+   "alt": "Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (as mãos são o personagem)",
+    "LP: seção método e prática",
+    "redes: carrossel e Reels de processo",
+    "VSL: plano de processo",
+    "artigo: abertura de tema técnico"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b1547077-4d21-44d4-b7d1-3347495dec17/DOG01005__2_.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/authors/the-void-tattoo-academy",
+    "arquivo_bruto": "site/blog__DOG01005__2_.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Decalque vermelho na cor original: usar a versão P&B como principal."
+  },
+  {
+   "id": "void_maos_02",
+   "tema": "maos",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maos_02_original.webp",
+    "pb": "assets/foto/acervo/void_maos_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_maos_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maos_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_maos_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_maos_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maos_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Vista de cima de uma sessão: perna com estêncil, máquina e bancada com batoques de tinta.",
+   "alt": "Vista de cima de sessão de tatuagem com perna, máquina e bancada de tintas no estande da The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (as mãos são o personagem)",
+    "LP: seção método e prática",
+    "redes: carrossel e Reels de processo",
+    "VSL: plano de processo",
+    "artigo: abertura de tema técnico"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/9853ae84-4060-4f95-aeac-63153921671a/DOG01138.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/blog__DOG01138.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Decalque vermelho na cor original: usar a versão P&B."
+  },
+  {
+   "id": "void_maos_03",
+   "tema": "maos",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maos_03_original.webp",
+    "pb": "assets/foto/acervo/void_maos_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_maos_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maos_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_maos_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_maos_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maos_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Plongée de dois tatuadores trabalhando na maca, com equipamento ao redor.",
+   "alt": "Dois tatuadores vistos de cima trabalhando lado a lado na maca, com equipamentos e luvas",
+   "onde_usar": [
+    "manual: 8. Fotografia (as mãos são o personagem)",
+    "LP: seção método e prática",
+    "redes: carrossel e Reels de processo",
+    "VSL: plano de processo",
+    "artigo: abertura de tema técnico"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/ca0b6efa-3856-4b4e-ab2b-c8c139dda308/DOG01210__1_.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/o-mercado-de-tatuagem-mudou",
+    "arquivo_bruto": "site/blog__DOG01210__1_.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_maos_04",
+   "tema": "maos",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maos_04_original.webp",
+    "pb": "assets/foto/acervo/void_maos_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_maos_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maos_04_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_maos_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maos_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuadora de máscara e luvas trabalhando no braço de um cliente, mãos em primeiro plano.",
+   "alt": "Tatuadora de máscara e luvas nitrílicas tatuando o braço de um cliente na escola The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (as mãos são o personagem)",
+    "LP: seção método e prática",
+    "redes: carrossel e Reels de processo",
+    "VSL: plano de processo",
+    "artigo: abertura de tema técnico"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/fase-5-mentoria.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__fase-5-mentoria.webp",
+    "resolucao_original": "900x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_maos_05",
+   "tema": "maos",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maos_05_original.webp",
+    "pb": "assets/foto/acervo/void_maos_05_pb.webp",
+    "4x5": "assets/foto/acervo/void_maos_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maos_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_maos_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_maos_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maos_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1216x684 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Close das mãos de luva segurando a máquina sobre a pele, durante a sessão.",
+   "alt": "Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão",
+   "onde_usar": [
+    "manual: 8. Fotografia (as mãos são o personagem)",
+    "LP: seção método e prática",
+    "redes: carrossel e Reels de processo",
+    "VSL: plano de processo",
+    "artigo: abertura de tema técnico"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/reel/DbePFwmvf53/",
+    "data_post": "2026-07-31",
+    "arquivo_bruto": "instagram/ig-041-processo-tatuagem-DbePFwmvf53-01.jpg",
+    "resolucao_original": "1216x2160"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_maquina_01",
+   "tema": "maquina",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_maquina_01_original.webp",
+    "4x5": "assets/foto/acervo/void_maquina_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_maquina_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_maquina_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_maquina_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_maquina_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1349x759 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Máquina tatuando um peixe colorido em laranja e azul; a cor real da arte fica preservada.",
+   "alt": "Máquina de tatuagem preenchendo um peixe colorido em laranja e azul na pele, mão com luva",
+   "onde_usar": [
+    "manual: 8. Fotografia",
+    "LP: seção prática",
+    "redes: post de processo",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/f455c169-200b-40d4-a8e5-4c03cf9787d3/FormaturaTheVOID_02SET-196.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/subscribe",
+    "arquivo_bruto": "site/blog__FormaturaTheVOID_02SET-196.jpg",
+    "resolucao_original": "1920x3416"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Trabalho em andamento: evitar close grande em anúncio."
+  },
+  {
+   "id": "void_materiais_01",
+   "tema": "materiais",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_materiais_01_original.webp",
+    "pb": "assets/foto/acervo/void_materiais_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_materiais_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_materiais_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_materiais_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_materiais_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_materiais_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Bancada com máquinas pen, batoque de tinta preta e papel toalha sob luz quente.",
+   "alt": "Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente",
+   "onde_usar": [
+    "manual: 8. Fotografia (biossegurança e kit)",
+    "LP: seção o que vem no kit",
+    "membros: módulo de treino",
+    "e-mail: cabeçalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/94900966-338a-480b-94e5-fbdcffe82458/DOG01565.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/authors/the-void-tattoo-academy",
+    "arquivo_bruto": "site/blog__DOG01565.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_traco_01",
+   "tema": "traco",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.6,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_traco_01_original.webp",
+    "pb": "assets/foto/acervo/void_traco_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_traco_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_traco_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_traco_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_traco_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_traco_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Close do traço sendo puxado sobre o estêncil na perna.",
+   "alt": "Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa",
+   "onde_usar": [
+    "manual: 8. Fotografia e Ritual do Traço",
+    "LP: seção método",
+    "redes",
+    "membros: abertura de módulo",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/adb14a7f-c807-4326-8011-efd4a1b1f1e4/DOG01772.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/guia-completo-como-come-ar-a-tatuar-do-zero-2026",
+    "arquivo_bruto": "site/blog__DOG01772.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Decalque vermelho na cor original: usar a versão P&B."
+  },
+  {
+   "id": "void_traco_02",
+   "tema": "traco",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_traco_02_original.webp",
+    "pb": "assets/foto/acervo/void_traco_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_traco_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_traco_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_traco_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_traco_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_traco_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1152x648 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuadora desenhando o projeto na mesa ao lado da janela da escola.",
+   "alt": "Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia e Ritual do Traço",
+    "LP: seção método",
+    "redes",
+    "membros: abertura de módulo",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/cf0acecc-2899-4aa7-989f-ff60a4775715/tatuagem-arte-tatuador-foco.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/voce-ainda-se-lembra-por-que-comec-ou-a-tatuar",
+    "arquivo_bruto": "site/blog__tatuagem-arte-tatuador-foco.jpg",
+    "resolucao_original": "1152x2048"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_traco_03",
+   "tema": "traco",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_traco_03_original.webp",
+    "pb": "assets/foto/acervo/void_traco_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_traco_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_traco_03_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_traco_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_traco_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Projeto de retrato em papel, com esboço, lápis e lâmina de pele sintética.",
+   "alt": "Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa",
+   "onde_usar": [
+    "manual: 8. Fotografia e Ritual do Traço",
+    "LP: seção método",
+    "redes",
+    "membros: abertura de módulo",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/escola-projeto.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__escola-projeto.webp",
+    "resolucao_original": "900x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_materiais_02",
+   "tema": "materiais",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_materiais_02_original.webp",
+    "pb": "assets/foto/acervo/void_materiais_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_materiais_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_materiais_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_materiais_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_materiais_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_materiais_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada.",
+   "alt": "Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino",
+   "onde_usar": [
+    "manual: 8. Fotografia (biossegurança e kit)",
+    "LP: seção o que vem no kit",
+    "membros: módulo de treino",
+    "e-mail: cabeçalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DbmBYIplIzM/",
+    "data_post": "2026-08-03",
+    "arquivo_bruto": "instagram/ig-043-treino-pele-artificial-DbmBYIplIzM-01.jpg",
+    "resolucao_original": "4096x4096"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_materiais_03",
+   "tema": "materiais",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_materiais_03_original.webp",
+    "pb": "assets/foto/acervo/void_materiais_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_materiais_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_materiais_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_materiais_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_materiais_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_materiais_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "A mesma pele artificial vista de cima, na bancada de treino.",
+   "alt": "Pele artificial com andorinha tatuada vista de cima na bancada de treino da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (biossegurança e kit)",
+    "LP: seção o que vem no kit",
+    "membros: módulo de treino",
+    "e-mail: cabeçalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DbmBYIplIzM/",
+    "data_post": "2026-08-03",
+    "arquivo_bruto": "instagram/ig-044-treino-pele-artificial-DbmBYIplIzM-02.jpg",
+    "resolucao_original": "4096x4096"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_marca_01",
+   "tema": "marca",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.38
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_marca_01_original.webp",
+    "pb": "assets/foto/acervo/void_marca_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_marca_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_marca_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_marca_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_marca_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_marca_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Mão tatuada segurando um caderno preto com o logotipo The VOID.",
+   "alt": "Mão tatuada segurando caderno preto com o logotipo da The VOID Tattoo Academy",
+   "onde_usar": [
+    "manual: marca no ambiente",
+    "LP: hero institucional",
+    "redes: capa de destaque",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/cf0530d9-3dc4-47f9-8f7d-cf715ca0e8d5/paix%C3%A3o-pela-arte.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/por-que-talvez-voc-ainda-n-o-tenha-sucesso-com-a-tatuagem",
+    "arquivo_bruto": "site/blog__paix-o-pela-arte.jpg",
+    "resolucao_original": "1920x2880"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_marca_02",
+   "tema": "marca",
+   "regime": "pb-vazio",
+   "versao_principal": "vazio",
+   "foco": {
+    "x": 0.4,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_marca_02_original.webp",
+    "pb": "assets/foto/acervo/void_marca_02_pb.webp",
+    "vazio": "assets/foto/acervo/void_marca_02_vazio.webp",
+    "4x5": "assets/foto/acervo/void_marca_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_marca_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_marca_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_marca_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_marca_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Letreiro THE VOID TATTOO ACADEMY no estande da convenção, visto de baixo.",
+   "alt": "Letreiro iluminado THE VOID TATTOO ACADEMY no estande da convenção, visto de baixo",
+   "onde_usar": [
+    "manual: marca no ambiente",
+    "LP: hero institucional",
+    "redes: capa de destaque",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Capa, hero e topo de funil.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/86d0c6c9-600c-4e90-a1f4-47fa8f7e5a94/DOG01116.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/authors/the-void-tattoo-academy",
+    "arquivo_bruto": "site/blog__DOG01116.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_marca_03",
+   "tema": "marca",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.62,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_marca_03_original.webp",
+    "pb": "assets/foto/acervo/void_marca_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_marca_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_marca_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_marca_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_marca_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_marca_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Estande da The VOID visto de baixo, com letreiro e estrutura metálica.",
+   "alt": "Estande da The VOID na convenção visto de baixo, com letreiro e estrutura metálica",
+   "onde_usar": [
+    "manual: marca no ambiente",
+    "LP: hero institucional",
+    "redes: capa de destaque",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/5680a029-f768-4521-a09e-0ae8914cbd54/DOG01663.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/os-primeiros-clientes-o-desafio-mais-silencioso-de-quem-esta-comecando-na-tatuagem-1",
+    "arquivo_bruto": "site/blog__DOG01663.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_escola_01",
+   "tema": "escola",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.4,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_escola_01_original.webp",
+    "pb": "assets/foto/acervo/void_escola_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_escola_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_escola_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_escola_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_escola_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_escola_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Estande da The VOID na convenção com sessão em andamento e letreiro iluminado.",
+   "alt": "Estande da The VOID na convenção com sessão de tatuagem em andamento e letreiro iluminado",
+   "onde_usar": [
+    "manual: 8. Fotografia (o espaço)",
+    "LP: seção a escola",
+    "redes",
+    "membros",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/6917e457-2930-47d4-a5e3-8011a08bb329/DOG01056.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/o-mercado-de-tatuagem-mudou",
+    "arquivo_bruto": "site/blog__DOG01056.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_escola_02",
+   "tema": "escola",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.45,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_escola_02_original.webp",
+    "pb": "assets/foto/acervo/void_escola_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_escola_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_escola_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_escola_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_escola_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_escola_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Estande com o logotipo grande e sessões acontecendo no corredor da convenção.",
+   "alt": "Estande da The VOID com logotipo grande e várias sessões de tatuagem acontecendo na convenção",
+   "onde_usar": [
+    "manual: 8. Fotografia (o espaço)",
+    "LP: seção a escola",
+    "redes",
+    "membros",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/fe97e4c9-6721-470e-b274-99e768058586/DOG01688.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/os-primeiros-clientes-o-desafio-mais-silencioso-de-quem-esta-comecando-na-tatuagem-1",
+    "arquivo_bruto": "site/blog__DOG01688.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_escola_03",
+   "tema": "escola",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.45,
+    "y": 0.6
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_escola_03_original.webp",
+    "pb": "assets/foto/acervo/void_escola_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_escola_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_escola_03_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_escola_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_escola_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Sala da escola com janelas em arco e várias macas em uso.",
+   "alt": "Sala da escola The VOID com janelas em arco e várias macas em uso durante a aula prática",
+   "onde_usar": [
+    "manual: 8. Fotografia (o espaço)",
+    "LP: seção a escola",
+    "redes",
+    "membros",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/escola-pratica.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__escola-pratica.webp",
+    "resolucao_original": "900x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_escola_04",
+   "tema": "escola",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_escola_04_original.webp",
+    "pb": "assets/foto/acervo/void_escola_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_escola_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_escola_04_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_escola_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_escola_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Sala de aula cheia, mesas longas e professor ao fundo.",
+   "alt": "Sala de aula da The VOID cheia de alunos em mesas longas, professor ao fundo",
+   "onde_usar": [
+    "manual: 8. Fotografia (o espaço)",
+    "LP: seção a escola",
+    "redes",
+    "membros",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/fase-1-nivelamento.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__fase-1-nivelamento.webp",
+    "resolucao_original": "900x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_aula_01",
+   "tema": "aula",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_aula_01_original.webp",
+    "pb": "assets/foto/acervo/void_aula_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_aula_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_aula_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_aula_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_aula_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_aula_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Alunas praticando em pele sintética sob luminárias, mesa coletiva.",
+   "alt": "Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva",
+   "onde_usar": [
+    "manual: 8. Fotografia e ritos",
+    "LP: seção como são as aulas",
+    "redes: carrossel",
+    "VSL: prova de prática",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/3b8bf772-358e-435c-9a24-a9ec84c580ce/DOG01282.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/seus-primeiros-clientes-na-tatuagem-the-void",
+    "arquivo_bruto": "site/blog__DOG01282.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_aula_02",
+   "tema": "aula",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_aula_02_original.webp",
+    "pb": "assets/foto/acervo/void_aula_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_aula_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_aula_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_aula_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_aula_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_aula_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Mesa longa de alunos praticando em pele sintética.",
+   "alt": "Mesa longa de alunos praticando tatuagem em pele sintética sob luminárias",
+   "onde_usar": [
+    "manual: 8. Fotografia e ritos",
+    "LP: seção como são as aulas",
+    "redes: carrossel",
+    "VSL: prova de prática",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/8d5eda49-5ae0-4768-aecc-7a2530e20763/DOG01297.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/authors/the-void-tattoo-academy",
+    "arquivo_bruto": "site/blog__DOG01297.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_aula_03",
+   "tema": "aula",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_aula_03_original.webp",
+    "pb": "assets/foto/acervo/void_aula_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_aula_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_aula_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_aula_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_aula_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_aula_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "569x1012 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Imersão: alunos tatuando sob luminárias, clima escuro e quente.",
+   "alt": "Alunos tatuando sob luminárias durante imersão da The VOID, em ambiente escuro",
+   "onde_usar": [
+    "manual: 8. Fotografia e ritos",
+    "LP: seção como são as aulas",
+    "redes: carrossel",
+    "VSL: prova de prática",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/escola-imersao.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__escola-imersao.webp",
+    "resolucao_original": "1800x1012"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_aula_04",
+   "tema": "aula",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.45,
+    "y": 0.6
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_aula_04_original.webp",
+    "pb": "assets/foto/acervo/void_aula_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_aula_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_aula_04_9x16.webp",
+    "16x9": "assets/foto/acervo/void_aula_04_16x9.webp",
+    "1x1": "assets/foto/acervo/void_aula_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_aula_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1067x600 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna tatuando um cliente deitado na maca, sala com murais da escola.",
+   "alt": "Aluna de máscara tatuando a perna de um cliente deitado na maca, sala com murais da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia e ritos",
+    "LP: seção como são as aulas",
+    "redes: carrossel",
+    "VSL: prova de prática",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/escola-pele-humana.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__escola-pele-humana.webp",
+    "resolucao_original": "1067x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_aula_05",
+   "tema": "aula",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.38,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_aula_05_original.webp",
+    "pb": "assets/foto/acervo/void_aula_05_pb.webp",
+    "4x5": "assets/foto/acervo/void_aula_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_aula_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_aula_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_aula_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_aula_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluno de máscara tatuando o antebraço de um cliente, luminária e janelas em arco.",
+   "alt": "Aluno de máscara tatuando o antebraço de um cliente sob luminária, janelas em arco ao fundo",
+   "onde_usar": [
+    "manual: 8. Fotografia e ritos",
+    "LP: seção como são as aulas",
+    "redes: carrossel",
+    "VSL: prova de prática",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DaVueofpZ3C/",
+    "data_post": "2026-07-08",
+    "arquivo_bruto": "instagram/ig-036-processo-tatuagem-DaVueofpZ3C-01.jpg",
+    "resolucao_original": "3277x4096"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_professor_01",
+   "tema": "professor",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_professor_01_original.webp",
+    "pb": "assets/foto/acervo/void_professor_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_professor_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_professor_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_professor_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_professor_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_professor_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Lucas Tengan em pé falando para alunas sentadas na sala da escola.",
+   "alt": "Professor Lucas Tengan em pé falando para alunas sentadas na sala da escola The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (professor ensinando)",
+    "LP: seção professores",
+    "redes",
+    "VSL",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/8a94b93a-dbfb-4617-85dc-c6cb212d8170/IMG_8916.jpg?t=1761077075",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/por-que-talvez-voc-ainda-n-o-tenha-sucesso-com-a-tatuagem",
+    "arquivo_bruto": "site/blog__IMG_8916.jpg",
+    "resolucao_original": "1920x2880"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_professor_02",
+   "tema": "professor",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_professor_02_original.webp",
+    "pb": "assets/foto/acervo/void_professor_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_professor_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_professor_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_professor_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_professor_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_professor_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professor em pé conversando com aluno sentado, sala com janelas em arco.",
+   "alt": "Professor conversando com aluno sentado na sala ampla de janelas em arco da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (professor ensinando)",
+    "LP: seção professores",
+    "redes",
+    "VSL",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b74db6f8-7627-403e-b40b-d149735cb7e0/tatuador-e-professor-tatuar-liberdade.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/por-que-talvez-voc-ainda-n-o-tenha-sucesso-com-a-tatuagem",
+    "arquivo_bruto": "site/blog__tatuador-e-professor-tatuar-liberdade.jpg",
+    "resolucao_original": "1920x2880"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_professor_03",
+   "tema": "professor",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.6
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_professor_03_original.webp",
+    "pb": "assets/foto/acervo/void_professor_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_professor_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_professor_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_professor_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_professor_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_professor_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1067x600 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professor e aluna tatuando um cliente deitado de lado.",
+   "alt": "Professor e aluna de máscara tatuando juntos um cliente deitado de lado na escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (professor ensinando)",
+    "LP: seção professores",
+    "redes",
+    "VSL",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/fase-3-pele-humana.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__fase-3-pele-humana.webp",
+    "resolucao_original": "1067x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_professor_04",
+   "tema": "professor",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.6,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_professor_04_original.webp",
+    "pb": "assets/foto/acervo/void_professor_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_professor_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_professor_04_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_professor_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_professor_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professora orientando um aluno que tatua o antebraço de outra pessoa.",
+   "alt": "Professora orientando de perto um aluno que tatua o antebraço de outra pessoa",
+   "onde_usar": [
+    "manual: 8. Fotografia (professor ensinando)",
+    "LP: seção professores",
+    "redes",
+    "VSL",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/reel/Da8RJRgqiKT/",
+    "data_post": "2026-07-18",
+    "arquivo_bruto": "instagram/ig-025-aula-professora-Da8RJRgqiKT-01.jpg",
+    "resolucao_original": "818x1448"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_professor_05",
+   "tema": "professor",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.35
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_professor_05_original.webp",
+    "pb": "assets/foto/acervo/void_professor_05_pb.webp",
+    "4x5": "assets/foto/acervo/void_professor_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_professor_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_professor_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_professor_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_professor_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "618x1098 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1404x790 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professor de boné orienta uma aluna de máscara, camiseta The VOID.",
+   "alt": "Professor de boné orientando uma aluna de máscara durante a prática na The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (professor ensinando)",
+    "LP: seção professores",
+    "redes",
+    "VSL",
+    "membros"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/009-onda1-professor-orienta-aluna.png",
+    "resolucao_original": "1404x1098"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_01",
+   "tema": "concentracao",
+   "regime": "pb-vazio",
+   "versao_principal": "vazio",
+   "foco": {
+    "x": 0.55,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_01_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_01_pb.webp",
+    "vazio": "assets/foto/acervo/void_concentracao_01_vazio.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuador de boné e máscara, camiseta The VOID, rosto sob a luz da luminária.",
+   "alt": "Tatuador de boné e máscara concentrado sob a luz da luminária, camiseta The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Capa, hero e topo de funil.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a259a8b2-0fa2-4530-b8ce-3b98afb00ee3/DOG01148.jpg?t=1764704936",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/guia-completo-como-come-ar-a-tatuar-do-zero-2026",
+    "arquivo_bruto": "site/blog__DOG01148-2.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Boné com logotipo de marca de terceiro: evitar em anúncio pago sem acordo."
+  },
+  {
+   "id": "void_concentracao_02",
+   "tema": "concentracao",
+   "regime": "pb-vazio",
+   "versao_principal": "vazio",
+   "foco": {
+    "x": 0.55,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_02_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_02_pb.webp",
+    "vazio": "assets/foto/acervo/void_concentracao_02_vazio.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna de óculos e luvas tatuando pele sintética, foco total.",
+   "alt": "Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Capa, hero e topo de funil.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/b3cd8645-efd2-4055-893e-73423592364c/DOG01330.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/guia-completo-como-come-ar-a-tatuar-do-zero-2026",
+    "arquivo_bruto": "site/blog__DOG01330-2.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_03",
+   "tema": "concentracao",
+   "regime": "pb-vazio",
+   "versao_principal": "vazio",
+   "foco": {
+    "x": 0.45,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_03_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_03_pb.webp",
+    "vazio": "assets/foto/acervo/void_concentracao_03_vazio.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuador debruçado sobre o trabalho, luz de luminária vinda de cima.",
+   "alt": "Tatuador debruçado sobre o trabalho sob a luz da luminária, visto de cima",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Capa, hero e topo de funil.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a0d23789-7a63-4db7-a3e4-c0e0453a239d/DOG01649__1_.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/seus-primeiros-clientes-na-tatuagem-the-void",
+    "arquivo_bruto": "site/blog__DOG01649__1_.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_04",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_04_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_04_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_04_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuador de máscara trabalhando nas costas de um cliente, público observando.",
+   "alt": "Tatuador de máscara trabalhando nas costas de um cliente no estande, público observando",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/03e8d025-7ab9-4236-a443-9d95d2401e57/DOG01123.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/guia-completo-como-come-ar-a-tatuar-do-zero-2026",
+    "arquivo_bruto": "site/blog__DOG01123.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_05",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_05_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_05_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuadora de camiseta The VOID trabalhando, vista de cima.",
+   "alt": "Tatuadora de camiseta The VOID concentrada no trabalho, vista de cima",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/8ca72b3e-1400-4ee9-8e8b-ac226c048409/DOG01650.jpg?t=1772203904",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/o-mercado-de-tatuagem-mudou",
+    "arquivo_bruto": "site/blog__DOG01650.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_06",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.4,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_06_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_06_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_06_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_06_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_06_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_06_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_06_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "720x1280 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuador de boné tatuando sob luminária na convenção.",
+   "alt": "Tatuador de boné tatuando sob luminária durante a convenção",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/bfcccb9c-d3f2-4ecd-87fb-a5e9165f7b76/DOU00147.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/blog__DOU00147.jpg",
+    "resolucao_original": "1920x1280"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_07",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_07_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_07_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_07_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_07_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_concentracao_07_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_07_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna de luvas tatuando um retrato realista em pele sintética.",
+   "alt": "Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/escola-tecnica.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__escola-tecnica.webp",
+    "resolucao_original": "900x1600"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_08",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_08_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_08_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_08_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_08_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_concentracao_08_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_08_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "787x984 (tamanho nativo, fonte menor que o alvo)",
+    "9x16": "787x1399 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "787x787 (tamanho nativo, fonte menor que o alvo)"
+   },
+   "descricao": "Professor da The VOID tatuando de máscara na convenção.",
+   "alt": "Professor da The VOID tatuando de máscara na convenção",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/rafael-manfrere-action.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__rafael-manfrere-action.webp",
+    "resolucao_original": "787x1400"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_09",
+   "tema": "concentracao",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_09_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_09_pb.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_09_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_09_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_concentracao_09_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_09_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "787x984 (tamanho nativo, fonte menor que o alvo)",
+    "9x16": "787x1399 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "787x787 (tamanho nativo, fonte menor que o alvo)"
+   },
+   "descricao": "Professor Ayelo Padalino tatuando de máscara.",
+   "alt": "Professor Ayelo Padalino tatuando de máscara, concentrado no traço",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/ayelo-padalino-action.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__ayelo-padalino-action.webp",
+    "resolucao_original": "787x1400"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_concentracao_10",
+   "tema": "concentracao",
+   "regime": "pb-vazio",
+   "versao_principal": "vazio",
+   "foco": {
+    "x": 0.45,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_concentracao_10_original.webp",
+    "pb": "assets/foto/acervo/void_concentracao_10_pb.webp",
+    "vazio": "assets/foto/acervo/void_concentracao_10_vazio.webp",
+    "4x5": "assets/foto/acervo/void_concentracao_10_4x5.webp",
+    "9x16": "assets/foto/acervo/void_concentracao_10_9x16.webp",
+    "16x9": "assets/foto/acervo/void_concentracao_10_16x9.webp",
+    "1x1": "assets/foto/acervo/void_concentracao_10_1x1.webp",
+    "thumb": "assets/foto/acervo/void_concentracao_10_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tatuador de boné THE VOID tatuando com luvas e máscara.",
+   "alt": "Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço",
+   "onde_usar": [
+    "manual: 8. Fotografia (hero e capa)",
+    "LP: hero e topo de funil",
+    "redes: capa de Reels",
+    "VSL: abertura",
+    "e-mail: cabeçalho"
+   ],
+   "regra_de_uso": "Capa, hero e topo de funil.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/Da6OoJdOaY5/",
+    "data_post": "2026-07-20",
+    "arquivo_bruto": "instagram/ig-022-processo-tatuagem-Da6OoJdOaY5-01.jpg",
+    "resolucao_original": "3277x4096"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "tratamento_extra": "Faixa de texto da arte original do post (ano e local) cortada no topo em 10/2026; recortes regerados a partir da versão limpa."
+  },
+  {
+   "id": "void_pele_01",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_01_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Perna inteira com arara colorida, trabalho do professor Denis Mota, estande ao fundo.",
+   "alt": "Perna inteira tatuada com arara colorida, trabalho do professor Denis Mota no estande The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/0a8475f2-8010-47da-abe1-bc29d538fb30/526FB80C-6E99-4868-BA29-8E8E48D12291.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/a-tatuagem-brasileira-ainda-tem-muito-a-dizer",
+    "arquivo_bruto": "site/blog__526FB80C-6E99-4868-BA29-8E8E48D12291.jpg",
+    "resolucao_original": "3024x4032"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_02",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.6,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_02_original.webp",
+    "pb": "assets/foto/acervo/void_pele_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Ombro com tatuagem blackwork de rosto demoníaco.",
+   "alt": "Ombro com tatuagem blackwork de rosto demoníaco em preto e cinza",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/2055cbd6-e5b3-4ed5-b1db-e3ba6128d40d/DOG01031__1_.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/o-mercado-de-tatuagem-mudou",
+    "arquivo_bruto": "site/blog__DOG01031__1_.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_03",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.55,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_03_original.webp",
+    "pb": "assets/foto/acervo/void_pele_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Close de antebraço com tatuagem blackwork, luz dramática.",
+   "alt": "Close de antebraço com tatuagem blackwork sob luz lateral dramática",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/efabe842-739e-4ad6-ad78-eb4098a92f97/DOG02029.jpg?t=1765487862",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/os-primeiros-clientes-o-desafio-mais-silencioso-de-quem-esta-comecando-na-tatuagem-1",
+    "arquivo_bruto": "site/blog__DOG02029.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_04",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_04_original.webp",
+    "pb": "assets/foto/acervo/void_pele_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_04_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_04_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Tornozelos com tatuagens pequenas, tênis e sessão ao fundo.",
+   "alt": "Tornozelos com tatuagens pequenas e tênis, sessão de tatuagem ao fundo",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/247d6581-91df-4b8b-a888-ca6557707ab2/DOG01938.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/os-primeiros-clientes-o-desafio-mais-silencioso-de-quem-esta-comecando-na-tatuagem-1",
+    "arquivo_bruto": "site/blog__DOG01938.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_05",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_05_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "788x1400 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1139x641 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Costas fechadas com tigre realista, trabalho de um professor da The VOID.",
+   "alt": "Costas fechadas com tigre realista em preto e cinza, trabalho de um professor da The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/rafael-manfrere-tiger.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__rafael-manfrere-tiger.webp",
+    "resolucao_original": "1139x1400"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_06",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_06_original.webp",
+    "pb": "assets/foto/acervo/void_pele_06_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_06_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_06_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_06_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_06_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_06_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "759x1350 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1080x608 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Braço fechado oriental com carpas, trabalho do professor Ayelo Padalino.",
+   "alt": "Braço fechado em estilo oriental com carpas, trabalho do professor Ayelo Padalino",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/ayelo-padalino-work-02.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__ayelo-padalino-work-02.webp",
+    "resolucao_original": "1080x1350"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_07",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_07_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_07_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_07_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_07_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_07_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_07_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1350x759 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Arara realista na panturrilha, trabalho da aluna Açucena.",
+   "alt": "Arara realista tatuada na panturrilha, trabalho da aluna Açucena na The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/acucena-after.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__acucena-after.webp",
+    "resolucao_original": "1350x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_08",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_08_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_08_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_08_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_08_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_08_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_08_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Ave-do-paraíso colorida na panturrilha, trabalho da aluna Isis.",
+   "alt": "Ave-do-paraíso colorida tatuada na panturrilha, trabalho da aluna Isis na The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/isis-boechat-after.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__isis-boechat-after.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_09",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.42
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_09_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_09_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_09_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_09_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_09_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_09_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Costas fechadas com divindade e lótus em vermelho, trabalho do aluno Matias.",
+   "alt": "Costas fechadas com divindade e flor de lótus em vermelho, trabalho do aluno Matias",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/matias-after.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/lp__matias-after.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_10",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_10_original.webp",
+    "pb": "assets/foto/acervo/void_pele_10_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_10_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_10_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_10_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_10_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_10_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1274x717 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Vaso com costela-de-adão nas costas, trabalho da aluna Karina.",
+   "alt": "Vaso com costela-de-adão tatuado nas costas, trabalho da aluna Karina na The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/karina-after.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__karina-after.webp",
+    "resolucao_original": "1274x1556"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_11",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_11_original.webp",
+    "pb": "assets/foto/acervo/void_pele_11_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_11_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_11_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_11_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_11_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_11_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Anjo guerreiro realista no ombro, trabalho do aluno Adriano.",
+   "alt": "Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/adriano-after.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__adriano-after.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_12",
+   "tema": "pele",
+   "regime": "cor-arte",
+   "versao_principal": "original",
+   "foco": {
+    "x": 0.5,
+    "y": 0.45
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_12_original.webp",
+    "4x5": "assets/foto/acervo/void_pele_12_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_12_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_12_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_12_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_12_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Máscara oni japonesa na panturrilha, sob luz rosa.",
+   "alt": "Máscara oni japonesa tatuada na panturrilha, fotografada sob luz rosa",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Cor real da tatuagem preservada: conta como imagem colorida na regra de 1 em cada 4.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DaO3lPDDIru/",
+    "data_post": "2026-06-30",
+    "arquivo_bruto": "instagram/ig-028-trabalho-finalizado-DaO3lPDDIru-01.jpg",
+    "resolucao_original": "3024x4032"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_13",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_13_original.webp",
+    "pb": "assets/foto/acervo/void_pele_13_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_13_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_13_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_13_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_13_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_13_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Águia com flor em estilo tradicional, preto e cinza.",
+   "alt": "Águia com flor em estilo tradicional tatuada em preto e cinza",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DaoMqQeBh8T/",
+    "data_post": "2026-07-14",
+    "arquivo_bruto": "instagram/ig-038-trabalho-finalizado-DaoMqQeBh8T-01.jpg",
+    "resolucao_original": "2120x2650"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_14",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_14_original.webp",
+    "pb": "assets/foto/acervo/void_pele_14_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_14_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_14_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_14_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_14_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_14_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Cavalo-marinho pontilhado em blackwork no braço.",
+   "alt": "Cavalo-marinho pontilhado em blackwork tatuado no braço",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/Da7_oMgRY2s/",
+    "data_post": "2026-07-24",
+    "arquivo_bruto": "instagram/ig-024-trabalho-finalizado-Da7_oMgRY2s-01.jpg",
+    "resolucao_original": "2120x2650"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_15",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.45,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_15_original.webp",
+    "pb": "assets/foto/acervo/void_pele_15_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_15_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_15_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_15_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_15_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_15_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Rosto feminino em preto e cinza no antebraço.",
+   "alt": "Rosto feminino tatuado em preto e cinza no antebraço",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DXK_RVXjaA3/",
+    "data_post": "2026-04-15",
+    "arquivo_bruto": "instagram/ig-014-trabalho-finalizado-DXK_RVXjaA3-02.jpg",
+    "resolucao_original": "1440x1905"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_16",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_16_original.webp",
+    "pb": "assets/foto/acervo/void_pele_16_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_16_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_16_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_16_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_16_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_16_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Criatura alada em preto e cinza nas costas e ombro.",
+   "alt": "Criatura alada tatuada em preto e cinza nas costas e no ombro",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DVOORrTDVZP/",
+    "data_post": "2026-02-26",
+    "arquivo_bruto": "instagram/ig-003-trabalho-finalizado-DVOORrTDVZP-03.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_17",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_17_original.webp",
+    "pb": "assets/foto/acervo/void_pele_17_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_17_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_17_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_17_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_17_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_17_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Rosto feminino com asas na coxa, noite de formatura.",
+   "alt": "Rosto feminino com asas tatuado na coxa, mostrado na noite de formatura",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DeKoAp_leoG/",
+    "data_post": "2026-10-06",
+    "arquivo_bruto": "instagram/ig-060-trabalho-finalizado-DeKoAp_leoG-02.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_pele_18",
+   "tema": "pele",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_pele_18_original.webp",
+    "pb": "assets/foto/acervo/void_pele_18_pb.webp",
+    "4x5": "assets/foto/acervo/void_pele_18_4x5.webp",
+    "9x16": "assets/foto/acervo/void_pele_18_9x16.webp",
+    "16x9": "assets/foto/acervo/void_pele_18_16x9.webp",
+    "1x1": "assets/foto/acervo/void_pele_18_1x1.webp",
+    "thumb": "assets/foto/acervo/void_pele_18_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Figura feminina com lua em pontilhismo no ombro.",
+   "alt": "Figura feminina com lua em pontilhismo tatuada no ombro",
+   "onde_usar": [
+    "manual: 8. Fotografia (trabalho finalizado)",
+    "LP: galeria de trabalhos",
+    "redes: post de trabalho",
+    "artigo"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "não",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DeKoAp_leoG/",
+    "data_post": "2026-10-06",
+    "arquivo_bruto": "instagram/ig-064-trabalho-finalizado-DeKoAp_leoG-06.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_01",
+   "tema": "retrato",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.28
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_01_original.webp",
+    "pb": "assets/foto/acervo/void_retrato_01_pb.webp",
+    "4x5": "assets/foto/acervo/void_retrato_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1349x759 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Lucas Tengan, sócio da The VOID, de braços cruzados com camiseta da escola.",
+   "alt": "Lucas Tengan, sócio da The VOID, de braços cruzados e camiseta da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/lucas-tengan.jpg",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-pro/",
+    "arquivo_bruto": "site/lp__lucas-tengan.jpg",
+    "resolucao_original": "2384x4240"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_02",
+   "tema": "retrato",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.42,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_02_original.webp",
+    "pb": "assets/foto/acervo/void_retrato_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_retrato_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Retrato de Lucas Tengan no estande, letreiro iluminado ao fundo.",
+   "alt": "Retrato de Lucas Tengan no estande da The VOID com letreiro iluminado ao fundo",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/bfac6df2-c72e-49e7-9ecd-c907393a4c6d/DOG02000.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/o-que-ningu-m-te-conta-para-se-tornar-um-tatuador-de-sucesso",
+    "arquivo_bruto": "site/blog__DOG02000.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_03",
+   "tema": "retrato",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.32
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_03_original.webp",
+    "pb": "assets/foto/acervo/void_retrato_03_pb.webp",
+    "4x5": "assets/foto/acervo/void_retrato_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_03_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_retrato_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "799x1421 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professor Denis Mota de braços cruzados, camiseta The VOID.",
+   "alt": "Professor Denis Mota de braços cruzados vestindo camiseta The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/denis-mota-portrait.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__denis-mota-portrait.webp",
+    "resolucao_original": "900x1421"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_04",
+   "tema": "retrato",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.38
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_04_original.webp",
+    "pb": "assets/foto/acervo/void_retrato_04_pb.webp",
+    "4x5": "assets/foto/acervo/void_retrato_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_04_9x16.webp",
+    "16x9": null,
+    "1x1": "assets/foto/acervo/void_retrato_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Retrato de um professor da The VOID.",
+   "alt": "Retrato em preto e branco de um professor da The VOID",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/rafael-manfrere-portrait.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__rafael-manfrere-portrait.webp",
+    "resolucao_original": "900x1481"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_05",
+   "tema": "retrato",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_05_original.webp",
+    "pb": "assets/foto/acervo/void_retrato_05_pb.webp",
+    "4x5": "assets/foto/acervo/void_retrato_05_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_05_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_05_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_05_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_05_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna e tatuadora com a tatuagem cicatrizada na coxa, adesivo VOID na parede.",
+   "alt": "Aluna e tatuadora sorrindo com tatuagem cicatrizada na coxa, adesivo VOID na parede",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/018-foto-aluna-e-tatuadora-tatuagem-coxa.png",
+    "resolucao_original": "2085x2378"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_06",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_06_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_06_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_06_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_06_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_06_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_06_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_06_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1206x678 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna Açucena apontando para a arara que tatuou.",
+   "alt": "Aluna Açucena apontando para a arara que tatuou na panturrilha da cliente",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/acucena-student.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__acucena-student.webp",
+    "resolucao_original": "1206x1564"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_07",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_07_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_07_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_07_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_07_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_07_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_07_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_07_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna Karina com a cliente de costas tatuadas.",
+   "alt": "Aluna Karina ao lado da cliente de costas tatuadas com vaso e costela-de-adão",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/karina-student.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/lp__karina-student.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_08",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.38
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_08_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_08_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_08_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_08_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_08_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_08_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_08_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluno Matias sorrindo ao lado do cliente com as costas fechadas.",
+   "alt": "Aluno Matias sorrindo ao lado do cliente com as costas fechadas que ele tatuou",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/matias-student.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-master-curso-de-tatuagem/",
+    "arquivo_bruto": "site/lp__matias-student.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_09",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_09_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_09_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_09_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_09_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_09_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_09_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_09_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1200x675 (tamanho nativo, fonte menor que o alvo)",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna Isis agachada ao lado da cliente no corredor da escola.",
+   "alt": "Aluna Isis agachada ao lado da cliente com a ave-do-paraíso tatuada, corredor da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/isis-boechat-student.webp",
+    "pagina": "https://lp.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/lp__isis-boechat-student.webp",
+    "resolucao_original": "1200x1800"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_10",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.4,
+    "y": 0.38
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_10_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_10_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_10_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_10_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_10_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_10_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_10_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluno apontando a tatuagem preto e cinza que fez na perna da cliente.",
+   "alt": "Aluno sorrindo e apontando a tatuagem em preto e cinza que fez na perna da cliente",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DaL6TSyhMHl/",
+    "data_post": "2026-06-30",
+    "arquivo_bruto": "instagram/ig-027-retrato-trabalho-DaL6TSyhMHl-01.jpg",
+    "resolucao_original": "3277x4096"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_11",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.38,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_11_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_11_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_11_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_11_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_11_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_11_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_11_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna sorrindo e apontando o vaso com flores na perna da cliente.",
+   "alt": "Aluna sorrindo e apontando o vaso com flores que tatuou na perna da cliente",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DaoM5o9hBns/",
+    "data_post": "2026-07-16",
+    "arquivo_bruto": "instagram/ig-037-retrato-trabalho-DaoM5o9hBns-01.jpg",
+    "resolucao_original": "1600x2000"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_12",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.38,
+    "y": 0.4
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_12_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_12_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_12_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_12_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_12_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_12_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_12_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna sorrindo ao lado da tatuagem finalizada na coxa, fundo de folhagem.",
+   "alt": "Aluna sorrindo ao lado da tatuagem finalizada na coxa, fundo de folhagem da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DVOORrTDVZP/",
+    "data_post": "2026-02-26",
+    "arquivo_bruto": "instagram/ig-001-retrato-trabalho-DVOORrTDVZP-01.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_13",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.35
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_13_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_13_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_13_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_13_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_13_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_13_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_13_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Duas alunas com a tatuagem no braço, fundo de folhagem.",
+   "alt": "Duas alunas posando com a tatuagem finalizada no braço, fundo de folhagem da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DVOORrTDVZP/",
+    "data_post": "2026-02-26",
+    "arquivo_bruto": "instagram/ig-005-retrato-trabalho-DVOORrTDVZP-05.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_retrato_14",
+   "tema": "retrato",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.55,
+    "y": 0.3
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_retrato_14_original.webp",
+    "terra": "assets/foto/acervo/void_retrato_14_terra.webp",
+    "4x5": "assets/foto/acervo/void_retrato_14_4x5.webp",
+    "9x16": "assets/foto/acervo/void_retrato_14_9x16.webp",
+    "16x9": "assets/foto/acervo/void_retrato_14_16x9.webp",
+    "1x1": "assets/foto/acervo/void_retrato_14_1x1.webp",
+    "thumb": "assets/foto/acervo/void_retrato_14_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Aluna de perfil mostrando a tatuagem preto e cinza no braço.",
+   "alt": "Aluna de perfil mostrando tatuagem em preto e cinza no braço, fundo de folhagem",
+   "onde_usar": [
+    "manual: 8. Fotografia (retratos)",
+    "LP: depoimentos e professores",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/DVOORrTDVZP/",
+    "data_post": "2026-02-26",
+    "arquivo_bruto": "instagram/ig-010-retrato-trabalho-DVOORrTDVZP-10.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_comunidade_01",
+   "tema": "comunidade",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_comunidade_01_original.webp",
+    "terra": "assets/foto/acervo/void_comunidade_01_terra.webp",
+    "4x5": "assets/foto/acervo/void_comunidade_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_comunidade_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_comunidade_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_comunidade_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_comunidade_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "720x1280 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Grupo de alunos no terraço da escola, evento Liberdade com Tatuagem.",
+   "alt": "Grupo de alunos reunidos no terraço da escola no evento Liberdade com Tatuagem",
+   "onde_usar": [
+    "manual: 8. Fotografia (comunidade)",
+    "LP: seção comunidade",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/ab32ca84-767c-48ec-8ebc-82322f718c5f/ALUNOS-EVENTO-LIBERDADE-COM-TATUAGEM-THE-VOID-TATTO-ACADEMY.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/por-que-talvez-voc-ainda-n-o-tenha-sucesso-com-a-tatuagem",
+    "arquivo_bruto": "site/blog__ALUNOS-EVENTO-LIBERDADE-COM-TATUAGEM-THE-VOID-TATTO-ACADEMY.jpg",
+    "resolucao_original": "1920x1280"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_comunidade_02",
+   "tema": "comunidade",
+   "regime": "pb-ritual",
+   "versao_principal": "pb",
+   "foco": {
+    "x": 0.5,
+    "y": 0.55
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_comunidade_02_original.webp",
+    "pb": "assets/foto/acervo/void_comunidade_02_pb.webp",
+    "4x5": "assets/foto/acervo/void_comunidade_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_comunidade_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_comunidade_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_comunidade_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_comunidade_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "647x1151 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Pessoa de costas com camiseta The VOID no corredor da convenção.",
+   "alt": "Pessoa de costas vestindo camiseta com o símbolo da The VOID no corredor da convenção",
+   "onde_usar": [
+    "manual: 8. Fotografia (comunidade)",
+    "LP: seção comunidade",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Padrão P&B da marca.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/a939320d-e44d-4c2b-ab02-865517e7d054/DOG01416.jpg?t=1772203947",
+    "pagina": "https://blog.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/blog__DOG01416.jpg",
+    "resolucao_original": "2048x1151"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_comunidade_03",
+   "tema": "comunidade",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_comunidade_03_original.webp",
+    "terra": "assets/foto/acervo/void_comunidade_03_terra.webp",
+    "4x5": "assets/foto/acervo/void_comunidade_03_4x5.webp",
+    "9x16": null,
+    "16x9": "assets/foto/acervo/void_comunidade_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_comunidade_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_comunidade_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "720x900 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Turma grande sob o telão The VOID TATTOO, braços erguidos.",
+   "alt": "Turma grande da The VOID comemorando de braços erguidos sob o telão da escola",
+   "onde_usar": [
+    "manual: 8. Fotografia (comunidade)",
+    "LP: seção comunidade",
+    "redes",
+    "membros",
+    "e-mail"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://lp.thevoidtattoo.com.br/wp-content/uploads/2026/08/turma.jpg",
+    "pagina": "https://lp.thevoidtattoo.com.br/the-void-pro/",
+    "arquivo_bruto": "site/lp__turma.jpg",
+    "resolucao_original": "1600x900"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_evento_01",
+   "tema": "evento",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_evento_01_original.webp",
+    "terra": "assets/foto/acervo/void_evento_01_terra.webp",
+    "4x5": "assets/foto/acervo/void_evento_01_4x5.webp",
+    "9x16": "assets/foto/acervo/void_evento_01_9x16.webp",
+    "16x9": "assets/foto/acervo/void_evento_01_16x9.webp",
+    "1x1": "assets/foto/acervo/void_evento_01_1x1.webp",
+    "thumb": "assets/foto/acervo/void_evento_01_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Formatura: grupo sob a faixa Parabéns Voiders, terraço à noite.",
+   "alt": "Turma de formatura reunida sob a faixa Parabéns Voiders no terraço da escola à noite",
+   "onde_usar": [
+    "manual: 8. Fotografia (ritos e eventos)",
+    "redes: comunidade",
+    "membros",
+    "e-mail: convite"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/371c4b6f-3e3c-4f8d-877e-194c1454ca70/FormaturaTheVOID_02SET-066.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/p/guia-completo-como-come-ar-a-tatuar-do-zero-2026",
+    "arquivo_bruto": "site/blog__FormaturaTheVOID_02SET-066.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_evento_02",
+   "tema": "evento",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_evento_02_original.webp",
+    "terra": "assets/foto/acervo/void_evento_02_terra.webp",
+    "4x5": "assets/foto/acervo/void_evento_02_4x5.webp",
+    "9x16": "assets/foto/acervo/void_evento_02_9x16.webp",
+    "16x9": "assets/foto/acervo/void_evento_02_16x9.webp",
+    "1x1": "assets/foto/acervo/void_evento_02_1x1.webp",
+    "thumb": "assets/foto/acervo/void_evento_02_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "607x1079 (tamanho nativo, fonte menor que o alvo)",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Formatura: alunos com as placas de premiação, noite.",
+   "alt": "Alunos na noite de formatura da The VOID segurando as placas de premiação",
+   "onde_usar": [
+    "manual: 8. Fotografia (ritos e eventos)",
+    "redes: comunidade",
+    "membros",
+    "e-mail: convite"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/23123fe9-e435-42a7-a82e-dbdf5ade6b80/FormaturaTheVOID_02SET-005.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/blog__FormaturaTheVOID_02SET-005.jpg",
+    "resolucao_original": "1920x1079"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Placa de premiação aparece: só comunidade e membros (troféu é clichê vedado em peça de marca)."
+  },
+  {
+   "id": "void_evento_03",
+   "tema": "evento",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.5,
+    "y": 0.32
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_evento_03_original.webp",
+    "terra": "assets/foto/acervo/void_evento_03_terra.webp",
+    "4x5": "assets/foto/acervo/void_evento_03_4x5.webp",
+    "9x16": "assets/foto/acervo/void_evento_03_9x16.webp",
+    "16x9": "assets/foto/acervo/void_evento_03_16x9.webp",
+    "1x1": "assets/foto/acervo/void_evento_03_1x1.webp",
+    "thumb": "assets/foto/acervo/void_evento_03_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Professor e duas alunas com as placas de premiação The VOID.",
+   "alt": "Professor e duas alunas segurando as placas de premiação da The VOID na formatura",
+   "onde_usar": [
+    "manual: 8. Fotografia (ritos e eventos)",
+    "redes: comunidade",
+    "membros",
+    "e-mail: convite"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "instagram",
+    "url": "https://www.instagram.com/p/Dd9ghAlFS6g/",
+    "data_post": "2026-10-01",
+    "arquivo_bruto": "instagram/ig-053-evento-premiacao-Dd9ghAlFS6g-01.jpg",
+    "resolucao_original": "1440x1920"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Placa de premiação aparece: só comunidade e membros (troféu é clichê vedado em peça de marca)."
+  },
+  {
+   "id": "void_evento_04",
+   "tema": "evento",
+   "regime": "cor-terra",
+   "versao_principal": "terra",
+   "foco": {
+    "x": 0.6,
+    "y": 0.5
+   },
+   "arquivos": {
+    "original": "assets/foto/acervo/void_evento_04_original.webp",
+    "terra": "assets/foto/acervo/void_evento_04_terra.webp",
+    "4x5": "assets/foto/acervo/void_evento_04_4x5.webp",
+    "9x16": "assets/foto/acervo/void_evento_04_9x16.webp",
+    "16x9": "assets/foto/acervo/void_evento_04_16x9.webp",
+    "1x1": "assets/foto/acervo/void_evento_04_1x1.webp",
+    "thumb": "assets/foto/acervo/void_evento_04_thumb.webp"
+   },
+   "recortes_dimensoes": {
+    "4x5": "1080x1350",
+    "9x16": "1080x1920",
+    "16x9": "1920x1080",
+    "1x1": "1080x1080"
+   },
+   "descricao": "Lucas Tengan palestrando no palco, telão com a pergunta Quem é você como artista.",
+   "alt": "Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista",
+   "onde_usar": [
+    "manual: 8. Fotografia (ritos e eventos)",
+    "redes: comunidade",
+    "membros",
+    "e-mail: convite"
+   ],
+   "regra_de_uso": "Cor contida para depoimento e comunidade: no máximo 1 imagem colorida em cada 4.",
+   "pessoas_visiveis": "sim",
+   "origem": {
+    "fonte": "site",
+    "url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/296cce34-857a-472b-a9e6-de2da3feb6d4/1ae06b0f-bc0e-4915-bc0d-84516a6758ac.jpg",
+    "pagina": "https://blog.thevoidtattoo.com.br/",
+    "arquivo_bruto": "site/blog__1ae06b0f-bc0e-4915-bc0d-84516a6758ac.jpg",
+    "resolucao_original": "1920x1497"
+   },
+   "tipo": "foto real",
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  }
+ ],
+ "mockups": [
+  {
+   "id": "void_mockup_banca-de-jornal",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_banca-de-jornal.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_banca-de-jornal_thumb.webp"
+   },
+   "descricao": "Banca de jornal envelopada com a campanha The VOID",
+   "alt": "Banca de jornal envelopada com a campanha The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/017-mockup-banca-de-jornal.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_banca-colagem-aulas",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_banca-colagem-aulas.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_banca-colagem-aulas_thumb.webp"
+   },
+   "descricao": "Lateral da banca com colagem de fotos de aula e texto da campanha",
+   "alt": "Lateral da banca com colagem de fotos de aula e texto da campanha",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/017-banca-colagem-aulas.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_ecobag",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_ecobag.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_ecobag_thumb.webp"
+   },
+   "descricao": "Ecobag branca com o logotipo The VOID TATTOO",
+   "alt": "Ecobag branca com o logotipo The VOID TATTOO",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/019-mockup-ecobag.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_placa-rua",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_placa-rua.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_placa-rua_thumb.webp"
+   },
+   "descricao": "Placa de rua com a campanha The VOID",
+   "alt": "Placa de rua com a campanha The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/021-mockup-placa-rua.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Cenário de rua ilustrativo e QR code fictício: não usar como foto de local real."
+  },
+  {
+   "id": "void_mockup_lambe-lambe",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_lambe-lambe.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_lambe-lambe_thumb.webp"
+   },
+   "descricao": "Muro com lambe-lambes da campanha The VOID",
+   "alt": "Muro com lambe-lambes da campanha The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/022-mockup-lambe-lambe.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_cartaz-chamado-para-a-arte",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_cartaz-chamado-para-a-arte.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_cartaz-chamado-para-a-arte_thumb.webp"
+   },
+   "descricao": "Cartaz O seu chamado para a arte acabou de chegar",
+   "alt": "Cartaz O seu chamado para a arte acabou de chegar",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/023-poster-chamado-para-a-arte.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Modelo parece banco de imagem: mockup de agência, não foto da escola."
+  },
+  {
+   "id": "void_mockup_cartaz-continuar-sem-certeza",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_cartaz-continuar-sem-certeza.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_cartaz-continuar-sem-certeza_thumb.webp"
+   },
+   "descricao": "Cartaz É sobre continuar, mesmo sem certeza",
+   "alt": "Cartaz É sobre continuar, mesmo sem certeza",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/023-poster-continuar-mesmo-sem-certeza.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Foto parece banco de imagem: mockup de agência, não foto da escola."
+  },
+  {
+   "id": "void_mockup_cartao-visita",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_cartao-visita.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_cartao-visita_thumb.webp"
+   },
+   "descricao": "Cartão de visita The VOID com os dados pessoais borrados",
+   "alt": "Cartão de visita The VOID com os dados pessoais borrados",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/025-mockup-cartao-visita-dados-borrados.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Dados borrados de propósito; nunca usar o slide original."
+  },
+  {
+   "id": "void_mockup_bone",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_bone.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_bone_thumb.webp"
+   },
+   "descricao": "Boné preto bordado com o logotipo The VOID",
+   "alt": "Boné preto bordado com o logotipo The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/027-mockup-bone.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_moletom",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_moletom.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_moletom_thumb.webp"
+   },
+   "descricao": "Moletom branco com capuz e logotipo The VOID",
+   "alt": "Moletom branco com capuz e logotipo The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/028-mockup-moletom.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_caixa-kit-start",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_caixa-kit-start.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_caixa-kit-start_thumb.webp"
+   },
+   "descricao": "Caixa do Kit Start The VOID",
+   "alt": "Caixa do Kit Start The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/033-mockup-caixa-kit-start.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_business-playbook",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_business-playbook.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_business-playbook_thumb.webp"
+   },
+   "descricao": "Capas do Business Playbook do The VOID Pro",
+   "alt": "Capas do Business Playbook do The VOID Pro",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/038-mockup-business-playbook.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "A arte do mockup traz a grafia errada TATOO: referência de aplicação, corrigir para TATTOO antes de produzir."
+  },
+  {
+   "id": "void_mockup_capa-maquina",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_capa-maquina.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_capa-maquina_thumb.webp"
+   },
+   "descricao": "Capa da apresentação: máquina tatuando com o logotipo The VOID",
+   "alt": "Capa da apresentação: máquina tatuando com o logotipo The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/012-capa-maquina-tatuando-com-logo.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-familia-void",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-familia-void.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-familia-void_thumb.webp"
+   },
+   "descricao": "Post de feed com a equipe The VOID",
+   "alt": "Post de feed com a equipe The VOID",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/016-feed-familia-void-equipe.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-transformando-paixao",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-transformando-paixao.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-transformando-paixao_thumb.webp"
+   },
+   "descricao": "Post de feed Transformando sua paixão pela arte em profissão",
+   "alt": "Post de feed Transformando sua paixão pela arte em profissão",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/016-feed-transformando-paixao.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-save-the-date",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-save-the-date.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-save-the-date_thumb.webp"
+   },
+   "descricao": "Post de feed Save the date",
+   "alt": "Post de feed Save the date",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/016-feed-save-the-date.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_banner-convocacao",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_banner-convocacao.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_banner-convocacao_thumb.webp"
+   },
+   "descricao": "Banner Convocação a todos os artistas do Brasil",
+   "alt": "Banner Convocação a todos os artistas do Brasil",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/020-banner-convocacao-evento-comunidade.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-start-arte-sua-fuga",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-start-arte-sua-fuga.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-start-arte-sua-fuga_thumb.webp"
+   },
+   "descricao": "Post do Start: a arte sempre foi sua fuga",
+   "alt": "Post do Start: a arte sempre foi sua fuga",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/032-feed-start-arte-sua-fuga.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-start-comunidade",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-start-comunidade.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-start-comunidade_thumb.webp"
+   },
+   "descricao": "Post do Start com foto da comunidade",
+   "alt": "Post do Start com foto da comunidade",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/032-feed-start-void-comunidade.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-start-ate-quando",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-start-ate-quando.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-start-ate-quando_thumb.webp"
+   },
+   "descricao": "Post do Start: até quando você vai esperar",
+   "alt": "Post do Start: até quando você vai esperar",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/032-feed-start-ate-quando.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Texto com oferta de pré-venda antiga: só referência de layout."
+  },
+  {
+   "id": "void_mockup_key-visual-start",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_key-visual-start.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_key-visual-start_thumb.webp"
+   },
+   "descricao": "Key visual do Start",
+   "alt": "Key visual do Start",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/031-key-visual-start-mulher-tatuada.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Modelo parece banco de imagem: mockup de agência."
+  },
+  {
+   "id": "void_mockup_key-visual-master",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_key-visual-master.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_key-visual-master_thumb.webp"
+   },
+   "descricao": "Key visual do Master",
+   "alt": "Key visual do Master",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/034-key-visual-master-silhueta.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Foto parece banco de imagem: mockup de agência."
+  },
+  {
+   "id": "void_mockup_key-visual-pro",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_key-visual-pro.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_key-visual-pro_thumb.webp"
+   },
+   "descricao": "Key visual do Pro",
+   "alt": "Key visual do Pro",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/036-key-visual-pro-oculos.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Modelo parece banco de imagem: mockup de agência."
+  },
+  {
+   "id": "void_mockup_story-master",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_story-master.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_story-master_thumb.webp"
+   },
+   "descricao": "Story do Master: o Master realmente abriu minha cabeça",
+   "alt": "Story do Master: o Master realmente abriu minha cabeça",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/035-story-master-abriu-minha-cabeca.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Foto do tatuador pode ser de banco: mockup de agência."
+  },
+  {
+   "id": "void_mockup_post-pro-capa",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-pro-capa.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-pro-capa_thumb.webp"
+   },
+   "descricao": "Post de capa do Pro",
+   "alt": "Post de capa do Pro",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/037-feed-pro-capa.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_mockup_post-pro-estrategia",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_post-pro-estrategia.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_post-pro-estrategia_thumb.webp"
+   },
+   "descricao": "Post do Pro: estratégia é o que transforma artista em autoridade",
+   "alt": "Post do Pro: estratégia é o que transforma artista em autoridade",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/037-feed-pro-estrategia.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026",
+   "alerta": "Modelo parece banco de imagem: mockup de agência."
+  },
+  {
+   "id": "void_mockup_grade-start-master-pro",
+   "arquivos": {
+    "original": "assets/aplicacoes/mockups/void_mockup_grade-start-master-pro.webp",
+    "thumb": "assets/aplicacoes/mockups/void_mockup_grade-start-master-pro_thumb.webp"
+   },
+   "descricao": "Grade de posts das três formações Start, Master e Pro",
+   "alt": "Grade de posts das três formações Start, Master e Pro",
+   "tipo": "mockup de aplicação do rebranding (agência)",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/040-grid-start-master-pro.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  }
+ ],
+ "personas": [
+  {
+   "id": "void_ilustracao_persona-determinada",
+   "arquivos": {
+    "original": "assets/foto/personas/void_ilustracao_persona-determinada.webp",
+    "thumb": "assets/foto/personas/void_ilustracao_persona-determinada_thumb.webp"
+   },
+   "descricao": "Persona Determinada: retrato ilustrativo gerado por IA para representar uma persona do público, não é aluno nem foto da escola.",
+   "alt": "Ilustração gerada por IA da persona determinada, não é foto real",
+   "tipo": "ilustração gerada por IA",
+   "rotulo_obrigatorio": "Ilustração: persona fictícia, não é aluno da The VOID",
+   "onde_usar": [
+    "manual: seção de público e personas",
+    "documentos internos de estratégia"
+   ],
+   "nunca_usar": "como foto da escola, depoimento, anúncio ou LP sem o rótulo de ilustração",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/050-ilustracao-ia-persona-determinada.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_ilustracao_persona-persistente",
+   "arquivos": {
+    "original": "assets/foto/personas/void_ilustracao_persona-persistente.webp",
+    "thumb": "assets/foto/personas/void_ilustracao_persona-persistente_thumb.webp"
+   },
+   "descricao": "Persona Persistente: retrato ilustrativo gerado por IA para representar uma persona do público, não é aluno nem foto da escola.",
+   "alt": "Ilustração gerada por IA da persona persistente, não é foto real",
+   "tipo": "ilustração gerada por IA",
+   "rotulo_obrigatorio": "Ilustração: persona fictícia, não é aluno da The VOID",
+   "onde_usar": [
+    "manual: seção de público e personas",
+    "documentos internos de estratégia"
+   ],
+   "nunca_usar": "como foto da escola, depoimento, anúncio ou LP sem o rótulo de ilustração",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/051-ilustracao-ia-persona-persistente.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_ilustracao_persona-buscador",
+   "arquivos": {
+    "original": "assets/foto/personas/void_ilustracao_persona-buscador.webp",
+    "thumb": "assets/foto/personas/void_ilustracao_persona-buscador_thumb.webp"
+   },
+   "descricao": "Persona Buscador: retrato ilustrativo gerado por IA para representar uma persona do público, não é aluno nem foto da escola.",
+   "alt": "Ilustração gerada por IA da persona buscador, não é foto real",
+   "tipo": "ilustração gerada por IA",
+   "rotulo_obrigatorio": "Ilustração: persona fictícia, não é aluno da The VOID",
+   "onde_usar": [
+    "manual: seção de público e personas",
+    "documentos internos de estratégia"
+   ],
+   "nunca_usar": "como foto da escola, depoimento, anúncio ou LP sem o rótulo de ilustração",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/052-ilustracao-ia-persona-buscador.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  },
+  {
+   "id": "void_ilustracao_persona-visionaria",
+   "arquivos": {
+    "original": "assets/foto/personas/void_ilustracao_persona-visionaria.webp",
+    "thumb": "assets/foto/personas/void_ilustracao_persona-visionaria_thumb.webp"
+   },
+   "descricao": "Persona Visionária: retrato ilustrativo gerado por IA para representar uma persona do público, não é aluno nem foto da escola.",
+   "alt": "Ilustração gerada por IA da persona visionária, não é foto real",
+   "tipo": "ilustração gerada por IA",
+   "rotulo_obrigatorio": "Ilustração: persona fictícia, não é aluno da The VOID",
+   "onde_usar": [
+    "manual: seção de público e personas",
+    "documentos internos de estratégia"
+   ],
+   "nunca_usar": "como foto da escola, depoimento, anúncio ou LP sem o rótulo de ilustração",
+   "origem": {
+    "fonte": "figma",
+    "url": "https://www.figma.com/proto/nWWo9J9BvPvZQHCxE2Pyc5/The-Void-Branding",
+    "arquivo_bruto": "figma-recortes/053-ilustracao-ia-persona-visionaria.png"
+   },
+   "autorizacao": "uso autorizado pela The VOID, 10/2026"
+  }
+ ]
+}

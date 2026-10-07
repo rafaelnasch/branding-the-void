@@ -5,10 +5,8 @@
 .f08-janela{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
 .f08-campo{background:var(--estacao-campo);color:var(--estacao-campo-texto)}
 .f08-fill{position:absolute;inset:0}
-.f08-foto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bastidor)}
-.f08-foto::before{content:"";position:absolute;inset:calc(var(--u)*18);border:1px dashed var(--fumaca)}
-.f08-foto span{position:relative;max-width:64%;text-align:center;font:500 calc(var(--u)*24)/1.35 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
-.f08-foto.f08-alto span{align-self:flex-start;margin-top:22%}
+.f08-foto{position:absolute;inset:0;overflow:hidden;background:var(--nanquim)}.f08-foto img,.f08-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.peca > .f08-cred{margin-top:var(--e-2)}
+.f08-veu-topo{position:absolute;inset:0;background:linear-gradient(180deg,rgb(24 24 24 / .72) 0%,rgb(24 24 24 / .62) 19%,rgb(24 24 24 / 0) 34%)}.f08-veu-alto{position:absolute;inset:0;background:linear-gradient(0deg,rgb(24 24 24 / .82) 0%,rgb(24 24 24 / .72) 56%,rgb(24 24 24 / 0) 84%)}
 .f08-veu-base{position:absolute;inset:0;background:linear-gradient(0deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 46%,rgb(24 24 24 / 0) 78%)}
 .f08-veu-esq{position:absolute;inset:0;background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,rgb(24 24 24 / 0) 72%)}
 .f08-tf{margin:0;font:800 calc(var(--u)*104)/.92 var(--font-letreiro);font-variation-settings:"wdth" 100;letter-spacing:-.02em;text-transform:uppercase;color:var(--tela);text-wrap:balance}
@@ -102,6 +100,11 @@
 .f08-menu{display:flex;align-items:center;gap:calc(var(--u)*26);font:500 calc(var(--u)*13)/1 var(--font-letreiro);font-variation-settings:"wdth" 112;letter-spacing:.12em;text-transform:uppercase;color:var(--cal)}
 .f08-zapf{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--sala);border:1px solid var(--tela);color:var(--tela)}.f08-zapf svg{width:24px;height:24px}
 .f08-check{list-style:none;padding:0;display:grid;gap:var(--e-2)}.f08-check li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:var(--e-3);align-items:start}.f08-check li::before{content:"";width:16px;height:16px;margin-top:4px;border:1.5px solid currentColor}
+.f08-mini img.f{width:100%;height:100%;object-fit:cover;border:0}.f08-tri{position:relative;display:flex;gap:4px;height:62%}.f08-tri img{flex:1;min-width:0;height:100%;object-fit:cover}
+.f08-feed span[data-tipo="cena"]{position:relative;overflow:hidden;padding:0}.f08-feed span img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.f08-ft{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:8px;font-style:normal;color:var(--tela);background:linear-gradient(0deg,rgb(24 24 24 / .80) 0%,rgb(24 24 24 / .70) 34%,rgb(24 24 24 / 0) 66%)}
+.f08-traco{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.f08-traco figure{display:grid;gap:4px;margin:0}.f08-traco img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}.f08-mail-cine{display:block;width:100%;height:auto;aspect-ratio:2.39/1;object-fit:cover;background:var(--nanquim)}
+.f08-galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:var(--e-6) var(--e-5);align-items:start}.f08-galeria figure{display:grid;gap:var(--e-3);margin:0}.f08-galeria img{width:100%;height:auto;background:var(--bastidor)}.f08-galeria .f08-larga{grid-column:1/-1}
+.f08-galeria figcaption{display:grid;gap:4px;font:400 14px/1.5 var(--font-texto);color:var(--cal)}.f08-galeria figcaption b{font:600 16px/1.3 var(--font-letreiro);color:var(--tela)}.f08-al{color:var(--areia)}
 @media (max-width:900px){.f08-par,.f08-ui,.f08-dobra{grid-template-columns:minmax(0,1fr)}.f08-dobra .peca{max-width:300px}}
 @media (max-width:640px){.f08-pends,.f08-comp{grid-template-columns:minmax(0,1fr)}.f08-comp .f08-atual{order:-1}.f08-fita span{height:56px;font-size:0}.f08-sala{padding:var(--e-5) var(--e-4)}.f08-ficha{grid-template-columns:minmax(0,1fr)}.f08-ficha dd{margin-bottom:var(--e-2)}.f08-vsl span{font-size:0}}
 @media (prefers-reduced-motion:reduce){.f08-mail{transition:none}}
@@ -138,7 +141,7 @@
       <div class="f08-dobra">
         <div class="peca" data-formato="1080x1920" data-nome="LP03 no celular, Start" data-estacao="start">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span style="margin-top:72%">Foto real da escola, com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_aula_01_9x16.webp" width="607" height="1079" loading="lazy" decoding="async" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" style="object-position:50% 50%"></div><div class="f08-veu-topo"></div>
             <div class="f08-veu-base"></div>
             <div class="f08-barra" style="position:relative;min-height:calc(var(--u)*120);font-size:calc(var(--u)*30);padding:0 calc(var(--u)*48)"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*40);height:calc(var(--u)*40)"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>Turma de [mês] · começa em [data]</div>
             <div class="f08-p" style="top:calc(var(--u)*120);padding:calc(var(--u)*48)">
@@ -152,11 +155,12 @@
               </div>
             </div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div style="display:grid;gap:var(--e-6)">
           <div class="peca" data-formato="1440x900" data-nome="LP03 no computador, Master" data-estacao="master">
             <div class="peca-tela">
-              <div class="f08-foto" style="left:46%"><span>Foto real da escola, com autorização</span></div>
+              <div class="f08-foto" style="left:46%"><img src="assets/foto/acervo/void_pele_06_4x5.webp" srcset="assets/foto/acervo/void_pele_06_thumb.webp 512w, assets/foto/acervo/void_pele_06_4x5.webp 1080w" sizes="(max-width:640px) 50vw, 350px" width="1080" height="1350" loading="lazy" decoding="async" alt="Braço fechado em estilo oriental com carpas, trabalho do professor Ayelo Padalino" style="object-position:50% 50%"></div><div class="f08-veu-topo"></div>
               <div class="f08-veu-esq"></div>
               <div class="f08-barra" style="position:relative"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>Turma de [mês] · começa em [data] · inscrições até [data]</div>
               <div class="f08-p" style="top:calc(var(--u)*40);padding:calc(var(--u)*40) calc(var(--u)*64)">
@@ -169,7 +173,8 @@
                 </div>
               </div>
             </div>
-          </div>
+            <p class="credito f08-cred">Foto: acervo The VOID</p>
+        </div>
           <ol class="f08-zonas" aria-label="As três zonas da primeira dobra">
             <li><b>1</b><span><strong>Vazio.</strong> O título nomeia a crença da persona, em até 6 palavras, com uma Palavra Sensível. Véu de 70% sob o texto (62% mínimo sob a linha de apoio).</span></li>
             <li><b>2</b><span><strong>Encontro.</strong> Uma linha racional: o que é e onde é ("Vila Madalena, São Paulo"). Ficha Técnica no topo, sem ano de fundação [P 5].</span></li>
@@ -191,22 +196,22 @@
       <div class="bloco-head">
         <p class="bloco-n credito">34.2</p>
         <h3 class="fala">Os 23 componentes</h3>
-        <p class="bloco-apoio">Cada componente tem nome canônico, tipo de tela (cena, cartela, documento ou interface) e uma especificação fechada. A miniatura mostra a composição; o quadradinho do tipo é o mesmo da régua de montagem abaixo.</p>
+        <p class="bloco-apoio">Cada componente tem nome canônico, tipo de tela (cena, cartela, documento ou interface) e uma especificação fechada. A miniatura mostra a composição, com foto real do acervo nos componentes de cena; o quadradinho do tipo é o mesmo da régua de montagem abaixo.</p>
       </div>
       <div class="f08-lps" data-estacao="start">
         <div class="f08-lp"><div class="f08-mini" data-tipo="interface"><i class="r"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP01<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Barra de Turma</b><span>40 px em Bastidor, fio do produto, ícone de calendário e a turma em Crédito. Só existe com data de início válida e futura; some sozinha quando vence. Nunca em vermelho, nunca com contador.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="interface"><i class="b" style="width:30%;height:6px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP02<span class="f08-tipo" data-tipo="interface">interface</span></p><b>Cabeçalho Mínimo</b><span>Logotipo de produto branco, de 24 a 32 px de altura. Sem menu.</span></div></div>
-        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="f"></i><i class="v"></i><i class="t"></i><i class="o"></i><i class="b"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP03<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Plano de Abertura</b><span>Foto P&amp;B sangrada com véu, Título de Filme com Palavra Sensível, linha racional, botão, microcopy, selo no canto e Ficha Técnica sem ano.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><img class="f" src="assets/foto/acervo/void_aula_01_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:50% 50%"><i class="v"></i><i class="t"></i><i class="o"></i><i class="b"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP03<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Plano de Abertura</b><span>Foto P&amp;B sangrada com véu, Título de Filme com Palavra Sensível, linha racional, botão, microcopy, selo no canto e Ficha Técnica sem ano.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="c"></i><i class="t" style="width:44%"></i><i class="t" style="width:36%"></i><i class="t" style="width:50%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP04<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Cartela do Vazio</b><span>Esfera ou campo puro e frases curtas empilhadas que espelham a crença da persona.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i style="width:52%"></i><i class="t" style="width:76%"></i><i class="t" style="width:48%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP05<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Virada</b><span>A crença em Pó, riscada por um fio de 2 px no grafismo do produto; a verdade abaixo, em Título de Filme. No Pro, vira Autoavaliação.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:70%"></i><i style="width:60%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP06<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Rolo de Depoimentos</b><span>3 ou 4 vídeos 9:16 com rolagem lateral visível, capa no regime Terra, "ANTES, [OCUPAÇÃO]. HOJE, [TATUADOR OU TATUADORA]" com o gênero que a pessoa escolher, crédito de depoimento e Aviso de Conformidade abaixo.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:18%;height:22px"></i><i style="width:46%"></i><i style="width:30%;height:2px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP07<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Régua de Prova</b><span>De 3 a 4 numerais validados, cada um com Crédito de Prova. Some se não houver nenhum validado.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:30%"></i><i class="k" style="height:22px;background:linear-gradient(90deg,var(--cinza-100) 0 31%,transparent 31% 34.5%,var(--cinza-100) 34.5% 65.5%,transparent 65.5% 69%,var(--cinza-100) 69%)"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP08<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Método ARTE e Mapa da Trilha</b><span>Mapa da Trilha com o produto aceso e três colunas (Artista, Tatuador, Empreendedor). No celular, cartões empilhados com o atual primeiro.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:40%"></i><i style="width:90%;height:1px"></i><i style="width:60%"></i><i style="width:90%;height:1px"></i><i style="width:52%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP09<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Roteiro</b><span>Grade de módulos em acordeão, o primeiro aberto: Marcador de Estação, nome, o que o aluno sabe fazer no fim e o pilar. Termo técnico explicado na primeira vez.</span></div></div>
-        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:64%;background:linear-gradient(90deg,var(--coxia) 0 32%,transparent 32% 34%,var(--coxia) 34% 66%,transparent 66% 68%,var(--coxia) 68%)"></i><i class="o"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP10<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Fotograma dos Rituais</b><span>Tríptico P&amp;B no protocolo dos ritos: Ritual do Traço, Primeira Pele, Formatura com Pele, cada um com a frase do rito na voz em off.</span></div></div>
-        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="k" style="height:58%"></i><i style="width:40%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP11<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Elenco</b><span>Retratos P&amp;B de luz lateral, nome, estilo e anos de prática [P 13], com link para a página do professor.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><span class="f08-tri"><img src="assets/foto/acervo/void_traco_01_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:60% 40%"><img src="assets/foto/acervo/void_professor_03_thumb.webp" width="427" height="640" loading="lazy" decoding="async" alt="" style="object-position:55% 60%"><img src="assets/foto/acervo/void_pele_17_thumb.webp" width="480" height="640" loading="lazy" decoding="async" alt="" style="object-position:50% 50%"></span><i class="o"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP10<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Fotograma dos Rituais</b><span>Tríptico P&amp;B no protocolo dos ritos: Ritual do Traço, Primeira Pele, Formatura com Pele, cada um com a frase do rito na voz em off.</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><span class="f08-tri"><img src="assets/foto/acervo/void_retrato_02_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:42% 40%"><img src="assets/foto/acervo/void_retrato_03_thumb.webp" width="405" height="640" loading="lazy" decoding="async" alt="" style="object-position:50% 32%"><img src="assets/foto/acervo/void_retrato_04_thumb.webp" width="389" height="640" loading="lazy" decoding="async" alt="" style="object-position:50% 38%"></span><i style="width:40%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP11<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Elenco</b><span>Retratos P&amp;B de luz lateral, nome, estilo e anos de prática [P 13], com link para a página do professor.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:30%"></i><i style="width:44%"></i><i style="width:38%"></i><i style="width:46%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP12<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Para Quem É</b><span>Duas colunas: ícone de confirmação para "é" e traço em Fumaça para "não é".</span></div></div>
-        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><i class="f" style="right:45%"></i><i style="width:40%;margin-left:58%"></i><i style="width:34%;margin-left:58%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP13<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Locação</b><span>Foto real da fachada e da sala, bloco NAP canônico, mapa estático em Penumbra e "como chegar".</span></div></div>
+        <div class="f08-lp"><div class="f08-mini" data-tipo="cena"><img class="f" src="assets/foto/acervo/void_escola_03_thumb.webp" width="360" height="640" loading="lazy" decoding="async" alt="" style="object-position:45% 60%;width:55%"><i style="width:40%;margin-left:58%"></i><i style="width:34%;margin-left:58%"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP13<span class="f08-tipo" data-tipo="cena">cena</span></p><b>Locação</b><span>Foto real da fachada e da sala, bloco NAP canônico, mapa estático em Penumbra e "como chegar".</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento"><i class="t" style="width:44%"></i><i style="width:64%"></i><i style="width:58%"></i><i class="b"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP14<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Ficha da Formação</b><span>Modo Leitura: selo, o que inclui, formato, carga horária, turma, investimento com total e parcelas [P 15], botão Sala, frase de arrependimento e frase de curso livre.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="documento" style="background:var(--sala)"><i class="t" style="width:60%;height:7px"></i><i style="width:92%;height:1px"></i><i class="t" style="width:52%;height:7px"></i><i style="width:92%;height:1px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP15<span class="f08-tipo" data-tipo="documento">documento</span></p><b>Perguntas</b><span>Acordeão em Sala com as objeções da persona (preço, talento, mercado, "vou pensar"). Texto idêntico ao do FAQPage.</span></div></div>
         <div class="f08-lp"><div class="f08-mini" data-tipo="cartela"><i class="t" style="width:46%"></i><i class="b"></i><i style="width:84%;height:2px"></i></div><div class="f08-lp-txt"><p class="f08-lp-id">LP16<span class="f08-tipo" data-tipo="cartela">cartela</span></p><b>Créditos Finais</b><span>Sala total, Eco do VOID, a última linha que fica, botão, rodapé-assinatura, NAP e rodapé legal. Tagline só nos contextos de peso.</span></div></div>
@@ -480,7 +485,7 @@
       <div class="pecas" data-estacao="start">
         <div class="peca" data-formato="1280x720" data-nome="Capa da VSL, Start">
           <div class="peca-tela">
-            <div class="f08-foto" style="left:40%"><span>Rosto ou mãos, foto real com autorização</span></div>
+            <div class="f08-foto" style="left:40%"><img src="assets/foto/acervo/void_maos_01_1x1.webp" srcset="assets/foto/acervo/void_maos_01_thumb.webp 640w, assets/foto/acervo/void_maos_01_1x1.webp 1080w" sizes="(max-width:640px) 56vw, 400px" width="1080" height="1080" loading="lazy" decoding="async" alt="Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID" style="object-position:42% 42%"></div>
             <div class="f08-veu-esq" style="left:40%;background:linear-gradient(90deg,rgb(24 24 24 / .7) 0%,rgb(24 24 24 / 0) 40%)"></div>
             <div class="f08-p grao f08-janela" style="right:60%;padding:calc(var(--u)*56)">
               <img class="f08-logo" src="assets/brand/svg/void-start-branco.svg" alt="The VOID Start" width="260" height="42" style="width:calc(var(--u)*260)">
@@ -488,16 +493,18 @@
             </div>
             <div class="f08-zona" style="right:calc(var(--u)*24);bottom:calc(var(--u)*24);width:calc(var(--u)*150);height:calc(var(--u)*64)"><span class="f08-cr" style="font-size:calc(var(--u)*18)">Duração</span></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1920x1080" data-nome="Quadro de fala: lower third e legenda">
           <div class="peca-tela">
-            <div class="f08-foto"><span>Quem fala, foto real com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_retrato_06_16x9.webp" srcset="assets/foto/acervo/void_retrato_06_thumb.webp 494w, assets/foto/acervo/void_retrato_06_16x9.webp 1206w" sizes="(max-width:640px) 92vw, 640px" width="1206" height="678" loading="lazy" decoding="async" alt="Aluna Açucena apontando para a arara que tatuou na panturrilha da cliente" style="object-position:50% 40%"></div><div class="f08-veu-base"></div>
             <div style="position:absolute;left:calc(var(--u)*120);bottom:calc(var(--u)*330);display:flex;gap:calc(var(--u)*20)">
               <span style="width:calc(var(--u)*2);min-width:1px;background:var(--estacao-grafismo)"></span>
               <span><span class="f08-cr" style="display:block;font:600 calc(var(--u)*40)/1.1 var(--font-letreiro);font-variation-settings:'wdth' 112;letter-spacing:.08em;color:var(--tela)">[Nome da aluna]</span><span style="display:block;margin-top:calc(var(--u)*8);font:300 italic calc(var(--u)*34)/1.1 var(--font-off);color:var(--cal)">Aluna do Start, turma de [ano]</span></span>
             </div>
             <p style="position:absolute;left:50%;bottom:calc(var(--u)*110);transform:translateX(-50%);margin:0;width:max-content;max-width:80%;padding:calc(var(--u)*12) calc(var(--u)*24);background:rgb(24 24 24 / .75);text-align:center;font:600 calc(var(--u)*50)/1.25 var(--font-letreiro);color:var(--tela)">Legenda com a fala real, em até duas<br>linhas de até 42 caracteres no <span style="color:var(--areia)">horizontal</span>.</p>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
       </div>
       <div class="f08-grid" data-estacao="start" style="--f08-min:400px">
@@ -563,7 +570,7 @@
       </ul>
     </div>
 
-    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2, 4.3, 6, 11.2, 12.1 e 12.2); diretrizes de conversão para LP e VSL, pesquisa GrowAI, out/2026; Brand DNA da The VOID, set/2026; Personas, set/2026; Plataforma de Branding, aureadesign, 2025 (slides 57, 59 a 63).</p>
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 2, 4.3, 6, 8, 11.2, 12.1 e 12.2); acervo fotográfico da The VOID, uso autorizado em 10/2026; diretrizes de conversão para LP e VSL, pesquisa GrowAI, out/2026; Brand DNA da The VOID, set/2026; Personas, set/2026; Plataforma de Branding, aureadesign, 2025 (slides 57, 59 a 63).</p>
   </div>
 </section>
 
@@ -615,12 +622,12 @@
       <div class="bloco-head">
         <p class="bloco-n credito">35.2</p>
         <h3 class="fala">Os 13 modelos de rede</h3>
-        <p class="bloco-apoio">Cada modelo está desenhado na escala da peça de 1080 e encolhe sem perder proporção. Onde aparece "foto real da escola", entra só fotografia própria com autorização para o canal (seção <a href="#s29">29</a>).</p>
+        <p class="bloco-apoio">Cada modelo está desenhado na escala da peça de 1080 e encolhe sem perder proporção. Os modelos de cena saem com fotografia real do acervo da The VOID, no regime da seção <a href="#s29">29</a> (P&amp;B Ritual por padrão, Terra só no depoimento) e com o Véu de Leitura sob todo texto; antes de cada campanha, confira se a autorização cobre aquele canal. Cartela, Roteiro, Campo de Produto, Prova e Turma Aberta não levam foto: é a alternância da L8.</p>
       </div>
       <div class="f08-grid">
         <div class="peca" data-formato="1080x1350" data-nome="R1 · Cartaz · M1">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span>Foto real da escola, com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_concentracao_05_4x5.webp" srcset="assets/foto/acervo/void_concentracao_05_thumb.webp 640w, assets/foto/acervo/void_concentracao_05_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Tatuadora de camiseta The VOID concentrada no trabalho, vista de cima" style="object-position:50% 50%"></div>
             <div class="f08-veu-base"></div>
             <div class="f08-p">
               <div class="f08-fim" style="display:grid;gap:calc(var(--u)*40)">
@@ -630,6 +637,7 @@
             </div>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R2 · Cartela · M1">
           <div class="peca-tela grao">
@@ -645,23 +653,25 @@
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R3 · Cinemascope · M1 a M7">
           <div class="peca-tela">
-            <div class="f08-fill" data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Ritual do Traço · The VOID Start"}'></div>
+            <div class="f08-fill" data-vforms='{"forma":"cinemascope","foto":"assets/foto/acervo/void_traco_01_16x9.webp","titulo":"Todo mundo\ncomeça com\num traço","credito":"Ritual do Traço · The VOID Start"}'></div>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R4 · Fotograma Triplo · M1 e M2">
           <div class="peca-tela">
             <div class="f08-p" style="gap:calc(var(--u)*16)">
-              <div style="position:relative;flex:1"><div class="f08-foto"><span>1 · A primeira linha</span></div></div>
-              <div style="position:relative;flex:1"><div class="f08-foto"><span>2 · Mão guiando mão</span></div></div>
-              <div style="position:relative;flex:1"><div class="f08-foto"><span>3 · O traço firme</span></div></div>
+              <div style="position:relative;flex:1"><div class="f08-foto"><img src="assets/foto/acervo/void_traco_03_4x5.webp" srcset="assets/foto/acervo/void_traco_03_thumb.webp 360w, assets/foto/acervo/void_traco_03_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa" style="object-position:50% 55%"></div></div>
+              <div style="position:relative;flex:1"><div class="f08-foto"><img src="assets/foto/acervo/void_professor_04_4x5.webp" srcset="assets/foto/acervo/void_professor_04_thumb.webp 362w, assets/foto/acervo/void_professor_04_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Professora orientando de perto um aluno que tatua o antebraço de outra pessoa" style="object-position:50% 45%"></div></div>
+              <div style="position:relative;flex:1"><div class="f08-foto"><img src="assets/foto/acervo/void_maos_02_16x9.webp" srcset="assets/foto/acervo/void_maos_02_thumb.webp 640w, assets/foto/acervo/void_maos_02_16x9.webp 1920w" sizes="(max-width:640px) 92vw, 420px" width="1920" height="1080" loading="lazy" decoding="async" alt="Vista de cima de sessão de tatuagem com perna, máquina e bancada de tintas no estande da The VOID" style="object-position:55% 50%"></div></div>
             </div>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Fotos: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R5 · Antes Era · M2" data-estacao="start">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span>Aluno real, regime Terra ou P&amp;B, com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_retrato_12_4x5.webp" srcset="assets/foto/acervo/void_retrato_12_thumb.webp 480w, assets/foto/acervo/void_retrato_12_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Aluna sorrindo ao lado da tatuagem finalizada na coxa, fundo de folhagem da escola" style="object-position:38% 40%"></div>
             <div class="f08-veu-base"></div>
             <div class="f08-p">
               <div class="f08-fim" style="display:grid;gap:calc(var(--u)*28)">
@@ -673,6 +683,7 @@
             </div>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R6 · Letreiro · institucional">
           <div class="peca-tela">
@@ -714,7 +725,7 @@
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R9 · Convocação · pré-M1 e M8">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span>Público real à noite, P&amp;B, com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_escola_02_4x5.webp" srcset="assets/foto/acervo/void_escola_02_thumb.webp 640w, assets/foto/acervo/void_escola_02_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Estande da The VOID com logotipo grande e várias sessões de tatuagem acontecendo na convenção" style="object-position:45% 50%"></div>
             <div class="f08-veu-base"></div>
             <div class="f08-p" style="padding-bottom:calc(var(--u)*150)">
               <div class="f08-fim" style="display:grid;gap:calc(var(--u)*28)">
@@ -726,15 +737,17 @@
             <p class="f08-cr f08-corr" role="img" aria-label="Letreiro Corrido: The VOID Tattoo, ® 2025, São Paulo, Brazil"><span aria-hidden="true"><span>Brazil<i style="margin:0 .9em;font-style:normal">·</i>The VOID Tattoo<i style="margin:0 .9em;font-style:normal">·</i>® 2025<i style="margin:0 .9em;font-style:normal">·</i>São Paulo<i style="margin:0 .9em;font-style:normal">·</i>Brazil<i style="margin:0 .9em;font-style:normal">·</i>The VOID</span></span></p>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1920" data-nome="R10 · Bastidor (story) · M1 a M7" data-estacao="start">
           <div class="peca-tela">
-            <div class="f08-foto"><span>Vídeo ou foto cheia, real</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_maos_04_9x16.webp" srcset="assets/foto/acervo/void_maos_04_thumb.webp 360w, assets/foto/acervo/void_maos_04_9x16.webp 1080w" sizes="300px" width="1080" height="1920" loading="lazy" decoding="async" alt="Tatuadora de máscara e luvas nitrílicas tatuando o braço de um cliente na escola The VOID" style="object-position:55% 42%"></div><div class="f08-veu-topo"></div>
             <p class="f08-cr" style="position:absolute;left:calc(var(--u)*72);top:calc(var(--u)*290);display:flex;align-items:center;gap:calc(var(--u)*16);color:var(--tela)"><span data-vforms='{"forma":"marcador-estacao","tamanho":30}'></span>Start · Ritual do Traço</p>
             <div class="f08-zona" style="left:calc(var(--u)*72);right:calc(var(--u)*72);top:calc(var(--u)*1200);height:calc(var(--u)*300)"><span class="f08-cr">Área de figurinha</span></div>
             <p style="position:absolute;left:calc(var(--u)*110);right:calc(var(--u)*110);top:calc(var(--u)*1010);margin:0;padding:calc(var(--u)*14) calc(var(--u)*24);background:rgb(24 24 24 / .75);text-align:center;font:600 calc(var(--u)*62)/1.2 var(--font-letreiro);color:var(--tela)">Legenda queimada, duas linhas no <span style="color:var(--areia)">máximo</span></p>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R11 · Prova com Régua · M2">
           <div class="peca-tela grao">
@@ -765,7 +778,7 @@
         </div>
         <div class="peca" data-formato="1080x1350" data-nome="R13 · Marco do Aluno · M6 a M8" data-estacao="start">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span>Foto oficial do rito, com consentimento do aluno e do cliente tatuado</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_professor_03_4x5.webp" srcset="assets/foto/acervo/void_professor_03_thumb.webp 427w, assets/foto/acervo/void_professor_03_4x5.webp 1080w" sizes="(max-width:640px) 92vw, 420px" width="1080" height="1350" loading="lazy" decoding="async" alt="Professor e aluna de máscara tatuando juntos um cliente deitado de lado na escola" style="object-position:55% 60%"></div><div class="f08-veu-topo"></div>
             <div class="f08-veu-base"></div>
             <img class="f08-selo" src="assets/brand/svg/selo-simples-start.svg" alt="Selo The VOID Start" width="200" height="200" style="width:calc(var(--u)*200)">
             <div class="f08-p">
@@ -776,9 +789,10 @@
             </div>
             <div class="area-segura"></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
       </div>
-      <p class="nota">R1 usa a frase dos posts verticais da Plataforma de Branding (slide 24); R2, a ideia central da página da aula experimental no site oficial; R13, a frase do rito Primeira Pele. Em R5, o gênero de "tatuador" ou "tatuadora" é o que a pessoa do depoimento escolher. R9 é peça de evento e por isso leva o Letreiro Corrido no pé (24.4): na imagem parada, ele mostra um quadro do letreiro, com uma volta inteira no centro e as pontas esmaecidas; em vídeo e na LP do evento, ele corre. As frases com colchetes só vão ao ar preenchidas com dado real. A cadência e a grade do feed estão em <a href="#s35-6">35.6</a>.</p>
+      <p class="nota">R1 usa a frase dos posts verticais da Plataforma de Branding (slide 24); R2, a ideia central da página da aula experimental no site oficial; R13, a frase do rito Primeira Pele, sobre a cena de professor e aluna na mesma sessão, enquadramento do protocolo do rito (seção 29). Em R5, o gênero de "tatuador" ou "tatuadora" é o que a pessoa do depoimento escolher. R9 é peça de evento e por isso leva o Letreiro Corrido no pé (24.4): na imagem parada, ele mostra um quadro do letreiro, com uma volta inteira no centro e as pontas esmaecidas; em vídeo e na LP do evento, ele corre. As frases com colchetes só vão ao ar preenchidas com dado real. A cadência e a grade do feed estão em <a href="#s35-6">35.6</a>.</p>
     </div>
 
     <div class="bloco" id="s35-3">
@@ -864,6 +878,7 @@
         <div>
           <div class="f08-mail" id="s35-mail" data-estacao="start">
             <div class="f08-mail-cab"><img src="assets/brand/png/web/void-horizontal-branco.png" alt="The VOID Tattoo Academy" width="200" height="30" style="width:200px;height:auto"></div>
+            <img class="f08-mail-cine" src="assets/foto/acervo/void_escola_04_pb.webp" srcset="assets/foto/acervo/void_escola_04_thumb.webp 360w, assets/foto/acervo/void_escola_04_pb.webp 900w" sizes="(max-width:640px) 92vw, 600px" width="900" height="1600" loading="lazy" decoding="async" alt="Sala de aula da The VOID cheia de alunos em mesas longas, professor ao fundo" style="object-position:50% 58%">
             <div class="f08-mail-corpo">
               <p class="f08-mk">Start · Primeiro dia</p>
               <p><strong>Oi, {nome}.</strong></p>
@@ -880,12 +895,14 @@
               <p>Você recebe este e-mail porque se matriculou na formação Start. Descadastrar · Política de Privacidade</p>
             </div>
           </div>
+          <p class="credito" style="margin-top:var(--e-2)">Foto: acervo The VOID</p>
           <button type="button" class="copiar" id="s35-mail-p2" aria-pressed="false" style="margin-top:var(--e-4)">Ver como sai enquanto [P 2] não for aprovado</button>
         </div>
         <ol class="lista">
           <li><strong>Assunto</strong> até 45 caracteres, pré-cabeçalho até 80. Exemplo: "{nome}, seu primeiro dia na The VOID" e "Data, horário, endereço e o que levar, numa mensagem só." Sem caixa alta inteira, sem travessão, sem emoji no lugar de palavra.</li>
           <li><strong>Cabeçalho</strong> Sala de até 64 px com Janela de Luz e o logotipo horizontal branco em PNG 2x de 200 px. Em e-mail de marco, o selo da formação no lugar do logotipo.</li>
-          <li><strong>Marcador de Estação</strong> em texto logo abaixo do cabeçalho.</li>
+          <li><strong>Faixa Cinemascope</strong> opcional logo abaixo do cabeçalho: foto real do acervo em 2,39 por 1, P&amp;B, sem texto sobre ela, com texto alternativo. Em e-mail de M5, a sala onde a turma vai estar.</li>
+          <li><strong>Marcador de Estação</strong> em texto logo abaixo do cabeçalho (ou da faixa).</li>
           <li><strong>Corpo</strong> em Modo Leitura: Tela, texto Sala 17 px, "Oi, {nome}.", uma ideia, até três parágrafos e no máximo uma prova com Crédito de Prova.</li>
           <li><strong>Botão</strong> reto, Sala com texto Tela, 48 px, Archivo com pilha de reserva; o mesmo link em texto logo abaixo.</li>
           <li><strong>Última linha</strong> na voz em off, que cai para Georgia itálico em quem não carrega a fonte. Nunca vira imagem.</li>
@@ -944,10 +961,11 @@
         </div>
         <div class="peca" data-formato="1440x900" data-nome="Foto cheia com véu">
           <div class="peca-tela">
-            <div class="f08-foto f08-alto"><span>Foto real da escola, com autorização</span></div>
+            <div class="f08-foto"><img src="assets/foto/acervo/void_maos_03_16x9.webp" srcset="assets/foto/acervo/void_maos_03_thumb.webp 640w, assets/foto/acervo/void_maos_03_16x9.webp 1920w" sizes="(max-width:640px) 92vw, 420px" width="1920" height="1080" loading="lazy" decoding="async" alt="Dois tatuadores vistos de cima trabalhando lado a lado na maca, com equipamentos e luvas" style="object-position:50% 50%"></div>
             <div class="f08-veu-base"></div>
             <div class="f08-p" style="padding:calc(var(--u)*96)"><p class="f08-tf f08-fim" style="font-size:calc(var(--u)*90);max-width:70%">O processo como <em class="off">ritual</em>.</p></div>
           </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
         <div class="peca" data-formato="1440x900" data-nome="Comparativo">
           <div class="peca-tela grao"><div class="f08-p f08-janela" style="padding:calc(var(--u)*96)">
@@ -1022,11 +1040,11 @@
         <div>
           <p class="rotulo">Grade do perfil, últimas 9 peças</p>
           <div class="f08-feed" role="img" aria-label="Grade de 3 por 3 do perfil, da peça mais nova para a mais antiga: R4 cena, R8 campo de produto, R1 cena; R2 cartela, R5 cena, R7 cartela; R3 cena, R4 cena da semana anterior, R8 campo de produto da semana anterior.">
-            <span data-tipo="cena">R4<small>Comunidade · dom</small></span><span data-tipo="campo">R8<small>Autoridade · sáb</small></span><span data-tipo="cena">R1<small>Arte · sex</small></span>
-            <span data-tipo="cartela">R2<small>Mercado · qui</small></span><span data-tipo="cena">R5<small>Transformação · qua</small></span><span data-tipo="cartela">R7<small>Mercado · ter</small></span>
-            <span data-tipo="cena">R3<small>Transformação · seg</small></span><span data-tipo="cena">R4<small>semana anterior</small></span><span data-tipo="campo">R8<small>semana anterior</small></span>
+            <span data-tipo="cena"><img src="assets/foto/acervo/void_professor_04_thumb.webp" width="362" height="640" loading="lazy" decoding="async" alt="" style="object-position:60% 45%"><em class="f08-ft">R4<small>Comunidade · dom</small></em></span><span data-tipo="campo">R8<small>Autoridade · sáb</small></span><span data-tipo="cena"><img src="assets/foto/acervo/void_concentracao_05_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:50% 50%"><em class="f08-ft">R1<small>Arte · sex</small></em></span>
+            <span data-tipo="cartela">R2<small>Mercado · qui</small></span><span data-tipo="cena"><img src="assets/foto/acervo/void_retrato_12_thumb.webp" width="480" height="640" loading="lazy" decoding="async" alt="" style="object-position:38% 40%"><em class="f08-ft">R5<small>Transformação · qua</small></em></span><span data-tipo="cartela">R7<small>Mercado · ter</small></span>
+            <span data-tipo="cena"><img src="assets/foto/acervo/void_traco_01_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:60% 40%"><em class="f08-ft">R3<small>Transformação · seg</small></em></span><span data-tipo="cena"><img src="assets/foto/acervo/void_maos_02_thumb.webp" width="640" height="360" loading="lazy" decoding="async" alt="" style="object-position:55% 50%"><em class="f08-ft">R4<small>semana anterior</small></em></span><span data-tipo="campo">R8<small>semana anterior</small></span>
           </div>
-          <p class="legenda">A grade mostra o recorte 3:4 do perfil. <span class="f08-tipo" data-tipo="cena">cena</span> · <span class="f08-tipo" data-tipo="cartela">cartela</span> · <span class="f08-tipo" data-tipo="campo">campo de produto</span></p>
+          <p class="legenda">A grade mostra o recorte 3:4 do perfil, com as fotos do acervo usadas nas peças acima; só uma colorida (R5, regime Terra) entre as nove. <span class="f08-tipo" data-tipo="cena">cena</span> · <span class="f08-tipo" data-tipo="cartela">cartela</span> · <span class="f08-tipo" data-tipo="campo">campo de produto</span></p>
         </div>
         <ul class="lista">
           <li>Antes de agendar a semana, confira na ordem de publicação: nenhuma sequência de três telas do mesmo tipo e nenhuma Cartela logo depois de outra.</li>
@@ -1038,7 +1056,44 @@
       </div>
     </div>
 
-    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6, 7.1, 9.4, 12.3, 12.5, 12.6 e 12.8); direção de fotografia, vídeo e redes, pesquisa GrowAI, out/2026 (pilares por persona e frequência por canal, seções 3.3 e 3.4); régua M1 a M8 e área de membros, pesquisa GrowAI, out/2026; Plataforma de Branding, aureadesign, 2025 (slides 10, 21, 59 a 63); site oficial, consultado em 06/10/2026.</p>
+    <div class="bloco" id="s35-7">
+      <div class="bloco-head">
+        <p class="bloco-n credito">35.7</p>
+        <h3 class="fala">Aplicações do rebranding</h3>
+        <p class="bloco-apoio">Onde a nova marca vive fora da tela: rua, produto, papelaria e campanha, como a agência desenhou na Plataforma de Branding. São referência de superfície e de escala. Quando um mockup diverge deste manual (foto de banco, grafia, oferta antiga), vale o manual, e a foto entra do acervo real da escola.</p>
+      </div>
+      <h4 class="intertitulo">Rua e campanha</h4>
+      <div class="f08-galeria">
+          <figure class="f08-larga"><img src="assets/aplicacoes/mockups/void_mockup_banca-de-jornal_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_banca-de-jornal_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_banca-de-jornal.webp 2400w" sizes="(max-width:640px) 92vw, 1000px" width="2400" height="1350" loading="lazy" decoding="async" alt="Banca de jornal envelopada com a campanha The VOID"><figcaption><b>Banca envelopada</b>A banca inteira em Sala, com o logotipo e a campanha. É o outdoor da marca na escala do bairro.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_banca-colagem-aulas_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_banca-colagem-aulas_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_banca-colagem-aulas.webp 1603w" sizes="(max-width:640px) 92vw, 420px" width="1603" height="968" loading="lazy" decoding="async" alt="Lateral da banca com colagem de fotos de aula e texto da campanha"><figcaption><b>Lateral da banca</b>Colagem de fotos de aula com o texto da campanha: o processo como cartaz.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_lambe-lambe_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_lambe-lambe_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_lambe-lambe.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1214" loading="lazy" decoding="async" alt="Muro com lambe-lambes da campanha The VOID"><figcaption><b>Lambe-lambe</b>Repetição no muro, perto da escola e da convenção. Vale a regra de um título por cartaz.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_placa-rua_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_placa-rua_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_placa-rua.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Placa de rua com a campanha The VOID"><figcaption><b>Placa de rua</b>Campanha em mobiliário urbano, frase curta e logotipo.<span class="f08-al">Alerta: o cenário é ilustrativo e o QR code é fictício; não usar como foto de local real.</span></figcaption></figure>
+          <figure class="f08-larga"><img src="assets/aplicacoes/mockups/void_mockup_banner-convocacao_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_banner-convocacao_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_banner-convocacao.webp 2400w" sizes="(max-width:640px) 92vw, 1000px" width="2400" height="768" loading="lazy" decoding="async" alt="Banner Convocação a todos os artistas do Brasil"><figcaption><b>Banner da convenção</b>Convocação a todos os Artistas do Brasil, a frase da linha de convenção (seção 31.7).</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_cartaz-chamado-para-a-arte_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_cartaz-chamado-para-a-arte_thumb.webp 512w, assets/aplicacoes/mockups/void_mockup_cartaz-chamado-para-a-arte.webp 1515w" sizes="(max-width:640px) 92vw, 420px" width="1515" height="1893" loading="lazy" decoding="async" alt="Cartaz O seu chamado para a arte acabou de chegar"><figcaption><b>Cartaz O seu chamado para a arte</b>A mesma frase do modelo R1, em cartaz impresso.<span class="f08-al">Alerta: o modelo parece banco de imagem; em produção, a foto sai do acervo da escola.</span></figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_cartaz-continuar-sem-certeza_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_cartaz-continuar-sem-certeza_thumb.webp 512w, assets/aplicacoes/mockups/void_mockup_cartaz-continuar-sem-certeza.webp 1515w" sizes="(max-width:640px) 92vw, 420px" width="1515" height="1893" loading="lazy" decoding="async" alt="Cartaz É sobre continuar, mesmo sem certeza"><figcaption><b>Cartaz É sobre continuar</b>Título de Filme sobre foto, com a palavra sensível.<span class="f08-al">Alerta: a foto parece banco de imagem; em produção, a foto sai do acervo da escola.</span></figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Produto, brinde e papelaria</h4>
+      <div class="f08-galeria">
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_caixa-kit-start_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_caixa-kit-start_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_caixa-kit-start.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Caixa do Kit Start The VOID"><figcaption><b>Caixa do Kit Start</b>A embalagem que o aluno recebe na matrícula: o primeiro objeto da formação.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_ecobag_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_ecobag_thumb.webp 630w, assets/aplicacoes/mockups/void_mockup_ecobag.webp 2363w" sizes="(max-width:640px) 92vw, 420px" width="2363" height="2400" loading="lazy" decoding="async" alt="Ecobag branca com o logotipo The VOID TATTOO"><figcaption><b>Ecobag</b>Logotipo em uma cor sobre o tecido cru, para o dia a dia de quem estuda.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_moletom_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_moletom_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_moletom.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Moletom branco com capuz e logotipo The VOID"><figcaption><b>Moletom</b>Peça da comunidade VOIDERS, com o logotipo no peito.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_bone_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_bone_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_bone.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Boné preto bordado com o logotipo The VOID"><figcaption><b>Boné</b>Logotipo bordado sobre preto. O boné da escola substitui o de marca de terceiro nas fotos.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_cartao-visita_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_cartao-visita_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_cartao-visita.webp 2388w" sizes="(max-width:640px) 92vw, 420px" width="2388" height="2188" loading="lazy" decoding="async" alt="Cartão de visita The VOID com os dados pessoais borrados"><figcaption><b>Cartão de visita</b>Frente e verso no sistema. Os dados pessoais estão borrados de propósito.<span class="f08-al">Alerta: nunca usar o slide original, que mostra telefone pessoal.</span></figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_business-playbook_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_business-playbook_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_business-playbook.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Capas do Business Playbook do The VOID Pro"><figcaption><b>Business Playbook do Pro</b>As capas do material do programa Pro.<span class="f08-al">Alerta: a arte do mockup grafa o nome da escola sem o segundo T; corrigir para TATTOO antes de produzir.</span></figcaption></figure>
+          <figure class="f08-larga"><img src="assets/aplicacoes/mockups/void_mockup_capa-maquina_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_capa-maquina_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_capa-maquina.webp 2400w" sizes="(max-width:640px) 92vw, 1000px" width="2400" height="1350" loading="lazy" decoding="async" alt="Capa da apresentação: máquina tatuando com o logotipo The VOID"><figcaption><b>Capa de apresentação</b>A máquina em ação com o logotipo: a capa que abre os decks da escola.</figcaption></figure>
+      </div>
+      <h4 class="intertitulo">Key visuals e redes</h4>
+      <div class="f08-galeria">
+          <figure class="f08-larga"><img src="assets/aplicacoes/mockups/void_mockup_grade-start-master-pro_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_grade-start-master-pro_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_grade-start-master-pro.webp 2400w" sizes="(max-width:640px) 92vw, 1000px" width="2400" height="1350" loading="lazy" decoding="async" alt="Grade de posts das três formações Start, Master e Pro"><figcaption><b>Grade das três formações</b>Start, Master e Pro lado a lado no feed, cada um com a sua cor de produto.</figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_key-visual-start_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_key-visual-start_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_key-visual-start.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Key visual do Start"><figcaption><b>Key visual do Start</b>A campanha da formação de entrada.<span class="f08-al">Alerta: modelo com aparência de banco de imagem: referência de layout.</span></figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_key-visual-master_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_key-visual-master_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_key-visual-master.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Key visual do Master"><figcaption><b>Key visual do Master</b>A campanha de quem já tatua.<span class="f08-al">Alerta: foto com aparência de banco de imagem: referência de layout.</span></figcaption></figure>
+          <figure><img src="assets/aplicacoes/mockups/void_mockup_key-visual-pro_thumb.webp" srcset="assets/aplicacoes/mockups/void_mockup_key-visual-pro_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_key-visual-pro.webp 2400w" sizes="(max-width:640px) 92vw, 420px" width="2400" height="1350" loading="lazy" decoding="async" alt="Key visual do Pro"><figcaption><b>Key visual do Pro</b>A campanha do programa de carreira.<span class="f08-al">Alerta: modelo com aparência de banco de imagem: referência de layout.</span></figcaption></figure>
+      </div>
+      <p class="credito" style="margin-top:var(--e-2)">Aplicações: Plataforma de Branding, aureadesign, 2025, com uso autorizado pela The VOID em 10/2026</p>
+      <p class="nota">Antes de produzir qualquer peça desta galeria: troque toda foto de banco por foto do acervo real, confira grafia e dados de contato, retire oferta ou preço antigo e aplique as leis da seção <a href="#s06">6</a>. As aplicações mostram onde a marca aparece; as regras de cor, tipo e imagem continuam as deste manual.</p>
+    </div>
+
+    <p class="fontes credito">Especificação do sistema Sala Escura, 06/10/2026 (seções 6, 7.1, 8, 9.4, 12.3, 12.5, 12.6 e 12.8); acervo fotográfico e mockups do rebranding da The VOID, uso autorizado em 10/2026; direção de fotografia, vídeo e redes, pesquisa GrowAI, out/2026 (pilares por persona e frequência por canal, seções 3.3 e 3.4); régua M1 a M8 e área de membros, pesquisa GrowAI, out/2026; Plataforma de Branding, aureadesign, 2025 (slides 10, 21, 59 a 63); site oficial, consultado em 06/10/2026.</p>
   </div>
 </section>
 
@@ -1094,10 +1149,16 @@
             <div class="f08-pilar"><p class="f08-k">Técnica</p><div><i style="width:44%"></i></div><p>4 de 9 práticas validadas</p></div>
             <div class="f08-pilar"><p class="f08-k">Identidade</p><div><i style="width:20%"></i></div><p>1 de 5 práticas validadas</p></div>
             <div class="f08-pilar"><p class="f08-k">Empreendedor</p><div><i style="width:0"></i></div><p>0 de 4 práticas validadas</p></div>
+            <p class="f08-k">Meu Traço · fotogramas</p>
+            <div class="f08-traco">
+              <figure><img src="assets/foto/acervo/void_traco_03_1x1.webp" srcset="assets/foto/acervo/void_traco_03_thumb.webp 360w, assets/foto/acervo/void_traco_03_1x1.webp 1080w" sizes="120px" width="1080" height="1080" loading="lazy" decoding="async" alt="Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa" style="object-position:50% 50%"><figcaption class="f08-k">[data] · projeto</figcaption></figure>
+              <figure><img src="assets/foto/acervo/void_materiais_03_1x1.webp" srcset="assets/foto/acervo/void_materiais_03_thumb.webp 640w, assets/foto/acervo/void_materiais_03_1x1.webp 1080w" sizes="120px" width="1080" height="1080" loading="lazy" decoding="async" alt="Pele artificial com andorinha tatuada vista de cima na bancada de treino da escola" style="object-position:50% 50%"><figcaption class="f08-k">[data] · primeiro traço</figcaption></figure>
+              <figure><img src="assets/foto/acervo/void_materiais_02_1x1.webp" srcset="assets/foto/acervo/void_materiais_02_thumb.webp 640w, assets/foto/acervo/void_materiais_02_1x1.webp 1080w" sizes="120px" width="1080" height="1080" loading="lazy" decoding="async" alt="Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino" style="object-position:50% 55%"><figcaption class="f08-k">[data] · pele sintética</figcaption></figure>
+            </div>
           </div>
         </div>
       </div>
-      <p class="legenda">Números da conta de demonstração, só para mostrar o formato. Assistir aula não enche nada: a barra avança quando o professor valida a prática.</p>
+      <p class="legenda">Números e fotogramas da conta de demonstração, só para mostrar o formato (fotos: acervo The VOID, práticas em pele sintética). Assistir aula não enche nada: a barra avança quando o professor valida a prática.</p>
       <div class="grade-2">
         <div class="f08-vazio grao" data-estacao="start">
           <div data-vforms='{"forma":"esfera","tema":"sala"}'></div>
@@ -1165,7 +1226,8 @@
       </div>
       <div style="display:grid;gap:0;max-width:880px;outline:1px solid var(--cinza-100)">
         <div class="f08-sala grao" data-estacao="start" style="display:grid;gap:var(--e-4)">
-          <div style="position:relative;aspect-ratio:2.39/1;--u:.5px"><div class="f08-foto"><span>Foto real da escola, com autorização</span></div></div>
+          <div style="position:relative;aspect-ratio:2.39/1"><div class="f08-foto"><img src="assets/foto/acervo/void_traco_02_16x9.webp" srcset="assets/foto/acervo/void_traco_02_thumb.webp 360w, assets/foto/acervo/void_traco_02_16x9.webp 1152w" sizes="(max-width:900px) 92vw, 880px" width="1152" height="648" loading="lazy" decoding="async" alt="Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID" style="object-position:50% 50%"></div></div>
+          <p class="credito">Foto: acervo The VOID</p>
           <p class="f08-k">Guia › Start › Pergunta</p>
           <p class="f08-k" style="display:flex;align-items:center;gap:8px;color:var(--cal)"><span data-vforms='{"forma":"marcador-estacao","tema":"sala"}'></span>The VOID Start</p>
           <p class="f08-art-h1">Preciso saber desenhar para ser tatuador?</p>
@@ -1426,7 +1488,7 @@ Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
       <div class="bloco-head">
         <p class="bloco-n credito">36.7</p>
         <h3 class="fala">O site institucional</h3>
-        <p class="bloco-apoio">O site é o único lugar da marca com menu. As LPs de campanha continuam sem saída (seção <a href="#s34">34</a>); a home e as páginas de trilha, ritos, professores, fatos e contato usam os componentes LP já descritos, mais cinco peças próprias do site.</p>
+        <p class="bloco-apoio">O site é o único lugar da marca com menu e o lugar onde a escola aparece inteira em fotografia: professores, comunidade e a sala da Vila Madalena, sempre com foto real do acervo. As LPs de campanha continuam sem saída (seção <a href="#s34">34</a>); a home e as páginas de trilha, ritos, professores, fatos e contato usam os componentes LP já descritos, mais cinco peças próprias do site.</p>
       </div>
       <div class="f08-grid" style="--f08-min:300px">
         <div class="peca" data-formato="1440x900" data-nome="Home no computador · institucional" data-estacao="chamado" style="grid-column:1/-1;--peca-max:900px">
@@ -1485,6 +1547,60 @@ Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
               <p class="f08-cr" style="font-size:calc(var(--u)*32);color:var(--cal)">Formações · Guia · Contato</p>
             </div>
           </div>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="/professores/&lt;nome&gt;/ no celular" data-estacao="chamado">
+          <div class="peca-tela grao">
+            <div class="f08-foto"><img src="assets/foto/acervo/void_retrato_03_9x16.webp" srcset="assets/foto/acervo/void_retrato_03_thumb.webp 405w, assets/foto/acervo/void_retrato_03_9x16.webp 799w" sizes="300px" width="799" height="1421" loading="lazy" decoding="async" alt="Professor Denis Mota de braços cruzados vestindo camiseta The VOID" style="object-position:50% 32%"></div><div class="f08-veu-alto"></div>
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*176);display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*48);background:rgb(24 24 24 / .95);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="440" height="67" style="width:calc(var(--u)*440);height:auto">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*72);height:calc(var(--u)*72);fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*176);padding:calc(var(--u)*72) calc(var(--u)*72) calc(var(--u)*110)">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*40)">
+                <p class="f08-cr" style="font-size:calc(var(--u)*30);color:var(--tela)">Professores · Elenco</p>
+                <p class="f08-tf" style="font-size:calc(var(--u)*104)">[Nome do <em class="off">professor</em>]</p>
+                <p class="f08-tx" style="font:400 calc(var(--u)*40)/1.45 var(--font-texto)">Estilo, anos de prática e trabalhos com autorização [P 13].</p>
+                <span class="f08-btn" style="justify-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*40);white-space:nowrap">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*52);height:calc(var(--u)*52)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="/voiders/ no celular" data-estacao="chamado">
+          <div class="peca-tela grao">
+            <div class="f08-foto"><img src="assets/foto/acervo/void_retrato_09_9x16.webp" srcset="assets/foto/acervo/void_retrato_09_thumb.webp 427w, assets/foto/acervo/void_retrato_09_9x16.webp 1080w" sizes="300px" width="1080" height="1920" loading="lazy" decoding="async" alt="Aluna Isis agachada ao lado da cliente com a ave-do-paraíso tatuada, corredor da escola" style="object-position:50% 50%"></div><div class="f08-veu-alto"></div>
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*176);display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*48);background:rgb(24 24 24 / .95);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="440" height="67" style="width:calc(var(--u)*440);height:auto">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*72);height:calc(var(--u)*72);fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*176);padding:calc(var(--u)*72) calc(var(--u)*72) calc(var(--u)*110)">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*40)">
+                <p class="f08-cr" style="font-size:calc(var(--u)*30);color:var(--tela)">VOIDERS · comunidade</p>
+                <p class="f08-tf" style="font-size:calc(var(--u)*104)">Aqui não existem <em class="off">estranhos</em>.</p>
+                <p class="f08-tx" style="font:400 calc(var(--u)*40)/1.45 var(--font-texto)">Histórias de ex-alunos, contadas por eles, com autorização.</p>
+                <span class="f08-btn" style="justify-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*40);white-space:nowrap">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*52);height:calc(var(--u)*52)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
+        </div>
+        <div class="peca" data-formato="1080x1920" data-nome="/contato/ no celular" data-estacao="chamado">
+          <div class="peca-tela grao">
+            <div class="f08-foto"><img src="assets/foto/acervo/void_escola_03_9x16.webp" srcset="assets/foto/acervo/void_escola_03_thumb.webp 360w, assets/foto/acervo/void_escola_03_9x16.webp 1080w" sizes="300px" width="1080" height="1920" loading="lazy" decoding="async" alt="Sala da escola The VOID com janelas em arco e várias macas em uso durante a aula prática" style="object-position:45% 60%"></div><div class="f08-veu-alto"></div>
+            <div style="position:absolute;left:0;right:0;top:0;height:calc(var(--u)*176);display:flex;align-items:center;justify-content:space-between;padding:0 calc(var(--u)*48);background:rgb(24 24 24 / .95);border-bottom:1px solid var(--fio)">
+              <img src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="440" height="67" style="width:calc(var(--u)*440);height:auto">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*72);height:calc(var(--u)*72);fill:none;stroke:var(--tela);stroke-width:1.5;stroke-linecap:square"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg>
+            </div>
+            <div class="f08-p" style="top:calc(var(--u)*176);padding:calc(var(--u)*72) calc(var(--u)*72) calc(var(--u)*110)">
+              <div class="f08-fim" style="display:grid;gap:calc(var(--u)*40)">
+                <p class="f08-cr" style="font-size:calc(var(--u)*30);color:var(--tela)">Contato · Locação</p>
+                <p class="f08-tf" style="font-size:calc(var(--u)*104)">A sala onde você <em class="off">aprende</em>.</p>
+                <p class="f08-tx" style="font:400 calc(var(--u)*40)/1.45 var(--font-texto)">Rua Jericó, 217 · Vila Madalena · São Paulo, SP</p>
+                <span class="f08-btn" style="justify-self:stretch;justify-content:center;padding:calc(var(--u)*50) calc(var(--u)*30);font-size:calc(var(--u)*40);white-space:nowrap">Garantir minha vaga na aula<svg viewBox="0 0 24 24" aria-hidden="true" style="width:calc(var(--u)*52);height:calc(var(--u)*52)"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+              </div>
+            </div>
+          </div>
+          <p class="credito f08-cred">Foto: acervo The VOID</p>
         </div>
       </div>
       <h4 class="intertitulo">Rodapé do Site e Botão Flutuante do WhatsApp</h4>

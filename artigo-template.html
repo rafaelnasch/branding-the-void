@@ -106,6 +106,19 @@ a{color:inherit}
 .foto-slot .desc{margin:0;font:400 13px/1.45 var(--font-texto);color:var(--po);max-width:36ch}
 .foto-slot code{font:400 12px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--po);word-break:break-all}
 
+/* ---------- fotos reais do acervo (assets/foto/acervo; uso autorizado pela The VOID, 10/2026). Classes af-. ---------- */
+.af-foto{display:block;width:100%;height:100%;object-fit:cover}
+.foto .quadro{position:relative;overflow:hidden;background:var(--c-cartao)}
+.af-par{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:40px 0}
+.af-par .quadro{aspect-ratio:4/5;overflow:hidden;background:var(--c-cartao)}
+.af-par figcaption{grid-column:1/-1;margin:2px 0 0;font:400 13px/1.45 var(--font-texto);color:var(--c-legenda)}
+.af-largo{margin:48px 0}
+@media (min-width:1000px){.af-largo{margin-left:-120px;margin-right:-120px}}
+.af-largo .quadro{aspect-ratio:16/9}
+.video .capa{overflow:hidden;isolation:isolate}
+.video .capa>.af-foto{position:absolute;inset:0;z-index:-2}
+.video .capa::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(24 24 24 / .74) 0%,rgb(24 24 24 / .64) 50%,rgb(24 24 24 / .76) 100%)}
+
 /* ---------- corpo: Sala com Cal (padrão até a aprovação da [P 2]) e Modo Leitura (3.6, só com ?leitura=1) ---------- */
 .corpo{--c-fundo:var(--tela);--c-texto:var(--sala);--c-apoio:var(--ardosia);--c-legenda:var(--penumbra);--c-link:var(--terracota-funda);--c-zebra:var(--cinza-100);--c-linha:var(--fumaca);--c-cartao:var(--cinza-100);--c-filete:var(--terracota-funda);--c-ac:var(--ouro-fundo);
   background:var(--c-fundo);color:var(--c-texto);padding:64px 0 96px}
@@ -312,13 +325,9 @@ a{color:inherit}
 
 <figure class="cinemascope" aria-labelledby="cs-leg">
   <div class="quadro">
-    <div class="foto-slot" role="img" aria-label="Espaço reservado para foto real da escola, com autorização: mão do aluno sobre o estêncil, na bancada.">
-      <svg class="ic" aria-hidden="true"><use href="#i-images"/></svg>
-      <p class="cred credito">Foto real da escola, com autorização</p>
-      <p class="desc">Plano de mão: estêncil na pele artificial, luz de cima, biossegurança visível</p>
-    </div>
+    <img class="af-foto" src="assets/foto/acervo/void_maos_01_16x9.webp" srcset="assets/foto/acervo/void_maos_01_thumb.webp 640w, assets/foto/acervo/void_maos_01_16x9.webp 1920w" sizes="(max-width:900px) 100vw, 1290px" width="1920" height="1080" alt="Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID" loading="eager" fetchpriority="high" decoding="async" style="object-position:42% 42%">
   </div>
-  <figcaption id="cs-leg" class="credito">Foto: <span class="ac">{{A_CONFIRMAR}}</span> · The VOID Tattoo Academy</figcaption>
+  <figcaption id="cs-leg" class="credito">Foto: acervo The VOID · The VOID Tattoo Academy</figcaption>
 </figure>
 
 <main class="corpo sem-leitura grao" id="conteudo">
@@ -340,6 +349,10 @@ a{color:inherit}
       <div><dt>Pele artificial</dt><dd>Uma placa de material sintético em que o aluno treina antes de tatuar uma pessoa.</dd></div>
       <div><dt>Biossegurança</dt><dd>O conjunto de cuidados que protege quem tatua e quem é tatuado, como luva, filme plástico e material de uso único.</dd></div>
     </dl>
+    <figure class="foto af-largo">
+      <div class="quadro"><img class="af-foto" src="assets/foto/acervo/void_traco_02_16x9.webp" width="1152" height="648" alt="Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID" loading="lazy" decoding="async" style="object-position:50% 50%"></div>
+      <figcaption>O projeto nasce no papel; a técnica leva o traço para a pele. Foto: acervo The VOID · The VOID Tattoo Academy</figcaption>
+    </figure>
     <p class="nota"><svg class="ic ic-20" aria-hidden="true"><use href="#i-circle-dashed"/></svg><span>Definições em revisão pelo time pedagógico da escola: <span class="ac">{{A_CONFIRMAR}}</span></span></p>
 
     <aside class="na-trilha" aria-labelledby="na-trilha-t">
@@ -353,6 +366,12 @@ a{color:inherit}
 
     <h2 id="antes-da-pele">O que a formação ensina antes da primeira tatuagem em pele?</h2>
     <p>No The VOID Start, o caminho até a pele humana é feito por etapas. Segundo a página da formação, o aluno começa pelos fundamentos, que incluem uma aula de biossegurança, treina 8 técnicas em pele artificial e só então faz 4 tatuagens em pele humana, em voluntários da rede de cadastrados da escola. A última etapa trata do mercado: portfólio, Instagram, precificação e primeiras vendas.</p>
+
+    <figure class="af-par">
+      <div class="quadro"><img class="af-foto" src="assets/foto/acervo/void_materiais_02_4x5.webp" width="1080" height="1350" alt="Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino" loading="lazy" decoding="async" style="object-position:50% 55%"></div>
+      <div class="quadro"><img class="af-foto" src="assets/foto/acervo/void_concentracao_02_4x5.webp" width="1080" height="1350" alt="Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária" loading="lazy" decoding="async" style="object-position:55% 45%"></div>
+      <figcaption>Treino em pele artificial: a andorinha na bancada e a aluna em foco total. Fotos: acervo The VOID · The VOID Tattoo Academy</figcaption>
+    </figure>
 
     <div class="tabela-wrap" tabindex="0" role="region" aria-labelledby="tab-etapas-c">
       <table class="tabela">
@@ -391,19 +410,13 @@ a{color:inherit}
     <p>Quem quer um estilo próprio costuma aprofundar o desenho depois, na fase de identidade artística. Na trilha da The VOID, essa fase é o The VOID Master, a formação para quem já tatua. E talento, aqui, é tratado como consequência de treino, não como pré-requisito.</p>
 
     <figure class="foto">
-      <div class="quadro">
-        <div class="foto-slot" role="img" aria-label="Espaço reservado para foto real da escola, com autorização: professor ao lado do aluno na primeira tatuagem em pele.">
-          <svg class="ic" aria-hidden="true"><use href="#i-images"/></svg>
-          <p class="cred credito">Foto real da escola, com autorização</p>
-          <p class="desc">Primeira Pele: plano médio em três quartos, professor ao lado, biossegurança visível</p>
-          <code>the-void-start-primeira-pele-professor-aluno-aaaa-mm.webp</code>
-        </div>
-      </div>
-      <figcaption>Foto: <span class="ac">{{A_CONFIRMAR}}</span> · The VOID Tattoo Academy</figcaption>
+      <div class="quadro"><img class="af-foto" src="assets/foto/acervo/void_aula_04_16x9.webp" width="1067" height="600" alt="Aluna de máscara tatuando a perna de um cliente deitado na maca, sala com murais da escola" loading="lazy" decoding="async" style="object-position:45% 60%;object-position:50% 58%"></div>
+      <figcaption>Primeira tatuagem em pele: biossegurança visível, filme plástico na maca. Foto: acervo The VOID · The VOID Tattoo Academy</figcaption>
     </figure>
 
     <section class="video" aria-labelledby="video-t">
-      <div class="capa" role="img" aria-label="Capa do vídeo, em produção">
+      <div class="capa" role="img" aria-label="Capa do vídeo, em produção: professor falando para alunas na sala da escola">
+        <img class="af-foto" src="assets/foto/acervo/void_professor_01_16x9.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async" style="object-position:50% 30%">
         <p class="credito"><svg class="ic ic-16" aria-hidden="true"><use href="#i-list-video"/></svg>Vídeo em produção · duração <span class="ac">{{A_CONFIRMAR}}</span></p>
         <p class="h">Tatuar não é desenhar</p>
         <span class="play" aria-hidden="true"><svg class="ic ic-20"><use href="#i-play"/></svg></span>
@@ -498,7 +511,92 @@ Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
       "datePublished": "2026-10-06",
       "dateModified": "2026-10-06",
       "image": [
-        "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/og-preciso-saber-desenhar-1200x630.png"
+        "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/og-preciso-saber-desenhar-1200x630.png",
+        {
+          "@type": "ImageObject",
+          "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#foto-abertura",
+          "contentUrl": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-maos-maquina-estencil-convencao-2026-10.webp",
+          "url": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-maos-maquina-estencil-convencao-2026-10.webp",
+          "width": 1920,
+          "height": 1080,
+          "caption": "Mãos de luva conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID",
+          "creditText": "Foto: acervo The VOID",
+          "creator": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "copyrightHolder": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#foto-projeto",
+          "contentUrl": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-projeto-desenho-mesa-escola-2026-10.webp",
+          "url": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-projeto-desenho-mesa-escola-2026-10.webp",
+          "width": 1152,
+          "height": 648,
+          "caption": "Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID",
+          "creditText": "Foto: acervo The VOID",
+          "creator": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "copyrightHolder": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#foto-pele-artificial",
+          "contentUrl": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-pele-artificial-andorinha-bancada-2026-10.webp",
+          "url": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-pele-artificial-andorinha-bancada-2026-10.webp",
+          "width": 1080,
+          "height": 1350,
+          "caption": "Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino",
+          "creditText": "Foto: acervo The VOID",
+          "creator": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "copyrightHolder": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#foto-aluna-treino",
+          "contentUrl": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-aluna-pele-sintetica-foco-2026-10.webp",
+          "url": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-aluna-pele-sintetica-foco-2026-10.webp",
+          "width": 1080,
+          "height": 1350,
+          "caption": "Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária",
+          "creditText": "Foto: acervo The VOID",
+          "creator": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "copyrightHolder": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/#foto-primeira-pele",
+          "contentUrl": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-primeira-pele-aluna-maca-2026-10.webp",
+          "url": "https://thevoidtattoo.com.br/guia/como-ser-tatuador/preciso-saber-desenhar/the-void-start-primeira-pele-aluna-maca-2026-10.webp",
+          "width": 1067,
+          "height": 600,
+          "caption": "Aluna de máscara tatuando a perna de um cliente deitado na maca, com filme plástico, na sala da escola",
+          "creditText": "Foto: acervo The VOID",
+          "creator": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "copyrightHolder": {
+            "@id": "https://thevoidtattoo.com.br/#organizacao"
+          },
+          "inLanguage": "pt-BR"
+        }
       ],
       "inLanguage": "pt-BR",
       "about": [
@@ -638,6 +736,10 @@ Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
     var bcVis = Array.prototype.map.call(document.querySelectorAll('.trilha-nav li'), function (li) { return norm(li.textContent); });
     r.trilhaIgual = bc.length === bcVis.length && bc.every(function (b, i) { return norm(b.name) === bcVis[i]; });
     r.isPartOf = art.isPartOf && art.isPartOf['@id'];
+    var fotos = Array.prototype.slice.call(document.querySelectorAll('img.af-foto'));
+    r.fotos = fotos.length;
+    r.fotosOk = fotos.every(function (i) { return i.getAttribute('width') && i.getAttribute('height') && (i.getAttribute('alt') || i.closest('[role="img"]')); }) &&
+      (art.image || []).filter(function (x) { return x && x['@type'] === 'ImageObject' && x.creditText; }).length >= 1;
     r.pendentes = (document.body.innerText.match(/\{\{A_CONFIRMAR\}\}/g) || []).length;
     r.travessao = /[\u2013\u2014]/.test(document.body.innerText + document.title);
     r.noindex = !!document.querySelector('meta[name="robots"][content*="noindex"]');
@@ -666,6 +768,7 @@ Rua Jericó, 217 · Vila Madalena · São Paulo, SP · 05435-040
       item(s(r.headlineIgual && r.descricaoIgual), 'headline igual ao H1 e description igual à Resposta Direta.') +
       item(s(r.trilhaIgual), 'Trilha de navegação igual ao BreadcrumbList.') +
       item(s(!!r.isPartOf), 'isPartOf aponta para ' + (r.isPartOf || 'nada') + '.') +
+      item(s(r.fotosOk), r.fotos + ' fotos reais com largura, altura e texto alternativo, e ImageObject com crédito no JSON-LD.') +
       item(s(!r.travessao), 'Nenhum travessão no texto da página.') +
       item(r.modoLeitura ? 'aviso' : 'sim', r.modoLeitura ? 'Corpo em Modo Leitura, só para avaliar a P 2. Até a aprovação, o artigo sai em Sala com texto Cal.' : 'Corpo em Sala com texto Cal, como manda a spec até a aprovação da P 2.') +
       item('aviso', (r.noindex ? 'Modelo com noindex' : 'Modelo sem noindex') + (r.canonical ? ' e com canonical' : ' e sem canonical') + ': na publicação real, tirar o noindex e pôr o canonical da URL definitiva (domínio em validação, P 18).') +

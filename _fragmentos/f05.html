@@ -40,9 +40,6 @@
 .f05-bt svg{width:calc(var(--u)*52);height:calc(var(--u)*52);flex:none;fill:none;stroke:var(--estacao-seta);stroke-width:2;stroke-linecap:square}
 .f05-janela{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}
 .f05-desfoque > *:not(.area-segura){filter:blur(calc(var(--u)*33))}
-.f05-foto{position:absolute;background:var(--bastidor);display:flex;align-items:flex-start;justify-content:flex-end;text-align:center;padding:calc(var(--u)*40)}
-.f05-foto::before{content:"";position:absolute;inset:calc(var(--u)*14);border:max(1px,calc(var(--u)*2)) dashed var(--fumaca)}
-.f05-foto span{position:relative;font:500 calc(var(--u)*26)/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
 .f05-eco{position:absolute;right:0;top:50%;width:calc(var(--u)*1500);height:auto;opacity:.12;filter:blur(calc(var(--u)*40));transform:translateY(-50%) scale(1.6) translateX(18%);pointer-events:none}
 .f05-logo{position:absolute;height:auto}
 .f05-veu-demo{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:var(--e-6);align-items:start;margin-bottom:var(--e-6)}
@@ -86,7 +83,7 @@
 .f05-anatomia{counter-reset:f05n;list-style:none;display:grid;gap:var(--e-3)}
 .f05-anatomia li{counter-increment:f05n;position:relative;padding-left:40px;font:400 15px/1.5 var(--font-texto);color:var(--cal)}
 .f05-anatomia li::before{content:counter(f05n,decimal-leading-zero);position:absolute;left:0;top:1px;font:700 15px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 75;color:var(--estacao-destaque)}
-.f05-quadro{background:url(assets/textura/esfera-1080.webp) 64% 46%/78% auto no-repeat,radial-gradient(90% 95% at 18% 8%,var(--branco) 0%,var(--cal) 28%,var(--fumaca) 58%,var(--chumbo) 82%,var(--sala) 100%)}
+.f05-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.f05-cine{position:absolute;left:0;right:0;top:calc(var(--u)*449);height:calc(var(--u)*452);width:100%;object-fit:cover}.f05-luz-falsa{position:absolute;inset:0;background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .5) 0%,rgb(248 249 244 / 0) 70%)}
 .f05-rampa{height:28px;background:linear-gradient(90deg,var(--nanquim),var(--branco))}
 .f05-duo-start{filter:url(#duotom-f05-start)}
 .f05-duo-master{filter:url(#duotom-f05-master)}
@@ -227,6 +224,14 @@
             <div class="f05-palco f05-claro f05-r43 f05-lupa f05-claro" aria-hidden="true"></div>
             <figcaption><b>O ladrilho claro a 100%, ampliado.</b> Pontos escuros, multiplicados sobre a Tela.</figcaption>
           </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-r43"><img class="f05-img" src="assets/foto/acervo/void_concentracao_02_16x9.webp" width="1920" height="1080" alt="Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária" loading="lazy" decoding="async" style="object-position:38% 40%"><span class="f05-rotulo-quadro">Sem grão</span></div>
+            <figcaption><b>Foto P&amp;B, arquivo do acervo.</b> O arquivo tratado não leva grão: ele vem no layout.</figcaption>
+          </figure>
+          <figure class="f05-cena">
+            <div class="f05-palco f05-r43 grao" style="--grao-img:url(assets/textura/grao-240.webp);--grao-opacidade:.12"><img class="f05-img" src="assets/foto/acervo/void_concentracao_02_16x9.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async" style="object-position:38% 40%"><span class="f05-rotulo-quadro">Com grão</span></div>
+            <figcaption><b>A mesma foto com o Grão do layout.</b> Aqui a 12% para aparecer na tela; na peça, 6%. Foto: acervo The VOID.</figcaption>
+          </figure>
         </div>
       </div>
       <pre class="codigo" data-rotulo="CSS"><code>/* tokens.css já traz .grao; em produção, troque a imagem de reserva pelo ladrilho */
@@ -338,6 +343,16 @@
           </div>
         </div>
       </div>
+      <div class="faca-nao" style="margin-bottom:var(--e-5)">
+        <figure class="faca">
+          <div class="fn-palco"><div class="f05-palco" style="width:100%;aspect-ratio:16/9"><img class="f05-img" src="assets/foto/acervo/void_concentracao_03_16x9.webp" width="1920" height="1080" alt="Tatuador debruçado sobre o trabalho sob a luz da luminária, visto de cima" loading="lazy" decoding="async" style="object-position:50% 30%"></div></div>
+          <figcaption>Com foto, a luz é a da foto: a luminária de cima recorta mão e máquina, e o resto cai para o preto. A Janela de Luz sai. Foto: acervo The VOID.</figcaption>
+        </figure>
+        <figure class="nao" data-exemplo="proibido">
+          <div class="fn-palco"><div class="f05-palco" style="width:100%;aspect-ratio:16/9"><img class="f05-img" src="assets/foto/acervo/void_concentracao_03_16x9.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="f05-luz-falsa" aria-hidden="true"></span></div></div>
+          <figcaption>Janela de Luz por cima da foto: duas luzes brigando na mesma cena, e a de mentira lava os pretos.</figcaption>
+        </figure>
+      </div>
       <p class="nota">Na dobra desfocada, o título vira mancha clara, mas a superfície clara mais forte e mais compacta é o botão, e a luz da Janela só aquece o canto de onde a leitura começa. Recursos usados: Grão, Janela de Luz e Palavra Sensível (três de três).</p>
       <pre class="codigo" data-rotulo="CSS"><code>.janela-luz{background:radial-gradient(110% 75% at 12% 0%,rgb(248 249 244 / .09) 0%,rgb(248 249 244 / 0) 62%),var(--sala)}</code></pre>
     </div>
@@ -378,10 +393,10 @@
       <div class="f05-veu-demo" id="f05-veu">
         <figure class="f05-cena">
           <div class="f05-veu-quadro">
-            <canvas id="f05-veu-canvas" width="540" height="675" role="img" aria-label="Quadro de teste com uma região clara à esquerda e uma região escura à direita, com o véu aplicado sob o texto."></canvas>
+            <canvas id="f05-veu-canvas" width="540" height="675" role="img" aria-label="Foto de uma tatuadora da The VOID trabalhando, vista de cima, com o véu aplicado sob o texto." data-foto="assets/foto/acervo/void_concentracao_05_4x5.webp"></canvas>
             <p class="f05-veu-texto" id="f05-veu-texto" data-pos="clara" data-tam="apoio">Formação de tatuagem do zero, na Vila Madalena, em São Paulo.</p>
           </div>
-          <figcaption><b>Quadro de teste, não é foto.</b> Branco puro na luz da esquerda (o pior caso) e uma massa escura à direita. Use uma foto real da escola, com autorização, na ferramenta de peças.</figcaption>
+          <figcaption id="f05-veu-leg"><b>Foto real, vista de cima.</b> O filme plástico brilha em branco puro embaixo, à esquerda (o pior caso); a camiseta forma a massa escura à direita. A medida usa o pixel mais claro de cada quadrado de 10 px do arquivo. Foto: acervo The VOID.</figcaption>
         </figure>
         <div class="f05-controles">
           <div>
@@ -454,11 +469,14 @@
         <figure class="f05-cena">
           <div class="peca" data-formato="1080x1350" data-nome="Cinemascope, feed">
             <div class="peca-tela">
-              <div style="position:absolute;inset:0" data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Start · Ritual do Traço"}'></div>
+              <div style="position:absolute;inset:0;background:var(--nanquim)"></div>
+              <img class="f05-cine" src="assets/foto/acervo/void_aula_01_16x9.webp" width="1920" height="1080" alt="Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva" loading="lazy" decoding="async" style="object-position:50% 62%">
+              <p class="f05-at f05-tf" style="--y:150;--fs:84">Todo mundo começa com <em class="off">um traço</em></p>
+              <p class="f05-at f05-cr" style="--y:960"><span class="f05-fio"></span>Start · Ritual do Traço</p>
               <div class="area-segura"></div>
             </div>
           </div>
-          <figcaption><b>Modelo R3.</b> Frase do Ritual do Traço no letreiro, Marcador de Estação em texto na faixa de baixo. A foto entra no lugar marcado.</figcaption>
+          <figcaption><b>Modelo R3.</b> Frase do Ritual do Traço no letreiro, Marcador de Estação em texto na faixa de baixo. A faixa recorta a aula prática em pele sintética: o texto fica no preto, nunca sobre a foto. Foto: acervo The VOID.</figcaption>
         </figure>
       </div>
       <pre class="codigo" data-rotulo="HTML"><code>&lt;div data-vforms='{"forma":"cinemascope","titulo":"Todo mundo\ncomeça com\num traço","credito":"Start · Ritual do Traço","foto":"foto-autorizada.webp"}'&gt;&lt;/div&gt;
@@ -492,6 +510,19 @@
           <figcaption><b>Modelo R6, Letreiro.</b> Corte VOI a 100% preso ao topo; o logotipo completo assina no rodapé. Data e local só entram confirmados; até lá, o colchete marca o lugar e a peça não sai.</figcaption>
         </figure>
       </div>
+      <figure class="f05-cena" style="margin-bottom:var(--e-6)">
+        <div class="peca" data-formato="1920x1080" data-nome="Capa institucional sobre foto" style="--peca-max:100%">
+          <div class="peca-tela grao">
+            <img class="f05-img" src="assets/foto/acervo/void_materiais_01_16x9.webp" width="1920" height="1080" alt="Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente" loading="lazy" decoding="async" style="object-position:60% 50%">
+            <span class="veu-base" style="position:absolute;inset:0" aria-hidden="true"></span>
+            <div style="position:absolute;inset:0" data-vforms='{"forma":"corte-logo","mostra":"VOI","ancora":"topo","largura":1920,"altura":1080,"textura":true}'></div>
+            <p class="f05-at f05-tf" style="--x:120;--y:700;--w:1100;--fs:96">O vazio é um <em class="off">chamado</em></p>
+            <img class="f05-logo" src="assets/brand/svg/void-horizontal-branco.svg" alt="The VOID Tattoo Academy" width="300" height="46" style="right:calc(var(--u)*120);top:calc(var(--u)*918);width:calc(var(--u)*300)">
+            <div class="area-segura"></div>
+          </div>
+        </div>
+        <figcaption><b>Capa institucional sobre foto.</b> A bancada sem rosto recebe o corte VOI a 8%, como textura; o título fica no Véu de base e o logotipo completo assina no rodapé. Corte a 100% só sobre campo ou sobre foto sem rosto. Foto: acervo The VOID.</figcaption>
+      </figure>
       <div class="faca-nao">
         <figure class="faca">
           <div class="fn-palco"><div class="f05-palco" style="width:100%;aspect-ratio:16/9;background:var(--sala)" data-vforms='{"forma":"corte-logo","mostra":"VO","textura":true,"largura":1600,"altura":900}'></div></div>
@@ -795,7 +826,7 @@
       <figure class="f05-cena">
         <div class="peca" data-formato="1280x720" data-nome="Capa de VSL do Pro" data-estacao="pro" style="--peca-max:100%">
           <div class="peca-tela grao">
-            <div class="f05-foto" style="left:calc(var(--u)*430);top:calc(var(--u)*96);right:0;bottom:0"><span>Foto real da escola, com autorização</span></div>
+            <div style="position:absolute;left:calc(var(--u)*430);top:calc(var(--u)*96);right:0;bottom:0"><img class="f05-img" src="assets/foto/acervo/void_professor_01_16x9.webp" width="1920" height="1080" alt="Professor Lucas Tengan em pé falando para alunas sentadas na sala da escola The VOID" loading="lazy" decoding="async" style="object-position:50% 35%"></div>
             <div class="veu-esquerda" style="position:absolute;left:calc(var(--u)*430);top:0;bottom:0;width:calc(var(--u)*520)"></div>
             <img class="f05-logo" src="assets/brand/svg/void-pro-branco.svg" alt="The VOID Pro" width="300" height="46" style="left:calc(var(--u)*64);top:calc(var(--u)*64);width:calc(var(--u)*300)">
             <p class="f05-at f05-cr" style="--x:520;--y:64;--w:696;--fs:16;text-align:right;white-space:nowrap">The VOID Tattoo Academy · São Paulo · Brazil</p>
@@ -803,7 +834,7 @@
             <div class="area-segura"></div>
           </div>
         </div>
-        <figcaption><b>Ficha Técnica no topo, à direita do logotipo de produto.</b> Frase no terço esquerdo, em Sala, com a Palavra Sensível na voz em off; foto nos dois terços da direita com véu; canto inferior direito livre para a duração. Recursos: Grão, Véu e Ficha Técnica.</figcaption>
+        <figcaption><b>Ficha Técnica no topo, à direita do logotipo de produto.</b> Frase no terço esquerdo, em Sala, com a Palavra Sensível na voz em off; foto da aula do Lucas Tengan nos dois terços da direita com véu; canto inferior direito livre para a duração. Recursos: Grão, Véu e Ficha Técnica. Foto: acervo The VOID.</figcaption>
       </figure>
       <div class="f05-recurso">
         <dl class="f05-ficha">
@@ -958,8 +989,8 @@
         </dl>
         <figure class="f05-cena">
           <div class="f05-palco f05-r43">
-            <div class="f05-quadro" id="f05-revela" style="position:absolute;inset:0"></div>
-            <span class="f05-rotulo-quadro">Quadro de teste, não é foto</span>
+            <img class="f05-img" src="assets/foto/acervo/void_professor_05_1x1.webp" width="1080" height="1080" alt="Professor de boné orientando uma aluna de máscara durante a prática na The VOID" loading="lazy" decoding="async" style="object-position:50% 40%" id="f05-revela">
+            <span class="f05-rotulo-quadro">Foto: acervo The VOID</span>
           </div>
           <button type="button" class="copiar" id="f05-revelar-de-novo" style="justify-self:start"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Revelar de novo</button>
         </figure>
@@ -976,10 +1007,10 @@
         <p class="bloco-apoio">A foto P&amp;B ganha a cor do produto: a sombra vai para o tom escuro do produto e a luz para o tom claro. É a forma de a cor do produto entrar na imagem sem pintar a pessoa.</p>
       </div>
       <div class="grade-4">
-        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Original</span></div><div class="f05-rampa"></div><figcaption><b>Quadro de teste</b> e rampa de Nanquim a Branco.</figcaption></figure>
-        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-start" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Start</span></div><div class="f05-rampa f05-duo-start"></div><figcaption><b>Start.</b> Café <code>#412919</code> para Areia <code>#DBC5A3</code>.</figcaption></figure>
-        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-master" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Master</span></div><div class="f05-rampa f05-duo-master"></div><figcaption><b>Master.</b> <code>#21130C</code> (cor de imagem, não de interface) para Terracota Viva <code>#C46039</code>.</figcaption></figure>
-        <figure class="f05-cena"><div class="f05-palco f05-q"><div class="f05-quadro f05-duo-pro" style="position:absolute;inset:0"></div><span class="f05-rotulo-quadro">Pro</span></div><div class="f05-rampa f05-duo-pro"></div><figcaption><b>Pro.</b> Sala <code>#181818</code> para Névoa <code>#C9D0D8</code>.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><img class="f05-img" src="assets/foto/acervo/void_maos_05_1x1.webp" width="1080" height="1080" alt="Mãos de luva segurando a máquina sobre a pele, em preto e branco" loading="lazy" decoding="async"><span class="f05-rotulo-quadro">P&amp;B Ritual</span></div><div class="f05-rampa"></div><figcaption><b>Foto P&amp;B</b> e rampa de Nanquim a Branco. Foto: acervo The VOID.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><img class="f05-img f05-duo-start" src="assets/foto/acervo/void_maos_05_1x1.webp" width="1080" height="1080" alt="As mesmas mãos em duotom Start, do café à areia" loading="lazy" decoding="async"><span class="f05-rotulo-quadro">Start</span></div><div class="f05-rampa f05-duo-start"></div><figcaption><b>Start.</b> Café <code>#412919</code> para Areia <code>#DBC5A3</code>.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><img class="f05-img f05-duo-master" src="assets/foto/acervo/void_maos_05_1x1.webp" width="1080" height="1080" alt="As mesmas mãos em duotom Master, da sombra marrom à terracota viva" loading="lazy" decoding="async"><span class="f05-rotulo-quadro">Master</span></div><div class="f05-rampa f05-duo-master"></div><figcaption><b>Master.</b> <code>#21130C</code> (cor de imagem, não de interface) para Terracota Viva <code>#C46039</code>.</figcaption></figure>
+        <figure class="f05-cena"><div class="f05-palco f05-q"><img class="f05-img f05-duo-pro" src="assets/foto/acervo/void_maos_05_1x1.webp" width="1080" height="1080" alt="As mesmas mãos em duotom Pro, da sala à névoa" loading="lazy" decoding="async"><span class="f05-rotulo-quadro">Pro</span></div><div class="f05-rampa f05-duo-pro"></div><figcaption><b>Pro.</b> Sala <code>#181818</code> para Névoa <code>#C9D0D8</code>.</figcaption></figure>
       </div>
       <div>
         <dl class="f05-ficha">
@@ -1100,6 +1131,7 @@
     var cv=doc.getElementById("f05-veu-canvas"), txt=doc.getElementById("f05-veu-texto");
     if(!cv||!cv.getContext||!txt)return;
     var W=cv.width,H=cv.height,ctx=cv.getContext("2d");
+    var MAPA="KCAXfGmfr6VUY6h6tLd1qKinoocy4qCJ3IiapGx/Sct1GWMREREWT2p+f4NmbnRwYxAQERAQIDNhg4iMqaZrZLdfpzqEep2bnnbSl5aLlp6uqoYjw3JeXrgRERERTWp8fYRqbXNwZhEQERARLKJpmJmaq4WMIURKPiczNSues3SNo66wsbi3KBMswCknLUkVFhURN2x2eIJ8cnp6aRIQERARIFUYFVS0VUwVERMYExEQEBETExOPpqenqauoOLJFdzAiLx4RNDIQPXF4foyEg4KDgF8QEBEREBAUEVcRERYVERAQExMREREYEREREZCgoamkLjU5gzYelGMTExUTZoGEjJCPi42MjG8QEBEUEBAQEjkTERETEyAZExARERARERAQEBEQGx9eJG0xTX0g0UMRERN7cnwpkJmfho6Wn6ISEBEVEBAQEBAYEBMTNjcVEBAQEBARIhMREBkSEBBpaxBAh2wkKBQQERATEREREROmhYgUFKduEBEWEBAQERAREBNbRSwREBAQEBEaExUREBEREBC/cxJUtlImJRYUExAQERERERF6TREREREREREXKBQQHBETGo+FgSsRGBERHjosLxQWEBAREBAQEBO7tB4intNIMBERERERERERERERERERERkvGxERExEaI7fHsBUqEBAXO1FhNBwREBQVERAQEBG9th06Uqo2PBERERERERERERERERERE6+4EREREREVhcfu5BMSERY5dUw5GBYbEBEWEBAQEBGWZB1ZNuqmFBERERERExMRERERERMTEymEERERERUVyt/xIyMcFx54cxgYFhETEBEXEBAQEBFtiR1TnFfpGhERERERERERERISFBUaFRMbEREgHxYWyv/vQkEWGGOmPRMQEBAQEBEVEBAQEBBIhENO5Vw9EBAQEBERERETExQWFhgbHBgnFBMjGzQXx+byRiYfPKR8FhEQEBAQEBAQEBAQERAQKEzKdI8qEBAQEBERERQVExQWFRgdHBgXFhUVMyAbdeXsozRFgKktExEQEBAQEBAQEBAQERAQES2FORkREBAQEBERERETExMWFRYXGBkXFhk3HRcXGODux5VgsIYWExAQEBAQEBAQEBAQEBAQEBZEHhMfEBAQEBERERMTFhQUFRYVFhYWGDMhFxcVHOPo8N+CikMfERAQEBAQEBAQEBAQEBAQEBBJFhonEBAQERETFhUVFhoZGRwaGBgZHS8jGhcUGtzm9/pOjDsTERAQFRAQEBAQEBAQEBAQEBE+JSmVEBAQERETFhcZGx8hHyMeHx0dLS0sHRUTExXx7f/0a0YTEREQEBAQEBARERYQEBAQEFloTRIsEBAQERETFhYbHx4iIh8mJichUB0eHBQRExGR/9LqRUAYEREQEBAQEBMYGRAQEBAQEFRYExUREBAQERETFBkcHCAjIyIpKColKR4cIhoREREf6fvbZVEwExAQEBAQEBAYFxAQEBAQPklKE4wREBAQERMUFhobGyAdJSUjKSwjIxoVFhkREBMR7e6+p0ppHhEWEBAQEBAWFRBkEBAlNElNFBUSEBAQERMWFhcWHyIgJCsjKDErKh4YERoREC0Rqd20xtCvOjITFhEQEBARETi3fBceMEpQIhMQEBAQEREWFhceHx4jJCEgJiojJRsVERYUEBATK9hFocill1cuLDIVFBVJUotrdhQcKVNXMRcSERAQEREVGxkaHB0dJikoMicfJBkUERUVEBAQEuNN0M0+N1ZPLicWFnRoWnyQfREaKVJdORUQEBAQERMWFBwYISMeIyMkIyMeIBoVEREWEBAQEcK52ZE4SjguIP+ne6WefneDESdAV2llOBQQEBAREREYFxgTFBUVGSIfISE5Hh4VERATEBAQEcHn2TpBbyoiIk54hY+hjnd/EitZV19WGhYQEBERExQXExQUGR8gHx0hHB5PFxcWExARERAQEJzc1BARiLo2Rcq/kFeYhpIQFl1kWVtLdB0QEBERERAQERERERMbGhscGiFqGRQRERAQERAQELG+EBAQEYa2L+S1m5ODEhARJn1wWFM0OkwaHRAQEBAQEBERERERExQVFnDKFBQVExAQERQUExAQEBAQEMHAbMeWNRAQEBEUW3JuW0YkNYQmEBAQEBAQEBERERERExMUFqTSERERERAQERUTERAQEBAQEIWuulhNTxAQEBNJXG5iWjYiOToQEBAQEBAQEBERERERERMTFLvXERERERAQEBAQEBAQEBAQEBGwuqxvVxAQEypabGxfSSNeHhAQEBAQEBARERERERERERETFJ1GEBISERAQEBAQEBEREREQEBARNvSD3UNqhkRnbGlXMRosJhAQEBARERAQEBERERERERERE7OWFxERERAQEBAREREREREREBAQEiEqIh0VEVZ0bGNEITscHhAQEBAREREQEBEREREREREREbTXFxQVFBAQGBAREREQERERRBAQHyAdIqcSZXR1algsbZMREBAQEBAREREREREREREREREREVl1dRUTFBodGhAREBERERARFRkQIDaw/rDNdo9/aUcjV8cQEBAQEBEREREREREREREREREREUFJg3ppQCEdFRYqjotwXzoVOjMYULC2/8y/FxYTTzkTSWgREBAQEBEREREREREREREREREREUineGlYPiIgERZ/rbO0ouHffnT/j2fb6c7/5YBoVHURMhERERAQERERERERERERERERMbN/eYKNbl9BLJmkiU+AqLK8xOXrnJFm+HXTZUA1JH1fTsUScRERERAQEREREREREREREZdwnq+ooqSydVxhvsXCv6SFdqC0wLzxsaU5SoPJqB4qimwdS3YyJxEQExIRERERERERERIdFoprvkG0mZrUhqHLyb+/taivkXpxl5rroIorR7mOohNVGvYsEjc3FBAQQnd+EhERERGLnKi+uJt+qbaMwZo2eKegs6GQnsCnprKtlGzPsnMhZksiJIZzGhMREVkQEBA2Zn1/fxEREpeUm7/GrrqflJqjf5ujQkBvdYd8hYW4pra3o5a6LyIUHkNSHbl82HQVMBUVFBNge4OJio0UlpeYr7jHin2djJZicNWjFCYkKFxiYGSPqKySrz0/LSpqM73oOBNpyWMjdMxaNVSEiIuTk5cxlJ6eoYJkjX5tbpypm6rLESUTFREWJCtOJG14k2QUJTX8/6LJHxMzi4so1dPZiIuSl5ScnJZFmZWaiX88tH80hEJihKyPEh9zbCUTExETGRwuK0AREReG1X1MFxFYWoAU29rbio2TmZqfnpk8mpGUkoI4f2RYaGpPQVNgfk33q+7T//////7ywu6zYSvjFjYQECkub3Vos4GLjoqNlpidmZAfhn+Wpp2DqKOfgH5+Jm1cp5VyPCwyMJnX+PXq9//h3vbYERCM7pJrcnAhKX2IjYmGko2LgnkSdYOOeVyJZ4xsTYdnK2U6I35z8v/fg0GHFBMdMSJSFpdSThVWR2OWGTklLHR+koCFgHdrY14RYV9mgka0KCdMfl11JkQzHzQya8T2QZkbZWwfvk6FbP/1/0ZDei0nPiYVMS9sa1NYYE5JRTMWMx9kdHhwKDhbP1SWLy1PIikiFBUTEVE5Ik9RVEixHR4tLCZsOigjKjEeUVpaICcwMColISBeiX5WakRQV3N0fTVIWxkrF24gFhQQEBAQEBAQEREQEBAXQE0lGhARERARI0E59lUnbz1s63iNnaWQcTthNEFHXkosYy0TGScgERMQEBAQERERERAQEBARNyIREBAQEREQF0csraG1cv//gX6Tm5+Zi1IzKzZPaVVCYTkXHB8aEBAQEBAQERwXExEQEBAQEBAQEBAQEREQF7Qp+/+Kr/jJfIKXlY+YlFIoOyogJyk+Ix4rNCIQEBAQEBAQECQiFBEREBAQEBAQEBAQEBAQanQ55P/wtvX/UoGSmbesj5EyJhs9MR06H0M+OSMQEBAQEBAREy4hFhEREBAQEBAQEBAQEBAQEDoh///2uf/JJ2p0gX+SkItAKRMVES8dHC89NRAQEBAQEBARFSEZFxERERAQEBAQEBAQEBAQEIiUy///4//oIautUVV7hoMVMBQTFEErESk6EBAQEBAQEBARFBQUFRERERAQEBAQEBAQEBEREUyx5/////v9c4KgcmJ5hGknOhMYFRYnFRseEBAQEBEQEBERERMRERMTERAQEBAQEBAQEBEREZTPw//g/8v/3UGKiFp6hEMdFREXFBQUERoXEBAQEBERERERERERERMRERAQEBAQEBAQEBAREc65yv/9z8r9/xwrallYaDYnHRAQERQVEBAQEBARERERFhYWFhVsEBEREBAQEBAQEBAQEBAQEIm8v//t8MTI/1dLM1VVZkYmGRAQEBAQEBAQEBAREREXFhYWFRQTEBAQERAQEBAQEBAQEBAQEFW2sPf1/+bE8UcbIlJYWE0sFhQQEREQEBAQEBAREREVFhYVFBERERERERAQEBAQEBAQEBAQEBCO13vCy/N4/1hNPzRAPjchFhYTEBAQEBAQEBAREikUExMREREREREREREQEBAREBAQEBAQEBAjimGEhUi9jxNvWSEmKykfHRMTEBAQEBAQEBAQEBMUExERERERERERERERERETFBQUFBQUExETfS4VP5h2PBwVOkMTFRIUFRMREBAQEBAQEBAQEBAQEBARERERERMTERERERETFBQUFBQUExFaJRt/STNqcRN9Lx0UEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQERQUFBQRERETExMUFBQUExFKFXam0qmxa2hKdhMQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQERMUFBQRERMUFBQUFBMTFBEnG5oREUbUnS0jHREQEBAQEBAQEBAQEBAQ",MW=54,MH=68,mapa=null,foto=null;
     /* quadro de teste: luz branca à esquerda, massa escura à direita, grão determinístico */
     var g=ctx.createLinearGradient(0,0,W,H*0.6);g.addColorStop(0,"rgb(255,255,255)");g.addColorStop(0.5,"rgb(220,221,216)");g.addColorStop(1,"rgb(95,95,92)");
     ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
@@ -1110,6 +1142,7 @@
     var img=ctx.getImageData(0,0,W,H),p=img.data,s=7;
     for(var i=0;i<p.length;i+=4){s=(s*1103515245+12345)&0x7fffffff;var n=((s>>8)%25)-12;for(var k=0;k<3;k++){p[i+k]=Math.max(0,Math.min(255,p[i+k]+n));}}
     var cena=img;
+    try{var bin=atob(MAPA);mapa=new Uint8Array(bin.length);for(var z=0;z<bin.length;z++)mapa[z]=bin.charCodeAt(z);}catch(e){mapa=null;}
     var estado={veu:70,tam:"apoio",pos:"clara"};
     var mascara=doc.createElement("canvas");mascara.width=W;mascara.height=H;var mc=mascara.getContext("2d");
     function desenhar(){
@@ -1120,7 +1153,7 @@
       var x0=Math.max(0,Math.floor((rt.left-rc.left)*k)-pad),y0=Math.max(0,Math.floor((rt.top-rc.top)*k)-pad);
       var x1=Math.min(W,Math.ceil((rt.right-rc.left)*k)+pad),y1=Math.min(H,Math.ceil((rt.bottom-rc.top)*k)+pad);
       var a=estado.veu/100;
-      ctx.putImageData(cena,0,0);
+      if(foto)ctx.drawImage(foto,0,0,W,H);else ctx.putImageData(cena,0,0);
       if(a>0){
         mc.clearRect(0,0,W,H);mc.filter="blur(28px)";mc.fillStyle="rgb(24,24,24)";mc.fillRect(x0-56,y0-56,(x1-x0)+112,(y1-y0)+112);
         mc.filter="none";mc.fillRect(x0,y0,x1-x0,y1-y0);
@@ -1128,7 +1161,8 @@
       }
       /* pior pixel: o mais claro da cena sob o texto, com o véu aplicado por conta */
       var q=cena.data,mx=-1,mr=0,mg=0,mb=0;
-      for(var y=y0;y<y1;y++)for(var x=x0;x<x1;x++){var j=(y*W+x)*4,v=L(q[j],q[j+1],q[j+2]);if(v>mx){mx=v;mr=q[j];mg=q[j+1];mb=q[j+2];}}
+      if(foto&&mapa){for(var cy=Math.floor(y0/10);cy<=Math.min(MH-1,Math.floor((y1-1)/10));cy++)for(var cx=Math.floor(x0/10);cx<=Math.min(MW-1,Math.floor((x1-1)/10));cx++){var c=mapa[cy*MW+cx],v=L(c,c,c);if(v>mx){mx=v;mr=mg=mb=c;}}}
+      else for(var y=y0;y<y1;y++)for(var x=x0;x<x1;x++){var j=(y*W+x)*4,v=L(q[j],q[j+1],q[j+2]);if(v>mx){mx=v;mr=q[j];mg=q[j+1];mb=q[j+2];}}
       var r=Math.round(mr*(1-a)+24*a),gg=Math.round(mg*(1-a)+24*a),b=Math.round(mb*(1-a)+24*a);
       var rz=razao(TELA,L(r,gg,b));
       var ok,motivo,escura=mx<=0.216;
@@ -1150,6 +1184,8 @@
       desenhar();
     });
     desenhar();
+    var src=cv.getAttribute("data-foto");
+    if(src&&mapa){var im=new Image();im.decoding="async";im.onload=function(){foto=im;desenhar();};im.onerror=function(){var lg=doc.getElementById("f05-veu-leg");if(lg)lg.innerHTML="<b>Quadro de teste, não é foto.</b> A foto do acervo não carregou; o quadro simula o pior caso com branco puro.";};im.src=src;}
     var ultimo=0;window.addEventListener("resize",function(){if(ultimo)cancelAnimationFrame(ultimo);ultimo=requestAnimationFrame(desenhar);});
     if(doc.fonts&&doc.fonts.ready)doc.fonts.ready.then(desenhar);
   }

@@ -43,14 +43,19 @@
 .f03-estado small{font:500 12px/1.3 var(--font-codigo);opacity:.9}
 .f03-veus{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--e-3)}
 .f03-veu{display:flex;flex-direction:column;min-width:0;background:var(--cinza-100)}
-.f03-foto{position:relative;min-height:240px;background:radial-gradient(70% 60% at 30% 25%,var(--branco) 0 38%,var(--cinza-100) 62%,var(--po) 100%)}
-.f03-foto::before{content:"";position:absolute;inset:22% 0 0;background:var(--sala);opacity:var(--a)}
-.f03-foto > *{position:relative}
-.f03-foto::after{content:"sem véu";position:absolute;left:var(--e-3);top:var(--e-2);font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--sala)}
-.f03-foto{display:flex;flex-direction:column;justify-content:flex-end;gap:var(--e-2);padding:var(--e-4)}
+.f03-foto{position:relative;isolation:isolate;overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:flex-start;gap:var(--e-2);padding:var(--e-4);background:radial-gradient(70% 60% at 30% 25%,var(--branco) 0 38%,var(--cinza-100) 62%,var(--po) 100%)}
+.f03-foto > img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:var(--p,50% 0);transform:scale(var(--z,1));transform-origin:var(--o,50% 0)}
+.f03-foto::before{content:"";position:absolute;inset:0 0 24%;z-index:-1;background:var(--sala);opacity:var(--a)}
+.f03-foto::after{content:"sem véu";position:absolute;left:var(--e-3);bottom:var(--e-2);padding:3px 6px;background:var(--tela);font:500 11px/1 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.14em;text-transform:uppercase;color:var(--sala)}
 .f03-foto .f03-vt{font:800 32px/.95 var(--font-letreiro);font-variation-settings:"wdth" 100;text-transform:uppercase;color:var(--tela)}
 .f03-foto .f03-vp{font:400 15px/1.4 var(--font-texto);color:var(--tela)}
 .f03-foto[data-ok="titulo"] .f03-vp,.f03-foto[data-ok="nao"] .f03-vp,.f03-foto[data-ok="nao"] .f03-vt{text-decoration:line-through;text-decoration-thickness:2px}
+.f03-amostra-foto{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--e-6);align-items:center;margin-top:var(--e-7)}.f03-quadro{position:relative;margin:0;background:var(--nanquim)}.f03-quadro img{width:100%;height:auto}.f03-amostra-foto figcaption{margin-top:var(--e-3)}
+.f03-pt{position:absolute;left:calc(var(--x) * 100%);top:calc(var(--y) * 100%);width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--c);border:2px solid var(--tela);outline:1px solid var(--sala)}.f03-pt b{position:absolute;left:28px;top:1px;padding:3px 6px;background:var(--sala);font:700 12px/1 var(--font-letreiro);color:var(--tela)}.f03-pt[data-lado="e"] b{left:auto;right:28px}
+ol.f03-amostras{list-style:none;padding:0;max-width:none;border-top:1px solid var(--fio)}.f03-amostras li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:var(--e-2) var(--e-4);align-items:center;padding:var(--e-3) 0;border-bottom:1px solid var(--fio);font:400 14px/1.45 var(--font-texto);color:var(--po)}.f03-amostras li > i{width:28px;height:28px;border-radius:50%;background:var(--c);outline:1px solid var(--fumaca)}.f03-amostras b{display:block;font:600 16px/1.25 var(--font-letreiro);color:var(--tela)}.f03-amostras small{font:500 12px/1.5 var(--font-codigo);color:var(--po);text-align:right}.f03-amostras small em{display:block;font:500 11px/1.4 var(--font-letreiro);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--areia)}
+.f03-duos{margin-top:var(--e-6)}.f03-duos figure{display:grid;gap:var(--e-2);align-content:start;margin:0}.f03-duos img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}.f03-duo-start{filter:url(#duotom-f03-start)}.f03-duo-master{filter:url(#duotom-f03-master)}.f03-duo-pro{filter:url(#duotom-f03-pro)}.f03-duos b{font:700 15px/1.2 var(--font-letreiro);color:var(--tela)}
+.f03-feed img,.f03-carro img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}.f03-cine{display:block;width:calc(100% + 2 * var(--e-5));max-width:none;height:auto;aspect-ratio:2.39/1;object-fit:cover;margin:calc(-1 * var(--e-5)) calc(-1 * var(--e-5)) var(--e-4);background:var(--nanquim)}.f03-mockup{margin-top:var(--e-6)}.f03-mockup img{width:100%;height:auto;outline:1px solid var(--fio);outline-offset:-1px}
+@media (max-width:899px){.f03-amostra-foto{grid-template-columns:minmax(0,1fr)}.f03-duos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .f03-veu-leg{display:grid;gap:4px;padding:var(--e-3) var(--e-4) var(--e-4);font:400 13px/1.45 var(--font-texto);color:var(--sala)}
 .f03-veu-leg b{font:700 22px/1 var(--font-letreiro);font-variation-settings:"wdth" 75;font-variant-numeric:tabular-nums}
 .f03-veu-leg code{color:var(--terracota-funda)}
@@ -112,6 +117,11 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
 .f03-pares .par-legenda{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;gap:6px}.f03-pares .par .copiar{margin-top:auto;align-self:flex-start}.f03-pares .par-legenda > :nth-last-child(2){margin-bottom:4px}
 @media (max-width:430px){.pares.f03-pares{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-3)}.f03-pares .par-amostra{min-height:104px;padding:var(--e-3)}.f03-pares .par-aa{font-size:40px}.f03-pares .par-linha{font-size:13px}.f03-pares .par-legenda{padding:var(--e-2) var(--e-3) var(--e-3)}.f03-pares .par-razao{font-size:22px}.f03-pares .par-nivel{white-space:normal;min-height:22px;padding:2px 6px;font-size:11px}.f03-feed{max-width:none}.f03-estados,.f03-tetos{grid-template-columns:minmax(0,1fr)}ul.f03-legenda-barra{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-veus{grid-template-columns:repeat(2,minmax(0,1fr))}.f03-foto{min-height:180px;padding:var(--e-3)}.f03-barra{height:56px}.f03-palco-campo{padding:var(--e-5);min-height:240px}.f03-palco-campo img.f03-selo{width:96px}}
 </style>
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
+ <filter id="duotom-f03-start" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".255 .859"/><feFuncG type="table" tableValues=".161 .773"/><feFuncB type="table" tableValues=".098 .639"/></feComponentTransfer></filter>
+ <filter id="duotom-f03-master" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".129 .769"/><feFuncG type="table" tableValues=".075 .376"/><feFuncB type="table" tableValues=".047 .224"/></feComponentTransfer></filter>
+ <filter id="duotom-f03-pro" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="table" tableValues=".094 .788"/><feFuncG type="table" tableValues=".094 .816"/><feFuncB type="table" tableValues=".094 .847"/></feComponentTransfer></filter>
+</defs></svg>
 
 <!-- ============================== s13 ============================== -->
 <section class="sec" id="s13" data-parte="IV" data-nome="Paleta e papéis" aria-labelledby="s13-t">
@@ -179,6 +189,18 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
             </div>
           </figcaption>
         </figure>
+      </div>
+
+      <div class="f03-amostra-foto">
+        <figure>
+          <div class="f03-quadro"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="Professor conversando com aluno sentado na sala ampla de janelas em arco da escola" loading="lazy" decoding="async"><span class="f03-pt" style="--x:0.628;--y:0.254;--c:var(--tela)"><b>1</b></span><span class="f03-pt" style="--x:0.483;--y:0.817;--c:var(--cal)"><b>2</b></span><span class="f03-pt" style="--x:0.706;--y:0.746;--c:var(--po)"><b>3</b></span><span class="f03-pt" style="--x:0.928;--y:0.317;--c:var(--fumaca)" data-lado="e"><b>4</b></span><span class="f03-pt" style="--x:0.15;--y:0.933;--c:var(--chumbo)"><b>5</b></span><span class="f03-pt" style="--x:0.417;--y:0.513;--c:var(--sala)"><b>6</b></span></div>
+          <figcaption class="legenda"><b>Aula na sala de janelas em arco, tratada no preset Ritual.</b> Uma janela, uma luz: o resto da foto cai para o escuro, como a paleta. Foto: acervo The VOID.</figcaption>
+        </figure>
+        <div>
+          <h4 class="intertitulo">A sala de verdade</h4>
+          <ol class="f03-amostras"><li><i style="--c:var(--tela)"></i><span><b>1 · Tela</b>o vidro da janela, a luz da cena</span><small><em>muito próxima</em>#F8F9F4 · amostra #EAEAEA</small></li><li><i style="--c:var(--cal)"></i><span><b>2 · Cal</b>o piso onde a janela bate</span><small><em>igual a olho nu</em>#DCDDD8 · amostra #DCDCDC</small></li><li><i style="--c:var(--po)"></i><span><b>3 · Pó</b>o piso fora da luz direta</span><small><em>igual a olho nu</em>#B4B5B0 · amostra #B4B4B4</small></li><li><i style="--c:var(--fumaca)"></i><span><b>4 · Fumaça</b>a parede do lado da sombra</span><small><em>igual a olho nu</em>#898989 · amostra #898989</small></li><li><i style="--c:var(--chumbo)"></i><span><b>5 · Chumbo</b>o piso na penumbra</span><small><em>igual a olho nu</em>#474747 · amostra #474747</small></li><li><i style="--c:var(--sala)"></i><span><b>6 · Sala</b>a sombra debaixo da cadeira</span><small><em>igual a olho nu</em>#181818 · amostra #181818</small></li></ol>
+          <p class="nota" style="margin-top:var(--e-4)">Cada ponto é a média de um quadrado de 12 por 12 px do arquivo tratado do acervo, comparada ao token mais próximo. "Igual a olho nu" quer dizer que a diferença fica abaixo do que o olho percebe lado a lado; "muito próxima", que só aparece com as duas cores encostadas.</p>
+        </div>
       </div>
     </div>
 
@@ -279,6 +301,18 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
         <figure class="amostra-cor" data-token="campo-start"><span class="cor"></span><figcaption><b>Campo Start</b><code>#B5966B</code><span>Campo da peça de Start. Texto em Sala; logotipo branco oficial, como no slide 31.</span><span class="f03-origem" data-tipo="pixel">Slide 31 por pixel · P 4</span></figcaption></figure>
         <figure class="amostra-cor" data-token="campo-master"><span class="cor"></span><figcaption><b>Campo Master</b><code>#76432B</code><span>Campo da peça de Master. Texto em Tela; logotipo branco oficial.</span><span class="f03-origem" data-tipo="pixel">Slide 31 por pixel · P 4</span></figcaption></figure>
         <figure class="amostra-cor" data-token="duotom-master-sombra"><span class="cor"></span><figcaption><b>Sombra do duotom Master</b><code>#21130C</code><span>Só dentro de imagem tratada em duotom. Não é cor de interface.</span><span class="f03-origem" data-tipo="pixel">Slide 35 por pixel</span></figcaption></figure>
+      </div>
+
+      <div class="f03-amostra-foto">
+        <figure>
+          <div class="f03-quadro"><img src="assets/foto/acervo/void_pele_08_4x5.webp" width="1080" height="1350" alt="Ave-do-paraíso colorida tatuada na panturrilha, trabalho da aluna Isis na The VOID" loading="lazy" decoding="async"><span class="f03-pt" style="--x:0.372;--y:0.415;--c:var(--terracota-viva)"><b>1</b></span><span class="f03-pt" style="--x:0.35;--y:0.585;--c:var(--areia)"><b>2</b></span><span class="f03-pt" style="--x:0.483;--y:0.933;--c:var(--caramelo)"><b>3</b></span><span class="f03-pt" style="--x:0.517;--y:0.638;--c:var(--couro)"><b>4</b></span><span class="f03-pt" style="--x:0.161;--y:0.531;--c:var(--cafe)"><b>5</b></span></div>
+          <figcaption class="legenda"><b>Ave-do-paraíso na panturrilha, trabalho da aluna Isis.</b> Regime cor da arte: a cor real da tatuagem, sem filtro de produto. Foto: acervo The VOID.</figcaption>
+        </figure>
+        <div>
+          <h4 class="intertitulo">As terras estão na pele</h4>
+          <ol class="f03-amostras"><li><i style="--c:var(--terracota-viva)"></i><span><b>1 · Terracota Viva</b>a pétala laranja da tatuagem</span><small><em>igual a olho nu</em>#C46039 · amostra #CA613A</small></li><li><i style="--c:var(--areia)"></i><span><b>2 · Areia</b>a pele na luz</span><small><em>próxima</em>#DBC5A3 · amostra #D9BCA6</small></li><li><i style="--c:var(--caramelo)"></i><span><b>3 · Caramelo</b>a pele na sombra</span><small><em>muito próxima</em>#AE8A64 · amostra #B88B6B</small></li><li><i style="--c:var(--couro)"></i><span><b>4 · Couro</b>a folha marrom do desenho</span><small><em>igual a olho nu</em>#6C4327 · amostra #73462A</small></li><li><i style="--c:var(--cafe)"></i><span><b>5 · Café</b>o fundo desfocado</span><small><em>igual a olho nu</em>#412919 · amostra #432B1D</small></li></ol>
+          <p class="nota" style="margin-top:var(--e-4)">Cada ponto é a média de um quadrado de 12 por 12 px do arquivo tratado do acervo, comparada ao token mais próximo. "Igual a olho nu" quer dizer que a diferença fica abaixo do que o olho percebe lado a lado; "muito próxima", que só aparece com as duas cores encostadas.</p>
+        </div>
       </div>
       <p class="pendencia" data-p="4">[P 4] Arquivo de tokens e instruções do design system do cliente, com a confirmação dos marrons do slide 27 e dos campos do slide 31. No slide 27, os quatro marrons aparecem rotulados como <code>#181818</code> por erro; até o arquivo chegar, valem os valores lidos por pixel mostrados aqui.</p>
     </div>
@@ -488,14 +522,14 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
         <h3 class="fala">O véu sobre a foto mais clara possível</h3>
         <p class="bloco-apoio">Texto sobre foto é conferido no pior pixel sob o texto. Como a foto pode ter uma área estourada, o cálculo usa branco puro e mistura a Sala por cima na opacidade do véu. Abaixo, a mesma área clara com os cinco véus da tabela.</p>
       </div>
-      <div class="f03-veus">
-        <figure class="f03-veu"><div class="f03-foto" style="--a:.48" data-ok="titulo"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>48% · 3,02</b><code>#909090</code><span>Só título de 32 px ou mais, sobre região já escura.</span></figcaption></figure>
-        <figure class="f03-veu"><div class="f03-foto" style="--a:.55" data-ok="titulo"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>55% · 3,73</b><code>#808080</code><span>Só título de 24 px ou mais.</span></figcaption></figure>
-        <figure class="f03-veu"><div class="f03-foto" style="--a:.62"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>62% · 4,68</b><code>#707070</code><span>Mínimo sob texto abaixo de 24 px.</span></figcaption></figure>
-        <figure class="f03-veu"><div class="f03-foto" style="--a:.70"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>70% · 6,22</b><code>#5D5D5D</code><span>Padrão de todo véu.</span></figcaption></figure>
-        <figure class="f03-veu"><div class="f03-foto" style="--a:.75"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>75% · 7,39</b><code>#525252</code><span>Caixa de legenda de vídeo.</span></figcaption></figure>
+      <div class="f03-veus" style="--p:50% 0;--z:1.45;--o:56% 0">
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.48" data-ok="titulo"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="Sala de aula da The VOID com a janela estourada em branco, o ponto mais claro do acervo" loading="lazy" decoding="async"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>48% · 3,02</b><code>#909090</code><span>Só título de 32 px ou mais, sobre região já escura.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.55" data-ok="titulo"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="" loading="lazy" decoding="async"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>55% · 3,73</b><code>#808080</code><span>Só título de 24 px ou mais.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.62"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="" loading="lazy" decoding="async"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>62% · 4,68</b><code>#707070</code><span>Mínimo sob texto abaixo de 24 px.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.70"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="" loading="lazy" decoding="async"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>70% · 6,22</b><code>#5D5D5D</code><span>Padrão de todo véu.</span></figcaption></figure>
+        <figure class="f03-veu"><div class="f03-foto" style="--a:.75"><img src="assets/foto/acervo/void_professor_02_4x5.webp" width="1080" height="1350" alt="" loading="lazy" decoding="async"><p class="f03-vt">Traço</p><p class="f03-vp">Texto de apoio</p></div><figcaption class="f03-veu-leg"><b>75% · 7,39</b><code>#525252</code><span>Caixa de legenda de vídeo.</span></figcaption></figure>
       </div>
-      <p class="legenda">Simulação do pior caso: área de foto com branco estourado, no lugar da foto real da escola, com autorização. O texto riscado está abaixo do mínimo para aquele tamanho. O HEX é a cor que resulta sob o véu quando o pixel da foto é branco puro.</p>
+      <p class="legenda">Foto real da escola, ampliada na janela: o ponto mais claro do acervo tratado, quase branco. O véu cobre a área do texto e a faixa de baixo mostra a foto sem véu. O texto riscado está abaixo do mínimo para aquele tamanho. O HEX é a cor que resulta sob o véu quando o pixel da foto é branco puro, o pior caso possível; a janela tratada fica um pouco abaixo disso, então a conta tem folga. Foto: acervo The VOID.</p>
       <div class="grade-2">
         <div class="texto">
           <h4 class="intertitulo">A conta</h4>
@@ -579,15 +613,15 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
       <h4 class="intertitulo">A exceção nomeada: Campo de Produto</h4>
       <div class="grade-2">
         <figure>
-          <div class="f03-feed" role="img" aria-label="Grade do feed com doze peças, duas delas em Campo de Produto: uma a cada seis.">
-            <span></span><span class="f03-cs"></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span class="f03-cp"></span><span></span>
+          <div class="f03-feed" role="img" aria-label="Grade do feed com doze peças: dez fotos P&amp;B da escola e duas em Campo de Produto, uma a cada seis.">
+            <img src="assets/foto/acervo/void_aula_01_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span class="f03-cs"></span><img src="assets/foto/acervo/void_maos_05_thumb.webp" width="360" height="640" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_pele_13_thumb.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_concentracao_02_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_professor_02_thumb.webp" width="427" height="640" alt="" loading="lazy" decoding="async">
+            <img src="assets/foto/acervo/void_escola_04_thumb.webp" width="360" height="640" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_pele_14_thumb.webp" width="512" height="640" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_concentracao_03_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_retrato_03_thumb.webp" width="405" height="640" alt="" loading="lazy" decoding="async"><span class="f03-cp"></span><img src="assets/foto/acervo/void_materiais_01_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
           </div>
-          <figcaption class="legenda">Feed: no máximo uma peça em Campo de Produto a cada seis.</figcaption>
+          <figcaption class="legenda">Feed: no máximo uma peça em Campo de Produto a cada seis. A fotografia P&amp;B não gasta o teto de cor. Fotos: acervo The VOID.</figcaption>
         </figure>
         <figure>
-          <div class="f03-carro" role="img" aria-label="Carrossel de cinco telas com uma tela em Campo de Produto.">
-            <span></span><span></span><span></span><span class="f03-cp" style="background:var(--campo-master)"></span><span></span>
+          <div class="f03-carro" role="img" aria-label="Carrossel de cinco telas: quatro fotos P&amp;B da escola e uma tela em Campo de Produto.">
+            <img src="assets/foto/acervo/void_aula_03_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_maos_02_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><img src="assets/foto/acervo/void_pele_02_thumb.webp" width="640" height="360" alt="" loading="lazy" decoding="async"><span class="f03-cp" style="background:var(--campo-master)"></span><img src="assets/foto/acervo/void_concentracao_06_thumb.webp" width="640" height="427" alt="" loading="lazy" decoding="async">
           </div>
           <figcaption class="legenda">Carrossel: no máximo uma tela em Campo de Produto a cada cinco.</figcaption>
           <p class="nota">O Campo de Produto é o modelo R8 (seção 35): a peça inteira no campo do produto, logotipo de produto branco, selo e a Palavra de Produto a 8%.</p>
@@ -617,6 +651,14 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
           </tbody>
         </table>
       </div>
+      <h4 class="intertitulo">O duotom na foto real</h4>
+      <div class="grade-4 f03-duos">
+        <figure><img src="assets/foto/acervo/void_materiais_02_1x1.webp" width="1080" height="1080" alt="Andorinha tatuada em pele artificial na bancada de treino, em preto e branco" loading="lazy" decoding="async"><figcaption class="legenda"><b>Institucional e VOIDERS</b><br>Sem duotom: P&amp;B pelo preset Ritual.</figcaption></figure>
+        <figure><img class="f03-duo-start" src="assets/foto/acervo/void_materiais_02_1x1.webp" width="1080" height="1080" alt="A mesma andorinha em duotom Start, do café à areia" loading="lazy" decoding="async"><figcaption class="legenda"><b>Start</b><br>Café para Areia.</figcaption></figure>
+        <figure><img class="f03-duo-master" src="assets/foto/acervo/void_materiais_02_1x1.webp" width="1080" height="1080" alt="A mesma andorinha em duotom Master, da sombra marrom à terracota viva" loading="lazy" decoding="async"><figcaption class="legenda"><b>Master</b><br>Sombra do duotom Master para Terracota Viva.</figcaption></figure>
+        <figure><img class="f03-duo-pro" src="assets/foto/acervo/void_materiais_02_1x1.webp" width="1080" height="1080" alt="A mesma andorinha em duotom Pro, da sala à névoa" loading="lazy" decoding="async"><figcaption class="legenda"><b>Pro</b><br>Sala para Névoa.</figcaption></figure>
+      </div>
+      <p class="legenda" style="margin-top:var(--e-3)">Pele artificial do Ritual do Traço, a mesma foto nos quatro regimes. O duotom vale só em peça de produto e nunca em rosto de aluno ou depoimento; a construção está no <a href="#s25">recurso Duotom de Produto</a>. Foto: acervo The VOID.</p>
       <pre class="codigo" data-rotulo="HTML"><code>&lt;body class="grao" data-estacao="master"&gt;
   &lt;!-- tudo dentro herda: --estacao-destaque, --estacao-grafismo,
        --estacao-seta, --estacao-campo, --estacao-campo-texto --&gt;
@@ -671,6 +713,7 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
           </div>
         </div>
       </div>
+      <figure class="f03-mockup"><img src="assets/aplicacoes/mockups/void_mockup_grade-start-master-pro.webp" srcset="assets/aplicacoes/mockups/void_mockup_grade-start-master-pro_thumb.webp 640w, assets/aplicacoes/mockups/void_mockup_grade-start-master-pro.webp 2400w" sizes="(min-width:900px) 70vw, 100vw" width="2400" height="1350" alt="Mockup do rebranding: posts das formações Start, Master e Pro lado a lado, cada um com o seu selo e a sua cor" loading="lazy" decoding="async"><figcaption class="legenda">A regra no rebranding: as três formações lado a lado, com a cor só no selo, no campo e no grafismo. Mockup da agência no Figma do rebranding (aureadesign, 2025); referência de aplicação, não registro de aula.</figcaption></figure>
       <p class="nota">A aula experimental continua assinando com o logotipo do Start, como está no ar, porque é a porta do Start; o selo Start entra só como "próxima etapa", sem campo de cor. Nesta demonstração ela aparece no modo institucional, com o logotipo horizontal, para mostrar o campo sem cor.</p>
       <p class="pendencia" data-p="14">[P 14] Manter a aula experimental com o logotipo Start (decisão atual) ou passar para o institucional.</p>
     </div>
@@ -790,18 +833,18 @@ ul.f03-legenda-barra{max-width:none;padding:0;display:grid;grid-template-columns
       <div class="bloco-head">
         <p class="bloco-n credito">16.4</p>
         <h3 class="fala">Sala e Leitura, lado a lado</h3>
-        <p class="bloco-apoio">O mesmo artigo nas duas versões. A da esquerda é a que vale hoje, enquanto a aprovação não vem; a da direita é a proposta. O cabeçalho continua em Sala nas duas.</p>
+        <p class="bloco-apoio">O mesmo artigo nas duas versões. A da esquerda é a que vale hoje, enquanto a aprovação não vem; a da direita é a proposta. O cabeçalho continua em Sala nas duas, com a foto em Cinemascope (foto: acervo The VOID).</p>
       </div>
       <div class="f03-lado">
         <figure class="f03-pagina" data-modo="sala">
-          <div class="f03-pagina-topo"><p class="credito">Guia · exemplo · Sala</p><h4>Como ler uma tabela de contraste?</h4></div>
+          <div class="f03-pagina-topo"><img class="f03-cine" src="assets/foto/acervo/void_pele_14_16x9.webp" width="1920" height="1080" alt="Cavalo-marinho pontilhado em blackwork tatuado no braço, preto e cinza de alto contraste" loading="lazy" decoding="async"><p class="credito">Guia · exemplo · Sala</p><h4>Como ler uma tabela de contraste?</h4></div>
           <div class="f03-pagina-corpo">
             <p class="f03-direta">Texto de exemplo. Uma tabela de contraste diz quanto uma cor de texto se destaca do fundo. Quanto maior a razão, mais fácil de ler; para texto comum, o mínimo é 4,5 para 1.</p>
             <p>Corpo em Cal sobre Sala, 13 para 1. É confortável em blocos curtos e continua sendo o padrão de todo o material enquanto o Modo Leitura não for aprovado. <a href="#s14">Veja a seção 14</a>.</p>
           </div>
         </figure>
         <figure class="f03-pagina" data-modo="leitura">
-          <div class="f03-pagina-topo"><p class="credito">Guia · exemplo · Modo Leitura</p><h4>Como ler uma tabela de contraste?</h4></div>
+          <div class="f03-pagina-topo"><img class="f03-cine" src="assets/foto/acervo/void_pele_14_16x9.webp" width="1920" height="1080" alt="" loading="lazy" decoding="async"><p class="credito">Guia · exemplo · Modo Leitura</p><h4>Como ler uma tabela de contraste?</h4></div>
           <div class="f03-pagina-corpo">
             <p class="f03-direta">Texto de exemplo. Uma tabela de contraste diz quanto uma cor de texto se destaca do fundo. Quanto maior a razão, mais fácil de ler; para texto comum, o mínimo é 4,5 para 1.</p>
             <p>Corpo em Sala sobre Tela, 16,78 para 1, com filete e link em Terracota Funda. Em leitura longa, cansa menos e não inverte no modo escuro dos clientes de e-mail. <a href="#s14">Veja a seção 14</a>.</p>

@@ -62,6 +62,13 @@
         Turma lotada continua visível; com todas lotadas, o botão vira lista de espera.
      7. Procedência de cada texto (de onde veio a frase) fica em "fonte" e só aparece no
         painel. Na página pública, crédito visível só na prova com número (LP07).
+     8. Fotos: todo campo "foto" recebe o id de uma foto real do acervo
+        (assets/foto/acervo/catalogo.json, uso autorizado pela The VOID, 10/2026). O motor
+        monta <picture> com os recortes do acervo, largura e altura declaradas, carregamento
+        tardio fora da primeira dobra e o texto alternativo do catálogo. Ilustração de persona,
+        mockup e banco de imagem nunca entram como foto da escola. Toda seção com foto leva a
+        legenda "Foto: acervo The VOID". O painel confere a regra de cor (no máximo 1 foto
+        colorida em cada 4) e se toda imagem tem texto alternativo e medidas.
      ===================================================================== -->
 <script>
 window.LP_PADRAO = 'start';
@@ -102,6 +109,62 @@ window.LP_PROCEDENCIA = {
   LP13: 'Endereço e referência: site oficial, consultado em 06/10/2026. Telefone e mapa sem link nesta seção por causa da L1 (um destino por página); o link de rota vai na página de obrigado (LP19).'
 };
 
+/* ---------- acervo fotográfico real (assets/foto/acervo/catalogo.json), só as fotos usadas no modelo ----------
+   p: versão principal do regime (Ritual, Vazio ou Terra) · t: miniatura de 640 px · r: recortes com foco à mão.
+   Cada item: [arquivo, largura, altura]. Uso autorizado pela The VOID, 10/2026. */
+window.LP_FOTOS = {
+  base: 'assets/foto/acervo/',
+  credito: 'Foto: acervo The VOID',
+  itens: {
+    'void_aula_05': {"alt":"Aluno de máscara tatuando o antebraço de um cliente sob luminária, janelas em arco ao fundo","regime":"pb-ritual","p":["void_aula_05_pb.webp",1920,2400],"t":["void_aula_05_thumb.webp",512,640],"r":{"4x5":["void_aula_05_4x5.webp",1080,1350],"16x9":["void_aula_05_16x9.webp",1920,1080],"1x1":["void_aula_05_1x1.webp",1080,1080],"9x16":["void_aula_05_9x16.webp",1080,1920]},"foco":[38,42]},
+    'void_concentracao_02': {"alt":"Aluna de óculos e luvas concentrada tatuando pele sintética sob a luminária","regime":"pb-vazio","p":["void_concentracao_02_vazio.webp",1920,1079],"t":["void_concentracao_02_thumb.webp",640,360],"r":{"4x5":["void_concentracao_02_4x5.webp",1080,1350],"16x9":["void_concentracao_02_16x9.webp",1920,1080],"1x1":["void_concentracao_02_1x1.webp",1080,1080],"9x16":["void_concentracao_02_9x16.webp",607,1079]},"foco":[55,45]},
+    'void_concentracao_10': {"alt":"Tatuador de boné THE VOID tatuando com luvas e máscara, concentrado no traço","regime":"pb-vazio","p":["void_concentracao_10_vazio.webp",1920,2400],"t":["void_concentracao_10_thumb.webp",512,640],"r":{"4x5":["void_concentracao_10_4x5.webp",1080,1350],"16x9":["void_concentracao_10_16x9.webp",1920,1080],"1x1":["void_concentracao_10_1x1.webp",1080,1080],"9x16":["void_concentracao_10_9x16.webp",1080,1920]},"foco":[45,45]},
+    'void_retrato_02': {"alt":"Retrato de Lucas Tengan no estande da The VOID com letreiro iluminado ao fundo","regime":"pb-ritual","p":["void_retrato_02_pb.webp",1920,1079],"t":["void_retrato_02_thumb.webp",640,360],"r":{"4x5":["void_retrato_02_4x5.webp",1080,1350],"16x9":["void_retrato_02_16x9.webp",1920,1080],"1x1":["void_retrato_02_1x1.webp",1080,1080],"9x16":["void_retrato_02_9x16.webp",607,1079]},"foco":[42,40]},
+    'void_aula_01': {"alt":"Alunas praticando tatuagem em pele sintética sob luminárias numa mesa coletiva","regime":"pb-ritual","p":["void_aula_01_pb.webp",1920,1079],"t":["void_aula_01_thumb.webp",640,360],"r":{"4x5":["void_aula_01_4x5.webp",1080,1350],"16x9":["void_aula_01_16x9.webp",1920,1080],"1x1":["void_aula_01_1x1.webp",1080,1080],"9x16":["void_aula_01_9x16.webp",607,1079]},"foco":[50,50]},
+    'void_concentracao_04': {"alt":"Tatuador de máscara trabalhando nas costas de um cliente no estande, público observando","regime":"pb-ritual","p":["void_concentracao_04_pb.webp",1920,1079],"t":["void_concentracao_04_thumb.webp",640,360],"r":{"4x5":["void_concentracao_04_4x5.webp",1080,1350],"16x9":["void_concentracao_04_16x9.webp",1920,1080],"1x1":["void_concentracao_04_1x1.webp",1080,1080],"9x16":["void_concentracao_04_9x16.webp",607,1079]},"foco":[50,45]},
+    'void_retrato_06': {"alt":"Aluna Açucena apontando para a arara que tatuou na panturrilha da cliente","regime":"cor-terra","p":["void_retrato_06_terra.webp",1206,1564],"t":["void_retrato_06_thumb.webp",494,640],"r":{"4x5":["void_retrato_06_4x5.webp",1080,1350],"16x9":["void_retrato_06_16x9.webp",1206,678],"1x1":["void_retrato_06_1x1.webp",1080,1080],"9x16":["void_retrato_06_9x16.webp",1080,1920]},"foco":[50,40]},
+    'void_retrato_08': {"alt":"Aluno Matias sorrindo ao lado do cliente com as costas fechadas que ele tatuou","regime":"cor-terra","p":["void_retrato_08_terra.webp",1200,1800],"t":["void_retrato_08_thumb.webp",427,640],"r":{"4x5":["void_retrato_08_4x5.webp",1080,1350],"16x9":["void_retrato_08_16x9.webp",1200,675],"1x1":["void_retrato_08_1x1.webp",1080,1080],"9x16":["void_retrato_08_9x16.webp",1080,1920]},"foco":[50,38]},
+    'void_retrato_12': {"alt":"Aluna sorrindo ao lado da tatuagem finalizada na coxa, fundo de folhagem da escola","regime":"cor-terra","p":["void_retrato_12_terra.webp",1440,1920],"t":["void_retrato_12_thumb.webp",480,640],"r":{"4x5":["void_retrato_12_4x5.webp",1080,1350],"16x9":["void_retrato_12_16x9.webp",1920,1080],"1x1":["void_retrato_12_1x1.webp",1080,1080],"9x16":["void_retrato_12_9x16.webp",1080,1920]},"foco":[38,40]},
+    'void_retrato_10': {"alt":"Aluno sorrindo e apontando a tatuagem em preto e cinza que fez na perna da cliente","regime":"cor-terra","p":["void_retrato_10_terra.webp",1920,2400],"t":["void_retrato_10_thumb.webp",512,640],"r":{"4x5":["void_retrato_10_4x5.webp",1080,1350],"16x9":["void_retrato_10_16x9.webp",1920,1080],"1x1":["void_retrato_10_1x1.webp",1080,1080],"9x16":["void_retrato_10_9x16.webp",1080,1920]},"foco":[40,38]},
+    'void_retrato_11': {"alt":"Aluna sorrindo e apontando o vaso com flores que tatuou na perna da cliente","regime":"cor-terra","p":["void_retrato_11_terra.webp",1600,2000],"t":["void_retrato_11_thumb.webp",512,640],"r":{"4x5":["void_retrato_11_4x5.webp",1080,1350],"16x9":["void_retrato_11_16x9.webp",1920,1080],"1x1":["void_retrato_11_1x1.webp",1080,1080],"9x16":["void_retrato_11_9x16.webp",1080,1920]},"foco":[38,40]},
+    'void_retrato_14': {"alt":"Aluna de perfil mostrando tatuagem em preto e cinza no braço, fundo de folhagem","regime":"cor-terra","p":["void_retrato_14_terra.webp",1440,1920],"t":["void_retrato_14_thumb.webp",480,640],"r":{"4x5":["void_retrato_14_4x5.webp",1080,1350],"16x9":["void_retrato_14_16x9.webp",1920,1080],"1x1":["void_retrato_14_1x1.webp",1080,1080],"9x16":["void_retrato_14_9x16.webp",1080,1920]},"foco":[55,30]},
+    'void_pele_10': {"alt":"Vaso com costela-de-adão tatuado nas costas, trabalho da aluna Karina na The VOID","regime":"pb-ritual","p":["void_pele_10_pb.webp",1274,1556],"t":["void_pele_10_thumb.webp",524,640],"r":{"4x5":["void_pele_10_4x5.webp",1080,1350],"16x9":["void_pele_10_16x9.webp",1274,717],"1x1":["void_pele_10_1x1.webp",1080,1080],"9x16":["void_pele_10_9x16.webp",1080,1920]},"foco":[50,50]},
+    'void_pele_11': {"alt":"Anjo guerreiro realista tatuado no ombro, trabalho do aluno Adriano na The VOID","regime":"pb-ritual","p":["void_pele_11_pb.webp",1200,1800],"t":["void_pele_11_thumb.webp",427,640],"r":{"4x5":["void_pele_11_4x5.webp",1080,1350],"16x9":["void_pele_11_16x9.webp",1200,675],"1x1":["void_pele_11_1x1.webp",1080,1080],"9x16":["void_pele_11_9x16.webp",1080,1920]},"foco":[50,40]},
+    'void_pele_08': {"alt":"Ave-do-paraíso colorida tatuada na panturrilha, trabalho da aluna Isis na The VOID","regime":"cor-arte","p":["void_pele_08_original.webp",1200,1800],"t":["void_pele_08_thumb.webp",427,640],"r":{"4x5":["void_pele_08_4x5.webp",1080,1350],"16x9":["void_pele_08_16x9.webp",1200,675],"1x1":["void_pele_08_1x1.webp",1080,1080],"9x16":["void_pele_08_9x16.webp",1080,1920]},"foco":[50,45]},
+    'void_retrato_05': {"alt":"Aluna e tatuadora sorrindo com tatuagem cicatrizada na coxa, adesivo VOID na parede","regime":"pb-ritual","p":["void_retrato_05_pb.webp",2085,2378],"t":["void_retrato_05_thumb.webp",561,640],"r":{"4x5":["void_retrato_05_4x5.webp",1080,1350],"16x9":["void_retrato_05_16x9.webp",1920,1080],"1x1":["void_retrato_05_1x1.webp",1080,1080],"9x16":["void_retrato_05_9x16.webp",1080,1920]},"foco":[50,30]},
+    'void_traco_03': {"alt":"Projeto de retrato desenhado no papel, com esboço, lápis e lâmina de pele sintética na mesa","regime":"pb-ritual","p":["void_traco_03_pb.webp",900,1600],"t":["void_traco_03_thumb.webp",360,640],"r":{"4x5":["void_traco_03_4x5.webp",1080,1350],"1x1":["void_traco_03_1x1.webp",1080,1080],"9x16":["void_traco_03_9x16.webp",1080,1920]},"foco":[50,50]},
+    'void_maos_05': {"alt":"Close de mãos com luvas segurando a máquina de tatuagem sobre a pele durante a sessão","regime":"pb-ritual","p":["void_maos_05_pb.webp",1216,2160],"t":["void_maos_05_thumb.webp",360,640],"r":{"4x5":["void_maos_05_4x5.webp",1080,1350],"16x9":["void_maos_05_16x9.webp",1216,684],"1x1":["void_maos_05_1x1.webp",1080,1080],"9x16":["void_maos_05_9x16.webp",1080,1920]},"foco":[50,42]},
+    'void_marca_01': {"alt":"Mão tatuada segurando caderno preto com o logotipo da The VOID Tattoo Academy","regime":"pb-ritual","p":["void_marca_01_pb.webp",1600,2400],"t":["void_marca_01_thumb.webp",427,640],"r":{"4x5":["void_marca_01_4x5.webp",1080,1350],"16x9":["void_marca_01_16x9.webp",1920,1080],"1x1":["void_marca_01_1x1.webp",1080,1080],"9x16":["void_marca_01_9x16.webp",1080,1920]},"foco":[50,38]},
+    'void_materiais_01': {"alt":"Bancada de tatuagem com máquinas pen, batoque de tinta preta e papel toalha sob luz quente","regime":"pb-ritual","p":["void_materiais_01_pb.webp",1920,1079],"t":["void_materiais_01_thumb.webp",640,360],"r":{"4x5":["void_materiais_01_4x5.webp",1080,1350],"16x9":["void_materiais_01_16x9.webp",1920,1080],"1x1":["void_materiais_01_1x1.webp",1080,1080],"9x16":["void_materiais_01_9x16.webp",607,1079]},"foco":[55,50]},
+    'void_materiais_02': {"alt":"Andorinha tatuada em pele artificial redonda, com estêncil e máquina na bancada de treino","regime":"pb-ritual","p":["void_materiais_02_pb.webp",2400,2400],"t":["void_materiais_02_thumb.webp",640,640],"r":{"4x5":["void_materiais_02_4x5.webp",1080,1350],"16x9":["void_materiais_02_16x9.webp",1920,1080],"1x1":["void_materiais_02_1x1.webp",1080,1080],"9x16":["void_materiais_02_9x16.webp",1080,1920]},"foco":[50,55]},
+    'void_professor_03': {"alt":"Professor e aluna de máscara tatuando juntos um cliente deitado de lado na escola","regime":"pb-ritual","p":["void_professor_03_pb.webp",1067,1600],"t":["void_professor_03_thumb.webp",427,640],"r":{"4x5":["void_professor_03_4x5.webp",1080,1350],"16x9":["void_professor_03_16x9.webp",1067,600],"1x1":["void_professor_03_1x1.webp",1080,1080],"9x16":["void_professor_03_9x16.webp",1080,1920]},"foco":[55,60]},
+    'void_pele_14': {"alt":"Cavalo-marinho pontilhado em blackwork tatuado no braço","regime":"pb-ritual","p":["void_pele_14_pb.webp",1920,2400],"t":["void_pele_14_thumb.webp",512,640],"r":{"4x5":["void_pele_14_4x5.webp",1080,1350],"16x9":["void_pele_14_16x9.webp",1920,1080],"1x1":["void_pele_14_1x1.webp",1080,1080],"9x16":["void_pele_14_9x16.webp",1080,1920]},"foco":[50,50]},
+    'void_professor_02': {"alt":"Professor conversando com aluno sentado na sala ampla de janelas em arco da escola","regime":"pb-ritual","p":["void_professor_02_pb.webp",1600,2400],"t":["void_professor_02_thumb.webp",427,640],"r":{"4x5":["void_professor_02_4x5.webp",1080,1350],"16x9":["void_professor_02_16x9.webp",1920,1080],"1x1":["void_professor_02_1x1.webp",1080,1080],"9x16":["void_professor_02_9x16.webp",1080,1920]},"foco":[50,55]},
+    'void_concentracao_07': {"alt":"Aluna de luvas tatuando retrato realista em pele sintética na bancada da escola","regime":"pb-ritual","p":["void_concentracao_07_pb.webp",900,1600],"t":["void_concentracao_07_thumb.webp",360,640],"r":{"4x5":["void_concentracao_07_4x5.webp",1080,1350],"1x1":["void_concentracao_07_1x1.webp",1080,1080],"9x16":["void_concentracao_07_9x16.webp",1080,1920]},"foco":[50,55]},
+    'void_professor_05': {"alt":"Professor de boné orientando uma aluna de máscara durante a prática na The VOID","regime":"pb-ritual","p":["void_professor_05_pb.webp",1404,1098],"t":["void_professor_05_thumb.webp",640,501],"r":{"4x5":["void_professor_05_4x5.webp",1080,1350],"16x9":["void_professor_05_16x9.webp",1404,790],"1x1":["void_professor_05_1x1.webp",1080,1080],"9x16":["void_professor_05_9x16.webp",618,1098]},"foco":[55,35]},
+    'void_traco_02': {"alt":"Tatuadora ruiva desenhando o projeto da tatuagem na mesa ao lado da janela da escola The VOID","regime":"pb-ritual","p":["void_traco_02_pb.webp",1152,2048],"t":["void_traco_02_thumb.webp",360,640],"r":{"4x5":["void_traco_02_4x5.webp",1080,1350],"16x9":["void_traco_02_16x9.webp",1152,648],"1x1":["void_traco_02_1x1.webp",1080,1080],"9x16":["void_traco_02_9x16.webp",1080,1920]},"foco":[50,50]},
+    'void_marca_02': {"alt":"Letreiro iluminado THE VOID TATTOO ACADEMY no estande da convenção, visto de baixo","regime":"pb-vazio","p":["void_marca_02_vazio.webp",1920,1079],"t":["void_marca_02_thumb.webp",640,360],"r":{"4x5":["void_marca_02_4x5.webp",1080,1350],"16x9":["void_marca_02_16x9.webp",1920,1080],"1x1":["void_marca_02_1x1.webp",1080,1080],"9x16":["void_marca_02_9x16.webp",607,1079]},"foco":[40,42]},
+    'void_concentracao_05': {"alt":"Tatuadora de camiseta The VOID concentrada no trabalho, vista de cima","regime":"pb-ritual","p":["void_concentracao_05_pb.webp",2048,1151],"t":["void_concentracao_05_thumb.webp",640,360],"r":{"4x5":["void_concentracao_05_4x5.webp",1080,1350],"16x9":["void_concentracao_05_16x9.webp",1920,1080],"1x1":["void_concentracao_05_1x1.webp",1080,1080],"9x16":["void_concentracao_05_9x16.webp",647,1151]},"foco":[50,50]},
+    'void_comunidade_02': {"alt":"Pessoa de costas vestindo camiseta com o símbolo da The VOID no corredor da convenção","regime":"pb-ritual","p":["void_comunidade_02_pb.webp",2048,1151],"t":["void_comunidade_02_thumb.webp",640,360],"r":{"4x5":["void_comunidade_02_4x5.webp",1080,1350],"16x9":["void_comunidade_02_16x9.webp",1920,1080],"1x1":["void_comunidade_02_1x1.webp",1080,1080],"9x16":["void_comunidade_02_9x16.webp",647,1151]},"foco":[50,55]},
+    'void_professor_01': {"alt":"Professor Lucas Tengan em pé falando para alunas sentadas na sala da escola The VOID","regime":"pb-ritual","p":["void_professor_01_pb.webp",1600,2400],"t":["void_professor_01_thumb.webp",427,640],"r":{"4x5":["void_professor_01_4x5.webp",1080,1350],"16x9":["void_professor_01_16x9.webp",1920,1080],"1x1":["void_professor_01_1x1.webp",1080,1080],"9x16":["void_professor_01_9x16.webp",1080,1920]},"foco":[50,30]},
+    'void_aula_04': {"alt":"Aluna de máscara tatuando a perna de um cliente deitado na maca, sala com murais da escola","regime":"pb-ritual","p":["void_aula_04_pb.webp",1067,1600],"t":["void_aula_04_thumb.webp",427,640],"r":{"4x5":["void_aula_04_4x5.webp",1080,1350],"16x9":["void_aula_04_16x9.webp",1067,600],"1x1":["void_aula_04_1x1.webp",1080,1080],"9x16":["void_aula_04_9x16.webp",1080,1920]},"foco":[45,60]},
+    'void_traco_01': {"alt":"Close do traço de tatuagem sendo puxado sobre o estêncil na perna, em luz quente e baixa","regime":"pb-ritual","p":["void_traco_01_pb.webp",1920,1079],"t":["void_traco_01_thumb.webp",640,360],"r":{"4x5":["void_traco_01_4x5.webp",1080,1350],"16x9":["void_traco_01_16x9.webp",1920,1080],"1x1":["void_traco_01_1x1.webp",1080,1080],"9x16":["void_traco_01_9x16.webp",607,1079]},"foco":[60,40]},
+    'void_professor_04': {"alt":"Professora orientando de perto um aluno que tatua o antebraço de outra pessoa","regime":"pb-ritual","p":["void_professor_04_pb.webp",818,1448],"t":["void_professor_04_thumb.webp",362,640],"r":{"4x5":["void_professor_04_4x5.webp",1080,1350],"1x1":["void_professor_04_1x1.webp",1080,1080],"9x16":["void_professor_04_9x16.webp",1080,1920]},"foco":[60,45]},
+    'void_pele_17': {"alt":"Rosto feminino com asas tatuado na coxa, mostrado na noite de formatura","regime":"pb-ritual","p":["void_pele_17_pb.webp",1440,1920],"t":["void_pele_17_thumb.webp",480,640],"r":{"4x5":["void_pele_17_4x5.webp",1080,1350],"16x9":["void_pele_17_16x9.webp",1920,1080],"1x1":["void_pele_17_1x1.webp",1080,1080],"9x16":["void_pele_17_9x16.webp",1080,1920]},"foco":[50,50]},
+    'void_retrato_01': {"alt":"Lucas Tengan, sócio da The VOID, de braços cruzados e camiseta da escola","regime":"pb-ritual","p":["void_retrato_01_pb.webp",1349,2400],"t":["void_retrato_01_thumb.webp",360,640],"r":{"4x5":["void_retrato_01_4x5.webp",1080,1350],"16x9":["void_retrato_01_16x9.webp",1349,759],"1x1":["void_retrato_01_1x1.webp",1080,1080],"9x16":["void_retrato_01_9x16.webp",1080,1920]},"foco":[50,28]},
+    'void_retrato_03': {"alt":"Professor Denis Mota de braços cruzados vestindo camiseta The VOID","regime":"pb-ritual","p":["void_retrato_03_pb.webp",900,1421],"t":["void_retrato_03_thumb.webp",405,640],"r":{"4x5":["void_retrato_03_4x5.webp",1080,1350],"1x1":["void_retrato_03_1x1.webp",1080,1080],"9x16":["void_retrato_03_9x16.webp",799,1421]},"foco":[50,32]},
+    'void_retrato_04': {"alt":"Retrato em preto e branco de um professor da The VOID","regime":"pb-ritual","p":["void_retrato_04_pb.webp",900,1481],"t":["void_retrato_04_thumb.webp",389,640],"r":{"4x5":["void_retrato_04_4x5.webp",1080,1350],"1x1":["void_retrato_04_1x1.webp",1080,1080],"9x16":["void_retrato_04_9x16.webp",1080,1920]},"foco":[50,38]},
+    'void_aula_02': {"alt":"Mesa longa de alunos praticando tatuagem em pele sintética sob luminárias","regime":"pb-ritual","p":["void_aula_02_pb.webp",1920,1079],"t":["void_aula_02_thumb.webp",640,360],"r":{"4x5":["void_aula_02_4x5.webp",1080,1350],"16x9":["void_aula_02_16x9.webp",1920,1080],"1x1":["void_aula_02_1x1.webp",1080,1080],"9x16":["void_aula_02_9x16.webp",607,1079]},"foco":[50,50]},
+    'void_aula_03': {"alt":"Alunos tatuando sob luminárias durante imersão da The VOID, em ambiente escuro","regime":"pb-ritual","p":["void_aula_03_pb.webp",1800,1012],"t":["void_aula_03_thumb.webp",640,360],"r":{"4x5":["void_aula_03_4x5.webp",1080,1350],"16x9":["void_aula_03_16x9.webp",1920,1080],"1x1":["void_aula_03_1x1.webp",1080,1080],"9x16":["void_aula_03_9x16.webp",569,1012]},"foco":[50,50]},
+    'void_escola_03': {"alt":"Sala da escola The VOID com janelas em arco e várias macas em uso durante a aula prática","regime":"pb-ritual","p":["void_escola_03_pb.webp",900,1600],"t":["void_escola_03_thumb.webp",360,640],"r":{"4x5":["void_escola_03_4x5.webp",1080,1350],"1x1":["void_escola_03_1x1.webp",1080,1080],"9x16":["void_escola_03_9x16.webp",1080,1920]},"foco":[45,60]},
+    'void_escola_04': {"alt":"Sala de aula da The VOID cheia de alunos em mesas longas, professor ao fundo","regime":"pb-ritual","p":["void_escola_04_pb.webp",900,1600],"t":["void_escola_04_thumb.webp",360,640],"r":{"4x5":["void_escola_04_4x5.webp",1080,1350],"1x1":["void_escola_04_1x1.webp",1080,1080],"9x16":["void_escola_04_9x16.webp",1080,1920]},"foco":[50,55]},
+    'void_concentracao_08': {"alt":"Professor da The VOID tatuando de máscara na convenção","regime":"pb-ritual","p":["void_concentracao_08_pb.webp",787,1400],"t":["void_concentracao_08_thumb.webp",360,640],"r":{"4x5":["void_concentracao_08_4x5.webp",787,984],"1x1":["void_concentracao_08_1x1.webp",787,787],"9x16":["void_concentracao_08_9x16.webp",787,1399]},"foco":[50,45]},
+    'void_evento_04': {"alt":"Lucas Tengan palestrando no palco, com o telão perguntando quem é você como artista","regime":"cor-terra","p":["void_evento_04_terra.webp",1920,1497],"t":["void_evento_04_thumb.webp",640,499],"r":{"4x5":["void_evento_04_4x5.webp",1080,1350],"16x9":["void_evento_04_16x9.webp",1920,1080],"1x1":["void_evento_04_1x1.webp",1080,1080],"9x16":["void_evento_04_9x16.webp",1080,1920]},"foco":[60,50]},
+    'void_comunidade_03': {"alt":"Turma grande da The VOID comemorando de braços erguidos sob o telão da escola","regime":"cor-terra","p":["void_comunidade_03_terra.webp",1600,900],"t":["void_comunidade_03_thumb.webp",640,360],"r":{"4x5":["void_comunidade_03_4x5.webp",720,900],"16x9":["void_comunidade_03_16x9.webp",1920,1080],"1x1":["void_comunidade_03_1x1.webp",1080,1080]},"foco":[50,50]},
+    'void_comunidade_01': {"alt":"Grupo de alunos reunidos no terraço da escola no evento Liberdade com Tatuagem","regime":"cor-terra","p":["void_comunidade_01_terra.webp",1920,1280],"t":["void_comunidade_01_thumb.webp",640,427],"r":{"4x5":["void_comunidade_01_4x5.webp",1080,1350],"16x9":["void_comunidade_01_16x9.webp",1920,1080],"1x1":["void_comunidade_01_1x1.webp",1080,1080],"9x16":["void_comunidade_01_9x16.webp",720,1280]},"foco":[50,50]}
+  }
+};
+
 /* =====================================================================
    O OBJETO LP. Uma entrada por oferta. Texto com *palavra* vira voz em off
    (Palavra Sensível, uma por bloco). Ordem das seções em "secoes" (tipos L8:
@@ -115,7 +178,7 @@ window.LP_VARIANTES = {
     persona: 'Gabriel (Start)', crenca: 'Eu não tenho talento suficiente para viver de tatuagem.',
     etapa: 'M1 a M4', lancamento: true,
     assunto: 'a formação Start',
-    pontes: ['LP06', 'LP10'],
+    pontes: ['GALERIA', 'LP10'],
     meta: {
       titulo: 'The VOID Start · Formação de tatuagem em São Paulo',
       descricao: 'The VOID Start: formação presencial de tatuagem para quem nunca tatuou, na Vila Madalena, em São Paulo. Do primeiro traço à primeira pele.'
@@ -146,7 +209,8 @@ window.LP_VARIANTES = {
       titulo: 'Talento é consequência de *treino*.',
       apoio: 'A formação presencial da The VOID para quem nunca tatuou: do primeiro traço à primeira pele, com tatuadores que atuam no mercado. Na Vila Madalena, em São Paulo.',
       fonte: 'Hero: spec 9.5 (Gabriel).',
-      foto: null, fotoAlt: '',
+      /* foto: id do acervo; fotoForma: 'nativa' usa o quadro inteiro, ou um recorte ('4x5'); fotoPos: object-position */
+      foto: 'void_concentracao_02', fotoForma: 'nativa', fotoPos: '72% 40%',
       fotoDirecao: 'Mão de aluno no primeiro traço, luz lateral, luva nitrílica visível'
     },
     turmas: [
@@ -154,7 +218,7 @@ window.LP_VARIANTES = {
       { id: 'sabado', nome: 'Turma de sábado', dias: 'sábado', inicio: '2026-12-05', horario: '3 horas por aula', inscricoesAte: null, status: null, vagasTotal: null, vagasRestantes: null, vagasEm: null, fonte: 'site oficial, consultado em 06/10/2026' },
       { id: 'domingo', nome: 'Turma de domingo', dias: 'domingo', inicio: '2026-12-06', horario: '3 horas por aula', inscricoesAte: null, status: null, vagasTotal: null, vagasRestantes: null, vagasEm: null, fonte: 'site oficial, consultado em 06/10/2026' }
     ],
-    secoes: ['LP04', 'LP05', 'LP06', 'LP08', 'LP09', 'LP10', 'LP11', 'LP07', 'LP12', 'LP13', 'LP14', 'LP15', 'LP16'],
+    secoes: ['LP04', 'LP05', 'LP06', 'GALERIA', 'LP08', 'LP09', 'LP10', 'LP11', 'LP07', 'LP12', 'LP13', 'LP14', 'LP15', 'LP16'],
     vazio: {
       sobre: 'O vazio',
       linhas: ['Você segue tatuadores há anos.', 'Guarda desenhos no celular.', 'E ainda acha que não leva jeito?'],
@@ -169,11 +233,24 @@ window.LP_VARIANTES = {
     depoimentos: {
       sobre: 'Quem já fez',
       titulo: 'Gente que começou do *zero*.',
+      /* foto: capa do vídeo no regime Terra (aluno real com o trabalho dele); video: arquivo quando existir */
       itens: [
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador' }
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora', foto: 'void_retrato_06' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador', foto: 'void_retrato_08' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora', foto: 'void_retrato_12' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador', foto: 'void_retrato_10' }
+      ]
+    },
+    galeria: {
+      sobre: 'Feito na sala',
+      titulo: 'A mão que *treinou*.',
+      apoio: 'Trabalhos de alunos da The VOID, fotografados na escola.',
+      /* só trabalho com autoria de aluno confirmada no acervo; nunca trabalho de professor ou de terceiro */
+      itens: [
+        { foto: 'void_pele_10', obra: 'Costela-de-adão nas costas', autoria: 'aluna Karina' },
+        { foto: 'void_pele_11', obra: 'Anjo guerreiro no ombro', autoria: 'aluno Adriano' },
+        { foto: 'void_pele_08', obra: 'Ave-do-paraíso na panturrilha', autoria: 'aluna Isis' },
+        { foto: 'void_retrato_05', forma: '16x9', obra: 'Tatuagem cicatrizada na coxa', autoria: 'aluna e tatuadora' }
       ]
     },
     metodo: {
@@ -181,27 +258,35 @@ window.LP_VARIANTES = {
       apoio: 'O Start é o primeiro círculo da trilha da The VOID. Você entra pela técnica e sai sabendo o que fazer com ela.',
       foco: 'tatuador'
     },
+    provasFoto: 'void_aula_05',
     roteiro: {
       sobre: 'O que você aprende',
       titulo: 'Do fundamento à primeira *pele*.',
       apoio: 'Quinze aulas presenciais, 45 horas no total, na ordem em que a mão aprende.',
       fonte: 'Etapas, aulas e carga horária: site oficial, consultado em 06/10/2026.',
       itens: [
-        { nome: 'Fundamentos', pilar: 'Tatuador', fim: 'Você monta a bancada, conhece máquina, agulha e tinta, e segue o protocolo de biossegurança do começo ao fim.', detalhe: 'Biossegurança é o conjunto de cuidados que protege você e o cliente: luva, filme plástico, material de uso único e descarte correto.' },
-        { nome: 'Pele artificial', pilar: 'Tatuador', fim: 'Você executa oito técnicas em pele artificial, a placa de treino que imita a pele, antes de tocar em alguém.', detalhe: 'São seis aulas e oito técnicas: boldline (contorno grosso e contínuo), fineline (linha fina e delicada), sculptline, sombra, rastelado, pontilhismo (sombra feita com pontos), preenchimento e transição de cor. Definição de sculptline e rastelado para iniciante: {{A_CONFIRMAR}}.' },
-        { nome: 'Pele humana', pilar: 'Tatuador', fim: 'Você faz quatro tatuagens em pele humana, em voluntários, com professor ao lado.', detalhe: 'É aqui que acontece a Primeira Pele, o rito que marca a sua primeira tatuagem em uma pessoa.' },
-        { nome: 'Mercado', pilar: 'Empreendedor', fim: 'Você sai com portfólio, perfil profissional no Instagram, um jeito de calcular o seu preço e o plano das primeiras vendas.', detalhe: 'Precificação é a conta que transforma o seu tempo, o material e a sua experiência no valor que você cobra.' }
+        { nome: 'Fundamentos', pilar: 'Tatuador', foto: 'void_materiais_01', fim: 'Você monta a bancada, conhece máquina, agulha e tinta, e segue o protocolo de biossegurança do começo ao fim.', detalhe: 'Biossegurança é o conjunto de cuidados que protege você e o cliente: luva, filme plástico, material de uso único e descarte correto.' },
+        { nome: 'Pele artificial', pilar: 'Tatuador', foto: 'void_materiais_02', fim: 'Você executa oito técnicas em pele artificial, a placa de treino que imita a pele, antes de tocar em alguém.', detalhe: 'São seis aulas e oito técnicas: boldline (contorno grosso e contínuo), fineline (linha fina e delicada), sculptline, sombra, rastelado, pontilhismo (sombra feita com pontos), preenchimento e transição de cor. Definição de sculptline e rastelado para iniciante: {{A_CONFIRMAR}}.' },
+        { nome: 'Pele humana', pilar: 'Tatuador', foto: 'void_professor_03', fim: 'Você faz quatro tatuagens em pele humana, em voluntários, com professor ao lado.', detalhe: 'É aqui que acontece a Primeira Pele, o rito que marca a sua primeira tatuagem em uma pessoa.' },
+        { nome: 'Mercado', pilar: 'Empreendedor', foto: 'void_pele_14', fim: 'Você sai com portfólio, perfil profissional no Instagram, um jeito de calcular o seu preço e o plano das primeiras vendas.', detalhe: 'Precificação é a conta que transforma o seu tempo, o material e a sua experiência no valor que você cobra.' }
       ]
     },
     rituais: {
       sobre: 'Os ritos',
-      titulo: 'Momentos que ficam na *pele*.'
+      titulo: 'Momentos que ficam na *pele*.',
+      /* uma foto por rito, na ordem: Ritual do Traço, Primeira Pele, Formatura com Pele */
+      fotos: ['void_traco_01', 'void_professor_04', 'void_pele_17']
     },
     elenco: {
       sobre: 'Quem ensina',
       titulo: 'Quem ensina, *tatua*.',
       apoio: 'Você aprende com tatuadores que atuam no mercado, de estilos diferentes.',
-      itens: [ {}, {}, {} ]
+      /* nomes vindos do acervo; quem dá aula em cada formação ainda é pendência [P 13] */
+      itens: [
+        { nome: '{{A_CONFIRMAR: Lucas Tengan}} [P 13]', foto: 'void_retrato_01' },
+        { nome: '{{A_CONFIRMAR: Denis Mota}} [P 13]', foto: 'void_retrato_03' },
+        { nome: '{{A_CONFIRMAR: nome do professor}} [P 13]', foto: 'void_retrato_04' }
+      ]
     },
     provas: [
       { valor: '4,9', oQue: 'nota média de avaliação da escola no Google', regua: 'Perfil da Empresa no Google · {{A_CONFIRMAR}} avaliações · capturado em 06/10/2026 · maps.app.goo.gl/KsGbd53uufc1Dezy5', origem: 'terceiro',
@@ -226,7 +311,8 @@ window.LP_VARIANTES = {
     },
     locacao: {
       titulo: 'Venha conhecer a *sala*.',
-      apoio: 'A formação é presencial. As aulas acontecem na sede da The VOID, na Vila Madalena.'
+      apoio: 'A formação é presencial. As aulas acontecem na sede da The VOID, na Vila Madalena.',
+      fotos: ['void_escola_03', 'void_escola_04']
     },
     ficha: {
       titulo: 'O que entra na sua *matrícula*.',
@@ -283,7 +369,7 @@ window.LP_VARIANTES = {
       titulo: 'Descubra sua identidade *artística*.',
       apoio: 'A especialização presencial da The VOID para quem já tatua em pele humana: técnica avançada, correção em tempo real e um projeto autoral. Turmas de {{A_CONFIRMAR: no máximo 8 alunos}} [P 15], na Vila Madalena, em São Paulo.',
       fonte: 'Título: Plataforma de Branding, aureadesign, 2025 (S63). Tamanho de turma: site oficial, consultado em 06/10/2026, ainda não confirmado pela escola (fatos F14).',
-      foto: null, fotoAlt: '',
+      foto: 'void_concentracao_10', fotoForma: '4x5',
       fotoDirecao: 'Tatuador em trabalho autoral, mão e estêncil em detalhe, luz lateral'
     },
     turmas: [],
@@ -291,6 +377,8 @@ window.LP_VARIANTES = {
       titulo: 'Do platô ao *autoral*.',
       sobre: 'Assista antes de conversar',
       src: null, poster: null, duracao: '{{A_CONFIRMAR}}',
+      /* foto do acervo atrás da capa enquanto o vídeo não existe (véu de 74% sob o texto) */
+      capaFoto: 'void_concentracao_08',
       capitulos: ['O vazio', 'O método', 'Quem já fez', 'A turma', 'Como entrar'],
       resumo: 'Em poucos minutos: como o Master leva você às técnicas que hoje parecem impossíveis, como organiza diagnóstico, prática e projeto autoral, e como é a turma.',
       transcricao: [
@@ -302,7 +390,7 @@ window.LP_VARIANTES = {
       ],
       nota: 'Roteiro modelo para a transcrição. Troque pelo texto revisado do vídeo publicado.'
     },
-    secoes: ['LP04', 'LP20', 'LP08', 'LP09', 'LP06', 'LP07', 'LP11', 'LP14', 'LP15', 'LP16'],
+    secoes: ['LP04', 'LP20', 'LP08', 'LP09', 'GALERIA', 'LP06', 'LP07', 'LP11', 'LP14', 'LP15', 'LP16'],
     vazio: {
       sobre: 'O platô',
       linhas: ['Você já tatua.', 'Tem cliente, tem portfólio.', 'E tem trabalho que você ainda evita?'],
@@ -313,9 +401,20 @@ window.LP_VARIANTES = {
       sobre: 'Quem já fez',
       titulo: 'O traço que virou *assinatura*.',
       itens: [
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora autoral' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral' }
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral', foto: 'void_retrato_10' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora autoral', foto: 'void_retrato_11' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral', foto: 'void_retrato_08' }
+      ]
+    },
+    galeria: {
+      sobre: 'Feito na sala',
+      titulo: 'Repertório que vira *estilo*.',
+      apoio: 'Trabalhos de alunos da The VOID, fotografados na escola.',
+      itens: [
+        { foto: 'void_pele_11', obra: 'Anjo guerreiro no ombro', autoria: 'aluno Adriano' },
+        { foto: 'void_pele_10', obra: 'Costela-de-adão nas costas', autoria: 'aluna Karina' },
+        { foto: 'void_pele_08', obra: 'Ave-do-paraíso na panturrilha', autoria: 'aluna Isis' },
+        { foto: 'void_retrato_05', forma: '16x9', obra: 'Tatuagem cicatrizada na coxa', autoria: 'aluna e tatuadora' }
       ]
     },
     metodo: {
@@ -323,23 +422,28 @@ window.LP_VARIANTES = {
       apoio: 'O Master é o segundo círculo da trilha. A técnica que você já tem vira repertório, e o repertório vira um estilo reconhecível.',
       foco: 'artista'
     },
+    provasFoto: 'void_aula_03',
     roteiro: {
       sobre: 'Como funciona',
       titulo: 'Da correção ao trabalho *autoral*.',
       apoio: 'A especialização reúne {{A_CONFIRMAR: 20 especializações}} [P 15], entre clássicas e avançadas, e termina num trabalho autoral.',
       fonte: 'Etapas, especializações e trabalho final: site oficial, consultado em 06/10/2026, ainda não confirmados pela escola (fatos F14).',
       itens: [
-        { nome: 'Diagnóstico técnico', pilar: 'Tatuador', fim: 'Você sabe exatamente onde o seu traço está forte e o que segura o seu próximo passo.', detalhe: 'O professor analisa trabalhos seus e define as especializações que entram no seu plano.' },
-        { nome: 'Prática progressiva', pilar: 'Tatuador', fim: 'Você executa técnicas que antes evitava, uma de cada vez, em ordem de dificuldade.', detalhe: 'São {{A_CONFIRMAR: 20 especializações, 10 clássicas e 10 avançadas}} [P 15].' },
-        { nome: 'Correção em tempo real', pilar: 'Tatuador', fim: 'Você corrige o erro enquanto ele acontece, não depois que a tatuagem cicatriza.', detalhe: 'Com turmas de {{A_CONFIRMAR: no máximo 8 alunos}} [P 15], o professor acompanha o traço de cada um.' },
-        { nome: 'Projeto autoral', pilar: 'Artista', fim: 'Você desenvolve um trabalho autoral, com estêncil, crítica e execução.', detalhe: 'É o Workshop do Estilo levado até o fim. Apresentação final: {{A_CONFIRMAR: na Convenção The VOID, diante de jurados}} [P 15].' }
+        { nome: 'Diagnóstico técnico', pilar: 'Tatuador', foto: 'void_professor_02', fim: 'Você sabe exatamente onde o seu traço está forte e o que segura o seu próximo passo.', detalhe: 'O professor analisa trabalhos seus e define as especializações que entram no seu plano.' },
+        { nome: 'Prática progressiva', pilar: 'Tatuador', foto: 'void_concentracao_07', fim: 'Você executa técnicas que antes evitava, uma de cada vez, em ordem de dificuldade.', detalhe: 'São {{A_CONFIRMAR: 20 especializações, 10 clássicas e 10 avançadas}} [P 15].' },
+        { nome: 'Correção em tempo real', pilar: 'Tatuador', foto: 'void_professor_05', fim: 'Você corrige o erro enquanto ele acontece, não depois que a tatuagem cicatriza.', detalhe: 'Com turmas de {{A_CONFIRMAR: no máximo 8 alunos}} [P 15], o professor acompanha o traço de cada um.' },
+        { nome: 'Projeto autoral', pilar: 'Artista', foto: 'void_traco_02', fim: 'Você desenvolve um trabalho autoral, com estêncil, crítica e execução.', detalhe: 'É o Workshop do Estilo levado até o fim. Apresentação final: {{A_CONFIRMAR: na Convenção The VOID, diante de jurados}} [P 15].' }
       ]
     },
     elenco: {
       sobre: 'Quem ensina',
       titulo: 'Quem ensina, *tatua*.',
       apoio: 'Professores especialistas em estilos diferentes acompanham o seu projeto.',
-      itens: [ {}, {}, {} ]
+      itens: [
+        { nome: '{{A_CONFIRMAR: nome do professor}} [P 13]', foto: 'void_retrato_04' },
+        { nome: '{{A_CONFIRMAR: Denis Mota}} [P 13]', foto: 'void_retrato_03' },
+        { nome: '{{A_CONFIRMAR: Lucas Tengan}} [P 13]', foto: 'void_retrato_01' }
+      ]
     },
     provas: [
       { valor: null, oQue: 'alunos concluíram a formação Master', regua: 'contagem da secretaria · turmas até {{A_CONFIRMAR}} · registro interno', origem: 'em-validacao' },
@@ -409,7 +513,7 @@ window.LP_VARIANTES = {
       marcador: 'Pro · programa online',
       titulo: 'Seja o estrategista da sua *carreira*.',
       apoio: 'O programa online da The VOID para tatuadores que já têm técnica e querem marca, agenda e preço no próprio comando. Três meses de implementação e doze de acompanhamento.',
-      foto: null, fotoAlt: '',
+      foto: 'void_retrato_02', fotoForma: '4x5',
       fotoDirecao: 'Retrato P&B de alto contraste do tatuador no próprio estúdio, olhar para o título'
     },
     turmas: [],
@@ -438,9 +542,9 @@ window.LP_VARIANTES = {
       sobre: 'Quem já fez',
       titulo: 'Carreira com *plano*.',
       itens: [
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador com agenda própria' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora com estúdio próprio' },
-        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral' }
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador com agenda própria', foto: 'void_retrato_10' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuadora com estúdio próprio', foto: 'void_retrato_14' },
+        { antes: '{{A_CONFIRMAR}}', hoje: 'tatuador autoral', foto: 'void_retrato_08' }
       ]
     },
     metodo: {
@@ -454,17 +558,21 @@ window.LP_VARIANTES = {
       apoio: 'Aulas ao vivo {{A_CONFIRMAR: às quintas, às 19h30}}, e plantões {{A_CONFIRMAR: quinzenais às terças}} [P 15].',
       fonte: 'Pilares, formato e agenda: site oficial, consultado em 06/10/2026; agenda ainda não confirmada pela escola (fatos F15).',
       itens: [
-        { nome: 'Marca', pilar: 'Artista', fim: 'Você define o que torna o seu trabalho reconhecível e mostra isso em cada ponto de contato.', detalhe: 'Marca pessoal é a soma do que as pessoas lembram de você: estilo, jeito de atender e o que você publica.' },
-        { nome: 'Conteúdo', pilar: 'Empreendedor', fim: 'Você publica com plano, para atrair quem paga pelo seu estilo, não só quem curte.', detalhe: 'Calendário, formatos e roteiro de publicação pensados para a sua agenda.' },
-        { nome: 'Vendas e gestão financeira', pilar: 'Empreendedor', fim: 'Você conduz a conversa com o cliente até o agendamento e sabe quanto cada sessão deixa de resultado.', detalhe: 'Inclui precificação, a conta que transforma tempo, material e experiência no valor que você cobra.' },
-        { nome: 'Tráfego', pilar: 'Empreendedor', fim: 'Você entende quando vale pagar para alcançar mais gente e como medir se valeu.', detalhe: 'Tráfego pago é a publicidade nas redes, paga para levar o seu trabalho a quem ainda não segue você.' }
+        { nome: 'Marca', pilar: 'Artista', foto: 'void_marca_02', fim: 'Você define o que torna o seu trabalho reconhecível e mostra isso em cada ponto de contato.', detalhe: 'Marca pessoal é a soma do que as pessoas lembram de você: estilo, jeito de atender e o que você publica.' },
+        { nome: 'Conteúdo', pilar: 'Empreendedor', foto: 'void_concentracao_05', fim: 'Você publica com plano, para atrair quem paga pelo seu estilo, não só quem curte.', detalhe: 'Calendário, formatos e roteiro de publicação pensados para a sua agenda.' },
+        { nome: 'Vendas e gestão financeira', pilar: 'Empreendedor', foto: 'void_professor_02', fim: 'Você conduz a conversa com o cliente até o agendamento e sabe quanto cada sessão deixa de resultado.', detalhe: 'Inclui precificação, a conta que transforma tempo, material e experiência no valor que você cobra.' },
+        { nome: 'Tráfego', pilar: 'Empreendedor', foto: 'void_comunidade_02', fim: 'Você entende quando vale pagar para alcançar mais gente e como medir se valeu.', detalhe: 'Tráfego pago é a publicidade nas redes, paga para levar o seu trabalho a quem ainda não segue você.' }
       ]
     },
     elenco: {
       sobre: 'Quem acompanha',
       titulo: 'Mentores que *vivem* disso.',
       apoio: 'O acompanhamento é feito por mentores da The VOID e convidados do mercado.',
-      itens: [ {}, {}, {} ]
+      itens: [
+        { nome: '{{A_CONFIRMAR: Lucas Tengan}} [P 13]', foto: 'void_retrato_01' },
+        { nome: '{{A_CONFIRMAR}} [P 13]' },
+        { nome: '{{A_CONFIRMAR}} [P 13]' }
+      ]
     },
     provas: [],
     ficha: {
@@ -528,12 +636,12 @@ window.LP_VARIANTES = {
       titulo: 'Tatuar não é *desenhar*.',
       apoio: 'É uma técnica nova, e se aprende. Na aula experimental da The VOID, na Vila Madalena, em São Paulo, você conhece a sala, quem ensina e o caminho para começar.',
       fonte: 'Título e primeira frase: site oficial da aula experimental, consultado em 06/10/2026.',
-      foto: null, fotoAlt: '',
+      foto: 'void_aula_01', fotoForma: '4x5',
       fotoDirecao: 'Mãos na primeira tentativa, pele artificial na bancada, luz de cima'
     },
     turmas: [],
     eventoDatas: [],
-    secoes: ['LP04', 'LP09', 'LP11', 'LP18', 'LP13', 'LP16'],
+    secoes: ['LP04', 'LP09', 'LP11', 'GALERIA', 'LP18', 'LP13', 'LP16'],
     vazio: {
       sobre: 'O primeiro passo',
       linhas: ['Você já pensou em tatuar.', 'Só não sabe por onde começar.', 'E acha que precisa saber desenhar.'],
@@ -546,20 +654,33 @@ window.LP_VARIANTES = {
       apoio: 'Duração e roteiro da aula: {{A_CONFIRMAR}} [P 16].',
       fonte: 'Roteiro proposto no modelo, a confirmar com a escola [P 16].',
       itens: [
-        { nome: 'Chegada', pilar: 'Comunidade', fim: 'Você conhece a sala e quem vai receber você.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' },
-        { nome: 'A técnica', pilar: 'Tatuador', fim: 'Você entende por que tatuar é uma técnica diferente de desenhar.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' },
-        { nome: 'O caminho', pilar: 'Transformação', fim: 'Você vê como é a formação, do primeiro traço à carreira, e tira as suas dúvidas.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' }
+        { nome: 'Chegada', pilar: 'Comunidade', foto: 'void_professor_01', fim: 'Você conhece a sala e quem vai receber você.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' },
+        { nome: 'A técnica', pilar: 'Tatuador', foto: 'void_materiais_02', fim: 'Você entende por que tatuar é uma técnica diferente de desenhar.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' },
+        { nome: 'O caminho', pilar: 'Transformação', foto: 'void_aula_04', fim: 'Você vê como é a formação, do primeiro traço à carreira, e tira as suas dúvidas.', detalhe: 'Roteiro: {{A_CONFIRMAR}} [P 16].' }
       ]
     },
     elenco: {
       sobre: 'Quem recebe você',
       titulo: 'Quem vai te *receber*.',
       apoio: 'A aula é conduzida por quem ensina na escola.',
-      itens: [ {} ]
+      itens: [ { nome: '{{A_CONFIRMAR: Lucas Tengan}} [P 13]', foto: 'void_retrato_01' } ]
+    },
+    galeria: {
+      sobre: 'Quem começou do zero',
+      titulo: 'Isso também era *primeiro passo*.',
+      apoio: 'Trabalhos de alunos da The VOID. Cada um começou por um primeiro traço.',
+      fundo: 'sala',
+      itens: [
+        { foto: 'void_pele_10', obra: 'Costela-de-adão nas costas', autoria: 'aluna Karina' },
+        { foto: 'void_pele_11', obra: 'Anjo guerreiro no ombro', autoria: 'aluno Adriano' },
+        { foto: 'void_pele_08', obra: 'Ave-do-paraíso na panturrilha', autoria: 'aluna Isis' },
+        { foto: 'void_retrato_05', forma: '16x9', obra: 'Tatuagem cicatrizada na coxa', autoria: 'aluna e tatuadora' }
+      ]
     },
     locacao: {
       titulo: 'Como *chegar*.',
-      apoio: 'A aula é presencial, na sede da The VOID. O que levar: {{A_CONFIRMAR}} [P 16].'
+      apoio: 'A aula é presencial, na sede da The VOID. O que levar: {{A_CONFIRMAR}} [P 16].',
+      fotos: ['void_escola_03', 'void_escola_04']
     },
     fecho: {
       sobre: 'Depois da aula',
@@ -601,7 +722,7 @@ window.LP_VARIANTES = {
         ['map-pin', 'Local', 'Rua Jericó, 217 · Vila Madalena'],
         ['play', 'Formato', '{{A_CONFIRMAR}}']
       ],
-      foto: null, fotoAlt: '',
+      foto: 'void_concentracao_04', fotoForma: '4x5',
       fotoDirecao: 'Retrato P&B do convidado, luz lateral, fundo escuro'
     },
     turmas: [],
@@ -612,7 +733,13 @@ window.LP_VARIANTES = {
     edicoes: {
       sobre: 'Edições anteriores',
       titulo: 'Quem já passou pela *sala*.',
-      itens: [ {}, {}, {} ]
+      /* pb: true converte a foto Terra em P&B na página (direção "público e palco, P&B noturna");
+         a regra de cor permite 1 foto colorida em cada 4 */
+      itens: [
+        { foto: 'void_evento_04', pb: true, legenda: 'Lucas Tengan no palco: quem é você como artista?' },
+        { foto: 'void_comunidade_03', legenda: 'Turma reunida sob o telão The VOID' },
+        { foto: 'void_comunidade_01', pb: true, legenda: 'Liberdade com Tatuagem, no terraço da escola' }
+      ]
     },
     fecho: {
       sobre: 'VOIDERS',
@@ -739,11 +866,20 @@ img{display:block}
 .hero-detalhes li{display:flex;gap:10px;align-items:flex-start;font:400 15px/1.45 var(--font-texto);color:var(--cal)}
 .hero-detalhes .ic{width:20px;height:20px;color:var(--po);margin-top:1px}
 .hero-detalhes b{display:block;font:500 12px/1.4 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--po)}
-.hero.com-foto .hero-fundo{position:absolute;inset:0;z-index:0}
-.hero.com-foto .hero-fundo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
-.hero.com-foto .hero-fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 42%,rgb(24 24 24 / 0) 72%)}
+/* hero com foto real: a foto sangra pela direita (metade da tela) e o texto fica no campo Sala.
+   Véu (spec 6.5): do Sala pleno a 74% nos primeiros 24% da foto, onde o texto pode encostar; o
+   texto nunca passa desse trecho, então nenhuma linha pequena fica abaixo do mínimo de 62%. */
+.hero.com-foto{min-height:min(800px,calc(100svh - 112px));display:flex;align-items:center}
+.hero.com-foto > .wrap{width:100%}
+.hero.com-foto .hero-texto{max-width:min(680px,58vw)}
+.hero.com-foto .hero-fundo{position:absolute;top:0;right:0;bottom:0;left:auto;width:50%;z-index:0;background:var(--nanquim)}
+.hero.com-foto .hero-fundo .lpf{position:absolute;inset:0;width:100%;height:100%}
+.hero.com-foto .hero-fundo::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--sala) 0%,rgb(24 24 24 / .74) 24%,rgb(24 24 24 / .22) 58%,rgb(24 24 24 / .12) 100%),linear-gradient(0deg,var(--sala) 0%,rgb(24 24 24 / 0) 22%),linear-gradient(180deg,rgb(24 24 24 / .5) 0%,rgb(24 24 24 / 0) 34%)}
+.hero.com-foto .lpf-credito{position:absolute;right:var(--pad);bottom:var(--e-4);z-index:2;margin:0}
+.hero.com-foto .hero-selo{top:var(--e-5);right:var(--e-5);width:150px;height:150px}
 .hero > .wrap{position:relative;z-index:2}
-@media (max-width:1024px){.hero-grade{grid-template-columns:minmax(0,1fr);gap:var(--e-6)}.hero-midia{min-height:0;aspect-ratio:16/10}.hero-selo{width:140px;height:140px}}
+@media (max-width:1024px){.hero-grade{grid-template-columns:minmax(0,1fr);gap:var(--e-6)}.hero-midia{min-height:0;aspect-ratio:16/10}.hero-selo{width:140px;height:140px}
+  .hero.com-foto .hero-fundo{width:46%}.hero.com-foto .hero-texto{max-width:60vw}.hero.com-foto .hero-selo{width:110px;height:110px}}
 @media (max-width:640px){
   .hero{padding:var(--e-4) 0 var(--e-8)} /* sem altura de tela cheia: a Cartela do Vazio aparece na dobra e convida a rolar; o título não salta porque o pré-ajuste fixa largura e corpo antes da fonte chegar */
   .hero-texto{padding:0;gap:var(--e-4)}
@@ -752,6 +888,12 @@ img{display:block}
   .hero .cta{margin-top:var(--e-2)}
   .hero-selo{display:none}
   .hero-midia{display:none} /* sem foto real, o celular não mostra o espaço reservado: a direção da foto está no computador e no painel */
+  /* com foto real: faixa de foto no topo, o título entra pela base escurecida (véu de 78% ou mais sob a primeira linha) */
+  .hero.com-foto{display:block;min-height:0;padding-top:0}
+  .hero.com-foto .hero-fundo{position:relative;width:auto;aspect-ratio:12/5;margin-bottom:calc(-1 * var(--e-7))}
+  .hero.com-foto .hero-fundo::after{background:linear-gradient(180deg,rgb(24 24 24 / .10) 0%,rgb(24 24 24 / .18) 42%,rgb(24 24 24 / .78) 76%,var(--sala) 100%)}
+  .hero.com-foto .hero-texto{max-width:none}
+  .hero.com-foto .lpf-credito{top:var(--e-3);bottom:auto;right:var(--pad);padding:2px 6px;background:rgb(24 24 24 / .74)}
   .hero-detalhes{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
   .hero-detalhes li{font-size:14px;min-height:42px}
 }
@@ -1054,6 +1196,68 @@ img{display:block}
 .edicoes .quadro{aspect-ratio:3/2}
 @media (max-width:900px){.edicoes{grid-template-columns:1fr;max-width:560px}}
 
+
+/* =====================================================================
+   FOTOGRAFIA REAL (acervo The VOID, spec 8). Arquivos já tratados pelas LUTs
+   (Ritual, Vazio, Terra); aqui só o enquadramento. Raio 0, sem sombra.
+   ===================================================================== */
+.lpf{position:relative;display:block;overflow:hidden;background:var(--nanquim)}
+.lpf img{display:block;width:100%;height:100%;object-fit:cover}
+/* foto Terra mostrada em P&B na página, quando a direção pede (ex.: Talks, P&B noturna) */
+.lpf[data-filtro="pb"] img{filter:grayscale(1) contrast(1.06) brightness(.92)}
+.quadro > .lpf,.video > .lpf{position:absolute;inset:0;width:100%;height:100%}
+.quadro,.video{position:relative}
+.lpf-credito{margin-top:var(--e-5);font:500 11.5px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+.modo-leitura .lpf-credito{color:var(--ardosia)}
+/* legenda sobre foto: Véu de base (spec 6.5), 78% na base e 70% até 38% da altura; o texto fica nos 30% de baixo */
+.lpf-veu{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:var(--e-7) var(--e-4) var(--e-4);background:linear-gradient(0deg,rgb(24 24 24 / .86) 0%,rgb(24 24 24 / .78) 55%,rgb(24 24 24 / 0) 100%)}
+.lpf-veu .cred{color:var(--tela)}
+.lpf-veu .legenda{color:var(--cal)}
+
+/* depoimento: capa do vídeo no regime Terra */
+.depo .video{background:var(--nanquim)}
+
+/* Método ARTE: foto no topo de cada pilar */
+.pilar .lpf-pilar{margin:calc(-1 * var(--e-6)) calc(-1 * var(--e-6)) var(--e-3);aspect-ratio:4/3}
+@media (max-width:900px){.pilar .lpf-pilar{aspect-ratio:16/9}}
+
+/* Roteiro: foto ao lado do texto de cada módulo */
+.modulo .miolo.com-foto{grid-template-columns:72px minmax(0,1fr) minmax(0,340px);align-items:start}
+.modulo .lpf-mod{aspect-ratio:4/3}
+@media (max-width:900px){.modulo .miolo.com-foto{grid-template-columns:72px minmax(0,1fr)}.modulo .miolo.com-foto .lpf-mod{grid-column:2;max-width:520px}}
+@media (max-width:640px){.modulo .miolo.com-foto{grid-template-columns:1fr}.modulo .miolo.com-foto .lpf-mod{grid-column:1}}
+
+/* Régua de Prova: faixa de foto da turma acima dos números */
+.lpf-faixa{margin:0 0 var(--e-8);aspect-ratio:21/9}
+@media (max-width:640px){.lpf-faixa{aspect-ratio:4/3;margin-bottom:var(--e-7)}}
+
+/* Galeria de trabalhos de alunos: um quadro grande, dois menores e um largo */
+.lpf-galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,auto);gap:var(--e-4)}
+.lpf-obra{position:relative;margin:0;aspect-ratio:4/5}
+.lpf-obra:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.lpf-obra.largo{grid-column:span 2;aspect-ratio:8/5}
+.lpf-obra .lpf{position:absolute;inset:0;width:100%;height:100%}
+.lpf-obra figcaption{display:grid;gap:2px}
+.lpf-obra figcaption .cred{font-size:12px;letter-spacing:.12em}
+.lpf-obra figcaption .legenda{font-size:14px}
+@media (max-width:900px){
+  .lpf-galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--e-3)}
+  .lpf-obra:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/5}
+  .lpf-obra.largo{grid-column:span 2;aspect-ratio:16/10}
+  .lpf-obra .lpf-veu{padding:var(--e-6) var(--e-3) var(--e-3)}
+}
+.sec.fundo-sala{background:var(--sala)}
+
+/* Locação: fotos do espaço em 4:5 */
+.fotos-local .quadro.lpf-local{aspect-ratio:4/5}
+
+/* Sala de Projeção: foto atrás da capa, com véu de 74% sob todo o texto */
+.player .lpf-capa{position:absolute;inset:0;width:100%;height:100%}
+.player .capa.sobre-foto{background:linear-gradient(90deg,rgb(24 24 24 / .88) 0%,rgb(24 24 24 / .78) 46%,rgb(24 24 24 / .74) 100%)}
+
+/* Edições anteriores (Talks): legenda sob a foto */
+.edicoes .quadro{position:relative}
+
 /* Revelação (spec 6.17): uma vez por bloco, desligada com movimento reduzido */
 @keyframes revelar{from{opacity:0;filter:blur(10px) contrast(.7) brightness(.6)}to{opacity:1;filter:none}}
 .revela{opacity:0}
@@ -1194,10 +1398,38 @@ img{display:block}
   /* o rótulo vai em texto real; o motor só desenha o mini Mapa da Trilha (espaço reservado, sem salto de layout) */
   function marcador(rotulo) { return '<p class="marc cred"><span class="marc-ic" aria-hidden="true" data-vforms=\'{"forma":"marcador-estacao"}\'></span><span>' + esc(rotulo) + '</span></p>'; }
   function vf(o, extra) { return '<div data-vforms=\'' + JSON.stringify(o).replace(/'/g, '&#39;') + '\'' + (extra || '') + '></div>'; }
-  function fotoSlot(rotulo, direcao, cls) {
+  function fotoSlot(rotulo, direcao, cls, cred) {
     return '<div class="foto-slot ' + (cls || '') + '" role="img" aria-label="Espaço reservado: ' + esc(rotulo) + '">' + ic('images') +
-      '<p class="cred">Foto real da escola, com autorização</p>' + (direcao ? '<p class="legenda">' + t(direcao) + '</p>' : '') + '</div>';
+      '<p class="cred">' + esc(cred || 'Foto real da escola, com autorização') + '</p>' + (direcao ? '<p class="legenda">' + t(direcao) + '</p>' : '') + '</div>';
   }
+  /* ---------- foto real do acervo (spec 8): <picture> com recortes, medidas, alt do catálogo ----------
+     o: { forma: 'nativa' | '4x5' | '16x9' | '1x1' | '9x16', movel: recorte para até 640 px,
+          sizes, pos (object-position), eager (primeira dobra), pb (Terra mostrada em P&B), cls } */
+  var ACERVO = window.LP_FOTOS || { base: '', itens: {} };
+  function fotoArq(F, forma) { return forma === 'nativa' ? F.p : (F.r[forma] || null); }
+  function fotoSrcset(F, forma) {
+    if (forma === 'nativa') {
+      return (F.t[1] < F.p[1] ? ACERVO.base + F.t[0] + ' ' + F.t[1] + 'w, ' : '') + ACERVO.base + F.p[0] + ' ' + F.p[1] + 'w';
+    }
+    var a = F.r[forma]; return ACERVO.base + a[0] + ' ' + a[1] + 'w';
+  }
+  function foto(id, o) {
+    o = o || {};
+    var F = ACERVO.itens[id];
+    if (!F) { pendencias.push({ onde: 'foto', texto: 'Foto ' + id + ' fora do acervo: {{A_CONFIRMAR}}' }); return fotoSlot('foto ' + id, o.direcao || '', 'coxia'); }
+    var forma = o.forma || 'nativa';
+    if (!fotoArq(F, forma)) forma = 'nativa';
+    var a = fotoArq(F, forma);
+    var pos = o.pos || (forma === 'nativa' ? F.foco[0] + '% ' + F.foco[1] + '%' : '50% 50%');
+    var mov = o.movel && o.movel !== forma && F.r[o.movel] ? o.movel : null;
+    var cor = (F.regime === 'cor-terra' || F.regime === 'cor-arte') && !o.pb;
+    var src = mov ? '<source media="(max-width: 640px)" srcset="' + fotoSrcset(F, mov) + '" sizes="100vw" width="' + F.r[mov][1] + '" height="' + F.r[mov][2] + '">' : '';
+    return '<picture class="lpf ' + (o.cls || '') + '" data-foto="' + esc(id) + '" data-regime="' + esc(F.regime) + '"' + (o.pb ? ' data-filtro="pb"' : '') + (cor ? ' data-cor' : '') + '>' + src +
+      '<img src="' + ACERVO.base + a[0] + '" srcset="' + fotoSrcset(F, forma) + '" sizes="' + esc(o.sizes || '100vw') + '" width="' + a[1] + '" height="' + a[2] + '"' +
+      ' alt="' + esc(o.alt != null ? o.alt : F.alt) + '"' + (o.eager ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"') + ' decoding="async" style="object-position:' + pos + '"></picture>';
+  }
+  function creditoFoto() { return '<p class="lpf-credito">' + esc(ACERVO.credito || 'Foto: acervo The VOID') + '</p>'; }
+
   /* procedência de um texto (de onde veio a frase): registro do painel, nunca da página publicada.
      Crédito visível ao público só na prova com número (LP07) e nas frases de conformidade. */
   function registra(txt, onde) { if (txt) procedencias.push({ onde: onde || '', texto: subst(txt) }); }
@@ -1284,7 +1516,7 @@ img{display:block}
     var midia = temFoto ? '' : '<div class="hero-midia">' + fotoSlot('foto P&B do hero', h.fotoDirecao) + selo + '</div>';
     registra(h.fonte, 'LP03 hero');
     return '<section class="hero' + (temFoto ? ' com-foto' : '') + '" id="lp03" data-lp="LP03" data-tipo="cena">' +
-      (temFoto ? '<div class="hero-fundo"><img src="' + esc(h.foto) + '" alt="' + esc(h.fotoAlt) + '" width="1920" height="1080" fetchpriority="high"></div>' : '') +
+      (temFoto ? '<div class="hero-fundo">' + foto(h.foto, { forma: h.fotoForma || '4x5', movel: '16x9', pos: h.fotoPos, alt: h.fotoAlt, eager: true, sizes: '(max-width: 640px) 100vw, 50vw', pb: h.fotoPb }) + creditoFoto() + '</div>' : '') +
       '<div class="wrap"><div class="hero-grade"><div class="hero-texto">' + marcador(h.marcador) +
       '<h1 class="h-filme" id="titulo-hero"' + (h.excecaoL6 ? ' data-excecao-l6="' + esc(h.excecaoL6) + '"' : '') + '>' + t(h.titulo) + '</h1>' +
       '<p class="hero-apoio">' + t(h.apoio, 'hero') + '</p>' + detalhes + cta('hero') + provaHero() + '</div>' +
@@ -1320,15 +1552,33 @@ img{display:block}
   C.LP06 = function () {
     var d = LP.depoimentos;
     var itens = d.itens.map(function (it, i) {
-      return '<figure class="depo revela"><div class="video">' + fotoSlot('vídeo vertical de depoimento ' + (i + 1), 'Vídeo 9:16 de aluno real, capa no regime Terra', 'coxia') +
-        '<span class="play" aria-hidden="true">' + ic('play') + '</span></div>' +
+      /* capa: foto real do aluno no regime Terra; o ícone de play só aparece quando o vídeo existe */
+      var capa = it.foto ? foto(it.foto, { forma: '9x16', sizes: '(max-width: 1024px) 62vw, 25vw' }) : fotoSlot('vídeo vertical de depoimento ' + (i + 1), 'Vídeo 9:16 de aluno real, capa no regime Terra', 'coxia');
+      if (!it.video) pendencias.push({ onde: 'depoimento', texto: 'Vídeo do depoimento ' + (i + 1) + ': {{A_CONFIRMAR}}' });
+      return '<figure class="depo revela"><div class="video">' + capa +
+        (it.video ? '<span class="play" aria-hidden="true">' + ic('play') + '</span>' : '') + '</div>' +
         '<h3>Antes ' + t(it.antes, 'depoimento') + ', hoje ' + esc(it.hoje) + '</h3>' +
         '<figcaption class="legenda">' + t(FR.depoimento, 'depoimento') + '</figcaption></figure>';
     }).join('');
     return secao('lp06', 'cena', '', secHead(d.sobre, d.titulo) +
       '<div class="rolo" data-n="' + d.itens.length + '" style="--n:' + Math.min(d.itens.length, 4) + '" tabindex="0" role="region" aria-label="Depoimentos em vídeo, role para o lado">' + itens + '</div>' +
       '<p class="rolo-dica legenda">' + ic('arrow-left-right', 'ic-16') + 'Role para o lado para ver todos</p>' +
-      '<p class="aviso legenda">' + ic('info') + '<span>' + esc(FR.avisoCurto) + '</span></p>');
+      '<p class="aviso legenda">' + ic('info') + '<span>' + esc(FR.avisoCurto) + '</span></p>' + (d.itens.some(function (x) { return x.foto; }) ? creditoFoto() : ''));
+  };
+
+  /* Galeria de trabalhos de alunos: só trabalho com autoria de aluno confirmada no acervo */
+  C.GALERIA = function () {
+    var g = LP.galeria;
+    if (!g || !g.itens || !g.itens.length) return '';
+    var itens = g.itens.map(function (x, i) {
+      var largo = x.forma === '16x9' && i > 0;
+      return '<figure class="lpf-obra revela' + (largo ? ' largo' : '') + '">' +
+        foto(x.foto, { forma: largo ? '16x9' : '4x5', sizes: i === 0 ? '(max-width: 900px) 100vw, 50vw' : (largo ? '(max-width: 900px) 100vw, 50vw' : '(max-width: 900px) 50vw, 25vw') }) +
+        '<figcaption class="lpf-veu"><span class="cred">' + t(x.obra) + '</span><span class="legenda">Trabalho de ' + t(x.autoria) + '</span></figcaption></figure>';
+    }).join('');
+    return secao('lp-galeria', 'cena', g.fundo === 'sala' ? 'fundo-sala' : 'bastidor', secHead(g.sobre, g.titulo, g.apoio) +
+      '<div class="lpf-galeria">' + itens + '</div>' +
+      '<p class="aviso legenda">' + ic('info') + '<span>' + esc(FR.avisoCurto) + '</span></p>' + creditoFoto());
   };
 
   /* LP07 · Régua de Prova: só numerais validados vão ao ar; some se não houver nenhum */
@@ -1349,9 +1599,10 @@ img{display:block}
         '<p class="prova-regua"><span class="origem" aria-hidden="true"></span>' + t(p.regua, 'crédito de prova') + '</p>' +
         (bloq ? '<p class="bloqueio">' + ic('triangle-alert') + '<span><b>Atenção:</b> bloqueia a publicação até ser validado.</span></p>' : '') + '</figure>';
     }).join('');
-    return secao('lp07', 'documento', 'borda', secHead('Prova', 'Números com *fonte*.', 'Cada número traz o que mede, o recorte, a data e de onde veio. Sem isso, ele não aparece.') +
+    var faixa = LP.provasFoto ? '<figure class="lpf-faixa revela">' + foto(LP.provasFoto, { forma: '16x9', movel: '4x5', sizes: '(max-width: 1260px) 100vw, 1200px' }) + '</figure>' : '';
+    return secao('lp07', 'documento', 'borda', secHead('Prova', 'Números com *fonte*.', 'Cada número traz o que mede, o recorte, a data e de onde veio. Sem isso, ele não aparece.') + faixa +
       '<div class="provas" style="--n:' + Math.min(ps.length, 4) + '">' + html + '</div>' +
-      '<p class="legenda fonte">Marca de origem: fio cheio, medido pela escola; tracejado, declarado por terceiro; pontilhado, estudo de mercado.</p>');
+      '<p class="legenda fonte">Marca de origem: fio cheio, medido pela escola; tracejado, declarado por terceiro; pontilhado, estudo de mercado.</p>' + (faixa ? creditoFoto() : ''));
   };
 
   /* LP08 · Método ARTE e Mapa da Trilha */
@@ -1363,13 +1614,17 @@ img{display:block}
       ['empreendedor', 'E', 'Empreendedor', 'Carreira e financeiro', 'A carreira em construção: portfólio, preço, cliente e números.']
     ];
     var ativa = LP.produto || null;
+    /* uma foto real por pilar: o projeto no papel, a mão na máquina, a marca na mão */
+    var fotosPilar = m.fotos || { artista: 'void_traco_03', tatuador: 'void_maos_05', empreendedor: 'void_marca_01' };
     return secao('lp08', 'documento', 'borda', secHead('Método ARTE', m.titulo, m.apoio) +
       '<div class="mapa">' + vf({ forma: 'mapa-trilha', ativa: ativa, voceEstaAqui: !!ativa }) + '</div>' +
       '<p class="corpo leitura" style="margin-bottom:var(--e-7)">O Método ARTE é a metodologia da The VOID. A sigla junta <b>Artista</b>, <b>Tatuador</b> e <b>Empreendedor</b>: os três pilares que acompanham você nas três formações.</p>' +
       '<div class="pilares">' + pil.map(function (p) {
-        return '<article class="pilar revela"' + (m.foco === p[0] ? ' data-foco' : '') + '><span class="letra" aria-hidden="true">' + p[1] + '</span>' +
+        return '<article class="pilar revela"' + (m.foco === p[0] ? ' data-foco' : '') + '>' +
+          (fotosPilar[p[0]] ? foto(fotosPilar[p[0]], { forma: '1x1', cls: 'lpf-pilar', sizes: '(max-width: 900px) 100vw, 400px', pos: '50% 50%' }) : '') +
+          '<span class="letra" aria-hidden="true">' + p[1] + '</span>' +
           '<h3>' + p[2] + '</h3><p class="cred">' + p[3] + '</p><p class="apoio">' + p[4] + '</p></article>';
-      }).join('') + '</div>' + fonte(PROC.LP08, 'LP08'));
+      }).join('') + '</div>' + creditoFoto() + fonte(PROC.LP08, 'LP08'));
   };
 
   /* LP09 · Roteiro (acordeão, primeiro aberto) */
@@ -1379,9 +1634,10 @@ img{display:block}
       '<div class="roteiro">' + r.itens.map(function (it, i) {
         return '<details class="modulo"' + (i === 0 ? ' open' : '') + '><summary><span class="num">' + ('0' + (i + 1)).slice(-2) + '</span>' +
           '<span class="tit"><strong>' + esc(it.nome) + '</strong><span class="apoio">' + t(it.fim, 'roteiro') + '</span></span>' + ic('chevron-down', 'chev') + '</summary>' +
-          '<div class="miolo"><span aria-hidden="true"></span><div><p class="corpo">' + t(it.detalhe, 'roteiro') + '</p>' +
-          '<span class="etiqueta">Pilar · ' + esc(it.pilar) + '</span></div></div></details>';
-      }).join('') + '</div>' + fonte(r.fonte, 'LP09'));
+          '<div class="miolo' + (it.foto ? ' com-foto' : '') + '"><span aria-hidden="true"></span><div><p class="corpo">' + t(it.detalhe, 'roteiro') + '</p>' +
+          '<span class="etiqueta">Pilar · ' + esc(it.pilar) + '</span></div>' +
+          (it.foto ? foto(it.foto, { forma: '16x9', cls: 'lpf-mod', sizes: '(max-width: 900px) 90vw, 340px' }) : '') + '</div></details>';
+      }).join('') + '</div>' + (r.itens.some(function (x) { return x.foto; }) ? creditoFoto() : '') + fonte(r.fonte, 'LP09'));
   };
 
   /* LP10 · Fotograma dos Rituais */
@@ -1393,10 +1649,11 @@ img{display:block}
       ['Formatura com Pele', 'Você não sai apenas com um certificado. Sai com um novo capítulo na pele.', 'Retrato ambiental com o trabalho e o certificado']
     ];
     return secao('lp10', 'cena', 'bastidor', secHead(r.sobre, r.titulo) +
-      '<div class="triptico">' + ritos.map(function (x) {
-        return '<figure class="rito revela"><div class="quadro">' + fotoSlot(x[0], x[2], 'coxia') + '</div>' +
+      '<div class="triptico">' + ritos.map(function (x, i) {
+        var f = (r.fotos || [])[i];
+        return '<figure class="rito revela"><div class="quadro">' + (f ? foto(f, { forma: '4x5', sizes: '(max-width: 900px) 100vw, 400px' }) : fotoSlot(x[0], x[2], 'coxia')) + '</div>' +
           '<h3>' + x[0] + '</h3><figcaption class="voz-off">' + x[1] + '</figcaption></figure>';
-      }).join('') + '</div>' + fonte(PROC.LP10, 'LP10'));
+      }).join('') + '</div>' + ((r.fotos || []).length ? creditoFoto() : '') + fonte(PROC.LP10, 'LP10'));
   };
 
   /* LP11 · Elenco */
@@ -1404,10 +1661,10 @@ img{display:block}
     var e = LP.elenco;
     return secao('lp11', 'cena', '', secHead(e.sobre, e.titulo, e.apoio) +
       '<div class="elenco" data-n="' + e.itens.length + '">' + e.itens.map(function (p, i) {
-        return '<figure class="prof revela"><div class="quadro">' + fotoSlot('retrato de professor ' + (i + 1), 'Retrato P&B, luz lateral') + '</div>' +
+        return '<figure class="prof revela"><div class="quadro">' + (p.foto ? foto(p.foto, { forma: '4x5', sizes: '(max-width: 560px) 100vw, (max-width: 900px) 50vw, 400px' }) : fotoSlot('retrato de professor ' + (i + 1), 'Retrato P&B, luz lateral')) + '</div>' +
           '<figcaption class="texto"><h3>' + t(p.nome || '{{A_CONFIRMAR}} [P 13]', 'elenco') + '</h3>' +
           '<p class="apoio">Estilo: ' + t(p.estilo || '{{A_CONFIRMAR}}', 'elenco') + ' · Tatua há ' + t(p.anos || '{{A_CONFIRMAR}}', 'elenco') + '</p></figcaption></figure>';
-      }).join('') + '</div>');
+      }).join('') + '</div>' + (e.itens.some(function (x) { return x.foto; }) ? creditoFoto() : ''));
   };
 
   /* LP12 · Para Quem É */
@@ -1427,9 +1684,9 @@ img{display:block}
       '<span class="linha-ic">' + ic('route') + '<span>Como chegar: ' + esc(ESC.referencia) + '</span></span>' +
       '<span class="linha-ic">' + ic('message-circle') + '<span>' + esc(ESC.telefone) + '</span></span></address>' +
       fonte(PROC.LP13, 'LP13') + '</div>' +
-      '<div class="fotos-local"><div class="quadro">' + fotoSlot('fachada', 'Fachada na Rua Jericó', 'coxia') + '</div>' +
-      '<div class="quadro">' + fotoSlot('sala de aula', 'A sala de prática, luz de cima', 'coxia') + '</div>' +
-      '<div class="mapa-slot">' + fotoSlot('mapa estático', 'Mapa estático em tons de Penumbra, sem link externo', 'coxia') + '</div></div></div>');
+      '<div><div class="fotos-local">' + (l.fotos && l.fotos.length ? l.fotos.map(function (f) { return '<div class="quadro lpf-local revela">' + foto(f, { forma: '4x5', sizes: '(max-width: 480px) 100vw, (max-width: 900px) 50vw, 340px' }) + '</div>'; }).join('') :
+        '<div class="quadro">' + fotoSlot('fachada', 'Fachada na Rua Jericó', 'coxia') + '</div><div class="quadro">' + fotoSlot('sala de aula', 'A sala de prática, luz de cima', 'coxia') + '</div>') +
+      '<div class="mapa-slot">' + fotoSlot('mapa estático', 'Mapa estático em tons de Penumbra, sem link externo', 'coxia', 'Mapa da escola') + '</div></div>' + (l.fotos && l.fotos.length ? creditoFoto() : '') + '</div></div>');
   };
 
   /* LP14 · Ficha da Formação (Modo Leitura) */
@@ -1565,7 +1822,8 @@ img{display:block}
   C.LP20 = function () {
     var v = LP.vsl, src = Q.get('vsl') || v.src;
     var player = src ? '<video controls preload="metadata" playsinline data-vsl' + (v.poster ? ' poster="' + esc(v.poster) + '"' : '') + ' src="' + esc(src) + '"><track kind="captions" srclang="pt-BR" label="Português" src="' + esc(v.legenda || '') + '"></video>' :
-      '<div class="capa" role="img" aria-label="Capa do vídeo, em produção"><p class="cred">' + ic('list-video', 'ic-16') + 'Vídeo em produção · duração ' + t(v.duracao) + '</p><p class="h-secao">' + t(v.titulo) + '</p><p class="cred">' + ic('play', 'ic-16') + 'Vídeo real da escola, com legenda</p></div>';
+      (v.capaFoto ? foto(v.capaFoto, { forma: '16x9', cls: 'lpf-capa', sizes: '(max-width: 900px) 100vw, 800px', alt: '' }) : '') +
+      '<div class="capa' + (v.capaFoto ? ' sobre-foto' : '') + '" role="img" aria-label="Capa do vídeo, em produção"><p class="cred">' + ic('list-video', 'ic-16') + 'Vídeo em produção · duração ' + t(v.duracao) + '</p><p class="h-secao">' + t(v.titulo) + '</p><p class="cred">' + ic('play', 'ic-16') + 'Vídeo real da escola, com legenda</p></div>';
     if (!src) pendencias.push({ onde: 'VSL', texto: 'Arquivo do vídeo e legenda: {{A_CONFIRMAR}}' });
     return secao('lp20', 'cena', 'bastidor', secHead(v.sobre, v.titulo, v.resumo) +
       '<div class="projecao"><div><div class="player">' + player + '</div>' +
@@ -1600,9 +1858,9 @@ img{display:block}
     var e = LP.edicoes;
     return secao('lp-edicoes', 'cena', 'bastidor', secHead(e.sobre, e.titulo) +
       '<div class="edicoes">' + e.itens.map(function (x, i) {
-        return '<figure class="revela"><div class="quadro">' + fotoSlot('edição anterior ' + (i + 1), 'Público e palco, P&B noturna', 'coxia') + '</div>' +
-          '<figcaption class="legenda">Convidado e data: ' + t('{{A_CONFIRMAR}}', 'edições') + '</figcaption></figure>';
-      }).join('') + '</div>');
+        return '<figure class="revela"><div class="quadro">' + (x.foto ? foto(x.foto, { forma: '16x9', pb: x.pb, sizes: '(max-width: 900px) 100vw, 400px' }) : fotoSlot('edição anterior ' + (i + 1), 'Público e palco, P&B noturna', 'coxia')) + '</div>' +
+          '<figcaption class="legenda">' + (x.legenda ? t(x.legenda) + '<br>' : '') + 'Convidado e data: ' + t('{{A_CONFIRMAR}}', 'edições') + '</figcaption></figure>';
+      }).join('') + '</div>' + (e.itens.some(function (x) { return x.foto; }) ? creditoFoto() : ''));
   };
 
   /* ===================== MONTAGEM (só no editor; o HTML estático já chega montado) ===================== */
@@ -1988,6 +2246,11 @@ img{display:block}
     vistos = {}; A.procedencias = procedencias.filter(function (p) { var k = p.onde + p.texto; if (vistos[k]) return false; vistos[k] = 1; return true; });
     A.jsonld = GRAFO.map(function (g) { return [].concat(g['@type']).join('+'); });
     A.travessao = /[\u2013\u2014]/.test(document.body.innerText + document.title + JSON.stringify(GRAFO));
+    /* fotografia (spec 8.1): toda imagem com alt e medidas; no máximo 1 foto colorida em cada 4 */
+    var fts = Array.prototype.slice.call(document.querySelectorAll('#lp picture.lpf'));
+    var semMedida = Array.prototype.filter.call(document.querySelectorAll('#lp img'), function (im) { return !im.hasAttribute('alt') || !im.getAttribute('width') || !im.getAttribute('height'); });
+    var cores = fts.filter(function (f) { return f.hasAttribute('data-cor'); }).length;
+    A.fotos = { total: fts.length, coloridas: cores, semAltOuMedida: semMedida.length, ok: cores * 4 <= fts.length && !semMedida.length };
     window.LP_AUDITORIA = A;
     return A;
   }
@@ -2047,6 +2310,7 @@ img{display:block}
       '<p><b>Persona:</b> ' + esc(LP.persona) + '<br><b>Crença atacada:</b> ' + esc(LP.crenca) + '<br><b>Etapa:</b> ' + esc(LP.etapa) + '</p>' +
       '<ul><li>L1, um destino: ' + ok(A.L1.ok) + ' (' + A.L1.repeticoes + ' botões na página, de 3 a 5' + (A.L1.condicionais ? ', mais ' + A.L1.condicionais + ' depois da autoavaliação' : '') + '; ' + A.L1.destinos.length + ' destino)</li>' +
       '<li>Maior trecho sem botão: ' + A.distancia.telas + ' telas ' + ok(A.distancia.ok) + (A.distancia.barraFixa ? ' (a Barra Fixa cobre o celular)' : ' (até 5 no computador)') + '</li>' +
+      '<li>Fotos reais: ' + A.fotos.total + ', coloridas: ' + A.fotos.coloridas + ' (máximo 1 em cada 4), sem alt ou medida: ' + A.fotos.semAltOuMedida + ' ' + ok(A.fotos.ok) + '</li>' +
       '<li>L6, até 6 palavras por título: ' + ok(A.L6.ok) + (A.L6.excecoes.length ? ' (exceção: ' + esc(A.L6.excecoes.map(function (x) { return x.excecao; }).join(', ')) + ')' : '') + '</li><li>L8, ritmo: ' + ok(A.L8.ok) + ' (' + A.L8.secoes + ' seções)</li>' +
       '<li>Modo Leitura: ' + A.modoLeitura.percentual + '% ' + ok(A.modoLeitura.ok) + '</li><li>Primeira dobra: ' + ok(A.primeiraDobra.ok) + '</li>' +
       '<li>Barra de Turma: ' + (A.barraTurma.visivel ? 'visível, turma de ' + dmy(A.barraTurma.inicio) + (LOTADA ? ', lotada' : '') : 'oculta') + ' (hoje = ' + dmy(HOJE) + ')</li>' +

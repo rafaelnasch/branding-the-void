@@ -100,6 +100,19 @@ code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:.88em
 .foto-rotulo span{font:400 16px/1.5 var(--font-texto)}
 .veu-camada{inset:0}
 
+/* fotos reais do acervo The VOID (assets/foto/acervo; uso autorizado pela The VOID, 10/2026). Classes df-. */
+.df-foto{inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.df-credito{right:96px;top:48px;z-index:6;padding:6px 10px;background:var(--veu-legenda);font:500 12px/1.3 var(--font-letreiro);font-variation-settings:"wdth" 125;letter-spacing:.18em;text-transform:uppercase;color:var(--tela)}
+.df-veu-largo{background:linear-gradient(90deg,rgb(24 24 24 / .78) 0%,rgb(24 24 24 / .70) 58%,rgb(24 24 24 / 0) 88%)}
+.t-capa .df-capa-foto{left:auto;right:0;top:0;width:58%;height:100%;max-width:none;object-fit:cover}
+.t-capa .df-capa-veu{right:0;top:0;width:58%;height:100%;background:linear-gradient(90deg,var(--sala) 0%,rgb(24 24 24 / .78) 22%,rgb(24 24 24 / .55) 48%,rgb(24 24 24 / 0) 82%)}
+.t-capa .df-credito{top:auto;bottom:48px}
+.t-capitulo{background:var(--nanquim)}
+.t-capitulo .df-faixa{left:0;top:149px;width:1440px;height:602px;max-width:none;object-fit:cover}
+.t-capitulo .cap-topo{left:96px;right:96px;top:0;height:149px;display:flex;align-items:center}
+.t-capitulo .cap-pe{left:96px;right:96px;bottom:0;height:149px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.t-capitulo .df-credito{position:static;padding:0;background:none;color:var(--po)}
+
 /* ---------- 3. Tipos de slide ---------- */
 /* Capa */
 .t-capa .eco-camada{inset:0}
@@ -325,11 +338,13 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   <p class="intro-lista">Modelo de apresentação da The VOID em 1440 por 900. Os oito tipos de slide do sistema aparecem em ordem, como uma proposta de turma (etapa M4). No computador, a apresentação abre um slide por vez; aqui, os slides ficam em lista, com as notas do apresentador logo abaixo de cada um (botão Notas).</p>
 
   <!-- ================= 01 · CAPA ================= -->
-  <article class="quadro" id="slide-1" data-tipo="capa" data-l8="cartela" data-recursos="grao eco ficha-tecnica" aria-roledescription="slide" aria-label="Slide 1 de 9: Capa" tabindex="-1">
+  <article class="quadro" id="slide-1" data-tipo="capa" data-l8="cartela" data-recursos="grao veu ficha-tecnica" aria-roledescription="slide" aria-label="Slide 1 de 10: Capa" tabindex="-1">
     <p class="quadro-rotulo"><b>01</b> Capa <i>· cartela</i></p>
     <div class="moldura">
       <div class="slide t-capa grao">
-        <div class="eco-camada" data-vforms="eco" aria-hidden="true"></div>
+        <img class="df-capa-foto" src="assets/foto/acervo/void_aula_03_16x9.webp" srcset="assets/foto/acervo/void_aula_03_thumb.webp 640w, assets/foto/acervo/void_aula_03_16x9.webp 1920w" sizes="836px" width="1920" height="1080" alt="Alunos tatuando sob luminárias durante imersão da The VOID, em ambiente escuro" loading="eager" fetchpriority="high" decoding="async" style="object-position:50% 50%">
+        <div class="df-capa-veu" aria-hidden="true"></div>
+        <p class="df-credito">Foto: acervo The VOID</p>
         <p class="ficha-tecnica d-credito">THE VOID TATTOO ACADEMY · SÃO PAULO · BRAZIL</p>
         <img class="capa-logo" src="assets/brand/svg/void-vertical-branco.svg" width="330" height="180" alt="The VOID Tattoo Academy">
         <div class="capa-texto">
@@ -340,20 +355,20 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
       </div>
     </div>
     <aside class="notas">
-      <p class="n-rotulo">Capa · cartela · recursos: grão, Eco do VOID, Ficha Técnica</p>
+      <p class="n-rotulo">Capa · cartela · recursos: grão, Véu de Leitura, Ficha Técnica</p>
       <p>Abra com calma. Diga o nome da pessoa e o motivo da conversa: <b>apresentar a turma, o que a formação entrega e como entrar</b>. Nada de preço neste slide.</p>
       <ul>
         <li>Troque <b>{{A_CONFIRMAR}}</b> pelo primeiro nome de quem recebe a proposta. Nunca envie o slide com o marcador.</li>
         <li>A frase do título é o apoio institucional "Do primeiro traço a uma carreira de sucesso", encurtada para caber em seis palavras (lei L6), sem crase.</li>
         <li>A Ficha Técnica fica sem ano: "EST" e "desde" esperam a decisão do ano de fundação [P 5].</li>
-        <li>Logotipo vertical branco oficial, em arquivo. O Eco do VOID atrás não conta como segundo logotipo.</li>
+        <li>Logotipo vertical branco oficial, em arquivo. A foto real do acervo (imersão de alunos sob as luminárias) ocupa a direita e some no preto pelo véu; título e logotipo ficam sobre a Sala. Sem foto aprovada, volte ao Eco do VOID.</li>
       </ul>
       <p>Fonte: Plataforma de Branding, aureadesign, 2025.</p>
     </aside>
   </article>
 
   <!-- ================= 02 · CARTELA ================= -->
-  <article class="quadro" id="slide-2" data-tipo="cartela" data-l8="cartela" data-recursos="grao janela palavra-sensivel" aria-roledescription="slide" aria-label="Slide 2 de 9: Cartela" tabindex="-1">
+  <article class="quadro" id="slide-2" data-tipo="cartela" data-l8="cartela" data-recursos="grao janela palavra-sensivel" aria-roledescription="slide" aria-label="Slide 2 de 10: Cartela" tabindex="-1">
     <p class="quadro-rotulo"><b>02</b> Cartela <i>· cartela</i></p>
     <div class="moldura">
       <div class="slide t-cartela grao">
@@ -378,18 +393,13 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   </article>
 
   <!-- ================= 03 · FOTO CHEIA ================= -->
-  <article class="quadro" id="slide-3" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 3 de 9: Foto cheia" tabindex="-1">
+  <article class="quadro" id="slide-3" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 3 de 10: Foto cheia" tabindex="-1">
     <p class="quadro-rotulo"><b>03</b> Foto cheia <i>· cena</i></p>
     <div class="moldura">
       <div class="slide t-foto veu-lado grao">
-        <div class="foto-placa" role="img" aria-label="Espaço para foto real da escola, com autorização: o Ritual do Traço visto de cima do mural">
-          <div class="foto-rotulo" style="right:96px;top:96px">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2"/></svg>
-            <b>Foto real da escola, com autorização</b>
-            <span>Ritual do Traço: de cima do mural, a mão entrando no quadro, lente de 35 mm. Preset Ritual, espaço negativo à esquerda.</span>
-          </div>
-        </div>
-        <div class="veu-camada veu-esquerda" aria-hidden="true"></div>
+        <img class="df-foto" src="assets/foto/acervo/void_maos_01_16x9.webp" srcset="assets/foto/acervo/void_maos_01_thumb.webp 640w, assets/foto/acervo/void_maos_01_16x9.webp 1920w" sizes="1440px" width="1920" height="1080" alt="Mãos de luva preta conduzindo a máquina de tatuagem sobre o estêncil na coxa, em sessão no estande da The VOID" loading="lazy" decoding="async" style="object-position:42% 42%;object-position:0% 45%">
+        <p class="df-credito">Foto: acervo The VOID</p>
+        <div class="veu-camada veu-esquerda df-veu-largo" aria-hidden="true"></div>
         <div class="texto-foto">
           <p class="d-credito">Ritual do Traço</p>
           <h2 class="d-filme menor">Todo mundo começa com um <em class="off">traço</em>.</h2>
@@ -402,7 +412,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
       <p class="n-rotulo">Foto cheia · cena · recursos: grão, Véu de Leitura, Palavra Sensível</p>
       <p>Mostre o primeiro dia antes de falar de conteúdo. A pessoa precisa se ver dentro da sala. Conte como é o Ritual do Traço com as palavras da escola, sem prometer o que ainda não está confirmado no roteiro da aula.</p>
       <ul>
-        <li>Só foto real da escola, com autorização de imagem por escrito para este uso. Banco de imagem e imagem gerada não entram.</li>
+        <li>Só foto real da escola, com autorização de imagem por escrito para este uso. Banco de imagem e imagem gerada não entram. O modelo usa a foto do acervo (mãos de luva sobre o estêncil); troque pela foto do Ritual do Traço da turma quando ela existir.</li>
         <li>Véu de 70% no lado do texto; mínimo de 62% sob qualquer linha abaixo de 24 px. Confira o pixel mais claro sob o texto antes de exportar.</li>
         <li>Protocolo do rito: sempre de cima do mural, a mão entrando no quadro, 35 mm, turma após turma.</li>
       </ul>
@@ -411,7 +421,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   </article>
 
   <!-- ================= 04 · MAPA DA TRILHA ================= -->
-  <article class="quadro" id="slide-4" data-tipo="mapa" data-l8="documento" data-recursos="grao mapa-trilha palavra-sensivel" aria-roledescription="slide" aria-label="Slide 4 de 9: Mapa da Trilha" tabindex="-1">
+  <article class="quadro" id="slide-4" data-tipo="mapa" data-l8="documento" data-recursos="grao mapa-trilha palavra-sensivel" aria-roledescription="slide" aria-label="Slide 4 de 10: Mapa da Trilha" tabindex="-1">
     <p class="quadro-rotulo"><b>04</b> Mapa da Trilha <i>· documento</i></p>
     <div class="moldura">
       <div class="slide t-mapa grao">
@@ -437,7 +447,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   </article>
 
   <!-- ================= 05 · PROVA ================= -->
-  <article class="quadro" id="slide-5" data-tipo="prova" data-l8="documento" data-recursos="grao credito-prova" aria-roledescription="slide" aria-label="Slide 5 de 9: Prova" tabindex="-1">
+  <article class="quadro" id="slide-5" data-tipo="prova" data-l8="documento" data-recursos="grao credito-prova" aria-roledescription="slide" aria-label="Slide 5 de 10: Prova" tabindex="-1">
     <p class="quadro-rotulo"><b>05</b> Prova <i>· documento</i></p>
     <div class="moldura">
       <div class="slide t-prova grao">
@@ -464,17 +474,12 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   </article>
 
   <!-- ================= 06 · FOTO CHEIA (VÉU NA BASE) ================= -->
-  <article class="quadro" id="slide-6" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 6 de 9: Foto cheia" tabindex="-1">
+  <article class="quadro" id="slide-6" data-tipo="foto" data-l8="cena" data-recursos="grao veu palavra-sensivel" aria-roledescription="slide" aria-label="Slide 6 de 10: Foto cheia" tabindex="-1">
     <p class="quadro-rotulo"><b>06</b> Foto cheia <i>· cena</i></p>
     <div class="moldura">
       <div class="slide t-foto veu-pe grao">
-        <div class="foto-placa" role="img" aria-label="Espaço para foto real da escola, com autorização: retrato da Formatura com Pele">
-          <div class="foto-rotulo" style="right:96px;top:96px">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2"/></svg>
-            <b>Foto real da escola, com autorização</b>
-            <span>Formatura com Pele: retrato ambiental com o trabalho e o certificado, lente de 50 a 85 mm. Consentimento do aluno e do cliente tatuado.</span>
-          </div>
-        </div>
+        <img class="df-foto" src="assets/foto/acervo/void_evento_01_16x9.webp" srcset="assets/foto/acervo/void_evento_01_thumb.webp 640w, assets/foto/acervo/void_evento_01_16x9.webp 1920w" sizes="1440px" width="1920" height="1080" alt="Turma de formatura reunida sob a faixa Parabéns Voiders no terraço da escola à noite" loading="lazy" decoding="async" style="object-position:50% 50%;object-position:50% 30%">
+        <p class="df-credito">Foto: acervo The VOID</p>
         <div class="veu-camada veu-base" aria-hidden="true"></div>
         <div class="texto-foto">
           <p class="d-credito">Formatura com Pele</p>
@@ -489,7 +494,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
       <p>Mostre o fim do caminho antes de falar de valor: a decisão fica mais fácil quando a pessoa enxerga onde chega. Descreva a formatura como a escola descreve, sem prometer renda nem prazo.</p>
       <ul>
         <li>Véu na base (78% no pé, 70% no meio, transparente no alto), para rosto e mãos continuarem vivos.</li>
-        <li>Rosto de aluno nunca em duotom; cor só no regime Terra, no máximo uma imagem colorida a cada quatro.</li>
+        <li>Rosto de aluno nunca em duotom; cor só no regime Terra, no máximo uma imagem colorida a cada quatro. Esta é a única foto colorida do deck (formatura da turma, acervo The VOID).</li>
         <li>Certificado: não fale em <span data-exemplo="proibido">diploma, curso técnico nem MEC</span>. A frase de curso livre está no slide da proposta.</li>
       </ul>
       <p>Fonte: Plataforma de Branding, aureadesign, 2025 (Formatura com Pele).</p>
@@ -497,7 +502,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
   </article>
 
   <!-- ================= 07 · COMPARATIVO ================= -->
-  <article class="quadro" id="slide-7" data-tipo="comparativo" data-l8="documento" data-recursos="grao selo palavra-sensivel" aria-roledescription="slide" aria-label="Slide 7 de 9: Comparativo" tabindex="-1">
+  <article class="quadro" id="slide-7" data-tipo="comparativo" data-l8="documento" data-recursos="grao selo palavra-sensivel" aria-roledescription="slide" aria-label="Slide 7 de 10: Comparativo" tabindex="-1">
     <p class="quadro-rotulo"><b>07</b> Comparativo <i>· documento</i></p>
     <div class="moldura">
       <div class="slide t-compara grao">
@@ -541,9 +546,31 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
     </aside>
   </article>
 
-  <!-- ================= 08 · DOCUMENTO (MODO LEITURA) ================= -->
-  <article class="quadro" id="slide-8" data-tipo="documento" data-l8="documento" data-campo="leitura" data-recursos="grao selo" aria-roledescription="slide" aria-label="Slide 8 de 9: Documento" tabindex="-1">
-    <p class="quadro-rotulo"><b>08</b> Documento <i>· documento</i></p>
+  <!-- ================= 08 · FOTO CHEIA (FAIXA CINEMASCOPE, ABERTURA DE CAPÍTULO) ================= -->
+  <article class="quadro" id="slide-8" data-tipo="foto" data-l8="cena" data-recursos="grao cinemascope palavra-sensivel" aria-roledescription="slide" aria-label="Slide 8 de 10: Foto cheia" tabindex="-1">
+    <p class="quadro-rotulo"><b>08</b> Foto cheia <i>· cena</i></p>
+    <div class="moldura">
+      <div class="slide t-foto t-capitulo grao">
+        <div class="cap-topo"><h2 class="d-secao">A sala onde a técnica <em class="off">acontece</em></h2></div>
+        <img class="df-faixa" src="assets/foto/acervo/void_aula_02_16x9.webp" srcset="assets/foto/acervo/void_aula_02_thumb.webp 640w, assets/foto/acervo/void_aula_02_16x9.webp 1920w" sizes="1440px" width="1920" height="1080" alt="Mesa longa de alunos praticando tatuagem em pele sintética sob luminárias" loading="lazy" decoding="async" style="object-position:50% 50%">
+        <div class="cap-pe"><p class="d-credito">Próximo passo · Como entrar</p><p class="df-credito">Foto: acervo The VOID</p></div>
+      </div>
+    </div>
+    <aside class="notas">
+      <p class="n-rotulo">Foto cheia · cena · recursos: grão, Faixa Cinemascope, Palavra Sensível</p>
+      <p>Abra o último capítulo com a sala cheia: a pessoa vê onde vai estar antes de ver a proposta. Uma frase, uma pausa, e só então o slide da turma.</p>
+      <ul>
+        <li>Faixa Cinemascope: foto em 2,39 por 1 entre faixas pretas, título na faixa de cima e crédito na de baixo. Nunca junto com outro dispositivo de cinema no mesmo slide.</li>
+        <li>Foto real do acervo: alunos praticando em pele sintética na mesa longa, preset Ritual. Sem texto sobre a foto.</li>
+        <li>Este slide separa os dois documentos (comparativo e proposta) para o ritmo da montagem não repetir três iguais.</li>
+      </ul>
+      <p>Fonte: especificação Sala Escura, Faixa Cinemascope (6.6) e deck (12.8); acervo fotográfico da The VOID, 10/2026.</p>
+    </aside>
+  </article>
+
+  <!-- ================= 09 · DOCUMENTO (MODO LEITURA) ================= -->
+  <article class="quadro" id="slide-9" data-tipo="documento" data-l8="documento" data-campo="leitura" data-recursos="grao selo" aria-roledescription="slide" aria-label="Slide 9 de 10: Documento" tabindex="-1">
+    <p class="quadro-rotulo"><b>09</b> Documento <i>· documento</i></p>
     <div class="moldura">
       <div class="slide t-doc modo-leitura grao">
         <div class="cabeca">
@@ -582,7 +609,7 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
           <b>Validade</b>
           <span>Condição válida até <span class="pendente">{{A_CONFIRMAR}}</span>.<span class="marca-p pendente">P 15</span></span>
         </div>
-        <p class="folio" aria-hidden="true">08</p>
+        <p class="folio" aria-hidden="true">09</p>
       </div>
     </div>
     <aside class="notas">
@@ -599,15 +626,15 @@ html.lista .comando-meio,html.lista #b-cheia{display:none}
     </aside>
   </article>
 
-  <!-- ================= 09 · FECHO ================= -->
-  <article class="quadro" id="slide-9" data-tipo="fecho" data-l8="cartela" data-recursos="grao palavra-sensivel creditos-finais" aria-roledescription="slide" aria-label="Slide 9 de 9: Fecho" tabindex="-1">
-    <p class="quadro-rotulo"><b>09</b> Fecho <i>· cartela</i></p>
+  <!-- ================= 10 · FECHO ================= -->
+  <article class="quadro" id="slide-10" data-tipo="fecho" data-l8="cartela" data-recursos="grao palavra-sensivel creditos-finais" aria-roledescription="slide" aria-label="Slide 10 de 10: Fecho" tabindex="-1">
+    <p class="quadro-rotulo"><b>10</b> Fecho <i>· cartela</i></p>
     <div class="moldura">
       <div class="slide t-fecho grao">
         <img class="fecho-logo" src="assets/brand/svg/void-horizontal-branco.svg" width="210" height="32" alt="The VOID Tattoo Academy">
         <div class="fecho-texto">
           <h2 class="d-filme">Faça mesmo com <em class="off">medo</em>.</h2>
-          <a class="botao" id="cta" href="#slide-8">Garantir minha vaga na turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="botao" id="cta" href="#slide-9">Garantir minha vaga na turma<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
         <div class="fecho-pe" data-vforms='{"forma":"rodape","alinhar":"esquerda"}'></div>
       </div>
