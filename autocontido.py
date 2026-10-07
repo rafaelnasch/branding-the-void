@@ -20,7 +20,10 @@ O que faz, em cada HTML:
 5b. limite de 16 MB por arquivo: se as fotos do acervo (assets/foto/acervo, personas, demo,
    aplicacoes/mockups e email-foto) em resolução cheia estourarem, refaz com elas reduzidas
    (lado maior 1600, 1280, 1024, 800 e 640 px, WebP 74, na memória) até caber; o lado usado
-   aparece na linha "fotos=" da saída. A resolução cheia fica no repositório e no site;
+   aparece na linha "fotos=" da saída. Nesse modo cada foto entra uma vez só, no dicionário, e o
+   atributo aponta para ../assets/ (o acervo ao lado de dist/, que o gate confere); o script troca
+   pela versão embutida na carga, então o arquivo também abre sozinho. A resolução cheia fica no
+   repositório e no site;
 6. link entre arquivos da marca (brand-book.html#s22, lockup.html...) passa a apontar para o
    nome que o arquivo ganha em dist/; link para outro arquivo do repositório (tokens.json,
    assets/foto/receitas.md) ganha "../", para continuar abrindo a partir de dist/.
@@ -119,7 +122,7 @@ def fontes_embutidas(url):
 
 TROCA = r"""<script>/* imagens embutidas: troca assets/... pela versão em data URI */
 (function(){var A=window.__VOID_ASSETS=%s;
-function chave(v){return typeof v==="string"?v.replace(/^\.\//,""):v}
+function chave(v){return typeof v==="string"?v.replace(/^(?:\.\.?\/)+(?=assets\/)/,""):v}
 function url(v){return A[chave(v)]||v}
 /* imagem criada por script (new Image, setAttribute, fetch) também pega a versão embutida */
 try{var dSrc=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");
@@ -132,7 +135,7 @@ function set(el){if(!el||el.nodeType!==1)return;
  ["src","href","poster"].forEach(function(a){var v=chave(el.getAttribute(a));if(v&&v.indexOf("assets/")===0&&A[v])el.setAttribute(a,A[v])});
  var x=el.getAttributeNS&&el.getAttributeNS("http://www.w3.org/1999/xlink","href");
  if(x&&x.indexOf("assets/")===0&&A[x])el.setAttributeNS("http://www.w3.org/1999/xlink","xlink:href",A[x]);
- var s=el.getAttribute("srcset");if(s&&s.indexOf("assets/")>-1)el.setAttribute("srcset",s.replace(/assets\/[^\s,]+/g,url));
+ var s=el.getAttribute("srcset");if(s&&s.indexOf("assets/")>-1){var ns=s.replace(/(?:\.\.\/)*assets\/[^\s,]+/g,url);if(ns!==s)el.setAttribute("srcset",ns)}
  var st=el.getAttribute("style");if(st&&st.indexOf("assets/")>-1){var n=css(st);if(n!==st)el.setAttribute("style",n)}
  if(el.tagName==="IFRAME"&&!el.__void){el.__void=1;var ligar=function(){try{var d=el.contentDocument;if(d&&d.documentElement){walk(d.documentElement);observar(d.documentElement)}}catch(e){}};el.addEventListener("load",ligar);ligar()}}
 function walk(r){set(r);if(r.querySelectorAll)r.querySelectorAll("[src],[href],[srcset],[poster],[style],image,iframe").forEach(set)}
@@ -313,9 +316,10 @@ def _monta(origem, destino, lado):
     while i < len(partes):
         trecho = partes[i]
         if i % 3 == 0:
-            # no modo reduzido a foto fica só no dicionário (uma cópia); o script troca na carga
+            # no modo reduzido a foto fica só no dicionário (uma cópia) e o atributo aponta para
+            # ../assets/ (o acervo ao lado de dist/); o script troca pela versão embutida na carga
             def em_linha(c):
-                return mapa.get(c, c) if not (lado and RE_FOTO.match(c)) else c
+                return mapa.get(c, c) if not (lado and RE_FOTO.match(c)) else "../" + c
             trecho = re.sub(r'(<(?:img|source|image|link|video)\b[^>]*?\s)(src|href|poster)="(assets/[^"]*)"',
                             lambda m: '%s%s="%s"' % (m.group(1), m.group(2), em_linha(m.group(3))), trecho)
             trecho = re.sub(r'(\ssrcset=")([^"]*assets/[^"]*)(")',
